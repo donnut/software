@@ -1,5 +1,14 @@
 2007-05-12  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* doc/iso-639, doc/poster, doc/fr-traduc.all,
+	registry/more-disclaimers, registry/names-mule,
+	web/to-html-for-tp-old, web/m17n99-to-html, web/m17n99.html:
+	Removing old and obsolete stuff.
+	
+	* doc/index.html, doc/Makefile, web/layout.html: Accounting
+	for removal of m17n99.html and fr-traduc.all.
+
+2007-05-12  Benno Schulenberg  <benno@vertaalt.nl>
 	* ChangeLog: Convert to UTF-8, correct some small things.
 
 ==========

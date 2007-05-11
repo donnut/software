@@ -4,7 +4,7 @@
 
 package = po
 htmldir = ../HTML
-ALL_FILES = fr-traduc.all leaders.all maintainers.all software.all status.all translators.all
+ALL_FILES = leaders.all maintainers.all software.all status.all translators.all
 HTML_FILES = $(ALL_FILES:.all=.html)
 LAYOUT_DEPS = ../web/lib/config.py layout.html to-html
 REGISTRY_DEPS = html-to-cgi ../data/postats ../data/registry
