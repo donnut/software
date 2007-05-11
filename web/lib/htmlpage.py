@@ -1,4 +1,5 @@
 # HTML related routines.
+# -*- coding: iso-8859-1 -*-
 # Copyright © 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 2000.
 

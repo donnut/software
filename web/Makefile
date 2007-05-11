@@ -17,8 +17,9 @@ ifeq ($(SITE), sf.net)
 cgidir = /home/groups/t/tr/translation/htdocs
 topdir = /home/groups/t/tr/translation/htdocs
 else
-cgidir = /home/www/usagers/gnutra/HTML
-topdir = /home/www/usagers/gnutra/HTML
+cgidir = /home/benno/www
+htmldir = /home/benno/www/HTML
+topdir = /home/benno/TP
 endif
 endif
 libdir = $(topdir)/web/lib
@@ -41,7 +42,7 @@ all-sf: $(addprefix $(htmldir)/, $(HTML_FILES))
 $(addprefix $(cgidir)/, $(CGI_FILES)): $(cgidir)
 $(addprefix $(htmldir)/, $(HTML_FILES)): $(htmldir)
 $(cgidir) $(htmldir):
-	mkdir $@
+	mkdir -p $@
 
 $(htmldir)/po.html: $(LAYOUT_DEPS) $(distdir)/doc/po.texi
 	 LANG=C LANGUAGE=C makeinfo --html \

@@ -35,6 +35,11 @@ elif host in ('galadriel',): # Personnal machine of Martin Quinson
     cgi_base = "http://%s/cgi-bin" % host
     home_base = "http://%s/" % host
     html_base = "http://%s/" % host
+elif host in ('neoduik',): # The machine of Vrijschrift
+    top_directory = "/home/benno/TP"
+    cgi_base = 'http://www.vrijschrift.org/~benno/'
+    home_base = 'http://www.vrijschrift.org/~benno/'
+    html_base = 'http://www.vrijschrift.org/~benno/'
 else:
     raise "Sorry, I was not configured for the host %s. Please help me" % host
     

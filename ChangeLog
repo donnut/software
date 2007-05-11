@@ -1,3 +1,10 @@
+
+2007-05-12  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* web/html-to-cgi, web/lib/htmlpage.py, web/lib/config.py,
+	web/Makefile, Makefile: Small fixes, and configuring for
+	a local website at Vrijschrift.
+
 2007-05-12  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* doc/iso-639, doc/poster, doc/fr-traduc.all,
