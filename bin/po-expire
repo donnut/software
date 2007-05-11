@@ -1,0 +1,223 @@
+#!/usr/bin/env python
+# -*- mode: python; coding: iso-8859-1 -*-
+# Check overall consistency of PO files and delete oldish files.
+# Copyright © 1996, 1997, 1998, 1999, 2001 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 1996.
+
+import os, sys, time
+sys.path.insert(0, os.path.expanduser('~/po/web/lib'))
+
+import registry
+
+expired_folder = time.strftime("expired-%Y-%m-%d",time.localtime(time.time()))
+
+class run:
+    pass
+
+def main(*arguments):
+    assert not arguments
+    run.execute = Execute(sys.stdout.write)
+    run.execute.command(None, 'set -e')
+    run.execute.command(None, 'cd %s' % registry.podir)
+    run.execute.command(None, 'mkdir %s' % expired_folder)
+    run.keep_all = {}
+    run.keep_po = {}
+    run.keep_pot = {}
+    # Accumulate hints.
+    os.chdir(registry.podir)
+    pot_files = find_pot_files()
+    po_files = find_po_files()
+    check_maintainer_links()
+    check_registry()
+    # Complete the cleaning.
+    clean_out(pot_files, po_files)
+    diagnose_missing(pot_files, po_files)
+    run.execute.flush()
+
+def find_pot_files():
+    warn('Checking POT files')
+    command = run.execute.command
+    # Make an inventory of all POT files, keep those with highest versions.
+    inventory = {}
+    for base in os.listdir('pot'):
+        if base[-1] == '~':
+            command(None, 'rm pot/%s' % base)
+            continue
+        hints = registry.Hints(base)
+        if base[-4:] != '.pot' or hints.team or hints.gzipped:
+            warn("Not recognized as a POT file name: pot/%s" % base)
+            continue
+        if not inventory.has_key(hints.domain.name):
+            inventory[hints.domain.name] = []
+        inventory[hints.domain.name].append(hints.version)
+    for domain, version_instances in inventory.items():
+        version_instances.sort()
+        versions = inventory[domain] = []
+        for instance in version_instances:
+            versions.append(instance.name)
+        version = versions[-1]
+        versions = versions[:-1]
+        if not run.keep_pot.has_key((domain, version)):
+            run.keep_pot[domain, version] = []
+        run.keep_pot[domain, version].append('Highest POT')
+    return inventory
+
+def find_po_files():
+    warn('Checking PO files')
+    command = run.execute.command
+    # Make an inventory of all PO files, keep those with highest versions.
+    teams = {}
+    inventory = {}
+    directories = ['trans']
+    while directories:
+        directory = directories[-1]
+        directories = directories[:-1]
+        for base in os.listdir(directory):
+            name = os.path.join(directory, base)
+            if os.path.isdir(name):
+                directories.append(name)
+                continue
+            if name[-1] == '~':
+                command(None, 'rm %s' % name)
+                continue
+            hints = registry.Hints(base)
+            if base[-3:] != '.po' or directory != 'trans/%s' % hints.team.name:
+                warn("Not recognized as a PO file name: %s" % name)
+                continue
+            if not inventory.has_key((hints.domain.name, hints.team.name)):
+                inventory[hints.domain.name, hints.team.name] = []
+            inventory[hints.domain.name, hints.team.name].append(hints.version)
+    for (domain, team), version_instances in inventory.items():
+        version_instances.sort()
+        versions = inventory[domain, team] = []
+        for instance in version_instances:
+            versions.append(instance.name)
+        version = versions[-1]
+        versions = versions[:-1]
+        #run.keep_pot[domain, version] = None
+        if not run.keep_po.has_key((domain, version, team)):
+            run.keep_po[domain, version, team] = []
+        run.keep_po[domain, version, team].append('Highest PO')
+    return inventory
+
+def check_maintainer_links():
+    warn('Checking maintainer links')
+    # Make an inventory of all maintainer links, keep all pointed to files.
+    for domain in os.listdir('maint'):
+        for base in os.listdir(os.path.join('maint', domain)):
+            name = 'maint/%s/%s' % (domain, base)
+            if base[-3:] != '.po':
+                warn("Not recognized as a maintainer file name: %s" % name)
+                continue
+            link = os.readlink(name)
+            team = base[:-3]
+            # The robot should not use such mixed writings for links.
+            # Presumably, prefix2 should be preferred over prefix1.  FIXME!
+            prefix1 = '../../trans/%s/%s-' % (team, domain)
+            prefix2 = '../../teams/PO/%s/%s-' % (team, domain)
+            suffix = '.%s.po' % team
+            if (link[:len(prefix1)] == prefix1
+                and link[-len(suffix):] == suffix):
+                version = link[len(prefix1):-len(suffix)]
+            elif (link[:len(prefix2)] == prefix2
+                  and link[-len(suffix):] == suffix):
+                version = link[len(prefix2):-len(suffix)]
+            else:
+                warn("Symbolic link not valid: maint/%s/%s.po -> %s"
+                     % (domain, team, link))
+                continue
+            #run.keep_pot[domain, version] = None
+            if not run.keep_po.has_key((domain, version, team)):
+                run.keep_po[domain, version, team] = []
+            run.keep_po[domain, version, team].append(name)
+
+def check_registry():
+    warn('Checking TP registry')
+    # Study the registry for versions to keep.
+    for instance in registry.domain_list():
+        domain = instance.name
+        for version in instance.keep:
+            if not run.keep_all.has_key((domain, version)):
+                run.keep_all[domain, version] = []
+            run.keep_all[domain, version].append('Registry-keep')
+            if not run.keep_pot.has_key((domain, version)):
+                run.keep_pot[domain, version] = []
+            run.keep_pot[domain, version].append('Registry-keep')
+
+def clean_out(pot_files, po_files):
+    command = run.execute.command
+    rmcommand = run.execute.rmcommand
+    # Remove all files we do not have a reason to keep.
+    for domain, versions in pot_files.items():
+        for version in versions:
+            if run.keep_pot.has_key((domain, version)):
+                continue
+            for d,v,t in run.keep_po.keys():
+                if d == domain and v == version:
+                    command((domain, version),
+                            "# Keeping %s-%s.pot because of %s" % (d, v, t))
+                    break
+            else:
+                rmcommand((domain, version),
+                          'pot/%s-%s.pot' % (domain, version))
+    for (domain, team), versions in po_files.items():
+        for version in versions:
+            if run.keep_all.has_key((domain, version)):
+                continue
+            if run.keep_po.has_key((domain, version, team)):
+                continue
+            rmcommand((domain, version),
+                      'trans/%s/%s-%s.%s.po'
+                      % (team, domain, version, team))
+
+def diagnose_missing(pot_files, po_files):
+    command = run.execute.command
+    has_group = run.execute.has_group
+    # Diagnose files to keep which are missing.
+    for (domain, version), reasons in run.keep_pot.items():
+        file = 'pot/%s-%s.pot' % (domain, version)
+        if version in pot_files.get(domain,()):
+            if has_group((domain, version)):
+                command((domain, version),
+                        '# Keeping %s because %s' % (file, reasons))
+        else:
+            command((domain, version),
+                    'echo "Missing %s despite %s"' % (file, reasons))
+    for (domain, version, team), reasons in run.keep_po.items():
+        file = 'trans/%s/%s-%s.%s.po' % (team, domain, version, team)
+        if version in po_files.get((domain, team),()):
+            if has_group((domain, version)):
+                command((domain, version),
+                        '# Keeping %s because %s' % (file, reasons))
+        else:
+            command((domain, version),
+                    'echo "Missing %s despite %s"' % (file, reasons))
+
+class Execute:
+    def __init__(self, write):
+        self.write = write
+        self.groups = {}
+    def has_group(self, group):
+        return self.groups.has_key(group)
+    def command(self, group, command):
+        if not self.groups.has_key(group):
+            self.groups[group] = []
+        self.groups[group].append(command)
+    def flush(self):
+        items = self.groups.items()
+        items.sort()
+        for group, commands in items:
+            self.write('\n')
+            for command in commands:
+                self.write('%s\n' % command)
+        self.groups = {}
+    def rmcommand(self,group,file):
+        # self.command(group, "rm "+file)
+        self.command(group,"mv %s %s" % (file, expired_folder))
+
+def warn(message):
+    sys.stdout.write('# %s\n' % message)
+    sys.stdout.flush()
+
+if __name__ == '__main__':
+    apply(main, tuple(sys.argv[1:]))

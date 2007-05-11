@@ -1,0 +1,37 @@
+[Update date, and list of teams.]
+
+Free software is going international!  The Translation Project is a way
+to get maintainers, translators, and users together, so that free software
+will gradually become able to speak many languages.  A few packages already
+provide translations of their messages by native speakers of the language.
+
+For the Translation Project to be a success, we need interested people who
+like their own language and write it well, and who are also able to work
+with with other translators speaking the same language.  Each translation
+team has its own mailing list, courtesy of Linux International.  You may
+reach your translation team at the address `LL@li.org', replacing LL by
+the two-letter ISO 639 code for your language.  Language codes are *not*
+the same as the country codes given in ISO 3166.  The following translation
+teams exist as of January 1996:
+
+     Chinese `zh', Czech `cs', Danish `da', Dutch `nl', English `en',
+     Esperanto `eo', Finnish `fi', French `fr', Irish `ga', German `de',
+     Greek `el', Italian `it', Japanese `ja', Indonesian `in', Norwegian
+     `no', Persian `fa', Polish `pl', Portuguese `pt', Russian `ru',
+     Spanish `es', Swedish `sv', Telugu `te' and Turkish `tr'.
+
+For example, you may reach the Chinese translation team by writing to
+`zh@li.org'.
+
+If you'd like to volunteer to translate messages, you should become a
+member of the translation team for your own language.  The subscribing
+address is not the same as the list itself, it has `-request' appended.
+For example, Swedes can mail to `sv-request@li.org', with "subscribe"
+in the body of the message.
+
+Use your own language when writing to your translation team.  Keep in mind
+that team members are expected to participate actively in translations.
+If either your team does not exist yet and you want to start one, or if
+you are unsure about what to do or how to get started, please write to
+`translation@iro.umontreal.ca' to reach the coordinator for all translator
+teams.

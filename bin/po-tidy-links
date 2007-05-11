@@ -1,0 +1,68 @@
+#!/usr/bin/python
+# Adjust links in the po/maint hierarchy.
+# Copyright © 2004 Translation Print
+
+"""po-tidy-links [-n]
+Fix maintainer links
+"""
+
+import os, sys, shutil, glob
+p =  os.path.expanduser('~/po/web/lib')
+if os.path.exists(p):
+    sys.path.insert(0, p)
+else:
+    p = "/home/www/usagers/gnutra/HTML/web/lib"
+    if os.path.exists(p):
+         sys.path.insert(0, p)
+import data, registry
+
+dry_run=0
+if "-n" in sys.argv:
+     dry_run = 1
+
+def checklink(arg, dir, fnames):
+     for f in fnames:
+          f = os.path.join(dir, f)
+          if os.path.islink(f):
+               if not os.path.exists(f):
+                    if dry_run:
+                         print "rm "+f
+                    else:
+                         os.unlink(f)
+
+#os.path.walk(os.path.join(registry.podir, "maint"), checklink, None)
+
+files = data.load_postats().keys()
+
+missing = {}
+
+for dom, ver, team in files:
+     linkname = os.path.join(registry.podir, "maint", dom, team+".po")
+     if os.path.exists(linkname):
+          continue
+     try:
+          missing[(dom,team)].append(registry.version(ver))
+     except KeyError:
+          missing[(dom,team)]=[registry.version(ver)]
+
+for (dom, team), vers in missing.items():
+     vers.sort()
+     ver = vers[-1].name
+     source = "../../teams/PO/%s/%s-%s.%s.po" % (team, dom, ver, team)
+     target = os.path.join(registry.podir, "maint", dom, team+".po")
+     assert not os.path.exists(source)
+     t1 = os.path.normpath(os.path.join(os.path.dirname(target), source))
+     if not os.path.exists(t1):
+          files = glob.glob1("%s/teams/PO/%s" % (registry.podir, team),
+                             "%s-%s.%s*.po" % (dom, ver, team))
+          if len(files) != 1:
+               print "%s does not exist, glob1 gives %s" % (t1, files)
+               continue
+          source = "../../teams/PO/%s/%s" % (team, files[0])
+          t1 = os.path.normpath(os.path.join(os.path.dirname(target), source))
+          assert os.path.exists(t1), t1
+     if dry_run:
+          print "ln -s %s %s" % (source, target)
+     else:
+          os.symlink(source, target)
+

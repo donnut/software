@@ -1,0 +1,83 @@
+#!/usr/bin/env python
+# -*- mode: python; coding: iso-8859-1 -*-
+# Copyright © 2002 Translation Project.
+# Copyright © 2000 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 2000.
+
+"""\
+Produce a `.mailrc'-like file aliasing teams and domains.
+
+Usage: i18n-aliases [OPTION]
+
+  -D  domain aliases to reach maintainers
+  -T  team aliases to reach leaders
+  -f  fallback on team list when no team leader
+"""
+
+import os, sys
+p =  os.path.expanduser('~/po/web/lib')
+if os.path.exists(p):
+    sys.path.insert(0, p)
+else:
+    p = "/home/www/usagers/gnutra/HTML/web/lib"
+    if os.path.exists(p):
+         sys.path.insert(0, p)
+
+import getopt, string
+import registry
+
+def main(*arguments):
+    if not arguments:
+        sys.stdout.write(__doc__)
+        sys.exit(0)
+    options, arguments = getopt.getopt(arguments, 'DTf')
+    domains = teams = fallback = 0
+    for option, value in options:
+        if option == '-D':
+            domains = 1
+        elif option == '-T':
+            teams = 1
+        elif option == '-f':
+            fallback = 1
+    if domains:
+        define_maintainers()
+    if teams:
+        define_leaders(fallback)
+
+def define_leaders(fallback_on_lists=1):
+    all_coord = []
+    no_mailto = []
+    for team in registry.team_list():
+        mailto = None
+        comment = None
+        if team.leader:
+            mailto = team.leader.mailto[0]
+            comment = "%s for %s team" % (team.leader.name[0], team.language)
+        if not mailto and fallback_on_lists:
+            mailto = team.mailto[0]
+            comment = "%s team" % team.language
+        if mailto:
+            sys.stdout.write('alias %s "%s <%s>"\n'
+                             % (team.code, comment, mailto))
+            all_coord.append(team.code)
+        else:
+            no_mailto.append(team.code)
+    sys.stdout.write('alias all-coord %s\n' % string.join(all_coord, ', '))
+    if no_mailto:
+        sys.stderr.write('* Missing aliases for %s\n'
+                         % string.join(no_mailto, ', '))
+
+def define_maintainers():
+    all_maint = []
+    for domain in registry.domain_list():
+        try:
+            email = domain.mailto[0]
+        except IndexError:
+            email = domain.nomailto[0]
+        sys.stdout.write('alias %s "Textual domain for `%s\' <%s>"\n'
+                         % (domain.name, domain.name, email))
+        all_maint.append(domain.name)
+    sys.stdout.write('alias all-maint %s\n' % string.join(all_maint, ', '))
+
+if __name__ == '__main__':
+    apply(main, tuple(sys.argv[1:]))

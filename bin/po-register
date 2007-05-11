@@ -1,0 +1,687 @@
+#!/usr/bin/env python
+# -*- mode: python; coding: iso-8859-1 -*-
+# Copyright © 2001, 2002 Translation Project.
+# Copyright © 1996, 1997, 1998, 1999, 2000 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 1996.
+
+"""\
+Process a received PO or POT file for the PO file Registry.
+
+Usage: po-register [OPTION]... PACKAGE-VERSION{.pot,.LL[.po]} [teams...]
+
+  -n  dry run
+  -l  do not use /usr/local/bin/cluster
+  -t  list teams
+  -T "space separated teams"
+"""
+
+import os, sys, shutil
+p =  os.path.expanduser('~/po/web/lib')
+if os.path.exists(p):
+    sys.path.insert(0, p)
+else:
+    p = "/home/www/usagers/gnutra/HTML/web/lib"
+    if os.path.exists(p):
+         sys.path.insert(0, p)
+
+#sendmail is sometimes in /usr/lib, sometimes in /usr/sbin
+os.environ['PATH'] = '/usr/lib:/usr/sbin:' + os.environ['PATH']
+try: del os.environ['LANGUAGE']
+except KeyError:pass
+try: del os.environ['LANG']
+except KeyError:pass
+os.umask(002)
+
+dir = "/u/gnutra/bin"
+
+cmd_msgmerge = "msgmerge"
+if os.path.isfile("%s/msgmerge" % dir):
+    cmd_msgmerge = "%s/msgmerge" % dir
+have_cluster = os.path.exists("/usr/local/bin/cluster")
+
+
+import commands, getopt, re, string
+import po, registry, messages
+from messages import refill
+
+def _(text):
+    return messages.MultiString(text)
+
+# Interactive messages
+def t_(text):
+    return text
+
+class run:
+    dry = 0
+
+def main(*arguments):
+    if not arguments:
+        sys.stdout.write(__doc__)
+        sys.exit(0)
+    options, arguments = getopt.getopt(arguments, 'lntT:')
+    teams = None
+    for option, value in options:
+        if option == '-n':
+            run.dry = 1
+        if option == '-l':
+            global have_cluster
+            have_cluster = 0
+        if option == '-t':
+            print " ".join([x.name for x in registry.team_list()])
+            return
+        if option == '-T':
+            teams = value.split()
+    for name in arguments:
+        if name[0] == '/':
+            raise (_("`%s' may not be absolute notation, think `shar'...")
+                   % name)
+        hints = registry.hints(name)
+        if hints.pot:
+            sys.stderr.write(t_('Processing %s\n') % name)
+            process_pot_file(hints, name, teams)
+        else:
+            sys.stderr.write(t_('Processing %s\n') % name)
+            process_po_file(hints, name, tell_maintainer=1)
+
+# POT file processing.
+
+def process_pot_file(hints, file, teams):
+    if not hints.domain.mailto and not hints.domain.nomailto:
+        raise (_("No known maintainer for textual domain `%s'")
+               % hints.domain.name)
+    if run.dry:
+        template_path = '%s/tmp/%s-%s.pot' % (
+            registry.podir, hints.domain.name, hints.version.name)
+    else:
+        template_path = hints.template_path()
+    template_base = hints.template_base()
+    shutil.copy(file, template_path)
+    if not run.dry:
+        os.remove(file)
+        os.chmod(template_path, 0664)
+    potstats = None
+    if teams:
+        teams = [registry.team(n) for n in teams]
+    else:
+        teams = registry.team_list()
+    for team in teams:
+        hints.team = team
+        archive_base = hints.archive_base()
+        archive_path = hints.archive_path()
+        maintainer_path = hints.maintainer_path()
+        if os.path.isfile(archive_base):
+            sys.stderr.write(t_("  skipping `%s' as local `%s' waits\n")
+                             % (team.name, archive_base))
+            continue
+        if os.path.isfile(archive_path):
+            sys.stderr.write(t_("  skipping `%s' as `%s' exists\n")
+                             % (team.name, archive_path))
+            continue
+        translator = None
+        if os.path.isfile(maintainer_path):
+            previous = commands.getoutput("ls -l %s | sed 's,.*/,,'"
+                                          % maintainer_path)
+            sys.stderr.write(t_("  merging with `%s'") % previous)
+
+            result_file = '%s/tmp/%s' % (registry.podir, archive_base)
+            msgmerge(maintainer_path, template_path, result_file)
+            header = po.header(po.read(result_file))
+            match = re.match('(.*) <(.*)>$', header['last-translator'])
+            if match:
+                name = po.decfunc(header)(match.group(1))[0]
+                address = match.group(2)
+                try:
+                    translator = registry.translator(team, name, address)
+                except KeyError:
+                    pass
+                else:
+                    if translator.autosend:
+                        if translator.mailto:
+                            address = translator.mailto[0]
+                        sys.stderr.write(t_("    sending `%s' to `%s'\n")
+                                         % (archive_base, address))
+                        email_file(address, result_file, translator.autosend)
+            process_po_file(hints, result_file)
+        elif not team.suppresspot:
+            mailto = hints.team.announce_address()
+            sys.stderr.write(t_("    notifying `%s' about `%s'\n")
+                             % (mailto, template_base))
+            if not potstats:
+                potstats = po.stats(po.read(template_path))
+            notify_team_for_po(hints, potstats, ispot = 1)
+        if not translator:
+            for translator in team.translator_for_domain(hints.domain):
+                if translator.mailto:
+                    address = translator.mailto[0]
+                    if translator.autosend:
+                        sys.stderr.write(t_("    sending `%s' to `%s'\n")
+                                         % (template_path, address))
+                        email_file(address, template_path, translator.autosend)
+    if hints.domain.mailto:
+        maintainer = hints.domain.mailto[0]
+        sys.stderr.write(t_("  notifying `%s' about `%s-%s.pot'\n")
+                         % (maintainer, hints.domain.name, hints.version.name))
+        notify_maintainer_for_pot(hints)
+    sys.stderr.write(t_("    also notifying team leaders\n"))
+    notify_team_leaders_for_pot(hints)
+
+# PO file processing.
+
+def process_po_file(hints, file, tell_maintainer=0):
+    if not os.path.isdir('%s/teams/PO/%s' % (registry.podir, hints.team.name)):
+        sys.stderr.write(t_("    initializing `%s/teams/PO/%s'\n")
+                         % (registry.podir, hints.team.name))
+        if not run.dry:
+            os.mkdir('%s/teams/PO/%s' % (registry.podir, hints.team.name),
+                     0755)
+    archive_base = hints.archive_base()
+    archive_path = hints.archive_path()
+    maintainer_path = hints.maintainer_path()
+    template_path = hints.template_path()
+    if registry.compare_files(archive_path, file):
+        sys.stderr.write(t_("  skipping `%s', as already uploaded\n") % file)
+        if not run.dry:
+            os.remove(file)
+        sys.exit(0)
+    stats = po.stats(po.read(file))
+    translated = stats['translated']
+    untranslated = stats['fuzzy'] + stats['untranslated']
+    obsolete = stats['obsolete']
+    percent = po.percentage(stats)
+    if translated == 0:
+        tell_maintainer = 0
+    if (translated == 0 and os.path.isfile(template_path)
+        and registry.compare_files(template_path, file)):
+        raise _('Translation empty and identical to Template, not loaded\n')
+    elif registry.compare_files(file, archive_path):
+        raise _('Translation identical to archive file, not loaded\n')
+    else:
+        if os.path.isfile(archive_path):
+            if not run.dry:
+                os.remove(archive_path)
+        if not run.dry:
+            try:
+                registry.copy_file(file, archive_path)
+            except IOError:
+                sys.stderr.write("ERROR: COULD NOT WRITE %s\n" % archive_path)
+    mailto = hints.team.announce_address()
+    sys.stderr.write(t_("    notifying `%s' about `%s'\n")
+                     % (mailto, archive_base))
+    notify_team_for_po(hints, stats)
+    if not hints.domain.mailto:
+        tell_maintainer = 0
+    if tell_maintainer:
+        if not run.dry:
+            directory = os.path.dirname(maintainer_path)
+            if not os.path.isdir(directory):
+                os.mkdir(directory, 0755)
+            if (os.path.islink(maintainer_path)
+                or os.path.isfile(maintainer_path)):
+                os.remove(maintainer_path)
+            elif os.path.isfile(registry.matrix):
+                os.remove(registry.matrix)
+            os.symlink('../../teams/PO/%s/%s' % (hints.team.name,
+                                                 archive_base),
+                       maintainer_path)
+        maintainer = hints.domain.mailto[0]
+        sys.stderr.write(t_("    also notifying `%s'\n") % maintainer)
+        notify_maintainer_for_po(hints, file, archive_base)
+    if not run.dry:
+        os.remove(file)
+
+# Mail invoices.
+
+def notify_maintainer_for_pot(hints):
+    if run.dry:
+        file = sys.stdout
+    else:
+        file = os.popen('sendmail -i -t', 'w')
+    def write(msg):
+        return file.write(messages.translate(msg, 'en'))
+    write(_("""\
+From: Translation Project Robot <translation@iro.umontreal.ca>
+To: %s
+Subject: New PO Template file for `%s'
+
+""")
+               % (hints.domain.mailto[0], hints.domain.name))
+    write(refill(_("""\
+Hello, gentle maintainer.
+This is a message from the Translation Project robot.
+
+A new PO Template file, for programs using the textual domain `%s',
+has just been made available to language teams for translation, and a copy
+is available as:
+""")
+                      % hints.domain.name))
+    urls = hints.template_urls()
+    write(_("""\
+
+>    %s
+
+The file should soon be made available in mirror sites as:
+
+""")
+               % urls[0])
+    for url in urls[1:]:
+        write('>    %s\n' % url)
+    write(refill(_("""\
+
+In your releases, this file is usually found as `po/%s.pot'.  It is
+created or updated automatically at `make dist' time, or whenever you
+run `make update-po' in the `po/' subdirectory.  Whenever you have a
+distribution ready which holds a newer PO Template, please send the URL
+of this distribution to the address below.  The distribution could be a
+pretest or a snapshot, it does not even have to compile.  This is to be
+used by translators, when they need to get some translation context from
+your sources.
+
+Within the Translation Project, each PO Template file should have different
+version numbers, but since it is not OK to have two different distributions
+having same version numbers, this is not a problem in practice.
+""")
+                      % hints.domain.name))
+    if hints.domain.url:
+        write(_("""\
+
+Here is the URL information which has just been provided to translators for
+your package.  Please inform the translation coordinator, at the address
+given below, if the information does not appear to be adequate or current:
+
+"""))
+        for url in hints.domain.url:
+            write('>    %s\n' % url)
+    if hints.domain.autosend:
+        write(_("""\
+
+Translated PO files will later be automatically e-mailed to you.
+"""))
+    else:
+        write(_("""\
+
+We can arrange things so translated PO files be automatically e-mailed
+to you when they arrive.  Ask to the address below if you want this.
+"""))
+    write(_("""\
+
+Thanks for your collaboration,
+
+                                The Translation Project robot, in the
+                                name of your translation coordinator.
+                                mailto:translation@iro.umontreal.ca
+"""))
+
+def notify_team_leaders_for_pot(hints):
+    if run.dry:
+        file = sys.stdout
+    else:
+        file = os.popen('sendmail -i -t', 'w')
+    def write(msg):
+        return file.write(messages.translate(msg, 'en'))
+    # FIXME: Use `translation' instead of `pinard', but only after the
+    # mailing list had been altered for this.  It is a closed list.
+    write(_("""\
+From: Translation Project Robot <translation@iro.umontreal.ca>
+To: team-leaders@iro.umontreal.ca
+Subject: New PO Template file for `%s'
+
+""")
+               % hints.domain.name)
+    write(refill(_("""\
+My nicest hello to all language team leaders.
+This is a message from the Translation Project robot.
+
+A new PO Template file, for programs using the textual domain `%s',
+has just been made available to language teams for translation, and a copy
+is available as:
+""")
+                      % hints.domain.name))
+    urls = hints.template_urls()
+    write(_("""\
+
+>    %s
+
+The file should soon be made available in mirror sites as:
+
+""")
+               % urls[0])
+    for url in urls[1:]:
+        write('>    %s\n' % url)
+    write(_("""\
+
+Your team will have been notified only if it committed a translation
+or if you have requested that the team is notified, anyway.
+Otherwise, it is up to you and your team to decide exactly how a
+translator might be recruited to take care of it.
+"""))
+    if hints.domain.url:
+        write(_("""\
+
+Here is some URL information that could be provided to translators
+for this package:
+
+"""))
+        for url in hints.domain.url:
+            write('>    %s\n' % url)
+    write(_("""\
+
+Thanks for your collaboration,
+
+                                The Translation Project robot, in the
+                                name of your translation coordinator.
+                                mailto:translation@iro.umontreal.ca
+"""))
+
+def notify_maintainer_for_po(hints, file_name, archive_base):
+    if run.dry:
+        file = sys.stdout
+    else:
+        file = os.popen('sendmail -i -t', 'w')
+    def write(msg):
+        return file.write(messages.translate(msg, 'en'))
+    write(_("""\
+From: Translation Project Robot <translation@iro.umontreal.ca>
+To: %s
+Subject: New %s PO file for `%s'
+
+""")
+               % (hints.domain.mailto[0], _(hints.team.language),
+                  hints.domain.name))
+    write(refill(_("""\
+Hello, gentle maintainer.
+This is a message from the Translation Project robot.
+
+A revised PO file, for programs using the textual domain `%s', has
+been submitted by the team of translators taking care of the %s
+language.  This particular file, along with all other PO files pertaining
+to the same textual domain, is available as:
+""")
+                      % (hints.domain.name, _(hints.team.language))))
+    urls = hints.maintainer_urls()
+    write(_("""\
+
+>    %s
+
+The file should soon be made available in mirror sites as:
+
+""")
+               % urls[0])
+    for url in urls[1:]:
+        write('>    %s\n' % url)
+    if hints.domain.autosend:
+        sys.stderr.write(t_("    mailing `%s' to `%s'\n")
+                         % (file_name, hints.domain.mailto[0]))
+        email_file(hints.domain.mailto[0], file_name, hints.domain.autosend)
+        write(_("""\
+
+This file has already been sent to you separately on %s,
+as a MIME invoice unpacking the file `%s'.
+""")
+                   % (commands.getoutput('date +%Y-%m-%d'), archive_base))
+    else:
+        write(_("""\
+
+We may arrange things so future such files be automatically e-mailed
+to you when they arrive.  Ask to the address below if you want this.
+"""))
+    write(_("""\
+
+The following HTML page should also be updated by tomorrow.
+
+>    %s/HTML/domain-%s.html
+
+Please consider including all PO files, as they stand, in the `po/'
+subdirectory of your next release of programs using that textual domain,
+whether it is official or pretest.  Whenever you have a distribution ready
+which holds a newer PO Template, please send the URL of this distribution
+to the address below.  The distribution could be a pretest or a snapshot,
+it does not even have to compile.  This is to be used by translators,
+when they need to get some translation context from your sources.
+
+Within the Translation Project, each PO Template file should have different
+version numbers, but since it is not OK to have two different distributions
+using same version numbers, this is not a problem in practice.
+
+Contact me if any question arises.  Thanks for your collaboration,
+
+                                The Translation Project robot, in the
+                                name of your translation coordinator.
+                                mailto:translation@iro.umontreal.ca
+""")
+               % (registry.puburls[0], hints.domain.name))
+
+def mime_charset(hints):
+    if hints.team.charset:
+        return hints.team.charset
+    return "utf-8"
+    
+def mime_header(charset):
+    return """MIME-Version: 1.0
+Content-Type: text/plain;charset=%s
+Content-Transfer-Encoding: 8bit
+""" % charset
+
+def notify_team_for_po(hints, stats, ispot = 0):
+    translated = stats['translated']
+    untranslated = stats['fuzzy'] + stats['untranslated']
+    percent = po.percentage(stats)
+    if run.dry:
+        file = sys.stdout
+    else:
+        file = os.popen('sendmail -i -t', 'w')
+    charset = mime_charset(hints)
+    def write(msg):
+        return file.write(messages.translate(msg, hints.team.code, charset))
+    def write_header(msg):
+        return file.write(messages.translate(msg, hints.team.code, charset,
+                                             do_Q=True))
+    write_header(_("""\
+From: Translation Project Robot <translation@iro.umontreal.ca>
+To: %s
+Subject: %s-%s (%d%%, %d untranslated)
+%s
+""")
+               % (hints.team.announce_address(), hints.domain.name, hints.version.name, percent, untranslated, mime_header(charset)))
+    if ispot:
+        urls = hints.template_urls()
+        msg = _("""\
+Hello, members of the %s team at `%s'.
+This is a message from the Translation Project robot.
+I'm happy to announce that a new file, available as:
+
+>    %s
+
+has been integrated in the central PO archives.  The file
+should soon be made available in mirror sites as:
+
+""")    % (_(hints.team.language), hints.team.announce_address(), urls[0])
+    else:
+        urls = hints.archive_urls()
+        msg = _("""\
+Hello, members of the %s team at `%s'.
+This is a message from the Translation Project robot.
+I'm happy to announce that a new file, available as:
+
+>    %s
+
+has been integrated in the central PO archives, and is now kept with all
+other accepted %s translations.  The file should soon be made available
+in mirror sites as:
+
+""")    % (_(hints.team.language), hints.team.announce_address(), urls[0],
+           _(hints.team.language))
+    write(refill(msg))
+    for url in urls[1:]:
+        write('>    %s\n' % url)
+    ass = hints.team.translator_for_domain(hints.domain)
+    if translated == 0:
+        if len(ass)>1:
+            # XXX: more than two translators?
+            msg = _("%s and %s are currently assigned for the translation. When you have completed the translation, send the result to the address given below, using the Subject line:")\
+                  % (uni(ass[0].name[0]),
+                     uni(ass[1].name[0]))
+        elif len(ass) == 1:
+            msg = _("%s is currently assigned for the translation. When you have completed the translation, send the result to the address given below, using:")\
+                  % uni(ass[0].name[0])
+        elif hints.team.code in hints.domain.ext:
+            import data
+            extstats = data.load_extstats().get((hints.domain.name,
+                                                 hints.team.code))
+            msg = ""
+            if extstats:
+		trans = extstats['translated']
+		total = trans + extstats['untranslated'] + extstats['fuzzy']
+                msg = _("The most recent translation of this translator has %d of %d messages translated.") % (trans, total)
+                
+            msg = _("""
+There is currently a translator working on this translation who is not
+part of the Translation Project. %s
+""" % msg)
+        else:    
+            msg = _("""
+Please consider taking its translation in charge for the %s language.
+If you decide to do so, please get your team leader (if any) to inform
+the translation coordinator that you were assigned to `%s'.
+Once the translation is completed, send the result to the address given
+below, using the Subject line:
+""")\
+                     % (_(hints.team.language), hints.domain.name)
+            
+        write(refill(_("""\
+
+None of its untranslated messages have been translated yet. %s
+
+>    TP-Robot %s-%s.%s.po
+
+in your message header.  You may contact either your team leader or me,
+if any question arises.
+""")
+                          % (msg,
+                             hints.domain.name, hints.version.name,
+                             hints.team.name)))
+    elif untranslated == 0:
+        write(_("""\
+
+All its %d messages have been translated, and this PO file has been
+submitted to the maintainer of `%s', hoping s/he will include
+it in a future release of programs using this textual domain.
+
+Let me thank you for all users of the %s language.
+""")
+                   % (translated, hints.domain.name, _(hints.team.language)))
+    else:
+        if len(ass)>1:
+            # XXX: more than two translators?
+            msg = _("%s and %s are currently assigned for the translation.")\
+                  % (uni(ass[0].name[0]),
+                     uni(ass[1].name[0]))
+        elif len(ass) == 1:
+            msg = _("%s is currently assigned for the translation.")\
+                  % uni(ass[0].name[0])
+        else:
+            msg = _("""Nobody in your team is currently assigned to the domain '%s'. The team leader (if any) should inform the translation coordinator of who will become responsible for it.""")\
+                  % (hints.domain.name)
+        write(refill(_("""\
+
+In this file, %d messages have been translated already,
+accounting for %d%% of the original text size (in raw bytes).  Still,
+%d messages need to be attended to.  %s
+
+Please translate the remaining messages for the benefit of users of the
+%s language.  Once the translation completed, send the result to
+the address given below, using the Subject line:
+
+>    TP-Robot %s-%s.%s.po
+
+in your message header.  You may contact either your team leader or me,
+if any question arises.  In the meantime, this PO file has been submitted
+to the maintainer of programs using the textual domain `%s'.
+
+Thanks!
+""")
+                          % (translated, percent, untranslated,
+                             msg, _(hints.team.language),
+                             hints.domain.name, hints.version.name,
+                             hints.team.name, hints.domain.name)))
+    write(_("""\
+
+The following HTML pages should also be updated by tomorrow.
+
+>    %s/HTML/domain-%s.html
+>    %s/HTML/team-%s.html
+
+                                The Translation Project robot, in the
+                                name of your translation coordinator.
+                                mailto:translation@iro.umontreal.ca
+""")
+               % (registry.puburls[0], hints.domain.name,
+                  registry.puburls[0], hints.team.name))
+    if hints.domain.url:
+        write(_("""\
+
+P.S. - You may find a copy (maybe not official) of the distribution as:
+
+"""))
+        for url in hints.domain.url:
+            write('>    %s\n' % url)
+
+def email_file(address, file_name, option = None):
+    if run.dry:
+        file = sys.stdout
+    else:
+        file = os.popen('sendmail -i -t', 'w')
+    def write(msg):
+        return file.write(messages.translate(msg, 'en'))
+    name = re.sub('.*/', '', file_name)
+    if option == "compress":
+        name += ".gz"
+    write(_("""\
+From: Translation Project Robot <translation@iro.umontreal.ca>
+To: %s
+Subject: Contents of file `%s'
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="=-=-="
+
+--=-=-=
+Content-Type: application/octet-stream
+Content-Disposition: attachment; filename=%s
+Content-Transfer-Encoding: base64
+
+""")
+               % (address, name, name,))
+    if option == "compress":
+        write(commands.getoutput('gzip -c %s | recode ../64' % file_name))
+    else:
+        write(commands.getoutput('recode ../64 < %s' % file_name))
+    write('\n')
+    write(_("""\
+--=-=-=
+
+                                The Translation Project robot, in the
+                                name of your translation coordinator.
+                                mailto:translation@iro.umontreal.ca
+
+--=-=-=--
+"""))
+
+
+def uni(name):
+    return unicode(name, "utf-8")
+
+def recode(hints,name):
+    try:
+        u = unicode(name, "utf-8")
+    except UnicodeError:
+        return name
+    return hints.team.encode(u)
+
+def msgmerge(po, pot, out):
+    if have_cluster:
+        os.system("/usr/local/bin/cluster --typecpu all --wait --cwd %s --execute %s -- --no-wrap %s %s -o %s" % (os.getcwd(), cmd_msgmerge, po, pot, out))
+        os.chmod(out, 0664)
+    else:
+        os.system("%s --no-wrap %s %s -o %s" % (cmd_msgmerge, po, pot, out))
+            
+
+if __name__ == '__main__':
+    apply(main, tuple(sys.argv[1:]))

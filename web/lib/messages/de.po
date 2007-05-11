@@ -1,0 +1,2463 @@
+# �bersetzung von tp-robot ins Deutsche.
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# This file is distributed under the same license as the tp-robot package.
+# Roland Illig, <roland.illig@gmx.de>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tp-robot 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-03 08:39+0100\n"
+"PO-Revision-Date: 2004-06-15 00:38+0100\n"
+"Last-Translator: Roland Illig <roland.illig@gmx.de>\n"
+"Language-Team: German <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: bin/fetch-pot:50
+#, python-format
+msgid "Domain `%s' has no associated URL"
+msgstr "Domain »%s« hat keine zugehörige URL"
+
+#: bin/fetch-pot:56
+#, python-format
+msgid "Examining %s..."
+msgstr "Untersuche %s ..."
+
+#: bin/fetch-pot:58
+#, python-format
+msgid "Fetching %s..."
+msgstr "Hole %s ..."
+
+#: bin/fetch-pot:65 bin/fetch-pot:68
+msgid "  apparently not found\n"
+msgstr "  anscheinend nicht gefunden\n"
+
+#: bin/fetch-pot:86
+msgid "  no POT file in archive\n"
+msgstr "  keine .pot-Datei im Archiv\n"
+
+#: bin/fetch-pot:113
+msgid "  more than one POT file in archive:\n"
+msgstr "  mehr als eine .pot-Datei im Archiv:\n"
+
+#: bin/fetch-pot:120
+msgid "Did not retain any POT file"
+msgstr "Keine .pot-Datei entnommen"
+
+#: bin/fetch-pot:135
+#, python-format
+msgid "  extracting %s as %s\n"
+msgstr "  Entpacke %s als %s\n"
+
+#: bin/fetch-pot:142
+msgid "Extraction failed"
+msgstr "Entpacken fehlgeschlagen"
+
+#: bin/msg-to-po:35 bin/msg-to-po:44
+#, python-format
+msgid "#. Message no %s\n"
+msgstr "#. Text Nr. %s\n"
+
+#: bin/msg-to-po:47
+#, python-format
+msgid "msgid \"*** Unknown - message no %s ***\"\n"
+msgstr "msgid \"*** Unbekannt - Text Nr. %s ***\"\n"
+
+#: bin/msg-to-po:72
+#, python-format
+msgid "<stdin>:%d: ERROR: %s"
+msgstr "<stdin>:%d: FEHLER: %s"
+
+#: bin/po-empty:23 bin/po-normalize:23
+#, python-format
+msgid "Usage: %s [PO-FILE]"
+msgstr "Aufruf: %s [.po-Datei]"
+
+#: bin/po-register:56
+#, python-format
+msgid "`%s' may not be absolute notation, think `shar'..."
+msgstr "»%s« darf kein absoluter Pfad sein, denken Sie an »shar« ..."
+
+#: bin/po-register:60 bin/po-register:63
+#, python-format
+msgid "Processing %s\n"
+msgstr "Verarbeite %s\n"
+
+#: bin/po-register:70
+#, python-format
+msgid "No known maintainer for textual domain `%s'"
+msgstr "Kein Betreuer für die Textdomain »%s« bekannt"
+
+#: bin/po-register:89
+#, python-format
+msgid "  skipping `%s' as local `%s' waits\n"
+msgstr "  überspringe »%s«, da das lokale »%s« wartet\n"
+
+#: bin/po-register:93
+#, python-format
+msgid "  skipping `%s' as `%s' exists\n"
+msgstr "  überspringe »%s«, da »%s« existiert\n"
+
+#: bin/po-register:100
+#, python-format
+msgid "  merging with `%s'"
+msgstr "  verbinde mit »%s«"
+
+#: bin/po-register:118 bin/po-register:134
+#, python-format
+msgid "    sending `%s' to `%s'\n"
+msgstr "    sende »%s« an »%s«\n"
+
+#: bin/po-register:124 bin/po-register:184
+#, python-format
+msgid "    notifying `%s' about `%s'\n"
+msgstr "    benachrichtige »%s« über »%s«\n"
+
+#: bin/po-register:138
+#, python-format
+msgid "  notifying `%s' about `%s-%s.pot'\n"
+msgstr "  benachrichtige »%s« über »%s-%s.pot«\n"
+
+#: bin/po-register:141
+msgid "    also notifying team leaders\n"
+msgstr "    benachrichtige auch die Teamleiter\n"
+
+#: bin/po-register:148
+#, python-format
+msgid "    initializing `%s/teams/PO/%s'\n"
+msgstr "    initialisiere »%s/teams/PO/%s«\n"
+
+#: bin/po-register:158
+#, python-format
+msgid "  skipping `%s', as already uploaded\n"
+msgstr "  überspringe »%s«, ist schon hochgeladen\n"
+
+#: bin/po-register:171
+msgid "Translation empty and identical to Template, not loaded\n"
+msgstr "Übersetzung leer und identisch zur Vorlage, nicht geladen\n"
+
+#: bin/po-register:173
+msgid "Translation identical to archive file, not loaded\n"
+msgstr "Übersetzung identisch zur Archivdatei, nicht geladen\n"
+
+#: bin/po-register:201
+#, python-format
+msgid "    also notifying `%s'\n"
+msgstr "    benachrichtige auch »%s«\n"
+
+#: bin/po-register:213
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: New PO Template file for `%s'\n"
+"\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: Neue PO-Vorlage-Datei für `%s'\n"
+"\n"
+
+#: bin/po-register:220
+#, python-format
+msgid ""
+"Hello, gentle maintainer.\n"
+"This is a message from the Translation Project robot.\n"
+"\n"
+"A new PO Template file, for programs using the textual domain `%s',\n"
+"has just been made available to language teams for translation, and a copy\n"
+"is available as:\n"
+msgstr ""
+"Hallo, liebe Betreuer.\n"
+"Dies ist eine Nachricht vom Robot des Übersetzungsprojekts.\n"
+"\n"
+"Eine neue .po-Vorlagedatei, für Programme, die die Textdomain »%s« benutzen, wurde gerade für die Übersetzung durch die Sprachteams verfügbar, und eine\n"
+"Kopie ist verfügbar auf:\n"
+
+#: bin/po-register:230 bin/po-register:310 bin/po-register:369
+#, python-format
+msgid ""
+"\n"
+">    %s\n"
+"\n"
+"The file should soon be made available in mirror sites as:\n"
+"\n"
+msgstr ""
+"\n"
+">    %s\n"
+"\n"
+"Die Datei wird bald auch über diese Mirrorseiten erreichbar sein:\n"
+"\n"
+
+#: bin/po-register:240
+#, python-format
+msgid ""
+"\n"
+"In your releases, this file is usually found as `po/%s.pot'.  It is\n"
+"created or updated automatically at `make dist' time, or whenever you\n"
+"run `make update-po' in the `po/' subdirectory.  Whenever you have a\n"
+"distribution ready which holds a newer PO Template, please send the URL\n"
+"of this distribution to the address below.  The distribution could be a\n"
+"pretest or a snapshot, it does not even have to compile.  This is to be\n"
+"used by translators, when they need to get some translation context from\n"
+"your sources.\n"
+"\n"
+"Within the Translation Project, each PO Template file should have different\n"
+"version numbers, but since it is not OK to have two different distributions\n"
+"having same version numbers, this is not a problem in practice.\n"
+msgstr ""
+"\n"
+"In Ihren Releases befindet sich die Datei normalerweise als »po/%s.pot«.\n"
+"Sie wird bei einem »make dist« automatisch erzeugt oder aktualisiert.\n"
+"Sie können auch »make update-po« im Unterverzeichnis »po/« ausführen.\n"
+"Immer, wenn Sie eine Distribution fertig haben, die eine neuere .po-Vorlage\n"
+"enthält, schicken Sie die URL der Distribution bitte an die untenstehende\n"
+"Adresse. Die Distribution kann auch eine Testversion oder ein Schnappschuss\n"
+"sein, sie muß nicht einmal compilierbar sein. Diese Datei soll von Über-\n"
+"setzern benutzt werden, wenn sie den Kontext aus dem Quelltext für die\n"
+"Übersetzung benötigen.\n"
+"\n"
+"Innerhalb des Übersetzungsprojekts sollte jede .po-Vorlage verschiedene\n"
+"Versionsnummern haben, aber da zwei verschiedene Distributionen nicht die\n"
+"gleichen Versionsnummern haben dürfen, ist das in der Praxis kein Problem.\n"
+
+#: bin/po-register:257
+msgid ""
+"\n"
+"Here is the URL information which has just been provided to translators for\n"
+"your package.  Please inform the translation coordinator, at the address\n"
+"given below, if the information does not appear to be adequate or current:\n"
+"\n"
+msgstr ""
+"\n"
+"Hier ist die URL-Information, die den Übersetzer Ihres Pakets gerade zugestellt wurde. Bitte informieren Sie den Übersetzungskoordinator (Adresse siehe unten),falls die Information nicht richtig oder nicht aktuell ist:\n"
+"\n"
+
+#: bin/po-register:267
+msgid ""
+"\n"
+"Translated PO files will later be automatically e-mailed to you.\n"
+msgstr ""
+"\n"
+"Übersetzte .po-Dateien werden Ihnen später automatisch per E-Mail zugestellt.\n"
+
+#: bin/po-register:272
+msgid ""
+"\n"
+"We can arrange things so translated PO files be automatically e-mailed\n"
+"to you when they arrive.  Ask to the address below if you want this.\n"
+msgstr ""
+"\n"
+"Wir können es so einrichten, dass Sie übersetzte .po-Dateien automatisch per\n"
+"E-Mail bekommen, sobald sie hier ankommen. Fragen Sie einfach bei der unten\n"
+"genannten Adresse nach, falls Sie das wollen.\n"
+
+#: bin/po-register:277 bin/po-register:336
+msgid ""
+"\n"
+"Thanks for your collaboration,\n"
+"\n"
+"                                The Translation Project robot, in the\n"
+"                                name of your translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+msgstr ""
+"\n"
+"Vielen Dank für Ihre Zusammenarbeit,\n"
+"\n"
+"                                Der Robot des Übersetzungsprojekts, im\n"
+"                                Namen Ihres Übesetzungskoordinators.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+
+#: bin/po-register:293
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: team-leaders@iro.umontreal.ca\n"
+"Subject: New PO Template file for `%s'\n"
+"\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: team-leaders@iro.umontreal.ca\n"
+"Subject: Neue .po-Vorlagendateien für `%s'\n"
+"\n"
+
+#: bin/po-register:300
+#, python-format
+msgid ""
+"My nicest hello to all language team leaders.\n"
+"This is a message from the Translation Project robot.\n"
+"\n"
+"A new PO Template file, for programs using the textual domain `%s',\n"
+"has just been made available to language teams for translation, and a copy\n"
+"is available as:\n"
+msgstr ""
+"Ein herzliches Hallo allen Sprachteamleitern.\n"
+"Dies ist eine Nachricht vom Robot des Übersetzungsprojekts.\n"
+"\n"
+"Eine neue .po-Vorlagendatei für Programme, die die Textdomain »%s« benutzen,\n"
+"ist für die Sprachteams zum Übersetzen verfügbar, und eine Kopie\n"
+"liegt hier:\n"
+
+#: bin/po-register:320
+msgid ""
+"\n"
+"Your team will have been notified only if it committed a translation\n"
+"or if you have requested that the team is notified, anyway.\n"
+"Otherwise, it is up to you and your team to decide exactly how a\n"
+"translator might be recruited to take care of it.\n"
+msgstr ""
+"\n"
+"Ihr Team wird nur benachrichtigt, wenn es eine Übersetzung\n"
+"eingereicht hat oder falls Sie beantragt haben, dass das\n"
+"Team informiert wird.\n"
+"Ansonsten ist es Ihre Sache und die Ihres Teams, wie genau\n"
+"ein Übersetzer gefunden wird, der sich darum kümmert.\n"
+
+#: bin/po-register:328
+msgid ""
+"\n"
+"Here is some URL information that could be provided to translators\n"
+"for this package:\n"
+"\n"
+msgstr ""
+"\n"
+"Hier sind ein paar URL-Informationen, die für den Übersetzer nützlich sein\n"
+"könnten:\n"
+"\n"
+
+#: bin/po-register:350
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: New %s PO file for `%s'\n"
+"\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: Neue %s .po-Datei für »%s«\n"
+"\n"
+
+#: bin/po-register:358
+#, python-format
+msgid ""
+"Hello, gentle maintainer.\n"
+"This is a message from the Translation Project robot.\n"
+"\n"
+"A revised PO file, for programs using the textual domain `%s', has\n"
+"been submitted by the team of translators taking care of the %s\n"
+"language.  This particular file, along with all other PO files pertaining\n"
+"to the same textual domain, is available as:\n"
+msgstr ""
+"Hallo, lieber Maintainer.\n"
+"Dies ist eine Nachricht vom Robot des Übersetzungsprojekts.\n"
+"\n"
+"Eine überarbeitete .po-Datei für Programme, die die Textdomain\n"
+"»%s« benutzen, wurde vom Übersetzerteam für die Sprache %s eingereicht.\n"
+"Diese Datei, zusammen mit allen anderen .po-Dateien für die gleiche\n"
+"Textdomain, ist hier verfügbar:\n"
+
+#: bin/po-register:380
+#, python-format
+msgid "    mailing `%s' to `%s'\n"
+msgstr "    schicke »%s« an »%s«\n"
+
+#: bin/po-register:383
+#, python-format
+msgid ""
+"\n"
+"This file has already been sent to you separately on %s,\n"
+"as a MIME invoice unpacking the file `%s'.\n"
+msgstr ""
+"\n"
+"Diese Datei wurde Ihnen bereits am %s separat als MIME-Mail\n"
+"mit der Datei »%s« zugeschickt.\n"
+
+#: bin/po-register:390
+msgid ""
+"\n"
+"We may arrange things so future such files be automatically e-mailed\n"
+"to you when they arrive.  Ask to the address below if you want this.\n"
+msgstr ""
+"\n"
+"Wir können es so einrichten, dass Sie in Zukunft solche Dateien automatisch\n"
+"per Mail erhalten, sobald sie hier ankommen. Fragen Sie unter der\n"
+"untenstehenden Adresse nach, falls Sie das wollen.\n"
+
+#: bin/po-register:395
+#, python-format
+msgid ""
+"\n"
+"The following HTML page should also be updated by tomorrow.\n"
+"\n"
+">    %s/HTML/domain-%s.html\n"
+"\n"
+"Please consider including all PO files, as they stand, in the `po/'\n"
+"subdirectory of your next release of programs using that textual domain,\n"
+"whether it is official or pretest.  Whenever you have a distribution ready\n"
+"which holds a newer PO Template, please send the URL of this distribution\n"
+"to the address below.  The distribution could be a pretest or a snapshot,\n"
+"it does not even have to compile.  This is to be used by translators,\n"
+"when they need to get some translation context from your sources.\n"
+"\n"
+"Within the Translation Project, each PO Template file should have different\n"
+"version numbers, but since it is not OK to have two different distributions\n"
+"using same version numbers, this is not a problem in practice.\n"
+"\n"
+"Contact me if any question arises.  Thanks for your collaboration,\n"
+"\n"
+"                                The Translation Project robot, in the\n"
+"                                name of your translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+msgstr ""
+"\n"
+"Die folgende HTML-Seite wird wohl morgen aktualisiert sein.\n"
+"\n"
+">    %s/HTML/domain-%s.html\n"
+"\n"
+"Bitte erwägen Sie, alle .po-Dateien, so wie sie sind, in das Unterverzeichnis\n"
+"»po/« des nächsten Releases Ihres Programms aufzunehmen, das diese Textdomain\n"
+"benutzt, egal ob es eine offizielle oder eine Testversion ist.\n"
+"Sobald Sie eine Distribution haben, die eine neue .po-Vorlage enthält, senden\n"
+"Sie bitte die URL der Distribution an die untenstehende Adresse. Dabei ist\n"
+"es egal, ob die Distribution eine Testversion oder ein Schnappschuss ist,\n"
+"sie muss noch nicht einmal compilierbar sein. Sie soll von Übersetzern\n"
+"benutzt werden, falls sie den Kontext des Quelltextes brauchen.\n"
+"\n"
+"Innerhalb des Übersetzungsprojekts sollte jede .po-Vorlagedatei eine\n"
+"unterschiedliche Versionsnummer haben, aber da zwei unterschiedliche\n"
+"Distributionen idealerweise sowieso verschiedene Versionsnummern haben,\n"
+"ist das in der Praxis kein Problem.\n"
+"Kontaktieren Sie mich, falls irgendwelche Fragen auftauchen.\n"
+"Danke für Ihre Zusammenarbeit,\n"
+"                                Der Robot des Übersetzungsprojekts, im Namen\n"
+"                                des Übersetzungskoordinators.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+
+#: bin/po-register:439
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: %s-%s (%d%%, %d untranslated)\n"
+"%s\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: %s-%s (%d%%, %d nicht übersetzt)\n"
+"%s\n"
+
+#: bin/po-register:448
+#, python-format
+msgid ""
+"Hello, members of the %s team at `%s'.\n"
+"This is a message from the Translation Project robot.\n"
+"I'm happy to announce that a new file, available as:\n"
+"\n"
+">    %s\n"
+"\n"
+"has been integrated in the central PO archives.  The file\n"
+"should soon be made available in mirror sites as:\n"
+"\n"
+msgstr ""
+"Hallo, Mitglieder des %s Teams für »%s«.\n"
+"Dies ist eine Nachricht vom Robot des Übersetzungsprojekts.\n"
+"Ich freue mich, eine neue Datei anzukündigen, verfügbar als:\n"
+"\n"
+">    %s\n"
+"\n"
+"die in das zentrale .po-Archiv integriert wurde.  Die Datei\n"
+"wird wohl bald auf den Mirrorseiten verfügbar sein, als da sind:\n"
+"\n"
+
+#: bin/po-register:461
+#, python-format
+msgid ""
+"Hello, members of the %s team at `%s'.\n"
+"This is a message from the Translation Project robot.\n"
+"I'm happy to announce that a new file, available as:\n"
+"\n"
+">    %s\n"
+"\n"
+"has been integrated in the central PO archives, and is now kept with all\n"
+"other accepted %s translations.  The file should soon be made available\n"
+"in mirror sites as:\n"
+"\n"
+msgstr ""
+"Hallo, Mitglieder des %s Teams »%s«.\n"
+"Dies ist eine Nachricht vom Robot des Übersetzungsprojekts.\n"
+"Ich freue mich, daß eine neue Datei, verfügbar als:\n"
+"\n"
+">    %s\n"
+"\n"
+"in die zentralen PO-Archive integriert wurde und dort zusammen mit all\n"
+"den anderen akzeptierten %s-Übersetzungen lebt. Die Datei wird wohl bald\n"
+"auf folgenden Mirrorseiten verfügbar sein:\n"
+"\n"
+
+#: bin/po-register:481
+#, python-format
+msgid "%s and %s are currently assigned for the translation. When you have completed the translation, send the result to the address given below, using the Subject line:"
+msgstr "%s und %s sind momentan der Übersetzung zugeordnet. Wenn Sie die Übersetzung fertiggestellt haben, schicken Sie das Ergebnis bitte an die unten angegebene Adresse und benutzen die folgende Betreffzeile:"
+
+#: bin/po-register:485
+#, python-format
+msgid "%s is currently assigned for the translation. When you have completed the translation, send the result to the address given below, using:"
+msgstr "%s ist momentan der Übersetzung zugeordnet. Wenn Sie die Übersetzung fertiggestellt haben, schicken Sie das Ergebnis bitte an die unten angegebene Adresse und benutzen die folgende Betreffzeile:"
+
+#: bin/po-register:495
+#, python-format
+msgid "The most recent translation of this translator has %d of %d messages translated."
+msgstr "In der neuesten Übersetzung dieses Übersetzers sind %d von %d Texten übersetzt."
+
+#: bin/po-register:497
+#, python-format
+msgid ""
+"\n"
+"There is currently a translator working on this translation who is not\n"
+"part of the Translation Project. %s\n"
+msgstr ""
+"\n"
+"An dieser Übersetzung arbeitet gerade ein Übersetzer, der nicht zum\n"
+"Übersetzungsprojekt gehört. %s\n"
+
+#: bin/po-register:502
+#, python-format
+msgid ""
+"\n"
+"Please consider taking its translation in charge for the %s language.\n"
+"If you decide to do so, please get your team leader (if any) to inform\n"
+"the translation coordinator that you were assigned to `%s'.\n"
+"Once the translation is completed, send the result to the address given\n"
+"below, using the Subject line:\n"
+msgstr ""
+"\n"
+"Bitte überlegen Sie sich, ob Sie dessen Übersetzung in die Sprache %s\n"
+"übernehmen wollen. Falls Sie sich dafür entscheiden, bitten Sie Ihren\n"
+"Teamleiter, dass er den Übersetzungskoordinator darüber informiert,\n"
+"dass Sie zu »%s« zugeordnet sind.\n"
+"Sobald die Übersetzung fertig ist, senden Sie das Ergebnis bitte an die\n"
+"unten angegebene Adresse und benutzen die Betreffzeile:\n"
+
+#: bin/po-register:511
+#, python-format
+msgid ""
+"\n"
+"None of its untranslated messages have been translated yet. %s\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"in your message header.  You may contact either your team leader or me,\n"
+"if any question arises.\n"
+msgstr ""
+"\n"
+"Bisher wurde noch keiner der Texte übersetzt. %s\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"im Header der Nachricht. Sie können entweder Ihren Teamleiter oder mich\n"
+"kontaktieren, falls irgendwelche Fragen auftauchen.\n"
+
+#: bin/po-register:524
+#, python-format
+msgid ""
+"\n"
+"All its %d messages have been translated, and this PO file has been\n"
+"submitted to the maintainer of `%s', hoping s/he will include\n"
+"it in a future release of programs using this textual domain.\n"
+"\n"
+"Let me thank you for all users of the %s language.\n"
+msgstr ""
+"\n"
+"Alle %d Texte wurden übersetzt, und diese .po-Datei wurde\n"
+"dem Maintainer von »%s« zugestellt, in der Hoffnung, dass\n"
+"er/sie die Übersetzung in ein zukünftiges Release des Programms\n"
+"aufnimmt, das diese Textdomain benutzt.\n"
+"Vielen Dank im Namen aller Benutzer der Sprache %s.\n"
+
+#: bin/po-register:536
+#, python-format
+msgid "%s and %s are currently assigned for the translation."
+msgstr "%s und %s sind momentan der Übersetzung zugeordnet."
+
+#: bin/po-register:540
+#, python-format
+msgid "%s is currently assigned for the translation."
+msgstr "%s ist momentan der Übersetzung zugeordnet."
+
+#: bin/po-register:543
+#, python-format
+msgid "Nobody in your team is currently assigned to the domain '%s'. The team leader (if any) should inform the translation coordinator of who will become responsible for it."
+msgstr "Niemand in Ihrem Team ist momentan der Textdomain »%s« zugeordnet. Der Teamleiter (falls es einen gibt) sollte den Übersetzungskoordinator informieren, wer für diese Übersetzung zuständig sein wird."
+
+#: bin/po-register:545
+#, python-format
+msgid ""
+"\n"
+"In this file, %d messages have been translated already,\n"
+"accounting for %d%% of the original text size (in raw bytes).  Still,\n"
+"%d messages need to be attended to.  %s\n"
+"\n"
+"Please translate the remaining messages for the benefit of users of the\n"
+"%s language.  Once the translation completed, send the result to\n"
+"the address given below, using the Subject line:\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"in your message header.  You may contact either your team leader or me,\n"
+"if any question arises.  In the meantime, this PO file has been submitted\n"
+"to the maintainer of programs using the textual domain `%s'.\n"
+"\n"
+"Thanks!\n"
+msgstr ""
+"\n"
+"In dieser Datei wurden bereits %d Texte übersetzt, das sind %d%% der\n"
+"Textgröße des Originals (in Bytes). %d Texte müssen noch übersetzt\n"
+"werden. %s\n"
+"\n"
+"Bitte übersetzen Sie die übrigen Texte, zum Vorteil der Benutzer der\n"
+"Sprache %s. Sobald die Übersetzung komplett ist, schicken Sie bitte\n"
+"das Ergebnis an die unten angegebene Adresse mit der Betreffzeile:\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"Sie können entweder Ihren Teamleiter oder mich kontaktieren, falls\n"
+"irgendwelche Fragen auftauchen. In der Zwischenzeit wurde diese\n"
+".po-Datei dem Maintainer des Programms, das die Textdomain »%s«\n"
+"benutzt, zugestellt.\n"
+"\n"
+"Danke!\n"
+
+#: bin/po-register:567
+#, python-format
+msgid ""
+"\n"
+"The following HTML pages should also be updated by tomorrow.\n"
+"\n"
+">    %s/HTML/domain-%s.html\n"
+">    %s/HTML/team-%s.html\n"
+"\n"
+"                                The Translation Project robot, in the\n"
+"                                name of your translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+msgstr ""
+"\n"
+"Die folgenden HTML-Seiten werden wohl morgen auch aktualisiert sein.\n"
+"\n"
+">    %s/HTML/domain-%s.html\n"
+">    %s/HTML/team-%s.html\n"
+"\n"
+"                                Der Robot des Übersetzungsprojekts, im Namen\n"
+"                                Ihres Übersetzungskoordinators.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+
+#: bin/po-register:581
+msgid ""
+"\n"
+"P.S. - You may find a copy (maybe not official) of the distribution as:\n"
+"\n"
+msgstr ""
+"\n"
+"P.S. - Sie können eine Kopie der Distribution (vielleicht nicht\n"
+"die offizielle) hier finden:\n"
+"\n"
+
+#: bin/po-register:604
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: Contents of file `%s'\n"
+"MIME-Version: 1.0\n"
+"Content-Type: multipart/mixed; boundary=\"=-=-=\"\n"
+"\n"
+"--=-=-=\n"
+"Content-Type: application/octet-stream\n"
+"Content-Disposition: attachment; filename=%s\n"
+"Content-Transfer-Encoding: base64\n"
+"\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: Inhalt der Datei `%s'\n"
+"MIME-Version: 1.0\n"
+"Content-Type: multipart/mixed; boundary=\"=-=-=\"\n"
+"\n"
+"--=-=-=\n"
+"Content-Type: application/octet-stream\n"
+"Content-Disposition: attachment; filename=%s\n"
+"Content-Transfer-Encoding: base64\n"
+"\n"
+
+#: bin/po-register:623
+msgid ""
+"--=-=-=\n"
+"\n"
+"                                The Translation Project robot, in the\n"
+"                                name of your translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+"\n"
+"--=-=-=--\n"
+msgstr ""
+"--=-=-=\n"
+"\n"
+"                                Der Robot des Übersetzungsprojekts, im\n"
+"                                Namen Ihres Überstzungskoordinators.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+"\n"
+"--=-=-=--\n"
+
+#: bin/po-to-scm:24
+#, python-format
+msgid "Usage: %s [ -scm | -el ] [FILE]..."
+msgstr "Aufruf: %s [ -scm | -el ] [FILE]..."
+
+#: bin/postats-data:155
+#, python-format
+msgid "%s: Not enough hints for a key\n"
+msgstr "%s: Nicht genug Hinweise für einen Schlüssel\n"
+
+#: bin/scm-to-po:59
+msgid ""
+"# SOME DESCRIPTIVE TITLE.\n"
+"# Copyright (C) YEAR Free Software Foundation, Inc.\n"
+"# FIRST AUTHOR <EMAIL\\@ADDRESS>, YEAR.\n"
+"#\n"
+"#, fuzzy\n"
+"msgid ''\n"
+"msgstr ''\n"
+"'Project-Id-Version: PACKAGE VERSION\\n'\n"
+"'PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n'\n"
+"'Last-Translator: FULL NAME <EMAIL\\ADDRESS_ARRAY>\\n'\n"
+"'Language-Team: LANGUAGE <LL\\li_ARRAY.org>\\n'\n"
+"'MIME-Version: 1.0\\n'\n"
+"'Content-Type: text/plain; charset=CHARSET\\n'\n"
+"'Content-Transfer-Encoding: ENCODING\\n'\n"
+msgstr ""
+"# EIN BESCHREIBENDER TITEL.\n"
+"# Copyright (C) JAHR Free Software Foundation, Inc.\n"
+"# ERSTER AUTOR <EMAIL\\@ADRESSE>, JAHR.\n"
+"#\n"
+"#, fuzzy\n"
+"msgid ''\n"
+"msgstr ''\n"
+"'Project-Id-Version: PAKET VERSION\\n'\n"
+"'PO-Revision-Date: JAHR-MO-TA ST:MI+ZONE\\n'\n"
+"'Last-Translator: VOLLSTÄNDIGER NAME <EMAIL\\ADRESSE_ARRAY>\\n'\n"
+"'Language-Team: SPRACHE <LL\\li_ARRAY.org>\\n'\n"
+"'MIME-Version: 1.0\\n'\n"
+"'Content-Type: text/plain; charset=ZEICHENSATZ\\n'\n"
+"'Content-Transfer-Encoding: CODIERUNG\\n'\n"
+
+#: bin/tp-robot:66
+msgid "Robot aborted"
+msgstr "Robot abgebrochen"
+
+#: bin/tp-robot:103
+msgid ""
+"For some reason, your PO file seems to have no entries at all, like if it\n"
+"were empty.  Sigh!  It looks like there is something wrong, somewhere...\n"
+msgstr ""
+"Aus irgendeinem Grund scheint Ihre .po-Datei überhaupt keine\n"
+"Einträge zu haben, als ob sie leer wäre. *seufz*\n"
+"Sieht so aus, als sei irgendwo irgendwas falsch ...\n"
+
+#: bin/tp-robot:134
+msgid ""
+"I, the Translation Project robot, just failed in a rather unexpected way.\n"
+"Sigh!  Despair!  I'm bugged, lost, doomed :-(.  Help me!\n"
+"Report all details you can at mailto:translation@iro.umontreal.ca.\n"
+"Please do _not_ start your Subject line with `TP-Robot'.\n"
+msgstr ""
+"Ich, der Robot des Übersetzungsprojekts, bin gerade hoffnungslos\n"
+"gescheitert. *seufz* *verzweifel* Ich bin am Ende, verloren,\n"
+"verdammt :-(. Helfen Sie mir!\n"
+"\n"
+"Berichten Sie alle Details, die es gibt, an mailto:translation@iro.umontreal.ca.\n"
+"Bitte beginnen Sie die Betreffzeile nicht mit »TP-Robot«.\n"
+
+#: bin/tp-robot:150
+msgid ""
+"In fact, the Translation Project registry holds the preferred email address\n"
+"for many translators like you, and some necessary aliases as well.  It is\n"
+"better to avoid the proliferation of alternate email addresses and stick\n"
+"to only one, whenever possible.  In any case, please keep the translation\n"
+"coordinator informed of such things, at least as a mild form of verification.\n"
+"Some stronger authentication scheme might be needed, one of these days!"
+msgstr ""
+"Tatsächlich enthält die Datenbank des Übersetzungsprojekts die bevorzugte\n"
+"Mailadresse für viele Übersetzer wie Sie, und auch einige nötige Aliase.\n"
+"Es ist besser, den Wildwuchs von alternativen Mailadressen zu vermeiden\n"
+"und nur eine zu benutzen, falls irgendwie möglich. Auf jeden Fall sollten\n"
+"Sie den Übersetzungskoordinator über solche Dinge informiert halten,\n"
+"zumindestens als eine milde Form der Verifikation. Ein strengeres Authen-\n"
+"tifizierungsschema könnte bald nötig werden!"
+
+#: bin/tp-robot:189
+msgid "I'm ignoring the whole following MIME part within your invoice:\n"
+msgstr "Ich ignoriere den kompletten folgenden MIME-Teil in Ihrem Auftrag:\n"
+
+#: bin/tp-robot:200
+msgid ""
+"Hmph!  It seems I'm not clever enough yet to find your PO file within\n"
+"your message.  The translation coordinator, who is my beloved master,\n"
+"explained that I still have many things to learn about real life, before\n"
+"being able to handle all situations.  So, I'll go and ask him to help me\n"
+"unpack your invoice.\n"
+msgstr ""
+"Hmpf! Ich glaube, ich bin nicht clever genug, Ihre .po-Datei innerhalb\n"
+"Ihrer Nachricht zu finden. Der Übersetzungskoordinator, mein innig\n"
+"geliebter Meister, hat mir erklärt, dass ich noch viele Dinge über\n"
+"das »Real life« zu lernen habe, bevor ich mit allen Situationen\n"
+"umgehen kann. Ich werde mal hingehen und ihn um Hilfe beim Entziffern\n"
+"Ihres Auftrags bitten.\n"
+
+#: bin/tp-robot:210
+msgid ""
+"Your message contains multiple MIME parts, and I see that I am not able to\n"
+"decide which one of these parts is meant to contain your PO file.  Would you\n"
+"help me, while resubmitting your message, by using a simpler MIME structure?\n"
+msgstr ""
+"Ihre Nachricht enthält mehrere MIME-Teile, und ich kann nicht erkennen,\n"
+"welcher Teil Ihre .po-Datei enthalten soll. Helfen Sie mir bitte, indem\n"
+"Sie Ihre Nachricht noch einmal schicken, diesmal aber mit einer einfache-\n"
+"ren MIME-Struktur?\n"
+
+#: bin/tp-robot:225 bin/tp-robot:307
+msgid ""
+"The translation coordinator does not trust me enough yet to let me handle\n"
+"a PO template file all alone.  So, for this one, I'll go disturb him!\n"
+msgstr ""
+"Der Übersetzungskoordinator vertraut mir nicht genug, dass ich\n"
+".po-Vorlagen ganz alleine verarbeiten kann. Also werde ich\n"
+"diesmal hingehen und ihn stören!\n"
+
+#: bin/tp-robot:231
+#, python-format
+msgid ""
+"I was expecting information in the file name argument which I did not find.\n"
+"%s\n"
+"The file name argument should look like `DOMAIN-VERSION.TEAM.po'.\n"
+msgstr ""
+"Ich erwartete Information im Dateinamen, die ich aber nicht finden konnte.\n"
+"%s\n"
+"Der Dateiname sollte die Form »DOMAIN-VERSION.TEAM.po« haben.\n"
+
+#: bin/tp-robot:239
+#, python-format
+msgid "Within the Translation Project, no team has the code `%s'.\n"
+msgstr "Innerhalb des Übersetzungsprojekts gibt es kein Team mit dem Code »%s«.\n"
+
+#: bin/tp-robot:317
+#, python-format
+msgid ""
+"I see that you used `%s@%s' to reach me.  Even it worked,\n"
+"a few email aliases were surely involved, which are not all under\n"
+"control.  It is safer that you use my real email address, which is\n"
+"`translation@iro.umontreal.ca'.\n"
+msgstr ""
+"Ich sehe, dass Sie »%s@%s« benutzt haben, um mich zu erreichen. Obwohl\n"
+"es geklappt hat, sind sicherlich ein paar E-Mail-Aliase betroffen,\n"
+"die nicht alle kontrolliert werden. Es ist sicherer, wenn Sie meine\n"
+"richtige Mailadresse (translation@iro.umontreal.ca) benutzen.\n"
+
+#: bin/tp-robot:373
+#, python-format
+msgid ""
+"I was expecting information in your message header which I did not find.\n"
+"%s\n"
+"I'm not fully sure about what the exact problem is, yet it might be that\n"
+"the Subject field, in your message header, is not formatted properly.\n"
+"Just in case, let me explain how the Subject line usually looks like:\n"
+"\n"
+">    Subject: TP-Robot DOMAIN-VERSION.TEAM.po\n"
+"\n"
+"For a PO file, DOMAIN, VERSION and TEAM should be replaced respectively by\n"
+"the textual domain of the translation (in most cases, this is exactly the\n"
+"package name, in lower case), the version numbers of the said package, and\n"
+"the two-letter lower case language code for the team, also in lower case.\n"
+"In some rare cases, TEAM might have to be suffixed with either \"_REGION\"\n"
+"or \"@DIALECT\", where REGION is a capitalised two-letter country code\n"
+"and DIALECT is a lower case name.\n"
+msgstr ""
+"Ich habe in Ihrem Mailheader Informatioen erwartet, aber nicht gefunden.\n"
+"%s\n"
+"Ich weiß nicht genau, was das Problem ist, aber es könnte sein, dass\n"
+"die Betreffzeile nicht richtig formatiert ist. Nur für den Fall, normaler-\n"
+"weise sieht eine Betreffzeile so aus:\n"
+"\n"
+">    Subject: TP-Robot DOMAIN-VERSION.TEAM.po\n"
+"\n"
+"Für eine .po-Datei sollten DOMAIN, VERSION und TEAM jeweils durch die\n"
+"Textdomain der Übersetzung (meistens der Paketname in Kleinbuchstaben),\n"
+"die Versionsnummer des besagten Pakets und das Sprachkürzel (auch in\n"
+"Kleinbuchstaben) ersetzt werden. In einigen wenigen Fällen muss TEAM\n"
+"entweder um \"_REGION\" oder \"@DIALEKT\" ergänzt werden, wobei REGION\n"
+"der Ländercode in Großbuchstaben und DIALEKT ein Name in Kleinbuchstaben\n"
+"ist.\n"
+
+#: bin/tp-robot:397
+#, python-format
+msgid ""
+"Within the Translation Project, no team has the code `%s'.\n"
+"It might be that you mispelled that code, in which case I merely invite\n"
+"you to correct the error and retry a new submission.\n"
+"\n"
+"Otherwise, I presume you would like that a new translation team be created.\n"
+"This is a simple matter, really.  You do not have to do any kind of\n"
+"recruiting (unless you really feel like it, which is then another story,\n"
+"of course!).  Most teams started with a single translator.  However, you\n"
+"should be able and willing to communicate with people later wanting to\n"
+"join you on the team.  The Translation Project does not favour real loners.\n"
+"\n"
+"You should write to the translation coordinator for that creation to occur.\n"
+"If by any chance there is some already existing mailing list ready to convey\n"
+"the new team interests, please say so in your letter, so this mailing list\n"
+"gets registered.  If no such list exists, you may want to register your\n"
+"own email address instead, at least until there is a need for a bigger setup.\n"
+"\n"
+"Linux International collaborates with the Translation Project for offering\n"
+"a mailing list to teams needing it.  Such lists are only offered to teams\n"
+"having been active for a while, and which produced a few usable translations.\n"
+msgstr ""
+"Innerhalb des Übersetzungsprojekts gibt es kein Team mit dem Kürzel »%s«.\n"
+"Vielleicht haben Sie das Kürzel falsch geschrieben. In diesem Fall sollten\n"
+"Sie den Fehler einfach beheben und die Datei erneut einsenden.\n"
+"\n"
+"Ansonsten nehme ich an, dass Sie ein neues Übersetzungsteam gründen wollen.\n"
+"Das geht ganz einfach, wirklich. Sie müssen keine Anwerbung machen (es\n"
+"sei denn, Sie wollen es unbedingt, aber das ist dann eine andere Geschichte.)\n"
+"Die meisten Teams begannen mit einem einzigen Übersetzer. Auf jeden Fall\n"
+"sollten Sie mit anderen Menschen, die später zum Team dazukommen wollen,\n"
+"kommunizieren können und wollen. Das Übersetzungsprojekt favorisiert echte\n"
+"Einzelgänger nicht wirklich.\n"
+"\n"
+"Sie sollten dem Übersetzungskoordinator schreiben, damit die Gründung\n"
+"Wirklichkeit wird. Wenn es durch Zufall schon eine Mailingliste gibt,die die Interessen des neuen Teams übermittelt, sagen Sie das bitte in\n"
+"Ihrem Schreiben, damit diese Mailingliste registriert wird. Falls keine\n"
+"solche Liste existiert, können Sie Ihre eigene Mailadresse stattdessen\n"
+"registrieren, zumindest bis eine größere Form nötig wird.\n"
+"\n"
+"Linux International arbeitet mit dem Übersetzungsprojekt zusammen und\n"
+"bietet Mailinglisten für Teams bei Bedarf an. Solche Listen werden nur\n"
+"an Teams vergeben, die schon eine Zeit lang bestehen und ein paar\n"
+"brauchbare Übersetzungen produziert haben.\n"
+
+#: bin/tp-robot:420
+msgid "Unknown_Language"
+msgstr "Unbekannte_Sprache"
+
+#: bin/tp-robot:447
+#, python-format
+msgid ""
+"The PO file title comment appears to be missing.  The very first line of\n"
+"a PO file starts with `#', a space, and then a one-line description of\n"
+"what this PO file is about.  The PO file title comment may look like:\n"
+"\n"
+">    # Translation of `%s' messages to %s.\n"
+"\n"
+"As this line is intended to be read by humans working in %s,\n"
+"you may have this title line translated as well, it does not have to be\n"
+"kept in English.\n"
+msgstr ""
+"Der Titel-Kommentar der .po-Datei scheint zu fehlen. Die allererste Zeile\n"
+"einer .po-Datei beginnt mit »#«, einem Leerzeichen und dann einer einzeiligen\n"
+"Beschreibung, worum es in der .po-Datei geht. Der Titel-Kommentar könnte so\n"
+"aussehen:\n"
+"\n"
+">    # Translation of `%s' messages to %s.\n"
+"\n"
+"Da diese Zeile gedacht ist, von Menschen, die in %s arbeiten, gelesen zu werden,\n"
+"können Sie diese Zeile auch gerne übersetzen. Sie muss nicht in Englisch sein.\n"
+
+#: bin/tp-robot:477
+msgid ""
+"The copyright for the PO file should be assigned to:\n"
+"\n"
+"   Free Software Foundation, Inc.\n"
+"\n"
+"and does not seem to be, yet it might be only a question of proper spelling.\n"
+"For the time being, I merely guess that the Free Software Foundation is to\n"
+"be listed as the copyright holder for any package requiring translation\n"
+"disclaimers.  Yet, the truth is that this requirement goes further than\n"
+"the spirit of the disclaimer.  If this creates any problem in real life,\n"
+"please write to the translation coordinator, so we could discuss the matter,\n"
+"and so he could eventually change me (the robot) for handling such cases.\n"
+msgstr ""
+"Das Copyright der .po-Datei sollte an:\n"
+"\n"
+"   Free Software Foundation, Inc.\n"
+"\n"
+"zugewiesen werden, scheint es aber nicht zu sein. Es kann aber auch\n"
+"einfach an der Rechtschreibung liegen.\n"
+"Bis auf weiteres rate ich einfach mal, dass die Free Software Foundation\n"
+"für alle Pakete, die Übersetzung benötigen, als Copyrightinhaber eingetragen\n"
+"werden soll. Die Wahrheit aber ist, dass diese Forderung weiter geht als\n"
+"der Wille des Disclaimers. Falls es damit irgendwelche Probleme im Real\n"
+"Life gibt, schreiben Sie bitte an den Übersetzungskoordinator, damit wir\n"
+"diesen Fall diskutieren können und er mir (dem Robot) eventuell beibringen\n"
+"kann, solche Fälle selbst zu behandeln.\n"
+
+#: bin/tp-robot:492
+#, python-format
+msgid ""
+"The copyright comment does not seem to be correctly formatted.  I see:\n"
+"\n"
+">    # %s\n"
+"\n"
+"while the copyright comment should look like:\n"
+msgstr ""
+"Der Copyright-Kommentar scheint nicht richtig formatiert zu sein. Ich sehe:\n"
+"\n"
+">    # %s\n"
+"\n"
+"aber der Copyright-Kommentar sollte so aussehen:\n"
+
+#: bin/tp-robot:501
+msgid ""
+"The copyright comment, which should appear as the second line of the whole\n"
+"PO file, is apparently missing.  The copyright comment looks like:\n"
+msgstr ""
+"Der Copyright-Kommentar, der als zweite Zeile der ganzen .po-Datei\n"
+"auftauchen sollte, fehlt anscheinend. Der Copyright-Kommentar sieht\n"
+"so aus:\n"
+
+#: bin/tp-robot:506
+#, python-format
+msgid ""
+"%s\n"
+">    # Copyright (C) YEAR Free Software Foundation, Inc.\n"
+"\n"
+"The `(C)' sign may be replaced by the single Latin-1 character for it\n"
+"(decimal code 169) if you happen to work in Latin-1, or with the\n"
+"equivalent UTF-8 seqquence (\\xc2\\xa9).  YEAR is normally a four\n"
+"digits year, yet it might be a list of years, separated by commas.  In\n"
+"a list, the first year has to be four digits, subsequent years may be\n"
+"either two or four digits.  Each comma should be followed with a\n"
+"space.  Years have to be explicitly enumerated, range notations are\n"
+"not accepted.\n"
+msgstr ""
+"%s\n"
+">    # Copyright (C) JAHR Free Software Foundation, Inc.\n"
+"\n"
+"Das Zeichen »(C)« darf durch das Latin-1-Copyright-Zeichen (Dezimalcode\n"
+"169) ersetzt werden, oder mit der äquivalenten UTF-8-Sequenz (\\xc2\\xa9).\n"
+"JAHR ist normalerweise ein vierziffriges Jahr, es kann aber auch eine\n"
+"Liste von Jahren sein, die durch Kommata getrennt sind. In so einer Liste\n"
+"muss das erste Jahr vier Ziffern haben, weitere Jahre dürfen entweder\n"
+"zwei oder vier Ziffern haben. Jedes Komma sollte von einem Leerzeichen\n"
+"gefolgt werden. Jahre müssen explizit aufgezählt werden, Jahresbereiche\n"
+"werden nicht akzeptiert.\n"
+
+#: bin/tp-robot:529
+#, python-format
+msgid ""
+"Oops, there is a slight formatting error.  In the initial comment\n"
+"lines, please use no more than a single space between `%s' and\n"
+"`<%s>'.\n"
+msgstr ""
+"Ups, da ist ein kleiner Formatierungsfehler. Bitte benutzen Sie\n"
+"innerhalb der ersten Kommentarzeilen nicht mehr als ein Leerzeichen\n"
+"zwischen »%s« und »<%s>«.\n"
+
+#: bin/tp-robot:540
+#, python-format
+msgid ""
+"According to my notes, %s is not a member of the proper\n"
+"%s team, so is unlikely to be the first translator.  It might\n"
+"only be a question of spelling?  In case yes, I then need to know about\n"
+"spelling alternatives, so please tell the translation coordinator.  Yet,\n"
+"it is usually best to avoid such variance, and stick to a single preferred\n"
+"spelling.\n"
+msgstr ""
+"Gemäß meiner Aufzeichnungen ist %s kein Mitglied des richtigen\n"
+"%s-Teams. Deshalb ist es unwahrscheinlich, dass er/sie der erste\n"
+"Übersetzer ist. Oder ist es nur eine andere Schreibweise? In dem Fall\n"
+"muss ich über verschiedene Schreibweisen informiert sein. Sagen Sie\n"
+"dafür bitte dem Übersetzungskoordinator bescheid. Es ist trotzdem\n"
+"am besten, solche Varianzen zu vermeiden und bei einer einzigen\n"
+"bevorzugten Schreibweise zu bleiben.\n"
+
+#: bin/tp-robot:553
+#, python-format
+msgid ""
+"The initial translator of this PO file is `%s'.  Yet,\n"
+"according to my own notes, `%s' is not known as a good address\n"
+"to reach that translator.\n"
+"%s%s\n"
+msgstr ""
+"Der erste Übersetzer dieser .po-Datei ist »%s«. In meinen eigenen\n"
+"Aufzeichnungen steht aber, dass »%s« nicht als gute Adresse\n"
+"bekannt ist, diesen Übersetzer zu erreichen.\n"
+"%s%s\n"
+
+#: bin/tp-robot:567
+#, python-format
+msgid ""
+"The last translator of this PO file appears to be different than the\n"
+"initial translator.  This is something quite possible and normal.  But if\n"
+"you do know that translators did not change, some more checking is needed.\n"
+"The third line of whole PO file says `%s', while the\n"
+"`Last-Translator' field of PO file header says `%s'.  If,\n"
+"and only if, the two names above are indeed misspellings of one another,\n"
+"you should ideally correct whichever is needed, and resubmit your PO file\n"
+"with the correction included.  On the other hand, I invite you to be fair,\n"
+"and _never_ remove the initial translator of a given PO file, as this\n"
+"acknowledgement is the only tribute paid for the work of that translator.\n"
+msgstr ""
+"Der letzte Übersetzer dieser .po-Datei scheint jemand anders als der\n"
+"erste Übersetzer zu sein. Das ist gut möglich und ganz normal. Aber falls\n"
+"Sie wissen, dass die Übersetzer sich nicht geändert haben, müssen Sie\n"
+"nochmal genauer überprüfen. Die dritte Zeile der ganzen .po-Datei sagt\n"
+"»%s«, aber das Feld »Last-Translator« des Headers sagt »%s«. Falls,\n"
+"und nur in diesem Fall, diese beiden Namen wirklich Schreibfehler\n"
+"enthalten, sollten Sie den einen davon korrigieren und Ihre .po-Datei\n"
+"mit der Korrektur erneut einschicken. Andererseits sollten Sie so fair\n"
+"sein und _niemals_ den ersten Übersetzer einer .po-Datei entfernen,\n"
+"da diese Nennung die einzige Anerkennung für die Arbeit des Übersetzers\n"
+"ist.\n"
+
+#: bin/tp-robot:582
+#, python-format
+msgid ""
+"Your submission contains contradicting addresses for you.  The third line of\n"
+"whole PO file says it is `%s', while the `Last-Translator'\n"
+"field of PO file header says it is `%s'.  Please manage to have a\n"
+"single preferred address to reach you, and try to use it consistently in\n"
+"all your translation files.\n"
+msgstr ""
+"Ihre Übersetzung enthält widersprüchliche Adressen von Ihnen. Die dritte\n"
+"Zeile der gesamten .po-Datei sagt »%s«, aber das Feld »Last-Translator«\n"
+"im Header sagt »%s«. Bitte benutzen Sie nur eine einzige Adresse, unter\n"
+"der Sie erreichbar sind und versuchen Sie, diese konsistent in allen\n"
+"Ihren Übersetzungen zu verwenden.\n"
+
+#: bin/tp-robot:592
+#, python-format
+msgid ""
+"The first author comment line is either missing or not formatted correctly.\n"
+"This should be the third line of the whole PO file, looking like:\n"
+"\n"
+">    # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.\n"
+"\n"
+"In this line, FIRST AUTHOR has to be replaced by the full name of the\n"
+"original translator of the messages for the `%s' textual domain,\n"
+"EMAIL@ADDRESS gives a way to reach that translator, and YEAR is a four\n"
+"digits year telling when the original translation occurred.\n"
+msgstr ""
+"Die Kommentarzeile zum ersten Autor fehlt entweder oder ist nicht richtig\n"
+"formatiert. Es sollte die dritte Zeile der gesamten .po-Datei sein und\n"
+"so aussehen:\n"
+"\n"
+">    # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.\n"
+"\n"
+"In dieser Zeile muss FIRST AUTHOR durch den vollständigen Namen des\n"
+"ursprünglichen Übersetzers der Texte für die Textdomain »%s« ersetzt\n"
+"werden, EMAIL@ADDRESS einen Weg angeben, wie dieser Autor zu\n"
+"erreichen ist, und YEAR ist ein vierstelliges Jahr, in dem die\n"
+"ursprüngliche Übersetzung entstand.\n"
+
+#: bin/tp-robot:605
+msgid ""
+"In case you want to add more historical details on the history of this\n"
+"particular PO file, or any comment you would feel useful, you may do so by\n"
+"adding other comment lines after the first three, using your own language\n"
+"if you feel like it.  Remember that there should always be a space after\n"
+"the initial `#' of each comment line, and there should not be a white\n"
+"line before the `msgid' line of the PO file header.\n"
+msgstr ""
+"Für den Fall, dass Sie noch mehr historische Details zur Geschichte dieser\n"
+"speziellen .po-Datei angeben wollen oder irgendwelche anderen Kommentare,\n"
+"die Sie nützlich finden, können Sie das machen, indem Sie nach den ersten\n"
+"drei Zeilen weitere Kommentare einfügen, auch in Ihrer eigenen Sprache,\n"
+"wenn Sie wollen. Denken Sie aber daran, dass nach dem »#« am Beginn einer\n"
+"Zeile stets genau ein Leerzeichen stehen sollte und keine Leerzeile vor\n"
+"dem »msgid« des Headers der .po-Datei.\n"
+
+#: bin/tp-robot:620
+#, python-format
+msgid ""
+"The Project-Id-Version field of your PO file header says that your textual\n"
+"domain is `%s' instead of the `%s' I was expecting.  They really\n"
+"should be identical.  The textual domain is the package name, usually.\n"
+"In some rare cases, there are differences in capitalisation, or the dubious\n"
+"addition of some `g' prefix because of the GNU inheritance.  Currently,\n"
+"all textual domains are written all in lower case.  They also tend to\n"
+"avoid those meaningless `g' prefixes.\n"
+msgstr ""
+"Das Feld »Project-Id-Version« im Header Ihrer .po-Datei sagt, dass\n"
+"Ihre Textdomain »%s« ist, ich hatte aber »%s« erwartet. Diese beiden\n"
+"sollten wirklich identisch sein. Die Textdomain ist üblicherweise\n"
+"der Paketname. In einigen wenigen Fällen gibt es Unterschiede in der\n"
+"Groß- und Kleinschreibung oder das dubiose Hinzufügen eines »g« am\n"
+"Anfang von GNU-Programmen. Momentan sind alle Textdomains in Klein-\n"
+"buchstaben geschrieben. Sie tendieren auch dazu, sinnlose »g«s am\n"
+"Anfang wegzulassen.\n"
+
+#: bin/tp-robot:632
+msgid ""
+"Within the Project-Id-Version field, the domain name and version numbers\n"
+"should be separated by a space rather than by a hyphen.  Some scripts might\n"
+"depend on a space being there, so best would be that you modify your file.\n"
+"I'll attempt to modify it for you, but this time! :-)\n"
+msgstr ""
+"Innerhalb des Feldes »Project-Id-Version« sollten der Name der Textdomain\n"
+"und die Versionsnummer durch ein Leerzeichen getrennt werden, nicht durch\n"
+"einen Bindestrich. Einige Programme könnten sich darauf verlassen, dass\n"
+"hier ein Leerzeichen steht, deshalb ist es am besten, wenn Sie Ihre Datei\n"
+"dahingehend verändern. Ich versuche das für Sie zu ändern, aber nur dieses\n"
+"Mal! :-)\n"
+
+#: bin/tp-robot:642
+#, python-format
+msgid ""
+"The Project-Id-Version field of your submission says that your translations\n"
+"are meant for version `%s' of `%s', not `%s'.  I guess\n"
+"that they should be identical.  Consequently, I invite you adjust either\n"
+"the file name of your submission, or the Project-Id-Version field, whichever\n"
+"is appropriate.\n"
+msgstr ""
+"Das Feld »Projekt-Id-Version« Ihrer Übersetzung sagt, dass Ihre Übersetzung\n"
+"für Version »%s« von »%s« gedacht ist, nicht für »%s«. Ich nehme an,\n"
+"dass sie identisch sein sollten. Konsequenterweise sollten Sie entweder\n"
+"den Dateiname Ihrer Übersetzung oder das Feld »Project-Id-Version« ändern,\n"
+"je nachdem, welches sinnvoller ist.\n"
+
+#: bin/tp-robot:653
+#, python-format
+msgid ""
+"The `Project-Id-Version' field was not found in your PO file header.\n"
+"The line containing this field ideally looks like:\n"
+"\n"
+">    'Project-Id-Version: PACKAGE VERSION\\n'\n"
+"\n"
+"in which PACKAGE should truly be replaced by the textual domain of your\n"
+"translation, probably `%s' in this case, and VERSION be replaced\n"
+"by the appropriate version numbers, maybe `%s', here.\n"
+msgstr ""
+"Das Feld »Project-Id-Version« wurde nicht im Header der .po-Datei gefunden.\n"
+"Die Zeile, die dieses Feld enthält, sieht idealerweise so aus:\n"
+"\n"
+">    'Project-Id-Version: PACKAGE VERSION\\n'\n"
+"\n"
+"wobei PACKAGE durch die Textdomain Ihrer Übersetzung ersetzt werden sollte,\n"
+"in diesem Fall wahrscheinlich »%s«, und VERSION durch die passende\n"
+"Versionsnummer, hier wahrscheinlich »%s«.\n"
+
+#: bin/tp-robot:677
+#, python-format
+msgid ""
+"The `%s' field was not found in your PO file header,\n"
+"or else, it was not formatted properly.  The line containing this field\n"
+"ideally looks like:\n"
+"\n"
+">    %s: YEAR-MO-DA HO:MI +ZONE\n"
+msgstr ""
+"Das Feld »%s« wurde im Header Ihrer .po-Datei nicht gefunden,\n"
+"oder aber es ist nicht richtig formatiert. Die Zeile, die dieses\n"
+"Feld enthält, sieht idealerweise so aus:\n"
+"\n"
+">    %s: JAHR-MO-TA ST:MI +ZONE\n"
+
+#: bin/tp-robot:686
+msgid ""
+"Some older POT files did not have the `POT-Creation-Date' field.  If might\n"
+"be the case here, I'm not sure.  If yes, you should not worry, as this\n"
+"will be repaired for some later release of this distribution.  This field\n"
+"is not really for the translator to set.  In the meantime, I will merely\n"
+"copy the value of the `PO-Revision-Date' field into it, just to get going.\n"
+msgstr ""
+"Einige ältere .pot-Dateien hatten das Feld »POT-Creation-Date« nicht.\n"
+"Das könnte hier der Fall sein, aber ich bin nicht sicher. Falls ja,\n"
+"ist das kein Grund zur Sorge, da das von einer späteren Version dieser\n"
+"Distribution repariert werden wird. Dieses Feld ist auch nicht wirklich\n"
+"für den Übersetzer gedacht. In der Zwischenzeit werde ich einfach den\n"
+"Wert aus dem Feld »PO-Revision-Date« übernehmen, damit alles klappt.\n"
+
+#: bin/tp-robot:695
+msgid ""
+"In the above line, YEAR is a four digits number giving the year, MO is\n"
+"a two digits number giving the month (between 01 and 12) and DA is a\n"
+"two digits number giving the day within the month (between 01 and 31).\n"
+"The time of the day is provided by a two digits HO for the hour (between\n"
+"00 and 23) and a two digits MI for the minutes (between 00 and 59).\n"
+"\n"
+"As for +ZONE, it should have the format +HH, -HH, +HH:MM or -HH:MM.\n"
+"The `+' sign is used East of Greenwich, the `-' sign is used West\n"
+"of Greenwich.  HH says the number of zone hours as two digits (between 00\n"
+"and 11), while MM, when used, says the number of zone minutes.  Other zone\n"
+"    notations are still accepted for the time being, but are to be deprecated.\n"
+msgstr ""
+"In der obigen Zeile ist JAHR ein vierstelliges Jahr, MO ist eine zweistellige\n"
+"Zahl von 01 bis 12, die den Monat angibt und TA ist eine zweistellige Zahl\n"
+"von 01 bis 31, die den Tag angibt. Die Tageszeit wird mit mit der\n"
+"zweistelligen ST (Stunde, 00 bis 23) und der ebenfalls zweistelligen MI\n"
+"(Minute, 00 bis 59) angegeben.\n"
+"\n"
+"Die ZONE sollte das Format +HH, -HH, +HH:MM oder -HH:MM haben.\n"
+"Das Zeichen »+« heißt östlich von Greenwich, »-« heißt westlich.\n"
+"HH ist die Anzahl der Stunden in zwei Ziffern (00 bis 11), während\n"
+"MM, falls benutzt, die Minuten der Zeitverschiebung angibt.\n"
+"Andere Notationen für die Zeitzonen werden gerade noch unterstützt,\n"
+"sollten aber nicht mehr benutzt werden.\n"
+
+#: bin/tp-robot:711
+#, python-format
+msgid ""
+"The PO revision date is `%s', which looks older than the POT creation date.\n"
+"You should update the PO revision date before submitting a PO file.\n"
+msgstr ""
+"Das Datum »PO-Revision« ist »%s«, und das sieht älter aus als der Datum\n"
+"»POT-Creation«. Sie sollten das Datum für die »PO-Revision« aktualisieren,\n"
+"bevor Sie die .po-Datei abschicken.\n"
+
+#: bin/tp-robot:725
+#, python-format
+msgid ""
+"Oops, there is a slight formatting error.  In the `Last-Translator'\n"
+"header line, please use no more than a single space between `%s'\n"
+"and `<%s>'.\n"
+msgstr ""
+"Ups, da ist ein kleiner Formatierungsfehler. Bitte benutzen Sie nicht\n"
+"mehr als ein Leerzeichen zwischen »%s« und »<%s>«.\n"
+
+#: bin/tp-robot:738
+#, python-format
+msgid ""
+"According to my notes, %s is not a member of the proper\n"
+"%s team.  It might only be a question of spelling?  In case\n"
+"yes, I then need to know about spelling alternatives, so please tell the\n"
+"translation coordinator.  Yet, it is usually best to avoid such variance,\n"
+"and stick to a single preferred spelling.  It might also be that you never\n"
+"joined the %s team.  If you do not know how to do so, please\n"
+"write to the translation coordinator for more information about it.\n"
+msgstr ""
+"Wenn ich meinen Aufzeichnungen glauben darf, ist %s kein Mitglied\n"
+"des %s-Teams. Könnte es an der Schreibweise liegen? In dem Fall\n"
+"muss ich über die Schreibweisen bescheidwissen, sagen Sie also\n"
+"bitte dem Übersetzungskoordinator bescheid. Es ist aber am besten,\n"
+"solche Varianzen zu vermeiden und sich für eine Schreibweise zu\n"
+"entscheiden. Es könnte auch sein, dass Sie dem %s-Sprachteam\n"
+"niemals beigetreten sind. Falls Sie nicht wissen, was Sie machen\n"
+"sollen, schreiben Sie an den Übersetzungskoordinator. Der kann\n"
+"Ihnen mehr dazu sagen.\n"
+
+#: bin/tp-robot:753
+#, python-format
+msgid ""
+"The last translator of this PO file is `%s'.  Yet, according\n"
+"to my own notes, `%s' is not known as a good address to reach\n"
+"that translator.\n"
+"%s%s\n"
+msgstr ""
+"Der letzte Übersetzer dieser .po-Datei ist »%s«. In meinen\n"
+"eigenen Aufzeichnungen steht, dass »%s« nicht als gute Adresse\n"
+"bekannt ist, diesen Übersetzer zu erreichen.\n"
+"%s%s\n"
+
+#: bin/tp-robot:770
+#, python-format
+msgid ""
+"I'm not fully sure that you are the author of the translations you sent\n"
+"to me.  The header of your email invoice says that your are `%s',\n"
+"while `Last-Translator' field of PO file header says your name should be\n"
+"`%s'.  The difference might be mere spelling differences.\n"
+"These may happen when you do not have full control over your name in the\n"
+"mailing system you are using.\n"
+"\n"
+"As I expect you have better control over PO files, I'll consider that\n"
+"the second name is the most dependable one.  Yet, in some cases, this\n"
+"might represent some error I'm unable to analyse, while you do.  In the\n"
+"unlikely case the two names above are really different, the situation is\n"
+"more serious.  Some translation teams surely have their own ways and habits.\n"
+"Yet, on the average, it is unusual that someone submits a translation file\n"
+"written by someone else.\n"
+msgstr ""
+"Im bin mir nicht vollständig sicher, dass Sie der Autor der Übersetzung\n"
+"sind, die Sie mir geschickt haben. Im Header Ihrer Mail steht, dass Sie\n"
+"»%s« seien, aber im Feld »Last-Translator« steht, Sie seien\n"
+"»%s«. Der Unterschied könnte in der Schreibweise liegen. Das kann\n"
+"passieren, wenn Sie nicht die volle Kontrolle über das Mailsystem\n"
+"haben, das Sie benutzen.\n"
+"\n"
+"Da ich davon ausgehe, dass Sie eine bessere Kontrolle über die .po-Dateien\n"
+"haben, nehme ich den zweiten Namen als zuverlässiger an. In einigen Fällen\n"
+"kann das auch ein Fehler sein, den ich nicht feststellen kann, Sie aber.\n"
+"Für den unwahrscheinlichen Fall, dass die beiden Namen wirklich\n"
+"unterschiedlich sind, ist die Situation ernster. Einige Übersetzerteams\n"
+"haben sicherlich ihre eigenen Sitten und Bräuche. Trotzdem ist es nicht\n"
+"normal, dass jemand eine Übersetzung einreicht, die jemand anders geschrieben\n"
+"hat.\n"
+
+#: bin/tp-robot:791
+#, python-format
+msgid ""
+"The header of the message you sent to me says that your email address is\n"
+"`%s', while the `Last-Translator' field of PO file header says\n"
+"it should be `%s'.  Let me consider that the later prevails.\n"
+"I merely bring this to your attention in case _you_ think it matters.\n"
+msgstr ""
+"Im Header der Mail, die Sie mir geschickt haben, steht, dass Ihre\n"
+"Mailadresse »%s« ist, aber im Feld »Last-Translator«\n"
+"in der .po-Datei steht »%s«. Ich entscheide mich\n"
+"für die zweite Adresse. Ich sage Ihnen das auch nur, weil es\n"
+"vielleicht für Sie wichtig sein könnte.\n"
+
+#: bin/tp-robot:801
+#, python-format
+msgid ""
+"The `Last-Translator' field was not found in your PO file header, or\n"
+"might not be formatted properly.  The line containing this field ideally\n"
+"looks like:\n"
+"\n"
+">    'Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n'\n"
+"\n"
+"In this line, FULL NAME has to be replaced by the full name of the current\n"
+"translator of the messages for the `%s' textual domain, who is you\n"
+"most probably :-), EMAIL@ADDRESS gives a way to reach that translator.\n"
+msgstr ""
+"Das Feld »Last-Translator« wurde in der .po-Datei nicht gefunden\n"
+"oder es ist nicht richtig formatiert. Die Zeile mit diesem Feld sieht\n"
+"idealerweise so aus:\n"
+"\n"
+">    'Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n'\n"
+"\n"
+"In dieser Zeile muss FULL NAME durch den vollständigen Namen des aktuellen\n"
+"Übersetzers des Textes für die Textdomain »%s« ersetzt werden. Das sind\n"
+"höchstwahrscheinlich Sie :-). EMAIL@ADDRESS ist ein Weg, diesen Übersetzer\n"
+"zu erreichen.\n"
+
+#: bin/tp-robot:820
+#, python-format
+msgid ""
+"Oops, there is a slight formatting error.  In the `Language-Team'\n"
+"header line, please use no more than a single space between `%s'\n"
+"and `<%s>'.\n"
+msgstr ""
+"Ups, da ist ein kleiner Formatierungsfehler. Im Feld »Language-Team«\n"
+"muß zwischen »%s« und »<%s>« genau ein Leerzeichen stehen. Sonst nichts.\n"
+
+#: bin/tp-robot:827
+#, python-format
+msgid ""
+"You wrote `%s' in the `Language-Team' field of the PO file\n"
+"header, while I think it should have been `%s'.  I'm not\n"
+"fully sure about this.  If you think I got it wrong, please email to the\n"
+"translation coordinator for straingthening this out.\n"
+msgstr ""
+"Sie schrieben »%s« im Feld »Language-Team« der .po-Datei, aber ich\n"
+"glaube, das sollte »%s« heißen. Ich bin mir aber nicht ganz sicher.\n"
+"Falls Sie denken, dass ich das falsch einschätze, schreiben Sie an\n"
+"den Übersetzungskoordinator, um dieses Problem zu beheben.\n"
+
+#: bin/tp-robot:836
+#, python-format
+msgid ""
+"Each translation team should publish some mailing list address, meant\n"
+"to appear (between angular brackets) after the language name into the\n"
+"`Language-Team' field of the PO file header.  The Translation Project\n"
+"does not have such an address for the %s team.  You might\n"
+"already know some list dedicated to internationalisation efforts for\n"
+"%s, which may well fit your needs.  In case none, waiting\n"
+"to get better organised, you might use the address of one of the team\n"
+"members, maybe yours if you are alone in the team!  In any case, please\n"
+"inform the translation coordinator of the address your team decides to use.\n"
+"Also note that the Translation Project and Linux International collaborate\n"
+"for opening mailing list for teams in need for such, but only _given_\n"
+"that the team has been already productive through the publication of a\n"
+"few usable translation files -- after having dismantled a few unproductive\n"
+"teams, we decided for this stronger requirement.\n"
+msgstr ""
+"Jedes Übersetzungsteam sollte im Feld »Language-Team« der .po-Dateien eine\n"
+"Adresse für Mailinglisten veröffentlichen, die in Wikelklammern hinter\n"
+"dem Name der Sprache steht. Das Übersetzungsprojekt hat for das %s-Team\n"
+"keine solche Adresse. Vielleicht kennen Sie ja eine Adresse oder\n"
+"Mailingliste, die schon zur Koordination der Übersetzung von »%s«\n"
+"benutzt wird. Andernfalls können Sie die Adresse eines Mitglieds des\n"
+"Übersetzungsteams einsetzen, vielleicht sogar Ihre, falls Sie alleine\n"
+"in dem Team sind. Informieren Sie bitte in jedem Fall den Übersetzungs-\n"
+"koordinator über die Adresse, die Ihr Team benutzt. Beachten Sie auch,\n"
+"dass das Übersetzungsprojekt und Linux International zusammenarbeiten,\n"
+"damit Teams, die so eine Mailingliste brauchen _und_ die schon ein\n"
+"paar Übersetzungen produziert haben, eine Mailingliste bekommen können.\n"
+"Nachdem wir ein paar unproduktive Teams aufgelöst hatten, haben wir uns\n"
+"für diese strengere Regelung entschieden.\n"
+
+#: bin/tp-robot:855
+#, python-format
+msgid ""
+"You wrote <%s> in the `Language-Team' field of the PO file\n"
+"header, while I think it should have been <%s>.  I'm not fully sure\n"
+"about this.  If you think I got it wrong, please email to the translation\n"
+"coordinator for straightening this out.\n"
+msgstr ""
+"Im Feld »Language-Team« Ihrer .po-Datei steht »%s«, aber ich denke,\n"
+"es sollte »%s« heißen. Ich bin mir aber nicht ganz sicher. Falls\n"
+"Sie denken, dass ich falsch liege, informieren Sie bitte den\n"
+"Übersetzungskoordinator. Der wird das schon regeln.\n"
+
+#: bin/tp-robot:864
+#, python-format
+msgid ""
+"The `Language-Team' field was not found in your PO file header, or\n"
+"might not be formatted properly.  The line containing this field often\n"
+"looks like:\n"
+"\n"
+">    'Language-Team: LANGUAGE <TEAM-EMAIL-ADDRESS>\\n'\n"
+"\n"
+"In this line, LANGUAGE is the English name of your spoken language,\n"
+"capitalizing the first letter of words and leaving the rest in lower case.\n"
+"It sometimes happen, not always, that TEAM-EMAIL-ADDRESS has the form\n"
+"`TEAM@li.org', where TEAM is the ISO-639 code for the language (not to\n"
+"be confused with country codes, which are a different standard).  If I\n"
+"had to write this line myself, right now, according to the information\n"
+"which is available to me, I would use:\n"
+"\n"
+">    'Language-Team: %s <%s>\\n'\n"
+"\n"
+"If this leaves you clueless and you still want to find it, please write to\n"
+"the translation coordinator for asking, and we will work this out together.\n"
+msgstr ""
+"Das Feld »Language-Team« wurde in Ihrer .po-Datei nicht gefunden\n"
+"oder es ist nicht richtig formatiert. Die Zeile mit diesem Feld\n"
+"sieht oft so aus:\n"
+"\n"
+">    'Language-Team: LANGUAGE <TEAM-EMAIL-ADRESSE>\\n'\n"
+"\n"
+"In dieser Zeile ist LANGUAGE der englische Name Ihrer gesprochenen\n"
+"Sprache, der erste Buchstabe groß, der Rest klein. Manchmal hat\n"
+"die TEAM-EMAIL-ADRESSE die Form »TEAM@li.org«, wobei TEAM das\n"
+"ISO-639-Kürzel für die Sprache (nicht das Land, das ist ein anderer\n"
+"Standard) ist. Falls ich diese Zeile selbst schreiben müsste,\n"
+"jetzt gerade, würde ich mit den Informationen, die ich habe,\n"
+"folgendes schreiben:\n"
+"\n"
+">    'Language-Team: %s <%s>\\n'\n"
+"\n"
+"Falls Ihnen das nicht weiterhilft, schreiben Sie bitte dem\n"
+"Übersetzungskoordinator, dann klären wir das zusammen.\n"
+
+#: bin/tp-robot:889
+msgid ""
+"The `MIME-Version' field was not found in your PO file header, or is\n"
+"    not formatted properly.  The line containing it should exactly look like:\n"
+"\n"
+">    'MIME-Version: 1.0\\n'\n"
+msgstr ""
+"Das Feld »MIME-Version« wurde nicht in Ihrer .po-Datei gefunden\n"
+"oder ist nicht richtig formatiert. Die Zeile sollte genau so\n"
+"aussehen:\n"
+"\n"
+">    'MIME-Version: 1.0\\n'\n"
+
+#: bin/tp-robot:924
+#, python-format
+msgid ""
+"The `Content-Type' field introduced an unusual character set `%s'.\n"
+"If this is not an error, please merely inform the translation coordinator\n"
+"for `%s' to be merely added to the list of acceptable charsets.\n"
+"This list currently holds: %s.\n"
+msgstr ""
+"Das Feld »Content-Type« enthält einen ungewöhnlichen Zeichensatz »%s«.\n"
+"Falls das kein Fehler ist, informieren Sie bitte den Übersetzungs-\n"
+"koordinator, damit »%s« in die Liste der gültigen Zeichensätze\n"
+"aufgenommen wird. Diese Liste enthält momentan: %s.\n"
+
+#: bin/tp-robot:930 bin/tp-robot:941 bin/tp-robot:956 bin/tp-robot:967
+msgid "or"
+msgstr "oder"
+
+#: bin/tp-robot:933
+#, python-format
+msgid ""
+"The `Content-Type' field was not found in your PO file header, or is\n"
+"    not formatted properly.  The line containing it ideally looks like:\n"
+"\n"
+">    'Content-Type: text/plain; charset=CHARSET\\n'\n"
+"\n"
+"where CHARSET should be the name of a character set, like one of %s.\n"
+msgstr ""
+"Das Feld »Content-Type« wurde nicht im Header Ihrer .po-Datei gefunden\n"
+"oder es ist nicht richtig formatiert. Die Zeile sieht idealerweise so aus:\n"
+"\n"
+">    'Content-Type: text/plain; charset=ZEICHENSATZ\\n'\n"
+"\n"
+"wobei ZEICHENSATZ der Name des Zeichensatzes ist, so wie %s.\n"
+
+#: bin/tp-robot:950
+#, python-format
+msgid ""
+"The `Content-Transfer-Encoding' field introduced an unusual encoding\n"
+"`%s'.  If this is not an error, please inform the translation\n"
+"coordinator for `%s' to be merely added to the list of acceptable\n"
+"charsets.  This list currently holds: %s.\n"
+msgstr ""
+"Das Feld »Content-Transfer-Encoding« enthält eine ungewöhnliche Codierung\n"
+"»%s«. Falls das kein Fehler ist, informieren Sie bitte den Übersetzungs-\n"
+"koordinator, dass »%s« zu der Liste der akzeptierten Codierungen\n"
+"hinzugefügt wird. Diese Liste enthält momentan: %s.\n"
+
+#: bin/tp-robot:959
+#, python-format
+msgid ""
+"The `Content-Transfer-Encoding' field was not found in your PO file header,\n"
+"or is not formatted properly.  The line containing it ideally looks like:\n"
+"\n"
+">    'Content-Transfer-Encoding: ENCODING\\n'\n"
+"\n"
+"where ENCODING should be the name of an encoding, like one of %s.\n"
+msgstr ""
+"Das Feld »Content-Transfer-Encoding« wurde nicht im Header Ihrer .po-Datei\n"
+"gefunden, oder es ist nicht richtig formatiert. Die Zeile sieht idealerweise\n"
+"so aus:\n"
+"\n"
+">    'Content-Transfer-Encoding: ENCODING\\n'\n"
+"\n"
+"wobei ENCODING der Name einer Codierung sein sollte, wie eine von %s.\n"
+
+#: bin/tp-robot:992
+msgid ""
+"Sniff!  I'm unable to successfully start the `msgfmt' program.  I most\n"
+"probably need repairs.  I'll go whine to the translation coordinator.\n"
+msgstr ""
+"*schnüff* Ich kann das Programm »msgfmt« nicht starten. Wahrscheintlich\n"
+"brauche ich eine Reparatur. Ich gehe jetzt zum Übersetzungskoordinator\n"
+"und heule mich sort aus.\n"
+
+#: bin/tp-robot:1000
+msgid ""
+"After running msgfmt on your file, it seems that you need gettext 0.10.37\n"
+"for this file. This is no problem at all, but you should be aware of that.\n"
+msgstr ""
+"Nachdem »msgfmt« über Ihre Datei gelaufen ist, scheint es, dass Sie\n"
+"gettext 0.10.37 benötigen. Das ist überhaupt kein Problem, aber Sie\n"
+"sollten es wissen.\n"
+
+#: bin/tp-robot:1014
+#, python-format
+msgid ""
+"Just to make sure, I called 'msgfmt --statistics -c -v -o /dev/null' on\n"
+"your submitted PO file, and `msgfmt' told me that I should not let it go.\n"
+"More precisely, it said:\n"
+"\n"
+"%s"
+msgstr ""
+"Nur um sicherzugehen, habe ich »msgfmt --statistics -c -v -o /dev/null« über\n"
+"Ihre eingereichte .po-Datei laufen lassen, und es sagte mir, dass ich die\n"
+"Datei so nicht durchgehen lassen kann. Etwas präziser sagte es mir:\n"
+"\n"
+"%s"
+
+#: bin/tp-robot:1031
+msgid "Just to make sure, I ran\n"
+msgstr "Nur um sicherzugehen, habe ich \n"
+
+#: bin/tp-robot:1033
+#, python-format
+msgid ""
+"\n"
+"\n"
+"on your submitted PO file, and `msgfmt' told me that I should not let\n"
+"it go.  More precisely, it said:\n"
+"\n"
+"%s"
+msgstr ""
+"\n"
+"\n"
+"über Ihre eingereichte Datei laufen lassen, und »msgfmt« sagte mir, dass\n"
+"ich die Datei so nicht durchgehen lassen kann. Etwas präziser sagte es mir:\n"
+"\n"
+"%s"
+
+#: bin/tp-robot:1043
+#, python-format
+msgid ""
+"Merely for your information, let me share with you what the `msgfmt'\n"
+"program has to say about your submitted PO file:\n"
+"\n"
+"%s"
+msgstr ""
+"Nur zu Ihrer Information teile ich Ihnen mit, was das Programm »msgfmt«\n"
+"zu Ihrer eingereichten Datei zu sagen hatte:\n"
+"\n"
+"%s"
+
+#: bin/tp-robot:1054
+msgid ""
+"At first sight it seems like your translation does not contain a clause\n"
+"that permits distribution of your translation. Please consider inserting\n"
+"a sentence like\n"
+msgstr ""
+"Beim ersten Hingucken scheint es, als ob Ihre Übersetzung keine Klausel\n"
+"enthält, die das Weiterverbeiten Ihrer Übersetzung erlaubt. Bitte erwägen\n"
+"Sie, ob Sie einen Satz wie den folgenden einfügen:\n"
+
+#: bin/tp-robot:1082
+#, python-format
+msgid ""
+"According to my notes, you are not a member of the %s team.\n"
+"Or at least, you are not there under the name `%s'.  It this is\n"
+"only a question of spelling differences, I then need to know exactly the\n"
+"alternate spellings of your name you might use.  Write to the translation\n"
+"coordinator and explain why you need many names.  It is usually best to\n"
+"avoid such variance, and stick to a single preferred spelling.\n"
+msgstr ""
+"Entsprechend meiner Notizen sind Sie kein Mitglied des %s-Teams.\n"
+"Zumindest sind Sie dort nicht unter dem Namen »%s« bekannt. Falls\n"
+"das nur eine Frage der Schreibweise ist, muss ich genau wissen,\n"
+"welche alternativen Schreibweisen Ihres Namens Sie benutzen könnten.\n"
+"Schreiben Sie an den Übersetzungskoordinator und erklären Sie ihm,\n"
+"warum Sie mehrere Namen benötigen. Normalerweise ist es am besten,\n"
+"solche Varianzen zu vermeiden und bei einer einzigen bevorzugten\n"
+"Schreibweise zu bleiben.\n"
+
+#: bin/tp-robot:1095
+#, python-format
+msgid ""
+"The email address `%s' is not known, in the Translation Project\n"
+"registry, as a valid way to reach you.\n"
+"%s%s\n"
+msgstr ""
+"Die Mailadresse »%s« ist in der Datenbank des Übersetzungsprojekts\n"
+"nicht als ein richtiger Weg, Sie zu erreichen, bekannt.\n"
+"%s%s\n"
+
+#: bin/tp-robot:1107
+#, python-format
+msgid ""
+"The `%s' textual domain is not known to the Translation Project, at\n"
+"least not under that spelling.  It may also be that the maintainer of\n"
+"that project did not make arrangements yet for the Translation Project to\n"
+"handle its PO files.  In this case, please invite the project maintainer to\n"
+"contact us.  See `http://www.iro.umontreal.ca/contrib/po/HTML' and select\n"
+"`Textual Domains' to see the list of domains which are currently handled.\n"
+msgstr ""
+"Die Textdomain »%s« ist dem Übersetzungsprojekt nicht bekannt, zumindest\n"
+"nicht unter dieser Schreibweise. Es kann auch sein, dass der Maintainer\n"
+"des Projekts noch keine Anweisungen gegeben hat, wie seine .po-Dateien\n"
+"behandelt werden sollen. In diesem Fall sollten Sie den Projektmaintainer\n"
+"auffordern, uns zu kontaktieren. Gehen Sie auf die Seite\n"
+"»http://www.iso.umontreal.ca/contrib/po/HTML« und wählen Sie »Textual Domains«\n"
+"aus, um die Liste der momentan behandelten Textdomains anzusehen.\n"
+
+#: bin/tp-robot:1120
+#, python-format
+msgid ""
+"According to my notes, the Free Software Foundation did not acknowledge the\n"
+"receipt of a translation disclaimer for you.  Such a disclaimer is required\n"
+"for GNU packages (or when maintainers of non-GNU packages ask me to ensure\n"
+"the existence of such a disclaimer).  This is the case for `%s'.\n"
+"Grab a copy of `http://www.iro.umontreal.ca/contrib/po/doc/DISCLAIM',\n"
+"print it on paper, and return it filled by the usual postal system.\n"
+"You will be notified when the FSF acknowedges its receipt; you can then\n"
+"re-attempt uploading your PO file to the Translation Project.  If you have\n"
+"any question or objection with the translation disclaimer as it stands,\n"
+"I invite you to discuss such things with the translation coordinator.\n"
+msgstr ""
+"In meinen Aufzeichnungen steht, dass die Free Software Foundation den\n"
+"Empfang des Disclaimers von Ihnen noch nicht bestätigt hat. So ein\n"
+"Disclaimer wird für GNU-Pakete benötigt (oder wenn Maintainer von\n"
+"Nicht-GNU-Paketen mich bitten, die Existenz so eines Disclaimers\n"
+"zu erzwingen). Das ist für »%s« der Fall. Holen Sie sich eine Kopie\n"
+"von »http://www.iro.umontreal.ca/contrib/po/doc/DISCLAIM«, drucken\n"
+"Sie sie auf Papier aus und schicken Sie sie ausgefült mit dem\n"
+"traditionellen Postsystem an die FSF. Sie werden benachrichtigt,\n"
+"wenn die FSF den Antrag bestätigt. Sie können dann erneut versuchen,\n"
+"die .po-Datei zum Übersetzungsprojekt hochzuladen. Wenn Sie Fragen\n"
+"oder Bedenken zum Disclaimer haben, so wie er ist, diskutieren Sie\n"
+"bitte mit dem Übersetzungskoordinator darüber.\n"
+
+#: bin/tp-robot:1135
+#, python-format
+msgid ""
+"Most teams allow translators to directly send their achieved translations\n"
+"to the Translation Project, and do quality control only after the fact, to\n"
+"obtain a quicker turn-around.  The Translation Project registry does not list\n"
+"you as the usual translator for `%s'.  Your team leader might send\n"
+"an email to the translation coordinator, warranting that you are indeed\n"
+"assigned to this textual domain.  For small teams not having a leader,\n"
+"you may write yourself to the translation coordinator.  It is a simple\n"
+"matter to assign you the responsibility of `%s' for %s,\n"
+"given nobody else is already assigned to it.  However, some teams prefer\n"
+"to channel translations differently, for ensuring some quality control first.\n"
+msgstr ""
+"Die meisten Teams erlauben ihren Übersetzern, die Übersetzungen selbst\n"
+"zum Übersetzungsprojekt hochzuladen und führen die Qualitätskontrolle\n"
+"später durch, um die Veröffentlichung zu beschleunigen. Das Übersetzungs-\n"
+"projekt kennt Sie nicht als den üblichen Übersetzer von »%s«. Ihr\n"
+"Teamleiter kann eine Mail an den Übersetzungskoordinator schicken,\n"
+"in der er darum bittet, Sie wirklich zu dieser Textdomain zuzuordnen.\n"
+"Bei kleinen Teams, die keinen Leiter haben, können Sie auch selbst an\n"
+"den Übersetzungskoordinator schreiben. Es ist völlig simpel, Ihnen\n"
+"die Verantwortung von `%s' für %s zu geben, vorausgesetzt, dass noch\n"
+"niemand anders sie hat. Wie auch immer, bei einigen Teams läuft das\n"
+"Veröffentlichen der Übersetzungen etwas anders, damit sie schon im\n"
+"Voraus eine Qualitätskontrolle durchführen können.\n"
+
+#: bin/tp-robot:1152
+#, python-format
+msgid ""
+"You submit a PO file for which the Translation Project does not have a\n"
+"corresponding PO Template.  There is no such `%s', here.\n"
+"Please have the maintainer of the associate package, or the programmer\n"
+"taking care of its internationalisation, to send the corresponding POT file\n"
+"to the Translation Project.  It is also best that we also have a precise URL\n"
+"of some official, pretest or snapshot distribution to offer to translators.\n"
+"This URL is only for translation purposes, the package does not even have to\n"
+"compile.  A few translators do like peeking at the sources for getting finer\n"
+"translation contexts, for when messages are not clear enough in themselves.\n"
+msgstr ""
+"Sie haben uns eine .po-Datei geschickt, für die wir gar keine Vorlage haben.\n"
+"Hier gibt es kein »%s«. Bitten Sie den Maintainer oder den Programmierer,\n"
+"der für die Internationalisierung des Pakets zuständig ist, darum, die\n"
+"passende .pot-Vorlage dem Übersetzungsprojekt zu schicken. Es ist auch gut\n"
+"wenn wir eine präzise URL einer offiziellen, Test- oder Schnappschussversion\n"
+"des Pakets haben, die wir unseren Übersetzern als Hilfe anbieten können.\n"
+"Diese URL ist nur für die Übersetzung gedacht, das Paket dahinter muss\n"
+"nicht einmal compilierbar sein. Ein paar Übersetzer sehen sich gerne den\n"
+"Quelltext an, um einen besseren Kontext für die Übersetzung herauszufinden,\n"
+"für den Fall, dass die Texte an sich nicht klar genug sind.\n"
+
+#: bin/tp-robot:1170
+msgid ""
+"The Translation Project already holds an exact copy of your submission,\n"
+"which you may find as either one of:\n"
+"\n"
+msgstr ""
+"Das Übersetzungsprojekt hat bereits eine identische Kopie dieser Übersetung,\n"
+"die Sie an einer dieser Stellen finden können:\n"
+"\n"
+
+#: bin/tp-robot:1228
+msgid ""
+"Sniff!  I'm unable to successfully start the `diff' program.  I most\n"
+"probably need repairs.  I'll go whine to the translation coordinator.\n"
+msgstr ""
+"*schnüff* Ich konnte das Programm »diff« nicht starten. Wahrscheinlich\n"
+"brauche ich eine Reparatur. Ich gehe jetzt zum Übersetzungskoordinator\n"
+"und heule mich dort aus.\n"
+
+# TODO:canonicalize
+#: bin/tp-robot:1239
+msgid ""
+"Sniff!  I'm unable to successfully canonicalise your PO file.  I most\n"
+"probably need repairs.  I'll go whine to the translation coordinator.\n"
+msgstr ""
+"*schnüff* Ich konnte Ihre .po-Datei nicht in die Standardform bringen.\n"
+"Wahrscheinlich brauche ich eine Reparatur. Ich gehe jetzt zum\n"
+"Übersetzungskoordinator und heule mich dort aus.\n"
+
+#: bin/tp-robot:1247
+msgid ""
+"We are trying to reach a consistent presentation for PO files in the\n"
+"Translation Project, over all textual domains and native languages.\n"
+"As a robot, I contribute my good share towards this goal, and so, I made\n"
+"the following modifications to your invoice.  You might feel like accepting\n"
+"to do the same thing on your side; if you decide to do so, let me suggest\n"
+"that you try the nice `patch' utility.\n"
+"\n"
+"The `msgmerge' program which is used for making distributions does not\n"
+"produce canonical files, and until this gets corrected, you should rather\n"
+"grab your PO files directly from the Translation Project, as these are now\n"
+"always made canonical.  If you do not, the following set of `unidiffs'\n"
+"might get irritably longish.  Please also note that you do not _ought_\n"
+"to make such modifications, as I will continue doing them patiently and\n"
+"automatically, here.  This message continues after the (maybe long) quote.\n"
+msgstr ""
+"Wir versuchen, eine einheitliche Darstellung für .po-Dateien im\n"
+"Übersetzungsprojekt zu erreichen, über allen Textdomains und Sprachen.\n"
+"Als ein Robot trage ich meinen Teil dazu bei, und ich habe die folgenden\n"
+"Änderungen in Ihrer Übersetzungsdatei gemacht. Sie können diese Änderungen\n"
+"gerne ihrerseits durchführen. Falls Sie das wollen, empfehle ich Ihnen\n"
+"das nette Utility »patch«.\n"
+"Das Programm »msgmerge«, das für das Erstellen der Distributionen\n"
+"benutzt wird, produziert die Dateien leider nicht im Standardformat,\n"
+"und bis das korrigiert wird, sollten Sie Ihre Übersetzungsdateien\n"
+"direkt vom Übersetzungsprojekt holen, da die schon im Standardformat\n"
+"vorliegen. Falls Sie das nicht tun, könnte die folgende Liste von\n"
+"Änderungen irritierend lang werden. Ich werde jedenfalls weiterhin\n"
+"solche Dateien anmahnen und so lange Änderungslisten schicken. Diese\n"
+"Nachricht geht nach den (möglicherweise langen) Änderungen weiter.\n"
+
+#: bin/tp-robot:1271
+#, python-format
+msgid ""
+"Your file has been accepted and uploaded into the archives: congratulations!\n"
+"Whenever the maintainer of `%s' will communicate a new PO Template\n"
+"file to the Translation Project, the translation you just achieved will\n"
+"probably require revision.  Your team will then be notified of the URL of the\n"
+"PO file to revise, with a quick evaluation of the extent of the work needed.\n"
+msgstr ""
+"Ihre Datei wurde akzeptiert und in die Archive hochgeladen. Glückwunsch!\n"
+"Sobald der Maintainer von »%s« eine neue PO-Vorlage zur Verfügung stellt,\n"
+"benötigt Ihre Übersetzung wahrscheinlich eine Durchsicht. Ihr Team wird\n"
+"dann mit der URL der .po-Datei benachrichtigt, mit einer kurzen Übersicht,\n"
+"wieviel Arbeit an der Datei zu tun ist.\n"
+
+#: bin/tp-robot:1287
+msgid ""
+"To speed things up, I could send you updated copies of this PO file by email,\n"
+"whenever I upload new PO Template files for it.  If you are interested in\n"
+"this service, you may register by emailing to the translation coordinator.\n"
+msgstr ""
+"Um die Arbeit zu beschleunigen, kann ich Ihnen aktualisierte Kopien dieser\n"
+".po-Datei per Mail schicken, sobald ich neue PO-Vorlangen dafür hochlade.\n"
+"Falls Sie an diesem Service interessiert sind, können Sie sich registrieren,\n"
+"indem Sie eine Mail an den Übersetzungskoordinator schreiben.\n"
+
+#: bin/tp-robot:1310
+msgid ""
+"Sniff!  I'm unable to successfully start the `po-register' program.\n"
+"I most probably need repairs.  I'll go whine to the translation coordinator.\n"
+msgstr ""
+"*schnüff* Ich kann das Programm »po-register« nicht starten. Wahrscheinlich\n"
+"brauche ich eine Reparatur. Ich gehe jetzt zu dem Übersetzungskoordinator\n"
+"und heule mich dort aus.\n"
+
+#: bin/tp-robot:1318
+msgid "Original message header:\n"
+msgstr "Ursprünglicher Mailheader:\n"
+
+#: bin/tp-robot:1323
+msgid "Diagnostics issued by `po-register:\n"
+msgstr "Diagnose von »po-register«:\n"
+
+#: bin/tp-robot:1338
+#, python-format
+msgid "the translators's address is `%s'"
+msgstr "Die Adresse des Übersetzers ist »%s«"
+
+#: bin/tp-robot:1341
+msgid "the translator's address"
+msgstr "Die Adresse des Übersetzers"
+
+#: bin/tp-robot:1343
+#, python-format
+msgid "the textual domain is `%s'"
+msgstr "Die Textdomain ist »%s«"
+
+#: bin/tp-robot:1345
+msgid "the textual domain"
+msgstr "Die Textdomain"
+
+#: bin/tp-robot:1347
+#, python-format
+msgid "the domain version is `%s'"
+msgstr "Die Version der Textdomain ist »%s«"
+
+#: bin/tp-robot:1349
+msgid "the domain version"
+msgstr "Die Version der Textdomain"
+
+#: bin/tp-robot:1351
+#, python-format
+msgid "the team code is `%s'"
+msgstr "Das Teamkürzel ist »%s«"
+
+#: bin/tp-robot:1353
+msgid "the team code"
+msgstr "Das Teamkürzel"
+
+#: bin/tp-robot:1356 bin/tp-robot:1357 bin/tp-robot:1375
+msgid "and"
+msgstr "und"
+
+#: bin/tp-robot:1361
+msgid ""
+"No official email address exist for this translator in the Translation\n"
+"Project registry.\n"
+msgstr ""
+"Dieser Übersetzer hat keine offizielle E-Mail-Adresse in der Datenbank\n"
+"des Übersetzungsprojekts.\n"
+
+#: bin/tp-robot:1366
+#, python-format
+msgid "The only address we officially know for this translator is `%s'.\n"
+msgstr "Die einzige Adresse, die wir für diesen Übersetzer offiziell kennen, ist »%s«.\n"
+
+#: bin/tp-robot:1372
+#, python-format
+msgid "For this translator, the only registered addresses we have are: %s.\n"
+msgstr "Die einzigen registrierten Adressen, die wir für diesen Übersetzer haben, sind: %s.\n"
+
+#: web/lib/editor.py:34 web/lib/editor.py:160 web/lib/editor.py:298
+msgid "Use exactly one argument with `mailto'"
+msgstr "Benutze genau ein Argument mit »mailto«"
+
+#: web/lib/editor.py:45
+msgid "Use exactly one argument with `keep'"
+msgstr "Benutze genau ein Argument mit »keep«"
+
+#: web/lib/editor.py:48 web/lib/editor.py:312
+#, python-format
+msgid "Version `%s' is already present"
+msgstr "Die Version »%s« gibt es schon"
+
+#: web/lib/editor.py:54
+msgid "Use exactly one argument with `nokeep'"
+msgstr "Benutze genau ein Argument mit »nokeep«"
+
+#: web/lib/editor.py:57
+#, python-format
+msgid "Version `%s' was not there anyway"
+msgstr "Aber die Version »%s« gibt es noch nicht"
+
+#: web/lib/editor.py:62
+msgid "Use at least one argument with `keeps'"
+msgstr "Benutze mindestens ein Argument mit »keeps«"
+
+#: web/lib/editor.py:68
+#, python-format
+msgid "Version `%s' duplicated"
+msgstr "Doppelte Version »%s«"
+
+#: web/lib/editor.py:75
+msgid "Do not use arguments with `disclaim'"
+msgstr "Benutze keine Argumente mit »disclaim«"
+
+#: web/lib/editor.py:80
+msgid "Do not use arguments with `nodisclaim'"
+msgstr "Benutze keine Argumente mit »nodisclaim«"
+
+#: web/lib/editor.py:85 web/lib/editor.py:349
+msgid "Do not use arguments with `autosend'"
+msgstr "Benutze keine Argumente mit »autosend«"
+
+#: web/lib/editor.py:90 web/lib/editor.py:354
+msgid "Do not use arguments with `noautosend'"
+msgstr "Benutze keine Argumente mit »noautosend«"
+
+#: web/lib/editor.py:95
+msgid "Use exactly one argument with `url'"
+msgstr "Benutze genau ein Argument mit »url«"
+
+#: web/lib/editor.py:98
+#, python-format
+msgid "URL `%s' is already present"
+msgstr "Die URL »%s« gibt es schon"
+
+#: web/lib/editor.py:103
+msgid "Use exactly one argument with `nourl'"
+msgstr "Benutze genau ein Argument mit »nourl«"
+
+#: web/lib/editor.py:106
+#, python-format
+msgid "URL `%s' was not there anyway"
+msgstr "Die URL »%s« gibt es noch nicht"
+
+#: web/lib/editor.py:111
+msgid "Use at least one argument with `urls'"
+msgstr "Benutze mindestens ein Argument mit »urls«"
+
+#: web/lib/editor.py:123 web/lib/editor.py:227 web/lib/editor.py:386
+msgid "Use exactly one argument with `remark'"
+msgstr "Benutze genau ein Argument mit »remark«"
+
+#: web/lib/editor.py:125 web/lib/editor.py:229 web/lib/editor.py:361
+#: web/lib/editor.py:388
+#, python-format
+msgid "Remark `%s' is already present"
+msgstr "Die Anmerkung »%s« gibt es schon"
+
+#: web/lib/editor.py:130 web/lib/editor.py:234 web/lib/editor.py:393
+msgid "Use exactly one argument with `noremark'"
+msgstr "Benutze genau ein Argument mit »noremark«"
+
+#: web/lib/editor.py:132 web/lib/editor.py:236 web/lib/editor.py:368
+#: web/lib/editor.py:395
+#, python-format
+msgid "Remark `%s' was not there anyway"
+msgstr "Die Anmerkung »%s« gibt es noch nicht"
+
+#: web/lib/editor.py:137 web/lib/editor.py:241 web/lib/editor.py:400
+msgid "Do not use arguments with `remarks'"
+msgstr "Benutze keine Argumente mit »remarks«"
+
+#: web/lib/editor.py:171
+msgid "Use exactly one argument with `charset'"
+msgstr "Benutze genau ein Argument mit »charset«"
+
+#: web/lib/editor.py:177
+msgid "Do not use arguments with `nocharset'"
+msgstr "Benutze keine Argumente mit »nocharset«"
+
+#: web/lib/editor.py:182
+msgid "Use exactly one argument with `leader'"
+msgstr "Benutze genau ein Argument mit »leader«"
+
+#: web/lib/editor.py:193
+msgid "Use exactly two arguments with `ref'"
+msgstr "Benutze genau zwei Argumente mit »ref«"
+
+#: web/lib/editor.py:197
+#, python-format
+msgid "Reference `%s, %s' is already present"
+msgstr "Den Verweis »%s, %s« gibt es schon"
+
+#: web/lib/editor.py:202
+msgid "Use exactly two arguments with `noref'"
+msgstr "Benutze genau zwei Argumente mit »noref«"
+
+#: web/lib/editor.py:206
+#, python-format
+msgid "Reference `%s, %s' was not there anyway"
+msgstr "Den Verweis »%s, %s« gibt es noch nicht"
+
+#: web/lib/editor.py:211
+msgid "Use a pair number of arguments with `refs'"
+msgstr "Benutze eine gerade Anzahl von Argumenten mit »refs«"
+
+#: web/lib/editor.py:220
+#, python-format
+msgid "Reference `%s, %s' duplicated"
+msgstr "Doppelter Verweis »%s, %s«"
+
+#: web/lib/editor.py:246
+msgid "Use exactly one argument with `translator'"
+msgstr "Benutze genau ein Argument mit »translator«"
+
+#: web/lib/editor.py:248
+#, python-format
+msgid "Translator `%s' is already present"
+msgstr "Übersetzer »%s« ist schon da"
+
+#: web/lib/editor.py:265
+msgid "Use exactly one argument with `notranslator'"
+msgstr "Benutze genau ein Argument mit »notranslator«"
+
+#: web/lib/editor.py:267
+#, python-format
+msgid "Translator `%s' is not know anyway"
+msgstr "Der Übersetzer »%s« ist nicht bekannt"
+
+#: web/lib/editor.py:270
+#, python-format
+msgid "Should keep `%s' because of disclaimer"
+msgstr "Sollte »%s« aufgrund des Disclaimers behalten"
+
+#: web/lib/editor.py:309
+msgid "Use exactly one argument with `alias'"
+msgstr "Benutze genau ein Argument mit »alias«"
+
+#: web/lib/editor.py:317
+msgid "Do not use arguments with `noalias'"
+msgstr "Benutze keine Argumente mit »noalias«"
+
+#: web/lib/editor.py:320
+#, python-format
+msgid "Alias `%s' was not there anyway"
+msgstr "Den Alias »%s« gibt es noch nicht"
+
+#: web/lib/editor.py:325
+msgid "Use at least one argument with `aliases'"
+msgstr "Benutze mindestens ein Argument mit »aliases«"
+
+#: web/lib/editor.py:331
+#, python-format
+msgid "Alias `%s' duplicated"
+msgstr "Doppelter Alias »%s«"
+
+#: web/lib/editor.py:338
+msgid "Use exactly one argument with `http'"
+msgstr "Benutze genau ein Argument mit »http«"
+
+#: web/lib/editor.py:344
+msgid "Do not use arguments with `nohttp'"
+msgstr "Benutze keine Argumente mit »nohttp«"
+
+#: web/lib/editor.py:359
+msgid "Use exactly one argument with `do'"
+msgstr "Benutze genau ein Argumen mit »do«"
+
+#: web/lib/editor.py:366
+msgid "Use exactly one argument with `nodo'"
+msgstr "Benutze genau ein Argument mit »nodo«"
+
+#: web/lib/editor.py:373
+msgid "Use at least one argument with `dos'"
+msgstr "Benutze mindestens ein Argument mit »dos«"
+
+#: web/lib/editor.py:379
+#, python-format
+msgid "Do `%s' duplicated"
+msgstr "Doppeltes »Do %s«"
+
+#: web/lib/localweb.py:151
+#, python-format
+msgid "%s: Unexistent domain or team!\n"
+msgstr "%s: Domain oder Team existiert nicht!\n"
+
+#: web/lib/localweb.py:154
+#, python-format
+msgid "%s: No hints found!\n"
+msgstr "%s: Keine Hinweise gefunden!\n"
+
+#: web/lib/localweb.py:158
+#, python-format
+msgid "%s: Missing version?\n"
+msgstr "%s: Fehlende Version?\n"
+
+#: web/lib/localweb.py:162
+#, python-format
+msgid "%s: Not in stats database!\n"
+msgstr "%s: Nicht in der Statistikdatenbank!\n"
+
+#: web/lib/po.py:12
+msgid "SOME DESCRIPTIVE TITLE."
+msgstr "EIN BESCHREIBENDER TITEL."
+
+#: web/lib/po.py:16
+msgid "FIRST AUTHOR <EMAIL@ADDRESS>, YEAR."
+msgstr "ERSTER AUTOR <EMAIL@ADRESSE>, JAHR."
+
+#: web/lib/po.py:19
+msgid "PACKAGE VERSION"
+msgstr "PAKET VERSION"
+
+#: web/lib/po.py:20 web/lib/po.py:21
+msgid "YEAR-MO-DA HO:MI +ZONE"
+msgstr "JAHR-MO-TA ST:MI +ZONE"
+
+#: web/lib/po.py:22
+msgid "FULL NAME <EMAIL@ADDRESS>"
+msgstr "VOLLSTÄNDIGER NAME <EMAIL@ADRESSE>"
+
+#: web/lib/po.py:23
+msgid "LANGUAGE <LL@li.org>"
+msgstr "SPRACHE <LL@li.org>"
+
+#: web/lib/po.py:25
+msgid "text/plain; charset=CHARSET"
+msgstr "text/plain; charset=ZEICHENSATZ"
+
+#: web/lib/po.py:26
+msgid "ENCODING"
+msgstr "CODIERUNG"
+
+#: web/lib/po.py:113 web/lib/po.py:155 web/lib/po.py:158
+#, python-format
+msgid ""
+"%s:%d: Unrecognised line\n"
+"%s"
+msgstr ""
+"%s:%d: Unerkannte Zeile\n"
+"%s"
+
+#: web/lib/po.py:200
+msgid "Duplicate"
+msgstr "Duplikat"
+
+#: web/lib/registry.py:82
+#, python-format
+msgid "Unknown translator %s"
+msgstr "Unbekannter Übersetzer %s"
+
+#: web/lib/registry.py:210
+#, python-format
+msgid "Unknown domain `%s'"
+msgstr "Unbekannte Domain »%s«"
+
+#: web/lib/registry.py:232
+#, python-format
+msgid "Unknown team `%s'"
+msgstr "Unbekanntes Team »%s«"
+
+#: web/lib/registry.py:238
+#, python-format
+msgid "Unknown translator `%s'"
+msgstr "Unbekannter Übersetzer »%s«"
+
+#: web/lib/registry.py:284
+#, python-format
+msgid "No hints from `%s'"
+msgstr "Keine Hinweise von »%s«"
+
+#: web/lib/registry.py:289
+#, python-format
+msgid "POT hint from `%s' contradicts previous"
+msgstr "Der Vorlagenhinweis von »%s« widerspricht dem vorherigen"
+
+#: web/lib/registry.py:293
+#, python-format
+msgid "Domain hint from `%s' contradicts `%s'"
+msgstr "Der Domainhinweis von »%s« widerspricht »%s«"
+
+#: web/lib/registry.py:298
+#, python-format
+msgid "Version hint from `%s' contradicts `%s'"
+msgstr "Der Versionhinweis von »%s« widerspricht »%s«"
+
+#: web/lib/registry.py:303
+#, python-format
+msgid "Team hint from `%s' contradicts `%s'"
+msgstr "Der Teamhinweis von »%s« widerspricht »%s«"
+
+#: web/lib/registry.py:308
+#, python-format
+msgid "Inconsistent charset hint from `%s'"
+msgstr "Inkonsistenter Zeichensatzhinweis von »%s«"
+
+#: web/lib/registry.py:471
+#, python-format
+msgid "Unrecognised version: %s"
+msgstr "Unerkannte Version: %s"
+
+#: web/lib/run.py:18
+msgid "Report from TP-Robot"
+msgstr "Bericht vom TP-Robot"
+
+#: web/lib/run.py:53
+msgid ""
+"================================================\n"
+"Unable to send report.  Dumping it here instead.\n"
+"================================================\n"
+msgstr ""
+"=======================================================\n"
+"Kann den Bericht nicht senden. Stattdessen ist er hier.\n"
+"=======================================================\n"
+
+#: web/lib/run.py:92
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: Re: %s\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: Re: %s\n"
+
+#: web/lib/run.py:141
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: \"%s\" <%s>\n"
+"Subject: Re: %s\n"
+"\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: \"%s\" <%s>\n"
+"Subject: Re: %s\n"
+"\n"
+
+#: web/lib/run.py:153
+#, python-format
+msgid ""
+"Hi!  I am the service robot at the Translation Project, and was awakened\n"
+"by your submission for `%s'.\n"
+msgstr ""
+"Hi! Ich bin der Service-Robot des Übersetzungsprojekts und wurde durch\n"
+"Ihre Einsendung für »%s« aufgeweckt.\n"
+
+#: web/lib/run.py:159
+msgid ""
+"Hi!  I am the service robot at the Translation Project, and was awakened\n"
+"by one of your submissions.\n"
+msgstr ""
+"Hi!  Ich bin der Service-Robot des Übersetzungsprojekts und wurde von einem\n"
+"Ihrer Beiträge aufgeweckt.\n"
+
+#: web/lib/run.py:169
+msgid ""
+"Some error reported above is such that I cannot fully process your invoice.\n"
+"I'm sorry!  Do not fear resubmitting your PO file, once you think the problem\n"
+"has been corrected.  Being a robot, I'm incredibly patient at such things!\n"
+"\n"
+"To send your PO file as an Emacs user, merely hit `M' within PO mode.\n"
+"Otherwise, you may use various MIME (beware I'm too dumb for split parts)\n"
+"or `uuencode' (either old or new).  Have a `.gz' suffix on the file name\n"
+"if you decide to compress it with `gzip'.  You may also send your file all\n"
+"plain, but you have to make sure that we have an 8-bit clean email route.\n"
+"For now at least, do not submit more than one PO file in a single email.\n"
+"If I cannot decipher your packaging, I will forward it to the coordinator\n"
+"for manual unpacking.  Use a subject line looking like:\n"
+"\n"
+">    Subject: TP-Robot PACKAGE-VERSION.TEAM.po\n"
+"\n"
+"and send this whole thing to `translation@iro.umontreal.ca'.  You may\n"
+"expect a reply within the hour.  If you need help to resolve questions\n"
+"raised in this reply, or if you plainly suspect I'm behaving poorly, you\n"
+"may directly write the translation coordinator.  However, if you do so,\n"
+"be careful _not_ to start your message Subject with `TP-Robot'! :-)\n"
+msgstr ""
+"Ein Fehler, der oben schon erschien, hat zur Folge, dass ich Ihren Antrag\n"
+"nicht komplett bearbeiten kann. Sorry. Haben Sie keine Scheu, Ihre Datei\n"
+"erneut zu verschicken, sobald Sie denken, dass alle Fehler behoben sind.\n"
+"Da ich ein Robot bin, bin ich in der Sache sehr geduldig.\n"
+"\n"
+"Um Ihre .po-Datei als Emacs-Benutzer zu verschicken, drücken Sie einfach\n"
+"»M« innerhalb des PO-Modus. Andernfalls können Sie verschiedene MIME-\n"
+"Verfahren oder »uuencode« benutzen (egal ob alt oder neu). Falls Sie Ihre\n"
+"Datei mit »gzip« komprimieren, sollte der Dateiname auch mit ».gz« enden.\n"
+"Sie können Ihre Datei auch so wie sie ist (plain) verschicken. Dann müssen\n"
+"Sie allerdings darauf achten, dass Sie eine E-Mail-Route haben, die 8bit-clean\n"
+"ist. Verschicken Sie bitte immer nur eine .po-Datei pro Mail. Falls ich\n"
+"Ihre Mail nicht verstehe, leite ich sie an den Übersetzungskoordinator\n"
+"zur manuellen Bearbeitung weiter. Benutzen Sie eine Betreffzeile, die so\n"
+"aussieht:\n"
+"\n"
+">    Subject: TP-Robot PACKAGE-VERSION.TEAM.po\n"
+"\n"
+"und senden Sie das ganze an »translation@iro.umontreal.ca«. Sie können\n"
+"innerhalb einer Stunde eine Antwort erwarten. Falls Sie Hilfe benötigen\n"
+"oder in dieser Antwort etwas unklar ist oder falls Sie vermuten, dass\n"
+"ich (der Robot) mich schlecht benehme, können Sie direkt an den\n"
+"Übersetzungskoordinator schreiben. Falls Sie das machen, beginnen\n"
+"Sie die Betreffzeile auf keinen Fall mit »TP-Robot«! :-)\n"
+
+#: web/lib/run.py:192
+msgid ""
+"                                The Translation Project robot, in the\n"
+"                                name of your kind translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+msgstr ""
+"                                Der Robot des Übersetzungsprojekts, im Namen\n"
+"                                des Übersetzungskoordinators.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+
+#: web/lib/run.py:203
+msgid "WARNING: This prevents the robot from forwarding your file to the archive.\n"
+msgstr "WARNUNG: Dies hält den Robot davon ab, die Datei ins Archiv weiterzuleiten.\n"
+
+#: web/lib/sgml.py:172
+#, python-format
+msgid "Unsupported attribute %s"
+msgstr "Nicht untersütztes Attribut »%s«"
+
+#: web/lib/sgml.py:176
+#, python-format
+msgid "SGML in `%s' is not conformant.\n"
+msgstr "SGML in `%s' is nicht konform.\n"
+
+#: web/lib/unpack.py:90 web/lib/unpack.py:99
+#, python-format
+msgid ""
+"I'm ignoring the following lines within your submission:\n"
+"\n"
+"---------------------------------------------------------------------->\n"
+"%s\n"
+"----------------------------------------------------------------------<\n"
+msgstr ""
+"Ich ignorieren die folgenden Zeilen innerhalb Ihres Beitrags:\n"
+"---------------------------------------------------------------------->\n"
+"%s\n"
+"----------------------------------------------------------------------<\n"
+
+#: web/lib/unpack.py:108
+msgid ""
+"Your submission seems to uses `uuencode' format, yet no proper terminator\n"
+"was found to end the encoded region.\n"
+msgstr ""
+"Ihr Beitrag schein das »uuencode«-Format zu benutzen, es wurde aber kein\n"
+"ordentlicher Abschluß am Ende des codierten Bereichs gefunden.\n"
+
+#: web/lib/unpack.py:169
+#, python-format
+msgid ""
+"Uncompressing your submission with gzip has failed. gzip said:\n"
+"%s\n"
+msgstr ""
+"Das Entpacken des Beitrages mit gzip ist fehlgeschlagen. gzip sagte:\n"
+"%s\n"

@@ -1,0 +1,2627 @@
+# translation of tp-robot-1.1.po to Vietnamese
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Phan Vinh Thinh <teppi82@gmail.com>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tp-robot 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-06-19 06:38-0400\n"
+"PO-Revision-Date: 2005-04-19 22:23+0400\n"
+"Last-Translator: Phan Vinh Thinh <teppi82@gmail.com>\n"
+"Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: bin/fetch-pot:50
+#, python-format
+msgid "Domain `%s' has no associated URL"
+msgstr "Miền `%s' không có URL liên kết"
+
+#: bin/fetch-pot:56
+#, python-format
+msgid "Examining %s..."
+msgstr "Đang kiểm tra %s..."
+
+#: bin/fetch-pot:58
+#, python-format
+msgid "Fetching %s..."
+msgstr "Đang lấy %s..."
+
+#: bin/fetch-pot:65 bin/fetch-pot:68
+msgid "  apparently not found\n"
+msgstr "   không thấy một cách rõ ràng\n"
+
+#: bin/fetch-pot:86
+msgid "  no POT file in archive\n"
+msgstr "  không có tập tin POT trong kho\n"
+
+#: bin/fetch-pot:113
+msgid "  more than one POT file in archive:\n"
+msgstr "  có hơn một tập tin POT trong kho:\n"
+
+#: bin/fetch-pot:120
+msgid "Did not retain any POT file"
+msgstr "Không giữ bất kỳ tập tin POT nào"
+
+#: bin/fetch-pot:135
+#, python-format
+msgid "  extracting %s as %s\n"
+msgstr "  đang giải phóng %s thành %s\n"
+
+#: bin/fetch-pot:142
+msgid "Extraction failed"
+msgstr "Giải phóng không thành công"
+
+#: bin/msg-to-po:35 bin/msg-to-po:44
+#, python-format
+msgid "#. Message no %s\n"
+msgstr "#. Thư số %s\n"
+
+#: bin/msg-to-po:47
+#, python-format
+msgid "msgid \"*** Unknown - message no %s ***\"\n"
+msgstr "msgid \"*** Không rõ - thư số %s ***\"\n"
+
+#: bin/msg-to-po:72
+#, python-format
+msgid "<stdin>:%d: ERROR: %s"
+msgstr "<stdin>:%d: LỖI: %s"
+
+#: bin/po-empty:23 bin/po-normalize:23
+#, python-format
+msgid "Usage: %s [PO-FILE]"
+msgstr "Sử dụng: %s [TẬP-TIN-PO]"
+
+#: bin/po-register:59
+#, python-format
+msgid "`%s' may not be absolute notation, think `shar'..."
+msgstr "`%s' không thể là dấu hiệu tuyệt đối, có thể là `shar'..."
+
+#: bin/po-register:63 bin/po-register:66
+#, python-format
+msgid "Processing %s\n"
+msgstr "Đang thực hiện %s\n"
+
+#: bin/po-register:73
+#, python-format
+msgid "No known maintainer for textual domain `%s'"
+msgstr "Không rõ nhà duy trì cho miền nguyên bản `%s'"
+
+#: bin/po-register:92
+#, python-format
+msgid "  skipping `%s' as local `%s' waits\n"
+msgstr "  nhảy qua `%s' vì địa phương `%s' đang chờ\n"
+
+#: bin/po-register:96
+#, python-format
+msgid "  skipping `%s' as `%s' exists\n"
+msgstr "  nhảy qua `%s' vì `%s' tồn tại\n"
+
+#: bin/po-register:103
+#, python-format
+msgid "  merging with `%s'"
+msgstr "  đang nhập với `%s'"
+
+#: bin/po-register:121 bin/po-register:137
+#, python-format
+msgid "    sending `%s' to `%s'\n"
+msgstr "    đang gửi `%s' tới `%s'\n"
+
+#: bin/po-register:127 bin/po-register:188
+#, python-format
+msgid "    notifying `%s' about `%s'\n"
+msgstr "    đang nhắc `%s' về `%s'\n"
+
+#: bin/po-register:142
+#, python-format
+msgid "  notifying `%s' about `%s-%s.pot'\n"
+msgstr "  đang nhắc `%s' về `%s-%s.pot'\n"
+
+#: bin/po-register:145
+msgid "    also notifying team leaders\n"
+msgstr "    đồng thời nhắc trưởng nhóm dịch\n"
+
+#: bin/po-register:152
+#, python-format
+msgid "    initializing `%s/teams/PO/%s'\n"
+msgstr "    đang khởi nạp `%s/teams/PO/%s'\n"
+
+#: bin/po-register:162
+#, python-format
+msgid "  skipping `%s', as already uploaded\n"
+msgstr "  nhảy qua `%s', vì đã tải lên\n"
+
+#: bin/po-register:175
+msgid "Translation empty and identical to Template, not loaded\n"
+msgstr "Dịch rỗng và giống nhau tới Mẫu template, chưa nạp\n"
+
+#: bin/po-register:177
+msgid "Translation identical to archive file, not loaded\n"
+msgstr "Dịch giống nhau tới tập tin kho chứa, chưa nạp\n"
+
+#: bin/po-register:207
+#, python-format
+msgid "    also notifying `%s'\n"
+msgstr "    đồng thời nhắc `%s'\n"
+
+#: bin/po-register:221
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: New PO Template file for `%s'\n"
+"\n"
+msgstr ""
+"Người gửi: Rô-bốt của Dự án dịch <translation@iro.umontreal.ca>\n"
+"Người nhận: %s\n"
+"Tên thư: Tập tin PO Template mới cho `%s'\n"
+"\n"
+
+#: bin/po-register:228
+#, python-format
+msgid ""
+"Hello, gentle maintainer.\n"
+"This is a message from the Translation Project robot.\n"
+"\n"
+"A new PO Template file, for programs using the textual domain `%s',\n"
+"has just been made available to language teams for translation, and a copy\n"
+"is available as:\n"
+msgstr ""
+"Xin chào nhà duy trì cao quý.\n"
+"Đây là thư từ Rô-bốt của Dự án dịch.\n"
+"\n"
+"Một tập tin PO mẫu mới, cho các chương trình sử dụng miền nguyên bản `%s',\n"
+"đã sẵn sàng cho các nhóm dịch, và bản sao có thể lấy tại đây:\n"
+
+#: bin/po-register:238 bin/po-register:320 bin/po-register:381
+#, python-format
+msgid ""
+"\n"
+">    %s\n"
+"\n"
+"The file should soon be made available in mirror sites as:\n"
+"\n"
+msgstr ""
+"\n"
+">    %s\n"
+"\n"
+"Tập tin cũng sẽ sớm có mặt trên các trang gương sau:\n"
+"\n"
+
+#: bin/po-register:248
+#, python-format
+msgid ""
+"\n"
+"In your releases, this file is usually found as `po/%s.pot'.  It is\n"
+"created or updated automatically at `make dist' time, or whenever you\n"
+"run `make update-po' in the `po/' subdirectory.  Whenever you have a\n"
+"distribution ready which holds a newer PO Template, please send the URL\n"
+"of this distribution to the address below.  The distribution could be a\n"
+"pretest or a snapshot, it does not even have to compile.  This is to be\n"
+"used by translators, when they need to get some translation context from\n"
+"your sources.\n"
+"\n"
+"Within the Translation Project, each PO Template file should have different\n"
+"version numbers, but since it is not OK to have two different distributions\n"
+"having same version numbers, this is not a problem in practice.\n"
+msgstr ""
+"\n"
+"Trong bản phát hành của ngài, tập tin này thường có tên `po/%s.pot'.  Nó được\n"
+"tạo ra hoặc cập nhật một cách tự động tại thời điểm `make dist', hoặc khi\n"
+"chạy `make update-po' trong thư mục con `po/'.  Khi có một bản phân phối\n"
+"đã chứa một PO Template mới hơn, xin hãy gửi URL của bản phân phối\n"
+"này tới địa chỉ phía dưới.  Bản phân phối có thể chỉ là thử nghiệm\n"
+"hoặc một snapshot, thậm chí không cần phải biên dịch.  Các nhà phiên\n"
+"dịch sẽ sử dụng nó, khi họ cần lấy một vài nội dung dịch thuật từ mã\n"
+"nguồn của ngài.\n"
+"\n"
+"Trong Dự án Dịch thuật, mỗi tập tin PO Template phải có số phiên bản\n"
+"khác nhau, nhưng vì không thể có hai bản phân phối với cùng một\n"
+"số phiên bản, nên trên thực tế không có vấn đề này.\n"
+
+#: bin/po-register:265
+msgid ""
+"\n"
+"Here is the URL information which has just been provided to translators for\n"
+"your package.  Please inform the translation coordinator, at the address\n"
+"given below, if the information does not appear to be adequate or current:\n"
+"\n"
+msgstr ""
+"\n"
+"Đây là thông tin URL cung cấp cho các nhà dịch thuật cho gói của ngài\n"
+"Xin hãy báo cho hoa tiêu của nhóm dịch theo địa chỉ phía dưới biết,\n"
+"nếu thông tin này không đầy đủ hoặc không cập nhật:\n"
+"\n"
+
+#: bin/po-register:275
+msgid ""
+"\n"
+"Translated PO files will later be automatically e-mailed to you.\n"
+msgstr ""
+"\n"
+"Tập tin PO đã dịch sẽ tự động gửi qua e-mail đến cho ngài.\n"
+
+#: bin/po-register:280
+msgid ""
+"\n"
+"We can arrange things so translated PO files be automatically e-mailed\n"
+"to you when they arrive.  Ask to the address below if you want this.\n"
+msgstr ""
+"\n"
+"Chúng ta có thể sắp xếp để các tập tin PO đã dịch sẽ tự động gửi qua\n"
+"e-mail đến cho ngài.  Hãy hỏi tại địa chỉ dưới đây nếu ngài muốn.\n"
+
+#: bin/po-register:285 bin/po-register:346
+msgid ""
+"\n"
+"Thanks for your collaboration,\n"
+"\n"
+"                                The Translation Project robot, in the\n"
+"                                name of your translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+msgstr ""
+"\n"
+"Xin cảm ơn ngài đã cộng tác,\n"
+"\n"
+"                                Rô-bốt của Dự án dịch, đại diện cho\n"
+"                                hoa tiêu của nhóm dịch.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+
+#: bin/po-register:303
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: team-leaders@iro.umontreal.ca\n"
+"Subject: New PO Template file for `%s'\n"
+"\n"
+msgstr ""
+"Người gửi: Rô-bốt của Dự án dịch <translation@iro.umontreal.ca>\n"
+"Người nhận: team-leaders@iro.umontreal.ca\n"
+"Tên thư: Tập tin PO Template mới cho `%s'\n"
+"\n"
+
+#: bin/po-register:310
+#, python-format
+msgid ""
+"My nicest hello to all language team leaders.\n"
+"This is a message from the Translation Project robot.\n"
+"\n"
+"A new PO Template file, for programs using the textual domain `%s',\n"
+"has just been made available to language teams for translation, and a copy\n"
+"is available as:\n"
+msgstr ""
+"Lời chào tốt lành nhất của tôi tới tất cả trưởng nhóm dịch.\n"
+"Đây là thông báo của rô-bốt Dự án dịch.\n"
+"\n"
+"Một tập tin PO mẫu mới, cho các chương trình sử dụng miền nguyên bản `%s',\n"
+"đã sẵn sàng cho các nhóm dịch, và bản sao có thể lấy tại đây:\n"
+
+#: bin/po-register:330
+msgid ""
+"\n"
+"Your team will have been notified only if it committed a translation\n"
+"or if you have requested that the team is notified, anyway.\n"
+"Otherwise, it is up to you and your team to decide exactly how a\n"
+"translator might be recruited to take care of it.\n"
+msgstr ""
+"\n"
+"Nhóm của ngài sẽ nhận được thông báo chỉ khi bản dịch đã được\n"
+"thêm hoặc nếu ngài yêu cầu. Nói cách khác, ngài và nhóm của mình\n"
+"có quyền quyết định chính xác việc bổ sung thành viên.\n"
+
+#: bin/po-register:338
+msgid ""
+"\n"
+"Here is some URL information that could be provided to translators\n"
+"for this package:\n"
+"\n"
+msgstr ""
+"\n"
+"Đây là một số thông tin URL có thể cung cấp cho người dịch cho\n"
+"gói này:\n"
+"\n"
+
+#: bin/po-register:362
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: New %s PO file for `%s'\n"
+"\n"
+msgstr ""
+"Người gửi: Rô-bốt của Dự án dịch <translation@iro.umontreal.ca>\n"
+"Người nhận: %s\n"
+"Tên thư: Tập tin %s PO mới cho `%s'\n"
+"\n"
+
+#: bin/po-register:370
+#, python-format
+msgid ""
+"Hello, gentle maintainer.\n"
+"This is a message from the Translation Project robot.\n"
+"\n"
+"A revised PO file, for programs using the textual domain `%s', has\n"
+"been submitted by the team of translators taking care of the %s\n"
+"language.  This particular file, along with all other PO files pertaining\n"
+"to the same textual domain, is available as:\n"
+msgstr ""
+"Xin chào nhà duy trì cao quý.\n"
+"Đây là thư từ Rô-bốt của Dự án dịch.\n"
+"\n"
+"Một tập tin PO cho các chương trình sử dụng miền nguyên bản `%s'\n"
+"đã được sửa lại và gửi lên bởi nhóm các nhà dịch thuật cho ngôn ngữ\n"
+"%s.  Tập tin này nói riêng, cũng như những tập tin PO khác của cùng\n"
+"một miền nguyên bản, có thể lấy tại:\n"
+
+#: bin/po-register:392
+#, python-format
+msgid "    mailing `%s' to `%s'\n"
+msgstr "    đang gửi `%s' tới `%s'\n"
+
+#: bin/po-register:395
+#, python-format
+msgid ""
+"\n"
+"This file has already been sent to you separately on %s,\n"
+"as a MIME invoice unpacking the file `%s'.\n"
+msgstr ""
+"\n"
+"Tập tin này đã gửi riêng tới cho ngài trên %s,\n"
+"vì danh mục MIME giải nén tập tin `%s'.\n"
+
+#: bin/po-register:402
+msgid ""
+"\n"
+"We may arrange things so future such files be automatically e-mailed\n"
+"to you when they arrive.  Ask to the address below if you want this.\n"
+msgstr ""
+"\n"
+"Chúng ta có thể sắp xếp để những tập tin thế này sẽ tự động gửi vào\n"
+"hộp thư cho ngài khi chúng tới.  Hãy hỏi qua địa chỉ bên dưới nếu ngài muốn.\n"
+
+#: bin/po-register:407
+#, python-format
+msgid ""
+"\n"
+"The following HTML page should also be updated by tomorrow.\n"
+"\n"
+">    %s/HTML/domain-%s.html\n"
+"\n"
+"Please consider including all PO files, as they stand, in the `po/'\n"
+"subdirectory of your next release of programs using that textual domain,\n"
+"whether it is official or pretest.  Whenever you have a distribution ready\n"
+"which holds a newer PO Template, please send the URL of this distribution\n"
+"to the address below.  The distribution could be a pretest or a snapshot,\n"
+"it does not even have to compile.  This is to be used by translators,\n"
+"when they need to get some translation context from your sources.\n"
+"\n"
+"Within the Translation Project, each PO Template file should have different\n"
+"version numbers, but since it is not OK to have two different distributions\n"
+"using same version numbers, this is not a problem in practice.\n"
+"\n"
+"Contact me if any question arises.  Thanks for your collaboration,\n"
+"\n"
+"                                The Translation Project robot, in the\n"
+"                                name of your translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+msgstr ""
+"\n"
+"Những trang HTML sau sẽ được cập nhật trong ngày mai.\n"
+"\n"
+">    %s/HTML/domain-%s.html\n"
+"\n"
+"Xin hãy thêm tất cả những tập tin PO, như chúng có, vào thư mục con\n"
+"`po/' của bản phát hành chương trình tiếp theo, dù là chính thức hay\n"
+"thử nghiệm.  Khi ngài đã có một bản phân phối khác với một PO Template\n"
+"mới, xin hãy gửi URL của bản phân phối này tới địa chỉ phía dưới\n"
+"Bản phân phối có thể chỉ là thử nghiệm hoặc một snapshot, thậm\n"
+"chí không cần phải biên dịch.  Các nhà phiên dịch sẽ sử dụng nó, \n"
+"khi họ cần lấy một vài nội dung dịch thuật từ mã nguồn của ngài.\n"
+"\n"
+"Trong Dự án Dịch thuật, mỗi tập tin PO Template phải có số phiên bản\n"
+"khác nhau, nhưng vì không thể có hai bản phân phối với cùng một\n"
+"số phiên bản, nên trên thực tế không có vấn đề này.\n"
+"\n"
+"Hãy liên hệ với tối nếu có vấn đề xảy ra.  Xin cảm ơn về sự cộng tác,\n"
+"\n"
+"                                Rô-bốt của Dự án dịch, đại diện cho\n"
+"                                hoa tiêu của dự án dịch.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+
+#: bin/po-register:453
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: %s-%s (%d%%, %d untranslated)\n"
+"%s\n"
+msgstr ""
+"Người gửi: Rô-bốt của Dự án dịch <translation@iro.umontreal.ca>\n"
+"Người nhận: %s\n"
+"Tên thư: %s-%s (%d%%, %d chưa dịch)\n"
+"%s\n"
+
+#: bin/po-register:462
+#, python-format
+msgid ""
+"Hello, members of the %s team at `%s'.\n"
+"This is a message from the Translation Project robot.\n"
+"I'm happy to announce that a new file, available as:\n"
+"\n"
+">    %s\n"
+"\n"
+"has been integrated in the central PO archives.  The file\n"
+"should soon be made available in mirror sites as:\n"
+"\n"
+msgstr ""
+"Xin chào thành viên của nhóm dịch %s tại `%s'.\n"
+"Đang là thông báo từ Rô-bốt của Dự án dịch.\n"
+"Tôi rất vui mừng thông báo về một tập tin mới:\n"
+"\n"
+">    %s\n"
+"\n"
+"đã được thêm vào kho PO trung tâm của chúng ta.  Tập tin\n"
+"cũng sẽ sớm có mặt tại các trang gương sau:\n"
+"\n"
+
+#: bin/po-register:475
+#, python-format
+msgid ""
+"Hello, members of the %s team at `%s'.\n"
+"This is a message from the Translation Project robot.\n"
+"I'm happy to announce that a new file, available as:\n"
+"\n"
+">    %s\n"
+"\n"
+"has been integrated in the central PO archives, and is now kept with all\n"
+"other accepted %s translations.  The file should soon be made available\n"
+"in mirror sites as:\n"
+"\n"
+msgstr ""
+"Xin chào thành viên của nhóm dịch %s tại `%s'.\n"
+"Đang là thông báo từ Rô-bốt của Dự án dịch.\n"
+"Tôi rất vui mừng thông báo về một tập tin mới:\n"
+"\n"
+">    %s\n"
+"\n"
+"đã được thêm vào kho PO trung tâm của chúng ta, và được giữ cùng\n"
+"với %s bản dịch khác.  Tập tin cũng sẽ sớm có mặt tại các trang\n"
+"gương sau:\n"
+"\n"
+
+#: bin/po-register:495
+#, python-format
+msgid "%s and %s are currently assigned for the translation. When you have completed the translation, send the result to the address given below, using the Subject line:"
+msgstr "%s và %s hiện thời đã được đăng ký dịch. Khi ngài hoàn thành bản dịch, xin hãy gửi kết quả về địa chỉ ở phía dưới, với dòng Tên thư:"
+
+#: bin/po-register:499
+#, python-format
+msgid "%s is currently assigned for the translation. When you have completed the translation, send the result to the address given below, using:"
+msgstr "%s hiện thời đã được đăng ký dịch. Khi ngài hoàn thành bản dịch, xin hãy gửi kết quả về địa chỉ ở phía dưới, sử dụng:"
+
+#: bin/po-register:509
+#, python-format
+msgid "The most recent translation of this translator has %d of %d messages translated."
+msgstr "Bản dịch gần đây nhất của người dịch này có %d trong số %d thông báo được dịch."
+
+#: bin/po-register:511
+#, python-format
+msgid ""
+"\n"
+"There is currently a translator working on this translation who is not\n"
+"part of the Translation Project. %s\n"
+msgstr ""
+"\n"
+"Hiện thời có một người đang dịch tập tin này và không phải là thành\n"
+"viên của Dự án dịch. %s\n"
+
+#: bin/po-register:516
+#, python-format
+msgid ""
+"\n"
+"Please consider taking its translation in charge for the %s language.\n"
+"If you decide to do so, please get your team leader (if any) to inform\n"
+"the translation coordinator that you were assigned to `%s'.\n"
+"Once the translation is completed, send the result to the address given\n"
+"below, using the Subject line:\n"
+msgstr ""
+"\n"
+"Xin hãy nhận dịch tập tin này cho ngôn ngữ %s. Nếu ngài quyết định\n"
+"như vậy, thì hãy thông báo cho trưởng nhóm dịch (nếu có) để giúp\n"
+"ngài đăng ký tập tin `%s' với hoa tiêu của dự án.\n"
+"Khi hoàn thành bản dịch, xin hãy gửi kết quả theo địa chỉ phía dưới\n"
+"với dòng Tên thư:\n"
+
+#: bin/po-register:525
+#, python-format
+msgid ""
+"\n"
+"None of its untranslated messages have been translated yet. %s\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"in your message header.  You may contact either your team leader or me,\n"
+"if any question arises.\n"
+msgstr ""
+"\n"
+"Chưa có chuỗi thông báo nào được dịch. %s\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"trong phần đầu thư của ngài.  Ngài có thể liên hệ với trưởng nhóm dịch,\n"
+"hoặc tôi nếu cần hỏi.\n"
+
+#: bin/po-register:538
+#, python-format
+msgid ""
+"\n"
+"All its %d messages have been translated, and this PO file has been\n"
+"submitted to the maintainer of `%s', hoping s/he will include\n"
+"it in a future release of programs using this textual domain.\n"
+"\n"
+"Let me thank you for all users of the %s language.\n"
+msgstr ""
+"\n"
+"Tất cả %d thông báo đã được dịch, và tập tin PO này đã được gửi đến\n"
+"nhà duy trì của `%s', hy vọng rằng họ sẽ thêm vào trong bản phát\n"
+"hành sắp tới của chương trình sử dụng miền nguyên bản này.\n"
+"\n"
+"Xin cảm ơn tất cả các bạn nhóm %s.\n"
+
+#: bin/po-register:550
+#, python-format
+msgid "%s and %s are currently assigned for the translation."
+msgstr "%s và %s đã được đăng ký dịch."
+
+#: bin/po-register:554
+#, python-format
+msgid "%s is currently assigned for the translation."
+msgstr "%s đã được đăng ký dịch."
+
+#: bin/po-register:557
+#, python-format
+msgid "Nobody in your team is currently assigned to the domain '%s'. The team leader (if any) should inform the translation coordinator of who will become responsible for it."
+msgstr "Chưa có ai trong nhóm của ngài đăng ký dịch miền '%s'. Trưởng nhóm (nếu có) cần báo cho hoa tiêu dự án biết ai sẽ phụ trách tập tin này."
+
+#: bin/po-register:559
+#, python-format
+msgid ""
+"\n"
+"In this file, %d messages have been translated already,\n"
+"accounting for %d%% of the original text size (in raw bytes).  Still,\n"
+"%d messages need to be attended to.  %s\n"
+"\n"
+"Please translate the remaining messages for the benefit of users of the\n"
+"%s language.  Once the translation completed, send the result to\n"
+"the address given below, using the Subject line:\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"in your message header.  You may contact either your team leader or me,\n"
+"if any question arises.  In the meantime, this PO file has been submitted\n"
+"to the maintainer of programs using the textual domain `%s'.\n"
+"\n"
+"Thanks!\n"
+msgstr ""
+"\n"
+"Trong tập tin này, có %d thông báo đã được dịch, trong số\n"
+"%d%% của kích thước văn bản gốc (tính theo byte thô).  Hiện thời,\n"
+"còn cần dịch %d thông báo.  %s\n"
+"\n"
+"Xin hãy dịch những thông báo còn lại để giúp người dùng ngôn ngữ\n"
+"%s.  Một khi đã hoàn thành bản dịch, xin hãy gửi kết quả tới\n"
+"địa chỉ bên dưới, với dòng Tên thư như sau:\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"Ngài có thể liên hệ trưởng nhóm hoặc tôi, nếu có câu hỏi\n"
+"Trong lúc đó, tập tin PO này sẽ được gửi tới nhà duy trì\n"
+"của chương trình sử dụng miền nguyên bản `%s'.\n"
+"\n"
+"Cám ơn ngài!\n"
+
+#: bin/po-register:581
+#, python-format
+msgid ""
+"\n"
+"The following HTML pages should also be updated by tomorrow.\n"
+"\n"
+">    %s/HTML/domain-%s.html\n"
+">    %s/HTML/team-%s.html\n"
+"\n"
+"                                The Translation Project robot, in the\n"
+"                                name of your translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+msgstr ""
+"\n"
+"Những trang HTML sau sẽ được cập nhật trong ngày mai.\n"
+"\n"
+">    %s/HTML/domain-%s.html\n"
+">    %s/HTML/team-%s.html\n"
+"\n"
+"                                Rô-bốt của Dự án dịch, đại diện cho\n"
+"                                hoa tiêu của dự án dịch.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+
+#: bin/po-register:595
+msgid ""
+"\n"
+"P.S. - You may find a copy (maybe not official) of the distribution as:\n"
+"\n"
+msgstr ""
+"\n"
+"P.S. - Ngài có thể lấy bản sao (có thể không chính thức) của bản phân phối tại:\n"
+"\n"
+
+#: bin/po-register:613
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: Contents of file `%s'\n"
+"MIME-Version: 1.0\n"
+"Content-Type: multipart/mixed; boundary=\"=-=-=\"\n"
+"\n"
+"--=-=-=\n"
+"Content-Type: application/octet-stream\n"
+"Content-Disposition: attachment; filename=%s\n"
+"Content-Transfer-Encoding: base64\n"
+"\n"
+msgstr ""
+"Người gửi: Rô-bốt của Dự án dịch <translation@iro.umontreal.ca>\n"
+"Người nhận: %s\n"
+"Tên thư: Nội dung của tập tin `%s'\n"
+"MIME-Version: 1.0\n"
+"Content-Type: multipart/mixed; boundary=\"=-=-=\"\n"
+"\n"
+"--=-=-=\n"
+"Content-Type: application/octet-stream\n"
+"Content-Disposition: attachment; filename=%s\n"
+"Content-Transfer-Encoding: base64\n"
+"\n"
+
+#: bin/po-register:632
+msgid ""
+"--=-=-=\n"
+"\n"
+"                                The Translation Project robot, in the\n"
+"                                name of your translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+"\n"
+"--=-=-=--\n"
+msgstr ""
+"--=-=-=\n"
+"\n"
+"                                Rô-bốt của Dự án dịch, đại diện cho\n"
+"                                hoa tiêu của dự án dịch.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+"\n"
+"--=-=-=--\n"
+
+#: bin/po-to-scm:24
+#, python-format
+msgid "Usage: %s [ -scm | -el ] [FILE]..."
+msgstr "Sử dụng: %s [ -scm | -el ] [TẬPTIN]..."
+
+#: bin/postats-data:155
+#, python-format
+msgid "%s: Not enough hints for a key\n"
+msgstr "%s: Không đủ gợi ý cho một phím\n"
+
+#: bin/scm-to-po:59
+msgid ""
+"# SOME DESCRIPTIVE TITLE.\n"
+"# Copyright (C) YEAR Free Software Foundation, Inc.\n"
+"# FIRST AUTHOR <EMAIL\\@ADDRESS>, YEAR.\n"
+"#\n"
+"#, fuzzy\n"
+"msgid ''\n"
+"msgstr ''\n"
+"'Project-Id-Version: PACKAGE VERSION\\n'\n"
+"'PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n'\n"
+"'Last-Translator: FULL NAME <EMAIL\\ADDRESS_ARRAY>\\n'\n"
+"'Language-Team: LANGUAGE <LL\\li_ARRAY.org>\\n'\n"
+"'MIME-Version: 1.0\\n'\n"
+"'Content-Type: text/plain; charset=CHARSET\\n'\n"
+"'Content-Transfer-Encoding: ENCODING\\n'\n"
+msgstr ""
+"# DÒNG MÔ TẢ.\n"
+"# Copyright (C) YEAR Free Software Foundation, Inc.\n"
+"# NGƯỜI DỊCH ĐẦU TIÊN <ĐỊA-CHỈ\\@E-MAIL>, NĂM.\n"
+"#\n"
+"#, fuzzy\n"
+"msgid ''\n"
+"msgstr ''\n"
+"'Project-Id-Version: PHIÊN BẢN CỦA GÓI\\n'\n"
+"'PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n'\n"
+"'Last-Translator: TÊN ĐẦY ĐỦ <EMAIL\\ADDRESS_ARRAY>\\n'\n"
+"'Language-Team: NGÔN NGỮ <LL\\li_ARRAY.org>\\n'\n"
+"'MIME-Version: 1.0\\n'\n"
+"'Content-Type: text/plain; charset=BẢNGMÃ\\n'\n"
+"'Content-Transfer-Encoding: ENCODING\\n'\n"
+
+#: bin/tp-robot:107
+msgid ""
+"For some reason, your PO file seems to have no entries at all, like if it\n"
+"were empty.  Sigh!  It looks like there is something wrong, somewhere...\n"
+msgstr ""
+"Vì một số nguyên nhân, tập tin PO của ngài không có mục nào, như\n"
+"khi nó rỗng.  Đáng buồn!  Có vẻ như có gì đó không đúng, ở đâu đó...\n"
+
+#: bin/tp-robot:138
+msgid ""
+"I, the Translation Project robot, just failed in a rather unexpected way.\n"
+"Sigh!  Despair!  I'm bugged, lost, doomed :-(.  Help me!\n"
+"Report all details you can at mailto:translation@iro.umontreal.ca.\n"
+"Please do _not_ start your Subject line with `TP-Robot'.\n"
+msgstr ""
+"Tôi, rô-bốt của Dự án dịch, đã gây ra lỗi không đáng có.\n"
+"Đáng buồn!  Đáng thất vọng!  Tôi đầy lỗi, lầm lẫn, thất bại :-(.  Hãy giúp tôi!\n"
+"Thông báo tất cả chi tiết theo mailto:translation@iro.umontreal.ca.\n"
+"Xin _đừng_ bắt đầu Tên thư với `TP-Robot'.\n"
+
+#: bin/tp-robot:155
+msgid ""
+"In fact, the Translation Project registry holds the preferred email address\n"
+"for many translators like you, and some necessary aliases as well.  It is\n"
+"better to avoid the proliferation of alternate email addresses and stick\n"
+"to only one, whenever possible.  In any case, please keep the translation\n"
+"coordinator informed of such things, at least as a mild form of verification.\n"
+"Some stronger authentication scheme might be needed, one of these days!"
+msgstr ""
+"Trên thực tế, bản ghi của Dự án dịch giữ địa chỉ email ưa thích cho rất nhiều\n"
+"nhà dịch thuật như ngài. Và một vài người cần địa chỉ tương đương.  Tốt nhất là\n"
+"tránh không cho nảy sinh các địa chỉ email tương đương và chỉ sử dụng một địa\n"
+"chỉ khi có thể.  Trong bất kỳ trường hợp nào, xin hãy báo cho hoa tiêu của dự\n"
+"án dịch biết.  Hiện thời cần một hệ thống xác nhận mạnh hơn!"
+
+#: bin/tp-robot:194
+msgid "I'm ignoring the whole following MIME part within your invoice:\n"
+msgstr "Tôi lờ đi toàn bộ phần MIME trong thư gửi của ngài:\n"
+
+#: bin/tp-robot:205
+msgid ""
+"Hmph!  It seems I'm not clever enough yet to find your PO file within\n"
+"your message.  The translation coordinator, who is my beloved master,\n"
+"explained that I still have many things to learn about real life, before\n"
+"being able to handle all situations.  So, I'll go and ask him to help me\n"
+"unpack your invoice.\n"
+msgstr ""
+"Hmph!  Có vẻ là tôi không đủ thông minh để tìm ra tập tin PO trong\n"
+"thư của ngài.  Hoa tiêu của dự án dịch, chủ nhân đáng kính của tôi,\n"
+"giải thích là tôi vẫn còn nhiều thứ về cuộc sống thực cần phải học,\n"
+"trước khi có thể điều khiển mọi tình huống.  Vì thế, tôi sẽ hỏi ngài ấy\n"
+"giúp đỡ tôi giải quyết thư này.\n"
+
+#: bin/tp-robot:215
+msgid ""
+"Your message contains multiple MIME parts, and I see that I am not able to\n"
+"decide which one of these parts is meant to contain your PO file.  Would you\n"
+"help me, while resubmitting your message, by using a simpler MIME structure?\n"
+msgstr ""
+"Thư của ngài chứa nhiều phần MIME, và tôi thấy mình không có khả năng\n"
+"quyết định phần nào trong số chúng chứa tập tin PO.  Ngài có thể giúp tôi\n"
+"bằng cách gửi lại thư của mình và sử dụng một cấu trúc MIME đơn giản hơn?\n"
+
+#: bin/tp-robot:230 bin/tp-robot:312
+msgid ""
+"The translation coordinator does not trust me enough yet to let me handle\n"
+"a PO template file all alone.  So, for this one, I'll go disturb him!\n"
+msgstr ""
+"Hoa tiêu của dự án dịch chưa đủ tin tưởng để cho phép tôi điều khiển một\n"
+"tập tin PO template.  Vì thế, lần này tôi sẽ đến làm phiền ngài ấy!\n"
+
+#: bin/tp-robot:236
+#, python-format
+msgid ""
+"I was expecting information in the file name argument which I did not find.\n"
+"%s\n"
+"The file name argument should look like `DOMAIN-VERSION.TEAM.po'.\n"
+msgstr ""
+"Tôi đã mong đợi thông tin trong tham số tên tập tin và không tìm thấy nó.\n"
+"%s\n"
+"Tham số tên tập tin phải có dạng `MIỀN-PHIÊNBẢN.NHÓM.po'.\n"
+
+#: bin/tp-robot:244
+#, python-format
+msgid "Within the Translation Project, no team has the code `%s'.\n"
+msgstr "Trong Dự án dịch, không có nhóm với mã `%s'.\n"
+
+#: bin/tp-robot:322
+#, python-format
+msgid ""
+"I see that you used `%s@%s' to reach me.  Even it worked,\n"
+"a few email aliases were surely involved, which are not all under\n"
+"control.  It is safer that you use my real email address, which is\n"
+"`translation@iro.umontreal.ca'.\n"
+msgstr ""
+"Tôi thấy là ngài đã dùng `%s@%s' để tìm tới tôi.  Thậm chí cách này\n"
+"làm việc, đã phải dùng một vài địa chỉ email tương đương, và không\n"
+"phải tất cả đều nằm dưới quyền điều khiển.  Tốt hơn hết là hãy sử\n"
+"dụng địa chỉa email thực của tôi `translation@iro.umontreal.ca'.\n"
+
+#: bin/tp-robot:378
+#, python-format
+msgid ""
+"I was expecting information in your message header which I did not find.\n"
+"%s\n"
+"I'm not fully sure about what the exact problem is, yet it might be that\n"
+"the Subject field, in your message header, is not formatted properly.\n"
+"Just in case, let me explain how the Subject line usually looks like:\n"
+"\n"
+">    Subject: TP-Robot DOMAIN-VERSION.TEAM.po\n"
+"\n"
+"For a PO file, DOMAIN, VERSION and TEAM should be replaced respectively by\n"
+"the textual domain of the translation (in most cases, this is exactly the\n"
+"package name, in lower case), the version numbers of the said package, and\n"
+"the two-letter lower case language code for the team, also in lower case.\n"
+"In some rare cases, TEAM might have to be suffixed with either \"_REGION\"\n"
+"or \"@DIALECT\", where REGION is a capitalised two-letter country code\n"
+"and DIALECT is a lower case name.\n"
+msgstr ""
+"Tôi đã mong đợi thông tin trong tham số tên tập tin và không tìm thấy nó.\n"
+"%s\n"
+"Tôi không hoàn toàn chắc chắn về nguyên nhân của vấn đề, rất có thể là vùng\n"
+"Tên thư trong phần đầu của thư chưa được định dạnh đúng. Trong trường\n"
+"hợp đó, hãy cho phép tôi giải thích cách viết dòng Tên thư:\n"
+"\n"
+">    Tên thư: TP-Robot MIỀN-PHIÊNBẢN.NHÓM.po\n"
+"\n"
+"Đối với một tập tin PO, MIỀN, PHIÊNBẢN, và NHÓM phải thay thế tương ứng\n"
+"bằng miền nguyên bản của bản dịch (trong đa số trường hợp, đây cũng là\n"
+"tên của gói chương trình, viết thường), phiên bản của gói đó, và mã nước\n"
+"hai ký tự viết thường cho nhóm.\n"
+"Trong trường hợp hiếm hơn, NHÓM phải có một hậu tố với \"_VÙNG\"\n"
+"hoặc \"@ĐỊAPHƯƠNG\", ở đó VÙNG là mã nước hai ký tự viết hoa\n"
+"và ĐỊAPHƯƠNG là tên viết thường.\n"
+
+#: bin/tp-robot:403
+#, python-format
+msgid ""
+"Within the Translation Project, no team has the code `%s'.\n"
+"It might be that you mispelled that code, in which case I merely invite\n"
+"you to correct the error and retry a new submission.\n"
+"\n"
+"Otherwise, I presume you would like that a new translation team be created.\n"
+"This is a simple matter, really.  You do not have to do any kind of\n"
+"recruiting (unless you really feel like it, which is then another story,\n"
+"of course!).  Most teams started with a single translator.  However, you\n"
+"should be able and willing to communicate with people later wanting to\n"
+"join you on the team.  The Translation Project does not favour real loners.\n"
+"\n"
+"You should write to the translation coordinator for that creation to occur.\n"
+"If by any chance there is some already existing mailing list ready to convey\n"
+"the new team interests, please say so in your letter, so this mailing list\n"
+"gets registered.  If no such list exists, you may want to register your\n"
+"own email address instead, at least until there is a need for a bigger setup.\n"
+"\n"
+"Linux International collaborates with the Translation Project for offering\n"
+"a mailing list to teams needing it.  Such lists are only offered to teams\n"
+"having been active for a while, and which produced a few usable translations.\n"
+msgstr ""
+"Trong Dự án dịch, không có nhóm với mã `%s'. Rất có thể\n"
+"ngài đã nhầm mã đó, trong trường hợp này xin ngài hãy sửa lỗi đó và thử\n"
+"gửi lại.\n"
+"\n"
+"Nếu không thì tôi coi như ngài muốn tạo một nhóm dịch mới.\n"
+"Đây là một vấn đề dễ giải quyết.  Ngài không cần thiết phải tuyển mộ\n"
+"một đội ngũ thành viên (trừ khi thực sự thích công việc này, nhưng\n"
+"đây đã là một vấn đề khác!).  Hầu hết các nhóm dịch bắt đầu với một người\n"
+"dịch.  Tuy nhiên, ngài nên liên hệ và tìm những người muốn tham gia vào\n"
+"nhóm của mình.  Dự án dịch không ưa thích những người làm việc một mình.\n"
+"\n"
+"Ngài nên viết cho hoa tiêu của dự án khi tìm thấy thành viên.  Nếu đã có\n"
+"một danh sách thư cho nhóm dịch, thì xin hãy thông báo trong thư của ngài\n"
+"để đăng ký danh sách thư này.  Nếu không có, thì có thể đăng ký địa chỉ\n"
+"email của ngài để thay thế.\n"
+"\n"
+"Linux Quốc tế hợp tác với Dự án dịch để cho phép đăng ký danh sách thư\n"
+"cho những nhóm cần chúng.  Những danh sách thư này chỉ dành cho\n"
+"những nhóm có hoạt động một thời gian, và có một vài kết quả dịch\n"
+"đã đưa vào sử dụng.\n"
+
+#: bin/tp-robot:426
+msgid "Unknown_Language"
+msgstr "Không_rõ_ngôn_ngữ"
+
+#: bin/tp-robot:453
+#, python-format
+msgid ""
+"The PO file title comment appears to be missing.  The very first line of\n"
+"a PO file starts with `#', a space, and then a one-line description of\n"
+"what this PO file is about.  The PO file title comment may look like:\n"
+"\n"
+">    # Translation of `%s' messages to %s.\n"
+"\n"
+"As this line is intended to be read by humans working in %s,\n"
+"you may have this title line translated as well, it does not have to be\n"
+"kept in English.\n"
+msgstr ""
+"Tiêu đề chú thích của tập tin PO bị thiếu.  Dòng đầu tiên của một tập tin PO\n"
+"bắt đầu với một `#', một khoảng trắng, và sau đó là một dòng mô tả về\n"
+"nội dung của tập tin PO này.  Tiêu đề chú thích của tập tin PO có dạng sau:\n"
+">    # Bản dịch thông báo của `%s' sang tiếng %s.\n"
+"\n"
+"Vì dòng này dùng cho những người làm việc trong %s,\n"
+"ngài có thể dịch chúng chứ không nhất thiết phải để nguyên tiếng Anh.\n"
+
+#: bin/tp-robot:483
+msgid ""
+"The copyright for the PO file should be assigned to:\n"
+"\n"
+"   Free Software Foundation, Inc.\n"
+"\n"
+"and does not seem to be, yet it might be only a question of proper spelling.\n"
+"For the time being, I merely guess that the Free Software Foundation is to\n"
+"be listed as the copyright holder for any package requiring translation\n"
+"disclaimers.  Yet, the truth is that this requirement goes further than\n"
+"the spirit of the disclaimer.  If this creates any problem in real life,\n"
+"please write to the translation coordinator, so we could discuss the matter,\n"
+"and so he could eventually change me (the robot) for handling such cases.\n"
+msgstr ""
+"Bản quyền của tập tin PO cần được đăng ký cho:\n"
+"\n"
+"   Free Software Foundation, Inc.\n"
+"\n"
+"và chưa được đặt đúng, rất có thể là do lỗi chính tả.\n"
+"Hiện thời, tôi chắc rằng Free Software Foundation là người giữ bản quyền\n"
+"cho bất ký gói chương trình cần từ chối trách nhiệm bản dịch nào.  Sự thật\n"
+"là điều này yêu cầu nhiều hơn là tinh thần của từ chối trách nhiệm.\n"
+"Nếu điều này tạo vấn đề trong cuộc sống thự, thì hãy viết cho hoa tiêu\n"
+"của dự án dịch để bàn luận và giải quyết, và ngài ấy có thể thay đổi tôi\n"
+"(rô-bốt) để điều khiển những trường hợp như vậy.\n"
+
+#: bin/tp-robot:498
+#, python-format
+msgid ""
+"The copyright comment does not seem to be correctly formatted.  I see:\n"
+"\n"
+">    # %s\n"
+"\n"
+"while the copyright comment should look like:\n"
+msgstr ""
+"Dòng chú thích về bản quyền chưa được định dạng đúng.  Tôi thấy:\n"
+"\n"
+">    # %s\n"
+"\n"
+"trong khi dòng đó phải có dạng như sau:\n"
+
+#: bin/tp-robot:507
+msgid ""
+"The copyright comment, which should appear as the second line of the whole\n"
+"PO file, is apparently missing.  The copyright comment looks like:\n"
+msgstr ""
+"Chú thích về bản quyền phải là dòng thứ hai của cả tập tin PO\n"
+"và bị thiết.  Dòng chú thích đó có dạng sau:\n"
+
+#: bin/tp-robot:512
+#, python-format
+msgid ""
+"%s\n"
+">    # Copyright (C) YEAR Free Software Foundation, Inc.\n"
+"\n"
+"The `(C)' sign may be replaced by the single Latin-1 character for it\n"
+"(decimal code 169) if you happen to work in Latin-1, or with the\n"
+"equivalent UTF-8 seqquence (\\xc2\\xa9).  YEAR is normally a four\n"
+"digits year, yet it might be a list of years, separated by commas.  In\n"
+"a list, the first year has to be four digits, subsequent years may be\n"
+"either two or four digits.  Each comma should be followed with a\n"
+"space.  Years have to be explicitly enumerated, range notations are\n"
+"not accepted.\n"
+msgstr ""
+"%s\n"
+">    # Copyright (C) NĂM Free Software Foundation, Inc.\n"
+"\n"
+"Ký tự `(C)' phải thay thế bằng ký tự đơn Latin-1 (mã hệ mười 169)\n"
+"nếu ngài đang làm việc trong Latin-1, hoặc với chuỗi UTF-8 tương\n"
+" đương (\\xc2\\xa9).  NĂM thông thường là một số có bốn chữ số\n"
+"chỉ năm, và có thể là danh sách các năm, phân cách nhau bởi dấu\n"
+"phẩy.  Trong một danh sách, năm đầu tiên phải gồm bốn chữ số, các\n"
+" năm tiếp theo có thể có hai hoặc bốn chữ số.  Mỗi dấu phẩy phải\n"
+"theo sau một khoảng trắng.  Các năm phải được đánh số rõ ràng,\n"
+"không chấp nhận một vùng giới hạn của chúng (dùng dấu gạch ngang)\n"
+
+#: bin/tp-robot:535
+#, python-format
+msgid ""
+"Oops, there is a slight formatting error.  In the initial comment\n"
+"lines, please use no more than a single space between `%s' and\n"
+"`<%s>'.\n"
+msgstr ""
+"Ốp-xờ, có một lỗi định dạng nhỏ.  Trong những dòng chú thích đầu tiên\n"
+"xin hãy sử dụng chính xác một khoảng trắng giữa `%s' và\n"
+"`<%s>'.\n"
+
+#: bin/tp-robot:546
+#, python-format
+msgid ""
+"According to my notes, %s is not a member of the proper\n"
+"%s team, so is unlikely to be the first translator.  It might\n"
+"only be a question of spelling?  In case yes, I then need to know about\n"
+"spelling alternatives, so please tell the translation coordinator.  Yet,\n"
+"it is usually best to avoid such variance, and stick to a single preferred\n"
+"spelling.\n"
+msgstr ""
+"Theo như ghi chép của tôi, thì %s chưa phải là thành viên chính\n"
+"thức của nhóm %s, vì thế không phải là người dịch đầu tiên.  Có\n"
+"thể do nguyên nhân chính tả?  Trong trường hợp đó, tôi cần biết về\n"
+"cách viết tên người dịch tương đương, vì thế xin hãy thông báo cho hoa\n"
+"tiêu của dự án dịch biết.  Cách tốt nhất để loại bỏ những lỗi như vậy,\n"
+"là sử dụng một cách viết ưa thích duy nhất.\n"
+
+#: bin/tp-robot:559
+#, python-format
+msgid ""
+"The initial translator of this PO file is `%s'.  Yet,\n"
+"according to my own notes, `%s' is not known as a good address\n"
+"to reach that translator.\n"
+"%s%s\n"
+msgstr ""
+"Người dịch đầu tiên của tập tin PO này là `%s'.  Bây giờ,\n"
+"theo như ghi chép của tôi, `%s' không phải là một địa chỉ tốt để\n"
+"liên hệ với người dịch đó.\n"
+"%s%s\n"
+
+#: bin/tp-robot:573
+#, python-format
+msgid ""
+"The last translator of this PO file appears to be different than the\n"
+"initial translator.  This is something quite possible and normal.  But if\n"
+"you do know that translators did not change, some more checking is needed.\n"
+"The third line of whole PO file says `%s', while the\n"
+"`Last-Translator' field of PO file header says `%s'.  If,\n"
+"and only if, the two names above are indeed misspellings of one another,\n"
+"you should ideally correct whichever is needed, and resubmit your PO file\n"
+"with the correction included.  On the other hand, I invite you to be fair,\n"
+"and _never_ remove the initial translator of a given PO file, as this\n"
+"acknowledgement is the only tribute paid for the work of that translator.\n"
+msgstr ""
+"Người dịch cuối cùng của tập tin PO này khác với người dịch đầu tiên.\n"
+"Đây là hiện tượng bình thường có thể xảy ra.  Nhưng nếu ngài chắc\n"
+"rằng người dịch chưa thay đổi, thì cần kiểm tra lại.\n"
+"Dòng thư ba của tập tin PO nói `%s', trong khi dòng\n"
+"`Last-Translator' thì nói `%s'.  Nếu và chỉ nếu, một trong\n"
+"hai tên trên là lỗi chính tả của tên còn lại, thì ngài cần\n"
+"sửa tên bị lỗi, và gửi lại tập tin PO đã sửa của mình.  Ngoài ra\n"
+"tôi rất mong ngài trung thực và _không_ xóa bỏ người dịch đầu\n"
+"tiêng của tập tin PO này, vì đây là cái duy nhất được trả cho công\n"
+"việc dịch của người đó.\n"
+
+#: bin/tp-robot:588
+#, python-format
+msgid ""
+"Your submission contains contradicting addresses for you.  The third line of\n"
+"whole PO file says it is `%s', while the `Last-Translator'\n"
+"field of PO file header says it is `%s'.  Please manage to have a\n"
+"single preferred address to reach you, and try to use it consistently in\n"
+"all your translation files.\n"
+msgstr ""
+"Tập tin gửi lên của ngài có chứa các địa chỉ mâu thuẫn nhau.  Dòng thư ba\n"
+"của tập tin PO nói địa chỉ là `%s', trong khi vùng `Last-Translator'\n"
+"nói địa chỉ là `%s'.  Xin hãy chọn một địa chỉ ưa thích duy nhất và\n"
+"chỉ sử dụng địa chỉ này trong tất cả những tập tin dịch của ngài.\n"
+
+#: bin/tp-robot:598
+#, python-format
+msgid ""
+"The first author comment line is either missing or not formatted correctly.\n"
+"This should be the third line of the whole PO file, looking like:\n"
+"\n"
+">    # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.\n"
+"\n"
+"In this line, FIRST AUTHOR has to be replaced by the full name of the\n"
+"original translator of the messages for the `%s' textual domain,\n"
+"EMAIL@ADDRESS gives a way to reach that translator, and YEAR is a four\n"
+"digits year telling when the original translation occurred.\n"
+msgstr ""
+"Dòng chú thích Người dịch đầu tiên hoặc bị mất hoặc chưa định dạng đúng.\n"
+"Đó phải là dòng thứ ba của cả tập tin PO, có dạng:\n"
+"\n"
+">    # NGƯỜI DỊCH ĐẦU TIÊN <ĐỊACHỈ@EMAIL>, NĂM.\n"
+"\n"
+"Trên dòng này, NGƯỜI DỊCH ĐẦU TIÊN là tên đầy đủ của người thứ nhất\n"
+"dịch các thông báo của miền nguyên bản `%s', ĐỊACHỈ@EMAIL\n"
+"dùng để liên hệ với người dịch đó, và NĂM là một số có bốn chữ số\n"
+"cho biết năm bắt đầu dịch.\n"
+
+#: bin/tp-robot:611
+msgid ""
+"In case you want to add more historical details on the history of this\n"
+"particular PO file, or any comment you would feel useful, you may do so by\n"
+"adding other comment lines after the first three, using your own language\n"
+"if you feel like it.  Remember that there should always be a space after\n"
+"the initial `#' of each comment line, and there should not be a white\n"
+"line before the `msgid' line of the PO file header.\n"
+msgstr ""
+"Trong trường hợp ngài muốn thêm vài chi tiết lịch sử về tập tin PO nói\n"
+"riêng này, hoặc bất kỳ chú thích có ích nào, ngài nên thêm chúng vào sau\n"
+"ba đầu tiên, sử dụng ngôn ngữ mẹ đẻ nếu muốn.  Hãy nhớ luôn luôn cần\n"
+"một khoảng trống vào sau ký tự `#' của mỗi dòng chú thích, và không thể\n"
+"có một dòng trống ở trước dòng 'msgmid' của phần đầu.\n"
+
+#: bin/tp-robot:626
+#, python-format
+msgid ""
+"The Project-Id-Version field of your PO file header says that your textual\n"
+"domain is `%s' instead of the `%s' I was expecting.  They really\n"
+"should be identical.  The textual domain is the package name, usually.\n"
+"In some rare cases, there are differences in capitalisation, or the dubious\n"
+"addition of some `g' prefix because of the GNU inheritance.  Currently,\n"
+"all textual domains are written all in lower case.  They also tend to\n"
+"avoid those meaningless `g' prefixes.\n"
+msgstr ""
+"Vùng Project-Id-Version của phần đầu tập tin PO nói rằng miền\n"
+"nguyên bản là `%s' thay vì `%s' như tôi mong đợi.  Chúng cần hoàn\n"
+"toàn giống nhau.  Miền nguyên bản thường là tên của gói chương trình.\n"
+"Trong một số trường hợp hiếm hoi, có sự khác nhau trong kiểu chữ, hoặc\n"
+"thêm một vài tiền tố `g' không rõ ràng theo truyền thống GNU.  Hiện nay,\n"
+"tất cả miền nguyên bản được viết thường.  Đồng thời như vậy cũng\n"
+"loại bỏ việc phải thêm tiền tố `g'.\n"
+
+#: bin/tp-robot:638
+msgid ""
+"Within the Project-Id-Version field, the domain name and version numbers\n"
+"should be separated by a space rather than by a hyphen.  Some scripts might\n"
+"depend on a space being there, so best would be that you modify your file.\n"
+"I'll attempt to modify it for you, but this time! :-)\n"
+msgstr ""
+"Trong vùng Project-Id-Version, phải phân cách tên miền và số phiên bản  bởi\n"
+"một khoảng trống chứ không phải một dấu gạch ngang.  Một vài script có thể\n"
+"cần khoảng trống phải nằm ở đó, vì thế tốt hơn hết là hãy sửa tập tin của\n"
+"ngài. Tôi sẽ sửa nó giùm ngài, nhưng chỉ lần này! :-)\n"
+
+#: bin/tp-robot:648
+#, python-format
+msgid ""
+"The Project-Id-Version field of your submission says that your translations\n"
+"are meant for version `%s' of `%s', not `%s'.  I guess\n"
+"that they should be identical.  Consequently, I invite you adjust either\n"
+"the file name of your submission, or the Project-Id-Version field, whichever\n"
+"is appropriate.\n"
+msgstr ""
+"Vùng Project-Id-Version trong tập tin của ngài nói bản dịch dành cho\n"
+"phiên bản `%s' của `%s', chứ không phải `%s'.  Tôi đoán rằng, chúng\n"
+"cần giống nhau hoàn toàn.  Vì thế , tôi xin ngài hoặc chỉnh sửa tên tập\n"
+"tin gửi lên, hoặc sửa vùng Project-Id-Version cho thích hợp.\n"
+
+#: bin/tp-robot:659
+#, python-format
+msgid ""
+"The `Project-Id-Version' field was not found in your PO file header.\n"
+"The line containing this field ideally looks like:\n"
+"\n"
+">    'Project-Id-Version: PACKAGE VERSION\\n'\n"
+"\n"
+"in which PACKAGE should truly be replaced by the textual domain of your\n"
+"translation, probably `%s' in this case, and VERSION be replaced\n"
+"by the appropriate version numbers, maybe `%s', here.\n"
+msgstr ""
+"Không tìm thấy vùng `Project-Id-Version' trong phần đầu tập tin PO.\n"
+"Dòng này có dạng như sau:\n"
+"\n"
+">    'Project-Id-Version: GÓICHƯƠNGTRÌNH PHIÊNBẢN\\n'\n"
+"\n"
+"trong đó GÓICHƯƠNGTRÌNH là tên của miền nguyên bản của bản dịch,\n"
+"có thể là `%s' trong trường hợp này, và PHIÊNBẢN thay thế bằng\n"
+"số phiên bản tương ứng, ở đây có thể là `%s'.\n"
+
+#: bin/tp-robot:683
+#, python-format
+msgid ""
+"The `%s' field was not found in your PO file header,\n"
+"or else, it was not formatted properly.  The line containing this field\n"
+"ideally looks like:\n"
+"\n"
+">    %s: YEAR-MO-DA HO:MI +ZONE\n"
+msgstr ""
+"Không tìm thấy vùng `%s' trong phần đầu tập tin PO, hoặc\n"
+"vùng đó chưa định dạng đúng.  Dòng chứa vùng này có dạng\n"
+"như sau:\n"
+"\n"
+">    %s: YEAR-MO-DA HO:MI +ZONE\n"
+
+#: bin/tp-robot:692
+msgid ""
+"Some older POT files did not have the `POT-Creation-Date' field.  If might\n"
+"be the case here, I'm not sure.  If yes, you should not worry, as this\n"
+"will be repaired for some later release of this distribution.  This field\n"
+"is not really for the translator to set.  In the meantime, I will merely\n"
+"copy the value of the `PO-Revision-Date' field into it, just to get going.\n"
+msgstr ""
+"Một vài tập tin POT cũ không có vùng `POT-Creation-Date'.  Tôi không chắc\n"
+"có phải trường hợp của chúng ta không.  Nếu phải, thì đừng lo lắng, vì\n"
+"lỗi này sẽ được sửa trong một bản phát hành tới.  Vùng này không\n"
+"dành cho thiết lập của người dịch.  Trong thời gian này, tôi sẽ sao chép\n"
+"giá trị của vùng `PO-Revision-Date' vào đó để mọi thứ làm việc.\n"
+
+#: bin/tp-robot:701
+msgid ""
+"In the above line, YEAR is a four digits number giving the year, MO is\n"
+"a two digits number giving the month (between 01 and 12) and DA is a\n"
+"two digits number giving the day within the month (between 01 and 31).\n"
+"The time of the day is provided by a two digits HO for the hour (between\n"
+"00 and 23) and a two digits MI for the minutes (between 00 and 59).\n"
+"\n"
+"As for +ZONE, it should have the format +HH, -HH, +HH:MM or -HH:MM.\n"
+"The `+' sign is used East of Greenwich, the `-' sign is used West\n"
+"of Greenwich.  HH says the number of zone hours as two digits (between 00\n"
+"and 11), while MM, when used, says the number of zone minutes.  Other zone\n"
+"    notations are still accepted for the time being, but are to be deprecated.\n"
+msgstr ""
+"Trong dòng trên YEAR là số có bốn chữ số của năm, MO là số hai chữ số\n"
+"cho biết tháng (giữa 01 và 12) và DA là một số hai chữ số cho biết ngày\n"
+"(giữa 01 và 31). Thời gian của ngày là số hai chữ số đặt ở vị trí HO (giữa 00\n"
+"và 23) để chỉ giờ và MI để chỉ phút (giữa 00 và 59).\n"
+"\n"
+"Tương tự, +ZONE có dạng +HH, -HH, +HH:MM hoặc -HH:MM.\n"
+"Dấu `+' dùng cho phía Đông của Greewich, còn dấu `-' dùng cho\n"
+"phía Tây.  HH là số thứ tự của múi giờ (giữa 00 và 11), còn MM, nếu\n"
+"có, là số phút của múi giờ.  Các ký hiệu múi giờ khác vẫn được chấp\n"
+"    nhận, nhưng không tán thành.\n"
+
+#: bin/tp-robot:717
+#, python-format
+msgid ""
+"The PO revision date is `%s', which looks older than the POT creation date.\n"
+"You should update the PO revision date before submitting a PO file.\n"
+msgstr ""
+"Ngày xem lại PO là `%s', và cũ hơn ngày tạo POT.\n"
+"Ngài nên cập nhật ngày xem lại PO trước khi gửi.\n"
+
+#: bin/tp-robot:731
+#, python-format
+msgid ""
+"Oops, there is a slight formatting error.  In the `Last-Translator'\n"
+"header line, please use no more than a single space between `%s'\n"
+"and `<%s>'.\n"
+msgstr ""
+"Ốp-xờ, có một lỗi định dạng nhỏ.  Trên dòng `Last-Translator',\n"
+"xin hãy sử dụng chính xác một khoảng trắng giữa `%s' và\n"
+"`<%s>'.\n"
+
+#: bin/tp-robot:744
+#, python-format
+msgid ""
+"According to my notes, %s is not a member of the proper\n"
+"%s team.  It might only be a question of spelling?  In case\n"
+"yes, I then need to know about spelling alternatives, so please tell the\n"
+"translation coordinator.  Yet, it is usually best to avoid such variance,\n"
+"and stick to a single preferred spelling.  It might also be that you never\n"
+"joined the %s team.  If you do not know how to do so, please\n"
+"write to the translation coordinator for more information about it.\n"
+msgstr ""
+"Theo như ghi chép của tôi, thì %s chưa phải là thành viên chính\n"
+"thức của nhóm %s, vì thế không phải là người dịch đầu tiên.  Có\n"
+"thể do nguyên nhân chính tả?  Trong trường hợp đó, tôi cần biết về\n"
+"cách viết tên người dịch tương đương, vì thế xin hãy thông báo cho hoa\n"
+"tiêu của dự án dịch biết.  Hiện thời, cách tốt nhất để loại bỏ những lỗi như vậy,\n"
+"là sử dụng một cách viết chính tả ưa thích duy nhất.  Cũng có thể là ngài\n"
+"chưa tham gia vào nhóm %s.  Nếu ngài không biết phải làm gì thì xin\n"
+"hãy viết thư cho hoa tiêu của dự án dịch để biết thêm thông tin.\n"
+
+#: bin/tp-robot:759
+#, python-format
+msgid ""
+"The last translator of this PO file is `%s'.  Yet, according\n"
+"to my own notes, `%s' is not known as a good address to reach\n"
+"that translator.\n"
+"%s%s\n"
+msgstr ""
+"Người dịch đầu tiên của tập tin PO này là `%s'.  Bây giờ,\n"
+"theo như ghi chép của tôi, `%s' không phải là một địa chỉ tốt để\n"
+"liên hệ với người dịch đó.\n"
+"%s%s\n"
+
+#: bin/tp-robot:776
+#, python-format
+msgid ""
+"I'm not fully sure that you are the author of the translations you sent\n"
+"to me.  The header of your email invoice says that your are `%s',\n"
+"while `Last-Translator' field of PO file header says your name should be\n"
+"`%s'.  The difference might be mere spelling differences.\n"
+"These may happen when you do not have full control over your name in the\n"
+"mailing system you are using.\n"
+"\n"
+"As I expect you have better control over PO files, I'll consider that\n"
+"the second name is the most dependable one.  Yet, in some cases, this\n"
+"might represent some error I'm unable to analyse, while you do.  In the\n"
+"unlikely case the two names above are really different, the situation is\n"
+"more serious.  Some translation teams surely have their own ways and habits.\n"
+"Yet, on the average, it is unusual that someone submits a translation file\n"
+"written by someone else.\n"
+msgstr ""
+"Tôi chưa hoàn toàn chắc chắn rằng ngài là tác giả của bản dịch gửi lên.\n"
+"Phần đầu của thư nói ngài là `%s', trong khi vùng `Last-Translator' của\n"
+"tập tin PO nói tên của ngài phải là `%s'.  Có thể sự khác nhau chỉ là\n"
+"chính tả.  Điều này có thể xảy ra khi ngài không có toàn quyền điều\n"
+"khiển tên của mình trong hệ thống thư đang sử dụng.\n"
+"\n"
+"Và tôi mong rằng ngài có quyền điều khiển tốt hơn trên các tập tin PO,\n"
+"vì thế tên thứ hai phục thuộc nhiều hơn.  Hiện nay, trong một vài trường\n"
+"hợp, điều này có thể gây một vài lỗi Tôi không đủ khả năng phân tích, trong\n"
+"khi ngài có thể.  Trong trường hợp hai tên trên thực sự khác nhau, tình thế\n"
+"nghiêm trọng hơn.  Một vài nhóm dịch có cách làm việc và thói quen riêng.\n"
+"Hiện nay, rất hiếm khi một người gửi tập tin đã dịch bởi một người khác.\n"
+
+#: bin/tp-robot:797
+#, python-format
+msgid ""
+"The header of the message you sent to me says that your email address is\n"
+"`%s', while the `Last-Translator' field of PO file header says\n"
+"it should be `%s'.  Let me consider that the later prevails.\n"
+"I merely bring this to your attention in case _you_ think it matters.\n"
+msgstr ""
+"Phần đầu của thư ngài gửi cho tôi nói địa chỉ email là `%s', trong khi\n"
+"vùng `Last-Translator' trong tập tin PO nói địa chỉ là `%s'.  Hãy để\n"
+"tôi đặt ưu thế cho địa chỉ thứ hai.  Tôi thông báo điều này để phòng\n"
+"trường hợp ngài cho đây là một vấn đề.\n"
+
+#: bin/tp-robot:807
+#, python-format
+msgid ""
+"The `Last-Translator' field was not found in your PO file header, or\n"
+"might not be formatted properly.  The line containing this field ideally\n"
+"looks like:\n"
+"\n"
+">    'Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n'\n"
+"\n"
+"In this line, FULL NAME has to be replaced by the full name of the current\n"
+"translator of the messages for the `%s' textual domain, who is you\n"
+"most probably :-), EMAIL@ADDRESS gives a way to reach that translator.\n"
+msgstr ""
+"Không tìm thấy vùng `Last-Translator' trong phần đầu tập tin PO, hoặc\n"
+"chưa được định dạng đúng. Dòng này có dạng như sau:\n"
+"\n"
+">    'Last-Translator: TÊN ĐẦY ĐỦ <ĐỊACHỈ@EMAIL>\\n'\n"
+"\n"
+"trong đó TÊN ĐẦY ĐỦ là tên của người đang dịch thông báo cho\n"
+"miền nguyên bản `%s', có thể là ngài :-), và ĐỊACHỈ@EMAIL cho biết\n"
+"cách liên hệ với người dịch đó.\n"
+
+#: bin/tp-robot:826
+#, python-format
+msgid ""
+"Oops, there is a slight formatting error.  In the `Language-Team'\n"
+"header line, please use no more than a single space between `%s'\n"
+"and `<%s>'.\n"
+msgstr ""
+"Ốp-xờ, có một lỗi định dạng nhỏ.  Trên dòng `Language-Team',\n"
+"xin hãy sử dụng chính xác một khoảng trắng giữa `%s' và\n"
+"`<%s>'.\n"
+
+#: bin/tp-robot:833
+#, python-format
+msgid ""
+"You wrote `%s' in the `Language-Team' field of the PO file\n"
+"header, while I think it should have been `%s'.  I'm not\n"
+"fully sure about this.  If you think I got it wrong, please email to the\n"
+"translation coordinator for straingthening this out.\n"
+msgstr ""
+"Ngài viết `%s' trong vùng `Language-Team' của phần đầu tập tin PO\n"
+"trong khi tôi nghĩ nó phải là `%s'.  Tôi không chắc chắn lắm về việc\n"
+"này.  Nếu ngài nghĩ tôi nhầm, thì xin hãy gửi email đến hoa tiêu của\n"
+"dự án dịch để sửa lỗi này.\n"
+
+#: bin/tp-robot:842
+#, python-format
+msgid ""
+"Each translation team should publish some mailing list address, meant\n"
+"to appear (between angular brackets) after the language name into the\n"
+"`Language-Team' field of the PO file header.  The Translation Project\n"
+"does not have such an address for the %s team.  You might\n"
+"already know some list dedicated to internationalisation efforts for\n"
+"%s, which may well fit your needs.  In case none, waiting\n"
+"to get better organised, you might use the address of one of the team\n"
+"members, maybe yours if you are alone in the team!  In any case, please\n"
+"inform the translation coordinator of the address your team decides to use.\n"
+"Also note that the Translation Project and Linux International collaborate\n"
+"for opening mailing list for teams in need for such, but only _given_\n"
+"that the team has been already productive through the publication of a\n"
+"few usable translation files -- after having dismantled a few unproductive\n"
+"teams, we decided for this stronger requirement.\n"
+msgstr ""
+"Mỗi nhóm dịch cần có một danh sách thư chung (đặt trong dấu ngoặc\n"
+"nhọn) phía sau tên của ngôn ngữ trong vùng `Language-Team' của phần\n"
+"đầu tập tin PO.  Dự án dịch không có địa chỉ như vậy cho nhóm %s.  Ngài\n"
+"có thể đã biết một vài danh sách dành tặng cho %s, và có thể đáp ứng nhu\n"
+"cầu của nhóm.  Trong trường hợp không có, hãy chờ cho nhóm tổ chức\n"
+"tốt hơn, và ngài có thể sử dụng địa chỉ của một trong những thành viên\n"
+"của nhóm, có thể là của chính ngài nếu chỉ có một mình trong nhóm!\n"
+"Trong bất kỳ trường hợp nào, xin hãy thông báo cho hoa tiêu dự án dịch\n"
+"biết địa chỉ của nhóm.  Đồng thời chú ý rằng Dự án dịch và Quốc Tế Linux\n"
+"hợp tác để mở các danh sách thư cho những nhóm cần chúng, những chỉ\n"
+"_dành cho_ những nhóm đã có sản phẩm dịch của một vài tập tin đưa\n"
+"vào sử dụng -- sau khi khám phá ra một vài nhóm làm việc không có hiệu\n"
+"quả, chúng tôi quyết định áp dụng yêu cầu này.\n"
+
+#: bin/tp-robot:862
+#, python-format
+msgid ""
+"You wrote <%s> in the `Language-Team' field of the PO file\n"
+"header, while I think it should have been <%s>.  I'm not fully sure\n"
+"about this.  If you think I got it wrong, please email to the translation\n"
+"coordinator for straightening this out.\n"
+msgstr ""
+"Ngài viết <%s> trong vùng `Language-Team' của phần đầu tập tin PO\n"
+"trong khi tôi nghĩ nó phải là <%s>.  Tôi không chắc chắn lắm về việc\n"
+"này.  Nếu ngài nghĩ tôi nhầm, thì xin hãy gửi email đến hoa tiêu của\n"
+"dự án dịch để sửa lỗi này.\n"
+
+#: bin/tp-robot:871
+#, python-format
+msgid ""
+"The `Language-Team' field was not found in your PO file header, or\n"
+"might not be formatted properly.  The line containing this field often\n"
+"looks like:\n"
+"\n"
+">    'Language-Team: LANGUAGE <TEAM-EMAIL-ADDRESS>\\n'\n"
+"\n"
+"In this line, LANGUAGE is the English name of your spoken language,\n"
+"capitalizing the first letter of words and leaving the rest in lower case.\n"
+"It sometimes happen, not always, that TEAM-EMAIL-ADDRESS has the form\n"
+"`TEAM@li.org', where TEAM is the ISO-639 code for the language (not to\n"
+"be confused with country codes, which are a different standard).  If I\n"
+"had to write this line myself, right now, according to the information\n"
+"which is available to me, I would use:\n"
+"\n"
+">    'Language-Team: %s <%s>\\n'\n"
+"\n"
+"If this leaves you clueless and you still want to find it, please write to\n"
+"the translation coordinator for asking, and we will work this out together.\n"
+msgstr ""
+"Không tìm thấy vùng `Language-Team' trong phần đầu tập tin PO, hoặc\n"
+"chưa được định dạng đúng. Dòng này có dạng như sau:\n"
+"\n"
+">    'Language-Team: NGÔNNGỮ <ĐỊA-CHỈ-EMAIL-NHÓM>\\n'\n"
+"\n"
+"trong đó NGÔNNGỮ là tên Tiếng Anh của nhóm nói tiếng của ngài,\n"
+"viết hoa chữ cái đầu tiên và viết thường cho phần còn lại.\n"
+"Thỉnh thoảng, nhưng không luôn luôn, ĐỊA-CHỈ-EMAIL-NHÓM có dạng\n"
+"`NHÓM@li.org', trong đó NHÓM là mã ISO-639 của ngôn ngữ (đừng nhầm\n"
+"với mã nước dùng tiêu chuẩn khác).  Nếu tôi phài viết thông tin này\n"
+"ngay bây giờ, theo thông tin đã có, thì tôi sẽ viết như sau:\n"
+"\n"
+">    'Language-Team: %s <%s>\\n'\n"
+"\n"
+"Nếu ví dụ này không giúp ngài hiểu, và ngài vẫn muốn tìm nó, thì xin\n"
+"hãy viết thư hỏi hoa tiêu dự án dịch, và chúng ta sẽ cùng tìm ra lời giải đáp.\n"
+
+#: bin/tp-robot:896
+msgid ""
+"The `MIME-Version' field was not found in your PO file header, or is\n"
+"    not formatted properly.  The line containing it should exactly look like:\n"
+"\n"
+">    'MIME-Version: 1.0\\n'\n"
+msgstr ""
+"Không tìm thấy vùng `MIME-Version' trong phần đầu tập tin PO, hoặc\n"
+"    chưa được định dạng đúng.  Dòng này có dạng như sau:\n"
+"\n"
+">    'MIME-Version: 1.0\\n'\n"
+
+#: bin/tp-robot:931
+#, python-format
+msgid ""
+"The `Content-Type' field introduced an unusual character set `%s'.\n"
+"If this is not an error, please merely inform the translation coordinator\n"
+"for `%s' to be merely added to the list of acceptable charsets.\n"
+"This list currently holds: %s.\n"
+msgstr ""
+"Vùng `Content-Type' sử dụng một bảng mã lạ `%s'.  Nếu đây không\n"
+"phải là một lỗi, thì xin hãy báo cho hoa tiêu dự án dịch biết để thêm\n"
+"`%s' vào danh sách của những bảng mã được chấp nhận.\n"
+"Danh sách này hiện thời giữ: %s.\n"
+
+#: bin/tp-robot:937 bin/tp-robot:948 bin/tp-robot:963 bin/tp-robot:974
+msgid "or"
+msgstr "hoặc"
+
+#: bin/tp-robot:940
+#, python-format
+msgid ""
+"The `Content-Type' field was not found in your PO file header, or is\n"
+"    not formatted properly.  The line containing it ideally looks like:\n"
+"\n"
+">    'Content-Type: text/plain; charset=CHARSET\\n'\n"
+"\n"
+"where CHARSET should be the name of a character set, like one of %s.\n"
+msgstr ""
+"Không tìm thấy vùng `Content-Type' trong phần đầu tập tin PO, hoặc\n"
+"    chưa được định dạng đúng.  Dòng này có dạng như sau:\n"
+"\n"
+">    'Content-Type: text/plain; charset=BẢNGMÃ\\n'\n"
+"\n"
+"trong đó BẢNGMÃ là tên của bảng mã các ký tự như một trong số %s. \n"
+
+#: bin/tp-robot:957
+#, python-format
+msgid ""
+"The `Content-Transfer-Encoding' field introduced an unusual encoding\n"
+"`%s'.  If this is not an error, please inform the translation\n"
+"coordinator for `%s' to be merely added to the list of acceptable\n"
+"charsets.  This list currently holds: %s.\n"
+msgstr ""
+"Vùng `Content-Transfer-Encoding' sử dụng một bảng mã lạ `%s'.\n"
+"Nếu đây không phải là một lỗi, thì xin hãy báo cho hoa tiêu dự án dịch\n"
+"biết để thêm `%s' vào danh sách của những bảng mã được chấp nhận.\n"
+"Danh sách này hiện thời giữ: %s.\n"
+
+#: bin/tp-robot:966
+#, python-format
+msgid ""
+"The `Content-Transfer-Encoding' field was not found in your PO file header,\n"
+"or is not formatted properly.  The line containing it ideally looks like:\n"
+"\n"
+">    'Content-Transfer-Encoding: ENCODING\\n'\n"
+"\n"
+"where ENCODING should be the name of an encoding, like one of %s.\n"
+msgstr ""
+"Không tìm thấy vùng `Content-Transfer-Encoding' trong phần đầu tập tin PO, hoặc\n"
+"chưa được định dạng đúng.  Dòng này có dạng như sau:\n"
+"\n"
+">    'Content-Tranfer-Encoding: MÃHÓA\\n'\n"
+"\n"
+"trong đó MÃHÓA là tên của một mã hóa, như một trong số %s.\n"
+
+#: bin/tp-robot:999
+msgid ""
+"Sniff!  I'm unable to successfully start the `msgfmt' program.  I most\n"
+"probably need repairs.  I'll go whine to the translation coordinator.\n"
+msgstr ""
+"Tôi không chạy thành công chương trình `msgfmt'.  Tôi cần\n"
+"được sửa chữa.  Tôi sẽ đến than vãn với hoa tiêu nhóm dịch.\n"
+
+#: bin/tp-robot:1007
+msgid ""
+"After running msgfmt on your file, it seems that you need gettext 0.10.37\n"
+"for this file. This is no problem at all, but you should be aware of that.\n"
+msgstr ""
+"Sau khi chạy msgfmt trên tập tin của ngài, có vẻ như ngài cần gettext 0.10.37\n"
+"cho tập tin này. Đây không phải là vấn đề, nhưng ngài nên biết điều đó.\n"
+
+#: bin/tp-robot:1021
+#, python-format
+msgid ""
+"Just to make sure, I called 'msgfmt --statistics -c -v -o /dev/null' on\n"
+"your submitted PO file, and `msgfmt' told me that I should not let it go.\n"
+"More precisely, it said:\n"
+"\n"
+"%s"
+msgstr ""
+"Để chắc chắn, tôi đã gọi 'msgfmt --statistics -c -v -o /dev/null' trên tập\n"
+"tin PO gửi lên, và `msgfmt' nói rằng tôi không nên nhập tập tin đó vào. \n"
+"Chính xác hơn thì nó nói:\n"
+"\n"
+"%s"
+
+#: bin/tp-robot:1038
+msgid "Just to make sure, I ran\n"
+msgstr "Để chắc chắn hơn, Tôi đã chạy\n"
+
+#: bin/tp-robot:1040
+#, python-format
+msgid ""
+"\n"
+"\n"
+"on your submitted PO file, and `msgfmt' told me that I should not let\n"
+"it go.  More precisely, it said:\n"
+"\n"
+"%s"
+msgstr ""
+"\n"
+"\n"
+"trên tập tin PO đã gửi, và `msgfmt' nói không nên thêm tập tin\n"
+"đó vào kho.  Chính xác hơn thì nó nói:\n"
+"\n"
+"%s"
+
+#: bin/tp-robot:1050
+#, python-format
+msgid ""
+"Merely for your information, let me share with you what the `msgfmt'\n"
+"program has to say about your submitted PO file:\n"
+"\n"
+"%s"
+msgstr ""
+"Hãy để tôi chia sẻ với ngài những gì chương trình `msgfmt' đã nói về\n"
+"tập tin PO ngài gửi lên:\n"
+"\n"
+"%s"
+
+#: bin/tp-robot:1061
+msgid ""
+"At first sight it seems like your translation does not contain a clause\n"
+"that permits distribution of your translation. Please consider inserting\n"
+"a sentence like\n"
+msgstr ""
+"Cái nhìn đầu tiên cho thấy bản dịch của ngài không có mệnh đề cho\n"
+"phép phân phối bản dịch. Xin hãy thêm câu dạng như sau\n"
+
+#: bin/tp-robot:1089
+#, python-format
+msgid ""
+"According to my notes, you are not a member of the %s team.\n"
+"Or at least, you are not there under the name `%s'.  It this is\n"
+"only a question of spelling differences, I then need to know exactly the\n"
+"alternate spellings of your name you might use.  Write to the translation\n"
+"coordinator and explain why you need many names.  It is usually best to\n"
+"avoid such variance, and stick to a single preferred spelling.\n"
+msgstr ""
+"Theo như ghi chép của tôi, thì ngài chưa phải là thành viên chính\n"
+"thức của nhóm %s. Hoặc ít nhất ngàikhông có tên `%s'.  Có\n"
+"thể do nguyên nhân chính tả?  Trong trường hợp đó, tôi cần biết về\n"
+"cách viết tên người dịch tương đương, vì thế xin hãy thông báo cho hoa\n"
+"tiêu của dự án dịch biết và giải thích tại sao ngài cần nhiều tên.\n"
+"Cách tốt nhất để loại bỏ những lỗi như vậy, là sử dụng một cách viết chính\n"
+"tả ưa thích duy nhất.\n"
+
+#: bin/tp-robot:1102
+#, python-format
+msgid ""
+"The email address `%s' is not known, in the Translation Project\n"
+"registry, as a valid way to reach you.\n"
+"%s%s\n"
+msgstr ""
+"Địa chỉ email `%s' chưa có trong sổ đăng ký của Dự án dịch\n"
+"%s%s\n"
+
+#: bin/tp-robot:1114
+#, python-format
+msgid ""
+"The `%s' textual domain is not known to the Translation Project, at\n"
+"least not under that spelling.  It may also be that the maintainer of\n"
+"that project did not make arrangements yet for the Translation Project to\n"
+"handle its PO files.  In this case, please invite the project maintainer to\n"
+"contact us.  See `http://www.iro.umontreal.ca/contrib/po/HTML' and select\n"
+"`Textual Domains' to see the list of domains which are currently handled.\n"
+msgstr ""
+"Miền nguyên bản `%s' chưa biết đến trong Dự án dịch, ít nhất\n"
+"không sử dụng cách viết đó.  Có thể nhà duy trì của dự án đó chưa\n"
+"sắp đặt với Dự án dịch để điều khiển tập tin PO của miền.  Trong\n"
+"trường hợp này hãy mời nhà duy trì liên hệ với chúng ta.\n"
+"Hãy xem `http://www.iro.umontreal.ca/contrib/po/HTML' và lựa chọn\n"
+"`Textual Domains' (miền nguyên bản) để xen danh sách những miền\n"
+"đã được điều khiển.\n"
+
+#: bin/tp-robot:1127
+#, python-format
+msgid ""
+"According to my notes, the Free Software Foundation did not acknowledge the\n"
+"receipt of a translation disclaimer for you.  Such a disclaimer is required\n"
+"for GNU packages (or when maintainers of non-GNU packages ask me to ensure\n"
+"the existence of such a disclaimer).  This is the case for `%s'.\n"
+"Grab a copy of `http://www.iro.umontreal.ca/contrib/po/doc/DISCLAIM',\n"
+"print it on paper, and return it filled by the usual postal system.\n"
+"You will be notified when the FSF acknowedges its receipt; you can then\n"
+"re-attempt uploading your PO file to the Translation Project.  If you have\n"
+"any question or objection with the translation disclaimer as it stands,\n"
+"I invite you to discuss such things with the translation coordinator.\n"
+msgstr ""
+"Theo như ghi chép của tôi thì Free Software Foundation chưa nhận được\n"
+"đơn từ chối trách nhiệm về bản dịch của ngài.  Đơn này cần thiết cho các\n"
+"gói GNU (hoặc khi nhà duy trì của các gói không phải GNU hỏi tôi\n"
+"về sự tồn tại của đơn này).  Đây là trường hợp đối với `%s'.\n"
+"Hãy lấy bản sao tại `http://www.iro.umontreal.ca/contrib/po/doc/DISCLAIM',\n"
+"in ra giấy, điền vào đơn và gửi nó qua hệ thống bưu điện thông thường.\n"
+"Ngài sẽ được thông báo khi FSF nhận được đơn; và sau đó có thể\n"
+"thử gửi lại tập tin PO đến cho Dự án dịch.  Nếu ngài có bất kỳ câu\n"
+"hỏi nào hoặc sự chống đối với đơn từ chối trách nhiệm, thì hãy\n"
+"thảo luận những vấn đề này với hoa tiêu dự án dịch.\n"
+
+#: bin/tp-robot:1142
+#, python-format
+msgid ""
+"Most teams allow translators to directly send their achieved translations\n"
+"to the Translation Project, and do quality control only after the fact, to\n"
+"obtain a quicker turn-around.  The Translation Project registry does not list\n"
+"you as the usual translator for `%s'.  Your team leader might send\n"
+"an email to the translation coordinator, warranting that you are indeed\n"
+"assigned to this textual domain.  For small teams not having a leader,\n"
+"you may write yourself to the translation coordinator.  It is a simple\n"
+"matter to assign you the responsibility of `%s' for %s,\n"
+"given nobody else is already assigned to it.  However, some teams prefer\n"
+"to channel translations differently, for ensuring some quality control first.\n"
+msgstr ""
+"Hầu hết các nhóm dịch cho phép thành viên gửi bản dịch thẳng tới\n"
+"Dự án dịch, và chỉ kiểm tra chất lượng sau này.  Sổ đăng ký của\n"
+"Dự án dịch chưa ghi tên ngài là người dịch cho `%s'.  Trưởng nhóm\n"
+"dịch của ngài cần gửi một email tới hoa tiêu của dự án, bảo đảm\n"
+"rằng ngài thực sự đăng ký dịch miền nguyên bản này.  Nếu nhóm\n"
+"nhỏ và không có người đứng đầu, thì ngài có thể tự viết cho hoa\n"
+"tiêu của dự án dịch.  Chúng tôi cần ghi danh của ngài làm người\n"
+"của `%s' cho %s để không có ai khác cùng đăng ký.  Tuy nhiên\n"
+"một số nhóm dịch có cách làm việc khác và lấy vài nguồn dịch\n"
+"khác nhau để bảo đảm chất lượng dịch.\n"
+
+#: bin/tp-robot:1159
+#, python-format
+msgid ""
+"You submit a PO file for which the Translation Project does not have a\n"
+"corresponding PO Template.  There is no such `%s', here.\n"
+"Please have the maintainer of the associate package, or the programmer\n"
+"taking care of its internationalisation, to send the corresponding POT file\n"
+"to the Translation Project.  It is also best that we also have a precise URL\n"
+"of some official, pretest or snapshot distribution to offer to translators.\n"
+"This URL is only for translation purposes, the package does not even have to\n"
+"compile.  A few translators do like peeking at the sources for getting finer\n"
+"translation contexts, for when messages are not clear enough in themselves.\n"
+msgstr ""
+"Ngài gửi một tập tin PO mà Dự án dịch không có một mẫu\n"
+"PO Template tương ứng.  Không có `%s' ở đây.\n"
+"Xin hãy đề nghị nhà duy trì của gói đó, hoặc nhà lập trình phụ trách\n"
+"phần quốc tế hóa của gói gửi tập tin POT tương ứng tới\n"
+"Dự án dịch.  Đồng thời sẽ tốt nhất khi chúng tôi có một URL của bản\n"
+"phân phối chính thức, thử nghiệm hay snapshot để đề nghị người dịch.\n"
+"URL này chỉ dàng cho mục đích dịch thuật, gói chương trình thậm chí\n"
+"không cần biên dịch.  Một vài người dịch muốn nhìn qua mã nguồn để\n"
+"có bản dịch tốt hơn, khi thông báo không đủ rõ ràng.\n"
+
+#: bin/tp-robot:1177
+msgid ""
+"The Translation Project already holds an exact copy of your submission,\n"
+"which you may find as either one of:\n"
+"\n"
+msgstr ""
+"Dự án dịch đã có một bản sao giống hệt với tập tin ngài gửi, và ngài\n"
+"có thể tìm thấy từ một trong:\n"
+"\n"
+
+#: bin/tp-robot:1235
+msgid ""
+"Sniff!  I'm unable to successfully start the `diff' program.  I most\n"
+"probably need repairs.  I'll go whine to the translation coordinator.\n"
+msgstr ""
+"Tôi không chạy thành công chương trình `diff'.  Tôi cần\n"
+"được sửa chữa.  Tôi sẽ đến than vãn với hoa tiêu nhóm dịch.\n"
+
+#: bin/tp-robot:1246
+msgid ""
+"Sniff!  I'm unable to successfully canonicalise your PO file.  I most\n"
+"probably need repairs.  I'll go whine to the translation coordinator.\n"
+msgstr ""
+"Tôi không hợp thức hóa thành công tập tin PO của ngài.  Tôi cần\n"
+"được sửa chữa.  Tôi sẽ đến than vãn với hoa tiêu nhóm dịch.\n"
+
+#: bin/tp-robot:1254
+msgid ""
+"We are trying to reach a consistent presentation for PO files in the\n"
+"Translation Project, over all textual domains and native languages.\n"
+"As a robot, I contribute my good share towards this goal, and so, I made\n"
+"the following modifications to your invoice.  You might feel like accepting\n"
+"to do the same thing on your side; if you decide to do so, let me suggest\n"
+"that you try the nice `patch' utility.\n"
+"\n"
+"The `msgmerge' program which is used for making distributions does not\n"
+"produce canonical files, and until this gets corrected, you should rather\n"
+"grab your PO files directly from the Translation Project, as these are now\n"
+"always made canonical.  If you do not, the following set of `unidiffs'\n"
+"might get irritably longish.  Please also note that you do not _ought_\n"
+"to make such modifications, as I will continue doing them patiently and\n"
+"automatically, here.  This message continues after the (maybe long) quote.\n"
+msgstr ""
+"Chúng tôi đang cố gắng tìm một mô tả thích hợp cho tập tin PO trong\n"
+"Dự án dịch, cho mọi miền nguyên bản và mọi ngôn ngữ. Là một rô-bốt\n"
+"tôi đóng góp cho thành quả này, và vì thế xin thực hiện những thay đổi\n"
+"sua trong thư gửi lên của ngài.  Về phía mình Ngài có thể chấp nhận\n"
+"thực hiện chúng. Nếu quyết định như vậy, thì hãy cho phép tôi đề\n"
+"nghị ngài thử tiện ích `patch'.\n"
+"\n"
+"Chương trình `msgmerge' dùng để tạo các bản phân phối không tạo\n"
+"ra các tập tin hợp quy tắc, và cho đến khi lỗi này được sửa thì ngài\n"
+"nên lấy thẳng tập tin PO của mình từ Dự án dịch vì chúng luôn luôn\n"
+"hợp quy tắt.  Nếu không, thì bộ `unidiffs' có thể hơi dài.  Xin hãy chú\n"
+"ý rằng ngài không _nên_ thực hiện những thay đổi này, vì tôi sẽ tiếp\n"
+"tục thực hiện chúng một cách tự động.  Thông báo này sẽ tiếp tục sau\n"
+"phần trính dẫn (có thể dài).\n"
+
+#: bin/tp-robot:1279
+#, python-format
+msgid ""
+"Your file has been accepted and uploaded into the archives: congratulations!\n"
+"Whenever the maintainer of `%s' will communicate a new PO Template\n"
+"file to the Translation Project, the translation you just achieved will\n"
+"probably require revision.  Your team will then be notified of the URL of the\n"
+"PO file to revise, with a quick evaluation of the extent of the work needed.\n"
+msgstr ""
+"Tập tin của ngài đã được chấp nhận và thêm vào kho chứa: Xin chúc mừng!\n"
+"Khi nhà duy trì của `%s' gửi một mẫu PO Template mới đến\n"
+"Dự án dịch, thì bản dịch vừa thêm vào có thể sẽ cần xem và chỉnh\n"
+"sửa lại.  Chúng tôi sẽ thông báo cho nhóm của ngài URL của tập tin\n"
+"PO cần xem cùng với một vài thông tin thống kê khác.\n"
+
+#: bin/tp-robot:1295
+msgid ""
+"To speed things up, I could send you updated copies of this PO file by email,\n"
+"whenever I upload new PO Template files for it.  If you are interested in\n"
+"this service, you may register by emailing to the translation coordinator.\n"
+msgstr ""
+"Để tăng tốc độ làm việc, tôi có thể gửi bản sao đã cập nhật của tập tin PO\n"
+"này qua email mỗi khi cập nhật tập tin PO Template mới cho nó.  Nếu ngài\n"
+"quan tâm dịch vụ này, thì có thể đăng ký bằng email với hoa tiêu nhóm dịch.\n"
+
+#: bin/tp-robot:1318
+msgid ""
+"Sniff!  I'm unable to successfully start the `po-register' program.\n"
+"I most probably need repairs.  I'll go whine to the translation coordinator.\n"
+msgstr ""
+"Tôi không chạy thành công chương trình `po-register'.  Tôi cần\n"
+"được sửa chữa.  Tôi sẽ đến than vãn với hoa tiêu nhóm dịch.\n"
+
+#: bin/tp-robot:1326
+msgid "Original message header:\n"
+msgstr "Phần đầu của thư gốc:\n"
+
+#: bin/tp-robot:1331
+msgid "Diagnostics issued by `po-register:\n"
+msgstr "Chuẩn đoán bởi trình đăng ký po:\n"
+
+#: bin/tp-robot:1346
+#, python-format
+msgid "the translators's address is `%s'"
+msgstr "địa chỉ của người dịch là `%s'"
+
+#: bin/tp-robot:1349
+msgid "the translator's address"
+msgstr "địa chỉ của người dịch"
+
+#: bin/tp-robot:1351
+#, python-format
+msgid "the textual domain is `%s'"
+msgstr "miền nguyên bản là `%s'"
+
+#: bin/tp-robot:1353
+msgid "the textual domain"
+msgstr "miền nguyên bản"
+
+#: bin/tp-robot:1355
+#, python-format
+msgid "the domain version is `%s'"
+msgstr "phiên bản của miền là `%s'"
+
+#: bin/tp-robot:1357
+msgid "the domain version"
+msgstr "phiên bản của miền"
+
+#: bin/tp-robot:1359
+#, python-format
+msgid "the team code is `%s'"
+msgstr "mã của nhóm là `%s'"
+
+#: bin/tp-robot:1361
+msgid "the team code"
+msgstr "mã của nhóm"
+
+#: bin/tp-robot:1364 bin/tp-robot:1365 bin/tp-robot:1383
+msgid "and"
+msgstr "và"
+
+#: bin/tp-robot:1369
+msgid ""
+"No official email address exist for this translator in the Translation\n"
+"Project registry.\n"
+msgstr ""
+"Không có địa chỉ email chính thức cho người dịch này trong bản đăng\n"
+"ký của Dự án dịch.\n"
+
+#: bin/tp-robot:1374
+#, python-format
+msgid "The only address we officially know for this translator is `%s'.\n"
+msgstr "Địa chỉ chính thức duy nhất của người dịch này là `%s'.\n"
+
+#: bin/tp-robot:1380
+#, python-format
+msgid "For this translator, the only registered addresses we have are: %s.\n"
+msgstr "Đối với người dịch này, những địa chỉ chúng tôi có là: %s.\n"
+
+#: web/lib/editor.py:34 web/lib/editor.py:160 web/lib/editor.py:298
+msgid "Use exactly one argument with `mailto'"
+msgstr "Hãy dùng chính xác một tham số với `mailto'"
+
+#: web/lib/editor.py:45
+msgid "Use exactly one argument with `keep'"
+msgstr "Hãy dùng chính xác một tham số với `keep'"
+
+#: web/lib/editor.py:48 web/lib/editor.py:312
+#, python-format
+msgid "Version `%s' is already present"
+msgstr "Đã có phiên bản `%s'"
+
+#: web/lib/editor.py:54
+msgid "Use exactly one argument with `nokeep'"
+msgstr "Hãy dùng chính xác một tham số với `nokeep'"
+
+#: web/lib/editor.py:57
+#, python-format
+msgid "Version `%s' was not there anyway"
+msgstr "Chưa có phiên bản `%s' ở đó"
+
+#: web/lib/editor.py:62
+msgid "Use at least one argument with `keeps'"
+msgstr "Hãy dùng ít nhất một tham số với `keeps'"
+
+#: web/lib/editor.py:68
+#, python-format
+msgid "Version `%s' duplicated"
+msgstr "Trùng lặp phiên bản `%s'"
+
+#: web/lib/editor.py:75
+msgid "Do not use arguments with `disclaim'"
+msgstr "Đừng dùng tham số với `disclaim'"
+
+#: web/lib/editor.py:80
+msgid "Do not use arguments with `nodisclaim'"
+msgstr "Đừng dùng tham số với `nodisclaim'"
+
+#: web/lib/editor.py:85 web/lib/editor.py:349
+msgid "Do not use arguments with `autosend'"
+msgstr "Đừng dùng tham số với `autosend'"
+
+#: web/lib/editor.py:90 web/lib/editor.py:354
+msgid "Do not use arguments with `noautosend'"
+msgstr "Đừng dùng tham số với `noautosend'"
+
+#: web/lib/editor.py:95
+msgid "Use exactly one argument with `url'"
+msgstr "Hãy dùng chính xác một tham số với `url'"
+
+#: web/lib/editor.py:98
+#, python-format
+msgid "URL `%s' is already present"
+msgstr "Đã có URL `%s'"
+
+#: web/lib/editor.py:103
+msgid "Use exactly one argument with `nourl'"
+msgstr "Hãy dùng chính xác một tham số với `nourl'"
+
+#: web/lib/editor.py:106
+#, python-format
+msgid "URL `%s' was not there anyway"
+msgstr "Chưa có URL `%s' ở đó"
+
+#: web/lib/editor.py:111
+msgid "Use at least one argument with `urls'"
+msgstr "Hãy dùng ít nhất một tham số với `urls'"
+
+#: web/lib/editor.py:123 web/lib/editor.py:227 web/lib/editor.py:386
+msgid "Use exactly one argument with `remark'"
+msgstr "Hãy dùng chính xác một tham số với `remark'"
+
+#: web/lib/editor.py:125 web/lib/editor.py:229 web/lib/editor.py:361
+#: web/lib/editor.py:388
+#, python-format
+msgid "Remark `%s' is already present"
+msgstr "Đã có nhận xét `%s'"
+
+#: web/lib/editor.py:130 web/lib/editor.py:234 web/lib/editor.py:393
+msgid "Use exactly one argument with `noremark'"
+msgstr "Hãy dùng chính xác một tham số với `noremark'"
+
+#: web/lib/editor.py:132 web/lib/editor.py:236 web/lib/editor.py:368
+#: web/lib/editor.py:395
+#, python-format
+msgid "Remark `%s' was not there anyway"
+msgstr "Chưa có nhận xét `%s' ở đó"
+
+#: web/lib/editor.py:137 web/lib/editor.py:241 web/lib/editor.py:400
+msgid "Do not use arguments with `remarks'"
+msgstr "Đừng dùng tham số với `remarks'"
+
+#: web/lib/editor.py:171
+msgid "Use exactly one argument with `charset'"
+msgstr "Hãy dùng chính xác một tham số với `charset'"
+
+#: web/lib/editor.py:177
+msgid "Do not use arguments with `nocharset'"
+msgstr "Đừng dùng tham số với `nocharset'"
+
+#: web/lib/editor.py:182
+msgid "Use exactly one argument with `leader'"
+msgstr "Hãy dùng chính xác một tham số với `leader'"
+
+#: web/lib/editor.py:193
+msgid "Use exactly two arguments with `ref'"
+msgstr "Hãy dùng chính xác hai tham số với `ref'"
+
+#: web/lib/editor.py:197
+#, python-format
+msgid "Reference `%s, %s' is already present"
+msgstr "Đã có sự nhắc đến `%s, %s'"
+
+#: web/lib/editor.py:202
+msgid "Use exactly two arguments with `noref'"
+msgstr "Hãy dùng chính xác hai tham số với `noref'"
+
+#: web/lib/editor.py:206
+#, python-format
+msgid "Reference `%s, %s' was not there anyway"
+msgstr "Chưa có sự nhắc đến `%s, %s' ở đó"
+
+#: web/lib/editor.py:211
+msgid "Use a pair number of arguments with `refs'"
+msgstr "Hãy dùng một cặp tham số với `refs'"
+
+#: web/lib/editor.py:220
+#, python-format
+msgid "Reference `%s, %s' duplicated"
+msgstr "Trùng lặp sự nhắc đến `%s, %s'"
+
+#: web/lib/editor.py:246
+msgid "Use exactly one argument with `translator'"
+msgstr "Hãy dùng chính xác một tham số với `translator'"
+
+#: web/lib/editor.py:248
+#, python-format
+msgid "Translator `%s' is already present"
+msgstr "Đã có người dịch `%s'"
+
+#: web/lib/editor.py:265
+msgid "Use exactly one argument with `notranslator'"
+msgstr "Hãy dùng chính xác một tham số với `notranslator'"
+
+#: web/lib/editor.py:267
+#, python-format
+msgid "Translator `%s' is not know anyway"
+msgstr "Chưa biết đến người dịch `%s'"
+
+#: web/lib/editor.py:270
+#, python-format
+msgid "Should keep `%s' because of disclaimer"
+msgstr "Cần giữ `%s' cho từ chối trách nhiệm"
+
+#: web/lib/editor.py:309
+msgid "Use exactly one argument with `alias'"
+msgstr "Hãy dùng chính xác một tham số với `alias'"
+
+#: web/lib/editor.py:317
+msgid "Do not use arguments with `noalias'"
+msgstr "Đừng dùng tham số với `noalias'"
+
+#: web/lib/editor.py:320
+#, python-format
+msgid "Alias `%s' was not there anyway"
+msgstr "Tên khác `%s' chưa có ở đó"
+
+#: web/lib/editor.py:325
+msgid "Use at least one argument with `aliases'"
+msgstr "Hãy dùng ít nhất một tham số với `aliases'"
+
+#: web/lib/editor.py:331
+#, python-format
+msgid "Alias `%s' duplicated"
+msgstr "Trùng lặp tên khác `%s'"
+
+#: web/lib/editor.py:338
+msgid "Use exactly one argument with `http'"
+msgstr "Hãy dùng chính xác một tham số với `http'"
+
+#: web/lib/editor.py:344
+msgid "Do not use arguments with `nohttp'"
+msgstr "Đừng dùng tham số với `nohttp'"
+
+#: web/lib/editor.py:359
+msgid "Use exactly one argument with `do'"
+msgstr "Hãy dùng chính xác một tham số với `do'"
+
+#: web/lib/editor.py:366
+msgid "Use exactly one argument with `nodo'"
+msgstr "Hãy dùng chính xác một tham số với `nodo'"
+
+#: web/lib/editor.py:373
+msgid "Use at least one argument with `dos'"
+msgstr "Hãy dùng ít nhất một tham số với `dos'"
+
+#: web/lib/editor.py:379
+#, python-format
+msgid "Do `%s' duplicated"
+msgstr "Trùng lặp do `%s'"
+
+#: web/lib/localweb.py:157
+#, python-format
+msgid "%s: Unexistent domain or team!\n"
+msgstr "%s: Miền hoặc nhóm không tồn tại!\n"
+
+#: web/lib/localweb.py:160
+#, python-format
+msgid "%s: No hints found!\n"
+msgstr "%s: Không tìm thấy gợi ý!\n"
+
+#: web/lib/localweb.py:164
+#, python-format
+msgid "%s: Missing version?\n"
+msgstr "%s: Thiếu phiên bản?\n"
+
+#: web/lib/localweb.py:168
+#, python-format
+msgid "%s: Not in stats database!\n"
+msgstr "%s: Không có trong cơ sở dữ liệu trạng thái!\n"
+
+#: web/lib/po.py:12
+msgid "SOME DESCRIPTIVE TITLE."
+msgstr "TIÊU ĐỀ MỘT VÀI MÔ TẢ"
+
+#: web/lib/po.py:16
+msgid "FIRST AUTHOR <EMAIL@ADDRESS>, YEAR."
+msgstr "NGƯỜI DỊCH ĐẦU TIÊN <ĐỊACHỈ@EMAIL>, NĂM."
+
+#: web/lib/po.py:19
+msgid "PACKAGE VERSION"
+msgstr "GÓICHƯƠNGTRÌNH PHIÊNBẢN"
+
+#: web/lib/po.py:21 web/lib/po.py:22
+msgid "YEAR-MO-DA HO:MI +ZONE"
+msgstr "YEAR-MO-DA HO:MI +ZONE"
+
+#: web/lib/po.py:23
+msgid "FULL NAME <EMAIL@ADDRESS>"
+msgstr "TÊN ĐẦY ĐỦ <ĐỊACHỈ@EMAIL>"
+
+#: web/lib/po.py:24
+msgid "LANGUAGE <LL@li.org>"
+msgstr "NGÔNNGỮ <LL@li.org>"
+
+#: web/lib/po.py:26
+msgid "text/plain; charset=CHARSET"
+msgstr "text/plain; charset=BẢNGMÃ"
+
+#: web/lib/po.py:27
+msgid "ENCODING"
+msgstr "MÃHÓA"
+
+#: web/lib/po.py:115 web/lib/po.py:157 web/lib/po.py:160
+#, python-format
+msgid ""
+"%s:%d: Unrecognised line\n"
+"%s"
+msgstr ""
+"%s:%d: Dòng không nhận ra\n"
+"%s"
+
+#: web/lib/po.py:202
+msgid "Duplicate"
+msgstr "Trùng lặp"
+
+#: web/lib/registry.py:91 web/lib/registry.py:248
+#, python-format
+msgid "Unknown translator `%s'"
+msgstr "Không rõ người dịch `%s'"
+
+#: web/lib/registry.py:220
+#, python-format
+msgid "Unknown domain `%s'"
+msgstr "Không rõ miền `%s'"
+
+#: web/lib/registry.py:242
+#, python-format
+msgid "Unknown team `%s'"
+msgstr "Không rõ nhóm `%s'"
+
+#: web/lib/registry.py:294
+#, python-format
+msgid "No hints from `%s'"
+msgstr "Không có dấu vết từ `%s'"
+
+#: web/lib/registry.py:299
+#, python-format
+msgid "POT hint from `%s' contradicts previous"
+msgstr "Dấu vết POT từ `%s' mâu thuẫn với cái trước"
+
+#: web/lib/registry.py:303
+#, python-format
+msgid "Domain hint from `%s' contradicts `%s'"
+msgstr "Dấu vết miền từ `%s' mâu thuẫn `%s'"
+
+#: web/lib/registry.py:308
+#, python-format
+msgid "Version hint from `%s' contradicts `%s'"
+msgstr "Dấu vết phiên bản từ `%s' mâu thuẫn `%s'"
+
+#: web/lib/registry.py:313
+#, python-format
+msgid "Team hint from `%s' contradicts `%s'"
+msgstr "Dấu vết nhóm từ `%s' mâu thuẫn `%s'"
+
+#: web/lib/registry.py:318
+#, python-format
+msgid "Inconsistent charset hint from `%s'"
+msgstr "Mâu thuẫn dấu vết bảng mã từ `%s'"
+
+#: web/lib/registry.py:481
+#, python-format
+msgid "Unrecognised version: %s"
+msgstr "Phiên bản không nhận ra: %s"
+
+#: web/lib/run.py:24
+msgid "Report from TP-Robot"
+msgstr "Báo cáo từ TP-Rôbốt"
+
+#: web/lib/run.py:61
+msgid ""
+"================================================\n"
+"Unable to send report.  Dumping it here instead.\n"
+"================================================\n"
+msgstr ""
+"================================================\n"
+"Không gửi được báo cáo.  Dumping nó ở đây để thay thế\n"
+"================================================\n"
+
+#: web/lib/run.py:100
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: Re: %s\n"
+msgstr ""
+"Người gửi: Rô-bốt của Dự án dịch <translation@iro.umontreal.ca>\n"
+"Người nhận: %s\n"
+"Tên thư: Re: %s\n"
+
+#: web/lib/run.py:149
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: \"%s\" <%s>\n"
+"Subject: Re: %s\n"
+"\n"
+msgstr ""
+"Người gửi: Rô-bốt của Dự án dịch <translation@iro.umontreal.ca>\n"
+"Người nhận: \"%s\" <%s>\n"
+"Tên thư: Re: %s\n"
+"\n"
+
+#: web/lib/run.py:161
+#, python-format
+msgid ""
+"Hi!  I am the service robot at the Translation Project, and was awakened\n"
+"by your submission for `%s'.\n"
+msgstr ""
+"Xin chào!  Tôi là rô-bốt phục vụ của Dự án dịch, và tập tin dịch\n"
+"ngài gửi lên cho `%s' đã đánh thức tôi dậy.\n"
+
+#: web/lib/run.py:167
+msgid ""
+"Hi!  I am the service robot at the Translation Project, and was awakened\n"
+"by one of your submissions.\n"
+msgstr ""
+"Xin chào!  Tôi là rô-bốt phục vụ của Dự án dịch, và một trong những tập tin\n"
+"dịch ngài gửi lên cho đã đánh thức tôi dậy.\n"
+
+#: web/lib/run.py:179
+msgid ""
+"Some error reported above is such that I cannot fully process your invoice.\n"
+"I'm sorry!  Do not fear resubmitting your PO file, once you think the problem\n"
+"has been corrected.  Being a robot, I'm incredibly patient at such things!\n"
+"\n"
+"To send your PO file as an Emacs user, merely hit `M' within PO mode.\n"
+"Otherwise, you may use various MIME (beware I'm too dumb for split parts)\n"
+"or `uuencode' (either old or new).  Have a `.gz' suffix on the file name\n"
+"if you decide to compress it with `gzip'.  You may also send your file all\n"
+"plain, but you have to make sure that we have an 8-bit clean email route.\n"
+"For now at least, do not submit more than one PO file in a single email.\n"
+"If I cannot decipher your packaging, I will forward it to the coordinator\n"
+"for manual unpacking.  Use a subject line looking like:\n"
+"\n"
+">    Subject: TP-Robot PACKAGE-VERSION.TEAM.po\n"
+"\n"
+"and send this whole thing to `translation@iro.umontreal.ca'.  You may\n"
+"expect a reply within the hour.  If you need help to resolve questions\n"
+"raised in this reply, or if you plainly suspect I'm behaving poorly, you\n"
+"may directly write the translation coordinator.  However, if you do so,\n"
+"be careful _not_ to start your message Subject with `TP-Robot'! :-)\n"
+msgstr ""
+"Một vài lỗi nói ở trên khiến tôi không thể thực hiện đầy đủ đề nghị của ngài.\n"
+"Tôi rất lấy làm tiếc!  Đừng gửi lại tập tin PO của ngài trước khi chắc chắn\n"
+"là vấn đề đã được giải quyết.  Là một rô-bốt, tôi có thể chờ đợi việc đó!\n"
+"\n"
+"Để gửi tập tin PO từ trong Emacs, chỉ cần gõ `M' trong chế độ PO.\n"
+"Nếu không, ngài có thể sử dụng MIME khác (chú ý là tôi còn chia phần kém)\n"
+"hoặc `uuencode' (hoặc mới hoặc cũ).  Cần đặt đuôi `.gz' cho tên tập tin\n"
+"nếu ngài nén tập tin bằng `gzip'.  Ngài có thể gửi tập tin của mình\n"
+"như văn bản thông thường, nhưng cần chắc chắn là có một bộ định tuyến\n"
+"mail 8-bit thật tốt.\n"
+"Hiện tại, xin hãy gửi một tập tin PO cho mỗi email.\n"
+"Nếu tôi không thể giải mã gói của ngài, tôi sẽ chuyển tiếp nó tới hoa tiêu\n"
+"để giải nén thủ công.  Hãy dùng tên thư dạng như sau:\n"
+"\n"
+">    Subject: TP-Robot GÓI-PHIÊNBẢN.MÃNHÓM.po\n"
+"\n"
+"và gửi mọi thứ tới `translation@iro.umontreal.ca'.  Ngài sẽ nhận được\n"
+"câu trả lời trong vòng một giờ.  Nếu ngài cần giúp đỡ giải đáp các\n"
+"câu hỏi về thư này, hoặc ngài cho rằng tôi thật là khô khan, thì có\n"
+"thể viết trực tiếp cho hoa tiêu dự án dịch.  Tuy nhiên, khi đó,\n"
+"_đừng_ bắt đầu Tên thư với `TP-Robot'! :-)\n"
+
+#: web/lib/run.py:202
+msgid ""
+"                                The Translation Project robot, in the\n"
+"                                name of your kind translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+msgstr ""
+"                                Rô-bốt của Dự án dịch, đại diện cho\n"
+"                                hoa tiêu tốt bụng của dự án dịch.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+
+#: web/lib/run.py:213
+msgid "WARNING: This prevents the robot from forwarding your file to the archive.\n"
+msgstr "CẢNH BÁO: Điều này ngăn chặn việc chuyển tiếp tập tin của ngài đến kho chứa.\n"
+
+#: web/lib/sgml.py:173
+#, python-format
+msgid "Unsupported attribute %s"
+msgstr "Thuộc tính không hỗ trợ %s"
+
+#: web/lib/sgml.py:177
+#, python-format
+msgid "SGML in `%s' is not conformant.\n"
+msgstr "SGML trong `%s' không thích hợp.\n"
+
+#: web/lib/unpack.py:90 web/lib/unpack.py:99
+#, python-format
+msgid ""
+"I'm ignoring the following lines within your submission:\n"
+"\n"
+"---------------------------------------------------------------------->\n"
+"%s\n"
+"----------------------------------------------------------------------<\n"
+msgstr ""
+"Tôi lờ đi những dòng sau trong tập tin gửi lên của ngài:\n"
+"\n"
+"---------------------------------------------------------------------->\n"
+"%s\n"
+"----------------------------------------------------------------------<\n"
+
+#: web/lib/unpack.py:108
+msgid ""
+"Your submission seems to uses `uuencode' format, yet no proper terminator\n"
+"was found to end the encoded region.\n"
+msgstr ""
+"Tập tin của ngài có vẻ sử dụng dạng `uuencode', và không có phần\n"
+"đánh dấu điểm dừng của vùng đã mã hóa.\n"
+
+#: web/lib/unpack.py:169
+#, python-format
+msgid ""
+"Uncompressing your submission with gzip has failed. gzip said:\n"
+"%s\n"
+msgstr ""
+"Giải nén tập tin của ngài bằng gzip không thành công. gzip nói:\n"
+"%s\n"
+
+msgid "Afrikaans"
+msgstr "Nam phi"
+
+msgid "Albanian"
+msgstr "Al-ba-ni"
+
+msgid "Amharic"
+msgstr "Amharic"
+
+msgid "Arabic"
+msgstr "Ả rập"
+
+msgid "Argentinian"
+msgstr "Ác-hen-ti-na"
+
+msgid "Asturian"
+msgstr "Asturian"
+
+msgid "Azerbaijani"
+msgstr "A-zéc-bai-zan"
+
+msgid "Basque"
+msgstr "Basque"
+
+msgid "Belarusian"
+msgstr "Bê-la-rútx"
+
+msgid "Bosnian"
+msgstr "Bótx-nhia"
+
+msgid "Brazilian Portuguese"
+msgstr "Bra-zil Bồ Đào Nha"
+
+msgid "Bulgarian"
+msgstr "Bul-ga-ri"
+
+msgid "Catalan"
+msgstr "Catalan"
+
+msgid "Chinese (simplified)"
+msgstr "Trung Quốc (đơn giản)"
+
+msgid "Chinese (traditional)"
+msgstr "Trung Quốc (truyền thống)"
+
+msgid "Croatian"
+msgstr "Croát-chia"
+
+msgid "Czech"
+msgstr "Séc"
+
+msgid "Danish"
+msgstr "Đan mạch"
+
+msgid "Dutch"
+msgstr "Hà Lan"
+
+msgid "English"
+msgstr "Anh"
+
+msgid "English (British)"
+msgstr "(Vương quốc) Anh"
+
+msgid "Esperanto"
+msgstr "Etperantô"
+
+msgid "Estonian"
+msgstr "Étx-tô-nhia"
+
+msgid "Finnish"
+msgstr "Phần Lan"
+
+msgid "French"
+msgstr "Pháp"
+
+msgid "Galician"
+msgstr "Galician"
+
+msgid "Georgian"
+msgstr "Georgian"
+
+msgid "German"
+msgstr "Đức"
+
+msgid "Greek"
+msgstr "Hy Lạp"
+
+msgid "Hebrew"
+msgstr "Do Thái"
+
+msgid "Hungarian"
+msgstr "Hungari"
+
+msgid "Icelandic"
+msgstr "Băng đảo"
+
+msgid "Indonesian"
+msgstr "In-đô-nê-xia"
+
+msgid "Irish"
+msgstr "Ai-len"
+
+msgid "Italian"
+msgstr "I-ta-li"
+
+msgid "Japanese"
+msgstr "Nhật Bản"
+
+msgid "Kinyarwanda"
+msgstr "Kinyarwanda"
+
+msgid "Korean"
+msgstr "Hàn Quốc"
+
+msgid "Kurdish"
+msgstr "Kurdish"
+
+msgid "Latvian"
+msgstr "Lát-via"
+
+msgid "Lithuanian"
+msgstr "Lát-vi"
+
+msgid "Lojban"
+msgstr "Lojban"
+
+msgid "Luganda"
+msgstr "Lu-gan-đa"
+
+msgid "Macedonian"
+msgstr "Má-kê-đô-nhia"
+
+msgid "Malay"
+msgstr "Mã Lai"
+
+msgid "Maltese"
+msgstr "Maltese"
+
+msgid "Mongolian"
+msgstr "Mông Cổ"
+
+msgid "Nicaraguian"
+msgstr "Ni-ca-ra-gua"
+
+msgid "Northern Sotho"
+msgstr "Bắc Sotho"
+
+msgid "Norwegian"
+msgstr "Na Uy"
+
+msgid "Norwegian Bokmaal"
+msgstr "Bokmaal Na Uy"
+
+msgid "Norwegian Nynorsk"
+msgstr "Nynorsk Na Uy"
+
+msgid "Persian"
+msgstr "Ba Tư"
+
+msgid "Polish"
+msgstr "Ba Lan"
+
+msgid "Portuguese"
+msgstr "Bồ Đào Nha"
+
+msgid "Punjabi"
+msgstr "Punjabi"
+
+msgid "Rhaeto-Romance"
+msgstr "Rhaeto-Romance"
+
+msgid "Romanian"
+msgstr "Rô-ma-ni"
+
+msgid "Russian"
+msgstr "Nga"
+
+msgid "Serbian"
+msgstr "Séc-bi"
+
+msgid "Sinhalese"
+msgstr "Sinhalese"
+
+msgid "Slovak"
+msgstr "Slô-vác"
+
+msgid "Slovenian"
+msgstr "Slô-ve-nhia"
+
+msgid "Sotho"
+msgstr "Sotho"
+
+msgid "Spanish"
+msgstr "Tây Ban Nha"
+
+msgid "Swati"
+msgstr "Swati"
+
+msgid "Swedish"
+msgstr "Thụy Điển"
+
+msgid "Tajik"
+msgstr "Tajik"
+
+msgid "Tamil"
+msgstr "Tamil"
+
+msgid "Thai"
+msgstr "Thái"
+
+msgid "Turkish"
+msgstr "Thổ Nhĩ Kỳ"
+
+msgid "Turkmen"
+msgstr "Turkmen"
+
+msgid "Ukrainian"
+msgstr "U-cra-in"
+
+msgid "Venda"
+msgstr "Venda"
+
+msgid "Vietnamese"
+msgstr "Việt Nam"
+
+msgid "Walloon"
+msgstr "Walloon"
+
+msgid "Welsh"
+msgstr "Xứ Wên"
+
+msgid "Xhosa"
+msgstr "Xhosa"
+
+msgid "Zulu"
+msgstr "Zu-lu"

@@ -1,0 +1,51 @@
+#!/usr/bin/env python
+# Copyright © 2000 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 1999.
+
+"""\
+Serve CGI requests about Babyl folders.
+
+If no fields are given, a folder list is generated.
+If field `folder' is defined, that folder is selected.
+If fields `folder' and `ordinal' are both defined, that message is selected.
+"""
+
+import sys
+sys.path.insert(0, '@libdir@')
+
+def main():
+    try:
+        process_request()
+    except:
+        report_problem()
+
+def process_request():
+    import cgi, os, string
+    import babylweb
+    form = cgi.FieldStorage()
+    os.chdir('@topdir@')
+    if form.has_key('folder'):
+        folder = form['folder'].value
+        if form.has_key('ordinal'):
+            numbers = string.split(form['ordinal'].value, '/')
+            ordinal = int(numbers[0])
+            if len(numbers) == 2:
+                maximum = int(numbers[1])
+            else:
+                maximum = None
+            babylweb.display_message(folder, ordinal, maximum)
+        else:
+            babylweb.display_summary(folder)
+    else:
+        babylweb.display_folders(['.'])
+
+def report_problem():
+    import traceback
+    sys.stdout.write('Content-Type: text/html\n\n'
+                     '\n<pre>\n')
+    sys.stderr = sys.stdout
+    traceback.print_exc()
+    sys.stdout.write('</pre>\n')
+
+if __name__ == '__main__':
+    main()

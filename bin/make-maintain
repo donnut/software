@@ -1,0 +1,128 @@
+#!/usr/bin/env python
+# -*- mode: python; coding: iso-8859-1 -*-
+# Copyright © 2001, 2002 Translation Project.
+# Martin v. Löwis <loewis@informatik.hu-berlin.de>, 2001.
+
+"""\
+Create a maintainance branch of a package, outputting a new registry
+and shell commands
+
+Usage: make-maintain magic-key
+
+"""
+
+import os, sys, re, glob
+p =  os.path.expanduser('~/po/web/lib')
+if os.path.exists(p):
+    sys.path.insert(0, p)
+else:
+    p = "/home/www/usagers/gnutra/HTML/web/lib"
+    if os.path.exists(p):
+         sys.path.insert(0, p)
+
+# XXX check team against registry (PO/ca.tmp)
+
+os.environ['PATH'] = '/usr/lib:' + os.environ['PATH']
+try: del os.environ['LANGUAGE']
+except KeyError:pass
+try: del os.environ['LANG']
+except KeyError:pass
+
+magic_key = "neues nano"
+
+old_domain = 'gettext'                  # nano
+new_domain = 'gettext-runtime'          # nano_1_0
+
+old_pattern = "gettext-0.11.5"          # "nano-1.0"
+new_pattern = "gettext-runtime-0.11.5"  # nano_1_0-1.0"
+
+import registry,sgml,config
+
+def main(*arguments):
+    if not arguments:
+        sys.stdout.write(__doc__)
+        sys.exit(0)
+    if arguments[0] != magic_key:
+        sys.stdout.write("Key is wrong, edit the script")
+        sys.exit(0)
+    gen_registry()
+
+
+def gen_registry():
+    old = registry.registry.domain_info(old_domain)
+    new = registry.registry.domains[new_domain] = {}
+    new.update(old)
+    new['name'] = new_domain
+    registry.registry.domain_names.append(new_domain)
+
+    for team in registry.registry.team_list():
+        for trans in team.translator.values():
+            trans = registry.registry.translator_info(team,trans.name[0])
+            try:
+                _do = trans['do']
+                pos = _do.index(old_domain)
+                try:
+                    _do.index(new_domain)
+                except ValueError:
+                    _do[pos+1:pos+1] = [new_domain]
+            except ValueError:
+                pass
+
+    sgml.decode_database()
+    mv_po(config.top_directory+"/teams/PO")
+    mv_po(config.top_directory+"/domains/POT")
+    mklinks()
+
+renamed = {}
+def mv_po(dir):
+    for f in os.listdir(dir):
+        dir1 = os.path.join(dir,f)
+        if not os.path.isdir(dir1):
+            continue
+        for f1 in os.listdir(dir1):
+            f2 = re.sub(old_pattern, new_pattern, f1)
+            if f1 == f2:
+                continue
+            print "mv %s %s" % (os.path.join(dir1,f1),os.path.join(dir1,f2))
+
+def byversion(a,b):
+    a = registry.hints(a[0])
+    b = registry.hints(b[0])
+    return cmp(a.version,b.version)
+
+def mklinks():
+    newdir = "%s/maint/%s" % (config.top_directory, new_domain)
+    print "mkdir",newdir
+    dir = (config.top_directory+"/maint/"+old_domain)
+    for link in os.listdir(dir):
+        oldfile = os.path.join(dir,link)
+        if not os.path.islink(oldfile):
+            continue
+        if link[-3:] != ".po":
+            continue
+        team = link[:-3]
+        oldlink = os.readlink(oldfile)
+        newlink = re.sub(old_pattern, new_pattern, oldlink)
+        if newlink == oldlink:
+            # link is good, need to make new link in newdir
+            potdir = os.path.join(config.top_directory,"teams/PO",team)
+            pofiles = []
+            for f in glob.glob1(potdir,old_pattern+"*"):
+                f1 = re.sub(old_pattern,new_pattern,f)
+                if f == f1:
+                    continue
+                pofiles.append((f,f1))
+            pofiles.sort(byversion)
+            if pofiles:
+                print "ln -s ../../teams/PO/%s/%s %s/%s" % \
+                      (team,pofiles[-1][1],newdir,link)
+        else:
+            # Removing the link is undesirable: this translation
+            # continues to be useful for the old domain as well.
+            # print "rm",oldfile 
+            # mv link to newdir
+            print "ln -s %s %s/%s" % (newlink,newdir,link)
+
+if __name__ == '__main__':
+    apply(main, tuple(sys.argv[1:]))
+

@@ -1,0 +1,115 @@
+<!-- Registry data for use in the Translation Project.
+     Copyright © 2001, 2002, 2003, 2004 Translation Project.
+     Copyright © 1998, 1999, 2000 Progiciels Bourbeau-Pinard inc.
+     François Pinard <pinard@iro.umontreal.ca>, 1998.
+-->
+
+<!-- The `registry' data describes textual domains and national teams.
+-->
+<?PSGML ELEMENT domain face=bold ?>
+<?PSGML ELEMENT remark face=font-lock-comment-face ?>
+<?PSGML ELEMENT team face=bold-italic ?>
+<?PSGML ELEMENT translator face=bold ?>
+<?PSGML ELEMENT leader face=font-lock-variable-name-face ?>
+<?PSGML ELEMENT code face=font-lock-keyword-face ?>
+
+
+<!ENTITY amp "&#38;">
+<!ELEMENT registry	- -	(domains, teams)			>
+<!ELEMENT domains	- -	(domain*)				>
+<!ELEMENT teams		- -	(team*)					>
+
+<!-- A textual `domain' is *not* the package name, yet they usually coincide.
+     The `mailto' addresses point to the maintainers of the package holding
+     this textual domain.
+
+     The `ref' fields indicate FTP or Web sites for the textual domain.
+
+     Each `keep' introduces version numbers.  PO files meant for kept
+     versions are protected against PO file expiry.
+
+     Each `ext' introduces a team code. External translations must not
+     conflict with tp-maintained ones.
+
+     The following flags are recognised for textual domains:
+	`disclaim'	this domain requires translation disclaimers
+	`autosend'	email new PO files to the package maintainer
+-->
+
+<!ELEMENT domain	- O	(#PCDATA, potcopyright?, ref*, 
+                                  (nomailto|mailto)+, 
+                                  keep*, disclaim?, autosend?, url*, note*, 
+                                  ext*, remark*) >
+
+<!-- A `team' is named in English, and by an ISO 639 language `code'.
+     It may have many `mailto', but only the first is handled right now.
+
+     Linux International might create a mailing list for a team once it holds
+     a few usable PO files.  Our contact is Patrick D'Cruze <pdcruze@li.org>.
+
+     The `charset' is the one preferred in correspondence and PO files for
+     that national team.
+
+     A team often has a `leader', which is then our priviledged contact for
+     administrative purposes.  Add leaders to <team-leaders@iro.umontreal.ca>.
+
+     The `ref' fields indicate FTP or Web sites for the national team.
+-->
+
+<!ELEMENT team		- O	(#PCDATA, code, mailto+, announceto?, 
+                                 charset?, suppresspot?,
+				 leader?, ref*, remark*, translator*)	>
+<!ELEMENT leader	- O	(#PCDATA)				>
+<!ELEMENT ref		- O	(#PCDATA, url)				>
+<!ELEMENT note		- O	(#PCDATA)				>
+
+<!-- A `translator' may have many `mailto' addresses, the first of which is
+     canonical.  PO files may use any of those email addresses.
+
+     The following flags are recognised for translators:
+	`disclaimer'	the FSF acknowledged a translation disclaimer
+	`autosend'	email PO files to work on from new releases
+
+     Translators may translate any textual domain for which a translation
+     disclaimer is not required.  For domains where a translation disclaimer
+     is required, the translator should first have send a translation
+     disclaimer, the receipt of which has to be acknowledged by the FSF.
+
+     The `do' clauses each tell one textual domain for which translations
+     may be accepted directly, without going through the team or team leader.
+     The team decides of the list of such `do' clauses for each translator.
+
+     New translators should always be announced to their related national
+     team, which team should always stay informed of what is going on.
+-->
+
+<!ELEMENT translator	- O	(#PCDATA, alias*, mailto*, url*,
+				 disclaimer?, autosend?, do*, remark*)	>
+
+<!-- All other entities receive textual data.  Flags are only checked for
+     existence, their contents are ignored.
+-->
+
+<!ELEMENT alias		- O	(#PCDATA)				>
+<!ELEMENT announceto	- O	(#PCDATA)				>
+<!ELEMENT charset	- O	(#PCDATA)				>
+<!ELEMENT code		- O	(#PCDATA)				>
+<!ELEMENT disclaimer	- O	(#PCDATA)				>
+<!ELEMENT do		- O	(#PCDATA)				>
+<!ELEMENT http		- O	(#PCDATA)				>
+<!ELEMENT keep		- O	(#PCDATA)				>
+<!ELEMENT mailto	- O	(#PCDATA)				>
+<!ELEMENT nomailto	- O	(#PCDATA)				>
+<!ELEMENT remark	- O	(#PCDATA)				>
+<!ELEMENT see		- O	(#PCDATA)				>
+<!ELEMENT url		- O	(#PCDATA)				>
+<!ELEMENT ext		- O	(#PCDATA)				>
+<!ELEMENT potcopyright	- O	(#PCDATA)				>
+
+<!ENTITY % empty        "#PCDATA"					>
+<!ELEMENT disclaim	- O	(%empty)				>
+<!ELEMENT autosend	- O	(%empty)				>
+<!ELEMENT suppresspot	- O	(%empty)				>
+
+<!ATTLIST autosend      option        (compress)        #IMPLIED        >
+<!ATTLIST mailto        show          (yes|no)          #IMPLIED        >

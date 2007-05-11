@@ -1,0 +1,199 @@
+#!/usr/bin/env python2
+# -*- mode: python; coding: iso-8859-1 -*-
+# Copyright © 2001, 2002 Free Translation Project.
+# Copyright © 2000 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 2000.
+
+"""\
+Adjust the database holding PO file statistics.
+
+Usage: postats-data [OPTION] [POFILE]...
+
+  -d  Delete entries for which the PO file does not exist
+  -i  Re-initialise the whole database (may be long)
+  -u  Take time stamps into account
+  -t  Re-initialise just the template information
+  -v  Entertain the user by telling what goes on
+"""
+
+import os, sys, stat
+p =  os.path.expanduser('~/po/web/lib')
+if os.path.exists(p):
+    sys.path.insert(0, p)
+else:
+    p = "/home/www/usagers/gnutra/HTML/web/lib"
+    if os.path.exists(p):
+         sys.path.insert(0, p)
+
+import getopt, re, UserDict
+import config, data, po, registry
+
+def main(*arguments):
+    if not arguments:
+        sys.stdout.write(__doc__)
+        sys.exit(0)
+    delete_option = initialize_option = template_option = verbose_option = 0
+    update_option = 0
+    options, arguments = getopt.getopt(arguments, 'ditvu')
+    for option, value in options:
+        if option == '-d':
+            delete_option = 1
+        elif option == '-i':
+            initialize_option = 1
+        elif option == '-t':
+            template_option = 1
+        elif option == '-v':
+            verbose_option += 1
+        elif option == '-u':
+            update_option = 1
+    assert not initialize_option or not delete_option
+    if initialize_option or update_option:
+        assert len(arguments) == 0
+    #elif not delete_option:
+    #   assert len(argument) > 0
+    if initialize_option:
+        if update_option:
+            try:
+                postats = data.load_postats()
+            except:
+                # Failed to load old data; start from scratch
+                postats = UserDict.UserDict()
+                update_option = 0
+        else:
+            postats = UserDict.UserDict()
+        found = []
+        os.path.walk('%s/trans' % config.top_directory,
+                     walker, (postats, found, verbose_option, update_option))
+        gen_potstats(postats, verbose_option)
+        if update_option:
+            # delete stats for which we have no file
+            for have in postats.keys():
+                if have not in found:
+                    if verbose_option:
+                        try:
+                            name = registry.archive_path(*have)
+                        except (KeyError, TypeError):
+                            name = str(have)
+                        sys.stderr.write('d - %s\n' % name)
+                    del postats[have]
+    elif template_option:
+        postats = data.load_postats()
+        gen_potstats(postats, [], verbose_option, update_option)
+    else:
+        postats = data.load_postats()
+        if delete_option:
+            for key in postats.keys():
+                domain, version, team = key
+                name = registry.archive_path(domain, version, team)
+                if not os.path.exists(name):
+                    if verbose_option:
+                        sys.stderr.write('d - %s\n' % name)
+                    del postats[key]
+        for name in arguments:
+            update(postats, [], name, verbose_option, 0)
+    data.save_postats(postats)
+
+def walker((postats, found, verbose, update_only), dirname, bases):
+    if verbose:
+        bases.sort()
+    for base in bases:
+        if os.path.splitext(base)[1] == '.po':
+            changed = update(postats, found, '%s/%s' % (dirname, base),
+                             verbose, update_only)
+            if update_only and changed:
+                # Save after each change
+                data.save_postats(postats)
+
+def update(postats, found, name, verbose, update_only):
+    try:
+        hints = registry.hints(name)
+    except KeyError, e:
+        sys.stderr.write("ERROR %s\n" % e)
+        return
+    if hints.domain and hints.version and hints.team:
+        key = hints.domain.name, hints.version.name, hints.team.name
+        found.append(key)
+        mtime = os.stat(name)[stat.ST_MTIME]
+        oldstats = postats.get(key)
+        if oldstats:
+            try:
+                oldmtime = oldstats[6]
+            except IndexError:
+                pass
+            else:
+                if oldmtime == mtime:
+                    if verbose>1:
+                        sys.stderr.write('S - %s\n' % name)
+                    return 0
+        if verbose:
+            sys.stderr.write('a - %s...' % name)
+        try:
+            entries = po.read(name)
+        except IOError:
+            sys.stderr.write("UNREADABLE %s\n" % name)
+            return 0
+        header = po.header(entries)
+        translator, mailto = header['last-translator'], None
+        match = re.search('(.*[^ ]) <(.*)>', translator)
+        if match:
+            translator, mailto = match.group(1, 2)
+        try:
+            unicode(translator,"ascii")
+        except UnicodeError:
+            charset = None
+            for f in header['content-type'].split(";"):
+                f = f.strip()
+                if f.startswith("charset="):
+                    charset = f[8:]
+            if charset:
+                translator = unicode(translator,charset).encode("utf-8")
+        stats = po.stats(entries)
+        total = stats['translated'] + stats['untranslated'] + stats['fuzzy']
+        postats[key] = (translator, mailto, stats['translated'], total,
+                        stats['translated_length'], stats['total_length'],
+                        mtime)
+        if verbose:
+            sys.stderr.write('\n')
+        return 1
+    else:
+        sys.stderr.write(_('%s: Not enough hints for a key\n') % name)
+        return 0
+
+def gen_potstats(postats, verbose):
+    versions = {}
+    for f in os.listdir('%s/domains/POT' % config.top_directory):
+        try:
+            h = registry.hints(f)
+        except ValueError:
+            continue
+        except KeyError:
+            print "BAD FILE",f
+            continue
+	try:
+	    h.version.set_sort_key()
+	except AssertionError:
+	    print "BAD VERSION in", f
+	    continue
+        try:
+            oldver = versions[h.domain.name][0]
+        except KeyError:
+            versions[h.domain.name] = h.version, f
+            continue
+        if h.version > oldver:
+            versions[h.domain.name] = h.version, f
+    postats.potstats = {}
+    for domain, (version, file) in versions.items():
+        if verbose:
+            sys.stderr.write("%s ... " % file)
+        entries = po.read('%s/domains/POT/%s' % (config.top_directory, file))
+        stats = po.stats(entries)
+        # aegis.pot has translations
+	# assert stats['translated']==0,file
+        assert stats['fuzzy']==0,file
+        postats.potstats[domain] = (file, stats['untranslated'])
+        if verbose:
+            sys.stderr.write("%d\n" % stats['untranslated'])
+            
+
+if __name__ == '__main__':
+    apply(main, tuple(sys.argv[1:]))

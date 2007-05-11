@@ -1,0 +1,291 @@
+* Reply to incoming translators                 allout -*- outline -*-
+
+  Hello, I hope you will not mind a canned reply.  You wrote to the
+  translation team coordinator, offering to become a translator, but do
+  not know exactly how or where to start.  Here is some advice.
+
+.* Become part of a translation team
+   ---------------------------------
+
+   You should first find the address for your own national team.  You may
+   get a list of current teams on the Web, as well as the team code and
+   the current email address for each team, at:
+
+        http://www.iro.umontreal.ca/translation/HTML/teams.html
+
+   Some teams, not all, use a mail list server.  Let's presume your team
+   has an address at Linux International.  For becoming a member of your
+   translation team, appending `-request' just before `@li.org', then use
+   `subscribe' in the _body_ of the message.  After that, you write to your
+   team without using any `-request' suffix.  Other mailing list servers
+   may use different recipes.  Check with your team first.  Of course,
+   you may use your own language when writing to your translation team.
+
+   If there is no team for your language and you want to start one, you
+   may find more information on how to proceed at:
+
+        http://www.iro.umontreal.ca/translation/HTML/leaders.html
+
+.* Fill out and return the disclaimer for translators
+   --------------------------------------------------
+
+   In the GNU `gettext' distribution, you will find a file named `DISCLAIM',
+   containing a disclaimer for all the translation work you do for this
+   project.  If you did not fetch `gettext', or if your team does not provide
+   you with a copy, just ask for one at mailto:translation@iro.umontreal.ca.
+   Instructions are included within the form.  You may also find more
+   information about the translation disclaimer matter, as well as copies
+   in a few formats, through this Web page:
+
+        http://www.iro.umontreal.ca/translation/HTML/disclaim.html
+
+   Many textual domains (roughly: packages) do require that your work has
+   to be provably free.  The Translation Project will reject a submission
+   if you did not disclaim, in writing, your rights over the translations
+   you produce.  It also takes in the order of one month overall, once the
+   disclaimer has been sent, for it to be fully processed.  This is often
+   the bottleneck of the whole process, you should address this matter as
+   soon as possible.  Once this formality is over, you are clear to do as
+   many translations as you want without going through the formality again.
+
+.* Learn how to use the Robot
+   --------------------------
+
+   Once your team exists and your translation disclaimer has been received
+   and acknowledged by the FSF, you may proceed to successfully upload PO
+   files yourself, using the Translation Project robot.  If you do not know
+   what a PO file is, skip this section for now, and come back to it later.
+
+   The Translation Project robot (or TP-Robot) is an email service which
+   takes care of PO file submissions.  The robot checks if the file is
+   receivable, that is, if a translator has filled her disclaimer whenever
+   required, and if her team allows her to do the work.  It also calls
+   `msgfmt' to see if the PO file is healthy, and also checks for various
+   other problems.
+
+   Creating a team is a quick process, but having the disclaimer acknowledged
+   usually takes in the order of one month.  Before that time has elapsed,
+   you can nevertheless submit your PO file to the robot.  It will not accept
+   uploading it, but at least, it will discover errors and diagnose them.
+   People translating for the first time usually make various errors, and
+   it may require a few tries before you get everything to be perfect.
+   Maybe by the time you have finished this, your disclaimer will have
+   been received, and you will be just ready for a real, successful upload.
+
+   The robot might be a bit frightening at first, because it is extremely
+   picky at many details.  The fellow members of your team might help you to
+   get acquainted with it.  You may also write to the translation coordinator
+   for help, if something is unclear or if you feel a little lost in this.
+   To use the robot, your Subject line should look like:
+
+        TP-Robot PACKAGE-VERSION.TEAM.po
+
+   and the whole thing should be sent to mailto:translation@iro.umontreal.ca.
+   It works best to send the PO file as a gzip'ed attachment -- sending as
+   plain text is dangerous because some mailers insert line breaks on their
+   own and because some mail relays are not 8-bit clean.  Thus it's the best
+   sending compressed attachments.
+
+   You may expect a reply within minutes.  If you need help to resolve
+   questions, or if you plainly suspect the robot behaves poorly, you may
+   directly write the translation coordinator.  However, if you do so,
+   be careful _not_ to start your message Subject with TP-Robot! :-)
+
+   The simplest way to use the robot, for those who are lucky enough to
+   know Emacs, is through the `M' command of PO mode.  When your PO file is
+   ready, just type `M', and with a bit of luck, everything will be taken
+   care of.
+
+   If you don't want to use Emacs, you can submit your PO file as a MIME
+   mail.  If the Robot cannot decipher your submission, it will merely
+   forward it to me, who is much slower, for manual unpacking.
+
+.* Install GNU `gettext' and learn how to use it
+   ---------------------------------------------
+
+   You could work on translations without installing GNU `gettext'.
+   However, you would miss the `msgfmt' program which is quite useful at
+   validating the format of your translated files, the PO mode for GNU Emacs
+   which makes editing such files easier, and the GNU `gettext' documentation,
+   which explains the Translation Project in greater detail.
+
+   Fetch the GNU `gettext' distribution from `ftp://ftp.gnu.org/pub/gnu/gettext/'
+   or any mirror site from which you download GNU packages, and install it
+   at your place.  If you do not have the ability or authority for
+   installing GNU `gettext', try to get the system administrator of your
+   site to install it for you (the sysadmin will use a recipe very similar
+   to the one given below, but will not use the `--prefix' argument to
+   `configure', letting the default `/usr/local' flow in).  The recipe
+   below is valid when you want to install GNU `gettext' for yourself
+   alone, as a user.  Once you have the distribution (let's say it is
+   `gettext-N.M.tar.gz'), just do:
+
+           gunzip < gettext-N.M.tar.gz | tar xf -
+           cd gettext-N.M
+           ./configure --with-included-gettext --prefix=$HOME
+           make install
+
+   After that, just ensure `~/bin' is on your search path.  If you are using
+   `sh' (or `bash', or `ksh'), modify your `.profile' or `.bash_login' file
+   so that it contains:
+
+           export PATH; PATH=$HOME/bin:$PATH
+
+   If you are using `csh' (or `tcsh') instead, modify your `.login' or
+   `.cshrc' file so that it contains:
+
+           set path=(~/bin $path)
+
+   If you use GNU Emacs, you might want to load PO mode, coming with GNU
+   `gettext'.  Add these few lines to your `.emacs' file:
+
+           (setq load-path (cons "~/gettext-N.M/misc" load-path))
+           (setq auto-mode-alist (cons '("\\.po\\'\\|\\.po\\." . po-mode)
+                                       auto-mode-alist))
+           (autoload 'po-mode "po-mode")
+
+   If you use GNU Emacs 20 with international fonts installed, also add:
+
+           (autoload 'po-find-file-coding-system "po-mode")
+           (modify-coding-system-alist 'file "\\.po\\'\\|\\.po\\."
+                                       'po-find-file-coding-system)
+
+   The load-path line may be omitted if `gettext-N.M/misc/po-mode.elc' has
+   already been moved to some standard place where GNU Emacs will find it.
+
+   Finally, read through the `~/info/gettext.info*' files.  Or even better,
+   if you have TeX already installed on your site, do something like:
+
+           cd gettext-N.M/doc
+           make dvi
+           dvips gettext.dvi
+
+   to print a nice manual about GNU `gettext'.
+
+.* Dive into real translation work
+   -------------------------------
+
+   If your team is well organised, people there should help you in finding a
+   translation assignment.  Otherwise, you will have to find one yourself.
+   But whatever you do, at any time, and even if everybody seems to be
+   sleeping in your team, keep it well informed of what you intend to do.
+   One way to start is by translating GNU `gettext' messages.  It is not
+   especially important to translate `gettext' messages first, but you
+   might just have it handy on your disks.  If GNU `gettext' has already
+   been translated, and your team does not help you to choose a translation
+   assignment, your might look into those directories:
+
+           http://www.iro.umontreal.ca/translation/trans/LL/
+           http://www.iro.umontreal.ca/translation/pot/
+
+   to see all PO files currently available for the language LL.  The former
+   directory gives those PO files who are completely or incompletely
+   translated, but excludes files for which translation has not even started.
+   The later directory gives the untranslated state of such files for all
+   packages: you will most probably find food for work in there!  Every time
+   the Translation Project uploads a new file or updates an existing file
+   in either directory, an announcement is sent to all members of the
+   translation team.
+
+   OK, let's say you decided to translate `gettext-N.M'.  Start by
+   copying the file `gettext-N.M/po/gettext.pot' into a work file named
+   `gettext-N.M.LL.po', where LL is your language code as explained earlier
+   in this text, and just edit this file.  It starts like:
+
+           # SOME DESCRIPTIVE TITLE.
+           # Copyright (C) YEAR Free Software Foundation, Inc.
+           # This file is distributed under the same license as the PACKAGE package.
+           # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+           #
+           #, fuzzy
+           msgid ""
+           msgstr ""
+           "Project-Id-Version: PACKAGE VERSION\n"
+           "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+           "POT-Creation-Date: 2002-12-10 22:11+0100\n"
+           "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+           "Language-Team: LANGUAGE <LL@li.org>\n"
+           "MIME-Version: 1.0\n"
+           "Content-Type: text/plain; charset=CHARSET\n"
+           "Content-Transfer-Encoding: ENCODING\n"
+
+   Replace all the words in capitals with something appropriate.  In this
+   case, you will be the first author of the translation, and also the
+   last translator of it.  Please, don't use your own language to replace SOME
+   DESCRIPTIVE TITLE; this line is meant to be read also by people not
+   speaking your language.  CHARSET may be ISO-8859-1 for example,
+   and ENCODING is often 8bit.  Remove the `#, fuzzy' line once you have
+   specified the items in capitals, because once this is done the header
+   entry is no longer fuzzy.
+
+   Each message to translate is then given in turn in the PO file.  For
+   example, an untranslated entry might be:
+
+           #: lib/error.c:88
+           msgid "Unknown system error"
+           msgstr ""
+
+   The empty `msgstr' string has to be filled with the translation for the
+   string shown after `msgid'.  If you were a German speaker, say, the entry
+   once translated might look like:
+
+           #: lib/error.c:88
+           msgid "Unknown system error"
+           msgstr "unbekannter Systemfehler"
+
+   You just produce a translation for all entries in the PO file, one after
+   another, respecting the overall file format and the quoting needed for
+   special characters, when needed.  Observation and intuition may allow
+   you to grasp what the format should be; the precise rules for PO files
+   are given in the GNU `gettext' manual.  The `msgfmt' program is helpful
+   for pinpointing formatting errors.
+
+   Once your PO file is ready, you might submit it to your translation
+   team to get feedback and criticism, and if everything is OK, to
+   mailto:translation@iro.umontreal.ca for later inclusion in the proper
+   package.  Your submission might be rejected if the translation disclaimer
+   has not been received, if someone else in your team is already assigned
+   to the package you translated, or if your team officially disapproves
+   of your work (maybe because you are not a team worker).  Your team
+   should be seen as an authority for deciding which translations go,
+   and which don't, so you'd better collaborate with it!
+
+   To ask for assignment send a mail to mailto:translation@iro.umontreal.ca
+   with a Cc: to your team leader and tell us the textdomain(s) you want to
+   work on.  If the team leader stays silent we usually take this as an
+   agreement.
+
+.* Participate in your team, or stimulate it
+   -----------------------------------------
+
+   Some teams are quite well organised, with a team coordinator, many
+   translators having clear responsibilities, an FTP site for archives of
+   previous exchanges or current translations, maybe a web site as well, with
+   an FAQ, specialised lexicons and related literature or pointers.  On the
+   other hand, other teams have only one or very few members, which have not
+   taken the time to organise properly or have not really started their work.
+
+   You have to find out yourself.  Write to your team directly, using your
+   own language, asking if someone is coordinating it, if there is an FAQ,
+   or if any procedure exists for contributing, as each team might have its
+   own methods.  You might receive a clear and precise answer telling you
+   everything you need to know.  In the worst case, you could not receive
+   any reply at all.
+
+   In the silent case, you will have to make a decision.  You may back up
+   and out of the Translation Project, and forget about it.  Or else,
+   you may decide to take on responsibility for your team and try to revive
+   it, answering future volunteers and doing translations on your own.
+   A team is only as active as its members.  If everyone is shy and no
+   one is able to make any decisions, nothing moves.  If a team has one or
+   more good leaders, things usually go smoothly.  If many people *fight*
+   for leadership, the team might have to resolve the problems that it has,
+   and you may want to become part of the solution.  It's really up to you.
+
+   You may know other people who might be interested in volunteering for
+   your language.  Then, of course, you could invite them to join you and
+   subscribe to the proper language team.
+
+
+                                   Your translation coordinator
+                                   <translation@iro.umontreal.ca>

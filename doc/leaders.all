@@ -1,0 +1,183 @@
+* Reply to incoming team coordinators		allout -*- outline -*-
+
+  Hello, I hope you will not mind a canned reply.  You wrote to the
+  translation team coordinator, wanting to create a brand new translation
+  team, and wonder what are the normal steps to follow towards this goal.
+
+  By wanting to create a new team for your native language, you
+  implicitely accept to become its initial coordinator.  I encourage you
+  to carefully read this whole page.  Yet, remember that creating a new
+  team can be made a rather simple and quick process.  The team address
+  might be your own address, and you might be coordinating only yourself
+  to start with.  Hopefully, that should be easy!  If someone else
+  later shows up in the team, you are free to offer the newcomer to
+  replace you as coordinator.
+
+  Allow me to presume you are female, in the remainder of the text, below.
+
+.* Establishing an identity for the team
+   -------------------------------------
+
+   In the best order of the things, each  translation team has a
+   team code and an electronic mail address, so one of the first step in
+   starting a new team is deciding such things.  The team code is usually
+   taken directly from ISO 639.  You may find a list of team codes in
+   the gettext manual, appendix A, `Language Codes':
+
+	http://www.gnu.org/software/gettext/manual/
+
+   And recent changes in:
+
+        http://lcweb.loc.gov/standards/iso639-2/codechanges.html
+
+   Then write to mailto:translation@iro.umontreal.ca to tell about your
+   interest for creating a new team.  You will reach the translation
+   coordinator for all translation teams.
+
+. + Purpose of a team address
+
+    The address of a translation team is mainly used by team members to
+    communicate between themselves, usually to share and resolve translation
+    difficulties, and to discuss team orientation and priorities.  It is
+    used by the team coordinator to broadcast the information she receives
+    to all members, as she see fits.  The robot of the Translation Project
+    currently uses the team address to announce the upload and status of
+    translation files for that team: this is also a useful cross-check
+    for duplicate assignments of translators or against forged submissions.
+
+    The team address is meant to be the published address where all users
+    of the translated software are invited to send linguistic gripes,
+    for the team to then consider.  This might create a difficulty if the
+    mailing list is closed to non-subscribers, as it is sometimes the case
+    as an anti-SPAM measure (we currently do not have a solution to this
+    problem, so your suggestions are welcome).
+
+. + Choosing a team address
+
+    When a team is barely starting, it may use the address of the
+    individual who is setting the team up, and she has the responsibility
+    of redistributing the information meant for the whole team to all her
+    collaborators.  For a while, you'll all have to establish direct contact
+    between yourselves and manage together.  Most teams use a mailing list
+    for the team address, and in general, translators may subscribe and
+    unsubscribe freely to that mailing list, through a mailing list server.
+
+    The Linux International organisation (with headquarters in Australia)
+    kindly offered mailing list addresses to teams needing one.  They use
+    addresses like `LL@li.org', with `LL' being the ISO 639 language code
+    (not to be confused with the ISO 3166 country code as used in email
+    addresses, which is a different thing).  2002 we decided to start the
+    project `translation' on Sourceforge.net where we can create
+    mailing lists on our own; the naming convention for team lists is
+    translation-team-LL@lists.sourceforge.net.
+
+.* Accepting to initially lead the team
+   ------------------------------------
+
+   In the Translation Project, we use the expressions "team coordinator"
+   and "team leader" interchangeably.  The later is shorter to write and
+   pronounce, but the former more adequately describes the job.  The team
+   coordinator is usually a soft person going along well with people,
+   and of course, interested in the Translation Project.  It is always
+   highly desirable for you to be able to collaborate with other people.
+
+   The responsibilities of the team coordinator may vary widely, and this
+   is something which ultimately gets negotiated between the coordinator
+   of the team and the team members.
+
+   As coordinator, you have to well represent your team when we write to
+   one another.  You might have to receive new volunteers, or name someone in
+   your team to do so.  You will have to suffer a few letters from me telling
+   various news and redistribute to team members any information you think
+   could help them, or otherwise prevent them from information pollution:
+   you should know your team better than me -- teams are not all alike.
+
+   The team coordinator usually arbitrates who is assigned to a particular
+   domain (or `package'), when too many translators want to do it at once.
+   It is unlikely the case for some while, after a team just started. :-)
+   In some teams, the coordinator gives some special help to newcomers,
+   but each team is free to organise itself as it see fits.
+
+   It would also be a good thing that you do a few translations yourself,
+   so you could at least understand and guide other team members when they
+   have problems.
+
+. + Representing the translation team
+
+    The team coordinator is, in fact, the voice of the team.  She should do
+    her best for representing it adequately.  Note, however, that this is
+    the whole team which bears the responsibility for doing the work and
+    ensuring the quality of translations, this is not the responsibility
+    of neither the coordinator or any other sole translator.  However, some
+    teams may want to delegate responsibilities, if they find it convenient.
+
+    The coordinator tells `mailto:translation@iro.umontreal.ca' about who,
+    in the team, may directly submit translations for such and such package,
+    and this information is used to feed the project robot, so it takes
+    proper decisions.  The coordinator represents the team here, and this
+    role is especially useful in bigger teams having many active members.
+
+    The team has to decide about how much it wants to control translations
+    before they are uploaded.  Most teams do quality control after the fact,
+    so everything run faster, but some teams prefer to behave differently.
+    (What I sometimes do is that I accept translations when not already
+    assigned, assign them while doing so, and inform the team, directly or
+    indirectly.  However, I never accept without clarification a translation
+    from someone when it has already been assigned to someone else.)
+
+    Exchanges between coordinators of various translation teams are welcome.
+    Despite their differences, teams have many similarities and common
+    concerns.  By acquiring a more global view, coordinators become more
+    able to share not only ideas, but also the lead of the whole Project.
+
+. + Interacting with the Translation Project
+
+    The Translation Project coordinator expects each team coordinator to
+    be a priviledged contact for team matters.  There has been a time when
+    the Translation Project coordinator was directly writing to all members
+    of all teams.  Even if some translators are curious about everything,
+    many merely prefer to stay quiet and out of administrative matters.
+    Now, team coordinators sort out themselves which information is
+    worth redistributing to all members.  It is one reponsibility of team
+    coordinators to ensure that they do broadcast the information they
+    receive, for when this information is needed or useful to translators.
+
+. + Receiving new volunteers
+
+    While you are alone in the team, consider you are a team of only
+    one person.  Send your disclaimer and translate PO files at will.
+    You are welcome to do some recruiting to find people wanting to share
+    the enthusiasm and translation load with you, but if you are not
+    comfortable with recruiting, you surely do not have to do so.
+
+    The Translation Project coordinator would like to merely forward to
+    the team coordinator any offer to volunteer for that team which he
+    receives, without replying himself.  You may even grant the volunteer
+    in his/her own language!  However, this also means you have the
+    burden of receiving new volunteers for your team.  Unless you feel like
+    explaining everything yourself, or already have other documents handy,
+    you might want to invite newcomers to take a look at this document:
+
+	http://www.iro.umontreal.ca/translation/HTML/translators.html
+
+    There is also a text copy of the same, which you might more easily
+    include in a message, as:
+
+	http://www.iro.umontreal.ca/translation/doc/translators.all
+
+    Just ask me for a text copy, if they do not have easy access to the Web.
+
+. + Checking that everything runs smoothly
+
+    Once created, the existence of your team should be reflected in:
+
+	http://www.iro.umontreal.ca/translation/HTML/teams.html
+
+    Following the proper link should lead you into the description of your
+    team, and all information there is updated regularily.  This is probably
+    the easiest way to see where things stand.  If you discover that some
+    information is missing or inaccurate, please write to the Translation
+    Project coordinator, and we will work together at resolving the matters.
+
+					  Your translation coordinator
+					  <translation@iro.umontreal.ca>

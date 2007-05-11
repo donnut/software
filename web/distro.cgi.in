@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+# Copyright © 2000 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 2000.
+
+"""\
+Serve CGI requests about various source files in `dist'.
+
+If no fields are given, a file list is generated.
+If field `file' is defined, that file gets displayed.
+"""
+
+import sys
+sys.path.insert(0, '@libdir@')
+
+def main():
+    try:
+        process_request()
+    except:
+        report_problem()
+
+def process_request():
+    import cgi, os
+    import distroweb
+    form = cgi.FieldStorage()
+    os.chdir('@topdir@/dist')
+    if form.has_key('file'):
+        distroweb.display_file(form['file'].value, form.has_key('raw'))
+    else:
+        distroweb.display_file_list()
+
+def report_problem():
+    import traceback
+    sys.stdout.write('Content-Type: text/html\n\n'
+                     '\n<pre>\n')
+    sys.stderr = sys.stdout
+    traceback.print_exc()
+    sys.stdout.write('</pre>\n')
+
+if __name__ == '__main__':
+    main()

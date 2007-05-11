@@ -1,0 +1,1474 @@
+#!/usr/bin/env python
+# -*- mode: python; coding: iso-8859-1 -*-
+# When run from run-queue, /usr/bin/env python is not used.
+# Copyright © 2001, 2002, 2003, 2004, 2006 Translation Project.
+# Copyright © 1998, 1999, 2000, 2001 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 1998.
+
+"""\
+Attempt automatic processing of PO file submissions.
+
+Usage: tp-robot OPTION... < MESSAGE
+ or  : tp-robot OPTION... PO-FILE
+
+  -d   Activate debugging code.
+  -n   Do not alter the Translation Project archives.
+  -r   Be a goot robot and email the reply to the translator.
+
+The robot gets into motion through `translation@iro.umontreal.ca', which
+is forwarded to `gnutra@iro.umontreal.ca', having this `.procmail' recipe:
+
+  :0 c: tpr-queue-lock
+  * ^To:.*translation@
+  * ^Subject: *[Tt][Pp][-_ ][Rr]obot
+  tpr-queue
+
+The `gnutra' code also has this `crontab' entry:
+
+  0-50/10 * * * *	/bin/sh /home/ftp/pub/po/bin/run-queue
+
+See `http://www.iro.umontreal.ca/translation/bin/bin/run-queue' for details.
+This is what actually launches this robot for each received file.
+"""
+
+import os, sys, types, popen2
+p =  os.path.expanduser('~/po/web/lib')
+if os.path.exists(p):
+    sys.path.insert(0, p)
+else:
+    p = "/home/www/usagers/gnutra/HTML/web/lib"
+    if os.path.exists(p):
+         sys.path.insert(0, p)
+
+# Find sendmail in /usr/sbin or /usr/lib
+os.environ['PATH'] = '/usr/lib:/usr/sbin:' + os.environ['PATH']
+try: del os.environ['LANGUAGE']
+except KeyError:pass
+try: del os.environ['LANG']
+except KeyError:pass
+
+dir = "/u/gnutra/bin"
+if os.path.isfile("%s/msgfmt" % dir):
+    os.environ['PATH'] = '%s:%s' % (dir, os.environ['PATH'])    
+
+import re, string
+import po, registry, run, quopri, messages
+
+def _qdecodestring(s):
+    from cStringIO import StringIO
+    infp = StringIO(s)
+    outfp = StringIO()
+    quopri.decode(infp, outfp)
+    return outfp.getvalue()
+
+def _(text):
+    return messages.MultiString(text)
+
+def no_(text):
+    return messages.MultiString(text)
+
+class AbortRobot:
+    pass
+
+def abort_robot():
+    raise AbortRobot
+
+def main(*arguments):
+    # Decode options.
+    if len(arguments) == 0:
+        sys.stdout.write(__doc__)
+        sys.exit(0)
+    import getopt
+    options, arguments = getopt.getopt(arguments, 'dnr')
+    for (option, value) in options:
+        if option == '-d':
+            run.debug = 1
+        elif option == '-n':
+            run.dry = 1
+        elif option == '-r':
+            run.robot = 1
+    if len(arguments) > 1:
+        raise "Too many arguments\n"
+    # Do the processing.
+    os.umask(002)
+    run.hints = registry.hints()
+    try:
+        part = extract.submission(len(arguments) == 1 and arguments[0])
+        if part.name:
+            extract.hints_from_name(part.name)
+        if part.stack:
+            check_mail.header()
+        if part.work:
+            # This is only useful for coordinator reports, currently.
+            extract.mail_body(part.work)
+            entries = po.read(part.work)
+        else:
+            entries = None
+        if not entries:
+            run.reject(_("""\
+For some reason, your PO file seems to have no entries at all, like if it
+were empty.  Sigh!  It looks like there is something wrong, somewhere...
+"""),"[no entries]")
+            abort_robot()
+        # We definitely found a non-empty PO file.
+        header = po.header(entries)
+        check_po_file.header(header)
+        check_registry.translator()
+        have_pot = check_registry.have_pot()
+        archive_base = run.hints.archive_base()
+        # First run msgfmt on the original submission
+        check_po_file.contents(part.work, archive_base)
+        if have_pot:
+            # Can't merge without template
+            process.make_canonical(part.work, archive_base, entries, header)
+        check_po_file.contents(part.work, archive_base)
+        check_po_file.special_instructions(part.work)
+        # The submission is acceptable, unless it is a duplicate.
+        check_registry.preexisting(part.work)
+        if run.rejected:
+            abort_robot()
+        process.congratulate()
+        process.upload_po_file(part.work)
+    except AbortRobot:
+        pass
+    except:
+        import traceback
+        # Print the exception to get a message from cron
+        traceback.print_exc()
+        tb = "".join(traceback.format_exception(*sys.exc_info()))
+        run.reject(_("""\
+I, the Translation Project robot, just failed in a rather unexpected way.
+Sigh!  Despair!  I'm bugged, lost, doomed :-(.  Help me!
+Report all details you can at mailto:translation@iro.umontreal.ca.
+Please do _not_ start your Subject line with `TP-Robot'.
+"""),"[robot bug]")
+        run.submitter.write_nofill(tb)
+        run.coordinator.write_nofill(tb)
+    # Push some feedback out, whatever happened.
+    run.coordinator.complete()
+    run.submitter.complete()
+
+class globals:
+    team_language = None                # language spoken by this team
+    team_mailto = None                  # email address for the team
+    team_mailtos = []                   # alternative mailtos
+    reported_unknown = []               # to avoid reporting the same twice
+    unknown_address_insert = _("""\
+In fact, the Translation Project registry holds the preferred email address
+for many translators like you, and some necessary aliases as well.  It is
+better to avoid the proliferation of alternate email addresses and stick
+to only one, whenever possible.  In any case, please keep the translation
+coordinator informed of such things, at least as a mild form of verification.
+Some stronger authentication scheme might be needed, one of these days!""")
+
+class Extract:
+    """\
+Extracting information from the input.
+"""
+
+    def submission(self, name=None):
+        """\
+Return that message part (`unpack.py') most likely to contain the submission.
+Read standard input if NAME is not given or None, otherwise read NAME.
+"""
+        import unpack
+        if name:
+            parts = unpack.unpack_file(name)
+        else:
+            # `unpack_file' needs seekability, which sockets do not have.
+            try:
+                sys.stdin.tell()
+            except IOError:
+                import tempfile
+                work = tempfile.mktemp()
+                open(work, 'w').write(sys.stdin.read())
+                parts = unpack.unpack_file(open(work))
+                os.remove(work)
+            else:
+                parts = unpack.unpack_file(sys.stdin)
+        if parts[0].stack:
+            self.mail_header(parts[0].stack[-1])
+        if len(parts) > 1:
+            for part in parts[:]:
+                if not part.name and part.size() < 1000:
+                    if part.work:
+                        run.submitter.write(_("""\
+I'm ignoring the whole following MIME part within your invoice:
+"""))
+                        run.submitter.write_nofill("""\
+---------------------------------------------------------------------->
+%s
+----------------------------------------------------------------------<
+"""
+                                               % open(part.work).read())
+                    parts.remove(part)
+        if len(parts) == 0:
+            run.reject(_("""\
+Hmph!  It seems I'm not clever enough yet to find your PO file within
+your message.  The translation coordinator, who is my beloved master,
+explained that I still have many things to learn about real life, before
+being able to handle all situations.  So, I'll go and ask him to help me
+unpack your invoice.
+"""),"[submission not found]")
+            abort_robot()
+        if len(parts) > 1:
+            # FIXME: Process multiple PO files in a single invoice.
+            run.reject(_("""\
+Your message contains multiple MIME parts, and I see that I am not able to
+decide which one of these parts is meant to contain your PO file.  Would you
+help me, while resubmitting your message, by using a simpler MIME structure?
+"""),"[multiple submissions?]")
+            abort_robot()
+        return parts[0]
+
+    def hints_from_name(self, input_name):
+        try:
+            run.hints.merge(input_name)
+        except (KeyError, ValueError):
+            # ValueError: merge did not find a matching regular expression
+            pass
+        if run.hints.pot:
+            run.reject(_("""\
+The translation coordinator does not trust me enough yet to let me handle
+a PO template file all alone.  So, for this one, I'll go disturb him!
+"""),"[robot does not support pot submission]")
+            abort_robot()
+        if not (run.hints.domain and run.hints.version and run.hints.team):
+            run.reject(_("""\
+I was expecting information in the file name argument which I did not find.
+%s
+The file name argument should look like `DOMAIN-VERSION.TEAM.po'.
+""")
+                       % unknown_elements_comment(),"[ill-formatted file name]")
+            abort_robot()
+        if not run.hints.team:
+            run.reject(_("""\
+Within the Translation Project, no team has the code `%s'.
+""")
+                           % run.hints.team, "[unknown team code]")
+            abort_robot()
+        globals.team_language = run.hints.team.language
+        globals.team_mailto = (run.hints.team.mailto[0]
+                               or run.translator_address)
+
+    def mail_header(self, entity):
+        # Save header with normalized field names.
+        items = entity.items()
+        items.sort()
+        lines = []
+        for field, value in items:
+            lines.append('%s: %s\n'
+                         % (string.join(map(string.capitalize,
+                                            string.split(field, '-')),
+                                        '-'),
+                            value))
+        # Seek for any useful information.
+        to_user, to_site = None, None
+        line_count = 0
+        while 1:
+            # Get next line.
+            if lines:
+                line = lines[0]
+                del lines[0]
+            else:
+                line = None
+            if not line or line[0] == '\n':
+                break
+            line_count = line_count + 1
+            # Skip envelope.
+            if line_count == 1:
+                if re.match('From [^ ]+', line):
+                    continue
+            # Save line for diagnostics.
+            run.header_lines.append(line)
+            # Grind the line.
+            match = re.match('From: +(.+?) +<(.+)>$', line)
+            if match:
+                run.translator_address = match.group(2)
+                run.translator_name = mime_decode_header(match.group(1))
+                continue
+            match = re.match('From: +(.+?) +\((.+)\)$', line)
+            if match:
+                run.translator_address = match.group(1)
+                run.translator_name = mime_decode_header(match.group(2))
+                continue
+            match = re.match('From: +([^ ]+)$', line)
+            if match:
+                run.translator_address = match.group(1)
+                continue
+            match = re.match('To:.*([^ \n,<]*translation)@([^ \n,>]+)', line,
+                             re.I)
+            if match:
+                to_user, to_site = match.group(1, 2)
+                continue
+            match = re.match('Subject:[ \t]+(.*)', line)
+            if match:
+                run.subject = match.group(1)
+                try:
+                    run.hints.merge(match.group(1))
+                except (KeyError,ValueError):
+                    pass
+                else:
+                    if run.hints.pot:
+                        run.reject(_("""\
+The translation coordinator does not trust me enough yet to let me handle
+a PO template file all alone.  So, for this one, I'll go disturb him!
+"""),"[pot not supported]")
+                        abort_robot()
+                continue
+        # Diagnose if the invoice was sent at a wrong address.
+        if ((to_user and not re.match('translation$', to_user, re.I))
+            or (to_site and not re.match(r'iro\.umontreal\.ca', to_site,
+                                         re.I))):
+            run.submitter.write(_("""\
+I see that you used `%s@%s' to reach me.  Even it worked,
+a few email aliases were surely involved, which are not all under
+control.  It is safer that you use my real email address, which is
+`translation@iro.umontreal.ca'.
+""")
+                                         % (to_user, to_site))
+        # Clean up translator name.
+        if run.translator_name:
+            match = re.match('"(.+)"$', run.translator_name)
+            if match:
+                run.translator_name = match.group(1)
+
+    def mail_body(self, where):
+        run.body_lines = open(where).readlines()
+        #match = re.match('begin(-base64)? %s (.+?)(\.gz)?$' % uuperm,
+        #                 run.body_lines[counter])
+        #if match:
+        #    base64, temp_name, temp_gzipped = match.group(1, 2, 3)
+        #    match = re.search(r'(%s)-(%s)\.(%s)(%s)?\.po$'
+        #                      % (registry.DOMAIN, registry.VERSION,
+        #                         registry.TEAM, registry.CHARSET), temp_name)
+        #    if match:
+        #        comment = []
+        #        if match.group(1) != run.hints.domain:
+        #            comment.append(
+        #                '>    the textual domain or package name.\n')
+        #        if match.group(2) != run.hints.version:
+        #            comment.append(
+        #                '>    the version numbers for the package.\n')
+        #        if match.group(3) != run.hints.team:
+        #            comment.append(
+        #                '>    the team two-letter language code.\n')
+        #        if match.group(4) != run.hints.charset:
+        #            comment.append(
+        #                '>    the character set used for translations.\n')
+        #        if comment:
+        #            run.reject("""\
+        #There are inconsistencies between the file from the Subject line of
+        #your message, and the uuencoded file name `%s', regarding:
+        #
+        #%s
+        #
+        #"""
+        #                       % temp_name, string.join(comment, ''))
+
+extract = Extract()
+
+class CheckMail:
+    """\
+Validating mail specific information.
+"""
+
+    def header(self):
+        if not (run.translator_address
+                and run.hints.domain and run.hints.version and run.hints.team):
+            run.reject(_("""\
+I was expecting information in your message header which I did not find.
+%s
+I'm not fully sure about what the exact problem is, yet it might be that
+the Subject field, in your message header, is not formatted properly.
+Just in case, let me explain how the Subject line usually looks like:
+
+>    Subject: TP-Robot DOMAIN-VERSION.TEAM.po
+
+For a PO file, DOMAIN, VERSION and TEAM should be replaced respectively by
+the textual domain of the translation (in most cases, this is exactly the
+package name, in lower case), the version numbers of the said package, and
+the two-letter lower case language code for the team, also in lower case.
+In some rare cases, TEAM might have to be suffixed with either "_REGION"
+or "@DIALECT", where REGION is a capitalised two-letter country code
+and DIALECT is a lower case name.
+""")
+                       % unknown_elements_comment(check_translator=1),"[one of address, domain, version, team missing]")
+            abort_robot()
+
+        if run.hints.team:
+            globals.team_language = run.hints.team.language
+            globals.team_mailto = run.hints.team.mailto[0] or run.translator_address
+            globals.team_mailtos = run.hints.team.mailto[:]
+        else:
+            run.reject(_("""\
+Within the Translation Project, no team has the code `%s'.
+It might be that you mispelled that code, in which case I merely invite
+you to correct the error and retry a new submission.
+
+Otherwise, I presume you would like that a new translation team be created.
+This is a simple matter, really.  You do not have to do any kind of
+recruiting (unless you really feel like it, which is then another story,
+of course!).  Most teams started with a single translator.  However, you
+should be able and willing to communicate with people later wanting to
+join you on the team.  The Translation Project does not favour real loners.
+
+You should write to the translation coordinator for that creation to occur.
+If by any chance there is some already existing mailing list ready to convey
+the new team interests, please say so in your letter, so this mailing list
+gets registered.  If no such list exists, you may want to register your
+own email address instead, at least until there is a need for a bigger setup.
+
+Linux International collaborates with the Translation Project for offering
+a mailing list to teams needing it.  Such lists are only offered to teams
+having been active for a while, and which produced a few usable translations.
+""")
+                       % run.hints.team, "[unknown team]")
+            globals.team_language = _('Unknown_Language')
+            globals.team_mailto = run.translator_address
+
+check_mail = CheckMail()
+
+########################### CheckPoFile #########################
+class CheckPoFile:
+    """\
+Validating the PO file.
+"""
+
+    def header(self, header):
+        if run.translator_name:
+            self.language_team(header)
+            self.last_translator(header)
+        else:
+            self.last_translator(header)
+            self.language_team(header)
+        self.title(header)
+        self.copyright(header)
+        self.first_author(header)
+        self.project_id_version(header)
+        self.both_dates(header)
+        self.mime_fields(header)
+
+    def title(self, header):
+        if not header['TITLE']:
+            run.reject(_("""\
+The PO file title comment appears to be missing.  The very first line of
+a PO file starts with `#', a space, and then a one-line description of
+what this PO file is about.  The PO file title comment may look like:
+
+>    # Translation of `%s' messages to %s.
+
+As this line is intended to be read by humans working in %s,
+you may have this title line translated as well, it does not have to be
+kept in English.
+""")
+                           % (run.hints.domain,
+                              globals.team_language, _(globals.team_language)),
+                       "[no title header]")
+
+    def copyright(self, header):
+        text = header['COPYRIGHT']
+        if isinstance(text, types.ListType):
+            # XXX ignore other copyrights
+            text = text[0]
+
+        utext = po.decfunc(header)(text)[0]
+
+        match = re.match(
+            ('Copyright (\\(C\\)|\xa9|\xc2\xa9).*'
+             r' (199[4-9]|200[0-7])(, ((19)?9[4-9]|(20)?0[0-7]))* (?P<author>.*)'),
+            text)
+        if match:
+            # FIXME: Better validate year lists.
+            author = 'Free Software Foundation, Inc.'
+            definite_author = 0
+            if run.hints.domain and run.hints.domain.potcopyright:
+                definite_author = 1
+                author = run.hints.domain.potcopyright
+            if match.group('author') == author:
+                return
+            if run.hints.domain and \
+               (run.hints.domain.disclaim or run.hints.domain.potcopyright):
+                if not definite_author:
+                    comment = _("""\
+For the time being, I merely guess that the Free Software Foundation is to
+be listed as the copyright holder for any package requiring translation
+disclaimers.  Yet, the truth is that this requirement goes further than
+the spirit of the disclaimer.  If this creates any problem in real life,
+please write to the translation coordinator, so we could discuss the matter,
+and so he could eventually change me (the robot) for handling such cases.
+""")
+                    reason = "[Copyright not FSF]"
+                else:
+                    comment = ""
+                    reason = "[Copyright not %s]" % author
+                                
+                run.reject(_("""\
+The copyright for the PO file should be assigned to:
+
+   %s
+
+and does not seem to be, yet it might be only a question of proper spelling.
+%s
+""") % (author,comment),reason)
+        elif run.hints.domain and run.hints.domain.disclaim:
+            if text:
+                comment = (_("""\
+The copyright comment does not seem to be correctly formatted.  I see:
+
+>    # %s
+
+while the copyright comment should look like:
+""")
+                           % utext)
+            else:
+                comment = _("""\
+The copyright comment, which should appear as the second line of the whole
+PO file, is apparently missing.  The copyright comment looks like:
+""")
+
+            run.reject(_("""\
+%s
+>    # Copyright (C) YEAR Free Software Foundation, Inc.
+
+The `(C)' sign may be replaced by the single Latin-1 character for it
+(decimal code 169) if you happen to work in Latin-1, or with the
+equivalent UTF-8 seqquence (\\xc2\\xa9).  YEAR is normally a four
+digits year, yet it might be a list of years, separated by commas.  In
+a list, the first year has to be four digits, subsequent years may be
+either two or four digits.  Each comma should be followed with a
+space.  Years have to be explicitly enumerated, range notations are
+not accepted.
+""")
+                       % comment, "[copyright incorrectly formatted]")
+
+    def first_author(self, header):
+        match = re.search('(.+?)( +)<(.+)>, .*(199[4-9]|200[0-7])',
+                          header['FIRST-AUTHOR'])
+        if match:
+            decfunc = po.decfunc(header)
+            first_translator, first_address = match.group(1, 3)
+            first_translator = decfunc(first_translator)[0]
+            if len(match.group(2)) != 1:
+                run.submitter.write(_("""\
+Oops, there is a slight formatting error.  In the initial comment
+lines, please use no more than a single space between `%s' and
+`<%s>'.
+""")
+                                    % (first_translator, first_address))
+            try:
+                translator = registry.translator(run.hints.team, first_translator, first_address)
+            except KeyError:
+                return
+                # XXX: review
+                run.reject(_("""\
+According to my notes, %s is not a member of the proper
+%s team, so is unlikely to be the first translator.  It might
+only be a question of spelling?  In case yes, I then need to know about
+spelling alternatives, so please tell the translation coordinator.  Yet,
+it is usually best to avoid such variance, and stick to a single preferred
+spelling.
+""")
+                           % (first_translator, globals.team_language),
+                           "[unknown translator]")
+                abort_robot()
+            if first_address not in translator.mailto:
+                if first_address not in globals.reported_unknown:
+                    run.submitter.write(_("""\
+The initial translator of this PO file is `%s'.  Yet,
+according to my own notes, `%s' is not known as a good address
+to reach that translator.
+%s%s
+""")
+                                        % (
+                        first_translator, first_address,
+                        say_alias_list(translator.mailto),
+                        globals.unknown_address_insert))
+                    globals.reported_unknown.append(first_address)
+                    globals.unknown_address_insert = ''
+                return
+            if first_translator != run.translator_name:
+                run.submitter.write(_("""\
+The last translator of this PO file appears to be different than the
+initial translator.  This is something quite possible and normal.  But if
+you do know that translators did not change, some more checking is needed.
+The third line of whole PO file says `%s', while the
+`Last-Translator' field of PO file header says `%s'.  If,
+and only if, the two names above are indeed misspellings of one another,
+you should ideally correct whichever is needed, and resubmit your PO file
+with the correction included.  On the other hand, I invite you to be fair,
+and _never_ remove the initial translator of a given PO file, as this
+acknowledgement is the only tribute paid for the work of that translator.
+""")
+                                             % (first_translator,
+                                                run.translator_name))
+            elif first_address != run.translator_address:
+                run.submitter.write(_("""\
+Your submission contains contradicting addresses for you.  The third line of
+whole PO file says it is `%s', while the `Last-Translator'
+field of PO file header says it is `%s'.  Please manage to have a
+single preferred address to reach you, and try to use it consistently in
+all your translation files.
+""")
+                                             % (first_address,
+                                                run.translator_address))
+        else:
+            run.reject(_("""\
+The first author comment line is either missing or not formatted correctly.
+This should be the third line of the whole PO file, looking like:
+
+>    # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+
+In this line, FIRST AUTHOR has to be replaced by the full name of the
+original translator of the messages for the `%s' textual domain,
+EMAIL@ADDRESS gives a way to reach that translator, and YEAR is a four
+digits year telling when the original translation occurred.
+""")
+                       % run.hints.domain,
+                       "[first author incorrectly formatted]")
+            run.submitter.write(_("""\
+In case you want to add more historical details on the history of this
+particular PO file, or any comment you would feel useful, you may do so by
+adding other comment lines after the first three, using your own language
+if you feel like it.  Remember that there should always be a space after
+the initial `#' of each comment line, and there should not be a white
+line before the `msgid' line of the PO file header.
+"""))
+
+    def project_id_version(self, header):
+        match = re.search('(Free |GNU )?(?P<dom>%s)(?P<sep>[- ])(?P<ver>%s)' %
+                          (registry.DOMAIN, registry.VERSION),
+                          header['project-id-version'])
+        if match:
+            if match.group('dom') != run.hints.domain.name:
+                run.reject(_("""\
+The Project-Id-Version field of your PO file header says that your textual
+domain is `%s' instead of the `%s' I was expecting.  They really
+should be identical.  The textual domain is the package name, usually.
+In some rare cases, there are differences in capitalisation, or the dubious
+addition of some `g' prefix because of the GNU inheritance.  Currently,
+all textual domains are written all in lower case.  They also tend to
+avoid those meaningless `g' prefixes.
+""")
+                           % (match.group('dom'), run.hints.domain),
+                           "[domain from project-id-version conflicts with file name]")
+            if match.group('sep') == '-':
+                run.submitter.write(_("""\
+Within the Project-Id-Version field, the domain name and version numbers
+should be separated by a space rather than by a hyphen.  Some scripts might
+depend on a space being there, so best would be that you modify your file.
+I'll attempt to modify it for you, but this time! :-)
+"""))
+                header['project-id-version'] = (
+                    header['project-id-version'][:match.start('ver')] + ' '
+                    + header['project-id-version'][match.end('ver'):])
+            if match.group('ver') != run.hints.version.name:
+                run.reject(_("""\
+The Project-Id-Version field of your submission says that your translations
+are meant for version `%s' of `%s', not `%s'.  I guess
+that they should be identical.  Consequently, I invite you adjust either
+the file name of your submission, or the Project-Id-Version field, whichever
+is appropriate.
+""")
+                           % (match.group('ver'), run.hints.domain.name,
+                              run.hints.version.name),
+                           "[version from project-id-version conflicts with file name")
+        else:
+            run.reject(_("""\
+The `Project-Id-Version' field was not found in your PO file header.
+The line containing this field ideally looks like:
+
+>    'Project-Id-Version: PACKAGE VERSION\\n'
+
+in which PACKAGE should truly be replaced by the textual domain of your
+translation, probably `%s' in this case, and VERSION be replaced
+by the appropriate version numbers, maybe `%s', here.
+""")
+                       % (run.hints.domain.name, run.hints.version.name),
+                       "[no project-id-version]")
+
+    def both_dates(self, header):
+        reject = 0
+        date = {}
+        for field in 'POT-Creation-Date', 'PO-Revision-Date':
+            value = header[string.lower(field)]
+            match = re.match('(199[4-9]|200[0-7])-[01][0-9]-[0-3][0-9] [0-2][0-9]:[0-5][0-9]( ?[-+][0-1][0-9](:?00)?)?',
+                             value)
+            if match:
+                date[field] = value
+            else:
+                # FIXME!  Should run.reject in the long run.
+                run.submitter.write(_("""\
+The `%s' field was not found in your PO file header,
+or else, it was not formatted properly.  The line containing this field
+ideally looks like:
+
+>    %s: YEAR-MO-DA HO:MI +ZONE
+""")
+                                % (field, field))
+                if field == 'POT-Creation-Date':
+                    run.submitter.write(_("""\
+Some older POT files did not have the `POT-Creation-Date' field.  If might
+be the case here, I'm not sure.  If yes, you should not worry, as this
+will be repaired for some later release of this distribution.  This field
+is not really for the translator to set.  In the meantime, I will merely
+copy the value of the `PO-Revision-Date' field into it, just to get going.
+"""))
+                reject = 1
+        if reject:
+            run.submitter.write(_("""\
+In the above line, YEAR is a four digits number giving the year, MO is
+a two digits number giving the month (between 01 and 12) and DA is a
+two digits number giving the day within the month (between 01 and 31).
+The time of the day is provided by a two digits HO for the hour (between
+00 and 23) and a two digits MI for the minutes (between 00 and 59).
+
+As for +ZONE, it should have the format +HH, -HH, +HH:MM or -HH:MM.
+The `+' sign is used East of Greenwich, the `-' sign is used West
+of Greenwich.  HH says the number of zone hours as two digits (between 00
+and 11), while MM, when used, says the number of zone minutes.  Other zone
+    notations are still accepted for the time being, but are to be deprecated.
+"""))
+        if ((date.has_key('POT-Creation-Date')
+             and date.has_key('PO-Revision-Date'))):
+            if date['PO-Revision-Date'] <= date['POT-Creation-Date']:
+                run.reject(_("""\
+The PO revision date is `%s', which looks older than the POT creation date.
+You should update the PO revision date before submitting a PO file.
+""")
+                           % date['PO-Revision-Date'],"[po revision date before creation date]")
+
+    def last_translator(self, header):
+        decfunc = po.decfunc(header)
+        text = header['last-translator']
+        match = re.match('(.*?)( +)<(.+)>$', text)
+        if match:
+            last_translator, last_address = match.group(1, 3)
+            last_translator = decfunc(last_translator)[0] # ignore len
+            if len(match.group(2)) != 1:
+                run.submitter.write(_("""\
+Oops, there is a slight formatting error.  In the `Last-Translator'
+header line, please use no more than a single space between `%s'
+and `<%s>'.
+""")
+                                             % (last_translator, last_address))
+            if not run.translator_name:
+                run.translator_name = last_translator
+            if not run.translator_address:
+                run.translator_address = last_address
+            try:
+                translator = registry.translator(run.hints.team, last_translator, last_address)
+            except KeyError:
+                run.reject(_("""\
+According to my notes, %s is not a member of the proper
+%s team.  It might only be a question of spelling?  In case
+yes, I then need to know about spelling alternatives, so please tell the
+translation coordinator.  Yet, it is usually best to avoid such variance,
+and stick to a single preferred spelling.  It might also be that you never
+joined the %s team.  If you do not know how to do so, please
+write to the translation coordinator for more information about it.
+""")
+                           % (last_translator,
+                              _(globals.team_language), _(globals.team_language)),
+                           "[translator not in team]")
+                abort_robot()
+            if last_address not in translator.mailto:
+                if last_address not in globals.reported_unknown:
+                    run.reject(_("""\
+The last translator of this PO file is `%s'.  Yet, according
+to my own notes, `%s' is not known as a good address to reach
+that translator.
+%s%s
+""")
+                               % (last_translator,
+                                  last_address,
+                                  say_alias_list(translator.mailto),
+                                  globals.unknown_address_insert),
+                               "[last address unknown]")
+                    globals.reported_unknown.append(last_address)
+                    globals.unknown_address_insert = ''
+                return
+            if (run.translator_name
+                and (string.lower(last_translator)
+                     != string.lower(run.translator_name))):
+                run.submitter.write(_("""\
+I'm not fully sure that you are the author of the translations you sent
+to me.  The header of your email invoice says that your are `%s',
+while `Last-Translator' field of PO file header says your name should be
+`%s'.  The difference might be mere spelling differences.
+These may happen when you do not have full control over your name in the
+mailing system you are using.
+
+As I expect you have better control over PO files, I'll consider that
+the second name is the most dependable one.  Yet, in some cases, this
+might represent some error I'm unable to analyse, while you do.  In the
+unlikely case the two names above are really different, the situation is
+more serious.  Some translation teams surely have their own ways and habits.
+Yet, on the average, it is unusual that someone submits a translation file
+written by someone else.
+""")
+                                             % (run.translator_name,
+                                                last_translator))
+            elif (run.translator_address
+                  and (string.lower(last_address)
+                       != string.lower(run.translator_address))):
+                run.submitter.write(_("""\
+The header of the message you sent to me says that your email address is
+`%s', while the `Last-Translator' field of PO file header says
+it should be `%s'.  Let me consider that the later prevails.
+I merely bring this to your attention in case _you_ think it matters.
+""")
+                                    % (run.translator_address, last_address))
+            run.translator_name = last_translator
+            run.translator_address = last_address
+        else:
+            run.reject(_("""\
+The `Last-Translator' field was not found in your PO file header, or
+might not be formatted properly.  The line containing this field ideally
+looks like:
+
+>    'Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n'
+
+In this line, FULL NAME has to be replaced by the full name of the current
+translator of the messages for the `%s' textual domain, who is you
+most probably :-), EMAIL@ADDRESS gives a way to reach that translator.
+""")
+                       % run.hints.domain, "[last-translator missing]")
+
+    def language_team(self, header):
+        text = header['language-team']
+        match = re.match('(.+?)( +)<(.+)>$', text)
+        if match:
+            maybe_language, maybe_mailto = match.group(1, 3)
+            try:
+                maybe_language.decode('ascii') # language name should be all ASCII
+            except UnicodeError:
+                m = []
+                for c in maybe_language:
+                    if ord(c) < 128: m.append(c)
+                    else: m.append('\\%2x' % ord(c))
+                maybe_language = ''.join(m)
+            if len(match.group(2)) != 1:
+                run.submitter.write(_("""\
+Oops, there is a slight formatting error.  In the `Language-Team'
+header line, please use no more than a single space between `%s'
+and `<%s>'.
+""")
+                                    % (maybe_language, maybe_mailto))
+            if maybe_language != globals.team_language:
+                run.reject(_("""\
+You wrote `%s' in the `Language-Team' field of the PO file
+header, while I think it should have been `%s'.  I'm not
+fully sure about this.  If you think I got it wrong, please email to the
+translation coordinator for straingthening this out.
+""")
+                           % (maybe_language, _(globals.team_language)),
+                           "[language-team incorrect]")
+            if not globals.team_mailto:
+                run.reject(_("""\
+Each translation team should publish some mailing list address, meant
+to appear (between angular brackets) after the language name into the
+`Language-Team' field of the PO file header.  The Translation Project
+does not have such an address for the %s team.  You might
+already know some list dedicated to internationalisation efforts for
+%s, which may well fit your needs.  In case none, waiting
+to get better organised, you might use the address of one of the team
+members, maybe yours if you are alone in the team!  In any case, please
+inform the translation coordinator of the address your team decides to use.
+Also note that the Translation Project and Linux International collaborate
+for opening mailing list for teams in need for such, but only _given_
+that the team has been already productive through the publication of a
+few usable translation files -- after having dismantled a few unproductive
+teams, we decided for this stronger requirement.
+""")
+                           % (_(globals.team_language), _(globals.team_language)),
+                           "[team address missing]")
+            elif maybe_mailto != globals.team_mailto and \
+                     maybe_mailto not in globals.team_mailtos:
+                run.reject(_("""\
+You wrote <%s> in the `Language-Team' field of the PO file
+header, while I think it should have been <%s>.  I'm not fully sure
+about this.  If you think I got it wrong, please email to the translation
+coordinator for straightening this out.
+""")
+                           % (maybe_mailto, globals.team_mailto),
+                           "[team address incorrect]")
+        else:
+            run.reject(_("""\
+The `Language-Team' field was not found in your PO file header, or
+might not be formatted properly.  The line containing this field often
+looks like:
+
+>    'Language-Team: LANGUAGE <TEAM-EMAIL-ADDRESS>\\n'
+
+In this line, LANGUAGE is the English name of your spoken language,
+capitalizing the first letter of words and leaving the rest in lower case.
+It sometimes happen, not always, that TEAM-EMAIL-ADDRESS has the form
+`TEAM@li.org', where TEAM is the ISO-639 code for the language (not to
+be confused with country codes, which are a different standard).  If I
+had to write this line myself, right now, according to the information
+which is available to me, I would use:
+
+>    'Language-Team: %s <%s>\\n'
+
+If this leaves you clueless and you still want to find it, please write to
+the translation coordinator for asking, and we will work this out together.
+""")
+                       % (globals.team_language, globals.team_mailto),
+                       "[language team missing]")
+
+    def mime_fields(self, header):
+        if header['mime-version'] != '1.0':
+            run.reject(_("""\
+The `MIME-Version' field was not found in your PO file header, or is
+    not formatted properly.  The line containing it should exactly look like:
+
+>    'MIME-Version: 1.0\\n'
+"""),
+                       "[mime-version is not 1.0]")
+        charsets = [
+            'us-ascii',
+            #	 161	ISO-8859-1
+            #	  10	iso-8859-1
+            #	   3	ISO-Latin-1
+            #	   2	8859-1
+            '8859-1', 'ISO-8859-1', 'ISO-Latin-1', 'ISO-8859-15',
+            #	  42	ISO-8859-2
+            #	   4	iso-8859-2
+            'ISO-8859-2',
+            'ISO-8859-3',
+            'ISO-8859-7',
+            'ISO-8859-8',
+            'ISO-8859-9',
+            'ISO-8859-13',
+            'koi8-r',
+            'koi8-u',
+            #	  19	EUC-KR
+            #	   1	EUC
+            'EUC-KR', 'big5', 'big5-hkscs',
+            'ISO-2022-JP', 'EUC-JP',
+            'gb2312', 'gb18030',
+            'UTF-8',
+            ]
+        match = re.match('text/plain; charset=(.*)', header['content-type'])
+        if match:
+            charset = match.group(1)
+            if string.lower(charset) not in map(string.lower, charsets):
+                run.reject(_("""\
+The `Content-Type' field introduced an unusual character set `%s'.
+If this is not an error, please merely inform the translation coordinator
+for `%s' to be merely added to the list of acceptable charsets.
+This list currently holds: %s.
+""")
+                           % (charset, charset, say_list(_('or'), charsets)),
+                           "[unknown charset in content-type]")
+            run.po_charset = charset
+        else:
+            run.reject(_("""\
+The `Content-Type' field was not found in your PO file header, or is
+    not formatted properly.  The line containing it ideally looks like:
+
+>    'Content-Type: text/plain; charset=CHARSET\\n'
+
+where CHARSET should be the name of a character set, like one of %s.
+""")
+                       % say_list(_('or'), charsets),
+                       "[content-type missing or ill-formatted]")
+        encodings = ['8-bit', '8bit', 'Base64']
+        #   218	8-bit
+        #    28	8bit
+        #     2	Base64
+        cte = header['content-transfer-encoding']
+        if cte:
+            if cte not in encodings:        # FIXME: ignore case
+                run.reject(_("""\
+The `Content-Transfer-Encoding' field introduced an unusual encoding
+`%s'.  If this is not an error, please inform the translation
+coordinator for `%s' to be merely added to the list of acceptable
+charsets.  This list currently holds: %s.
+""")
+                           % (cte, cte, say_list(_('or'), encodings)),
+                           "[unknown content-transfer-encoding]")
+        else:
+            run.reject(_("""\
+The `Content-Transfer-Encoding' field was not found in your PO file header,
+or is not formatted properly.  The line containing it ideally looks like:
+
+>    'Content-Transfer-Encoding: ENCODING\\n'
+
+where ENCODING should be the name of an encoding, like one of %s.
+""")
+                       % say_list(_('or'), encodings),
+                       "[content-transfer-encoding missing]")
+
+    def scan_gettext_output(self, lines, work, virtual):
+        comment = []
+        for line in lines:
+            if re.match('[0-9]+ translated messages\.$', line):
+                continue
+            if line[:len(work)] == work:
+                line = virtual + line[len(work):]
+            comment.append('>    %s' % line)
+        return comment
+
+    def contents(self, work, virtual):
+        try:
+            cmd = 'msgfmt --statistics -c -v -o /dev/null %s'
+            proc = popen2.Popen3(cmd % work, 1)
+            lines = proc.childerr.readlines()
+            reject = proc.wait()
+            proc = popen2.Popen3(('OLD_PO_FILE_INPUT=yes '+cmd)
+                                 % work, 1)
+            lines1 = proc.childerr.readlines()
+            reject1 = proc.wait()
+            
+        except:
+            run.reject(_("""\
+Sniff!  I'm unable to successfully start the `msgfmt' program.  I most
+probably need repairs.  I'll go whine to the translation coordinator.
+"""),"[could not invoke msgfmt]")
+            abort_robot()
+        comment = self.scan_gettext_output(lines, work, virtual)
+        comment1 = self.scan_gettext_output(lines1, work, virtual)
+        if not reject and reject1:
+            run.submitter.write(_("""\
+After running msgfmt on your file, it seems that you need gettext 0.10.37
+for this file. This is no problem at all, but you should be aware of that.
+"""))
+        if reject and not reject1:
+            run.submitter.write("""\
+After compiling your PO file with 'msgfmt  --statistics -c -v -o /dev/null',
+using msgfmt 0.10.37, I got some errors. Fortunately, these errors can be
+silenced by setting the environment variable OLD_PO_FILE_INPUT to 'yes'.
+You might want to use the same option.
+""")
+            reject = reject1
+            comment = comment1
+        if reject:
+            run.reject_nofill(_("""\
+Just to make sure, I called 'msgfmt --statistics -c -v -o /dev/null' on
+your submitted PO file, and `msgfmt' told me that I should not let it go.
+More precisely, it said:
+
+%s""")
+                              % no_('').join(comment), "[msgfmt errors]")
+            abort_robot()
+#         if os.path.exists(run.hints.template_path()):
+#             # XXX msgmerge 0.11 will mark messages as fuzzy.
+#             # "msgmerge %s %s 2>/dev/null | msgfmt --statistics -c -v -o /dev/null -"
+#             cmd = "msgattrib --no-fuzzy --no-obsolete %s | msgmerge - %s 2>/dev/null |  msgattrib --clear-fuzzy | msgfmt --statistics -c -v -o /dev/null -"
+#             proc = popen2.Popen3(cmd % (work,run.hints.template_path()), 1)
+#             lines = proc.childerr.readlines()
+#             reject = proc.wait()
+#             comment = self.scan_gettext_output(lines, work, virtual)
+        if reject:
+            run.reject_nofill(_("""\
+Just to make sure, I ran
+"""+cmd+"""
+
+on your submitted PO file, and `msgfmt' told me that I should not let
+it go.  More precisely, it said:
+
+%s""")
+                              % (run.hints.archive_base(), run.hints.template_base(), no_('').join(comment)),
+                              "[msgfmt errors after msgmerge]")
+            abort_robot()
+        if comment:
+            run.submitter.write_nofill(_("""\
+Merely for your information, let me share with you what the `msgfmt'
+program has to say about your submitted PO file:
+
+%s""")
+                                       % no_('').join(comment))
+
+    def special_instructions(self, work):
+        if run.hints.domain.name == 'util-linux':
+            contents = open(work, 'r').read()
+            if contents.find('Permission is granted to freely copy and distribute') == -1:
+                run.submitter.write(_("""\
+At first sight it seems like your translation does not contain a clause
+that permits distribution of your translation. Please consider inserting
+a sentence like
+"""))
+                run.submitter.write_nofill("""\
+# Permission is granted to freely copy and distribute
+# this file and modified versions, provided that this
+# header is not removed and modified versions are marked
+# as such.
+""")
+                
+
+check_po_file = CheckPoFile()
+
+########################### CheckRegistry ###########################
+class CheckRegistry:
+    """\
+Processing with the registry of the Translation Project.
+"""
+
+    def translator(self):
+        team_found = translator_found = domain_found = 0
+        try:
+            translator = registry.translator(run.hints.team,
+                                             run.translator_name,
+                                             run.translator_address)
+        except KeyError:
+            run.reject(_("""\
+According to my notes, you are not a member of the %s team.
+Or at least, you are not there under the name `%s'.  It this is
+only a question of spelling differences, I then need to know exactly the
+alternate spellings of your name you might use.  Write to the translation
+coordinator and explain why you need many names.  It is usually best to
+avoid such variance, and stick to a single preferred spelling.
+""")
+                       % (_(globals.team_language), run.translator_name),
+                       "[translator not found]")
+            return
+        if run.translator_address not in translator.mailto:
+            if run.translator_address not in globals.reported_unknown:
+                run.reject(_("""\
+The email address `%s' is not known, in the Translation Project
+registry, as a valid way to reach you.
+%s%s
+""")
+                           % (run.translator_address,
+                              say_alias_list(translator.mailto),
+                              globals.unknown_address_insert),
+                           "[translator address not in registry]")
+                globals.reported_unknown.append(run.translator_address)
+                globals.unknown_address_insert = ''
+        if not run.hints.domain:
+            run.reject(_("""\
+The `%s' textual domain is not known to the Translation Project, at
+least not under that spelling.  It may also be that the maintainer of
+that project did not make arrangements yet for the Translation Project to
+handle its PO files.  In this case, please invite the project maintainer to
+contact us.  See `http://www.iro.umontreal.ca/contrib/po/HTML' and select
+`Textual Domains' to see the list of domains which are currently handled.
+""")
+                       % run.hints.domain,
+                       "[unknown domain]")
+        ok, reason = self.translator_can_submit(translator, run.hints.domain)
+        if ok:
+            if run.hints.domain.disclaim and not translator.disclaimer:
+                run.reject(_("""\
+According to my notes, the Free Software Foundation did not acknowledge the
+receipt of a translation disclaimer for you.  Such a disclaimer is required
+for GNU packages (or when maintainers of non-GNU packages ask me to ensure
+the existence of such a disclaimer).  This is the case for `%s'.
+Grab a copy of `http://www.iro.umontreal.ca/contrib/po/doc/DISCLAIM',
+print it on paper, and return it filled by the usual postal system.
+You will be notified when the FSF acknowedges its receipt; you can then
+re-attempt uploading your PO file to the Translation Project.  If you have
+any question or objection with the translation disclaimer as it stands,
+I invite you to discuss such things with the translation coordinator.
+""")
+                           % run.hints.domain,
+                           "[translator has no disclaimer]")
+        else:
+            run.reject(_("""\
+Most teams allow translators to directly send their achieved translations
+to the Translation Project, and do quality control only after the fact, to
+obtain a quicker turn-around.  The Translation Project registry does not list
+you as the usual translator for `%s'.  Your team leader might send
+an email to the translation coordinator, warranting that you are indeed
+assigned to this textual domain.  For small teams not having a leader,
+you may write yourself to the translation coordinator.  It is a simple
+matter to assign you the responsibility of `%s' for %s,
+given nobody else is already assigned to it.  However, some teams prefer
+to channel translations differently, for ensuring some quality control first.
+""")
+                       % (run.hints.domain, run.hints.domain, _(globals.team_language)),
+                       reason)
+
+    def have_pot(self):
+        if not os.path.isfile(run.hints.template_path()):
+            run.reject(_("""\
+You submit a PO file for which the Translation Project does not have a
+corresponding PO Template.  There is no such `%s', here.
+Please have the maintainer of the associate package, or the programmer
+taking care of its internationalisation, to send the corresponding POT file
+to the Translation Project.  It is also best that we also have a precise URL
+of some official, pretest or snapshot distribution to offer to translators.
+This URL is only for translation purposes, the package does not even have to
+compile.  A few translators do like peeking at the sources for getting finer
+translation contexts, for when messages are not clear enough in themselves.
+""")
+                       % run.hints.template_base(),
+                       "[robot has no corresponding pot file]")
+            return 0
+        return 1
+
+    def preexisting(self, work):
+        if registry.compare_files(work, run.hints.archive_path()):
+            comment = [_("""\
+The Translation Project already holds an exact copy of your submission,
+which you may find as either one of:
+
+""")]
+            for url in run.hints.archive_urls():
+                comment.append('>    %s\n' % url)
+            run.reject_nofill(no_('').join(comment),"[duplicate submission]")
+
+    def translator_can_submit(self, translator, domain):
+        # if it is the assigned translator, accept
+        if domain in translator.do:
+            return 1, "[translator is assigned]"
+        # if somebody else is assigned, reject
+        if run.hints.team.translator_for_domain(domain):
+            return 0, "[somebody else is assigned to this domain]"
+        # if there is an external translation, reject
+        if run.hints.team.code in domain.ext:
+            return 0, "[there is an external translation]"
+        # if there is no preexisting translation, accept
+        file = run.hints.maintainer_path()
+        if not os.path.exists(file):
+            return 1, "[first submission to this domain]"
+        # if it exists, find the submitter
+        import data
+        stats = data.load_postats()
+        hints = registry.Hints(os.readlink(file))
+        try:
+            stats = stats[(hints.domain.name,hints.version.name,hints.team.name)]
+            last_translator = stats[0]
+            email = stats[1]
+        except KeyError:
+            # stats not updated yet, neet to read po file
+            file = po.read(file)
+            last_translator, email = po.last_translator(po.header(file))
+        try:
+            last_translator = registry.translator(hints.team, last_translator, email)
+        except KeyError:
+            return 0, "[Unknown translator]"
+        
+        if last_translator == translator:
+            return 1, "[translator equals last translator]"
+        else:
+            return 0, "[translator not assigned to domain]"
+
+check_registry = CheckRegistry()
+
+class Process:
+    """\
+Accomplishing actions.  In fact, putting here whatever does not fit elsewhere.
+"""
+
+    def make_canonical(self, where, virtual, entries, header):
+        os.system("recode -f /cl < %s | msgmerge -q --no-wrap - %s > %s.norm" % (where, run.hints.template_path(), where))
+        try:
+            lines = os.popen('recode -f /cl < %s | diff -u -L %s~ -L %s - %s.norm'
+                             % (where, virtual, virtual, where)).readlines()
+        except:
+            run.reject(_("""\
+Sniff!  I'm unable to successfully start the `diff' program.  I most
+probably need repairs.  I'll go whine to the translation coordinator.
+"""),"[recode or diff not found]")
+            abort_robot()
+        # FIXME: Maybe detect and better explain `msgid' reformatting, trailing
+        # space elimination, and other less evident matters.
+        try:
+            os.remove(where)
+            os.rename('%s.norm' % where, where)
+        except:
+            run.reject(_("""\
+Sniff!  I'm unable to successfully canonicalise your PO file.  I most
+probably need repairs.  I'll go whine to the translation coordinator.
+"""),"[remove/rename failed]")
+            abort_robot()
+        if lines:
+            if len(lines) > 50:
+                lines = lines[:50] + ["[truncated]\n"]
+            run.submitter.write(_("""\
+We are trying to reach a consistent presentation for PO files in the
+Translation Project, over all textual domains and native languages.
+As a robot, I contribute my good share towards this goal, and so, I made
+the following modifications to your invoice.  You might feel like accepting
+to do the same thing on your side; if you decide to do so, let me suggest
+that you try the nice `patch' utility.
+
+The `msgmerge' program which is used for making distributions does not
+produce canonical files, and until this gets corrected, you should rather
+grab your PO files directly from the Translation Project, as these are now
+always made canonical.  If you do not, the following set of `unidiffs'
+might get irritably longish.  Please also note that you do not _ought_
+to make such modifications, as I will continue doing them patiently and
+automatically, here.  This message continues after the (maybe long) quote.
+"""))
+            # possibly non-ASCII byte strings, don't try to translate
+            run.submitter.write_nofill("""\
+---------------------------------------------------------------------->
+%s----------------------------------------------------------------------<
+"""
+                                  % ''.join(lines))
+
+    def congratulate(self):
+        run.subject = run.subject + " [ACCEPTED]"
+        run.submitter.write(_("""\
+Your file has been accepted and uploaded into the archives: congratulations!
+Whenever the maintainer of `%s' will communicate a new PO Template
+file to the Translation Project, the translation you just achieved will
+probably require revision.  Your team will then be notified of the URL of the
+PO file to revise, with a quick evaluation of the extent of the work needed.
+""")
+                            % run.hints.domain.name)
+        try:
+            translator = registry.translator(run.hints.team,
+                                             run.translator_name,
+                                             run.translator_address)
+        except KeyError:
+            pass
+        else:
+            if not translator.autosend:
+                run.submitter.write(_("""\
+To speed things up, I could send you updated copies of this PO file by email,
+whenever I upload new PO Template files for it.  If you are interested in
+this service, you may register by emailing to the translation coordinator.
+"""))
+
+    def upload_po_file(self, work_name):
+        archive_base = run.hints.archive_base()
+        incoming = '%s/tmp/%s' % (registry.podir, archive_base)
+        # Remove any file left over from a previous try in dry mode.
+        if os.path.isfile(incoming):
+            os.remove(incoming)
+        registry.move_file(work_name, incoming)
+        try:
+            if run.dry:
+                dry_flag = ' -n'
+            else:
+                dry_flag = ''
+            lines = os.popen(
+                'cd %s/tmp && %s/bin/po-register%s %s 2>&1'
+                % (registry.podir, registry.podir, dry_flag, archive_base)
+                ).readlines()
+        except:
+            run.reject(_("""\
+Sniff!  I'm unable to successfully start the `po-register' program.
+I most probably need repairs.  I'll go whine to the translation coordinator.
+"""),"[po-register failed]")
+            return
+        comment = []
+        write = comment.append
+        if run.header_lines:
+            write(_('Original message header:\n'))
+            write('\n')
+            for line in run.header_lines:
+                write('>    ' + line)
+            write('\n')
+        write(_('Diagnostics issued by `po-register:\n'))
+        write('\n')
+        for line in lines:
+            write('>    ' + line)
+        run.coordinator.write_nofill(no_('').join(comment))
+
+process = Process()
+
+## Diagnostics.
+
+def unknown_elements_comment(check_translator=0):
+    known = []
+    unknown = []
+    if check_translator:
+        if run.translator_address:
+            known.append(_("the translators's address is `%s'")
+                         % run.translator_address)
+        else:
+            unknown.append(_("the translator's address"))
+    if run.hints.domain:
+        known.append(_("the textual domain is `%s'") % run.hints.domain)
+    else:
+        unknown.append(_("the textual domain"))
+    if run.hints.version:
+        known.append(_("the domain version is `%s'") % run.hints.version)
+    else:
+        unknown.append(_("the domain version"))
+    if run.hints.team:
+        known.append(_("the team code is `%s'" % run.hints.team))
+    else:
+        unknown.append(_("the team code"))
+    if known:
+        return ("I found that %s; but I'm still missing %s."
+                % (say_list(_('and'), known), say_list(_('and'), unknown)))
+    return "I would need to know %s." % say_list(_('and'), unknown)
+
+def say_alias_list(items):
+    if len(items) == 0:
+        return _("""\
+No official email address exist for this translator in the Translation
+Project registry.
+""")
+    if len(items) == 1:
+        return (_("""\
+The only address we officially know for this translator is `%s'.
+""")
+                % items[0])
+    aliases = items[:]
+    aliases.sort()
+    return (_("""\
+For this translator, the only registered addresses we have are: %s.
+""")
+                % say_list(_('and'), aliases))
+
+def say_list(word, items):
+    if len(items) == 0:
+        return 'none'
+    if len(items) == 1:
+        return items[0]
+    return no_('%s %s %s') % (no_(', ').join(items[:-1]), word, items[-1])
+
+
+ecre = re.compile(r'''
+  =\?                   # literal =?
+  (?P<charset>[^?]*?)   # non-greedy up to the next ? is the charset
+  \?                    # literal ?
+  (?P<encoding>[qb])    # either a "q" or a "b", case insensitive
+  \?                    # literal ?
+  (?P<atom>.*?)         # non-greedy up to the next ?= is the atom
+  \?=                   # literal ?=
+  ''', re.VERBOSE | re.IGNORECASE)
+
+#from email.Utils.decode
+def mime_decode_header(h):
+    rtn = []
+    parts = ecre.split(h, 1)
+    while parts:
+        # If there are less than 4 parts, it can't be encoded and we're done
+        if len(parts) < 5:
+            rtn.extend(parts)
+            break
+        # The first element is any non-encoded leading text
+        rtn.append(parts[0])
+        charset = parts[1]
+        encoding = parts[2].lower()
+        atom = parts[3].replace('_', ' ')
+        # The next chunk to decode should be in parts[4]
+        parts = ecre.split(parts[4])
+        # The encoding must be either `q' or `b', case-insensitive
+        if encoding == 'q':
+            func = _qdecodestring
+        else:
+            # XXX base64 not supported
+            return h
+        try:
+            # Decode and get the unicode in the charset
+            rtn.append(unicode(func(atom), charset))
+        except:
+            return h
+    # Now that we've decoded everything, we just need to join all the parts
+    # together into the final string.
+    try:
+        return u"".join(rtn)
+    except UnicodeError:
+        # some of the ASCII parts contain characters above 128
+        # assume they are Latin-1
+        for i in range(len(rtn)):
+            if type(rtn[i])==types.StringType:
+                rtn[i] = unicode(rtn[i], "iso-8859-1")
+        return u"".join(rtn)
+
+if __name__ == '__main__':
+    apply(main, tuple(sys.argv[1:]))
+    #try:
+    #    apply(main, tuple(sys.argv[1:]))
+    #except AbortRobot:
+    #    sys.exit(1)

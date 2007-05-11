@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+# -*- mode: python; coding: iso-8859-1 -*-
+# Copyright © 1998, 1999, 2000 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 1998.
+
+"""\
+Count entries of various types in a PO file.
+
+Usage: po-count [FILE]...
+"""
+
+import os, sys
+sys.path.insert(0, os.path.expanduser('~/po/web/lib'))
+
+import po
+
+def main(*arguments):
+    write = sys.stdout.write
+    if len(arguments) == 0:
+        write('%s\n' % numbers(po.stats(po.read('-'))))
+    else:
+        for file in arguments:
+            write('%s\t%s\n' % (numbers(po.stats(po.read(file))), file))
+
+def numbers(stats):
+    return '%d\t%d\t%d\t%d' % (stats['translated'],
+                               stats['fuzzy'] + stats['untranslated'],
+                               stats['obsolete'],
+                               po.percentage(stats))
+
+if __name__ == '__main__':
+    apply(main, tuple(sys.argv[1:]))

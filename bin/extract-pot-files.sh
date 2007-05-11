@@ -1,0 +1,118 @@
+#!/bin/bash
+echo=${2-true}
+
+archive=$1
+# [ -d $domain ] || { echo "wrong dir: $domain"; exit 1; }
+suffix=${archive##*\.}
+$echo $suffix
+domain=${archive%%-[0-9]*}
+$echo $domain
+
+case $suffix in
+    gz) tar xzf $archive ;;
+    bz2) [ -d ${archive%.tar.$suffix} ] || tar xjf $archive ;;
+esac
+
+case ${domain} in
+    aspell)
+	$echo $domain
+	oversion=${archive%.tar.$suffix}
+        version=${oversion#$domain-}
+	version=${version/-/-b}
+        $echo $version
+	cp -v $oversion/po/$domain.pot $domain-$version.pot
+	;;
+    binutils)
+	$echo $domain
+	oversion=${archive%.tar.$suffix}
+	version=${oversion#$domain-}
+	version=${version/-/-b}
+	$echo $version
+	cp -v $oversion/binutils/po/binutils.pot binutils-$version.pot
+	cp -v $oversion/bfd/po/bfd.pot bfd-$version.pot
+	cp -v $oversion/gas/po/gas.pot gas-$version.pot
+	cp -v $oversion/opcodes/po/opcodes.pot opcodes-$version.pot
+	cp -v $oversion/ld/po/ld.pot ld-$version.pot
+	cp -v $oversion/gprof/po/gprof.pot gprof-$version.pot
+	;;
+    clisp)
+	$echo $domain
+	version=${archive%.tar.$suffix}
+	version=${version#${domain}-}
+	$echo $version
+	cp -v $domain-$version/src/po/$domain.pot $domain-$version.pot
+	;;
+    gcc)
+        $echo $domain
+	version=${archive%.tar.$suffix}
+        version=${version#${domain}-}
+        $echo $version
+	date=${version#*-}
+	if [ $version = $date ]; then
+	    tgcc=$domain-$version.pot
+	    tcpp=cpplib-$version.pot
+	else
+	    ver=${version%-$date}
+	    tgcc=$domain-$ver-b$date.pot
+	    tcpp=cpplib-$ver-b$date.pot
+	fi
+	cp -v $domain-$version/gcc/po/$domain.pot $tgcc
+	cp -v $domain-$version/libcpp/po/cpplib.pot $tcpp
+
+	;;
+    gsasl)
+	domain=gsasl
+	version=${archive%.tar.$suffix}
+	version=${version#$domain-}
+	$echo $version
+	cp -v ${domain}-$version/po/$domain.pot $domain-$version.pot
+	cp -v ${domain}-$version/lib/po/lib$domain.pot lib$domain-$version.pot
+	;;
+    gettext)
+	domain=gettext
+	version=${archive%.tar.$suffix}
+	version=${version#gettext-}
+	$echo $version
+	cp -v ${domain}-$version/gettext-tools/po/gettext-tools.pot \
+	    gettext-tools-$version.pot
+	cp -v ${domain}-$version/gettext-tools/examples/po/gettext-examples.pot \
+	    gettext-examples-$version.pot
+	cp -v ${domain}-$version/gettext-runtime/po/gettext-runtime.pot \
+	    gettext-runtime-$version.pot
+	;;
+    iso-codes)
+	$echo $domain
+	version=${archive%.tar.$suffix}
+	version=${version#$domain-}
+	$echo $version
+	pushd $domain-$version
+	for d in iso_*; do
+	    cp -v $d/$d.pot ../$d-$version.pot
+	    if [ $d = iso_3166 ]; then
+		pushd $d
+		for dd in $d_*; do
+		    [ -d $dd ] || continue
+		    cp -v $dd/$dd.pot ../../$dd-$version.pot
+		done
+		popd
+	    fi
+	done
+	popd
+	;;
+    util-linux)
+	echo "warning: probably obsolete.  util-linux now is standard?" 
+	version=${archive%.tar.$suffix}
+        version=${version#$domain-}
+	$echo $version
+        pushd $domain-$version
+	./configure
+	pushd po
+	make $domain.pot
+	popd
+	popd
+	cp -v $domain-$version/po/$domain.pot $domain-$version.pot
+	;;
+esac
+
+exit 0
+

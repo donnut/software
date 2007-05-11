@@ -1,0 +1,67 @@
+#!/usr/bin/env python
+# Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 1999.
+
+"""\
+Create HTML pages for the Translation Project.
+
+Usage: to-html [OPTION]... [SOURCE]...
+
+  -C HTMLDIR    Create HTML files within HTMLDIR instead of on stdout
+  -D            Process all domains from registry data
+  -T            Process all teams from registry data
+
+Each SOURCE is processed specially according to the name or extension.
+When a directory, find and process the `interesting' files it contains.
+"""
+
+import os, sys
+sys.path.insert(0, os.path.expanduser('~/po/lib'))
+
+os.environ['PATH'] = '/usr/lib:' + os.environ['PATH']
+os.environ['LANGUAGE'] = ''             # bug with del os.environ['LANGUAGE']
+os.environ['LANG'] = ''                 # bug with del os.environ['LANG']
+
+import data, htmlpage, localweb, registry
+import getopt, re
+
+def main(*arguments):
+    if not arguments:
+        sys.stdout.write(__doc__)
+        sys.exit(0)
+    # Decode options.
+    htmldir = None
+    domain_option = team_option = 0
+    options, arguments = getopt.getopt(arguments, 'C:DT')
+    for option, value in options:
+        if option == '-C':
+            htmldir = value
+        elif option == '-D':
+            domain_option = 1
+        elif option == '-T':
+            team_option = 1
+    postats = None
+    # Generate domain related pages.
+    if domain_option:
+        localweb.produce_domain_index(htmldir and '%s/domains.html' % htmldir)
+        if postats is None:
+            postats = data.load_postats()
+        for domain in registry.domain_list():
+            localweb.produce_domain_page(
+                postats, domain,
+                htmldir and '%s/domain-%s.html' % (htmldir, domain))
+    # Generate team related pages.
+    if team_option:
+        localweb.produce_team_index(htmldir and '%s/teams.html' % htmldir)
+        if postats is None:
+            postats = data.load_postats()
+        for team in registry.team_list():
+            localweb.produce_team_page(
+                postats, team,
+                htmldir and '%s/team-%s.html' % (htmldir, team))
+    # Generate all other pages.
+    for argument in arguments:
+        htmlpage.transform_generic(argument, htmldir, os.getcwd())
+
+if __name__ == '__main__':
+    apply(main, tuple(sys.argv[1:]))

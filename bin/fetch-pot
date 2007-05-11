@@ -1,0 +1,204 @@
+#!/usr/bin/env python
+# -*- mode: python; coding: iso-8859-1 -*-
+# Copyright © 2002 Translation Project.
+# Copyright © 1998, 1999, 2000 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 1998.
+
+"""\
+Fetch a POT file given a domain name (use the registry).
+
+Usage: fetch-pot DOMAIN...
+
+  -n  dry run
+"""
+
+import os, sys
+p =  os.path.expanduser('~/po/web/lib')
+if os.path.exists(p):
+    sys.path.insert(0, p)
+else:
+    p = "/home/www/usagers/gnutra/HTML/web/lib"
+    if os.path.exists(p):
+         sys.path.insert(0, p)
+
+import commands, getopt, re, string, urllib
+import po, registry, data
+
+os.environ['PATH'] = '/usr/lib:' + os.environ['PATH']
+try: del os.environ['LANGUAGE']
+except KeyError:pass
+try: del os.environ['LANG']
+except KeyError:pass
+
+def _(text):
+    return text
+
+def main(*arguments):
+    global dryrun
+    os.umask(022)
+    options, arguments = getopt.getopt(arguments, '-n')
+    for (option, value) in options:
+        if option == '-n':
+            dryrun = 1
+    if not arguments:
+        raise __doc__
+    for domain in arguments:
+        find_pot_for_domain(registry.domain(domain))
+
+def find_pot_for_domain(domain):
+    if not domain.url:
+        raise _("Domain `%s' has no associated URL") % domain.name
+    # Try to find some distribution with a single POT file.
+    entry = None
+    for url in domain.url:
+        archive = os.path.split(url)[1]
+        if os.path.exists(archive):
+            sys.stderr.write(_("Examining %s...") % archive)
+        else:
+            sys.stderr.write(_("Fetching %s...") % url)
+            try:
+                archive, headers = urllib.urlretrieve(url, None, progress)
+            except TypeError:           # 1.5.1 does not accept 3rd argument
+                try:
+                    archive, headers = urllib.urlretrieve(url, None)
+                except IOError:
+                    sys.stderr.write(_("  apparently not found\n"))
+                    continue
+            except IOError:
+                sys.stderr.write(_("  apparently not found\n"))
+                continue
+        potlist = []
+        if archive[-3:] == "bz2":
+            tarcmd = 'tar --use-compress-program=bzip2 -tf %s'
+        else:
+            tarcmd = 'tar tfz %s'
+        allpolist = []
+        # Are the PO files in the directory po?
+        po_in_po = 0
+        for line in os.popen(tarcmd % archive).readlines():
+            if re.search(r'\.pot$|%s\.po$' % domain.name, line):
+                potlist.append(line[:-1])
+            if re.search(r'.po$', line):
+                allpolist.append(line[:-1])
+                if re.search(r'po/[^/]*.po$', line):
+                    po_in_po = 1
+        if not potlist:
+            sys.stderr.write(_("  no POT file in archive\n"))
+            continue
+        extpolist = []
+        for p in allpolist:
+            if not p.endswith("po"): continue
+            p1 = p.split("/")
+            n = p1[-1]
+            n = n[:-3]
+            if n in domain.ext and (p1[-2] == 'po' or not po_in_po):
+                extpolist.append(p)
+                continue
+            try:
+                t = registry.team(n)
+            except KeyError:
+                continue
+            if not t.translator_for_domain(domain.name):
+                print
+                print "WARNING: unregistered PO file",p
+        if len(potlist) > 1:
+            # remove all po files
+            newlist = []
+            for p in potlist:
+                if p[-3:] == "pot":
+                    newlist.append(p)
+            if newlist:
+                potlist = newlist
+        if len(potlist) > 1:
+            sys.stderr.write(_("  more than one POT file in archive:\n"))
+            for entry in potlist:
+                sys.stderr.write("    %s\n" % entry)
+            continue
+        entry = potlist[0]
+        break
+    else:
+        if domain.name + ".pot" in potlist:
+            entry = domain.name+pot
+        else:
+            raise _("Did not retain any POT file")
+    # Try to guess the correct version for the POT file.
+    match = re.search('%s-(%s)' % (domain.name, registry.VERSION), entry)
+    if match:
+        version = registry.version(match.group(1))
+    else:
+        match = re.match('(ftp|http)://.*%s-(%s)\.(tar|tgz)' % (domain.name,
+                                                   registry.VERSION),
+                         url)
+        if match:
+            version = registry.version(match.group(2))
+        else:
+            version = registry.version('VERSION')
+    becoming = '%s-%s.pot' % (domain.name, version.name)
+    # Get the POT file.  Do not use `tar -O', because we want timestamps.
+    sys.stderr.write(_("  extracting %s as %s\n") % (entry, becoming))
+    if archive[-3:] == 'bz2':
+        tarcmd = 'tar --use-compress-program=bzip2 -xf %s %s'
+    else:
+        tarcmd = 'tar xfz %s %s'
+    files = " ".join([entry]+extpolist)
+    if os.system(tarcmd % (archive, files)) != 0:
+        raise _("Extraction failed")
+    registry.move_file(entry, becoming)
+    process_externals(domain, extpolist)
+    # Cleanup intermediate directories created by the extraction process.
+    fragments = string.split(entry, '/')
+    del fragments[-1]
+    if fragments and fragments[0] == '.':
+        del fragments[0]
+    while len(fragments) > 0:
+        os.rmdir(string.join(fragments, '/'))
+        del fragments[-1]
+
+def process_externals(domain, polist):
+    extstats = data.load_extstats()
+    for f in polist:
+        entries = po.read(f)
+        stats = po.stats(entries)
+        header = po.header(entries)
+        match = re.search('(Free |GNU )?(?P<dom>%s)(?P<sep>[- ])(?P<ver>%s)' %
+                          (registry.DOMAIN, registry.VERSION),
+                          header['project-id-version'])
+        if match:
+            stats['version'] = match.group('ver')
+        elif header['project-id-version']:
+            stats['version'] = header['project-id-version']
+        else:
+            stats['version'] = "unknown"
+        # recompute external team
+        team = f.split("/")[-1][:-3]
+        extstats[(domain.name, team)] = stats
+        os.remove(f)
+    data.save_extstats(extstats)
+
+def progress(block_count, block_size, total_size):
+    if block_count == 0:
+        sys.stderr.write("  getting %s bytes:" % total_size)
+        return
+    previous_count = block_count - 1
+    if previous_count % 10 == 0:
+        if previous_count % 50 == 0:
+            if previous_count == 0:
+                sys.stderr.write('\n%5dK -> ' % 0)
+            else:
+                previous_size = previous_count * block_size
+                sys.stderr.write(' [%3d%%]\n%5dK -> '
+                                 % ((100L * previous_size / total_size),
+                                    previous_size / 1000))
+        else:
+            sys.stderr.write(' ')
+    sys.stderr.write('.')
+    if block_count * block_size >= total_size:
+        while block_count % 50 != 0:
+            if block_count % 10 == 0:
+                sys.stderr.write(' ')
+            sys.stderr.write(' ')
+            block_count = block_count + 1
+        sys.stderr.write(' [100%]\n')
+
+if __name__ == '__main__':
+    apply(main, tuple(sys.argv[1:]))

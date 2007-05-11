@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+# -*- mode: python; coding: iso-8859-1 -*-
+# Copyright © 2001, 2002 Translation Project.
+# Copyright © 2000, 2001 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 2000.
+
+"""\
+Build or dump the database holding the digested registry.
+
+Usage: registry-data [OPTION]...
+
+  -d   Decode the database and send reconstructed text on standard output.
+  -e   Encode the text registry, at its usual place, into the database.
+
+If both options are specified, the old database is decoded before rebuilt.
+"""
+
+import os, sys
+p =  os.path.expanduser('~/po/web/lib')
+if os.path.exists(p):
+    sys.path.insert(0, p)
+else:
+    p = "/home/www/usagers/gnutra/HTML/web/lib"
+    if os.path.exists(p):
+         sys.path.insert(0, p)
+
+from sgml import *
+
+def main(*arguments):
+    if len(arguments) == 0:
+        sys.stdout.write(__doc__)
+        sys.exit(0)
+    # Decode options.
+    import getopt
+    options, arguments = getopt.getopt(arguments, 'de')
+    decode = encode = 0
+    for option, value in options:
+        if option == '-d':
+            decode = 1
+        elif option == '-e':
+            encode = 1
+    if decode:
+        decode_database()
+    if encode:
+        encode_database()
+
+if __name__ == '__main__':
+    apply(main, tuple(sys.argv[1:]))

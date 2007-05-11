@@ -1,0 +1,275 @@
+# Emailing for the Translation Project robot.
+# -*- coding: iso-8859-1 -*-
+# Copyright © 2001, 2002, 2003, 2004 Translation Project.
+# Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 1999.
+
+import os, sys, tempfile, types
+import messages
+
+def _(text):
+    return messages.MultiString(text)
+
+# MultiStrings, but not to translate
+def no_(text):
+    return messages.MultiString(text)
+
+# Execution variables.
+
+debug = 0                               # debugging flag, sometimes useful
+dry = 0                                 # dry run, do not modify things
+robot = 0                               # robot mode, send messages
+rejected = 0                            # a serious error was diagnosed
+
+subject = _('Report from TP-Robot')     # best known subject for messages
+orig_subject = None
+translator_name = None                  # translator name when known
+translator_address = None               # translator address when known
+header_lines = []                       # header of submission message
+body_lines = []                         # body of submission message
+po_charset = None                       # charset in PO file
+
+hints = None                            # domain, version, team and charset
+
+# Mailing reports.
+
+class Reporter:
+
+    def __init__(self):
+        self.delay = 1
+        self.delayed = []
+        self.lang = 'en'
+        self.encoding = 'utf-8'
+
+    def mime_header(self):
+        return "MIME-Version: 1.0\n" + \
+               "Content-Type: text/plain; charset=%s\n" % self.encoding + \
+               "Content-Transfer-Encoding: 8bit\n"
+    
+
+    def prepare(self, force=0):
+        if self.delay:
+            reply_header = self.reply_header(force)
+            if reply_header:
+                if robot:
+                    self.file = os.popen('sendmail -i -t', 'w')
+                else:
+                    self.file = sys.stdout
+                self.file.write(messages.translate(reply_header, self.lang))
+                for l in self.delayed:
+                    self.file.write(messages.translate(l, self.lang, self.encoding))
+                self.delay = 0
+                self.delayed = []
+
+    def complete(self):
+        if self.delayed:
+            self.prepare(force=1)
+            if self.delayed:
+                sys.stderr.write(_(
+                    '================================================\n'
+                    'Unable to send report.  Dumping it here instead.\n'
+                    '================================================\n'))
+                sys.stderr.writelines(self.delayed)
+        if not self.delay and robot:
+            self.file.close()
+
+    def write_nofill(self, text):
+        if self.delay:
+            self.delayed.append('\n')
+            self.delayed.append(text)
+        else:
+            self.file.write('\n')
+            self.file.write(messages.translate(text, self.lang, self.encoding))
+
+    def write(self, text):
+        self.write_nofill(messages.refill(text))
+
+class Coordinator(Reporter):
+
+    def reply_header(self, force=0):
+        global subject, orig_subject
+        try:
+            if hints.team:
+                if hints.team.leader:
+                    mailto = hints.team.leader.mailto[0]
+                else:
+                    mailto = '<translation@iro.umontreal.ca>'
+                    orig_subject = subject
+                    subject = 'team %s without leader' % hints.team.name
+            else:
+                mailto = '<translation@iro.umontreal.ca>'
+                orig_subject = subject
+                subject = 'No team determined'
+        except (KeyError, TypeError, AttributeError),e:
+            if not force:
+                return None
+            mailto = '<translation@iro.umontreal.ca>'
+            subject = 'reply_header: %s' % e.__class__.__name__
+        return _("""\
+From: Translation Project Robot <translation@iro.umontreal.ca>
+To: %s
+Subject: Re: %s
+%s"""
+                 % (mailto, subject, self.mime_header()))
+
+    def complete(self):
+        if rejected and not dry:
+            self.prepare(force=1)
+            self.file.write("\nThe rejected PO file was submitted by:\n")
+            self.file.write('-' * 70 + '>\n')
+            self.file.writelines(header_lines)
+            self.file.write('\n')
+            # The body_lines might get very large, so they are suppressed
+            # self.file.writelines(body_lines)
+            self.file.write("[Body lines suppressed]\n")
+            self.file.write('-' * 70 + '<\n')
+
+            self.file.write(
+"\n\nPlease, help the translator to get the error fixed and assist \n"
+"her to submit the fixed file again.\n")
+
+        Reporter.complete(self)
+
+    def write_nofill(self, text):
+        Reporter.write_nofill(self, text)
+
+    def reject(self, reason):
+        if orig_subject:
+            reason = orig_subject + " " + reason
+        else:
+            reason = subject + " " + reason
+        self.delayed.insert(0,"\n"+reason+"\n")
+
+class Submitter(Reporter):
+
+    def reply_header(self, force=0):
+        if header_lines:
+            work = tempfile.mktemp()
+            #file = os.popen('formail -t -r -A "Bcc: pinard" >%s' % work, 'w')
+            file = os.popen('formail -t -r -a "From: Translation Project Robot <translation@iro.umontreal.ca>" -I "Subject: %s" >%s' % (subject, work), 'w')
+            file.writelines(header_lines)
+            file.close()
+            file = open(work)
+            header = file.read()
+            file.close()
+            header = header.splitlines()
+            while header[-1] == "":
+                del header[-1]
+            header = "\n".join(header) + "\n" + self.mime_header() + "\n"
+            os.remove(work)
+        elif translator_address:
+            header = (_("""\
+From: Translation Project Robot <translation@iro.umontreal.ca>
+To: "%s" <%s>
+Subject: Re: %s
+%s
+""")
+                            % (translator_name, translator_address,
+                               subject, self.mime_header()))
+        else:
+            header = None
+
+        if header:
+            if hints.domain and hints.version and hints.team:
+                announce = (_("""\
+Hi!  I am the service robot at the Translation Project, and was awakened
+by your submission for `%s'.
+""")
+                            % hints.archive_base())
+            else:
+                announce = _("""\
+Hi!  I am the service robot at the Translation Project, and was awakened
+by one of your submissions.
+""")
+            return no_('%s\n%s') % (header, announce)
+        return None
+
+    def complete(self):
+        if hints and hints.team:
+            self.lang = hints.team.code
+            if hints.team.charset:
+                self.encoding = hints.team.charset
+        if rejected:
+            self.prepare(force=1)
+            self.write(_("""\
+Some error reported above is such that I cannot fully process your invoice.
+I'm sorry!  Do not fear resubmitting your PO file, once you think the problem
+has been corrected.  Being a robot, I'm incredibly patient at such things!
+
+To send your PO file as an Emacs user, merely hit `M' within PO mode.
+Otherwise, you may use various MIME (beware I'm too dumb for split parts)
+or `uuencode' (either old or new).  Have a `.gz' suffix on the file name
+if you decide to compress it with `gzip'.  You may also send your file all
+plain, but you have to make sure that we have an 8-bit clean email route.
+For now at least, do not submit more than one PO file in a single email.
+If I cannot decipher your packaging, I will forward it to the coordinator
+for manual unpacking.  Use a subject line looking like:
+
+>    Subject: TP-Robot PACKAGE-VERSION.TEAM.po
+
+and send this whole thing to `translation@iro.umontreal.ca'.  You may
+expect a reply within the hour.  If you need help to resolve questions
+raised in this reply, or if you plainly suspect I'm behaving poorly, you
+may directly write the translation coordinator.  However, if you do so,
+be careful _not_ to start your message Subject with `TP-Robot'! :-)
+"""))
+
+        self.write_nofill(_("""\
+                                The Translation Project robot, in the
+                                name of your kind translation coordinator.
+                                mailto:translation@iro.umontreal.ca
+"""))
+
+        Reporter.complete(self)
+
+coordinator = Coordinator()
+submitter = Submitter()
+
+reject_warning = _("""\
+WARNING: This prevents the robot from forwarding your file to the archive.
+""")
+
+def reject_nofill(text, reason = None):
+    global rejected, subject
+
+    if not rejected:
+        subject = subject + " [REJECTED]"
+    rejected = 1
+    if not dry:
+        if reason:
+            coordinator.reject(reason)
+        coordinator.write_nofill(text)
+    submitter.write_nofill(text + reject_warning)
+
+def reject(text, reason = None):
+    global rejected, subject
+
+    if not rejected:
+        subject = subject + " [REJECTED]"
+    rejected = 1
+    if not dry:
+        if reason:
+            coordinator.reject(reason)
+        coordinator.write(text)
+    submitter.write(text + reject_warning)
+
+def refill(text):
+    work = tempfile.mktemp()
+    file = os.popen('fmt >%s' % work, 'w')
+    try:
+        file.write(text)
+    except UnicodeError:
+        file.write(text.encode("utf-8"))
+    file.close()
+    file = open(work)
+    text = file.read()
+    file.close()
+    os.remove(work)
+    return text
+
+def encode(msg):
+    if hints and hints.team:
+        return hints.team.encode(msg)
+    if isinstance(msg, types.UnicodeType):
+        return msg.encode("utf-8")
+    return msg

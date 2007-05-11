@@ -1,0 +1,54 @@
+#!/usr/bin/python2
+# Copyright © 2000 Progiciels Bourbeau-Pinard inc.
+# François Pinard <pinard@iro.umontreal.ca>, 1999.
+
+"""\
+Serve CGI requests about textual domains or national teams.
+
+If field `domain' is defined, it should be either `index' or a domain name.
+Else, if field `team' is defined, it should be either `index' or a team name.
+"""
+
+import sys
+sys.path.insert(0, '@libdir@')
+
+def main():
+    try:
+        process_request()
+    except:
+        report_problem()
+
+def process_request():
+    import cgi, os
+    form = cgi.FieldStorage()
+    if form.has_key('domain'):
+        domain = form['domain'].value
+        os.chdir('@topdir@/web')
+        import localweb
+        if domain == 'index':
+            localweb.produce_domain_index(None)
+        else:
+            import data
+            localweb.produce_domain_page(data.load_postats(), domain, None)
+    elif form.has_key('team'):
+        team = form['team'].value
+        os.chdir('@topdir@/web')
+        import localweb
+        if team == 'index':
+            localweb.produce_team_index(None)
+        else:
+            import data
+            localweb.produce_team_page(data.load_postats(), team, None)
+    else:
+        assert 0, 'Invalid usage'
+
+def report_problem():
+    import traceback
+    sys.stdout.write('Content-Type: text/html\n\n'
+                     '<pre>\n')
+    sys.stderr = sys.stdout
+    traceback.print_exc()
+    sys.stdout.write('</pre>\n')
+
+if __name__ == '__main__':
+    main()

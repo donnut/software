@@ -1,0 +1,40 @@
+* Réponse aux traducteurs francophones		allout -*- outline -*-
+
+  La liste `traduc' supporte maintenant les traductions françaises des
+  messages de programmes, à la fois pour les logiciels de GNU et d'autres
+  distribués sous des conditions comparables.  C'était l'objet de la liste
+  `fr' qui, en se fusionnant à la liste `traduc', disparaît en tant
+  que telle.
+
+  Nous faisons en sorte, bien sûr, que la transition se fasse en douceur.
+  Les nouveaux arrivants dans `fr' (autrefois mailto:fr@li.org) sont
+  redirigés vers la liste `traduc'.  Les traducteurs autrefois dans `fr'
+  ont été invités à se ré-inscrire eux-mêmes de la manière suivante:
+
+   Envoyez un mail à mailto:majordomo@traduc.org en spécifiant comme texte
+       subscribe traduc
+
+   Pour envoyer un message dans cette liste, utilisez l'adresse :
+       mailto:traduc@traduc.org
+
+   Pour les utilisateurs de la liste fr, vous trouverez certaines
+   informations concernant la liste traduc dans le document
+   Liste-des-HOWTO à l'adresse :
+       http://www.freenix.org/linux/HOWTO/Liste-des-HOWTO.html
+
+   Une liste de secours (copie des destinataires de la liste `traduc') est
+   maintenue à l'adresse mailto:traduc@gandalf.freenix.org - à n'utiliser
+   que si la première liste n'est plus fonctionnelle.
+
+   L'adresse officielle de la liste francophone dans les fichiers PO est
+   maintenant mailto:traduc@traduc.org, ainsi que dans le registre du projet
+   de traduction, que le robot du projet utilise.  Sauf désistement, les
+   traducteurs ayant déjà la charge des messages de logiciels en gardent
+   la responsabilité.
+
+   Nous voyons cette fusion comme une source d'énergie et de bonne humeur,
+   et un accélérateur de la francisation de notre quotidien informatique.
+   N'hésitez pas à nous contacter pour toute question.
+
+                              Éric Dumas, mailto:dumas@traduc.org
+                              François Pinard, mailto:pinard@iro.umontreal.ca

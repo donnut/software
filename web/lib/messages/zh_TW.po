@@ -1,0 +1,2493 @@
+# Triditional Chinese messages for TP-Robot
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# This file is distributed under the same license as the tp-robot package.
+# Meng Jie <zuxyhere@eastday.com>, 2004.
+# Yuan-Chen Cheng <ycheng@sinica.edu.tw>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tp-robot 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-06-19 06:38-0400\n"
+"PO-Revision-Date: 2004-11-05 13:34+0800\n"
+"Last-Translator: Yuan-Chen Cheng <ycheng@sinica.edu.tw>\n"
+"Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=big5\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: bin/fetch-pot:50
+#, python-format
+msgid "Domain `%s' has no associated URL"
+msgstr "翻譯‘%s’沒有相關的 URL"
+
+#: bin/fetch-pot:56
+#, python-format
+msgid "Examining %s..."
+msgstr "檢查 %s……"
+
+#: bin/fetch-pot:58
+#, python-format
+msgid "Fetching %s..."
+msgstr "取回 %s……"
+
+#: bin/fetch-pot:65 bin/fetch-pot:68
+msgid "  apparently not found\n"
+msgstr "  找不到\n"
+
+#: bin/fetch-pot:86
+msgid "  no POT file in archive\n"
+msgstr " 歸檔中沒有 POT 文件\n"
+
+#: bin/fetch-pot:113
+msgid "  more than one POT file in archive:\n"
+msgstr " 歸檔中有多於一個的 POT 文件：\n"
+
+#: bin/fetch-pot:120
+msgid "Did not retain any POT file"
+msgstr "沒有保留任何 POT 文件"
+
+#: bin/fetch-pot:135
+#, python-format
+msgid "  extracting %s as %s\n"
+msgstr "  解壓 %s 到 %s\n"
+
+#: bin/fetch-pot:142
+msgid "Extraction failed"
+msgstr "解壓失敗"
+
+#: bin/msg-to-po:35 bin/msg-to-po:44
+#, python-format
+msgid "#. Message no %s\n"
+msgstr "#. 消息沒有 %s\n"
+
+#: bin/msg-to-po:47
+#, python-format
+msgid "msgid \"*** Unknown - message no %s ***\"\n"
+msgstr "msgid “*** 未知 - 消息沒有 %s ***”\n"
+
+#: bin/msg-to-po:72
+#, python-format
+msgid "<stdin>:%d: ERROR: %s"
+msgstr "<stdin>：%d：錯誤：%s"
+
+#: bin/po-empty:23 bin/po-normalize:23
+#, python-format
+msgid "Usage: %s [PO-FILE]"
+msgstr "用法：%s [PO 文件]"
+
+#: bin/po-register:59
+#, python-format
+msgid "`%s' may not be absolute notation, think `shar'..."
+msgstr "‘%s’可能不是絕對標記，考慮使用‘shar’……"
+
+#: bin/po-register:63 bin/po-register:66
+#, python-format
+msgid "Processing %s\n"
+msgstr "處理 %s\n"
+
+#: bin/po-register:73
+#, python-format
+msgid "No known maintainer for textual domain `%s'"
+msgstr "文本域‘%s’沒有已知的維護者"
+
+#: bin/po-register:92
+#, python-format
+msgid "  skipping `%s' as local `%s' waits\n"
+msgstr "  跳過‘%s’，因為本地‘%s’等待中\n"
+
+#: bin/po-register:96
+#, python-format
+msgid "  skipping `%s' as `%s' exists\n"
+msgstr "  跳過‘%s’因為‘%s’存在\n"
+
+#: bin/po-register:103
+#, python-format
+msgid "  merging with `%s'"
+msgstr "  與‘%s’合併"
+
+#: bin/po-register:121 bin/po-register:137
+#, python-format
+msgid "    sending `%s' to `%s'\n"
+msgstr "   將‘%s’發送給‘%s’\n"
+
+#: bin/po-register:127 bin/po-register:188
+#, python-format
+msgid "    notifying `%s' about `%s'\n"
+msgstr "   送給‘%s’關於‘%s’的通知\n"
+
+#: bin/po-register:142
+#, python-format
+msgid "  notifying `%s' about `%s-%s.pot'\n"
+msgstr "  送給‘%s’關於‘%s-%s.pot’的通知\n"
+
+#: bin/po-register:145
+msgid "    also notifying team leaders\n"
+msgstr "   同時通知小組協調者\n"
+
+#: bin/po-register:152
+#, python-format
+msgid "    initializing `%s/teams/PO/%s'\n"
+msgstr "   初始化‘%s/翻譯小組/PO/%s’\n"
+
+#: bin/po-register:162
+#, python-format
+msgid "  skipping `%s', as already uploaded\n"
+msgstr "  跳過‘%s’，因為已經上傳\n"
+
+#: bin/po-register:175
+msgid "Translation empty and identical to Template, not loaded\n"
+msgstr "翻譯項為空，與模版相同，不載入\n"
+
+#: bin/po-register:177
+msgid "Translation identical to archive file, not loaded\n"
+msgstr "翻譯與歸檔相同，不載入\n"
+
+#: bin/po-register:207
+#, python-format
+msgid "    also notifying `%s'\n"
+msgstr "   同時也通知‘%s’\n"
+
+#: bin/po-register:221
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: New PO Template file for `%s'\n"
+"\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: New PO Template file for `%s'\n"
+"\n"
+
+#: bin/po-register:228
+#, python-format
+msgid ""
+"Hello, gentle maintainer.\n"
+"This is a message from the Translation Project robot.\n"
+"\n"
+"A new PO Template file, for programs using the textual domain `%s',\n"
+"has just been made available to language teams for translation, and a copy\n"
+"is available as:\n"
+msgstr ""
+"翻譯維護者您好，\n"
+"這是一條來自翻譯項目機器人的通知。\n"
+"\n"
+"\n"
+"使用文本域‘%s’的程序的一個新的 PO 模版文件已經上傳，正期待著各翻譯小組的\n"
+"翻譯，一份可用的副本在：\n"
+
+#: bin/po-register:238 bin/po-register:320 bin/po-register:381
+#, python-format
+msgid ""
+"\n"
+">    %s\n"
+"\n"
+"The file should soon be made available in mirror sites as:\n"
+"\n"
+msgstr ""
+"\n"
+">   %s\n"
+"\n"
+"此文件也將很快出現在鏡像網站上：\n"
+"\n"
+
+#: bin/po-register:248
+#, python-format
+msgid ""
+"\n"
+"In your releases, this file is usually found as `po/%s.pot'.  It is\n"
+"created or updated automatically at `make dist' time, or whenever you\n"
+"run `make update-po' in the `po/' subdirectory.  Whenever you have a\n"
+"distribution ready which holds a newer PO Template, please send the URL\n"
+"of this distribution to the address below.  The distribution could be a\n"
+"pretest or a snapshot, it does not even have to compile.  This is to be\n"
+"used by translators, when they need to get some translation context from\n"
+"your sources.\n"
+"\n"
+"Within the Translation Project, each PO Template file should have different\n"
+"version numbers, but since it is not OK to have two different distributions\n"
+"having same version numbers, this is not a problem in practice.\n"
+msgstr ""
+"\n"
+"在您的發行版中，這個檔案同常叫做‘po/%s.pot’。在‘make dist’時或您在‘po/’\n"
+"子目錄下執行‘make update-po’時，這一文件就會被自動創建或更新。無論何時，當\n"
+"您已預備好發行版，且新版本中有一個較新的 PO 模版，請您將該發行版的 URL 發送至\n"
+"以下地址。發行版本可以是測試版或預覽版，它甚至不一定要能通過編譯。翻譯者使用\n"
+"發行版中的源文件以獲得某些翻譯項的上下文。\n"
+"\n"
+"在翻譯項目中，每個 PO 模版文件都應有不同的版本號，但因為兩個不同的發行版卻可\n"
+"以有相同的版本號，所以在實踐中這並不是一個問題。\n"
+
+#: bin/po-register:265
+msgid ""
+"\n"
+"Here is the URL information which has just been provided to translators for\n"
+"your package.  Please inform the translation coordinator, at the address\n"
+"given below, if the information does not appear to be adequate or current:\n"
+"\n"
+msgstr ""
+"\n"
+"這兒是您剛才提供給翻譯者該軟體 URL 位址。如果此資訊不完整或已過時，請您\n"
+"使用以後給出的位址，並通知翻譯協調員解決：\n"
+"\n"
+
+#: bin/po-register:275
+msgid ""
+"\n"
+"Translated PO files will later be automatically e-mailed to you.\n"
+msgstr ""
+"\n"
+"翻譯過的 PO 文件稍後將通過電子郵件發送給您。\n"
+
+#: bin/po-register:280
+msgid ""
+"\n"
+"We can arrange things so translated PO files be automatically e-mailed\n"
+"to you when they arrive.  Ask to the address below if you want this.\n"
+msgstr ""
+"\n"
+"我們可以設定成：在翻譯完成的 PO 檔案上傳時就馬上遞給您。若您需要此項服務，\n"
+"請與以下地址聯繫：\n"
+
+#: bin/po-register:285 bin/po-register:346
+msgid ""
+"\n"
+"Thanks for your collaboration,\n"
+"\n"
+"                                The Translation Project robot, in the\n"
+"                                name of your translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+msgstr ""
+"\n"
+"感謝您的合作。\n"
+"\n"
+"                               翻譯項目機器人\n"
+"                               以你們翻譯協調者的名義\n"
+"                               translation@iro.umontreal.ca\n"
+
+#: bin/po-register:303
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: team-leaders@iro.umontreal.ca\n"
+"Subject: New PO Template file for `%s'\n"
+"\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: team-leaders@iro.umontreal.ca\n"
+"Subject: New PO Template file for `%s'\n"
+"\n"
+
+#: bin/po-register:310
+#, python-format
+msgid ""
+"My nicest hello to all language team leaders.\n"
+"This is a message from the Translation Project robot.\n"
+"\n"
+"A new PO Template file, for programs using the textual domain `%s',\n"
+"has just been made available to language teams for translation, and a copy\n"
+"is available as:\n"
+msgstr ""
+"向所有語言的翻譯小組協調者致以最誠摯的問候。\n"
+"這是一條來自翻譯項目機器人的通知。\n"
+"\n"
+"\n"
+"使用文本域‘%s’的程序的一個新的 PO 模版文件已經上傳，正期待著各翻譯小組的翻\n"
+"譯，一份可用的副本在：\n"
+
+#: bin/po-register:330
+msgid ""
+"\n"
+"Your team will have been notified only if it committed a translation\n"
+"or if you have requested that the team is notified, anyway.\n"
+"Otherwise, it is up to you and your team to decide exactly how a\n"
+"translator might be recruited to take care of it.\n"
+msgstr ""
+"\n"
+"您的翻譯小組僅在提交了一份翻譯或者您明確要求的情況下才會收到\n"
+"通知。除外，您和您的翻譯小組有權決定哪位翻譯者如何負責此項翻\n"
+"譯。\n"
+
+#: bin/po-register:338
+msgid ""
+"\n"
+"Here is some URL information that could be provided to translators\n"
+"for this package:\n"
+"\n"
+msgstr ""
+"\n"
+"\n"
+"這是將被提供給翻譯者的關於此軟體的一些 URL 資訊：\n"
+"\n"
+
+#: bin/po-register:362
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: New %s PO file for `%s'\n"
+"\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: New %s PO file for `%s'\n"
+"\n"
+
+#: bin/po-register:370
+#, python-format
+msgid ""
+"Hello, gentle maintainer.\n"
+"This is a message from the Translation Project robot.\n"
+"\n"
+"A revised PO file, for programs using the textual domain `%s', has\n"
+"been submitted by the team of translators taking care of the %s\n"
+"language.  This particular file, along with all other PO files pertaining\n"
+"to the same textual domain, is available as:\n"
+msgstr ""
+"翻譯維護者您好：\n"
+"這是一條來自翻譯項目機器人的通知。\n"
+"\n"
+"用於軟體領域‘%s’的一個修訂過的 PO 文件已經由負責 %s 的翻譯小組提交。這一特定\n"
+"的文件，以及其他用於此軟體的 PO 文件，可以在下列位置取得：\n"
+
+#: bin/po-register:392
+#, python-format
+msgid "    mailing `%s' to `%s'\n"
+msgstr "   將‘%s’郵遞至‘%s’\n"
+
+#: bin/po-register:395
+#, python-format
+msgid ""
+"\n"
+"This file has already been sent to you separately on %s,\n"
+"as a MIME invoice unpacking the file `%s'.\n"
+msgstr ""
+"\n"
+"這一文件已經在 %s 發送給您一個 MIME 郵件，其中包含文件‘%s’。\n"
+
+#: bin/po-register:402
+msgid ""
+"\n"
+"We may arrange things so future such files be automatically e-mailed\n"
+"to you when they arrive.  Ask to the address below if you want this.\n"
+msgstr ""
+"\n"
+"我們可以做出安排，以後這樣的文件一旦到達即自動投遞給您。若您需要此項服務，\n"
+"請與以下位置聯繫。\n"
+
+#: bin/po-register:407
+#, python-format
+msgid ""
+"\n"
+"The following HTML page should also be updated by tomorrow.\n"
+"\n"
+">    %s/HTML/domain-%s.html\n"
+"\n"
+"Please consider including all PO files, as they stand, in the `po/'\n"
+"subdirectory of your next release of programs using that textual domain,\n"
+"whether it is official or pretest.  Whenever you have a distribution ready\n"
+"which holds a newer PO Template, please send the URL of this distribution\n"
+"to the address below.  The distribution could be a pretest or a snapshot,\n"
+"it does not even have to compile.  This is to be used by translators,\n"
+"when they need to get some translation context from your sources.\n"
+"\n"
+"Within the Translation Project, each PO Template file should have different\n"
+"version numbers, but since it is not OK to have two different distributions\n"
+"using same version numbers, this is not a problem in practice.\n"
+"\n"
+"Contact me if any question arises.  Thanks for your collaboration,\n"
+"\n"
+"                                The Translation Project robot, in the\n"
+"                                name of your translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+msgstr ""
+"\n"
+"下列 HTML 頁面也將會在明天之前更新。\n"
+"\n"
+">   %s/HTML/domain-%s.html\n"
+"\n"
+"請考慮下一次發行使用軟體(無論是正式版或測試版)時，將所有可用的 PO\n"
+"文件放入‘po/’子目錄下。無論何時，當您已預備好發行版，且新版本中有一個較新\n"
+"的 PO 模版，請您將該發行版的 URL 發送至以下地址。發行版本可以是測試版或預覽版，\n"
+"它甚至不一定要能通過編譯。翻譯者使用發行版中的源碼以獲得某些翻譯項的上下文。\n"
+"\n"
+"在翻譯項目中，每個 PO 模版都應有不同的版本號，但因為兩個不同的發行版卻可\n"
+"以有相同的版本號，所以在實做中這並不會造成問題。\n"
+"\n"
+"如有任何問題請跟我連絡。謝謝您的合作。\n"
+"\n"
+"                               翻譯項目機器人\n"
+"                               以翻譯協調者的名義\n"
+"                               translation@iro.umontreal.ca\n"
+
+#: bin/po-register:453
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: %s-%s (%d%%, %d untranslated)\n"
+"%s\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: %s-%s (%d%%, %d untranslated)\n"
+"%s\n"
+
+#: bin/po-register:462
+#, python-format
+msgid ""
+"Hello, members of the %s team at `%s'.\n"
+"This is a message from the Translation Project robot.\n"
+"I'm happy to announce that a new file, available as:\n"
+"\n"
+">    %s\n"
+"\n"
+"has been integrated in the central PO archives.  The file\n"
+"should soon be made available in mirror sites as:\n"
+"\n"
+msgstr ""
+"你們好，%s 翻譯小組成員(位於‘%s’)。\n"
+"這是一條來自翻譯項目機器人的消息。\n"
+"我非常高興地宣布一個新文件：\n"
+"\n"
+">  %s\n"
+"\n"
+"已經存放到中央 PO 檔案庫中。此文件也將很快出現在鏡像網站上：\n"
+"\n"
+
+#: bin/po-register:475
+#, python-format
+msgid ""
+"Hello, members of the %s team at `%s'.\n"
+"This is a message from the Translation Project robot.\n"
+"I'm happy to announce that a new file, available as:\n"
+"\n"
+">    %s\n"
+"\n"
+"has been integrated in the central PO archives, and is now kept with all\n"
+"other accepted %s translations.  The file should soon be made available\n"
+"in mirror sites as:\n"
+"\n"
+msgstr ""
+"你們好，%s(位於‘%s’)翻譯小組成員。\n"
+"這是一條來自翻譯項目機器人的消息。\n"
+"我非常高興地宣布一個新檔案：\n"
+"\n"
+">  %s\n"
+"\n"
+"已經存放到中央 PO 檔案庫中，與其他已被接受的%s翻譯存放在一起。此文件也將很快\n"
+"出現在鏡像網站上：\n"
+"\n"
+
+#: bin/po-register:495
+#, python-format
+msgid "%s and %s are currently assigned for the translation. When you have completed the translation, send the result to the address given below, using the Subject line:"
+msgstr "%s 和 %s 目前被分配此翻譯任務。當您完成翻譯後，請將成果發送至下面給出的地址，主題 (Subject) 請設定為："
+
+#: bin/po-register:499
+#, python-format
+msgid "%s is currently assigned for the translation. When you have completed the translation, send the result to the address given below, using:"
+msgstr "%s 目前被分配此翻譯任務。當您完成翻譯後，請將成果發送至下面給出的地址，主題 (Subject) 請設定為："
+
+#: bin/po-register:509
+#, python-format
+msgid "The most recent translation of this translator has %d of %d messages translated."
+msgstr "在此翻譯者最近的翻譯中，他翻譯了 %d 條消息(總數為 %d)。"
+
+#: bin/po-register:511
+#, python-format
+msgid ""
+"\n"
+"There is currently a translator working on this translation who is not\n"
+"part of the Translation Project. %s\n"
+msgstr ""
+"\n"
+"目前已有一個翻譯者在為此翻譯工作，但他並不是本翻譯項目的成員。%s\n"
+"\n"
+
+#: bin/po-register:516
+#, python-format
+msgid ""
+"\n"
+"Please consider taking its translation in charge for the %s language.\n"
+"If you decide to do so, please get your team leader (if any) to inform\n"
+"the translation coordinator that you were assigned to `%s'.\n"
+"Once the translation is completed, send the result to the address given\n"
+"below, using the Subject line:\n"
+msgstr ""
+"\n"
+"請考慮負責它的 %s 翻譯。如果您決定這樣做，請讓您的小組協調者(如果有的話)通知\n"
+"翻譯協調員，您被分配了‘%s ’翻譯任務。當翻譯完成後，請將結果發送到以下地址，\n"
+"並設定標題 (Subject) 為：\n"
+
+#: bin/po-register:525
+#, python-format
+msgid ""
+"\n"
+"None of its untranslated messages have been translated yet. %s\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"in your message header.  You may contact either your team leader or me,\n"
+"if any question arises.\n"
+msgstr ""
+"\n"
+"目前還沒有一條待翻譯的消息已被翻譯。%s\n"
+"\n"
+">   TP-Robot %s-%s.%s.po\n"
+"\n"
+"一旦出現任何問題，您可以聯絡貴翻譯小組的協調者或我。\n"
+
+#: bin/po-register:538
+#, python-format
+msgid ""
+"\n"
+"All its %d messages have been translated, and this PO file has been\n"
+"submitted to the maintainer of `%s', hoping s/he will include\n"
+"it in a future release of programs using this textual domain.\n"
+"\n"
+"Let me thank you for all users of the %s language.\n"
+msgstr ""
+"\n"
+"全部 %d 條消息均已被翻譯，這個 PO 文件已經被提交給‘%s’的維護者，希望他能在\n"
+"使用此領域的軟體的下一次發行中包含您的成果。\n"
+"\n"
+"我謹代表所有使用%s的用戶感謝您。\n"
+
+#: bin/po-register:550
+#, python-format
+msgid "%s and %s are currently assigned for the translation."
+msgstr "此翻譯任務目前分配給 %s 和 %s。"
+
+#: bin/po-register:554
+#, python-format
+msgid "%s is currently assigned for the translation."
+msgstr "此翻譯任務目前分配給 %s。"
+
+#: bin/po-register:557
+#, python-format
+msgid "Nobody in your team is currently assigned to the domain '%s'. The team leader (if any) should inform the translation coordinator of who will become responsible for it."
+msgstr "您的小組中尚無人被分配到域‘%s’，小組協調者(如果有的話)應該通知翻譯協調者誰將負責此域。"
+
+#: bin/po-register:559
+#, python-format
+msgid ""
+"\n"
+"In this file, %d messages have been translated already,\n"
+"accounting for %d%% of the original text size (in raw bytes).  Still,\n"
+"%d messages need to be attended to.  %s\n"
+"\n"
+"Please translate the remaining messages for the benefit of users of the\n"
+"%s language.  Once the translation completed, send the result to\n"
+"the address given below, using the Subject line:\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"in your message header.  You may contact either your team leader or me,\n"
+"if any question arises.  In the meantime, this PO file has been submitted\n"
+"to the maintainer of programs using the textual domain `%s'.\n"
+"\n"
+"Thanks!\n"
+msgstr ""
+"\n"
+"在這個文件中，%d 條消息已被翻譯，以 Byte 計，翻譯的部分佔全文的\n"
+"%d%%。不過，仍然有 %d 消息需要翻譯。%s\n"
+"\n"
+"請翻譯剩下來的訊息，以讓使用%s的用戶受益。當翻譯完成後，請將結果\n"
+"發送到以下地址，標題 (Subject) 設定為：\n"
+"\n"
+">   TP-Robot %s-%s.%s.po\n"
+"\n"
+"一旦出現任何問題，您可以聯絡貴翻譯小組的協調者或我。同時，這個 PO 文\n"
+"件已經被提交給使用文本域‘%s’的軟體維護者。\n"
+"\n"
+"謝謝！\n"
+
+#: bin/po-register:581
+#, python-format
+msgid ""
+"\n"
+"The following HTML pages should also be updated by tomorrow.\n"
+"\n"
+">    %s/HTML/domain-%s.html\n"
+">    %s/HTML/team-%s.html\n"
+"\n"
+"                                The Translation Project robot, in the\n"
+"                                name of your translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+msgstr ""
+"\n"
+"下列 HTML 頁面也應該會在明天之前更新。\n"
+"\n"
+">   %s/HTML/domain-%s.html\n"
+">   %s/HTML/team-%s.html\n"
+"\n"
+"                                翻譯項目機器人\n"
+"                                以翻譯協調員的名義\n"
+"                                translation@iro.umontreal.ca\n"
+
+#: bin/po-register:595
+msgid ""
+"\n"
+"P.S. - You may find a copy (maybe not official) of the distribution as:\n"
+"\n"
+msgstr ""
+"\n"
+"P.S. - 您可以找到這一發行版的一份副本(可能並非正式版)：\n"
+"\n"
+
+#: bin/po-register:613
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: Contents of file `%s'\n"
+"MIME-Version: 1.0\n"
+"Content-Type: multipart/mixed; boundary=\"=-=-=\"\n"
+"\n"
+"--=-=-=\n"
+"Content-Type: application/octet-stream\n"
+"Content-Disposition: attachment; filename=%s\n"
+"Content-Transfer-Encoding: base64\n"
+"\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: Contents of file `%s'\n"
+"MIME-Version: 1.0\n"
+"Content-Type: multipart/mixed; boundary=\"=-=-=\"\n"
+"\n"
+"--=-=-=\n"
+"Content-Type: application/octet-stream\n"
+"Content-Disposition: attachment; filename=%s\n"
+"Content-Transfer-Encoding: base64\n"
+"\n"
+
+#: bin/po-register:632
+msgid ""
+"--=-=-=\n"
+"\n"
+"                                The Translation Project robot, in the\n"
+"                                name of your translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+"\n"
+"--=-=-=--\n"
+msgstr ""
+"--=-=-=\n"
+"\n"
+"                                翻譯項目機器人\n"
+"                                以翻譯協調員的名義\n"
+"                                translation@iro.umontreal.ca\n"
+"\n"
+"--=-=-=--\n"
+
+#: bin/po-to-scm:24
+#, python-format
+msgid "Usage: %s [ -scm | -el ] [FILE]..."
+msgstr "用法：%s [ -scm | -el ] [檔案]……"
+
+#: bin/postats-data:155
+#, python-format
+msgid "%s: Not enough hints for a key\n"
+msgstr "%s：關於鑰匙的提示不足\n"
+
+#: bin/scm-to-po:59
+msgid ""
+"# SOME DESCRIPTIVE TITLE.\n"
+"# Copyright (C) YEAR Free Software Foundation, Inc.\n"
+"# FIRST AUTHOR <EMAIL\\@ADDRESS>, YEAR.\n"
+"#\n"
+"#, fuzzy\n"
+"msgid ''\n"
+"msgstr ''\n"
+"'Project-Id-Version: PACKAGE VERSION\\n'\n"
+"'PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n'\n"
+"'Last-Translator: FULL NAME <EMAIL\\ADDRESS_ARRAY>\\n'\n"
+"'Language-Team: LANGUAGE <LL\\li_ARRAY.org>\\n'\n"
+"'MIME-Version: 1.0\\n'\n"
+"'Content-Type: text/plain; charset=CHARSET\\n'\n"
+"'Content-Transfer-Encoding: ENCODING\\n'\n"
+msgstr ""
+"# 描述性的標題.\n"
+"# Copyright (C) 年份 Free Software Foundation, Inc.\n"
+"# 原作者 <電子郵件\\@地址>, 年份.\n"
+"#\n"
+"#, fuzzy\n"
+"msgid ''\n"
+"msgstr ''\n"
+"'Project-Id-Version: 套件 版本號\\n'\n"
+"'PO-Revision-Date: 年-月-日 時:分+時區\\n'\n"
+"'Last-Translator: 全名 <電子郵件\\地址>\\n'\n"
+"'Language-Team: 語言 <LL\\li_ARRAY.org>\\n'\n"
+"'MIME-Version: 1.0\\n'\n"
+"'Content-Type: text/plain; charset=字元集\\n'\n"
+"'Content-Transfer-Encoding: 編碼\\n'\n"
+
+#: bin/tp-robot:107
+msgid ""
+"For some reason, your PO file seems to have no entries at all, like if it\n"
+"were empty.  Sigh!  It looks like there is something wrong, somewhere...\n"
+msgstr ""
+"因為某些原因，您的 PO 文件似乎不含任何訊息，就像空的一樣。可惜！看起來是某些\n"
+"地方出問題了，在某個地方……\n"
+
+#: bin/tp-robot:138
+msgid ""
+"I, the Translation Project robot, just failed in a rather unexpected way.\n"
+"Sigh!  Despair!  I'm bugged, lost, doomed :-(.  Help me!\n"
+"Report all details you can at mailto:translation@iro.umontreal.ca.\n"
+"Please do _not_ start your Subject line with `TP-Robot'.\n"
+msgstr ""
+"我，翻譯項目機器人，以一種出人意料方式掛了。唉！我絕望了！我身染重病，一頭\n"
+"霧水，難道是死定了？:-( 救救我啊！請將您所能知道的所有細節告訴\n"
+"translation@iro.umontreal.ca。請不要再以‘TP-Robot’開始您的標題。\n"
+
+#: bin/tp-robot:155
+msgid ""
+"In fact, the Translation Project registry holds the preferred email address\n"
+"for many translators like you, and some necessary aliases as well.  It is\n"
+"better to avoid the proliferation of alternate email addresses and stick\n"
+"to only one, whenever possible.  In any case, please keep the translation\n"
+"coordinator informed of such things, at least as a mild form of verification.\n"
+"Some stronger authentication scheme might be needed, one of these days!"
+msgstr ""
+"事實上，在翻譯項目的登記表中，存放著許多像您這樣的翻譯者慣用的郵件地址，也有\n"
+"一些必要的別名。但是只要有可能，最好避免使用多個電子郵件地址，而是堅持使用其\n"
+"中的一個。在任何情況下，請事先通知翻譯協調員，至少讓他有一個哪怕很不正式的驗\n"
+"證的機會。不久的將來，可能會採用某種更強的驗證機制！"
+
+#: bin/tp-robot:194
+msgid "I'm ignoring the whole following MIME part within your invoice:\n"
+msgstr "我將忽略掉您的提交中的以下 MIME 部分：\n"
+
+#: bin/tp-robot:205
+msgid ""
+"Hmph!  It seems I'm not clever enough yet to find your PO file within\n"
+"your message.  The translation coordinator, who is my beloved master,\n"
+"explained that I still have many things to learn about real life, before\n"
+"being able to handle all situations.  So, I'll go and ask him to help me\n"
+"unpack your invoice.\n"
+msgstr ""
+"嗯，看來我不夠聰明，沒法在您的信件裡發現您的 PO 文件。翻譯協調員，我鐘愛\n"
+"的主人，向我解釋過，我在真實的世界裡仍然要學許多東西才能應對各種情況。所以，\n"
+"我將去他那兒，請他幫助我處理您的信件。\n"
+
+#: bin/tp-robot:215
+msgid ""
+"Your message contains multiple MIME parts, and I see that I am not able to\n"
+"decide which one of these parts is meant to contain your PO file.  Would you\n"
+"help me, while resubmitting your message, by using a simpler MIME structure?\n"
+msgstr ""
+"您的信件包含多個 MIME 部分，我無法確認哪一部分包含您的 PO 文件。您能否幫我個\n"
+"忙，用簡單一點的 MIME 結構重新提交您的信件？\n"
+
+#: bin/tp-robot:230 bin/tp-robot:312
+msgid ""
+"The translation coordinator does not trust me enough yet to let me handle\n"
+"a PO template file all alone.  So, for this one, I'll go disturb him!\n"
+msgstr ""
+"翻譯協調員不太信任我，不讓我單獨處理一個 PO 模版文件。所以，我現在就去跟\n"
+"他聯絡！\n"
+
+#: bin/tp-robot:236
+#, python-format
+msgid ""
+"I was expecting information in the file name argument which I did not find.\n"
+"%s\n"
+"The file name argument should look like `DOMAIN-VERSION.TEAM.po'.\n"
+msgstr ""
+"我沒有找到應該從檔名得到的資訊。\n"
+"%s\n"
+"檔名看起來應該像：‘域-版本號.翻譯小組代碼.po’。\n"
+
+#: bin/tp-robot:244
+#, python-format
+msgid "Within the Translation Project, no team has the code `%s'.\n"
+msgstr "在翻譯項目中，沒有一個翻譯小組的代碼是‘%s’。\n"
+
+#: bin/tp-robot:322
+#, python-format
+msgid ""
+"I see that you used `%s@%s' to reach me.  Even it worked,\n"
+"a few email aliases were surely involved, which are not all under\n"
+"control.  It is safer that you use my real email address, which is\n"
+"`translation@iro.umontreal.ca'.\n"
+msgstr ""
+"我了解到您用‘%s@%s’發信給我。即便能夠成功，您也使用了一些不完全可控的郵件地\n"
+"址別名。使用我的正式郵件地址‘translation@iro.umontreal.ca’將更安全。\n"
+
+#: bin/tp-robot:378
+#, python-format
+msgid ""
+"I was expecting information in your message header which I did not find.\n"
+"%s\n"
+"I'm not fully sure about what the exact problem is, yet it might be that\n"
+"the Subject field, in your message header, is not formatted properly.\n"
+"Just in case, let me explain how the Subject line usually looks like:\n"
+"\n"
+">    Subject: TP-Robot DOMAIN-VERSION.TEAM.po\n"
+"\n"
+"For a PO file, DOMAIN, VERSION and TEAM should be replaced respectively by\n"
+"the textual domain of the translation (in most cases, this is exactly the\n"
+"package name, in lower case), the version numbers of the said package, and\n"
+"the two-letter lower case language code for the team, also in lower case.\n"
+"In some rare cases, TEAM might have to be suffixed with either \"_REGION\"\n"
+"or \"@DIALECT\", where REGION is a capitalised two-letter country code\n"
+"and DIALECT is a lower case name.\n"
+msgstr ""
+"我沒有找到應該從檔名得到的資訊。\n"
+"%s\n"
+"我不能完全確認到底是哪兒出了錯，不過這可能是您信件頭的標題格式不正確。如果\n"
+"真是這樣，請允許我解釋標題看起來應該像：\n"
+"\n"
+">   Subject: TP-Robot 軟體名-版本號.翻譯小組代碼.po\n"
+"\n"
+"對一特定的 PO 文件，“軟體名”、“版本號”和“翻譯小組代碼”應該分別被替換成翻譯\n"
+"的軟體的名稱(大多數情況下就是全用小寫字母的軟體的名字)，此軟體的版本號，\n"
+"和用兩個小寫字母表示的翻譯小組的語言代碼。在少數狀況下，翻譯小組代碼\n"
+"後面可能跟有“_地區”和“@方言”，“地區”是兩個大寫字母表示的國家和地區碼，\n"
+"而“方言”是一個以小寫字母表示的名字。\n"
+
+#: bin/tp-robot:403
+#, python-format
+msgid ""
+"Within the Translation Project, no team has the code `%s'.\n"
+"It might be that you mispelled that code, in which case I merely invite\n"
+"you to correct the error and retry a new submission.\n"
+"\n"
+"Otherwise, I presume you would like that a new translation team be created.\n"
+"This is a simple matter, really.  You do not have to do any kind of\n"
+"recruiting (unless you really feel like it, which is then another story,\n"
+"of course!).  Most teams started with a single translator.  However, you\n"
+"should be able and willing to communicate with people later wanting to\n"
+"join you on the team.  The Translation Project does not favour real loners.\n"
+"\n"
+"You should write to the translation coordinator for that creation to occur.\n"
+"If by any chance there is some already existing mailing list ready to convey\n"
+"the new team interests, please say so in your letter, so this mailing list\n"
+"gets registered.  If no such list exists, you may want to register your\n"
+"own email address instead, at least until there is a need for a bigger setup.\n"
+"\n"
+"Linux International collaborates with the Translation Project for offering\n"
+"a mailing list to teams needing it.  Such lists are only offered to teams\n"
+"having been active for a while, and which produced a few usable translations.\n"
+msgstr ""
+"在翻譯計畫中，沒有一個翻譯小組的代碼是‘%s’。\n"
+"或許是您拼錯了，煩請您更正此一錯誤並重新提交。\n"
+"\n"
+"此外，我認為您想創建一個新的翻譯小組。這其實是一種很簡單的事，真的。您不\n"
+"需要經過任何考察(除非您真的願意如此，那當然就是另一篇故事了)。大多數小組一開\n"
+"始只有一個翻譯者。不過，你應當能夠並且願意與其他想要加入這一小組的人們交流。\n"
+"翻譯項目並不偏愛孤家寡人。\n"
+"\n"
+"如您打算創建，您應當寫給翻譯協調員。如果已經存在一個可供新小組使用的郵件列表，\n"
+"請在您的信件中注明，這樣這一郵件列表將被登記。如果沒有，您可能希望登記您自己\n"
+"的郵件地址──至少在您需要更大規模的裝備(郵件列表)以前。\n"
+"\n"
+"Linux International 與翻譯項目合作，為那些需要的小組提供郵件列表。但這樣的列\n"
+"表只提供給已活躍一定時間、並已有一些可用的成果的小組。\n"
+
+#: bin/tp-robot:426
+msgid "Unknown_Language"
+msgstr "未知的語言"
+
+#: bin/tp-robot:453
+#, python-format
+msgid ""
+"The PO file title comment appears to be missing.  The very first line of\n"
+"a PO file starts with `#', a space, and then a one-line description of\n"
+"what this PO file is about.  The PO file title comment may look like:\n"
+"\n"
+">    # Translation of `%s' messages to %s.\n"
+"\n"
+"As this line is intended to be read by humans working in %s,\n"
+"you may have this title line translated as well, it does not have to be\n"
+"kept in English.\n"
+msgstr ""
+"PO 文件標題注釋問題。一個 PO 文件的第一行以‘#’開頭，緊跟一個半形空格，\n"
+"然後是一行關於此 PO 文件的描述性的標題。PO 標題注釋看起來像：\n"
+"\n"
+">   # ‘%s’的消息的 %s 版。\n"
+"\n"
+"這一行預期的讀者是用 %s 工作的人們，因此您可以翻譯這一行，它並非必須使用英語。\n"
+
+#: bin/tp-robot:483
+msgid ""
+"The copyright for the PO file should be assigned to:\n"
+"\n"
+"   Free Software Foundation, Inc.\n"
+"\n"
+"and does not seem to be, yet it might be only a question of proper spelling.\n"
+"For the time being, I merely guess that the Free Software Foundation is to\n"
+"be listed as the copyright holder for any package requiring translation\n"
+"disclaimers.  Yet, the truth is that this requirement goes further than\n"
+"the spirit of the disclaimer.  If this creates any problem in real life,\n"
+"please write to the translation coordinator, so we could discuss the matter,\n"
+"and so he could eventually change me (the robot) for handling such cases.\n"
+msgstr ""
+"此 PO 文件的版權應當屬於：\n"
+"\n"
+"   Free Software Foundation, Inc.\n"
+"\n"
+"但看起來並非如此，不過這也有可能僅是拼寫上的問題。目前，我主觀上認定自由軟件\n"
+"基金(Free Software Foundation)對所有要求翻譯提供放棄版權聲明的軟體擁有版權。\n"
+"但事實上，這一要求的內涵已經超過了放棄版權聲明的內在精神。如果這在真實世界中\n"
+"帶來麻煩，請寫信給翻譯協調員協商有關事宜，並最終改變我(機器人)以處理這些情況。\n"
+
+#: bin/tp-robot:498
+#, python-format
+msgid ""
+"The copyright comment does not seem to be correctly formatted.  I see:\n"
+"\n"
+">    # %s\n"
+"\n"
+"while the copyright comment should look like:\n"
+msgstr ""
+"有關版權的注釋看起來格式不正確。我看到：\n"
+"\n"
+">   # %s\n"
+"\n"
+"而正確的版權注釋看起來應該像：\n"
+
+#: bin/tp-robot:507
+msgid ""
+"The copyright comment, which should appear as the second line of the whole\n"
+"PO file, is apparently missing.  The copyright comment looks like:\n"
+msgstr "應當出現在 PO 文件第二行的版權注釋有問題。版權注釋看起來像：\n"
+
+#: bin/tp-robot:512
+#, python-format
+msgid ""
+"%s\n"
+">    # Copyright (C) YEAR Free Software Foundation, Inc.\n"
+"\n"
+"The `(C)' sign may be replaced by the single Latin-1 character for it\n"
+"(decimal code 169) if you happen to work in Latin-1, or with the\n"
+"equivalent UTF-8 seqquence (\\xc2\\xa9).  YEAR is normally a four\n"
+"digits year, yet it might be a list of years, separated by commas.  In\n"
+"a list, the first year has to be four digits, subsequent years may be\n"
+"either two or four digits.  Each comma should be followed with a\n"
+"space.  Years have to be explicitly enumerated, range notations are\n"
+"not accepted.\n"
+msgstr ""
+"%s\n"
+">    # Copyright (C) 年份 Free Software Foundation, Inc.\n"
+"\n"
+"符號‘(C)’可以被替換成單個 Latin-1 字元(十進制碼 169)，如果您恰好在 Latin-1\n"
+"下工作的話，或者替換成等效的 UTF-8 序列(\\xc2\\xa9)。“年份”一般由單個四位\n"
+"數表示，但也有可能是半形逗號分隔的年份列表。在年份列表中，第一個年份必須是四\n"
+"位的，後續的年份則既可以是四位也可以是兩位。每個半形逗號後都必須加一個半形空\n"
+"格。年份必須顯式地列舉出來，僅給出範圍是不可接受的。\n"
+
+#: bin/tp-robot:535
+#, python-format
+msgid ""
+"Oops, there is a slight formatting error.  In the initial comment\n"
+"lines, please use no more than a single space between `%s' and\n"
+"`<%s>'.\n"
+msgstr ""
+"喔，有一個小小的格式錯誤。在開頭的注釋行裡，在‘%s’和‘<%s>’間\n"
+"請不要使用多於一個的半形空格。\n"
+
+#: bin/tp-robot:546
+#, python-format
+msgid ""
+"According to my notes, %s is not a member of the proper\n"
+"%s team, so is unlikely to be the first translator.  It might\n"
+"only be a question of spelling?  In case yes, I then need to know about\n"
+"spelling alternatives, so please tell the translation coordinator.  Yet,\n"
+"it is usually best to avoid such variance, and stick to a single preferred\n"
+"spelling.\n"
+msgstr ""
+"根據我的記錄，%s 不是 %s 翻譯小組的一員。這是否僅僅是拼\n"
+"寫上的問題？如果是，我必須準確地知道可能使用的姓名拼寫的變種，所以請寫信\n"
+"給翻譯協調員。當然，最好避免這些變化，並堅持使用單一種拼寫。\n"
+
+#: bin/tp-robot:559
+#, python-format
+msgid ""
+"The initial translator of this PO file is `%s'.  Yet,\n"
+"according to my own notes, `%s' is not known as a good address\n"
+"to reach that translator.\n"
+"%s%s\n"
+msgstr ""
+"此 PO 文件的原作者是‘%s’。然而根據我自己的記錄，‘%s’\n"
+"不是一個可以聯絡上他的有效電子郵件地址。\n"
+"%s%s\n"
+
+#: bin/tp-robot:573
+#, python-format
+msgid ""
+"The last translator of this PO file appears to be different than the\n"
+"initial translator.  This is something quite possible and normal.  But if\n"
+"you do know that translators did not change, some more checking is needed.\n"
+"The third line of whole PO file says `%s', while the\n"
+"`Last-Translator' field of PO file header says `%s'.  If,\n"
+"and only if, the two names above are indeed misspellings of one another,\n"
+"you should ideally correct whichever is needed, and resubmit your PO file\n"
+"with the correction included.  On the other hand, I invite you to be fair,\n"
+"and _never_ remove the initial translator of a given PO file, as this\n"
+"acknowledgement is the only tribute paid for the work of that translator.\n"
+msgstr ""
+"此 PO 文件的最終翻譯者看起來與原翻譯者不同。這非常有可能並完全正常。但是如果\n"
+"您知道翻譯者並未改變，則需要進一步的檢查。PO 文件的第三行顯示‘%s’，而 PO 文\n"
+"件頭的‘Last-Translator’字段顯示‘%s’。如果這兩個名字確實是同一個人名字的不\n"
+"同拼寫，您應當根據情況修改其中一個，並且重新提交您的 PO 文件。除此之外，為公\n"
+"平起見，我希望您永遠不要刪除給定 PO 文件裡有關的原作者的資訊，因為這一行表示\n"
+"感謝的文字是對那位翻譯者的工作的唯一的報酬。\n"
+
+#: bin/tp-robot:588
+#, python-format
+msgid ""
+"Your submission contains contradicting addresses for you.  The third line of\n"
+"whole PO file says it is `%s', while the `Last-Translator'\n"
+"field of PO file header says it is `%s'.  Please manage to have a\n"
+"single preferred address to reach you, and try to use it consistently in\n"
+"all your translation files.\n"
+msgstr ""
+"您提交的文件包含相互衝突的電子郵件地址。PO 文件的第三行顯示是‘%s’，而 PO 文\n"
+"件頭的‘Last-Translator’字段則顯示是‘%s’。請首選一個可聯絡上您的電子郵件地\n"
+"址，並且統一地用在您所有的翻譯中。\n"
+
+#: bin/tp-robot:598
+#, python-format
+msgid ""
+"The first author comment line is either missing or not formatted correctly.\n"
+"This should be the third line of the whole PO file, looking like:\n"
+"\n"
+">    # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.\n"
+"\n"
+"In this line, FIRST AUTHOR has to be replaced by the full name of the\n"
+"original translator of the messages for the `%s' textual domain,\n"
+"EMAIL@ADDRESS gives a way to reach that translator, and YEAR is a four\n"
+"digits year telling when the original translation occurred.\n"
+msgstr ""
+"原作者注釋行缺失，或者格式不正確。這應當是 PO 文件的第三行，看起來像：\n"
+"\n"
+">   # 原作者 <電子郵件@地址>, 年份\n"
+"\n"
+"在這一行中，“原作者”應當被替換為‘%s’文本域的原始翻譯者，“電子郵件@地址”\n"
+"提供一種可聯絡上他的方式，“年份”是四位數字表示的原始翻譯年份。\n"
+
+#: bin/tp-robot:611
+msgid ""
+"In case you want to add more historical details on the history of this\n"
+"particular PO file, or any comment you would feel useful, you may do so by\n"
+"adding other comment lines after the first three, using your own language\n"
+"if you feel like it.  Remember that there should always be a space after\n"
+"the initial `#' of each comment line, and there should not be a white\n"
+"line before the `msgid' line of the PO file header.\n"
+msgstr ""
+"如果您希望加入關於某特定 PO 文件更多的歷史細節，或者任何您認為有用的注釋資訊，\n"
+"您可以在前三行注釋之後加入自定義的注釋；如您喜歡也可以使用您自己的語言。請記\n"
+"住每一行注釋的‘#’後總有一個半形空格，並且在 PO 文件頭的‘msgid’行前沒有空\n"
+"白行。\n"
+
+#: bin/tp-robot:626
+#, python-format
+msgid ""
+"The Project-Id-Version field of your PO file header says that your textual\n"
+"domain is `%s' instead of the `%s' I was expecting.  They really\n"
+"should be identical.  The textual domain is the package name, usually.\n"
+"In some rare cases, there are differences in capitalisation, or the dubious\n"
+"addition of some `g' prefix because of the GNU inheritance.  Currently,\n"
+"all textual domains are written all in lower case.  They also tend to\n"
+"avoid those meaningless `g' prefixes.\n"
+msgstr ""
+"您的 PO 文件頭的 Project-Id-Version 字段顯示您的文本域是‘%s’而不是我所期望\n"
+"的‘%s’。它們應該要完全一致。文本域通常是軟體的名稱。在某些不常見的情形下，\n"
+"大小寫和由 GNU 傳統引入的‘g’前綴會造成一些一致性上的問題。目前，所有文本\n"
+"域都由小寫字母組成，並趨向於摒棄毫無意義的‘g’前綴。\n"
+
+#: bin/tp-robot:638
+msgid ""
+"Within the Project-Id-Version field, the domain name and version numbers\n"
+"should be separated by a space rather than by a hyphen.  Some scripts might\n"
+"depend on a space being there, so best would be that you modify your file.\n"
+"I'll attempt to modify it for you, but this time! :-)\n"
+msgstr ""
+"在 Project-Id-Version 字段中，文本域名和版本號應當由一個半形空格而不是一個連\n"
+"字元分隔。某些腳本的正常工作依賴於那個空格，所以您最好修改您的文件。我將嘗試\n"
+"替你做這個改動，不過只是這一次哦！:-)\n"
+
+#: bin/tp-robot:648
+#, python-format
+msgid ""
+"The Project-Id-Version field of your submission says that your translations\n"
+"are meant for version `%s' of `%s', not `%s'.  I guess\n"
+"that they should be identical.  Consequently, I invite you adjust either\n"
+"the file name of your submission, or the Project-Id-Version field, whichever\n"
+"is appropriate.\n"
+msgstr ""
+"您提交的文件中的 Project-Id-Version 字段顯示您的翻譯版本號為‘%s’(軟體\n"
+"‘%s’)而不是‘%s’。我猜想它們應該是一樣的。因此，我請求您根據情況，或者更\n"
+"改您提交的檔名，或者更改它的Project-Id-Version 字段。\n"
+
+#: bin/tp-robot:659
+#, python-format
+msgid ""
+"The `Project-Id-Version' field was not found in your PO file header.\n"
+"The line containing this field ideally looks like:\n"
+"\n"
+">    'Project-Id-Version: PACKAGE VERSION\\n'\n"
+"\n"
+"in which PACKAGE should truly be replaced by the textual domain of your\n"
+"translation, probably `%s' in this case, and VERSION be replaced\n"
+"by the appropriate version numbers, maybe `%s', here.\n"
+msgstr ""
+"在您的 PO 文件頭中未發現‘Project-Id-Version’字段。包含該字\n"
+"段的行看起來應該像：\n"
+">   ‘Project-Id-Version: 軟體 版本號\\n’\n"
+"\n"
+"“軟體”應當被替換為您的翻譯的文本域，在這一情況下可能是‘%s’，而“版本號”\n"
+"被替換為適當的版本號，這次可能是‘%s’。\n"
+
+#: bin/tp-robot:683
+#, python-format
+msgid ""
+"The `%s' field was not found in your PO file header,\n"
+"or else, it was not formatted properly.  The line containing this field\n"
+"ideally looks like:\n"
+"\n"
+">    %s: YEAR-MO-DA HO:MI +ZONE\n"
+msgstr ""
+"在您的 PO 文件頭中未發現‘%s’字段，或該字段格式不正確。包含該字段的行看起來\n"
+"應該像：\n"
+"\n"
+">   %s: 年-月-日 時:分 +時區\n"
+
+#: bin/tp-robot:692
+msgid ""
+"Some older POT files did not have the `POT-Creation-Date' field.  If might\n"
+"be the case here, I'm not sure.  If yes, you should not worry, as this\n"
+"will be repaired for some later release of this distribution.  This field\n"
+"is not really for the translator to set.  In the meantime, I will merely\n"
+"copy the value of the `PO-Revision-Date' field into it, just to get going.\n"
+msgstr ""
+"一些老的 POT 文件沒有‘POT-Creation-Data’字段。是否確實如此，我並不確定。如\n"
+"果是的話，您不必擔心，這將在某次未來的發行中得到修正。這一字段並不需要翻譯者\n"
+"去設定。同時，我將僅僅將‘PO-Revision-Date’字段的值複製到這一字段中，讓一切\n"
+"得以繼續。\n"
+
+#: bin/tp-robot:701
+msgid ""
+"In the above line, YEAR is a four digits number giving the year, MO is\n"
+"a two digits number giving the month (between 01 and 12) and DA is a\n"
+"two digits number giving the day within the month (between 01 and 31).\n"
+"The time of the day is provided by a two digits HO for the hour (between\n"
+"00 and 23) and a two digits MI for the minutes (between 00 and 59).\n"
+"\n"
+"As for +ZONE, it should have the format +HH, -HH, +HH:MM or -HH:MM.\n"
+"The `+' sign is used East of Greenwich, the `-' sign is used West\n"
+"of Greenwich.  HH says the number of zone hours as two digits (between 00\n"
+"and 11), while MM, when used, says the number of zone minutes.  Other zone\n"
+"    notations are still accepted for the time being, but are to be deprecated.\n"
+msgstr ""
+"在上一行中，“年”是給出年份的四位數字，“月”是給出月份的兩位數字(在 01 和 12\n"
+"間)而“日”給出日期(在 01 和 31 間)。一日之中的時間由表示小時的兩位“時”(在\n"
+"00 和 23 間)和表示分鐘的兩位“分”(在 00 和 59 間)。\n"
+"\n"
+"對於“+時區”，格式應該是 +HH，-HH，+HH:MM 或者 -HH:MM。‘+’用於格林威治以東，\n"
+"而‘-’號用於格林威治以西。HH 用兩位數字表示該時區與國際標準時的時差(在 00 和\n"
+"11 間)，而 MM 表示時差的分鐘尾數。其他的時區記法目前可也被接受，但已不建議使\n"
+"用。\n"
+
+#: bin/tp-robot:717
+#, python-format
+msgid ""
+"The PO revision date is `%s', which looks older than the POT creation date.\n"
+"You should update the PO revision date before submitting a PO file.\n"
+msgstr ""
+"PO 修訂日期為‘%s’，看起來比 POT 模版建立的時間還要早。您應當在提交 PO 文件\n"
+"之前更新它的修訂日期。\n"
+
+#: bin/tp-robot:731
+#, python-format
+msgid ""
+"Oops, there is a slight formatting error.  In the `Last-Translator'\n"
+"header line, please use no more than a single space between `%s'\n"
+"and `<%s>'.\n"
+msgstr ""
+"喔，有一個小小的格式錯誤。在‘Last-Translator’行，請不要在‘%s’和‘<%s>’\n"
+"間使用多於一個的半形空格。\n"
+
+#: bin/tp-robot:744
+#, python-format
+msgid ""
+"According to my notes, %s is not a member of the proper\n"
+"%s team.  It might only be a question of spelling?  In case\n"
+"yes, I then need to know about spelling alternatives, so please tell the\n"
+"translation coordinator.  Yet, it is usually best to avoid such variance,\n"
+"and stick to a single preferred spelling.  It might also be that you never\n"
+"joined the %s team.  If you do not know how to do so, please\n"
+"write to the translation coordinator for more information about it.\n"
+msgstr ""
+"根據我的記錄，%s 還不是 %s 翻譯小組的一員。這是否僅僅是拼寫上的問題？如果是，\n"
+"我必須準確地知道可能使用的姓名拼寫的變種，所以請寫信給翻譯協調員。當然，你最\n"
+"好避免這些變化，而是堅持使用一種您使用的拼寫。也有可能，您從來沒有加入過 %s \n"
+"翻譯小組。如果不知道該如何加入，您寫信給翻譯協調員，咨詢有關這方面的更多的資訊。\n"
+
+#: bin/tp-robot:759
+#, python-format
+msgid ""
+"The last translator of this PO file is `%s'.  Yet, according\n"
+"to my own notes, `%s' is not known as a good address to reach\n"
+"that translator.\n"
+"%s%s\n"
+msgstr ""
+"此 PO 文件的最後作者是‘%s’。然而根據我自己的記錄，‘%s’不是一個可以聯絡上\n"
+"他的有效電子郵件地址。\n"
+"%s%s\n"
+
+#: bin/tp-robot:776
+#, python-format
+msgid ""
+"I'm not fully sure that you are the author of the translations you sent\n"
+"to me.  The header of your email invoice says that your are `%s',\n"
+"while `Last-Translator' field of PO file header says your name should be\n"
+"`%s'.  The difference might be mere spelling differences.\n"
+"These may happen when you do not have full control over your name in the\n"
+"mailing system you are using.\n"
+"\n"
+"As I expect you have better control over PO files, I'll consider that\n"
+"the second name is the most dependable one.  Yet, in some cases, this\n"
+"might represent some error I'm unable to analyse, while you do.  In the\n"
+"unlikely case the two names above are really different, the situation is\n"
+"more serious.  Some translation teams surely have their own ways and habits.\n"
+"Yet, on the average, it is unusual that someone submits a translation file\n"
+"written by someone else.\n"
+msgstr ""
+"我不十分肯定您就是您提交的這份翻譯的作者。根據電子郵件頭中給出的資訊，您是\n"
+"‘%s’；而您提交的 PO 文件頭中的‘Last-Translator’字段卻顯示您的姓名應當是‘%s’。\n"
+"這可能僅僅是拼寫上的不同。當在某個您不能完全控制自己姓名的郵件系統中時，這是\n"
+"可能發生的。我期望您對 PO 文件有更好的控制，因此我將認為第二個名字更值得信賴。\n"
+"然而，在某些情況下，這可能是出於您的某個我不能分析的錯誤所致。在少有的情況下，\n"
+"這兩個名字確實屬於兩個不同的人，這樣情況就更嚴重了。有些翻譯小組確實有他們自\n"
+"己的行事方式和習慣。然而，總體上來說，一個人的翻譯由另一個人提交的情況是很罕\n"
+"見的。\n"
+
+#: bin/tp-robot:797
+#, python-format
+msgid ""
+"The header of the message you sent to me says that your email address is\n"
+"`%s', while the `Last-Translator' field of PO file header says\n"
+"it should be `%s'.  Let me consider that the later prevails.\n"
+"I merely bring this to your attention in case _you_ think it matters.\n"
+msgstr ""
+"您發給我的郵件頭顯示您的電子郵件地址是‘%s’，而 PO 文件頭中的‘Last-Translator’\n"
+"字段顯示它應當是‘%s’。我假定後者更加準確。我謹提醒您這一點，您可能對此感興趣。\n"
+
+#: bin/tp-robot:807
+#, python-format
+msgid ""
+"The `Last-Translator' field was not found in your PO file header, or\n"
+"might not be formatted properly.  The line containing this field ideally\n"
+"looks like:\n"
+"\n"
+">    'Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n'\n"
+"\n"
+"In this line, FULL NAME has to be replaced by the full name of the current\n"
+"translator of the messages for the `%s' textual domain, who is you\n"
+"most probably :-), EMAIL@ADDRESS gives a way to reach that translator.\n"
+msgstr ""
+"在您在的 PO 文件頭中未發現‘Last-Translator’字段，或該字段格式不正確。包含該\n"
+"字段的行看起來應該像：\n"
+"\n"
+">    ‘Last-Translator: 全名 <電子郵件@地址>\\n’\n"
+"\n"
+"在這一行中，“全名”必須被替換為‘%s’文本域中消息當前翻譯者的全名，這極有可\n"
+"能正是您本人 :-)。“電子郵件@地址”應該給出可以聯絡那位翻譯者的有效電子郵件地\n"
+"址。\n"
+
+#: bin/tp-robot:826
+#, python-format
+msgid ""
+"Oops, there is a slight formatting error.  In the `Language-Team'\n"
+"header line, please use no more than a single space between `%s'\n"
+"and `<%s>'.\n"
+msgstr ""
+"喔，有一個小小的格式錯誤。在‘Language-Team’行，請不要在‘%s’和‘<%s>’間\n"
+"使用多於一個的半形空格。\n"
+
+#: bin/tp-robot:833
+#, python-format
+msgid ""
+"You wrote `%s' in the `Language-Team' field of the PO file\n"
+"header, while I think it should have been `%s'.  I'm not\n"
+"fully sure about this.  If you think I got it wrong, please email to the\n"
+"translation coordinator for straingthening this out.\n"
+msgstr ""
+"您在 PO 文件的‘Language-Team’字段寫入了‘%s’，但是我想它應該是‘%s’。對此\n"
+"我並不太肯定。如果您認為我錯了，請發電子郵件給翻譯協調員更正。\n"
+
+#: bin/tp-robot:842
+#, python-format
+msgid ""
+"Each translation team should publish some mailing list address, meant\n"
+"to appear (between angular brackets) after the language name into the\n"
+"`Language-Team' field of the PO file header.  The Translation Project\n"
+"does not have such an address for the %s team.  You might\n"
+"already know some list dedicated to internationalisation efforts for\n"
+"%s, which may well fit your needs.  In case none, waiting\n"
+"to get better organised, you might use the address of one of the team\n"
+"members, maybe yours if you are alone in the team!  In any case, please\n"
+"inform the translation coordinator of the address your team decides to use.\n"
+"Also note that the Translation Project and Linux International collaborate\n"
+"for opening mailing list for teams in need for such, but only _given_\n"
+"that the team has been already productive through the publication of a\n"
+"few usable translation files -- after having dismantled a few unproductive\n"
+"teams, we decided for this stronger requirement.\n"
+msgstr ""
+"每個翻譯小組都應當公布某個郵件列表地址，出現在 PO 文件頭的‘Language-Team’\n"
+"字段中，在語言名字之後，兩個尖括號之間。翻譯項目目前沒有 %s 小組的這個地址。您\n"
+"可能已經知道一些致力於 %s 國際化的列表，它們可能符合您的需要。如果沒有，在等\n"
+"待更好組織的同時，您可以使用某個小組成員的地址，如果小組中只有您一個人的話可\n"
+"能就是您的！無論何種情況，請通知翻譯協調員貴翻譯小組決定使用的地址。另請留意，\n"
+"翻譯項目和 Linux International 合作為需要它的小組提供郵件列表，但僅提供給那些\n"
+"已有公布一些可用的翻譯成果的小組──在撤消了一些沒有成果的小組之後，我們決定\n"
+"採用這一更加嚴格的標準。\n"
+
+#: bin/tp-robot:862
+#, python-format
+msgid ""
+"You wrote <%s> in the `Language-Team' field of the PO file\n"
+"header, while I think it should have been <%s>.  I'm not fully sure\n"
+"about this.  If you think I got it wrong, please email to the translation\n"
+"coordinator for straightening this out.\n"
+msgstr ""
+"您在 PO 文件的‘Language-Team’字段寫入了<%s>，但是我想它應該是<%s>。對此我並\n"
+"不太肯定。如果您認為我錯了，請發電子郵件給翻譯協調員更正。\n"
+
+#: bin/tp-robot:871
+#, python-format
+msgid ""
+"The `Language-Team' field was not found in your PO file header, or\n"
+"might not be formatted properly.  The line containing this field often\n"
+"looks like:\n"
+"\n"
+">    'Language-Team: LANGUAGE <TEAM-EMAIL-ADDRESS>\\n'\n"
+"\n"
+"In this line, LANGUAGE is the English name of your spoken language,\n"
+"capitalizing the first letter of words and leaving the rest in lower case.\n"
+"It sometimes happen, not always, that TEAM-EMAIL-ADDRESS has the form\n"
+"`TEAM@li.org', where TEAM is the ISO-639 code for the language (not to\n"
+"be confused with country codes, which are a different standard).  If I\n"
+"had to write this line myself, right now, according to the information\n"
+"which is available to me, I would use:\n"
+"\n"
+">    'Language-Team: %s <%s>\\n'\n"
+"\n"
+"If this leaves you clueless and you still want to find it, please write to\n"
+"the translation coordinator for asking, and we will work this out together.\n"
+msgstr ""
+"在您的 PO 文件頭中未發現‘Language-Team’字段，或該字段格式不正確。包含該字段\n"
+"的行看起來應該像：\n"
+"\n"
+">    ‘Language-Team: 語言 <小組-電子郵件-地址>\\n’\n"
+"\n"
+"在此情況下，“語言”是您所講語言的英文名，首字母大寫，其餘字母小寫。在某些時\n"
+"候(並不總是如此)，“小組-電子郵件-地址”的形式為‘小組@li.org’，“小組”是\n"
+"語言的 ISO-639 代碼(不要與另有標準的地區和國家代碼混淆)。如果現在必須由我來寫\n"
+"一行，根據我所擁有的資訊，我會用：\n"
+"\n"
+">    ‘Language-Team: %s <%s>\\n’\n"
+"\n"
+"如果這讓您感到毫無頭緒而您仍然想要了解它，請寫信給翻譯協調員詢問，我們將一道\n"
+"解決這一問題。\n"
+
+#: bin/tp-robot:896
+msgid ""
+"The `MIME-Version' field was not found in your PO file header, or is\n"
+"    not formatted properly.  The line containing it should exactly look like:\n"
+"\n"
+">    'MIME-Version: 1.0\\n'\n"
+msgstr ""
+"在您在的 PO 文件頭中未發現‘MIME-Version’字段，或該字段格式不正確。包含該字\n"
+"段的行看起來應該像：\n"
+"\n"
+">   ‘MIME-Version: 1.0\\n’\n"
+"\n"
+
+#: bin/tp-robot:931
+#, python-format
+msgid ""
+"The `Content-Type' field introduced an unusual character set `%s'.\n"
+"If this is not an error, please merely inform the translation coordinator\n"
+"for `%s' to be merely added to the list of acceptable charsets.\n"
+"This list currently holds: %s.\n"
+msgstr ""
+"‘Content-Type’字段引入了一個不常用的編碼方式‘%s’。如果這並非錯誤，\n"
+"請通知翻譯協調員將‘%s’加入可接受的字元集列表。該列表目前包括：%s。\n"
+
+#: bin/tp-robot:937 bin/tp-robot:948 bin/tp-robot:963 bin/tp-robot:974
+msgid "or"
+msgstr "或"
+
+#: bin/tp-robot:940
+#, python-format
+msgid ""
+"The `Content-Type' field was not found in your PO file header, or is\n"
+"    not formatted properly.  The line containing it ideally looks like:\n"
+"\n"
+">    'Content-Type: text/plain; charset=CHARSET\\n'\n"
+"\n"
+"where CHARSET should be the name of a character set, like one of %s.\n"
+msgstr ""
+"在您在的 PO 文件頭中未發現‘Content-Type’字段，或該字段格式不正確。\n"
+"包含該字段的行看起來應該像：\n"
+"\n"
+">   ‘Content-Type: text/plain; charset=字元集\\n’\n"
+"\n"
+"“字元集”指文件指用的字元集的名稱，例如 %s 等。\n"
+
+#: bin/tp-robot:957
+#, python-format
+msgid ""
+"The `Content-Transfer-Encoding' field introduced an unusual encoding\n"
+"`%s'.  If this is not an error, please inform the translation\n"
+"coordinator for `%s' to be merely added to the list of acceptable\n"
+"charsets.  This list currently holds: %s.\n"
+msgstr ""
+"‘Content-Transfer-Encoding’字段引入了一個不常用的編碼方式‘%s’。\n"
+"如果這並非錯誤，請通知翻譯協調員將‘%s’加入可接受的字元集列表。該列\n"
+"表目前包括：%s。\n"
+
+#: bin/tp-robot:966
+#, python-format
+msgid ""
+"The `Content-Transfer-Encoding' field was not found in your PO file header,\n"
+"or is not formatted properly.  The line containing it ideally looks like:\n"
+"\n"
+">    'Content-Transfer-Encoding: ENCODING\\n'\n"
+"\n"
+"where ENCODING should be the name of an encoding, like one of %s.\n"
+msgstr ""
+"在您在的 PO 文件頭中未發現‘Content-Transfer-Encoding’字段，或該字段格式不正\n"
+"確。包含該字段的行看起來應該像：\n"
+"\n"
+">   ‘Content-Transfer-Type: 編碼\\n’\n"
+"\n"
+"“編碼”應當是一種編碼方式的名稱，例如 %s 等。\n"
+
+#: bin/tp-robot:999
+msgid ""
+"Sniff!  I'm unable to successfully start the `msgfmt' program.  I most\n"
+"probably need repairs.  I'll go whine to the translation coordinator.\n"
+msgstr ""
+"完了！我無法執行‘msgfmt’程式。我大概是出毛病了，需要修理。我現在去找\n"
+"翻譯協調員訴苦。\n"
+
+#: bin/tp-robot:1007
+msgid ""
+"After running msgfmt on your file, it seems that you need gettext 0.10.37\n"
+"for this file. This is no problem at all, but you should be aware of that.\n"
+msgstr ""
+"使用 msgfmt 處理之後，我發現您可能需要 gettext 0.10.37 來處理您的文件。這並不是個\n"
+"問題，但您最好留意這一點。\n"
+
+#: bin/tp-robot:1021
+#, python-format
+msgid ""
+"Just to make sure, I called 'msgfmt --statistics -c -v -o /dev/null' on\n"
+"your submitted PO file, and `msgfmt' told me that I should not let it go.\n"
+"More precisely, it said:\n"
+"\n"
+"%s"
+msgstr ""
+"為了確認一下，我為您提交的 PO 文件呼叫了\n"
+"‘msgfmt --statistics -c -v -o /dev/null’，‘msgfmt’告訴我不應當讓此文件通\n"
+"過。更準確地說，它告訴我：\n"
+"\n"
+"%s"
+
+#: bin/tp-robot:1038
+msgid "Just to make sure, I ran\n"
+msgstr "為了確認，我為您提交的 PO 文件執行了\n"
+
+#: bin/tp-robot:1040
+#, python-format
+msgid ""
+"\n"
+"\n"
+"on your submitted PO file, and `msgfmt' told me that I should not let\n"
+"it go.  More precisely, it said:\n"
+"\n"
+"%s"
+msgstr ""
+"\n"
+"\n"
+"而‘msgfmt’告訴我不應當讓此文件通過，更準確地說，它告訴我：\n"
+"\n"
+"%s"
+
+#: bin/tp-robot:1050
+#, python-format
+msgid ""
+"Merely for your information, let me share with you what the `msgfmt'\n"
+"program has to say about your submitted PO file:\n"
+"\n"
+"%s"
+msgstr ""
+"我將和您分享‘msgfmt’程式對您提交的 PO 文件不得不說的話，也許您對此感興趣：\n"
+"\n"
+"%s"
+
+#: bin/tp-robot:1061
+msgid ""
+"At first sight it seems like your translation does not contain a clause\n"
+"that permits distribution of your translation. Please consider inserting\n"
+"a sentence like\n"
+msgstr ""
+"一眼看上去，似乎您的翻譯缺少了一句允許發行您的翻譯的客套話。請考慮加上\n"
+"這一句：\n"
+
+#: bin/tp-robot:1089
+#, python-format
+msgid ""
+"According to my notes, you are not a member of the %s team.\n"
+"Or at least, you are not there under the name `%s'.  It this is\n"
+"only a question of spelling differences, I then need to know exactly the\n"
+"alternate spellings of your name you might use.  Write to the translation\n"
+"coordinator and explain why you need many names.  It is usually best to\n"
+"avoid such variance, and stick to a single preferred spelling.\n"
+msgstr ""
+"根據我的記錄，您還不是 %s 翻譯小組的一員。或者至少您在那裡登記\n"
+"的名字不是‘%s’。如果這僅僅是拼寫上的問題，我必須準確地知道您可\n"
+"能使用的姓名拼寫的變形。請寫信給翻譯協調員，並解釋您為什麼需要這麼多的\n"
+"名字。當然，你最好避免這些變化，而是堅持使用一種您使用的拼寫。\n"
+
+#: bin/tp-robot:1102
+#, python-format
+msgid ""
+"The email address `%s' is not known, in the Translation Project\n"
+"registry, as a valid way to reach you.\n"
+"%s%s\n"
+msgstr ""
+"在翻譯項目的登記表裡找不到‘%s’，無法確認這個郵件地址是否是您的。\n"
+"%s%s\n"
+
+#: bin/tp-robot:1114
+#, python-format
+msgid ""
+"The `%s' textual domain is not known to the Translation Project, at\n"
+"least not under that spelling.  It may also be that the maintainer of\n"
+"that project did not make arrangements yet for the Translation Project to\n"
+"handle its PO files.  In this case, please invite the project maintainer to\n"
+"contact us.  See `http://www.iro.umontreal.ca/contrib/po/HTML' and select\n"
+"`Textual Domains' to see the list of domains which are currently handled.\n"
+msgstr ""
+"文本域‘%s’至少在這一拼寫下不為翻譯項目所知。也有可能這一項目的維護者尚未做\n"
+"出安排，讓翻譯項目來處理它的 PO 文件。在這一情況下，請您建議該項目的維護者與\n"
+"我們聯絡。請瀏覽‘http://www.iro.umontreal.ca/contrib/po/HTML’並選擇\n"
+"‘Textual Domains’來查看目前被處理的域的清單。\n"
+
+#: bin/tp-robot:1127
+#, python-format
+msgid ""
+"According to my notes, the Free Software Foundation did not acknowledge the\n"
+"receipt of a translation disclaimer for you.  Such a disclaimer is required\n"
+"for GNU packages (or when maintainers of non-GNU packages ask me to ensure\n"
+"the existence of such a disclaimer).  This is the case for `%s'.\n"
+"Grab a copy of `http://www.iro.umontreal.ca/contrib/po/doc/DISCLAIM',\n"
+"print it on paper, and return it filled by the usual postal system.\n"
+"You will be notified when the FSF acknowedges its receipt; you can then\n"
+"re-attempt uploading your PO file to the Translation Project.  If you have\n"
+"any question or objection with the translation disclaimer as it stands,\n"
+"I invite you to discuss such things with the translation coordinator.\n"
+msgstr ""
+"根據我的記錄，自由軟件基金(Free Software Foundatin)尚未確認收到為您的翻譯放棄\n"
+"版權的聲明。這樣的一個放棄版權的聲明對 GNU 軟體是必需的，某些非 GNU 軟體的\n"
+"維護者也要求我確認這一聲明的存在。這正是‘%s’。請從\n"
+"‘http://www.iro.umontreal.ca/contrib/po/doc/DISCLAIM’獲取一份副本，將其打印\n"
+"在紙上，填妥後通過傳統的郵政系統寄回。當自由軟件基金確認收到後您將得到通知；\n"
+"此時您可以嘗試重新提交您的 PO 文件給翻譯項目。如果您有任何任何問題，或者拒絕\n"
+"放棄版權聲明中的現有條款，請您和翻譯協調員協商有關事宜。\n"
+
+#: bin/tp-robot:1142
+#, python-format
+msgid ""
+"Most teams allow translators to directly send their achieved translations\n"
+"to the Translation Project, and do quality control only after the fact, to\n"
+"obtain a quicker turn-around.  The Translation Project registry does not list\n"
+"you as the usual translator for `%s'.  Your team leader might send\n"
+"an email to the translation coordinator, warranting that you are indeed\n"
+"assigned to this textual domain.  For small teams not having a leader,\n"
+"you may write yourself to the translation coordinator.  It is a simple\n"
+"matter to assign you the responsibility of `%s' for %s,\n"
+"given nobody else is already assigned to it.  However, some teams prefer\n"
+"to channel translations differently, for ensuring some quality control first.\n"
+msgstr ""
+"大多數翻譯小組為取得更快的翻譯速度，允許翻譯者直接將翻譯成果發送給翻譯項目，\n"
+"僅在事後再加以品質控制。翻譯項目的登記表並未將您列為‘%s’的日常翻譯者。貴翻\n"
+"譯小組的協調者可以發一封電子郵伯給翻譯協調員，擔保您確實已經被分配到此文本域。\n"
+"對於一些沒有協調者的小組，您可以自己寫信給翻譯協調員。如果沒有任何其他人已被\n"
+"分配到‘%s’(%s)，指派您來負責是一件非常簡單的事。不過，有一些小組更傾向於使\n"
+"用不同的方式來優先確保某些品質控制。\n"
+
+#: bin/tp-robot:1159
+#, python-format
+msgid ""
+"You submit a PO file for which the Translation Project does not have a\n"
+"corresponding PO Template.  There is no such `%s', here.\n"
+"Please have the maintainer of the associate package, or the programmer\n"
+"taking care of its internationalisation, to send the corresponding POT file\n"
+"to the Translation Project.  It is also best that we also have a precise URL\n"
+"of some official, pretest or snapshot distribution to offer to translators.\n"
+"This URL is only for translation purposes, the package does not even have to\n"
+"compile.  A few translators do like peeking at the sources for getting finer\n"
+"translation contexts, for when messages are not clear enough in themselves.\n"
+msgstr ""
+"翻譯項目中並沒有與您提交的 PO 文件相對應的 PO 模版文件。這裡沒有‘%s’。請您\n"
+"讓相關軟體的維護者或負責它國際化的程序員將相關的 POT 文件發給翻譯項目。我們\n"
+"如果能有一個指向某個正式版、測試版或預覽版的精確的 URL 就更好，我們可以將此\n"
+"URL 提供給翻譯者。此 URL 僅作翻譯用，它甚至不一定要能通過編譯。當消息含義不甚\n"
+"明確時，有些翻譯者的確喜歡瀏覽源文件以獲得更準確的翻譯上下文。\n"
+
+#: bin/tp-robot:1177
+msgid ""
+"The Translation Project already holds an exact copy of your submission,\n"
+"which you may find as either one of:\n"
+"\n"
+msgstr ""
+"翻譯項目已經擁有了您提交的文件的精確的副本，您可以在以下任何一個地方找到它：\n"
+"\n"
+
+#: bin/tp-robot:1235
+msgid ""
+"Sniff!  I'm unable to successfully start the `diff' program.  I most\n"
+"probably need repairs.  I'll go whine to the translation coordinator.\n"
+msgstr ""
+"完了！我無法成功啟動‘diff’程式。我大概是出毛病了，需要修理。我要去\n"
+"找翻譯協調員訴苦。\n"
+
+#: bin/tp-robot:1246
+msgid ""
+"Sniff!  I'm unable to successfully canonicalise your PO file.  I most\n"
+"probably need repairs.  I'll go whine to the translation coordinator.\n"
+msgstr ""
+"完了！我無法成功地正規化您的 PO 文件。我大概是出毛病了，需要修理。我去\n"
+"找翻譯協調員訴苦。\n"
+
+#: bin/tp-robot:1254
+msgid ""
+"We are trying to reach a consistent presentation for PO files in the\n"
+"Translation Project, over all textual domains and native languages.\n"
+"As a robot, I contribute my good share towards this goal, and so, I made\n"
+"the following modifications to your invoice.  You might feel like accepting\n"
+"to do the same thing on your side; if you decide to do so, let me suggest\n"
+"that you try the nice `patch' utility.\n"
+"\n"
+"The `msgmerge' program which is used for making distributions does not\n"
+"produce canonical files, and until this gets corrected, you should rather\n"
+"grab your PO files directly from the Translation Project, as these are now\n"
+"always made canonical.  If you do not, the following set of `unidiffs'\n"
+"might get irritably longish.  Please also note that you do not _ought_\n"
+"to make such modifications, as I will continue doing them patiently and\n"
+"automatically, here.  This message continues after the (maybe long) quote.\n"
+msgstr ""
+"我們努力讓翻譯項目中各文本域和各種本地語言的 PO 文件表達方式一致。作為一個機器\n"
+"人，我盡我所能達到此目標，因此，我對您的提交作出了下列的改動。您可能願意親手做\n"
+"這些同樣的事情；如果您決定如此，請允許我向您推薦非常好用的‘patch’工具。\n"
+"通常用來制作發行版的‘msgmerge’程序並非每次都產生正規的文件，在它的這個問題得到糾\n"
+"正以前，您應該直接從翻譯項目獲取 PO 文件，因為它們總是正規的。如果您不這樣做，\n"
+"下面這段‘unidiffs’集可能會冗長得要命。不過也您請注意這件事您並不是必須要做，\n"
+"因為我將繼續耐心地自動地在這兒做出這些改動。本消息將在引用(可能很長)之後\n"
+"繼續。\n"
+
+#: bin/tp-robot:1279
+#, python-format
+msgid ""
+"Your file has been accepted and uploaded into the archives: congratulations!\n"
+"Whenever the maintainer of `%s' will communicate a new PO Template\n"
+"file to the Translation Project, the translation you just achieved will\n"
+"probably require revision.  Your team will then be notified of the URL of the\n"
+"PO file to revise, with a quick evaluation of the extent of the work needed.\n"
+msgstr ""
+"您的文件已經被接受，並上傳至檔案庫中：祝賀您！當‘%s’的維護者向翻譯項目提交了\n"
+"一個新的 PO 模版文件後，您當前的翻譯可能需要修訂。我將通知您的翻譯小組需要修\n"
+"訂的 PO 文件的 URL 和估計需要的工作量。\n"
+
+#: bin/tp-robot:1295
+msgid ""
+"To speed things up, I could send you updated copies of this PO file by email,\n"
+"whenever I upload new PO Template files for it.  If you are interested in\n"
+"this service, you may register by emailing to the translation coordinator.\n"
+msgstr ""
+"為了加快進度，當我上傳了一個新的 PO 模版後，我可以將更新過的 PO 文件副本發送\n"
+"給您。如果您對此感興趣，您可以給翻譯協調員發電子郵件，登記此項服務。\n"
+
+#: bin/tp-robot:1318
+msgid ""
+"Sniff!  I'm unable to successfully start the `po-register' program.\n"
+"I most probably need repairs.  I'll go whine to the translation coordinator.\n"
+msgstr ""
+"完了！我無法成功啟動‘po-register’程式。我大概是出毛病了，需要修理。我去找翻\n"
+"譯協調員訴苦。\n"
+
+#: bin/tp-robot:1326
+msgid "Original message header:\n"
+msgstr "原始郵件頭：\n"
+
+#: bin/tp-robot:1331
+msgid "Diagnostics issued by `po-register:\n"
+msgstr "‘po-register’給出的診斷資訊：\n"
+
+#: bin/tp-robot:1346
+#, python-format
+msgid "the translators's address is `%s'"
+msgstr "翻譯者的電子郵箱是‘%s’"
+
+#: bin/tp-robot:1349
+msgid "the translator's address"
+msgstr "翻譯者的地址："
+
+#: bin/tp-robot:1351
+#, python-format
+msgid "the textual domain is `%s'"
+msgstr "文本域是‘%s’"
+
+#: bin/tp-robot:1353
+msgid "the textual domain"
+msgstr "文本域"
+
+#: bin/tp-robot:1355
+#, python-format
+msgid "the domain version is `%s'"
+msgstr "文本域版本是‘%s’"
+
+#: bin/tp-robot:1357
+msgid "the domain version"
+msgstr "文本域版本"
+
+#: bin/tp-robot:1359
+#, python-format
+msgid "the team code is `%s'"
+msgstr "翻譯小組是‘%s’"
+
+#: bin/tp-robot:1361
+msgid "the team code"
+msgstr "翻譯小組代碼"
+
+#: bin/tp-robot:1364 bin/tp-robot:1365 bin/tp-robot:1383
+msgid "and"
+msgstr "和"
+
+#: bin/tp-robot:1369
+msgid ""
+"No official email address exist for this translator in the Translation\n"
+"Project registry.\n"
+msgstr "翻譯項目登記表裡沒有這個翻譯者的正式電子郵件地址。\n"
+
+#: bin/tp-robot:1374
+#, python-format
+msgid "The only address we officially know for this translator is `%s'.\n"
+msgstr "我們正式知道的這個翻譯者唯一的郵件地址是‘%s’。\n"
+
+#: bin/tp-robot:1380
+#, python-format
+msgid "For this translator, the only registered addresses we have are: %s.\n"
+msgstr "對於這個翻譯者，我們知道的他注冊過的郵件地址是：%s\n"
+
+#: web/lib/editor.py:34 web/lib/editor.py:160 web/lib/editor.py:298
+msgid "Use exactly one argument with `mailto'"
+msgstr "使用‘mailto’時應該只帶一個參數"
+
+#: web/lib/editor.py:45
+msgid "Use exactly one argument with `keep'"
+msgstr "使用‘keep’時應該只帶一個參數"
+
+#: web/lib/editor.py:48 web/lib/editor.py:312
+#, python-format
+msgid "Version `%s' is already present"
+msgstr "版本‘%s’已存在"
+
+#: web/lib/editor.py:54
+msgid "Use exactly one argument with `nokeep'"
+msgstr "使用‘nokeep’時應該只帶一個參數"
+
+#: web/lib/editor.py:57
+#, python-format
+msgid "Version `%s' was not there anyway"
+msgstr "版本‘%s’本已不存在"
+
+#: web/lib/editor.py:62
+msgid "Use at least one argument with `keeps'"
+msgstr "使用‘keeps’時至少帶一個參數"
+
+#: web/lib/editor.py:68
+#, python-format
+msgid "Version `%s' duplicated"
+msgstr "版本‘%s’重復"
+
+#: web/lib/editor.py:75
+msgid "Do not use arguments with `disclaim'"
+msgstr "使用‘disclaim’時不帶參數"
+
+#: web/lib/editor.py:80
+msgid "Do not use arguments with `nodisclaim'"
+msgstr "使用‘nodisclaim’時不帶參數"
+
+#: web/lib/editor.py:85 web/lib/editor.py:349
+msgid "Do not use arguments with `autosend'"
+msgstr "使用‘autosend’時不帶參數"
+
+#: web/lib/editor.py:90 web/lib/editor.py:354
+msgid "Do not use arguments with `noautosend'"
+msgstr "使用‘noautosend’時不帶參數"
+
+#: web/lib/editor.py:95
+msgid "Use exactly one argument with `url'"
+msgstr "使用‘url’時必須只帶一個參數"
+
+#: web/lib/editor.py:98
+#, python-format
+msgid "URL `%s' is already present"
+msgstr "URL‘%s’已存在"
+
+#: web/lib/editor.py:103
+msgid "Use exactly one argument with `nourl'"
+msgstr "使用‘nourl’時必須只帶一個參數"
+
+#: web/lib/editor.py:106
+#, python-format
+msgid "URL `%s' was not there anyway"
+msgstr "URL ‘%s’本已不存在"
+
+#: web/lib/editor.py:111
+msgid "Use at least one argument with `urls'"
+msgstr "使用‘urls’時至少帶一個參數"
+
+#: web/lib/editor.py:123 web/lib/editor.py:227 web/lib/editor.py:386
+msgid "Use exactly one argument with `remark'"
+msgstr "使用‘remark’時必須只帶一個參數"
+
+#: web/lib/editor.py:125 web/lib/editor.py:229 web/lib/editor.py:361
+#: web/lib/editor.py:388
+#, python-format
+msgid "Remark `%s' is already present"
+msgstr "注釋‘%s’已存在"
+
+#: web/lib/editor.py:130 web/lib/editor.py:234 web/lib/editor.py:393
+msgid "Use exactly one argument with `noremark'"
+msgstr "使用‘noremark’時必須只帶一個參數"
+
+#: web/lib/editor.py:132 web/lib/editor.py:236 web/lib/editor.py:368
+#: web/lib/editor.py:395
+#, python-format
+msgid "Remark `%s' was not there anyway"
+msgstr "注釋‘%s’已不存在"
+
+#: web/lib/editor.py:137 web/lib/editor.py:241 web/lib/editor.py:400
+msgid "Do not use arguments with `remarks'"
+msgstr "使用‘remarks’時不帶參數"
+
+#: web/lib/editor.py:171
+msgid "Use exactly one argument with `charset'"
+msgstr "使用‘charset’時必須只帶一個參數"
+
+#: web/lib/editor.py:177
+msgid "Do not use arguments with `nocharset'"
+msgstr "使用‘nocharset’時不帶參數"
+
+#: web/lib/editor.py:182
+msgid "Use exactly one argument with `leader'"
+msgstr "使用‘leader’時必須只帶一個參數"
+
+#: web/lib/editor.py:193
+msgid "Use exactly two arguments with `ref'"
+msgstr "使用‘ref’時必須帶兩個參數"
+
+#: web/lib/editor.py:197
+#, python-format
+msgid "Reference `%s, %s' is already present"
+msgstr "引用‘%s，%s’已存在"
+
+#: web/lib/editor.py:202
+msgid "Use exactly two arguments with `noref'"
+msgstr "使用‘noref’時帶且只帶兩個參數"
+
+#: web/lib/editor.py:206
+#, python-format
+msgid "Reference `%s, %s' was not there anyway"
+msgstr "引用‘%s，%s’本已不存在"
+
+#: web/lib/editor.py:211
+msgid "Use a pair number of arguments with `refs'"
+msgstr "使用‘refs’時帶成對的參數"
+
+#: web/lib/editor.py:220
+#, python-format
+msgid "Reference `%s, %s' duplicated"
+msgstr "引用‘%s，%s’重復"
+
+#: web/lib/editor.py:246
+msgid "Use exactly one argument with `translator'"
+msgstr "使用‘translator’時必須只帶一個參數"
+
+#: web/lib/editor.py:248
+#, python-format
+msgid "Translator `%s' is already present"
+msgstr "翻譯者‘%s’已存在"
+
+#: web/lib/editor.py:265
+msgid "Use exactly one argument with `notranslator'"
+msgstr "使用‘notranslator’時必須只帶一個參數"
+
+#: web/lib/editor.py:267
+#, python-format
+msgid "Translator `%s' is not know anyway"
+msgstr "翻譯者‘%s’已不存在"
+
+#: web/lib/editor.py:270
+#, python-format
+msgid "Should keep `%s' because of disclaimer"
+msgstr "基於放棄版權聲明的考慮應當保留‘%s’"
+
+#: web/lib/editor.py:309
+msgid "Use exactly one argument with `alias'"
+msgstr "使用‘alias’時必須只帶一個參數"
+
+#: web/lib/editor.py:317
+msgid "Do not use arguments with `noalias'"
+msgstr "使用時‘noalias’時不要帶參數"
+
+#: web/lib/editor.py:320
+#, python-format
+msgid "Alias `%s' was not there anyway"
+msgstr "別名‘%s’已不存在"
+
+#: web/lib/editor.py:325
+msgid "Use at least one argument with `aliases'"
+msgstr "使用‘aliases’時至少帶一個參數"
+
+#: web/lib/editor.py:331
+#, python-format
+msgid "Alias `%s' duplicated"
+msgstr "別名‘%s’重復"
+
+#: web/lib/editor.py:338
+msgid "Use exactly one argument with `http'"
+msgstr "使用‘http’時必須只帶一個參數"
+
+#: web/lib/editor.py:344
+msgid "Do not use arguments with `nohttp'"
+msgstr "使用‘nohttp’時不要帶參數"
+
+#: web/lib/editor.py:359
+msgid "Use exactly one argument with `do'"
+msgstr "使用‘do’時必須只帶一個參數"
+
+#: web/lib/editor.py:366
+msgid "Use exactly one argument with `nodo'"
+msgstr "使用‘nodo’時必須只帶一個參數"
+
+#: web/lib/editor.py:373
+msgid "Use at least one argument with `dos'"
+msgstr "使用‘dos’時至少帶一個參數"
+
+#: web/lib/editor.py:379
+#, python-format
+msgid "Do `%s' duplicated"
+msgstr "做‘%s’重復"
+
+#: web/lib/localweb.py:157
+#, python-format
+msgid "%s: Unexistent domain or team!\n"
+msgstr "%s：域或翻譯小組不存在！\n"
+
+#: web/lib/localweb.py:160
+#, python-format
+msgid "%s: No hints found!\n"
+msgstr "%s：找不到任何提示！\n"
+
+#: web/lib/localweb.py:164
+#, python-format
+msgid "%s: Missing version?\n"
+msgstr "%s：沒有版本號？\n"
+
+#: web/lib/localweb.py:168
+#, python-format
+msgid "%s: Not in stats database!\n"
+msgstr "%s：不在統計資料庫中！\n"
+
+#: web/lib/po.py:12
+msgid "SOME DESCRIPTIVE TITLE."
+msgstr "描述性的標題"
+
+#: web/lib/po.py:16
+msgid "FIRST AUTHOR <EMAIL@ADDRESS>, YEAR."
+msgstr "原作者名 <電子郵件@地址>, 年份."
+
+#: web/lib/po.py:19
+msgid "PACKAGE VERSION"
+msgstr "軟體 版本號"
+
+#: web/lib/po.py:21 web/lib/po.py:22
+msgid "YEAR-MO-DA HO:MI +ZONE"
+msgstr "年-月-日 時:分 +時區"
+
+#: web/lib/po.py:23
+msgid "FULL NAME <EMAIL@ADDRESS>"
+msgstr "全名 <電子郵件@地址>"
+
+#: web/lib/po.py:24
+msgid "LANGUAGE <LL@li.org>"
+msgstr "語言 <LL@li.org>"
+
+#: web/lib/po.py:26
+msgid "text/plain; charset=CHARSET"
+msgstr "text/plain; charset=字元集"
+
+#: web/lib/po.py:27
+msgid "ENCODING"
+msgstr "編碼"
+
+#: web/lib/po.py:115 web/lib/po.py:157 web/lib/po.py:160
+#, python-format
+msgid ""
+"%s:%d: Unrecognised line\n"
+"%s"
+msgstr ""
+"%s：%d：無法識別的行\n"
+"%s"
+
+#: web/lib/po.py:202
+msgid "Duplicate"
+msgstr "重復"
+
+#: web/lib/registry.py:91 web/lib/registry.py:248
+#, python-format
+msgid "Unknown translator `%s'"
+msgstr "未知的翻譯者‘%s’"
+
+#: web/lib/registry.py:220
+#, python-format
+msgid "Unknown domain `%s'"
+msgstr "未知的域‘%s’"
+
+#: web/lib/registry.py:242
+#, python-format
+msgid "Unknown team `%s'"
+msgstr "未知的翻譯小組‘%s’"
+
+#: web/lib/registry.py:294
+#, python-format
+msgid "No hints from `%s'"
+msgstr "沒有來自‘%s’的提示"
+
+#: web/lib/registry.py:299
+#, python-format
+msgid "POT hint from `%s' contradicts previous"
+msgstr "‘%s’中提示的 POT 與以前的紀錄衝突"
+
+#: web/lib/registry.py:303
+#, python-format
+msgid "Domain hint from `%s' contradicts `%s'"
+msgstr "‘%s’中提示的域與‘%s’衝突"
+
+#: web/lib/registry.py:308
+#, python-format
+msgid "Version hint from `%s' contradicts `%s'"
+msgstr "‘%s’中提示的版本與‘%s’衝突"
+
+#: web/lib/registry.py:313
+#, python-format
+msgid "Team hint from `%s' contradicts `%s'"
+msgstr "‘%s’中提示的翻譯小組與‘%s’衝突"
+
+#: web/lib/registry.py:318
+#, python-format
+msgid "Inconsistent charset hint from `%s'"
+msgstr "‘%s’中提示的字元集不一致"
+
+#: web/lib/registry.py:481
+#, python-format
+msgid "Unrecognised version: %s"
+msgstr "無法識別的版本：%s"
+
+#: web/lib/run.py:24
+msgid "Report from TP-Robot"
+msgstr "來自 TP 機器人的報告"
+
+#: web/lib/run.py:61
+msgid ""
+"================================================\n"
+"Unable to send report.  Dumping it here instead.\n"
+"================================================\n"
+msgstr ""
+"============================-=======\n"
+"無法發送報告，改在這裡進行資料傾倒。\n"
+"====================================\n"
+
+#: web/lib/run.py:100
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: Re: %s\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: %s\n"
+"Subject: Re: %s\n"
+
+#: web/lib/run.py:149
+#, python-format
+msgid ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: \"%s\" <%s>\n"
+"Subject: Re: %s\n"
+"\n"
+msgstr ""
+"From: Translation Project Robot <translation@iro.umontreal.ca>\n"
+"To: \"%s\" <%s>\n"
+"Subject: Re: %s\n"
+"\n"
+
+#: web/lib/run.py:161
+#, python-format
+msgid ""
+"Hi!  I am the service robot at the Translation Project, and was awakened\n"
+"by your submission for `%s'.\n"
+msgstr "您好！我是翻譯項目的服務機器人，為您提交的‘%s’所喚醒。\n"
+
+#: web/lib/run.py:167
+msgid ""
+"Hi!  I am the service robot at the Translation Project, and was awakened\n"
+"by one of your submissions.\n"
+msgstr "您好！我是翻譯項目的服務機器人，為您提交的一個文件所喚醒。\n"
+
+#: web/lib/run.py:179
+msgid ""
+"Some error reported above is such that I cannot fully process your invoice.\n"
+"I'm sorry!  Do not fear resubmitting your PO file, once you think the problem\n"
+"has been corrected.  Being a robot, I'm incredibly patient at such things!\n"
+"\n"
+"To send your PO file as an Emacs user, merely hit `M' within PO mode.\n"
+"Otherwise, you may use various MIME (beware I'm too dumb for split parts)\n"
+"or `uuencode' (either old or new).  Have a `.gz' suffix on the file name\n"
+"if you decide to compress it with `gzip'.  You may also send your file all\n"
+"plain, but you have to make sure that we have an 8-bit clean email route.\n"
+"For now at least, do not submit more than one PO file in a single email.\n"
+"If I cannot decipher your packaging, I will forward it to the coordinator\n"
+"for manual unpacking.  Use a subject line looking like:\n"
+"\n"
+">    Subject: TP-Robot PACKAGE-VERSION.TEAM.po\n"
+"\n"
+"and send this whole thing to `translation@iro.umontreal.ca'.  You may\n"
+"expect a reply within the hour.  If you need help to resolve questions\n"
+"raised in this reply, or if you plainly suspect I'm behaving poorly, you\n"
+"may directly write the translation coordinator.  However, if you do so,\n"
+"be careful _not_ to start your message Subject with `TP-Robot'! :-)\n"
+msgstr ""
+"上述錯誤使我不能完全處理您提交的文件。我非常抱歉！但當您認為問題已經解決之後，\n"
+"千萬不要遲疑，請立即重新提交您的文件。作為一個機器人，我對這種事情難以置信地\n"
+"耐心！\n"
+"如果您使用 Emacs，您只要在 PO 模式下擊‘M’即可提交您的 PO 文件。若非如此，您\n"
+"可以使用各種 MIME(但請注意，我智商不高，無法分割各部分)，或者 UUENCODE(不\n"
+"管是新式還是舊式的)。如果您使用‘gzip’壓縮了您的文件，不要忘記在原檔名上\n"
+"加上‘gz’後綴。您也可以完全以明文的形式發送您的文件，但您必須確認在我們之間\n"
+"的投遞路線上第八位是安全的。至少在現在，您不要在同一封郵件裡提交多於一個的 PO\n"
+"文件。如果我不能解開您的郵件，我會將它轉發給協調員作手工解包。您的信件的標題\n"
+"應為：\n"
+"\n"
+">    Subject: TP-Robot 軟體-版本號-翻譯小組.po\n"
+"\n"
+"將所有東西發往‘translation@iro.unomtreal.ca’一般您可以在一個小時之內收到回\n"
+"復。如果您需要關於解決此回復中的問題的幫助，或者您單純地認為我做錯了什麼，您\n"
+"可以直接向翻譯協調員寫信。不過，如果您這樣做，請不要在標題中以‘TP-Robot’\n"
+"開頭！:-)\n"
+
+#: web/lib/run.py:202
+msgid ""
+"                                The Translation Project robot, in the\n"
+"                                name of your kind translation coordinator.\n"
+"                                mailto:translation@iro.umontreal.ca\n"
+msgstr ""
+"                                翻譯項目機器人\n"
+"                                以翻譯協調員的名義\n"
+"                                translation@iro.umontreal.ca\n"
+
+#: web/lib/run.py:213
+msgid "WARNING: This prevents the robot from forwarding your file to the archive.\n"
+msgstr "警告：這使得機器人無法將您的文件納入檔案庫\n"
+
+#: web/lib/sgml.py:173
+#, python-format
+msgid "Unsupported attribute %s"
+msgstr "不支援的屬性 %s"
+
+#: web/lib/sgml.py:177
+#, python-format
+msgid "SGML in `%s' is not conformant.\n"
+msgstr "‘%s’中的 SGML 不正規。\n"
+
+#: web/lib/unpack.py:90 web/lib/unpack.py:99
+#, python-format
+msgid ""
+"I'm ignoring the following lines within your submission:\n"
+"\n"
+"---------------------------------------------------------------------->\n"
+"%s\n"
+"----------------------------------------------------------------------<\n"
+msgstr ""
+"我將忽略掉您提交的文件中的以下幾行：\n"
+"\n"
+"---------------------------------------------------------------------->\n"
+"%s\n"
+"----------------------------------------------------------------------<\n"
+
+#: web/lib/unpack.py:108
+msgid ""
+"Your submission seems to uses `uuencode' format, yet no proper terminator\n"
+"was found to end the encoded region.\n"
+msgstr ""
+"您提交的文件似乎採用了 UUENCODE 編碼，但是沒有發現合適的終結符來結束編碼\n"
+"區域。\n"
+
+#: web/lib/unpack.py:169
+#, python-format
+msgid ""
+"Uncompressing your submission with gzip has failed. gzip said:\n"
+"%s\n"
+msgstr ""
+"使用 gzip 解壓您提交的文件時失敗。gzip 提示：\n"
+"%s\n"
+
+msgid "Afrikaans"
+msgstr "Afrikaans"
+
+msgid "Albanian"
+msgstr "Albanian"
+
+msgid "Amharic"
+msgstr "Amharic"
+
+msgid "Arabic"
+msgstr "Arabic"
+
+msgid "Argentinian"
+msgstr "Argentinian"
+
+msgid "Asturian"
+msgstr "Asturian"
+
+msgid "Azerbaijani"
+msgstr "Azerbaijani"
+
+msgid "Basque"
+msgstr "Basque"
+
+msgid "Belarusian"
+msgstr "Belarusian"
+
+msgid "Bosnian"
+msgstr "Bosnian"
+
+msgid "Brazilian Portuguese"
+msgstr "Brazilian Portuguese"
+
+msgid "Bulgarian"
+msgstr "Bulgarian"
+
+msgid "Catalan"
+msgstr "Catalan"
+
+msgid "Chinese (simplified)"
+msgstr "Chinese (simplified)"
+
+msgid "Chinese (traditional)"
+msgstr "Chinese (traditional)"
+
+msgid "Croatian"
+msgstr "Croatian"
+
+msgid "Czech"
+msgstr "Czech"
+
+msgid "Danish"
+msgstr "Danish"
+
+msgid "Dutch"
+msgstr "Dutch"
+
+msgid "English"
+msgstr "English"
+
+msgid "English (British)"
+msgstr "English (British)"
+
+msgid "Esperanto"
+msgstr "Esperanto"
+
+msgid "Estonian"
+msgstr "Estonian"
+
+msgid "Finnish"
+msgstr "Finnish"
+
+msgid "French"
+msgstr "French"
+
+msgid "Galician"
+msgstr "Galician"
+
+msgid "Georgian"
+msgstr "Georgian"
+
+msgid "German"
+msgstr "German"
+
+msgid "Greek"
+msgstr "Greek"
+
+msgid "Hebrew"
+msgstr "Hebrew"
+
+msgid "Hungarian"
+msgstr "Hungarian"
+
+msgid "Icelandic"
+msgstr "Icelandic"
+
+msgid "Indonesian"
+msgstr "Indonesian"
+
+msgid "Irish"
+msgstr "Irish"
+
+msgid "Italian"
+msgstr "Italian"
+
+msgid "Japanese"
+msgstr "Japanese"
+
+msgid "Kinyarwanda"
+msgstr "Kinyarwanda"
+
+msgid "Korean"
+msgstr "Korean"
+
+msgid "Kurdish"
+msgstr "Kurdish"
+
+msgid "Latvian"
+msgstr "Latvian"
+
+msgid "Lithuanian"
+msgstr "Lithuanian"
+
+msgid "Lojban"
+msgstr "Lojban"
+
+msgid "Luganda"
+msgstr "Luganda"
+
+msgid "Macedonian"
+msgstr "Macedonian"
+
+msgid "Malay"
+msgstr "Malay"
+
+msgid "Maltese"
+msgstr "Maltese"
+
+msgid "Mongolian"
+msgstr "Mongolian"
+
+msgid "Nicaraguian"
+msgstr "Nicaraguian"
+
+msgid "Northern Sotho"
+msgstr "Northern Sotho"
+
+msgid "Norwegian"
+msgstr "Norwegian"
+
+msgid "Norwegian Bokmaal"
+msgstr "Norwegian Bokmaal"
+
+msgid "Norwegian Nynorsk"
+msgstr "Norwegian Nynorsk"
+
+msgid "Persian"
+msgstr "Persian"
+
+msgid "Polish"
+msgstr "Polish"
+
+msgid "Portuguese"
+msgstr "Portuguese"
+
+msgid "Punjabi"
+msgstr "Punjabi"
+
+msgid "Rhaeto-Romance"
+msgstr "Rhaeto-Romance"
+
+msgid "Romanian"
+msgstr "Romanian"
+
+msgid "Russian"
+msgstr "Russian"
+
+msgid "Serbian"
+msgstr "Serbian"
+
+msgid "Sinhalese"
+msgstr "Sinhalese"
+
+msgid "Slovak"
+msgstr "Slovak"
+
+msgid "Slovenian"
+msgstr "Slovenian"
+
+msgid "Sotho"
+msgstr "Sotho"
+
+msgid "Spanish"
+msgstr "Spanish"
+
+msgid "Swati"
+msgstr "Swati"
+
+msgid "Swedish"
+msgstr "Swedish"
+
+msgid "Tajik"
+msgstr "Tajik"
+
+msgid "Tamil"
+msgstr "Tamil"
+
+msgid "Thai"
+msgstr "Thai"
+
+msgid "Turkish"
+msgstr "Turkish"
+
+msgid "Turkmen"
+msgstr "Turkmen"
+
+msgid "Ukrainian"
+msgstr "Ukrainian"
+
+msgid "Venda"
+msgstr "Venda"
+
+msgid "Vietnamese"
+msgstr "Vietnamese"
+
+msgid "Walloon"
+msgstr "Walloon"
+
+msgid "Welsh"
+msgstr "Welsh"
+
+msgid "Xhosa"
+msgstr "Xhosa"
+
+msgid "Zulu"
+msgstr "Zulu"
