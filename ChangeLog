@@ -1,6 +1,13 @@
 
 2007-05-13  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* doc/Makefile, web/Makefile: Cleaning up, removing dead stuff.
+
+	* bin/po-tidy-links, bin/postats-data, web/registry.cgi.in:
+	Adjusting the shebangs.
+
+2007-05-13  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* data/postats, data/registry, data/: Removal of generated files.
 
 2007-05-13  Benno Schulenberg  <benno@vertaalt.nl>

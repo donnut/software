@@ -1,6 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # Adjust links in the po/maint hierarchy.
-# Copyright © 2004 Translation Print
+# Copyright © 2004 Translation Project
 
 """po-tidy-links [-n]
 Fix maintainer links
