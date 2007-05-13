@@ -1,6 +1,10 @@
 
 2007-05-13  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* data/postats, data/registry, data/: Removal of generated files.
+
+2007-05-13  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* doc/maintainers.all, doc/leaders.all, doc/translators.all:
 	Textual, grammatical, and layout tweaks.
 
