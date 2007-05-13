@@ -1,31 +1,31 @@
-* Reply to incoming maintainers			allout -*- outline -*-
+* A reply to incoming maintainers			allout -*- outline -*-
 
   Hello, I hope you will not mind a canned reply.  You wrote to the
-  translation team coordinator, exploring how to use the Free Translation
-  Project for your package, but do not know exactly how or where to start.
+  project coordinator, exploring how to use the Translation Project
+  for your package, but do not know exactly how or where to start.
   Here is some advice.
 
 .* About using the Translation Project
 
    The Translation Project is meant as a service to everybody, which you
    are free to use or not.  Of course, we believe there are many advantages
-   that you do so, but some aspect of the project might bother you.  We are
+   to doing so, but some aspect of the project might bother you.  We are
    improving the service over time, and your suggestions are always welcome.
-   Please send them to mailto:translation@iro.umontreal.ca.
+   Please send them to <mailto:translation@translationproject.org>.
 
    The Translation Project does not force you into imposing translation
    disclaimers on translators.  For most GNU packages, disclaimers are
    required by the FSF (Free Software Foundation).  If, as a GNU
    maintainer, you tell me that these are not required, I will presume
    you are being straight and have cleared the matter with FSF
-   headquarters already.  Even for non-GNU packages, is a good idea to
+   headquarters already.  Even for non-GNU packages, it is a good idea to
    ask for disclaimers: this better protects available translations
    against people who might change their mind about freedom; such things
    can happen.  If you decide that disclaimers are required, the
    Translation Project tries to guarantee that accepted translations are
    all properly disclaimed.  Here is the disclaimer form:
 
-   http://www.iro.umontreal.ca/translation/HTML/disclaim.html
+   http://www.translationproject.org/doc/disclaim.txt
 
    In the Translation Project, translators are grouped into teams by
    the language they translate into, rather than by the package they are
@@ -64,53 +64,49 @@
    The usual steps for internationalising messages in a package, as seen
    from the maintainer viewpoint, are:
 
-      1) mark translatable strings,
-      2) modify main() to activate translation,
-      3) add some Autoconf and Makefile magic (and/or Automake files),
-      4) announce a pre-release package containing the  POT file to the
-         Translation Project (translation@iro.umontreal.ca),
-      5) add PO files coming back from the Translation Project to your
-         package,
-      6) be kind to language teams.
+	1) mark translatable strings,
+	2) modify main() to activate translation,
+	3) add some Autoconf/Automake or Makefile magic,
+	4) announce a pre-release package (containing the POT file) to
+      the Translation Project <translation@translationproject.org>,
+	5) add the PO files that start coming back from the Translation
+      Project to your package,
+	6) be kind to translators.
 
    You might be quite familiar already with the first three steps, so I will
-   not elaborate on them for now.
+   not elaborate on these for now.
 
 . + Mark strings
     ------------
 
-   See gettext manual for details:
-
-     http://www.gnu.org/software/gettext/manual/
+    See the gettext manual for details:
+    http://www.gnu.org/software/gettext/manual/
 
 . + Modify main()
     -------------
 
-   See gettext manual for details:
-
-     http://www.gnu.org/software/gettext/manual/
+    See the gettext manual for details:
+    http://www.gnu.org/software/gettext/manual/
 
 . + Add magic from the gettext package
     ----------------------------------
 
-   See gettext manual for details:
+    See the gettext manual for details:
+    http://www.gnu.org/software/gettext/manual/
 
-     http://www.gnu.org/software/gettext/manual/
-
-. + Announce a pre-release package containing the  POT file
+. + Announce a pre-release package containing the POT file
     -------------------------------------------------------
 
-    If you generated the POT file using a recent version of `gettext'
-    (we recommand version 0.11 or later), the POT file header should be
-    correct as it stands, and resembles an unfilled form, except for
-    POT-Creation-Date, which has been filled automatically.  Do not try to
-    fill it in any way.  (It might happen that Project-Id-Version will be
-    filled in automatically at some later time, but from the time being, leave
-    it unfilled.) The translators, exclusively, should take care of the filling.
-    If you generated the POT file using other tools, or old copies of `gettext'
-    (including the official copy at the FSF), you should make sure that
-    the PO file header looks like virgin headers as above.  The Translation
-    Project is very fussy about header conformance.
+    If you generated the POT file using a recent version of `gettext', the
+    POT file header should be correct as it stands, and resembles an unfilled
+    form, except for POT-Creation-Date, which has been filled automatically.
+    Do not try to fill it in any way.  (It might happen that Project-Id-Version
+    will be filled in automatically at some later time, but for the time being
+    leave it unfilled.) The translators, exclusively, should take care of the
+    filling.  If you generated the POT file using other tools, or old copies of
+    `gettext' (older than 0.11), you should make sure that the PO file header
+    looks like virgin headers as above.  The Translation Project is very fussy
+    about header conformance.
 
     In your distribution, the POT file is probably named `po/PACKAGE.pot',
     where PACKAGE is the name of your package.  Within the Translation
@@ -119,31 +115,31 @@
     all in lower case, and with `gnu' or `g' prefixes removed.  VERSION may
     have one of the forms N.M, N.M.O, or N.M-bO, using all numbers, or N.ML,
     where L is a lower case letter.  (I should check this more closely.)
-    The Translation Project needs being able to compare two VERSION and
-    decides how to order them.  `N.M' comes before any `N.M.O' or `N.ML', but
+    The Translation Project needs to be able to compare two VERSIONs and
+    decide how to order them.  `N.M' comes before any `N.M.O' or `N.ML', but
     after any `N.M-bO'.  `N', `M' and `O' are compared by their numerical
-    value, and `L' is compared lexicographically.  If for some reason,
+    value, and `L' is compared lexicographically.  If for some reason
     you just cannot use any of the above schemes, please discuss this with
     the translation coordinator, so the Translation Project might have to
     be adjusted for your package.
 
-    Merely send the URL of a packaged distribution to
-    mailto:translation@iro.umontreal.ca.  Use the string "DOMAIN-VERSION.pot"
-    somewhere in the subject line of your invoice.  Beware that a POT
-    file may only be processed once by the Translation Project.  Another
-    submission *must* use a newer VERSION.  The distribution pointed to by
-    the URL does not have to be otherwise official, it does not even have
+    To announce the POT file, merely send the URL of a packaged distribution of
+    your program to  <mailto:translation@translationproject.org>.  Use the
+    string "DOMAIN-VERSION.pot" somewhere in the subject line of your email.
+    Note that a POT file will be processed only once by the Translation Project:
+    another submission *must* use a newer VERSION.  The distribution pointed to
+    by the URL does not have to be otherwise official, it does not even have
     to compile: its goal is only to provide finer context for strings to
     be translated, whenever translators need such references.  Of course,
     the URL will be published to national teams.  The Translation Project
     robot will be asked by the Translation Project coordinator (this will be
     better automated at some later time) to fetch that distribution, upload
-    the contained POT file into central PO archives, and inform people.
+    the contained POT file into the central POT archives, and inform people.
 
     The very first time you want to submit a POT file, the Translation
     Project also needs to know which email address to use for notifications,
-    and if you want translated PO files sent in full to you (instead of
-    a mere URL where to find them).
+    and if you want translated PO files sent in full to you or a mere URL
+    pointing to them.
 
     You should also decide if you require translation disclaimers or not
     for your package.  Translation disclaimers are written papers, kept by
@@ -157,15 +153,15 @@
     should be already clear with the FSF, for when disclaimers are required
     for the package, and the translator should be also clear with the proper
     national team for submitting PO files directly for the given package.
-    This gives some mean to teams wanting to distribute the work load or
-    to ensure some quality level.
+    This gives some means to teams wanting to distribute the workload or
+    ensure some quality level.
 
 . + Add PO files to your package
     ----------------------------
 
-    Via mailto:translation@iro.umontreal.ca you'll receive notifications
-    about PO files for your package.  Add these PO files containing the
-    translations to your package.
+    From <mailto:translation@translationproject.org> you will receive
+    notifications about fresh PO files for your package.  Add these PO
+    files containing the newest translations to your package.
 
 
 . + Be nice to teams
@@ -187,32 +183,29 @@
     revise them first.  It would defeat the purpose of the teams if you were
     directly accepting PO files from individual translators, or were having
     "contracts" with them.  If people write to you, wanting to volunteer
-    as translators, direct them to mailto:translation@iro.umontreal.ca,
+    as translators, direct them to <mailto:translation@translationproject.org>,
     and the translation coordinator will send them appropriate documentation.
 
     Translators now have efficient means, which they are free to use or
     not, for sending PO files to the Translation Project in such a way that
     they get automatically validated, somewhat corrected for minor things,
-    and uploaded to PO central archives.  You get notified right away.
+    and uploaded to the central PO archives.  You get notified right away.
     It can be made a quick process.
 
-    As a maintainer, keep well split your perception of responsibilities.
-    You are responsible of the programming quality of your package,
-    but national teams are solely responsible for the linguistic quality
-    of translations.  If you ever receive linguistic gripes from users,
-    direct users and gripes to national teams.  To find where to forward
+    As a maintainer, keep your perception of responsibilities well split.
+    You are responsible for the programming quality of your package, and
+    only the national teams are responsible for the linguistic quality
+    of the translations.  If you ever receive linguistic gripes from users,
+    direct users and gripes to the national teams.  To find where to forward
     linguistic problems for some language LL and the textual domain DOMAIN
     of your package, try this:
 
-    	    LANGUAGE=LL gettext DOMAIN '' | grep Language-Team
+		LANGUAGE=LL gettext DOMAIN '' | grep Language-Team
 
-    or using `csh' syntax:
+    If any other question remains, don't hesitate to ask it:
+    <mailto:translation@translationproject.org>.  We're much slower than the
+    robot, but we're happy to help when we can.
 
-    	    (setenv LANGUAGE LL; gettext DOMAIN '') | grep Language-Team
 
-    If any other question remains, be comfortable enough to ask them to
-    mailto:translation@iro.umontreal.ca.  We're much slower than the
-    Translation Project robot, but we're be happy to help if we can.
-
-    					   Your translation coordinator
-					   translation@iro.umontreal.ca
+                            Your translation coordinator
+                            <translation@translationproject.org>

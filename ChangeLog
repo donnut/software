@@ -1,4 +1,9 @@
 
+2007-05-13  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* doc/maintainers.all, doc/leaders.all, doc/translators.all:
+	Textual, grammatical, and layout tweaks.
+
 2007-05-12  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* web/html-to-cgi, web/lib/htmlpage.py, web/lib/config.py,
