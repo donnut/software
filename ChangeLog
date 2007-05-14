@@ -1,6 +1,10 @@
 
 2007-05-14  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* web/layout.html: Updating and cleaning up the sidebar.
+
+2007-05-14  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* doc/thanks.html: Adding the contributors page.
 	* doc/whydisclaim.html: Renaming the page to lessen confusion
 	with the actual disclaimer text.
