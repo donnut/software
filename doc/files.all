@@ -1,0 +1,155 @@
+* Site Inventory                         allout -*- outline -*-
+
+A hierarchy of public files has been set up for the Translation Project,
+to help maintainers, translators, and coordinators to share files and to
+communicate.
+
+This site is not intended as a distribution place for making translations
+available to all users, since translations are normally distributed within
+the published packages.
+
+Whatever permission bits you might have, avoid directly altering this
+hierarchy.  It is maintained by <translation@translationproject.org>,
+representing the coordinators for the Translation Project.  Moreover, some
+of the files are only usable by the coordinator; they are listed here
+for the sake of transparency about the internal workings of the project.
+
+
+.* PO files repository
+
+. + `maint/DOMAIN/LL.po'
+    Package maintainers may always grab the latest official copy of
+    translation files, in PO format, pertaining to their own package,
+    in the `maint/' hierarchy.  DOMAIN is usually the package name, sans
+    version, and `LL' is the language code as explained earlier.
+
+. + `domains/POT/DOMAIN-VERSION.pot'
+    This subdirectory contains many template PO files, holding untranslated
+    messages only.  Each file is named `DOMAIN-VERSION.pot', according
+    to the textual domain name and version numbers.  The textual domain
+    name is usually identical to the package name.  Some files lack the
+    `-VERSION' part.  These are very old, or else, too young for having
+    version numbers yet.
+
+. + `teams/PO/LL/DOMAIN-VERSION.po'
+    Translating volunteers may find in the `teams/' directory all officially
+    accepted PO files, providing translations for packages already released
+    or still incoming.  Each PO file is identified according to textual
+    domain and version.  The textual domain name is usually identical to
+    the package name.  `LL' is the language code.  Old obsolete PO files
+    may be deleted, they are not kept forever.
+
+.* Text files
+
+. + `THANKS'
+    For each name in the `ChangeLog' file, the corresponding email address
+    is given here.  So, the file holds a table of all listed contributors.
+
+. + `doc/DISCLAIM'
+    This file contains the translator disclaimer all translators
+    should print, fill in writing, and return to the FSF headquarters
+    by usual mail.  Instructions are given within the file.
+
+. + `doc/maintainers.all'
+    Whenever a maintainer wants to internationalize his/her package, this file
+    holds some useful indications about how to proceed.  It does not say all
+    that it should yet, however.
+
+. + `doc/translators.all'
+    Whenever a new potential volunteer writes to your translation
+    coordinator asking for more information, this file is usually fully
+    included in the reply.
+
+. + `doc/files.all'
+    You are currently reading it!
+
+. + `doc/robot.all'
+    About what the robot does.
+
+. + `doc/theroad.all'
+    Some memories of getting packages translated.
+
+. + `doc/status.all'
+    The status of some packages that are not yet fully translated.
+
+. + `doc/matrix.texi'
+    This translation matrix tells which domains have been translated by
+    which teams.  Whenever a POT file is received for a package having
+    none yet, or the first version of a PO file is received, `matrix.texi'
+    is removed.  This is detected by `make', which then uses `bin/do-matrix'
+    to reconstruct it and, on the same blow, mails it to a few places.
+    Ulrich Drepper replaces the sent matrix into the `nls.texi' file in
+    his master copy of the `gettext' package, out of which `ABOUT-NLS'
+    is further derived, and mailed backed to me.
+
+. + `registry/AUTHORS'
+    This file lists all translators who fulfilled the requirement of
+    disclaiming their rights to the translation work they did, so the
+    Translation Project may safely use and distribute it.
+
+. + `registry/registry.dtd'
+. + `registry/registry.sgml'
+
+    The Translation Project registry is a single UTF-8 encoded SGML file
+    (obeying a specialised structure defined in `registry.dtd') which
+    replaces a few previous tabular files which were holding the Translation
+    Project data.  Most Python scripts in `bin/' have been adapted so they use
+    the registry, using interfacing Python modules kept in `lib/python/'.
+
+    This fairly important file lists generic information about each team:
+    what is the preferred charset in use, who coordinates it, what are
+    the local FTP or Web sites if any, etc.  For each team, all known
+    working volunteers are listed, together with their email address, their
+    legalese status with the FSF, and for which textual domains they have
+    clearance with their team, as established by the team coordinator.
+
+    This file also contains a subset of `iso-639' in a format suitable
+    for a few semi-automatic scripts needing to translate a team code to
+    the language name, while indicating which `trans/LL/' directories
+    currently exist in the Translation Project.
+
+    This file finally provides data for a few semi-automatic scripts with the
+    maintainers' address for various textual domains, for keeping maintainers
+    well informed of what is going on with the translations aimed for them.
+
+.* Coordinator tools
+
+   (This is still a partial list.)
+
+. + `Makefile'
+    This file is meant for handling this hierarchy in various ways.
+    See `bin/' scripts if you are interested in how things are being done.
+
+. + bin/po-check
+
+    The oldish Perl script `bin/po-check' once was successfully used by
+    a few translators to find various errors in their PO files before
+    sending them.  It may be more difficult to use it, now that it depends
+    on the registry.  The simplest is to let the robot do the checking
+    for you, as the turnaround should be quick.
+
+. + bin/po-normalize
+
+    To normalize a PO file the same way the robot does (which should also
+    be the way `msgmerge' does it once it will get corrected), you might
+    use the following recipe.  Do this once to setup things:
+
+    cd
+    mkdir po
+    mkdir po/bin
+    (cd po/bin && wget html://www.iro.umontreal.ca/translation/bin/po-normalize)
+    mkdir po/Po
+    (cd po/Po && wget html://www.iro.umontreal.ca/translation/Po/File.pm)
+
+    and ensure you have ~/po/bin on your search path, using one of:
+
+    export PATH=~/po/bin:$PATH			# bash
+    set path=(~po/bin $path)			# csh
+    export PATH; PATH=$HOME/po/bin:$PATH	# sh
+
+    Then, just use "po-normalize OLD-FILE > NEW-FILE"
+
+    If you want to use a different directory organisation, you might have
+    to tune both files a tiny bit, so the program finds its module, and the
+    module declares itself properly.  Of course, you need Perl5.
+

@@ -1,0 +1,33 @@
+* The TP-Robot                                 	allout -*- outline -*-
+
+   The Translation Project robot (or TP-Robot) is an email service that
+   handles of PO-file submissions.  It checks whether the file can be
+   accepted, that is, whether a translator has filled out her disclaimer,
+   and whether her team allows her to do the work.  It also calls `msgfmt'
+   to see if the PO file is healthy.
+
+   To use the robot, send in your gzipped PO file by email, with a Subject
+   line that should look like:
+
+		TP-Robot PACKAGE-VERSION.TEAM.po
+
+   The mail should be sent to <translation@translationproject.org>.  You may
+   expect a reply within fifteen minutes.
+   
+   If you need help in resolving problems, or if you suspect the robot is
+   behaving poorly, you may write directly to the translation coordinator.
+   If you do so, however, be careful _not_ to start your message Subject
+   with "TP-Robot"!
+
+   If the robot cannot decipher your email, it will complain.  When you
+   cannot solve the problem on your own, you can ask your team leader or
+   the project coordinator for help.
+
+   The Translation Project robot is _not_ allowed to update the PO file
+   registry for new maintainers, languages, or translators, nor to process
+   POT files.  These things are still handled by hand.  When a new POT
+   file arrives, a script calls `msgmerge' when previous translations exist,
+   so the translators are notified of a PO file which is up-to-date.  New
+   POT files are announced automatically to a team's mailing list, if the
+   team has asked for this feature.
+

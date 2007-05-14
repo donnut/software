@@ -1,4 +1,9 @@
 
+2007-05-14  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* doc/files.all, doc/robot.all: Split the old README into two
+	relevant parts, removing the ancient histories.
+
 2007-05-13  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* doc/Makefile, web/Makefile: Cleaning up, removing dead stuff.

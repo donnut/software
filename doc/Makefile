@@ -6,7 +6,8 @@ htmldir = /home/benno/www/HTML
 topdir = /home/benno/TP
 libdir = $(topdir)/web/lib
 
-ALL_FILES = maintainers.all leaders.all translators.all software.all status.all
+ALL_FILES = maintainers.all leaders.all translators.all \
+            files.all robot.all software.all
 HTML_FILES = $(ALL_FILES:.all=.html)
 
 
