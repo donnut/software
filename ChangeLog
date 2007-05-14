@@ -1,6 +1,13 @@
 
 2007-05-14  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* doc/thanks.html: Adding the contributors page.
+	* doc/whydisclaim.html: Renaming the page to lessen confusion
+	with the actual disclaimer text.
+	* doc/index.html: Bringing the page up-to-date.
+
+2007-05-14  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* doc/files.all, doc/robot.all: Split the old README into two
 	relevant parts, removing the ancient histories.
 
