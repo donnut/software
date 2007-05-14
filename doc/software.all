@@ -1,30 +1,23 @@
-* Software and Documentation Overview			allout -*- outline -*-
+* Translation Software and Other Projects		allout -*- outline -*-
 
 .* Software
 
-   http://www.gnu.org/software/gettext/
+   KBabel -- http://kbabel.kde.org/
 
-   KBabel
+   gtranslator -- http://gtranslator.sourceforge.net/
 
-   gtranslator
+   Emacs with po-mode.el
 
-   muli.sourceforge.net
+   vi with macros
 
-   Emacs and po-mode.el
-
-   vi and macros
+   Gettext -- http://www.gnu.org/software/gettext/
 
 
-.* Documentation and Related Projects
+.* Related Projects
 
-   GNOME
+   GNOME --
    http://developer.gnome.org/projects/gtp/
 
-   KDE
+   KDE --
    http://i18n.kde.org/translation-howto/
 
-
-.* Other Projects
-
-   MultiLingual Lisp HyperText Generation System:
-   http://mlht.ffii.org/indexen.html
