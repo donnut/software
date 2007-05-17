@@ -62,20 +62,18 @@ class DomainPage(htmlpage.Htmlpage):
         if not write:
             return
         self.prologue('The %s textual domain' % domain.name,'utf-8')
-        write("  <p>Here is a short description for the textual domain <code>"
-              "%s</code>.</p>\n" % domain.name)
 
         if postats.potstats.has_key(domain.name):
             file = postats.potstats[domain.name][0]
             url = registry.hints(file).template_urls()[0]
             write('  <p>The current template for this domain is '
-                  '<a href="%s">%s</a>\n' % (url, file))
+                  '<a href="%s">%s</a>.\n' % (url, file))
         
         if domain.ref:
-            write("  <p>This Web page is related to the translation of"
-                  " messages for this `%s' textual domain.  You might find"
+            write("  <p>This page is about the translation of"
+                  " messages for the textual domain '%s'.  You can find"
                   " more comprehensive information about this project by"
-                  " visiting related links, as taken from this table.</p>\n"
+                  " visiting the links in this table.</p>\n"
                   '  <table align=center border=2>\n'
                   '   <tr align=center>\n'
                   '    <th>Topic</th>\n'
@@ -95,24 +93,24 @@ class DomainPage(htmlpage.Htmlpage):
                 write("  <li>%s</li>" % note)
             write("  </ul>\n")
         if domain.disclaim:
-            write("  <p>The maintainer requires that disclaimers be properly"
-                  " filled and sent to the Free Software Foundation, before"
+            write("  <p>The maintainer of this package requires that disclaimers"
+                  " be filled out and sent to the Free Software Foundation before"
                   " accepting PO files from the translation project.</p>\n")
         else:
             write("  <p>The maintainer does not require special papers prior"
                   " to accepting translations.</p>\n")
         if domain.url:
-            write("  <p>The following URL information may help translators for"
-                  " this package, for if they need finer translation context,"
-                  " but the distributions might well be experimental, and"
-                  " might not even compile.  Be well aware that the URLs given"
-                  " here are not necessarily official.</p>\n")
-            write('  <ol>\n')
+            write("  <p>The following URL may help translators"
+                  " when they need finer translation context."
+                  " The distribution might, however, be experimental, and"
+                  " might not even compile.  Be aware that the URL"
+                  " is not necessarily official.</p>\n")
+            write('  <ul>\n')
             for url in domain.url:
                 write('   <li><a href="%s">%s</a>\n' % (url, url))
-            write('  </ol>\n')
-        write("  <p>The following table gives some information about PO files"
-              " which are available for that textual domain.</p>\n"
+            write('  </ul>\n')
+        write("  <p>The following table lists (under <b>Version</b>) the PO files"
+              " that are available for this domain.</p>\n"
               '  <table align=center border=2>\n'
               '   <tr>\n'
               '    <th>Code</th>\n'
@@ -154,7 +152,7 @@ def domain_page_walker((postats, write, team, domain), dirname, bases):
         try:
             hints = registry.Hints(base)
         except KeyError:
-            sys.stderr.write(_("%s: Unexistent domain or team!\n") % base)
+            sys.stderr.write(_("%s: Nonexistent domain or team!\n") % base)
             continue
         except ValueError:
             sys.stderr.write(_("%s: No hints found!\n") % base)
@@ -262,8 +260,8 @@ class TeamPage(htmlpage.Htmlpage):
             write(
                 "   The team uses"
                 ' <a href="mailto:%s">%s</a>'
-                " for an official email"
-                " address, which reaches either a mailing list, or someone who"
+                " as an official email"
+                " address, which reaches either a mailing list or someone who"
                 " broadcasts information to all other team members.\n"
                 % (team.mailto[0], team.mailto[0]))
         if team.leader and team.leader.mailto:
@@ -291,8 +289,8 @@ class TeamPage(htmlpage.Htmlpage):
         write('  </p>\n')
         if team.ref:
             write("  <p>You may get more information about the"
-                  " %s effort by visiting some team links,"
-                  " according to the following table.</p>\n"
+                  " %s effort by visiting some team links"
+                  " from the following table.</p>\n"
                   '  <table align=center border=2>\n'
                   '   <tr align=center>\n'
                   '    <th>Topic</th>\n'
@@ -306,8 +304,8 @@ class TeamPage(htmlpage.Htmlpage):
                       '   </tr>\n'
                       % (ref[0], ref[1], ref[1]))
             write('  </table>\n')
-        write("  <p>The Translation Project registry knows about the following"
-              " translators for the %s team.</p>\n"
+        write("  <p>The %s team currently consists of the following"
+              " translators.</p>\n"
               '  <table align=center border=2>\n'
               '   <tr align=center>\n'
               '    <th>Translator</th>\n'
@@ -357,11 +355,11 @@ class TeamPage(htmlpage.Htmlpage):
                 write('    <td></td>\n')
             write('   </tr>\n')
         write('  </table>\n')
-        write("  <p>The Autosend column is for translators who want PO files"
-              " sent to them on generation, while new POT files are being"
-              " uploaded to the project.  Some translators want both the"
-              " notice <em>and</em> the file in their mailbox, instead of"
-              " fetching it through the Web. "
+        write("  <p>The Autosend column is for translators who want the PO"
+              " files sent to them when new POT files are"
+              " added to the project -- some translators want besides the"
+              " notice also the file in their mailbox, instead of"
+              " fetching it themselves. "
               ' <a href="mailto:translation@iro.umontreal.ca">Just ask</a>'
               " if you want this service for yourself.</p>\n"
               "  <p>Here is the current list of assignments of textual domains"

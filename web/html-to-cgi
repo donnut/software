@@ -4,11 +4,11 @@
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 
 """\
-Create relocating pages to lauch CGI scripts for the Translation Project.
+Create relocating pages to launch CGI scripts for the Translation Project.
 
 Usage: html-to-cgi [OPTION]...
 
-  -C HTMLDIR    Create HTML files within HTMLDIR (mandatory option)
+  -C HTMLDIR    Create the files within this directory (mandatory option)
   -D            Process all domains from registry data
   -T            Process all teams from registry data
 """

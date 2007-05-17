@@ -1,6 +1,10 @@
 
 2007-05-17  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* web/html-to-cgi, web/lib/localweb.py: Some textual tweaks.
+
+2007-05-17  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* bin/po-diffs, bin/run-queue: Renaming them to show they
 	are shell scripts, adjusting the Makefile.
 
