@@ -1,4 +1,9 @@
 
+2007-05-17  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/po-diffs, bin/run-queue: Renaming them to show they
+	are shell scripts, adjusting the Makefile.
+
 2007-05-14  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* doc/software.all: Improving the list of translation tools.
