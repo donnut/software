@@ -1,6 +1,11 @@
 
 2007-05-19  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* bin/msg-to-po, bin/po-to-scm, bin/scm-to-po, lib/rfc2047.py:
+	Deleting obsolete files.
+
+2007-05-19  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* web/lib -> lib: Flattening the directory structure.
 
 2007-05-17  Benno Schulenberg  <benno@vertaalt.nl>
