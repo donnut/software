@@ -4,7 +4,7 @@
 # François Pinard <pinard@iro.umontreal.ca>, 1996.
 
 """\
-Empty a PO file (so getting back to the POT file state).
+Output an empty version of a PO file (thus getting back the POT file state).
 """
 
 import os, sys

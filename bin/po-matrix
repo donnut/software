@@ -6,7 +6,7 @@
 
 """\
 Reconstruct a documentation matrix of PO files availability.
-Produces both `tmp-matrix.texi' and `tmp-matrix.html'.
+Produces `tmp-matrix.texi',`tmp-matrix.html' and `tmp-matrix.xml'.
 """
 
 import os, sys

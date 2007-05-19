@@ -1,6 +1,13 @@
 
 2007-05-20  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* tools/tp_mirror -> tools/tp_mirror.py: Rename file, tweak comments.
+	
+	* bin/make-maintain, bin/po-empty, bin/po-expire, bin/po-matrix,
+	bin/po-tidy-links, bin/tp-robot: Comment tweaks.
+
+2007-05-20  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* doc/DISLAIM: Make it a symlink instead of an identical copy.
 
 2007-05-20  Benno Schulenberg  <benno@vertaalt.nl>

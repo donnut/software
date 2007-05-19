@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 
 import sys, os, urllib, gzip, stat, errno, string, getopt, re
 
@@ -19,6 +19,7 @@ def mkdir(p):
 
 def usage(n):
     print "Usage: mirror_tp.py [options] destdir"
+    print ""
     print "Possible options are:"
     print " -h,--help		Show this help"
     print ""
@@ -28,13 +29,13 @@ def usage(n):
     print " -b,--bin		Only mirror binaries"
     print " -d,--data		Only mirror data files"
     print ""
-    print "If none of t, d, b, p option is given, everything is mirrored"
-    print "If one of them is given, the other ones are supposed off."
-    print "It is possible to give several options from these options at the same time."
+    print "If none of t, d, b, p option is given, everything is mirrored."
+    print "If one of them is given, the other ones are assumed to be off."
+    print "It is possible to use several of these options at the same time."
     sys.exit(n)
 
 def retrieve(name):
-    print "retrieve %s" % (name)
+    print "retrieving %s" % (name)
     urllib.urlretrieve(urlprefix+name, name)
     os.utime(name, (time,time))
     
@@ -91,7 +92,7 @@ try:
 except OSError:
     pass
 
-print "Retrieve the index"
+print "Retrieving the index"
 mkdir("mirror")
 for i in range(5):
     sock = urllib.urlretrieve(urlprefix + "mirror/INDEX.gz","mirror/INDEX.gz")
@@ -100,7 +101,7 @@ for i in range(5):
         del data[-1]
         break
 else:
-    # otherwise, it is an incomplete file
+    # it is an incomplete file
     raise SystemExit
 
 for line in data:

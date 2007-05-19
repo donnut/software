@@ -5,7 +5,7 @@
 
 """\
 Create a maintainance branch of a package, outputting a new registry
-and shell commands
+and shell commands.
 
 Usage: make-maintain magic-key
 
@@ -29,8 +29,8 @@ magic_key = "neues nano"
 old_domain = 'gettext'                  # nano
 new_domain = 'gettext-runtime'          # nano_1_0
 
-old_pattern = "gettext-0.11.5"          # "nano-1.0"
-new_pattern = "gettext-runtime-0.11.5"  # nano_1_0-1.0"
+old_pattern = "gettext-0.11.5"          # nano-1.0
+new_pattern = "gettext-runtime-0.11.5"  # nano_1_0-1.0
 
 def main(*arguments):
     if not arguments:

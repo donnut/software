@@ -1,9 +1,12 @@
 #!/usr/bin/env python
-# Adjust links in the po/maint hierarchy.
 # Copyright © 2004 Translation Project
 
-"""po-tidy-links [-n]
-Fix maintainer links
+"""\
+Fix the symlinks in the maintainer hierarchy.
+
+Usage: po-tidy-links [-n]
+
+  -n  Dry run
 """
 
 import os, sys, shutil, glob

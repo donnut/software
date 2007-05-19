@@ -15,16 +15,16 @@ Usage: tp-robot OPTION... < MESSAGE
   -r   Be a good robot and email the reply to the translator.
 
 The robot gets into motion through `translation@tranlationproject.org', which
-is forwarded to `gnutra@iro.umontreal.ca', having this `.procmail' recipe:
+is forwarded to `robot@translationproject.org', having this `.procmail' recipe:
 
   :0 c: tpr-queue-lock
   * ^To:.*translation@
   * ^Subject: *[Tt][Pp][-_ ][Rr]obot
   tpr-queue
 
-The `gnutra' code also has this `crontab' entry:
+The robot user has this `crontab' entry:
 
-  0-50/10 * * * *	/bin/sh /home/ftp/pub/po/bin/run-queue.sh
+  0-50/10 * * * *	/bin/sh /opt/TP/bin/run-queue.sh
 
 That script is what actually launches this robot for each received file.
 """

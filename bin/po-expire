@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 # -*- mode: python; coding: iso-8859-1 -*-
-# Check overall consistency of PO files and delete oldish files.
 # Copyright © 1996, 1997, 1998, 1999, 2001 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1996.
+
+"""\
+Check overall consistency of PO files and delete oldish files.
+"""
 
 import os, sys, time
 
