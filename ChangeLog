@@ -1,4 +1,8 @@
 
+2007-05-19  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* web/lib -> lib: Flattening the directory structure.
+
 2007-05-17  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* web/html-to-cgi, web/lib/localweb.py: Some textual tweaks.
