@@ -1,5 +1,5 @@
-# -*- coding: iso-8859-1 -*-
 # Data base handling for the Translation Project.
+# -*- coding: iso-8859-1 -*-
 # Copyright © 2001, 2002, 2003 Translation Project.
 # Copyright © 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 2000.

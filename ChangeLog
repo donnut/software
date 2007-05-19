@@ -1,4 +1,12 @@
 
+2007-05-20  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/babylweb.py, lib/distroweb.py, web/babyl.cgi.in,
+	web/distro.cgi.in: Remove obsolete files.
+
+	* lib/data.py, lib/localweb.py, lib/Makefile, web/Makefile:
+	Adjust for removal.
+
 2007-05-19  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/*: Use a relative path to find the Python modules.

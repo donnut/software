@@ -138,12 +138,6 @@ class DomainPage(htmlpage.Htmlpage):
             os.path.walk('../teams/PO/%s' % team.name,
                          domain_page_walker, (postats, write, team, domain))
         write('  </table>\n')
-        if os.path.exists('%s/domains/rmail/%s'
-                          % (config.top_directory, domain.name)):
-            write("  <p>There currently are a few administrative"
-                  ' <a href="%s/babyl.cgi?folder=domains/rmail/%s">messages</a>'
-                  " about this domain that you may feel like consulting.</p>"
-                  % (registry.cgiurl, domain.name))
         self.epilogue()
 
 def domain_page_walker((postats, write, team, domain), dirname, bases):
@@ -468,12 +462,6 @@ class TeamPage(htmlpage.Htmlpage):
             write('   </tr>\n')
         write('  </table>\n')
         language = string.split(team.language)[0]
-        if os.path.exists('%s/teams/rmail/%s'
-                          % (config.top_directory, language)):
-            write("  <p>There currently are a few administrative"
-                  ' <a href="%s/babyl.cgi?folder=teams/rmail/%s">messages</a>'
-                  " about this team that you may feel like consulting.</p>"
-                  % (registry.cgiurl, language))
         self.epilogue()
 
 def translator_best_href(translator, prefer_mail = 0, charset = None):

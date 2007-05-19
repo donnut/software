@@ -7,7 +7,7 @@ htmldir = /home/benno/www/HTML
 topdir = /home/benno/TP
 libdir = $(topdir)/web/lib
 
-CGI_FILES = babyl.cgi distro.cgi registry.cgi
+CGI_FILES = registry.cgi
 HTML_FILES = domains.html teams.html
 
 LAYOUT_DEPS = ../web/lib/config.py layout.html to-html
