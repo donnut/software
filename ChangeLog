@@ -1,6 +1,10 @@
 
 2007-05-20  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* doc/DISLAIM: Make it a symlink instead of an identical copy.
+
+2007-05-20  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* lib/babylweb.py, lib/distroweb.py, web/babyl.cgi.in,
 	web/distro.cgi.in: Remove obsolete files.
 
