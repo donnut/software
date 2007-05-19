@@ -8,8 +8,8 @@ Output a PO file after having made it canonical.
 """
 
 import os, sys
-sys.path.insert(0, os.path.expanduser('~/po/web/lib'))
 
+sys.path.insert(0, sys.path[0]+'/../lib')
 import po
 
 def _(text):

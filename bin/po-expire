@@ -5,8 +5,8 @@
 # François Pinard <pinard@iro.umontreal.ca>, 1996.
 
 import os, sys, time
-sys.path.insert(0, os.path.expanduser('~/po/web/lib'))
 
+sys.path.insert(0, sys.path[0]+'/../lib')
 import registry
 
 expired_folder = time.strftime("expired-%Y-%m-%d",time.localtime(time.time()))

@@ -8,8 +8,8 @@ Empty a PO file (so getting back to the POT file state).
 """
 
 import os, sys
-sys.path.insert(0, os.path.expanduser('~/po/web/lib'))
 
+sys.path.insert(0, sys.path[0]+'/../lib')
 import po
 
 def _(text):

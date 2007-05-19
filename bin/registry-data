@@ -16,14 +16,8 @@ If both options are specified, the old database is decoded before rebuilt.
 """
 
 import os, sys
-p =  os.path.expanduser('~/po/web/lib')
-if os.path.exists(p):
-    sys.path.insert(0, p)
-else:
-    p = "/home/www/usagers/gnutra/HTML/web/lib"
-    if os.path.exists(p):
-         sys.path.insert(0, p)
 
+sys.path.insert(0, sys.path[0]+'/../lib')
 from sgml import *
 
 def main(*arguments):
