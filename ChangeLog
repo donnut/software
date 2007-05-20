@@ -1,4 +1,9 @@
 
+2007-05-21  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* Replace 'iro.umontreal.ca' with 'translationproject.org' in many
+	places.
+
 2007-05-20  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* tools/tp_mirror -> tools/tp_mirror.py: Rename file, tweak comments.

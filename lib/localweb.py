@@ -354,7 +354,7 @@ class TeamPage(htmlpage.Htmlpage):
               " added to the project -- some translators want besides the"
               " notice also the file in their mailbox, instead of"
               " fetching it themselves. "
-              ' <a href="mailto:translation@iro.umontreal.ca">Just ask</a>'
+              ' <a href="mailto:translation@translationproject.org">Just ask</a>'
               " if you want this service for yourself.</p>\n"
               "  <p>Here is the current list of assignments of textual domains"
               " to translators, as known to the Translation Project registry. "
@@ -372,7 +372,7 @@ class TeamPage(htmlpage.Htmlpage):
                   % (team.leader.url[0], uni2html(team.leader.uniname()[0],'utf-8')))
         else:
             write(" write directly to the"
-                  ' <a href="mailto:translation@iro.umontreal.ca">'
+                  ' <a href="mailto:translation@translationproject.org">'
                   " coordinator of the Translation Project</a>"
                   " to get it corrected, as the team did not seem to have"
                   " appointed its own coordinator yet.</p>\n")

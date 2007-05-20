@@ -27,6 +27,6 @@ p;q;}' $po_in)
 }
 
 gzip < $po_in | uuencode $po.gz \
-  | mail -s "TP-Robot $po" translation@iro.umontreal.ca
+  | mail -s "TP-Robot $po" translation@translationproject.org
 
 # eof sendpo.sh

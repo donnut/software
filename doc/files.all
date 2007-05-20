@@ -132,14 +132,14 @@ for the sake of transparency about the internal workings of the project.
 
     To normalize a PO file the same way the robot does (which should also
     be the way `msgmerge' does it once it will get corrected), you might
-    use the following recipe.  Do this once to setup things:
+    use the following recipe.  Do this once to set things up:
 
     cd
     mkdir po
     mkdir po/bin
-    (cd po/bin && wget html://www.iro.umontreal.ca/translation/bin/po-normalize)
-    mkdir po/Po
-    (cd po/Po && wget html://www.iro.umontreal.ca/translation/Po/File.pm)
+    cd po/bin
+    wget html://www.translationproject.org/scripts/bin/po-normalize
+    wget html://www.translationproject.org/scripts/lib/po.py
 
     and ensure you have ~/po/bin on your search path, using one of:
 
@@ -151,5 +151,5 @@ for the sake of transparency about the internal workings of the project.
 
     If you want to use a different directory organisation, you might have
     to tune both files a tiny bit, so the program finds its module, and the
-    module declares itself properly.  Of course, you need Perl5.
+    module declares itself properly.  Of course, you need Python.
 

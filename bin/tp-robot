@@ -131,7 +131,7 @@ were empty.  Sigh!  It looks like there is something wrong, somewhere...
         run.reject(_("""\
 I, the Translation Project robot, just failed in a rather unexpected way.
 Sigh!  Despair!  I'm bugged, lost, doomed :-(.  Help me!
-Report all details you can at mailto:translation@iro.umontreal.ca.
+Report all details you can at mailto:translation@translationproject.org.
 Please do _not_ start your Subject line with `TP-Robot'.
 """),"[robot bug]")
         run.submitter.write_nofill(tb)
@@ -313,10 +313,10 @@ a PO template file all alone.  So, for this one, I'll go disturb him!
             or (to_site and not re.match(r'iro\.umontreal\.ca', to_site,
                                          re.I))):
             run.submitter.write(_("""\
-I see that you used `%s@%s' to reach me.  Even it worked,
+I see that you used `%s@%s' to reach me.  Even though it worked,
 a few email aliases were surely involved, which are not all under
-control.  It is safer that you use my real email address, which is
-`translation@iro.umontreal.ca'.
+my control.  It is safer that you use my real email address, which is
+`translation@translationproject.org'.
 """)
                                          % (to_user, to_site))
         # Clean up translator name.
@@ -1135,8 +1135,8 @@ The `%s' textual domain is not known to the Translation Project, at
 least not under that spelling.  It may also be that the maintainer of
 that project did not make arrangements yet for the Translation Project to
 handle its PO files.  In this case, please invite the project maintainer to
-contact us.  See `http://www.iro.umontreal.ca/contrib/po/HTML' and select
-`Textual Domains' to see the list of domains which are currently handled.
+contact us.  See `http://www.translationproject.org/HTML/domains.html'
+to see the list of domains which are currently handled.
 """)
                        % run.hints.domain,
                        "[unknown domain]")
@@ -1148,7 +1148,7 @@ According to my notes, the Free Software Foundation did not acknowledge the
 receipt of a translation disclaimer for you.  Such a disclaimer is required
 for GNU packages (or when maintainers of non-GNU packages ask me to ensure
 the existence of such a disclaimer).  This is the case for `%s'.
-Grab a copy of `http://www.iro.umontreal.ca/contrib/po/doc/DISCLAIM',
+Grab a copy of `http://www.translationproject.org/doc/DISCLAIM',
 print it on paper, and return it filled by the usual postal system.
 You will be notified when the FSF acknowedges its receipt; you can then
 re-attempt uploading your PO file to the Translation Project.  If you have

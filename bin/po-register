@@ -232,7 +232,7 @@ def notify_maintainer_for_pot(hints):
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
     write(_("""\
-From: Translation Project Robot <translation@iro.umontreal.ca>
+From: Translation Project Robot <translation@translationproject.org>
 To: %s
 Subject: New PO Template file for `%s'
 
@@ -301,7 +301,7 @@ Thanks for your collaboration,
 
                                 The Translation Project robot, in the
                                 name of your translation coordinator.
-                                mailto:translation@iro.umontreal.ca
+                                <translation@translationproject.org>
 """))
 
 def notify_team_leaders_for_pot(hints):
@@ -314,8 +314,8 @@ def notify_team_leaders_for_pot(hints):
     # FIXME: Use `translation' instead of `pinard', but only after the
     # mailing list had been altered for this.  It is a closed list.
     write(_("""\
-From: Translation Project Robot <translation@iro.umontreal.ca>
-To: team-leaders@iro.umontreal.ca
+From: Translation Project Robot <translation@translationproject.org>
+To: team-leaders@translationproject.org
 Subject: New PO Template file for `%s'
 
 """)
@@ -362,7 +362,7 @@ Thanks for your collaboration,
 
                                 The Translation Project robot, in the
                                 name of your translation coordinator.
-                                mailto:translation@iro.umontreal.ca
+                                <translation@translationproject.org>
 """))
 
 def notify_maintainer_for_po(hints, file_name, archive_base):
@@ -373,7 +373,7 @@ def notify_maintainer_for_po(hints, file_name, archive_base):
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
     write(_("""\
-From: Translation Project Robot <translation@iro.umontreal.ca>
+From: Translation Project Robot <translation@translationproject.org>
 To: %s
 Subject: New %s PO file for `%s'
 
@@ -439,7 +439,7 @@ Contact me if any question arises.  Thanks for your collaboration,
 
                                 The Translation Project robot, in the
                                 name of your translation coordinator.
-                                mailto:translation@iro.umontreal.ca
+                                <translation@translationproject.org>
 """)
                % (registry.puburls[0], hints.domain.name))
 
@@ -469,7 +469,7 @@ def notify_team_for_po(hints, stats, ispot = 0):
         return file.write(messages.translate(msg, hints.team.code, charset,
                                              do_Q=True))
     write_header(_("""\
-From: Translation Project Robot <translation@iro.umontreal.ca>
+From: Translation Project Robot <translation@translationproject.org>
 To: %s
 Subject: %s-%s (%d%%, %d untranslated)
 %s
@@ -605,7 +605,7 @@ The following HTML pages should also be updated by tomorrow.
 
                                 The Translation Project robot, in the
                                 name of your translation coordinator.
-                                mailto:translation@iro.umontreal.ca
+                                <translation@translationproject.org>
 """)
                % (registry.puburls[0], hints.domain.name,
                   registry.puburls[0], hints.team.name))
@@ -629,7 +629,7 @@ def email_file(address, file_name, option = None):
     if option == "compress":
         name += ".gz"
     write(_("""\
-From: Translation Project Robot <translation@iro.umontreal.ca>
+From: Translation Project Robot <translation@translationproject.org>
 To: %s
 Subject: Contents of file `%s'
 MIME-Version: 1.0
@@ -652,7 +652,7 @@ Content-Transfer-Encoding: base64
 
                                 The Translation Project robot, in the
                                 name of your translation coordinator.
-                                mailto:translation@iro.umontreal.ca
+                                <translation@translationproject.org>
 
 --=-=-=--
 """))

@@ -93,20 +93,20 @@ class Coordinator(Reporter):
                 if hints.team.leader:
                     mailto = hints.team.leader.mailto[0]
                 else:
-                    mailto = '<translation@iro.umontreal.ca>'
+                    mailto = '<translation@translationproject.org>'
                     orig_subject = subject
                     subject = 'team %s without leader' % hints.team.name
             else:
-                mailto = '<translation@iro.umontreal.ca>'
+                mailto = '<translation@translationproject.org>'
                 orig_subject = subject
                 subject = 'No team determined'
         except (KeyError, TypeError, AttributeError),e:
             if not force:
                 return None
-            mailto = '<translation@iro.umontreal.ca>'
+            mailto = '<translation@translationproject.org>'
             subject = 'reply_header: %s' % e.__class__.__name__
         return _("""\
-From: Translation Project Robot <translation@iro.umontreal.ca>
+From: Translation Project Robot <translation@translationproject.org>
 To: %s
 Subject: Re: %s
 %s"""
@@ -146,7 +146,7 @@ class Submitter(Reporter):
         if header_lines:
             work = tempfile.mktemp()
             #file = os.popen('formail -t -r -A "Bcc: pinard" >%s' % work, 'w')
-            file = os.popen('formail -t -r -a "From: Translation Project Robot <translation@iro.umontreal.ca>" -I "Subject: %s" >%s' % (subject, work), 'w')
+            file = os.popen('formail -t -r -a "From: Translation Project Robot <translation@translationproject.org>" -I "Subject: %s" >%s' % (subject, work), 'w')
             file.writelines(header_lines)
             file.close()
             file = open(work)
@@ -159,7 +159,7 @@ class Submitter(Reporter):
             os.remove(work)
         elif translator_address:
             header = (_("""\
-From: Translation Project Robot <translation@iro.umontreal.ca>
+From: Translation Project Robot <translation@translationproject.org>
 To: "%s" <%s>
 Subject: Re: %s
 %s
@@ -207,7 +207,7 @@ for manual unpacking.  Use a subject line looking like:
 
 >    Subject: TP-Robot PACKAGE-VERSION.TEAM.po
 
-and send this whole thing to `translation@iro.umontreal.ca'.  You may
+and send this whole thing to `translation@translationproject.org'.  You may
 expect a reply within the hour.  If you need help to resolve questions
 raised in this reply, or if you plainly suspect I'm behaving poorly, you
 may directly write the translation coordinator.  However, if you do so,
@@ -217,7 +217,7 @@ be careful _not_ to start your message Subject with `TP-Robot'! :-)
         self.write_nofill(_("""\
                                 The Translation Project robot, in the
                                 name of your kind translation coordinator.
-                                mailto:translation@iro.umontreal.ca
+                                <translation@translationproject.org>
 """))
 
         Reporter.complete(self)

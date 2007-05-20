@@ -2,7 +2,7 @@
 
 import sys, os, urllib, gzip, stat, errno, string, getopt, re
 
-urlprefix = "http://www.iro.umontreal.ca/contrib/po/"
+urlprefix = "http://www.translationproject.org/nothingyet/"
 
 def mkdir(p):
     try:

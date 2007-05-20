@@ -44,14 +44,13 @@
 <!-- A `team' is named in English, and by an ISO 639 language `code'.
      It may have many `mailto', but only the first is handled right now.
 
-     Linux International might create a mailing list for a team once it holds
-     a few usable PO files.  Our contact is Patrick D'Cruze <pdcruze@li.org>.
+     A mailing list for a team can be created at sourceforge.net.
 
-     The `charset' is the one preferred in correspondence and PO files for
+     The `charset' is the one preferred in mail and PO files for
      that national team.
 
-     A team often has a `leader', which is then our priviledged contact for
-     administrative purposes.  Add leaders to <team-leaders@iro.umontreal.ca>.
+     A team often has a `leader', which is then our privileged contact for
+     administrative purposes.  Add leaders to <team-leaders@translationproject.org>.
 
      The `ref' fields indicate FTP or Web sites for the national team.
 -->
@@ -68,19 +67,19 @@
 
      The following flags are recognised for translators:
 	`disclaimer'	the FSF acknowledged a translation disclaimer
-	`autosend'	email PO files to work on from new releases
+	`autosend'	email the PO file from a new release
 
      Translators may translate any textual domain for which a translation
      disclaimer is not required.  For domains where a translation disclaimer
-     is required, the translator should first have send a translation
+     is required, the translator should first have sent a translation
      disclaimer, the receipt of which has to be acknowledged by the FSF.
 
      The `do' clauses each tell one textual domain for which translations
      may be accepted directly, without going through the team or team leader.
-     The team decides of the list of such `do' clauses for each translator.
+     The team decides on the list of such `do' clauses for each translator.
 
      New translators should always be announced to their related national
-     team, which team should always stay informed of what is going on.
+     team, as this team should always stay informed of what is going on.
 -->
 
 <!ELEMENT translator	- O	(#PCDATA, alias*, mailto*, url*,
