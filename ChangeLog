@@ -1,6 +1,10 @@
 
 2007-05-21  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* doc/Makefile, registry/Makefile,  web/Makefile: Cleanups.
+
+2007-05-21  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* Replace 'iro.umontreal.ca' with 'translationproject.org' in many
 	places.
 

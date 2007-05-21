@@ -4,8 +4,8 @@
 
 cgidir = /home/benno/www
 htmldir = /home/benno/www/HTML
-topdir = /home/benno/TP
-libdir = $(topdir)/web/lib
+progsdir = /home/benno/TP
+libdir = $(progsdir)/lib
 
 CGI_FILES = registry.cgi
 HTML_FILES = domains.html teams.html
@@ -14,15 +14,11 @@ LAYOUT_DEPS = ../web/lib/config.py layout.html to-html
 REGISTRY_DEPS = html-to-cgi ../data/postats ../data/registry
 
 
-$(cgidir)/%.cgi: %.cgi.in
-	sed 's,@topdir@,$(topdir),g;s,@libdir@,$(libdir),g' $< > $@-tmp
-	chmod a+rx $@-tmp
-	mv -f $@-tmp $@
+all: cgi html
 
-all-iro: $(addprefix $(cgidir)/,$(CGI_FILES)) all-sf
+cgi: $(addprefix $(cgidir)/,$(CGI_FILES))
 
-all-sf: $(addprefix $(htmldir)/,$(HTML_FILES))
-	$(MAKE) -C .. doc/matrix.texi DASH_X=-x
+html: $(addprefix $(htmldir)/,$(HTML_FILES))
 	PYTHONPATH=$(libdir):$$PYTHONPATH \
 	  ./to-html -C $(htmldir) ../doc $(distdir)
 
@@ -30,6 +26,11 @@ $(addprefix $(cgidir)/,$(CGI_FILES)): $(cgidir)
 $(addprefix $(htmldir)/,$(HTML_FILES)): $(htmldir)
 $(cgidir) $(htmldir):
 	mkdir -p $@
+
+$(cgidir)/%.cgi: %.cgi.in
+	sed 's,@topdir@,$(progsdir),g;s,@libdir@,$(libdir),g' $< > $@-tmp
+	chmod a+rx $@-tmp
+	mv -f $@-tmp $@
 
 $(htmldir)/domains.html: $(REGISTRY_DEPS)
 	PYTHONPATH=$(libdir):$$PYTHONPATH \

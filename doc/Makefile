@@ -3,8 +3,8 @@
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 
 htmldir = /home/benno/www/HTML
-topdir = /home/benno/TP
-libdir = $(topdir)/web/lib
+progsdir = /home/benno/TP
+libdir = $(progsdir)/lib
 
 ALL_FILES = maintainers.all leaders.all translators.all \
             files.all robot.all software.all
