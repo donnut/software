@@ -56,7 +56,7 @@ def main(*arguments):
         else:
             postats = UserDict.UserDict()
         found = []
-        os.path.walk('%s/trans' % config.top_directory,
+        os.path.walk('%s/trans' % config.data_dir,
                      walker, (postats, found, verbose_option, update_option))
         gen_potstats(postats, verbose_option)
         if update_option:
@@ -155,7 +155,7 @@ def update(postats, found, name, verbose, update_only):
 
 def gen_potstats(postats, verbose):
     versions = {}
-    for f in os.listdir('%s/domains/POT' % config.top_directory):
+    for f in os.listdir('%s/domains/POT' % config.data_dir):
         try:
             h = registry.hints(f)
         except ValueError:
@@ -179,7 +179,7 @@ def gen_potstats(postats, verbose):
     for domain, (version, file) in versions.items():
         if verbose:
             sys.stderr.write("%s ... " % file)
-        entries = po.read('%s/domains/POT/%s' % (config.top_directory, file))
+        entries = po.read('%s/domains/POT/%s' % (config.data_dir, file))
         stats = po.stats(entries)
         # aegis.pot has translations
 	# assert stats['translated']==0,file

@@ -9,17 +9,16 @@ pickle = cPickle
 del cPickle
 
 import UserDict, types, os
-
 import config
 
 def load_postats():
-    f = open('%s/data/postats' % config.top_directory)
+    f = open('%s/cache/postats' % config.data_dir)
     try:
         res = pickle.load(f)
     except:
         # data corrupted, try to load backup
         f.close()
-        f = open('%s/data/postats.bak' % config.top_directory)
+        f = open('%s/cache/postats.bak' % config.data_dir)
         res = pickle.load(f)
     f.close()
     if type(res) == types.DictType:
@@ -27,7 +26,7 @@ def load_postats():
     return res
 
 def save_postats(postats):
-    name = '%s/data/postats' % config.top_directory
+    name = '%s/cache/postats' % config.data_dir
     suffix = "."+str(os.getpid())
     pickle.dump(postats, open(name+suffix , 'w'))
     try:
@@ -41,17 +40,17 @@ def save_postats(postats):
     os.rename(name+suffix,name)
     
 def load_registry():
-    return pickle.load(open('%s/data/registry' % config.top_directory))
+    return pickle.load(open('%s/cache/registry' % config.data_dir))
 
 def save_registry(registry):
-    pickle.dump(registry, open('%s/data/registry' % config.top_directory, 'w'))
+    pickle.dump(registry, open('%s/cache/registry' % config.data_dir, 'w'))
 
 def load_extstats():
     try:
-        res = pickle.load(open('%s/data/extstats' % config.top_directory))
+        res = pickle.load(open('%s/cache/extstats' % config.data_dir))
     except IOError:
         return UserDict.UserDict()
     return res
 
 def save_extstats(postats):
-    pickle.dump(postats, open('%s/data/extstats' % config.top_directory, 'w'))
+    pickle.dump(postats, open('%s/cache/extstats' % config.data_dir, 'w'))

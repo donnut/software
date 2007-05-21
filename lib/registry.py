@@ -10,18 +10,13 @@ import config
 def _(text):
     return text
 
-cgiurl = config.cgi_base
 puburl = config.html_base
 puburls = (puburl,
            'ftp://ftp.unex.es/pub/gnu-i18n/po',
            'http://translation.sf.net',
            #'ftp://tiger.informatik.hu-berlin.de/pub/po'
           )
-htmlurl = config.home_base + "/HTML"
-podir = config.top_directory
-bindir = podir + '/bin'
-matrix = podir + '/matrix.texi'
-tempfile.tempdir = '%s/tmp' % podir
+tempfile.tempdir = '%s/tmp' % config.data_dir
 
 # Emulate Python 1.5
 try:
@@ -337,7 +332,7 @@ Splitting file names into components.
 
     def template_path(self):
         """Full file name of POT file within the registry."""
-        return '%s/domains/POT/%s' % (podir, self.template_base())
+        return '%s/domains/POT/%s' % (config.data_dir, self.template_base())
 
     def template_urls(self):
         """URLs of PO file within various registry copies."""
@@ -357,7 +352,7 @@ Splitting file names into components.
 
     def archive_path(self):
         """Full file name of PO file within the registry."""
-        return '%s/teams/PO/%s/%s' % (podir, self.team.name,
+        return '%s/teams/PO/%s/%s' % (config.data_dir, self.team.name,
                                       self.archive_base())
 
     def archive_urls(self):
@@ -378,7 +373,7 @@ Splitting file names into components.
 
     def maintainer_path(self):
         """Maintainer's view for the full file name of PO file."""
-        return '%s/maint/%s/%s' % (podir, self.domain.name,
+        return '%s/maint/%s/%s' % (config.data_dir, self.domain.name,
                                    self.maintainer_base())
 
     def maintainer_urls(self):

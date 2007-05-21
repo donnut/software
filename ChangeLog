@@ -1,4 +1,10 @@
 
+2007-05-22  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/config.py, lib/data.py, lib/registry.py, lib/sgml.py,
+	bin/make-maintain, bin/postats-data: Clean up configuration
+	and improve variable names.
+
 2007-05-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	*  doc/index.html, web/layout.html: Make links relative.

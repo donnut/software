@@ -4,8 +4,8 @@
 # Copyright © 1998, 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1998.
 
-import os,sys,string
-import config,data
+import os, sys, string
+import config, data
 
 dir = "/u/loewisma/bin"
 if os.path.isfile("%s/nsgmls" % dir):
@@ -20,7 +20,7 @@ def quote(text):
     return text
 
 def encode_database():
-    sgml = read_sgml_file(config.top_directory + '/registry/registry.sgml')
+    sgml = read_sgml_file(config.data_dir + '/registry/registry.sgml')
     # Convert all domains and build a dictionary.
     domains = {}
     for domain in sgml[1][1:]:

@@ -63,8 +63,8 @@ def gen_registry():
                 pass
 
     sgml.decode_database()
-    mv_po(config.top_directory+"/teams/PO")
-    mv_po(config.top_directory+"/domains/POT")
+    mv_po(config.data_dir+"/teams/PO")
+    mv_po(config.data_dir+"/domains/POT")
     mklinks()
 
 renamed = {}
@@ -85,9 +85,9 @@ def byversion(a,b):
     return cmp(a.version,b.version)
 
 def mklinks():
-    newdir = "%s/maint/%s" % (config.top_directory, new_domain)
+    newdir = "%s/maint/%s" % (config.data_dir, new_domain)
     print "mkdir",newdir
-    dir = (config.top_directory+"/maint/"+old_domain)
+    dir = (config.data_dir+"/maint/"+old_domain)
     for link in os.listdir(dir):
         oldfile = os.path.join(dir,link)
         if not os.path.islink(oldfile):
@@ -99,7 +99,7 @@ def mklinks():
         newlink = re.sub(old_pattern, new_pattern, oldlink)
         if newlink == oldlink:
             # link is good, need to make new link in newdir
-            potdir = os.path.join(config.top_directory,"teams/PO",team)
+            potdir = os.path.join(config.data_dir,"teams/PO",team)
             pofiles = []
             for f in glob.glob1(potdir,old_pattern+"*"):
                 f1 = re.sub(old_pattern,new_pattern,f)
