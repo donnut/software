@@ -38,17 +38,17 @@ def main(*arguments):
     assert htmldir, "`-C HTMLDIR' is mandatory"
     if domain_option:
         relocate(htmldir and '%s/domains.html' % htmldir,
-                 'the textual domain index', 'domain=index')
+                 'domain index page', 'domain=index')
         for domain in registry.domain_list():
             relocate(htmldir and '%s/domain-%s.html' % (htmldir, domain.name),
-                     'the <code>%s</code> textual domain' % domain.name,
+                     'page for domain <code>%s</code>' % domain.name,
                      'domain=%s' % domain.name)
     if team_option:
         relocate(htmldir and '%s/teams.html' % htmldir,
-                 'the national team index', 'team=index')
+                 'team index page', 'team=index')
         for team in registry.team_list():
             relocate(htmldir and '%s/team-%s.html' % (htmldir, team.name),
-                     'the %s national team' % team.language,
+                     'page for the %s team' % team.language,
                      'team=%s' % team.name)
 
 def relocate(name, description, params):
@@ -63,10 +63,10 @@ def relocate(name, description, params):
   <title>Redirection page</title>
  </head>
  <body>
-  <h1>Computing an HTML page for %s.</h1>
+  <h1>Computing %s...</h1>
   <p>
-   If your browser supports page redirection, this page should disappear
-   within a few seconds.  Otherwise, you may
+   If your browser supports page redirection, this page will
+   get replaced within a second.  Otherwise, you may
    <a href='%s/registry.cgi?%s'>click here</a>
    to launch the generation of the results.
  </body>

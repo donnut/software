@@ -16,7 +16,8 @@ if host in ('neoduik',): # The machine of Vrijschrift
     scripts_dir = "/home/benno/opt/TP"
     data_dir = "/home/benno/var/TP"
     cgi_base = 'http://tp.vrijschrift.org/cgi-bin'
-    html_base = 'http://www.vrijschrift.org/~benno/var/TP/html'
+    html_base = 'http://www.vrijschrift.org/~benno'
+    data_base = 'http://www.vrijschrift.org/~benno/..'
 else:
     raise "Not configured for host '%s' -- edit config.py file." % host
     
@@ -30,4 +31,5 @@ environ = {
     'html_layout_file': '%s/web/layout.html' % scripts_dir,
     'cgi_base': cgi_base,
     'html_base': html_base,
+    'data_base': data_base,
     }

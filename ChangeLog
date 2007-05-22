@@ -1,6 +1,13 @@
 
 2007-05-22  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* lib/config.py, lib/registry.py: Differentiate base URLs of
+	html and data.
+
+	* web/html-to-cgi: Lessen the text on redirection pages.
+
+2007-05-22  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* lib/config.py, lib/localweb.py, lib/registry.py,
 	web/html-to-cgi, web/Makefile: Define URLs in just one place.
 
