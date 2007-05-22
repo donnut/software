@@ -1,6 +1,11 @@
 
 2007-05-22  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* lib/config.py, lib/localweb.py, lib/registry.py,
+	web/html-to-cgi, web/Makefile: Define URLs in just one place.
+
+2007-05-22  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* bin/make-maintain, bin/po-expire, bin/po-matrix, bin/postats-data,
 	doc/files.all, doc/translators.all, lib/localweb.py, lib/registry.py,
 	tools/tp_mirror.py: Change directory names: domains/POT -> POT-files,

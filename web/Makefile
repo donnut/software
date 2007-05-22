@@ -2,16 +2,17 @@
 # Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 
-cgidir = /home/benno/www
-htmldir = /home/benno/www/HTML
+cgidir = /home/benno/var/TP/cgi-bin
+htmldir = /home/benno/var/TP/html
 progsdir = /home/benno/TP
+cachedir= /home/benno/var/TP/cache
 libdir = $(progsdir)/lib
 
 CGI_FILES = registry.cgi
 HTML_FILES = domains.html teams.html
 
 LAYOUT_DEPS = ../web/lib/config.py layout.html to-html
-REGISTRY_DEPS = html-to-cgi ../data/postats ../data/registry
+REGISTRY_DEPS = html-to-cgi $(cachedir)/postats $(cachedir)/registry
 
 
 all: cgi html

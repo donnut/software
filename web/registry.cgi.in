@@ -5,8 +5,8 @@
 """\
 Serve CGI requests about textual domains or national teams.
 
-If field `domain' is defined, it should be either `index' or a domain name.
-Else, if field `team' is defined, it should be either `index' or a team name.
+When field 'domain' is defined, it should be either 'index' or a domain name.
+When field 'team' is defined, it should be either 'index' or a team name.
 """
 
 import sys

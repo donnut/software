@@ -14,7 +14,9 @@ Usage: html-to-cgi [OPTION]...
 """
 
 import getopt, re, sys, os
-import registry
+
+sys.path.insert(0, sys.path[0]+'/../lib')
+import config, registry
 
 os.umask(002)
 
@@ -54,12 +56,6 @@ def relocate(name, description, params):
         write = open(name, 'w').write
     else:
         write = sys.stdout.write
-    # This would be simpler if only I could force it instead of HTTP headers.
-    #write('Status: 302 Redirected\r\n'
-    #      'Location: %s/registry.cgi?%s\r\n'
-    #      '\r\n'
-    #      % (registry.cgiurl, params))
-    # Some write `302 Moved\n' instead.
     write("""
 <html>
  <head>
@@ -76,7 +72,7 @@ def relocate(name, description, params):
  </body>
 </html>
 """
-          % (registry.cgiurl, params, description, registry.cgiurl, params))
+          % (config.cgi_base, params, description, config.cgi_base, params))
 
 if __name__ == '__main__':
     apply(main, tuple(sys.argv[1:]))

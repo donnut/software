@@ -10,14 +10,12 @@ import config
 def _(text):
     return text
 
-cgiurl = config.cgi_base
 puburl = config.html_base
 puburls = (puburl,
            'ftp://ftp.unex.es/pub/gnu-i18n/po',
            'http://translation.sf.net',
            #'ftp://tiger.informatik.hu-berlin.de/pub/po'
           )
-htmlurl = config.home_base + "/HTML"
 podir = config.data_dir
 tempfile.tempdir = '%s/tmp' % config.data_dir
 

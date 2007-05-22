@@ -15,9 +15,8 @@ host = string.split(socket.gethostname(), '.')[0]
 if host in ('neoduik',): # The machine of Vrijschrift
     scripts_dir = "/home/benno/opt/TP"
     data_dir = "/home/benno/var/TP"
-    cgi_base = 'http://www.vrijschrift.org/~benno/'
-    home_base = 'http://www.vrijschrift.org/~benno/'
-    html_base = 'http://www.vrijschrift.org/~benno/'
+    cgi_base = 'http://tp.vrijschrift.org/cgi-bin'
+    html_base = 'http://www.vrijschrift.org/~benno/var/TP/html'
 else:
     raise "Not configured for host '%s' -- edit config.py file." % host
     
@@ -30,6 +29,5 @@ environ = {
     'caption_color': 'cyan',
     'html_layout_file': '%s/web/layout.html' % scripts_dir,
     'cgi_base': cgi_base,
-    'home_base': home_base,
     'html_base': html_base,
     }
