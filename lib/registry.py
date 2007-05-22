@@ -335,13 +335,13 @@ Splitting file names into components.
 
     def template_path(self):
         """Full file name of POT file within the registry."""
-        return '%s/domains/POT/%s' % (config.data_dir, self.template_base())
+        return '%s/POT-files/%s' % (config.data_dir, self.template_base())
 
     def template_urls(self):
         """URLs of PO file within various registry copies."""
         urls = []
         for puburl in puburls:
-            urls.append('%s/domains/POT/%s' % (puburl, self.template_base()))
+            urls.append('%s/POT-files/%s' % (puburl, self.template_base()))
         return tuple(urls)
 
     def archive_base(self):
@@ -355,14 +355,14 @@ Splitting file names into components.
 
     def archive_path(self):
         """Full file name of PO file within the registry."""
-        return '%s/teams/PO/%s/%s' % (config.data_dir, self.team.name,
+        return '%s/PO-files/%s/%s' % (config.data_dir, self.team.name,
                                       self.archive_base())
 
     def archive_urls(self):
         """URLs of PO file within various registry copies."""
         urls = []
         for puburl in puburls:
-            urls.append('%s/teams/PO/%s/%s'
+            urls.append('%s/PO-files/%s/%s'
                         % (puburl, self.team.name, self.archive_base()))
         return tuple(urls)
 
@@ -376,15 +376,15 @@ Splitting file names into components.
 
     def maintainer_path(self):
         """Maintainer's view for the full file name of PO file."""
-        return '%s/maint/%s/%s' % (config.data_dir, self.domain.name,
-                                   self.maintainer_base())
+        return '%s/latest-POs/%s/%s' % (config.data_dir, self.domain.name,
+                                        self.maintainer_base())
 
     def maintainer_urls(self):
         """Maintainer's view for the URLs of PO files."""
         urls = []
         for puburl in puburls:
-            urls.append('%s/maint/%s/%s' % (puburl, self.domain.name,
-                                            self.maintainer_base()))
+            urls.append('%s/latest-POs/%s/%s' % (puburl, self.domain.name,
+                                                 self.maintainer_base()))
         return tuple(urls)
 
 VERSION = ('[.0-9]+-?b[0-9]+'

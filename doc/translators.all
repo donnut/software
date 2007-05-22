@@ -157,8 +157,8 @@
    been translated, and your team does not help you to choose a translation
    assignment, your might look into these directories:
 
-           http://www.translationproject.org/trans/LL/
-           http://www.translationproject.org/pot/
+           http://www.translationproject.org/PO-files/LL/
+           http://www.translationproject.org/POT-files/
 
    The first directory contains the availabe PO files for language LL that
    are completely or incompletely translated, but excludes files for which

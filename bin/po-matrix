@@ -54,13 +54,13 @@ Make an inventory of all `.pot' and `.po' files.
         self.teams = {}
         self.pofiles = {}
         # Read list of POT files.
-        for file in os.listdir('%s/domains/POT' % registry.podir):
+        for file in os.listdir('%s/POT-files' % registry.podir):
             try:
                 hints = registry.Hints(file)
             except (KeyError,ValueError):
 		if not ignored(file):
-                	sys.stderr.write("* Dubious file `%s/domains/POT/%s' ??\n"
-                                 % (registry.podir, file))
+                	sys.stderr.write("* Dubious file '%s/POT-files/%s'?\n"
+                                         % (registry.podir, file))
             else:
                 self.domains[hints.domain.name] = [0, 0, 0]
         # Read PO file statistics.

@@ -400,7 +400,7 @@ class TeamPage(htmlpage.Htmlpage):
                 extstats = get_extstats().get((domain.name, team.code))
             else:
                 write('   <td></td>\n')
-            file = '../maint/%s/%s.po' % (domain.name, team.name)
+            file = '../latest-POs/%s/%s.po' % (domain.name, team.name)
             have_stats = 0
             if os.path.isfile(file):
                 hints = registry.Hints(os.readlink(file))

@@ -84,11 +84,11 @@ if not os.path.exists(prefix):
     os.mkdir(prefix)
 os.chdir(prefix)
 try:
-    os.link("domains/POT", "pot")
+    os.link("POT-files", "pot")
 except OSError:
     pass
 try:
-    os.link("teams/PO", "trans")
+    os.link("PO-files", "trans")
 except OSError:
     pass
 
@@ -136,12 +136,12 @@ for line in data:
     team=None
     domain=None
     kind=None
-    if name[:9] == 'teams/PO/':
+    if name[:9] == 'PO-files/':
 	team = re.match("^([^/]+)/",name[9:]).group(1)
 	domain = re.match("^([^/])+/([^-]*)-",name[9:]).group(2)
 	kind="data"
-    if name[:12] == 'domains/POT/':
-	domain = re.match("^([^-]*)-",name[12:]).group(1)
+    if name[:10] == 'POT-files/':
+	domain = re.match("^([^-]*)-",name[10:]).group(1)
 	kind="data"
     if name[:5] == 'data/':
 	kind="bin" # because those data are used only in bin

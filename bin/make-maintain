@@ -63,8 +63,8 @@ def gen_registry():
                 pass
 
     sgml.decode_database()
-    mv_po(config.data_dir+"/teams/PO")
-    mv_po(config.data_dir+"/domains/POT")
+    mv_po(config.data_dir+"/PO-files")
+    mv_po(config.data_dir+"/POT-files")
     mklinks()
 
 renamed = {}
@@ -85,9 +85,9 @@ def byversion(a,b):
     return cmp(a.version,b.version)
 
 def mklinks():
-    newdir = "%s/maint/%s" % (config.data_dir, new_domain)
+    newdir = "%s/latest-POs/%s" % (config.data_dir, new_domain)
     print "mkdir",newdir
-    dir = (config.data_dir+"/maint/"+old_domain)
+    dir = (config.data_dir+"/latest-POs/"+old_domain)
     for link in os.listdir(dir):
         oldfile = os.path.join(dir,link)
         if not os.path.islink(oldfile):
@@ -99,7 +99,7 @@ def mklinks():
         newlink = re.sub(old_pattern, new_pattern, oldlink)
         if newlink == oldlink:
             # link is good, need to make new link in newdir
-            potdir = os.path.join(config.data_dir,"teams/PO",team)
+            potdir = os.path.join(config.data_dir,"PO-files",team)
             pofiles = []
             for f in glob.glob1(potdir,old_pattern+"*"):
                 f1 = re.sub(old_pattern,new_pattern,f)
@@ -108,7 +108,7 @@ def mklinks():
                 pofiles.append((f,f1))
             pofiles.sort(byversion)
             if pofiles:
-                print "ln -s ../../teams/PO/%s/%s %s/%s" % \
+                print "ln -s ../../PO-files/%s/%s %s/%s" % \
                       (team,pofiles[-1][1],newdir,link)
         else:
             # Removing the link is undesirable: this translation

@@ -155,7 +155,7 @@ def update(postats, found, name, verbose, update_only):
 
 def gen_potstats(postats, verbose):
     versions = {}
-    for f in os.listdir('%s/domains/POT' % config.data_dir):
+    for f in os.listdir('%s/POT-files' % config.data_dir):
         try:
             h = registry.hints(f)
         except ValueError:
@@ -179,7 +179,7 @@ def gen_potstats(postats, verbose):
     for domain, (version, file) in versions.items():
         if verbose:
             sys.stderr.write("%s ... " % file)
-        entries = po.read('%s/domains/POT/%s' % (config.data_dir, file))
+        entries = po.read('%s/POT-files/%s' % (config.data_dir, file))
         stats = po.stats(entries)
         # aegis.pot has translations
 	# assert stats['translated']==0,file

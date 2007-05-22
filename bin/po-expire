@@ -42,13 +42,13 @@ def find_pot_files():
     command = run.execute.command
     # Make an inventory of all POT files, keep those with highest versions.
     inventory = {}
-    for base in os.listdir('pot'):
+    for base in os.listdir('POT-files'):
         if base[-1] == '~':
-            command(None, 'rm pot/%s' % base)
+            command(None, 'rm POT-files/%s' % base)
             continue
         hints = registry.Hints(base)
         if base[-4:] != '.pot' or hints.team or hints.gzipped:
-            warn("Not recognized as a POT file name: pot/%s" % base)
+            warn("Not recognized as a POT file name: POT-files/%s" % base)
             continue
         if not inventory.has_key(hints.domain.name):
             inventory[hints.domain.name] = []
@@ -71,7 +71,7 @@ def find_po_files():
     # Make an inventory of all PO files, keep those with highest versions.
     teams = {}
     inventory = {}
-    directories = ['trans']
+    directories = ['PO-files']
     while directories:
         directory = directories[-1]
         directories = directories[:-1]
@@ -84,7 +84,7 @@ def find_po_files():
                 command(None, 'rm %s' % name)
                 continue
             hints = registry.Hints(base)
-            if base[-3:] != '.po' or directory != 'trans/%s' % hints.team.name:
+            if base[-3:] != '.po' or directory != 'PO-files/%s' % hints.team.name:
                 warn("Not recognized as a PO file name: %s" % name)
                 continue
             if not inventory.has_key((hints.domain.name, hints.team.name)):
@@ -106,18 +106,18 @@ def find_po_files():
 def check_maintainer_links():
     warn('Checking maintainer links')
     # Make an inventory of all maintainer links, keep all pointed to files.
-    for domain in os.listdir('maint'):
-        for base in os.listdir(os.path.join('maint', domain)):
-            name = 'maint/%s/%s' % (domain, base)
+    for domain in os.listdir('latest-POs'):
+        for base in os.listdir(os.path.join('latest-POs', domain)):
+            name = 'latest-POs/%s/%s' % (domain, base)
             if base[-3:] != '.po':
                 warn("Not recognized as a maintainer file name: %s" % name)
                 continue
             link = os.readlink(name)
             team = base[:-3]
-            # The robot should not use such mixed writings for links.
-            # Presumably, prefix2 should be preferred over prefix1.  FIXME!
+            # FIXME: All maintainer links should be converted to prefix3.
             prefix1 = '../../trans/%s/%s-' % (team, domain)
             prefix2 = '../../teams/PO/%s/%s-' % (team, domain)
+            prefix3 = '../../PO-files/%s/%s-' % (team, domain)
             suffix = '.%s.po' % team
             if (link[:len(prefix1)] == prefix1
                 and link[-len(suffix):] == suffix):
@@ -125,8 +125,11 @@ def check_maintainer_links():
             elif (link[:len(prefix2)] == prefix2
                   and link[-len(suffix):] == suffix):
                 version = link[len(prefix2):-len(suffix)]
+            elif (link[:len(prefix3)] == prefix3
+                  and link[-len(suffix):] == suffix):
+                version = link[len(prefix3):-len(suffix)]
             else:
-                warn("Symbolic link not valid: maint/%s/%s.po -> %s"
+                warn("Invalid symbolic link: latest-POs/%s/%s.po -> %s"
                      % (domain, team, link))
                 continue
             #run.keep_pot[domain, version] = None
@@ -162,7 +165,7 @@ def clean_out(pot_files, po_files):
                     break
             else:
                 rmcommand((domain, version),
-                          'pot/%s-%s.pot' % (domain, version))
+                          'POT-files/%s-%s.pot' % (domain, version))
     for (domain, team), versions in po_files.items():
         for version in versions:
             if run.keep_all.has_key((domain, version)):
@@ -170,7 +173,7 @@ def clean_out(pot_files, po_files):
             if run.keep_po.has_key((domain, version, team)):
                 continue
             rmcommand((domain, version),
-                      'trans/%s/%s-%s.%s.po'
+                      'PO-files/%s/%s-%s.%s.po'
                       % (team, domain, version, team))
 
 def diagnose_missing(pot_files, po_files):
@@ -178,7 +181,7 @@ def diagnose_missing(pot_files, po_files):
     has_group = run.execute.has_group
     # Diagnose files to keep which are missing.
     for (domain, version), reasons in run.keep_pot.items():
-        file = 'pot/%s-%s.pot' % (domain, version)
+        file = 'POT-files/%s-%s.pot' % (domain, version)
         if version in pot_files.get(domain,()):
             if has_group((domain, version)):
                 command((domain, version),
@@ -187,7 +190,7 @@ def diagnose_missing(pot_files, po_files):
             command((domain, version),
                     'echo "Missing %s despite %s"' % (file, reasons))
     for (domain, version, team), reasons in run.keep_po.items():
-        file = 'trans/%s/%s-%s.%s.po' % (team, domain, version, team)
+        file = 'PO-files/%s/%s-%s.%s.po' % (team, domain, version, team)
         if version in po_files.get((domain, team),()):
             if has_group((domain, version)):
                 command((domain, version),

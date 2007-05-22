@@ -17,13 +17,7 @@ for the sake of transparency about the internal workings of the project.
 
 .* PO files repository
 
-. + `maint/DOMAIN/LL.po'
-    Package maintainers may always grab the latest official copy of
-    translation files, in PO format, pertaining to their own package,
-    in the `maint/' hierarchy.  DOMAIN is usually the package name, sans
-    version, and `LL' is the language code as explained earlier.
-
-. + `domains/POT/DOMAIN-VERSION.pot'
+. + `POT-files/DOMAIN-VERSION.pot'
     This subdirectory contains many template PO files, holding untranslated
     messages only.  Each file is named `DOMAIN-VERSION.pot', according
     to the textual domain name and version numbers.  The textual domain
@@ -31,13 +25,19 @@ for the sake of transparency about the internal workings of the project.
     `-VERSION' part.  These are very old, or else, too young for having
     version numbers yet.
 
-. + `teams/PO/LL/DOMAIN-VERSION.po'
+. + `PO-files/LL/DOMAIN-VERSION.po'
     Translating volunteers may find in the `teams/' directory all officially
     accepted PO files, providing translations for packages already released
     or still incoming.  Each PO file is identified according to textual
     domain and version.  The textual domain name is usually identical to
     the package name.  `LL' is the language code.  Old obsolete PO files
     may be deleted, they are not kept forever.
+
+. + `latest-POs/DOMAIN/LL.po'
+    Package maintainers may always grab the latest official copy of
+    translation files, in PO format, pertaining to their own package,
+    in the `latest-POs/' hierarchy.  `DOMAIN' is usually the package name,
+    sans version, and `LL' is the language code as explained earlier.
 
 .* Text files
 
@@ -105,7 +105,7 @@ for the sake of transparency about the internal workings of the project.
 
     This file also contains a subset of `iso-639' in a format suitable
     for a few semi-automatic scripts needing to translate a team code to
-    the language name, while indicating which `trans/LL/' directories
+    the language name, while indicating which `PO-files/LL/' directories
     currently exist in the Translation Project.
 
     This file finally provides data for a few semi-automatic scripts with the
