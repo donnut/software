@@ -1,6 +1,10 @@
 
 2007-05-22  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* lib/registry: Put still required stuff back.
+
+2007-05-22  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* bin/po-register: Simplify the messages, stop printing the ">"
 	quote marks, stop including the mirror URLs.
 
