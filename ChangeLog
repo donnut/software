@@ -1,6 +1,11 @@
 
 2007-05-22  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* bin/po-register: Simplify the messages, stop printing the ">"
+	quote marks, stop including the mirror URLs.
+
+2007-05-22  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* lib/config.py, lib/data.py, lib/registry.py, lib/sgml.py,
 	bin/make-maintain, bin/postats-data: Clean up configuration
 	and improve variable names.
