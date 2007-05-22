@@ -1,5 +1,10 @@
 
-2007-05-22  Benno Schulenberg  <benno@vertaalt.nl>
+2007-05-23  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* web/layout.html: Make the links use full URLs again, made
+	necessary by the CGI script being in a different directory.
+
+2007-05-23  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/config.py, lib/registry.py: Differentiate base URLs of
 	html and data.
