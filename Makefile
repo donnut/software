@@ -11,7 +11,7 @@ lib/po.py lib/registry.py lib/run.py lib/unpack.py
 
 MYDIR=.
 
-PATH:=/home/benno/TP/bin:$(PATH)
+PATH:=/home/benno/opt/TP/bin:$(PATH)
 DASH_X:=-x
 
 all: data/registry doc/matrix.texi

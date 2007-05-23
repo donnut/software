@@ -4,8 +4,8 @@
 
 cgidir = /home/benno/var/TP/cgi-bin
 htmldir = /home/benno/var/TP/html
-progsdir = /home/benno/TP
 cachedir= /home/benno/var/TP/cache
+progsdir = /home/benno/opt/TP
 libdir = $(progsdir)/lib
 
 CGI_FILES = registry.cgi
@@ -20,8 +20,7 @@ all: cgi html
 cgi: $(addprefix $(cgidir)/,$(CGI_FILES))
 
 html: $(addprefix $(htmldir)/,$(HTML_FILES))
-	PYTHONPATH=$(libdir):$$PYTHONPATH \
-	  ./to-html -C $(htmldir) ../doc $(distdir)
+	./to-html -C $(htmldir) ../doc $(distdir)
 
 $(addprefix $(cgidir)/,$(CGI_FILES)): $(cgidir)
 $(addprefix $(htmldir)/,$(HTML_FILES)): $(htmldir)
@@ -34,12 +33,10 @@ $(cgidir)/%.cgi: %.cgi.in
 	mv -f $@-tmp $@
 
 $(htmldir)/domains.html: $(REGISTRY_DEPS)
-	PYTHONPATH=$(libdir):$$PYTHONPATH \
-	  ./html-to-cgi -C $(htmldir) -D
+	./html-to-cgi -C $(htmldir) -D
 
 $(htmldir)/teams.html: $(REGISTRY_DEPS)
-	PYTHONPATH=$(libdir):$$PYTHONPATH \
-	  ./html-to-cgi -C $(htmldir) -T
+	./html-to-cgi -C $(htmldir) -T
 
 lint: all
 	find $(htmldir) -name '*.html' | while read file; do \

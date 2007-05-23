@@ -15,6 +15,8 @@ When a directory, find and process the `interesting' files it contains.
 """
 
 import getopt, re, sys, os
+
+sys.path.insert(0, sys.path[0]+'/../lib')
 import htmlpage
 
 os.umask(002)
