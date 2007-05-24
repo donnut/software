@@ -1,6 +1,10 @@
 
 2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* bin/postats-data: Order options, fix a path, whitespace tweaks.
+
+2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* Makefile, doc/Makefile, web/Makefile, web/registry.cgi.in:
 	Clean it up a bit.
 

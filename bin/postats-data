@@ -10,9 +10,9 @@ Adjust the database holding PO file statistics.
 Usage: postats-data [OPTION] [POFILE]...
 
   -d  Delete entries for which the PO file does not exist
-  -i  Re-initialise the whole database (may be long)
-  -u  Take time stamps into account
+  -i  Re-initialise the whole database (takes very long)
   -t  Re-initialise just the template information
+  -u  Take time stamps into account
   -v  Entertain the user by telling what goes on
 """
 
@@ -28,7 +28,7 @@ def main(*arguments):
         sys.exit(0)
     delete_option = initialize_option = template_option = verbose_option = 0
     update_option = 0
-    options, arguments = getopt.getopt(arguments, 'ditvu')
+    options, arguments = getopt.getopt(arguments, 'dituv')
     for option, value in options:
         if option == '-d':
             delete_option = 1
@@ -36,10 +36,10 @@ def main(*arguments):
             initialize_option = 1
         elif option == '-t':
             template_option = 1
-        elif option == '-v':
-            verbose_option += 1
         elif option == '-u':
             update_option = 1
+        elif option == '-v':
+            verbose_option += 1
     assert not initialize_option or not delete_option
     if initialize_option or update_option:
         assert len(arguments) == 0
@@ -56,7 +56,7 @@ def main(*arguments):
         else:
             postats = UserDict.UserDict()
         found = []
-        os.path.walk('%s/trans' % config.data_dir,
+        os.path.walk('%s/PO-files' % config.data_dir,
                      walker, (postats, found, verbose_option, update_option))
         gen_potstats(postats, verbose_option)
         if update_option:
@@ -140,7 +140,7 @@ def update(postats, found, name, verbose, update_only):
                 if f.startswith("charset="):
                     charset = f[8:]
             if charset:
-                translator = unicode(translator,charset).encode("utf-8")
+                translator = unicode(translator, charset).encode("utf-8")
         stats = po.stats(entries)
         total = stats['translated'] + stats['untranslated'] + stats['fuzzy']
         postats[key] = (translator, mailto, stats['translated'], total,
@@ -161,7 +161,7 @@ def gen_potstats(postats, verbose):
         except ValueError:
             continue
         except KeyError:
-            print "BAD FILE",f
+            print "BAD FILE", f
             continue
 	try:
 	    h.version.set_sort_key()
@@ -182,8 +182,8 @@ def gen_potstats(postats, verbose):
         entries = po.read('%s/POT-files/%s' % (config.data_dir, file))
         stats = po.stats(entries)
         # aegis.pot has translations
-	# assert stats['translated']==0,file
-        assert stats['fuzzy']==0,file
+	# assert stats['translated'] == 0, file
+        assert stats['fuzzy'] == 0, file
         postats.potstats[domain] = (file, stats['untranslated'])
         if verbose:
             sys.stderr.write("%d\n" % stats['untranslated'])
