@@ -1,6 +1,11 @@
 
 2007-05-24  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* lib/config.py, lib/localweb.py, lib/registry.py, web/Makefile:
+	Adjust a few paths.
+
+2007-05-24  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* web/layout.html: Make sidebar links relative again.
 
 2007-05-24  Benno Schulenberg  <benno@vertaalt.nl>

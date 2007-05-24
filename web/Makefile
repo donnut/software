@@ -11,7 +11,7 @@ libdir = $(progsdir)/lib
 CGI_FILES = registry.cgi
 HTML_FILES = domains.html teams.html
 
-LAYOUT_DEPS = ../web/lib/config.py layout.html to-html
+LAYOUT_DEPS = ../lib/config.py layout.html to-html
 REGISTRY_DEPS = html-to-cgi $(cachedir)/postats $(cachedir)/registry
 
 

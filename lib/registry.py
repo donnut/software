@@ -10,7 +10,7 @@ import config
 def _(text):
     return text
 
-puburl = config.data_base
+puburl = config.site_base
 puburls = (puburl,
            'ftp://ftp.unex.es/pub/gnu-i18n/po',
            'http://translation.sf.net',
