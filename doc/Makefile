@@ -3,8 +3,6 @@
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 
 htmldir = /home/benno/var/TP/html
-progsdir = /home/benno/opt/TP
-libdir = $(progsdir)/lib
 
 ALL_FILES = maintainers.all leaders.all translators.all \
             files.all robot.all software.all
@@ -17,6 +15,5 @@ $(htmldir):
 	mkdir -p $@
 
 %.html: %.all
-	PYTHONPATH=$(libdir):$$PYTHONPATH \
-	    ../web/to-html -C $(htmldir) $<
+	../web/to-html -C $(htmldir) $<
 

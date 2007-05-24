@@ -6,7 +6,6 @@ cgidir = /home/benno/var/TP/cgi-bin
 htmldir = /home/benno/var/TP/html
 cachedir= /home/benno/var/TP/cache
 progsdir = /home/benno/opt/TP
-libdir = $(progsdir)/lib
 
 CGI_FILES = registry.cgi
 HTML_FILES = domains.html teams.html
@@ -28,7 +27,7 @@ $(cgidir) $(htmldir):
 	mkdir -p $@
 
 $(cgidir)/%.cgi: %.cgi.in
-	sed 's,@topdir@,$(progsdir),g;s,@libdir@,$(libdir),g' $< > $@-tmp
+	sed 's,@progsdir@,$(progsdir),g' $< > $@-tmp
 	chmod a+rx $@-tmp
 	mv -f $@-tmp $@
 

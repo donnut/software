@@ -1,18 +1,13 @@
 # Conveniently process the PO directory hierarchy.
-# Copyright (C) 2004 Translation Project.
+# Copyright (C) 2004, 2007 Translation Project.
 # Copyright (C) 1996, 1997, 1998, 1999, 2000, 2001 Free Software Foundation, Inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1996.
 
-VERSION=1.1
-
-POTFILES = bin/fetch-pot bin/msg-to-po bin/po-empty bin/po-normalize \
-bin/po-register bin/po-to-scm bin/scm-to-po bin/tp-robot lib/editor.py \
-lib/po.py lib/registry.py lib/run.py lib/unpack.py
-
-MYDIR=.
+VERSION=1.2
 
 PATH:=/home/benno/opt/TP/bin:$(PATH)
 DASH_X:=-x
+
 
 all: data/registry doc/matrix.texi
 	po-expire
@@ -33,7 +28,8 @@ tags-recursive:
 
 data/registry: registry/registry.sgml
 	VERSION_CONTROL=numbered cp -fb data/registry data/registry
-	-bin/registry-data -de >registry.tmp && diff -u registry.tmp registry/registry.sgml
+	-bin/registry-data -de >registry.tmp && \
+	    diff -u registry.tmp registry/registry.sgml
 	rm registry.tmp
 
 .PRECIOUS: data/postats
@@ -68,13 +64,15 @@ endif
 
 mailrc-i18n: $(HOME)/.mailrc-i18n
 $(HOME)/.mailrc-i18n: data/registry
-	bin/i18n-aliases -TDf > $@-tmp
+	bin/i18n-aliases -TDf >$@-tmp
 	mv $@-tmp $@
 
 .PHONY:	pot
 pot:
-	xgettext -o po/tp-robot.pot -kt_ -L Python bin/[a-z]* web/lib/*.py
-	python web/lib/registry.py >> po/tp-robot.pot
+	xgettext -o po/tp-robot.pot -kt_ -L Python bin/[a-z]* lib/*.py
+	# Add the list of language teams:
+	python lib/registry.py >>po/tp-robot.pot
 
 dist:
-	tar -czv -f $(MYDIR)/data/tp-robot-${VERSION}.tgz --exclude=CVS tp-robot/Makefile tp-robot/bin tp-robot/web/lib tp-robot/registry tp-robot/po
+	tar -czv -f $(HOME)/translationproject-${VERSION}.tgz \
+	    --exclude=.svn  ../$(pwd)

@@ -10,7 +10,7 @@ When field 'team' is defined, it should be either 'index' or a team name.
 """
 
 import sys
-sys.path.insert(0, '@libdir@')
+sys.path.insert(0, '@progsdir@/lib')
 
 def main():
     try:
@@ -23,7 +23,7 @@ def process_request():
     form = cgi.FieldStorage()
     if form.has_key('domain'):
         domain = form['domain'].value
-        os.chdir('@topdir@/web')
+        os.chdir('@progsdir@/web')
         import localweb
         if domain == 'index':
             localweb.produce_domain_index(None)
@@ -32,7 +32,7 @@ def process_request():
             localweb.produce_domain_page(data.load_postats(), domain, None)
     elif form.has_key('team'):
         team = form['team'].value
-        os.chdir('@topdir@/web')
+        os.chdir('@progsdir@/web')
         import localweb
         if team == 'index':
             localweb.produce_team_index(None)

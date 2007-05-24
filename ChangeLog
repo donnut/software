@@ -1,4 +1,9 @@
 
+2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* Makefile, doc/Makefile, web/Makefile, web/registry.cgi.in:
+	Clean it up a bit.
+
 2007-05-24  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/config.py, lib/localweb.py, lib/registry.py, web/Makefile:
