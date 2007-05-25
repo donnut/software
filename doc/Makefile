@@ -9,11 +9,11 @@ ALL_FILES = maintainers.all leaders.all translators.all \
 HTML_FILES = $(ALL_FILES:.all=.html)
 
 
-all: $(htmldir) $(HTML_FILES) ../web/to-html
+all: $(htmldir) $(addprefix $(htmldir)/,$(HTML_FILES)) ../web/to-html
 
 $(htmldir):
 	mkdir -p $@
 
-%.html: %.all
+$(htmldir)/%.html: %.all
 	../web/to-html -C $(htmldir) $<
 

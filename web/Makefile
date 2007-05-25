@@ -4,26 +4,27 @@
 
 cgidir = /home/benno/var/TP/cgi-bin
 htmldir = /home/benno/var/TP/html
+passdir = /home/benno/var/TP/html
 cachedir= /home/benno/var/TP/cache
 progsdir = /home/benno/opt/TP
 
 CGI_FILES = registry.cgi
-HTML_FILES = domains.html teams.html
+PASS_FILES = domains.html teams.html
 
 LAYOUT_DEPS = ../lib/config.py layout.html to-html
 REGISTRY_DEPS = html-to-cgi $(cachedir)/postats $(cachedir)/registry
 
 
-all: cgi html
+all: cgi pass html
 
-cgi: $(addprefix $(cgidir)/,$(CGI_FILES))
+cgi: $(cgidir) $(addprefix $(cgidir)/,$(CGI_FILES))
 
-html: $(addprefix $(htmldir)/,$(HTML_FILES))
-	./to-html -C $(htmldir) ../doc $(distdir)
+pass: $(passdir) $(addprefix $(passdir)/,$(PASS_FILES))
 
-$(addprefix $(cgidir)/,$(CGI_FILES)): $(cgidir)
-$(addprefix $(htmldir)/,$(HTML_FILES)): $(htmldir)
-$(cgidir) $(htmldir):
+html:
+	$(MAKE) -C ../doc
+
+$(cgidir) $(passdir):
 	mkdir -p $@
 
 $(cgidir)/%.cgi: %.cgi.in
@@ -31,14 +32,14 @@ $(cgidir)/%.cgi: %.cgi.in
 	chmod a+rx $@-tmp
 	mv -f $@-tmp $@
 
-$(htmldir)/domains.html: $(REGISTRY_DEPS)
-	./html-to-cgi -C $(htmldir) -D
+domains $(passdir)/domains.html: $(REGISTRY_DEPS)
+	./html-to-cgi -C $(passdir) -D
 
-$(htmldir)/teams.html: $(REGISTRY_DEPS)
-	./html-to-cgi -C $(htmldir) -T
+teams $(passdir)/teams.html: $(REGISTRY_DEPS)
+	./html-to-cgi -C $(passdir) -T
 
 lint: all
-	find $(htmldir) -name '*.html' | while read file; do \
+	find $(htmldir) $(passdir) -name '*.html' | while read file; do \
 	  case $$file in \
 	    *po*) nsgmls -s $$file 2>&1 | egrep -v '"P"|"SMALL"' ;; \
 	    *gettext*) nsgmls -s $$file 2>&1 | egrep -v '"P"|"SMALL"' ;; \
