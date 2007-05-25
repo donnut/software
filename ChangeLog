@@ -1,6 +1,11 @@
 
 2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* doc/Makefile, doc/index.htm, doc/thanks.htm, doc/whydisclaim.htm:
+	Don't forget to transform the predefined HTML pages.
+
+2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* lib/config.py, lib/data.py, lib/localweb.py, lib/registry.py,
 	lib/sgml.py, bin/make-maintain, bin/po-expire, bin/po-matrix,
 	bin/po-register, bin/po-tidy-links, bin/postats-data, bin/tp-robot:

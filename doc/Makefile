@@ -6,14 +6,21 @@ htmldir = /home/benno/var/TP/html
 
 ALL_FILES = maintainers.all leaders.all translators.all \
             files.all robot.all software.all
-HTML_FILES = $(ALL_FILES:.all=.html)
+HTMLA_FILES = $(ALL_FILES:.all=.html)
+
+HTM_FILES = index.htm thanks.htm whydisclaim.htm
+HTMLH_FILES = $(HTM_FILES:.htm=.html)
 
 
-all: $(htmldir) $(addprefix $(htmldir)/,$(HTML_FILES)) ../web/to-html
+all: $(htmldir) $(addprefix $(htmldir)/,$(HTMLA_FILES)) \
+                $(addprefix $(htmldir)/,$(HTMLH_FILES))
 
 $(htmldir):
 	mkdir -p $@
 
 $(htmldir)/%.html: %.all
+	../web/to-html -C $(htmldir) $<
+
+$(htmldir)/%.html: %.htm
 	../web/to-html -C $(htmldir) $<
 
