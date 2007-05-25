@@ -4,7 +4,7 @@ A hierarchy of public files has been set up for the Translation Project,
 to help maintainers, translators, and coordinators to share files and to
 communicate.
 
-This site is not intended as a distribution place for making translations
+This site is not intended as a distribution place that makes translations
 available to all users, since translations are normally distributed within
 the published packages.
 
@@ -76,11 +76,11 @@ for the sake of transparency about the internal workings of the project.
     This translation matrix tells which domains have been translated by
     which teams.  Whenever a POT file is received for a package having
     none yet, or the first version of a PO file is received, `matrix.texi'
-    is removed.  This is detected by `make', which then uses `bin/do-matrix'
-    to reconstruct it and, on the same blow, mails it to a few places.
-    Ulrich Drepper replaces the sent matrix into the `nls.texi' file in
+    is removed.  This is detected by `make', which then uses `bin/po-matrix'
+    to reconstruct it and mail it to a few people.
+    Ulrich Drepper places this new matrix in the `nls.texi' file in
     his master copy of the `gettext' package, out of which `ABOUT-NLS'
-    is further derived, and mailed backed to me.
+    is derived and mailed backed to the Translation Project.
 
 . + `registry/AUTHORS'
     This file lists all translators who fulfilled the requirement of
@@ -94,7 +94,7 @@ for the sake of transparency about the internal workings of the project.
     (obeying a specialised structure defined in `registry.dtd') which
     replaces a few previous tabular files which were holding the Translation
     Project data.  Most Python scripts in `bin/' have been adapted so they use
-    the registry, using interfacing Python modules kept in `lib/python/'.
+    the registry, using interfacing Python modules kept in `lib/'.
 
     This fairly important file lists generic information about each team:
     what is the preferred charset in use, who coordinates it, what are
@@ -120,26 +120,17 @@ for the sake of transparency about the internal workings of the project.
     This file is meant for handling this hierarchy in various ways.
     See `bin/' scripts if you are interested in how things are being done.
 
-. + bin/po-check
-
-    The oldish Perl script `bin/po-check' once was successfully used by
-    a few translators to find various errors in their PO files before
-    sending them.  It may be more difficult to use it, now that it depends
-    on the registry.  The simplest is to let the robot do the checking
-    for you, as the turnaround should be quick.
-
 . + bin/po-normalize
 
     To normalize a PO file the same way the robot does (which should also
-    be the way `msgmerge' does it once it will get corrected), you might
+    be the way `msgmerge' does it once it gets corrected), you might
     use the following recipe.  Do this once to set things up:
 
-    cd
-    mkdir po
-    mkdir po/bin
-    cd po/bin
-    wget html://www.translationproject.org/scripts/bin/po-normalize
-    wget html://www.translationproject.org/scripts/lib/po.py
+        cd
+        mkdir -p po/bin
+        cd po/bin
+        wget http://svn.vrijschrift.org/tp-repo/TP/bin/po-normalize
+        wget http://svn.vrijschrift.org/tp-repo/TP/lib/po.py
 
     and ensure you have ~/po/bin on your search path, using one of:
 
@@ -147,7 +138,7 @@ for the sake of transparency about the internal workings of the project.
     set path=(~po/bin $path)			# csh
     export PATH; PATH=$HOME/po/bin:$PATH	# sh
 
-    Then, just use "po-normalize OLD-FILE > NEW-FILE"
+    Then, just use "po-normalize OLD-FILE >NEW-FILE"
 
     If you want to use a different directory organisation, you might have
     to tune both files a tiny bit, so the program finds its module, and the

@@ -1,4 +1,8 @@
 
+2007-05-26  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* doc/files.all, doc/software.all: Textual tweaks.
+
 2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* doc/Makefile, doc/index.html, doc/thanks.html, doc/whydisclaim.html:

@@ -2,22 +2,22 @@
 
 .* Software
 
-   KBabel -- http://kbabel.kde.org/
+   `KBabel' -- http://kbabel.kde.org/
 
-   gtranslator -- http://gtranslator.sourceforge.net/
+   `gtranslator' -- http://gtranslator.sourceforge.net/
 
-   Emacs with po-mode.el
+   `Emacs' with po-mode.el
 
-   vi with macros
+   `vi' with macros
 
-   Gettext -- http://www.gnu.org/software/gettext/
+   `gettext' -- http://www.gnu.org/software/gettext/
 
 
 .* Related Projects
 
-   GNOME --
+   `GNOME' --
    http://developer.gnome.org/projects/gtp/
 
-   KDE --
+   `KDE' --
    http://i18n.kde.org/translation-howto/
 
