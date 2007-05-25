@@ -1,8 +1,10 @@
 
 2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>
 
-	* doc/Makefile, doc/index.htm, doc/thanks.htm, doc/whydisclaim.htm:
+	* doc/Makefile, doc/index.html, doc/thanks.html, doc/whydisclaim.html:
 	Don't forget to transform the predefined HTML pages.
+
+	* Get it right at the second try.
 
 2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>
 
