@@ -1,6 +1,13 @@
 
 2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* bin/tp-robot, README: First framework for a README file that
+	should explain how the Translation Project hangs together: how
+	the server is configured, what procedures the administrators
+	follow.
+
+2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* doc/Makefile, web/Makefile: Improvements.
 
 2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>

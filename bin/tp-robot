@@ -1,32 +1,18 @@
 #!/usr/bin/env python
 # -*- mode: python; coding: iso-8859-1 -*-
-# Copyright © 2001, 2002, 2003, 2004, 2006 Translation Project.
+# Copyright © 2001, 2002, 2003, 2004, 2006, 2007 Translation Project.
 # Copyright © 1998, 1999, 2000, 2001 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1998.
 
 """\
 Attempt automatic processing of PO file submissions.
 
-Usage: tp-robot OPTION... < MESSAGE
+Usage: tp-robot OPTION... <MESSAGE
  or  : tp-robot OPTION... PO-FILE
 
   -d   Activate debugging code.
   -n   Do not alter the Translation Project archives.
-  -r   Be a good robot and email the reply to the translator.
-
-The robot gets into motion through `translation@tranlationproject.org', which
-is forwarded to `robot@translationproject.org', having this `.procmail' recipe:
-
-  :0 c: tpr-queue-lock
-  * ^To:.*translation@
-  * ^Subject: *[Tt][Pp][-_ ][Rr]obot
-  tpr-queue
-
-The robot user has this `crontab' entry:
-
-  0-50/10 * * * *	/bin/sh /opt/TP/bin/run-queue.sh
-
-That script is what actually launches this robot for each received file.
+  -r   Email a reply to the translator.
 """
 
 import os, sys, types, popen2

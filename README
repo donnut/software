@@ -1,0 +1,65 @@
+
+The mechanisms of the Translation Project
+-----------------------------------------
+
+This README briefly describes how things are set up on the server of the
+Translation Project.
+
+
+CGI script
+----------
+
+Apache is configured ... [how? where?] ... to allow execution of
+/home/translation/site/registry.cgi.  This script produces the HTML pages
+with information about a domain or a team.
+
+
+PO statistics
+-------------
+
+A 'crontab' entry ... [which one precisely] ... causes the file
+/home/translation/site/cache/postats to be recalculated every night.
+[This should later be changed to on-every-submission.]
+This file contains most of the data needed to produce domain and team pages.
+
+
+The robot
+---------
+
+The mail address <robot@tranlationproject.org> has the following
+'.procmail' recipe:
+
+  :0 c: tpr-queue-lock
+  * ^To:.*translation@
+  * ^Subject: *[Tt][Pp][-_ ][Rr]obot
+  tpr-queue
+
+The robot user has this 'crontab' entry:
+
+  0-50/10 * * * *	/bin/sh /home/translation/progs/bin/run-queue.sh
+
+This run-queue.sh script is what actually launches the robot for each
+received file.  [This could be changed to handle mail directly, upon receipt,
+if things can be locked correctly.]
+
+[Probably the robot also needs to be prevented form running when an admin is
+busy editing registry.sgml or anything else in /home/translation?]
+
+
+Adding a new POT file
+---------------------
+
+When package maintainers submit the URL of a new version of their package,
+a TP admin runs ... [fetch-pot?] and edits ... [what precisely?]
+
+
+Changing translator details
+---------------------------
+
+When a translator takes on a new package, or a new translator has joined a
+team, a TP admin edit registry.sgml [using editor.py?] and adds the required
+tags.  After that he .... [runs 'make something'?]
+
+
+If anything is missing from this file, please report it to
+<comments@tranlationproject.org>.
