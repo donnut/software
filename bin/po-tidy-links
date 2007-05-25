@@ -12,7 +12,7 @@ Usage: po-tidy-links [-n]
 import os, sys, shutil, glob
 
 sys.path.insert(0, sys.path[0]+'/../lib')
-import data, registry
+import config, data, registry
 
 dry_run=0
 if "-n" in sys.argv:
@@ -28,14 +28,14 @@ def checklink(arg, dir, fnames):
                     else:
                          os.unlink(f)
 
-#os.path.walk(os.path.join(registry.podir, "maint"), checklink, None)
+#os.path.walk(os.path.join(config.last_path), checklink, None)
 
 files = data.load_postats().keys()
 
 missing = {}
 
 for dom, ver, team in files:
-     linkname = os.path.join(registry.podir, "maint", dom, team+".po")
+     linkname = os.path.join(config.last_path, dom, team+".po")
      if os.path.exists(linkname):
           continue
      try:
@@ -46,17 +46,17 @@ for dom, ver, team in files:
 for (dom, team), vers in missing.items():
      vers.sort()
      ver = vers[-1].name
-     source = "../../teams/PO/%s/%s-%s.%s.po" % (team, dom, ver, team)
-     target = os.path.join(registry.podir, "maint", dom, team+".po")
+     source = "../../%s/%s/%s-%s.%s.po" % (config.pos_dir, team, dom, ver, team)
+     target = os.path.join(config.last_path, dom, team+".po")
      assert not os.path.exists(source)
      t1 = os.path.normpath(os.path.join(os.path.dirname(target), source))
      if not os.path.exists(t1):
-          files = glob.glob1("%s/teams/PO/%s" % (registry.podir, team),
+          files = glob.glob1("%s/%s" % (config.pos_path, team),
                              "%s-%s.%s*.po" % (dom, ver, team))
           if len(files) != 1:
                print "%s does not exist, glob1 gives %s" % (t1, files)
                continue
-          source = "../../teams/PO/%s/%s" % (team, files[0])
+          source = "../../%s/%s/%s" % (config.pos_dir, team, files[0])
           t1 = os.path.normpath(os.path.join(os.path.dirname(target), source))
           assert os.path.exists(t1), t1
      if dry_run:

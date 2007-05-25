@@ -135,7 +135,7 @@ class DomainPage(htmlpage.Htmlpage):
                       "<td><i>external</i></td><td>%s</td></tr>\n"
                       % (team.code, config.cgi_base, team.code,
                          team.language, version, stats))
-            os.path.walk('%s/PO-files/%s' % (config.data_dir, team.name),
+            os.path.walk('%s/%s' % (config.pos_path, team.name),
                          domain_page_walker, (postats, write, team, domain))
         write('  </table>\n')
         self.epilogue()
@@ -182,9 +182,9 @@ def domain_page_walker((postats, write, team, domain), dirname, bases):
                           '%s</a></td>\n'
                           % (code, config.cgi_base, code, language))
             version, translator, mailto, translated, total = table[counter]
-            write('    <td><a href="%s/PO-files/%s/%s-%s.%s.po">%s</a></td>\n'
-                  % (config.site_base, team.name, domain.name, version.name,
-                     team.name, version.name))
+            write('    <td><a href="%s/%s/%s/%s-%s.%s.po">%s</a></td>\n'
+                  % (config.site_base, config.pos_dir, team.name, domain.name,
+                     version.name, team.name, version.name))
             if mailto:
                 write('    <td><a href=\"mailto:%s\">%s</a></td>\n'
                       % (scramble(mailto), translator))
@@ -399,7 +399,7 @@ class TeamPage(htmlpage.Htmlpage):
                 extstats = get_extstats().get((domain.name, team.code))
             else:
                 write('   <td></td>\n')
-            file = '%s/latest-POs/%s/%s.po' % (config.data_dir, domain.name, team.name)
+            file = '%s/%s/%s.po' % (config.last_path, domain.name, team.name)
             have_stats = 0
             if os.path.isfile(file):
                 hints = registry.Hints(os.readlink(file))

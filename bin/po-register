@@ -19,7 +19,7 @@ import os, sys, shutil
 import commands, getopt, re, string
 
 sys.path.insert(0, sys.path[0]+'/../lib')
-import po, registry, messages
+import config, po, registry, messages
 
 #sendmail is sometimes in /usr/lib, sometimes in /usr/sbin
 os.environ['PATH'] = '/usr/lib:/usr/sbin:' + os.environ['PATH']
@@ -80,7 +80,7 @@ def process_pot_file(hints, file, teams):
                % hints.domain.name)
     if run.dry:
         template_path = '%s/tmp/%s-%s.pot' % (
-            registry.podir, hints.domain.name, hints.version.name)
+            config.site_path, hints.domain.name, hints.version.name)
     else:
         template_path = hints.template_path()
     template_base = hints.template_base()
@@ -112,7 +112,7 @@ def process_pot_file(hints, file, teams):
                                           % maintainer_path)
             sys.stderr.write(t_("  merging with `%s'") % previous)
 
-            result_file = '%s/tmp/%s' % (registry.podir, archive_base)
+            result_file = '%s/tmp/%s' % (config.site_path, archive_base)
             msgmerge(maintainer_path, template_path, result_file)
             header = po.header(po.read(result_file))
             match = re.match('(.*) <(.*)>$', header['last-translator'])
@@ -157,12 +157,11 @@ def process_pot_file(hints, file, teams):
 # PO file processing.
 
 def process_po_file(hints, file, tell_maintainer=0):
-    if not os.path.isdir('%s/teams/PO/%s' % (registry.podir, hints.team.name)):
-        sys.stderr.write(t_("    initializing `%s/teams/PO/%s'\n")
-                         % (registry.podir, hints.team.name))
+    if not os.path.isdir('%s/%s' % (config.pos_path, hints.team.name)):
+        sys.stderr.write(t_("    initializing `%s/%s'\n")
+                         % (config.pos_path, hints.team.name))
         if not run.dry:
-            os.mkdir('%s/teams/PO/%s' % (registry.podir, hints.team.name),
-                     0755)
+            os.mkdir('%s/%s' % (config.pos_path, hints.team.name), 0755)
     archive_base = hints.archive_base()
     archive_path = hints.archive_path()
     maintainer_path = hints.maintainer_path()
@@ -209,8 +208,8 @@ def process_po_file(hints, file, tell_maintainer=0):
                 os.remove(maintainer_path)
             elif os.path.isfile(registry.matrix):
                 os.remove(registry.matrix)
-            os.symlink('../../teams/PO/%s/%s' % (hints.team.name,
-                                                 archive_base),
+            os.symlink('../../%s/%s/%s' %
+                       (config.pos_dir, hints.team.name, archive_base),
                        maintainer_path)
         maintainer = hints.domain.mailto[0]
         sys.stderr.write(t_("    also notifying `%s'\n") % maintainer)

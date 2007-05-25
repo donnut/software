@@ -19,7 +19,7 @@ import os, sys, types, popen2
 import re, string, quopri
 
 sys.path.insert(0, sys.path[0]+'/../lib')
-import po, registry, run, messages
+import config, po, registry, run, messages
 
 # Find sendmail in /usr/sbin or /usr/lib
 os.environ['PATH'] = '/usr/lib:/usr/sbin:' + os.environ['PATH']
@@ -1305,7 +1305,7 @@ this service, you may register by emailing to the translation coordinator.
 
     def upload_po_file(self, work_name):
         archive_base = run.hints.archive_base()
-        incoming = '%s/tmp/%s' % (registry.podir, archive_base)
+        incoming = '%s/tmp/%s' % (config.site_path, archive_base)
         # Remove any file left over from a previous try in dry mode.
         if os.path.isfile(incoming):
             os.remove(incoming)
@@ -1317,7 +1317,7 @@ this service, you may register by emailing to the translation coordinator.
                 dry_flag = ''
             lines = os.popen(
                 'cd %s/tmp && %s/bin/po-register%s %s 2>&1'
-                % (registry.podir, registry.podir, dry_flag, archive_base)
+                % (config.site_path, config.site_path, dry_flag, archive_base)
                 ).readlines()
         except:
             run.reject(_("""\

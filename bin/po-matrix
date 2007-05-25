@@ -14,7 +14,7 @@ import string
 os.umask(002)
 
 sys.path.insert(0, sys.path[0]+'/../lib')
-import registry
+import config, registry
 
 os.environ['PATH'] = '/usr/local/bin:' + os.environ['PATH']
 try: del os.environ['LANGUAGE']
@@ -54,13 +54,13 @@ Make an inventory of all `.pot' and `.po' files.
         self.teams = {}
         self.pofiles = {}
         # Read list of POT files.
-        for file in os.listdir('%s/POT-files' % registry.podir):
+        for file in os.listdir('%s' % config.pos_path):
             try:
                 hints = registry.Hints(file)
             except (KeyError,ValueError):
-		if not ignored(file):
-                	sys.stderr.write("* Dubious file '%s/POT-files/%s'?\n"
-                                         % (registry.podir, file))
+                if not ignored(file):
+                    sys.stderr.write("* Dubious file '%s/%s'?\n" %
+                                     (config.pos_path, file))
             else:
                 self.domains[hints.domain.name] = [0, 0, 0]
         # Read PO file statistics.
@@ -178,10 +178,10 @@ From an idea David Sven had on 1997-01-22.
                 if pair is not None:
                     version, percent = pair
                     #write('    <td bgcolor=yellow><font color=yellow>')
-                    write('    <td><a href="../teams/PO/%s/%s-%s.%s.po">'
+                    write('    <td><a href="../%s/%s/%s-%s.%s.po">'
                           '%d%%</a></td>\n'
-                          % (team.name, domain.name, version.name, team.name,
-                             percent))
+                          % (config.pos_dir, team.name, domain.name,
+                             version.name, team.name, percent))
                 elif team.name in domain.ext:
                     write('    <td>ext</td>\n')
                 else:

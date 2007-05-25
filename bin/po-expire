@@ -10,7 +10,7 @@ Check overall consistency of PO files and delete oldish files.
 import os, sys, time
 
 sys.path.insert(0, sys.path[0]+'/../lib')
-import registry
+import config, registry
 
 expired_folder = time.strftime("expired-%Y-%m-%d",time.localtime(time.time()))
 
@@ -21,13 +21,13 @@ def main(*arguments):
     assert not arguments
     run.execute = Execute(sys.stdout.write)
     run.execute.command(None, 'set -e')
-    run.execute.command(None, 'cd %s' % registry.podir)
+    run.execute.command(None, 'cd %s' % config.site_path)
     run.execute.command(None, 'mkdir %s' % expired_folder)
     run.keep_all = {}
     run.keep_po = {}
     run.keep_pot = {}
     # Accumulate hints.
-    os.chdir(registry.podir)
+    os.chdir(config.site_path)
     pot_files = find_pot_files()
     po_files = find_po_files()
     check_maintainer_links()
@@ -42,13 +42,14 @@ def find_pot_files():
     command = run.execute.command
     # Make an inventory of all POT files, keep those with highest versions.
     inventory = {}
-    for base in os.listdir('POT-files'):
+    for base in os.listdir('%s' % config.pots_dir):
         if base[-1] == '~':
-            command(None, 'rm POT-files/%s' % base)
+            command(None, 'rm %s/%s' % (config.pots_dir, base))
             continue
         hints = registry.Hints(base)
         if base[-4:] != '.pot' or hints.team or hints.gzipped:
-            warn("Not recognized as a POT file name: POT-files/%s" % base)
+            warn("Not recognized as a POT file name: %s/%s" %
+                 (config.pots_dir, base))
             continue
         if not inventory.has_key(hints.domain.name):
             inventory[hints.domain.name] = []
@@ -71,7 +72,7 @@ def find_po_files():
     # Make an inventory of all PO files, keep those with highest versions.
     teams = {}
     inventory = {}
-    directories = ['PO-files']
+    directories = ['%s' % config.pos_dir]
     while directories:
         directory = directories[-1]
         directories = directories[:-1]
@@ -84,7 +85,8 @@ def find_po_files():
                 command(None, 'rm %s' % name)
                 continue
             hints = registry.Hints(base)
-            if base[-3:] != '.po' or directory != 'PO-files/%s' % hints.team.name:
+            if (base[-3:] != '.po' or
+                directory != '%s/%s' % (config.pos_dir, hints.team.name)):
                 warn("Not recognized as a PO file name: %s" % name)
                 continue
             if not inventory.has_key((hints.domain.name, hints.team.name)):
@@ -106,9 +108,9 @@ def find_po_files():
 def check_maintainer_links():
     warn('Checking maintainer links')
     # Make an inventory of all maintainer links, keep all pointed to files.
-    for domain in os.listdir('latest-POs'):
-        for base in os.listdir(os.path.join('latest-POs', domain)):
-            name = 'latest-POs/%s/%s' % (domain, base)
+    for domain in os.listdir('%s' % config.last_dir):
+        for base in os.listdir(os.path.join('%s' % config.last_dir, domain)):
+            name = '%s/%s/%s' % (config.last_dir, domain, base)
             if base[-3:] != '.po':
                 warn("Not recognized as a maintainer file name: %s" % name)
                 continue
@@ -117,7 +119,7 @@ def check_maintainer_links():
             # FIXME: All maintainer links should be converted to prefix3.
             prefix1 = '../../trans/%s/%s-' % (team, domain)
             prefix2 = '../../teams/PO/%s/%s-' % (team, domain)
-            prefix3 = '../../PO-files/%s/%s-' % (team, domain)
+            prefix3 = '../../%s/%s/%s-' % (config.last_dir, team, domain)
             suffix = '.%s.po' % team
             if (link[:len(prefix1)] == prefix1
                 and link[-len(suffix):] == suffix):
@@ -129,8 +131,8 @@ def check_maintainer_links():
                   and link[-len(suffix):] == suffix):
                 version = link[len(prefix3):-len(suffix)]
             else:
-                warn("Invalid symbolic link: latest-POs/%s/%s.po -> %s"
-                     % (domain, team, link))
+                warn("Invalid symbolic link: %s/%s/%s.po -> %s"
+                     % (config.last_dir, domain, team, link))
                 continue
             #run.keep_pot[domain, version] = None
             if not run.keep_po.has_key((domain, version, team)):
@@ -165,7 +167,7 @@ def clean_out(pot_files, po_files):
                     break
             else:
                 rmcommand((domain, version),
-                          'POT-files/%s-%s.pot' % (domain, version))
+                          '%s/%s-%s.pot' % (config.pots_dir, domain, version))
     for (domain, team), versions in po_files.items():
         for version in versions:
             if run.keep_all.has_key((domain, version)):
@@ -173,15 +175,15 @@ def clean_out(pot_files, po_files):
             if run.keep_po.has_key((domain, version, team)):
                 continue
             rmcommand((domain, version),
-                      'PO-files/%s/%s-%s.%s.po'
-                      % (team, domain, version, team))
+                      '%s/%s/%s-%s.%s.po'
+                      % (config.pos_dir, team, domain, version, team))
 
 def diagnose_missing(pot_files, po_files):
     command = run.execute.command
     has_group = run.execute.has_group
     # Diagnose files to keep which are missing.
     for (domain, version), reasons in run.keep_pot.items():
-        file = 'POT-files/%s-%s.pot' % (domain, version)
+        file = '%s/%s-%s.pot' % (config.pots_dir, domain, version)
         if version in pot_files.get(domain,()):
             if has_group((domain, version)):
                 command((domain, version),
@@ -190,7 +192,7 @@ def diagnose_missing(pot_files, po_files):
             command((domain, version),
                     'echo "Missing %s despite %s"' % (file, reasons))
     for (domain, version, team), reasons in run.keep_po.items():
-        file = 'PO-files/%s/%s-%s.%s.po' % (team, domain, version, team)
+        file = '%s/%s/%s-%s.%s.po' % (config.pos_dir, team, domain, version, team)
         if version in po_files.get((domain, team),()):
             if has_group((domain, version)):
                 command((domain, version),

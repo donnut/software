@@ -56,7 +56,7 @@ def main(*arguments):
         else:
             postats = UserDict.UserDict()
         found = []
-        os.path.walk('%s/PO-files' % config.data_dir,
+        os.path.walk('%s' % config.pos_path,
                      walker, (postats, found, verbose_option, update_option))
         gen_potstats(postats, verbose_option)
         if update_option:
@@ -155,7 +155,7 @@ def update(postats, found, name, verbose, update_only):
 
 def gen_potstats(postats, verbose):
     versions = {}
-    for f in os.listdir('%s/POT-files' % config.data_dir):
+    for f in os.listdir('%s' % config.pots_path):
         try:
             h = registry.hints(f)
         except ValueError:
@@ -163,11 +163,11 @@ def gen_potstats(postats, verbose):
         except KeyError:
             print "BAD FILE", f
             continue
-	try:
-	    h.version.set_sort_key()
-	except AssertionError:
-	    print "BAD VERSION in", f
-	    continue
+        try:
+            h.version.set_sort_key()
+        except AssertionError:
+            print "BAD VERSION in", f
+            continue
         try:
             oldver = versions[h.domain.name][0]
         except KeyError:
@@ -179,10 +179,10 @@ def gen_potstats(postats, verbose):
     for domain, (version, file) in versions.items():
         if verbose:
             sys.stderr.write("%s ... " % file)
-        entries = po.read('%s/POT-files/%s' % (config.data_dir, file))
+        entries = po.read('%s/%s' % (config.pots_path, file))
         stats = po.stats(entries)
         # aegis.pot has translations
-	# assert stats['translated'] == 0, file
+        # assert stats['translated'] == 0, file
         assert stats['fuzzy'] == 0, file
         postats.potstats[domain] = (file, stats['untranslated'])
         if verbose:

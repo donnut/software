@@ -1,6 +1,14 @@
 
 2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* lib/config.py, lib/data.py, lib/localweb.py, lib/registry.py,
+	lib/sgml.py, bin/make-maintain, bin/po-expire, bin/po-matrix,
+	bin/po-register, bin/po-tidy-links, bin/postats-data, bin/tp-robot:
+	Make names of data directories easily configurable, plus some
+	whitespace corrections.
+
+2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* bin/tp-robot, README: First framework for a README file that
 	should explain how the Translation Project hangs together: how
 	the server is configured, what procedures the administrators

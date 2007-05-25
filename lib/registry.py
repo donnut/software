@@ -16,8 +16,7 @@ puburls = (puburl,
            'http://translation.sf.net',
            #'ftp://tiger.informatik.hu-berlin.de/pub/po'
           )
-podir = config.data_dir
-tempfile.tempdir = '%s/tmp' % config.data_dir
+tempfile.tempdir = '%s/tmp' % config.site_path
 
 # Emulate Python 1.5
 try:
@@ -97,7 +96,7 @@ class Team:
             try:
                 return msg.encode(self.charset)
             except (UnicodeError,TypeError):
-		# TypeError can occur when charset is None
+                # TypeError can occur when charset is None
                 return msg.encode("utf-8")
         return msg
 
@@ -333,13 +332,14 @@ Splitting file names into components.
 
     def template_path(self):
         """Full file name of POT file within the registry."""
-        return '%s/POT-files/%s' % (config.data_dir, self.template_base())
+        return '%s/%s' % (config.pots_path, self.template_base())
 
     def template_urls(self):
-        """URLs of PO file within various registry copies."""
+        """URLs of POT file within various registry copies."""
         urls = []
         for puburl in puburls:
-            urls.append('%s/POT-files/%s' % (puburl, self.template_base()))
+            urls.append('%s/%s/%s' %
+                        (puburl, config.pots_dir, self.template_base()))
         return tuple(urls)
 
     def archive_base(self):
@@ -353,15 +353,15 @@ Splitting file names into components.
 
     def archive_path(self):
         """Full file name of PO file within the registry."""
-        return '%s/PO-files/%s/%s' % (config.data_dir, self.team.name,
-                                      self.archive_base())
+        return '%s/%s/%s' % (config.pos_path, self.team.name,
+                             self.archive_base())
 
     def archive_urls(self):
         """URLs of PO file within various registry copies."""
         urls = []
         for puburl in puburls:
-            urls.append('%s/PO-files/%s/%s'
-                        % (puburl, self.team.name, self.archive_base()))
+            urls.append('%s/%s/%s/%s' % (puburl, config.pos_dir,
+                        self.team.name, self.archive_base()))
         return tuple(urls)
 
     def maintainer_base(self):
@@ -374,15 +374,15 @@ Splitting file names into components.
 
     def maintainer_path(self):
         """Maintainer's view for the full file name of PO file."""
-        return '%s/latest-POs/%s/%s' % (config.data_dir, self.domain.name,
-                                        self.maintainer_base())
+        return '%s/%s/%s' % (config.last_path, self.domain.name,
+                             self.maintainer_base())
 
     def maintainer_urls(self):
         """Maintainer's view for the URLs of PO files."""
         urls = []
         for puburl in puburls:
-            urls.append('%s/latest-POs/%s/%s' % (puburl, self.domain.name,
-                                                 self.maintainer_base()))
+            urls.append('%s/%s/%s/%s' % (puburl, config.last_dir,
+                        self.domain.name, self.maintainer_base()))
         return tuple(urls)
 
 VERSION = ('[.0-9]+-?b[0-9]+'

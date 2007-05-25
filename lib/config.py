@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: iso-8859-1 -*-
-# Copyright © 2002,2003 Translation Project.
+# Copyright © 2002, 2003, 2007 Translation Project.
 # Copyright © 2000, 2001 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 2000.
 
@@ -13,8 +13,14 @@ import socket, string
 host = string.split(socket.gethostname(), '.')[0]
 
 if host in ('neoduik',): # The machine of Vrijschrift
-    scripts_dir = "/home/benno/opt/TP"
-    data_dir = "/home/benno/var/TP"
+    progs_path = "/home/benno/opt/TP"
+    site_path = "/home/benno/var/TP"
+    pots_dir = "POT-files"
+    pos_dir = "PO-files"
+    last_dir = "latest-POs"
+    pots_path = site_path+"/"+pots_dir
+    pos_path = site_path+"/"+pos_dir
+    last_path = site_path+"/"+last_dir
     cgi_base = 'http://tp.vrijschrift.org/cgi-bin'
     html_base = 'http://tp.vrijschrift.org/html'
     site_base = 'http://tp.vrijschrift.org'
@@ -28,7 +34,7 @@ environ = {
     'current_version': '0.11',
     'margin_color': 'white',
     'caption_color': 'cyan',
-    'html_layout_file': '%s/web/layout.html' % scripts_dir,
+    'html_layout_file': '%s/web/layout.html' % progs_path,
     'cgi_base': cgi_base,
     'html_base': html_base,
     'site_base': site_base,

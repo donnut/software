@@ -20,7 +20,7 @@ def quote(text):
     return text
 
 def encode_database():
-    sgml = read_sgml_file(config.data_dir + '/registry/registry.sgml')
+    sgml = read_sgml_file(config.site_path + '/registry/registry.sgml')
     # Convert all domains and build a dictionary.
     domains = {}
     for domain in sgml[1][1:]:
