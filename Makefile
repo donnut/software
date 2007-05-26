@@ -5,7 +5,7 @@
 
 VERSION=1.2
 
-PATH:=/home/benno/opt/TP/bin:$(PATH)
+PATH:=/home/benno/progs/bin:$(PATH)
 DASH_X:=-x
 
 

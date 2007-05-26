@@ -1,6 +1,12 @@
 
 2007-05-26  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* Makefile, doc/Makefile, lib/config.py, lib/localweb.py,
+	web/Makefile, web/layout.html: Put the static HTML files in
+	documentroot, and the redirecting files in a pass/ subdir.
+
+2007-05-26  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* doc/files.all, doc/software.all: Textual tweaks.
 
 2007-05-25  Benno Schulenberg  <benno@vertaalt.nl>

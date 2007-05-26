@@ -2,11 +2,11 @@
 # Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 
-cgidir = /home/benno/var/TP/cgi-bin
-htmldir = /home/benno/var/TP/html
-passdir = /home/benno/var/TP/html
-cachedir= /home/benno/var/TP/cache
-progsdir = /home/benno/opt/TP
+cgidir = /home/benno/site
+htmldir = /home/benno/site
+passdir = /home/benno/site/pass
+cachedir= /home/benno/site/cache
+progsdir = /home/benno/progs
 
 CGI_FILES = registry.cgi
 PASS_FILES = domains.html teams.html

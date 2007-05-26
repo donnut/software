@@ -43,7 +43,7 @@ class DomainIndex(htmlpage.Htmlpage):
         for domain in registry.domain_list():
             write('   <tr>\n'
                   '    <td><a href=\"%s/domain-%s.html\">%s</a></td>\n'
-                  % (config.html_base, domain.name, domain.name))
+                  % (config.pass_base, domain.name, domain.name))
             if domain.url:
                 write('    <td><a href=\"%s\">%s</a></td>\n'
                       % (domain.url[0], domain.url[0]))
@@ -216,7 +216,7 @@ class TeamIndex(htmlpage.Htmlpage):
             write('   <tr align=center>\n'
                   '    <td>%s</td>\n'
                   '    <td><a href="%s/team-%s.html">%s</a></td>\n'
-                  % (team.code, config.html_base, team.name,
+                  % (team.code, config.pass_base, team.name,
                      team.language))
             if team.mailto:
                 write('    <td><a href="mailto:%s">%s</a></td>\n'
