@@ -6,13 +6,24 @@ This README briefly describes how things are set up on the server of the
 Translation Project.
 
 
-CGI script
-----------
+Website
+-------
 
-Apache is configured ... [how? where?] ... to allow execution of
-/home/translation/site/registry.cgi.  This script produces the HTML pages
-with information about a domain or a team.
+To make the server produce the static and dynamic web pages, Apache is
+configured in /etc/apache2/sites-available/www.translationproject.org
+like this:
 
+    <VirtualHost *>
+        DocumentRoot /home/translation/site
+        ServerName www.translationproject.org
+        ScriptAlias /registry.cgi /home/translation/site/registry.cgi
+    </VirtualHost>
+
+The ScriptAlias allows the execution of the registry.cgi script. This scipt
+produces the dynamic pages that contain information about a domain or a team.
+
+The static pages are produced by running 'make' in ~/progs/web; the source
+for most of these pages is located in ~/progs/doc.
 
 PO statistics
 -------------

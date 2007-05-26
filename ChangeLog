@@ -1,6 +1,10 @@
 
 2007-05-26  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* README: Show how Apache is to be configured.
+
+2007-05-26  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* Makefile, doc/Makefile, lib/config.py, lib/localweb.py,
 	web/Makefile, web/layout.html: Put the static HTML files in
 	documentroot, and the redirecting files in a pass/ subdir.
