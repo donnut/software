@@ -9,6 +9,9 @@
 
 	* doc/Makefile, web/Makefile: Improve the dependencies.
 
+	* lib/config.py, lib/data.py, web/Makefile, README: Move the
+	cache directory out of the site directory.
+
 2007-05-26  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* README: Show how Apache is to be configured.

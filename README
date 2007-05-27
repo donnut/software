@@ -29,7 +29,7 @@ PO statistics
 -------------
 
 A 'crontab' entry ... [which one precisely] ... causes the file
-/home/translation/site/cache/postats to be recalculated every night.
+/home/translation/cache/postats to be recalculated every night.
 [This should later be changed to on-every-submission.]
 This file contains most of the data needed to produce domain and team pages.
 

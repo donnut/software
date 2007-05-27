@@ -5,7 +5,7 @@
 cgidir = /home/benno/site
 htmldir = /home/benno/site
 passdir = /home/benno/site/pass
-cachedir= /home/benno/site/cache
+cachedir= /home/benno/cache
 progsdir = /home/benno/progs
 
 CGI_FILES = registry.cgi
