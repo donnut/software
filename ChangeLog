@@ -1,4 +1,10 @@
 
+2007-05-27  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/localweb.py: Use quotes and indentation more consistently,
+	change the texts a bit, and put the link to the latest POT file
+	in a more logical place.
+
 2007-05-26  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* README: Show how Apache is to be configured.
