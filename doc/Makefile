@@ -9,6 +9,8 @@ ALL_FILES = maintainers.all leaders.all translators.all \
 HTMA_FILES = $(ALL_FILES:.all=.html)
 HTMH_FILES = index.html thanks.html whydisclaim.html
 
+LAYOUT_DEPS = ../lib/config.py ../web/layout.html
+
 
 all: $(htmldir) $(addprefix $(htmldir)/,$(HTMA_FILES)) \
                 $(addprefix $(htmldir)/,$(HTMH_FILES))
@@ -16,9 +18,9 @@ all: $(htmldir) $(addprefix $(htmldir)/,$(HTMA_FILES)) \
 $(htmldir):
 	mkdir -p $@
 
-$(htmldir)/%.html: %.all
+$(htmldir)/%.html: %.all $(LAYOUT_DEPS)
 	../web/to-html -C $(htmldir) $<
 
-$(htmldir)/%.html: %.html
+$(htmldir)/%.html: %.html $(LAYOUT_DEPS)
 	../web/to-html -C $(htmldir) $<
 

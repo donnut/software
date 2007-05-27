@@ -11,8 +11,7 @@ progsdir = /home/benno/progs
 CGI_FILES = registry.cgi
 PASS_FILES = domains.html teams.html
 
-LAYOUT_DEPS = ../lib/config.py layout.html to-html
-REGISTRY_DEPS = html-to-cgi $(cachedir)/postats $(cachedir)/registry
+LAYOUT_DEPS = ../lib/config.py layout.html html-to-cgi to-html
 
 
 all: cgi pass html
@@ -32,10 +31,10 @@ $(cgidir)/%.cgi: %.cgi.in
 	chmod a+rx $@-tmp
 	mv -f $@-tmp $@
 
-domains $(passdir)/domains.html: $(REGISTRY_DEPS)
+domains $(passdir)/domains.html: $(LAYOUT_DEPS)
 	./html-to-cgi -C $(passdir) -D
 
-teams $(passdir)/teams.html: $(REGISTRY_DEPS)
+teams $(passdir)/teams.html: $(LAYOUT_DEPS)
 	./html-to-cgi -C $(passdir) -T
 
 lint: all

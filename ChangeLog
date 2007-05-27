@@ -5,6 +5,10 @@
 	change the texts a bit, and put the link to the latest POT file
 	in a more logical place.
 
+	* web/layout.html: Condense the page a little.
+
+	* doc/Makefile, web/Makefile: Improve the dependencies.
+
 2007-05-26  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* README: Show how Apache is to be configured.
