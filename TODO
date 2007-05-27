@@ -1,0 +1,11 @@
+Next:
+* get the mail/cron stuff set up 
+
+
+Just before going live:
+* convert trans and teams/PO symlinks to PO-files links
+
+Later:
+* weed out double assignments from registry.sgml
+* sort AUTHORS by data
+
