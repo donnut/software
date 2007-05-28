@@ -1,4 +1,9 @@
 
+2007-05-29  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* Makefile, doc/Makefile, lib/config.py, web/Makefile:
+	Switch things over to user tp.
+
 2007-05-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Use quotes and indentation more consistently,
@@ -9,8 +14,8 @@
 
 	* doc/Makefile, web/Makefile: Improve the dependencies.
 
-	* lib/config.py, lib/data.py, web/Makefile, README: Move the
-	cache directory out of the site directory.
+	* lib/config.py, lib/data.py, web/Makefile, README:
+	Move the cache directory out of the site directory.
 
 	* TODO: Add list of things still to do.
 

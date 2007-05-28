@@ -2,7 +2,7 @@
 # Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 
-htmldir = /home/benno/site
+htmldir = /home/tp/site
 
 ALL_FILES = maintainers.all leaders.all translators.all \
             files.all robot.all software.all

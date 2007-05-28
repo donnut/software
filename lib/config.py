@@ -13,9 +13,9 @@ import socket, string
 host = string.split(socket.gethostname(), '.')[0]
 
 if host in ('neoduik',): # The machine of Vrijschrift
-    progs_path = "/home/benno/progs"
-    site_path = "/home/benno/site"
-    cache_path = "/home/benno/cache"
+    progs_path = "/home/tp/progs"
+    site_path = "/home/tp/site"
+    cache_path = "/home/tp/cache"
     pots_dir = "POT-files"
     pos_dir = "PO-files"
     last_dir = "latest-POs"
