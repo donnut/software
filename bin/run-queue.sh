@@ -1,42 +1,41 @@
 #!/bin/sh
-# Run the queue meant for the translation project robot.
-# Copyright © 1999 Progiciels Bourbeau-Pinard inc.
-# François Pinard <pinard@iro.umontreal.ca>, 1999.
-
-export PATH=/usr/local/bin:/usr/ucb:/usr/bin:/bin
-#export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
-
-maildir=/mail/gnutra
-podir=/home/www/usagers/gnutra/HTML
-
-tp_queue_lock=$maildir/tpr-queue-lock
-tp_queue=$maildir/tpr-queue
-tp_exec_lock=$maildir/tpr-exec-lock
-tp_exec=$maildir/tpr-exec
+# Process the mail queue meant for the TP-robot.
+# Copyright Â© 2007 Translation Project.
+# Copyright Â© 1999 Progiciels Bourbeau-Pinard inc.
+# FranÃ§§ois Pinard <pinard@iro.umontreal.ca>, 1999.
 
 PYTHON=python
 
-/usr/kerberos/bin/kinit gnutra < /u/gnutra/.pass >/dev/null
+MAILDIR=~/mail
+progsdir=~/progs
 
-if [ ! -f $tp_exec ]; then
-  lockfile $tp_exec_lock
-    if [ -f $tp_queue -a ! -f $tp_exec ]; then
-      lockfile $tp_queue_lock
-	if [ -f $tp_queue ]; then
-	  mv $tp_queue $tp_exec
+TP_QUEUE=$MAILDIR/tpr-queue
+TP_QUEUE_LOCK=$MAILDIR/tpr-queue.lock
+TP_EXEC=$MAILDIR/tpr-exec
+TP_EXEC_LOCK=$MAILDIR/tpr-exec.lock
+
+
+##/usr/kerberos/bin/kinit gnutra </u/gnutra/.pass >/dev/null
+
+if [ ! -f $TP_EXEC ]; then
+  lockfile $TP_EXEC_LOCK
+    if [ -f $TP_QUEUE -a ! -f $TP_EXEC ]; then
+      lockfile $TP_QUEUE_LOCK
+	if [ -f $TP_QUEUE ]; then
+	  mv $TP_QUEUE $TP_EXEC
 	fi
-      rm -f $tp_queue_lock
+      rm -f $TP_QUEUE_LOCK
     fi
-  rm -f $tp_exec_lock
+  rm -f $TP_EXEC_LOCK
 fi
 
-if [ -f $tp_exec ]; then
-  lockfile $tp_exec_lock
-    if [ -f $tp_exec ]; then
-      formail -s $PYTHON $podir/bin/tp-robot -r < $tp_exec
-      rm -f $tp_exec
+if [ -f $TP_EXEC ]; then
+  lockfile $TP_EXEC_LOCK
+    if [ -f $TP_EXEC ]; then
+      formail -s $PYTHON $progsdir/bin/tp-robot -r <$TP_EXEC
+      rm -f $TP_EXEC
     fi
-  rm -f $tp_exec_lock
+  rm -f $TP_EXEC_LOCK
 fi
 
 exit 0

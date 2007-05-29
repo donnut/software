@@ -1,4 +1,9 @@
 
+2007-05-30  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/run-queue.sh, README: Bring the processing of the robot
+	mail queue up to date, and document the new situation.
+
 2007-05-29  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* Makefile, doc/Makefile, lib/config.py, web/Makefile:

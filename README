@@ -37,22 +37,27 @@ This file contains most of the data needed to produce domain and team pages.
 The robot
 ---------
 
-The mail address <robot@tranlationproject.org> has the following
-'.procmail' recipe:
+The user 'tp', that receives all mail sent to <*@translationproject.org>, has
+the following lines in its '.procmail' file:
 
-  :0 c: tpr-queue-lock
-  * ^To:.*translation@
+  :0:
+  * ^TO:robot
+  tpr-queue
+
+  :0:
   * ^Subject: *[Tt][Pp][-_ ][Rr]obot
   tpr-queue
 
-The robot user has this 'crontab' entry:
+Those rules filter all mail that is meant for the robot to the 'tpr-queue'
+mailbox.  To handle this queue, the 'tp' user has this 'crontab' entry:
 
-  0-50/10 * * * *	/bin/sh /home/translation/progs/bin/run-queue.sh
+  0-50/10 * * * *	/bin/sh /home/tp/progs/bin/run-queue.sh
 
-This run-queue.sh script is what actually launches the robot for each
-received file.  [This could be changed to handle mail directly, upon receipt,
+This runs the run-queue.sh every ten minutes.  That script is what actually
+launches the robot for each received file.
+
+[This could be changed to handle mail directly, upon receipt,
 if things can be locked correctly.]
-
 [Probably the robot also needs to be prevented form running when an admin is
 busy editing registry.sgml or anything else in /home/translation?]
 
