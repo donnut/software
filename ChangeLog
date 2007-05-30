@@ -1,4 +1,11 @@
 
+2007-05-31  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/config.py, lib/registry.py, bin/po-register, bin/tp-robot:
+	Put tmp/ subdir under homdir, not under site/.
+
+	* bin/run-queue.sh, README: Give robot mail queue a better name.
+
 2007-05-30  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/run-queue.sh, README: Bring the processing of the robot

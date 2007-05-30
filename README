@@ -42,11 +42,11 @@ the following lines in its '.procmail' file:
 
   :0:
   * ^TO:robot
-  tpr-queue
+  bot-queue
 
   :0:
   * ^Subject: *[Tt][Pp][-_ ][Rr]obot
-  tpr-queue
+  bot-queue
 
 Those rules filter all mail that is meant for the robot to the 'tpr-queue'
 mailbox.  To handle this queue, the 'tp' user has this 'crontab' entry:

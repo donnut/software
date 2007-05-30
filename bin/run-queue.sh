@@ -9,10 +9,10 @@ PYTHON=python
 MAILDIR=~/mail
 progsdir=~/progs
 
-TP_QUEUE=$MAILDIR/tpr-queue
-TP_QUEUE_LOCK=$MAILDIR/tpr-queue.lock
-TP_EXEC=$MAILDIR/tpr-exec
-TP_EXEC_LOCK=$MAILDIR/tpr-exec.lock
+TP_QUEUE=$MAILDIR/bot-queue
+TP_QUEUE_LOCK=$MAILDIR/bot-queue.lock
+TP_EXEC=$MAILDIR/bot-exec
+TP_EXEC_LOCK=$MAILDIR/bot-exec.lock
 
 
 ##/usr/kerberos/bin/kinit gnutra </u/gnutra/.pass >/dev/null
