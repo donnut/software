@@ -1,5 +1,6 @@
 Next:
-* get the mail/cron stuff set up 
+* test mails to the robot
+* test running of postats
 
 
 Just before going live:
@@ -7,5 +8,6 @@ Just before going live:
 
 Later:
 * weed out double assignments from registry.sgml
+* remove the obsolete fileutils, sh-utils, and textutils
 * sort AUTHORS by data
 

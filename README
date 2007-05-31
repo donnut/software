@@ -25,6 +25,7 @@ produces the dynamic pages that contain information about a domain or a team.
 The static pages are produced by running 'make' in ~/progs/web; the source
 for most of these pages is located in ~/progs/doc.
 
+
 PO statistics
 -------------
 
@@ -66,15 +67,22 @@ Adding a new POT file
 ---------------------
 
 When package maintainers submit the URL of a new version of their package,
-a TP admin runs ... [fetch-pot?] and edits ... [what precisely?]
+a TP admin cd's to progs/registry, edits the registry.sgml file to update
+the <url> field of that package, runs 'make' in that dir (to create a digest
+in ~/cache/), and then runs 'fetch-pot $DOMAIN'.  If that succeeds, which it
+normally should, she runs 'po-register $DOMAIN-$VERSION.pot' -- this runs
+'msgmerge' with the new POT on the most recent PO file for each language,
+sends out notifications of the newly created PO files to the teams and to
+the last translators, and sends a confirmation to the maintainer.
 
 
 Changing translator details
 ---------------------------
 
 When a translator takes on a new package, or a new translator has joined a
-team, a TP admin edit registry.sgml [using editor.py?] and adds the required
-tags.  After that he .... [runs 'make something'?]
+team, a TP admin cd's to progs/registry and edits registry.sgml, to adds or
+change the required tags.  After that she runs 'make' in that directory to
+update the digest of this file in ~/cache/.
 
 
 If anything is missing from this file, please report it to
