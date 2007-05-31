@@ -4,10 +4,13 @@
 	* bin/tp-robot, lib/sgml.py: Correct two paths, remove two
 	special paths.
 
+	* lib/config.py, lib/registry.py, bin/po-register, bin/tp-robot:
+	Configure tmp/ subdir in a better way.
+
 2007-05-31  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/config.py, lib/registry.py, bin/po-register, bin/tp-robot:
-	Put tmp/ subdir under homdir, not under site/.
+	Put tmp/ subdir under homedir, not under site/.
 
 	* bin/run-queue.sh, README: Give robot mail queue a better name.
 

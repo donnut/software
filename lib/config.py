@@ -13,10 +13,10 @@ import socket, string
 host = string.split(socket.gethostname(), '.')[0]
 
 if host in ('neoduik',): # The machine of Vrijschrift
-    home_path = "/home/tp"
     progs_path = "/home/tp/progs"
     site_path = "/home/tp/site"
     cache_path = "/home/tp/cache"
+    temp_path = "/home/tp/tmp"
     pots_dir = "POT-files"
     pos_dir = "PO-files"
     last_dir = "latest-POs"

@@ -79,8 +79,8 @@ def process_pot_file(hints, file, teams):
         raise (_("No known maintainer for textual domain `%s'")
                % hints.domain.name)
     if run.dry:
-        template_path = '%s/tmp/%s-%s.pot' % (
-            config.home_path, hints.domain.name, hints.version.name)
+        template_path = '%s/%s-%s.pot' % (
+            config.temp_path, hints.domain.name, hints.version.name)
     else:
         template_path = hints.template_path()
     template_base = hints.template_base()
@@ -112,7 +112,7 @@ def process_pot_file(hints, file, teams):
                                           % maintainer_path)
             sys.stderr.write(t_("  merging with `%s'") % previous)
 
-            result_file = '%s/tmp/%s' % (config.home_path, archive_base)
+            result_file = '%s/%s' % (config.temp_path, archive_base)
             msgmerge(maintainer_path, template_path, result_file)
             header = po.header(po.read(result_file))
             match = re.match('(.*) <(.*)>$', header['last-translator'])

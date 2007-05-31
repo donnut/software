@@ -16,7 +16,7 @@ puburls = (puburl,
            'http://translation.sf.net',
            #'ftp://tiger.informatik.hu-berlin.de/pub/po'
           )
-tempfile.tempdir = '%s/tmp' % config.home_path
+tempfile.tempdir = config.temp_path
 
 # Emulate Python 1.5
 try:
