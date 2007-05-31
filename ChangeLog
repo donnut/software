@@ -7,6 +7,10 @@
 	* lib/config.py, lib/registry.py, bin/po-register, bin/tp-robot:
 	Configure tmp/ subdir in a better way.
 
+	* bin/tp-robot: Correct some grammar and misspellings in the
+	messages, replace "`" with "'", and remove the long obsolete
+	mentioning of Linux International mailing lists.
+
 2007-05-31  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/config.py, lib/registry.py, bin/po-register, bin/tp-robot:
