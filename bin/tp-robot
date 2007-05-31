@@ -28,9 +28,6 @@ except KeyError:pass
 try: del os.environ['LANG']
 except KeyError:pass
 
-dir = "/u/gnutra/bin"
-if os.path.isfile("%s/msgfmt" % dir):
-    os.environ['PATH'] = '%s:%s' % (dir, os.environ['PATH'])    
 
 def _qdecodestring(s):
     from cStringIO import StringIO
@@ -1317,7 +1314,7 @@ this service, you may register by emailing to the translation coordinator.
                 dry_flag = ''
             lines = os.popen(
                 'cd %s/tmp && %s/bin/po-register%s %s 2>&1'
-                % (config.home_path, config.site_path, dry_flag, archive_base)
+                % (config.home_path, config.progs_path, dry_flag, archive_base)
                 ).readlines()
         except:
             run.reject(_("""\
