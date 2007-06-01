@@ -1,14 +1,22 @@
-# Validate the SGML in the registry.
+# Make a digest from or validate the SGML in registry.sgml.
+# Copyright (C) 2007 Translation Project.
 # Copyright (C) 1996, 1997, 1998, 1999, 2000, 2002, 2003 Free Software Foundation, Inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1996.
 
-all:
-	$(MAKE) -C .. data/registry
-	$(MAKE) $(HOME)/.mailrc-i18n
+all: registry mailrc
 
-$(HOME)/.mailrc-i18n: ../data/registry
-	../bin/i18n-aliases -TDf > $@-tmp
+registry: ../../cache/registry
+../../cache/registry: registry.sgml
+	VERSION_CONTROL=numbered
+	    cp -fb ../../cache/registry ../../cache/registry
+	-../bin/registry-data -de >registry.tmp && \
+	    diff -u registry.tmp registry.sgml
+	rm registry.tmp
+
+mailrc: $(HOME)/.mailrc-tp
+$(HOME)/.mailrc-tp: ../../cache/registry
+	../bin/i18n-aliases -TDf >$@-tmp
 	mv $@-tmp $@
 
-validate val v:
+validate val:
 	SP_CHARSET_FIXED=YES SP_ENCODING=utf-8 nsgmls -s registry.sgml

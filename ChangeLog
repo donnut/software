@@ -1,4 +1,9 @@
 
+2007-06-01  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* Makefile, doc/Makefile, registry/Makefile:
+	Updates and improvements.
+
 2007-05-31  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot, lib/sgml.py: Correct two paths, remove two

@@ -1,4 +1,5 @@
-# Generating some web pages for the Translation Project.
+# Generating the web pages for the Translation Project.
+# Copyright (C) 2007 Translation Project.
 # Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 
@@ -12,8 +13,11 @@ HTMH_FILES = index.html thanks.html whydisclaim.html
 LAYOUT_DEPS = ../lib/config.py ../web/layout.html
 
 
-all: $(htmldir) $(addprefix $(htmldir)/,$(HTMA_FILES)) \
-                $(addprefix $(htmldir)/,$(HTMH_FILES))
+all: allfiles htmlfiles
+
+allfiles: $(htmldir) $(addprefix $(htmldir)/,$(HTMA_FILES))
+
+htmlfiles: $(htmldir) $(addprefix $(htmldir)/,$(HTMH_FILES)) 
 
 $(htmldir):
 	mkdir -p $@
