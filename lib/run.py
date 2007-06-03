@@ -106,7 +106,7 @@ class Coordinator(Reporter):
             mailto = '<translation@translationproject.org>'
             subject = 'reply_header: %s' % e.__class__.__name__
         return _("""\
-From: Translation Project Robot <translation@translationproject.org>
+From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: Re: %s
 %s"""
@@ -125,8 +125,8 @@ Subject: Re: %s
             self.file.write('-' * 70 + '<\n')
 
             self.file.write(
-"\n\nPlease, help the translator to get the error fixed and assist \n"
-"her to submit the fixed file again.\n")
+"\n\nIf necessary, please help the translator to get the error fixed \n"
+"and assist her to submit the fixed file again.\n\n")
 
         Reporter.complete(self)
 
@@ -145,8 +145,7 @@ class Submitter(Reporter):
     def reply_header(self, force=0):
         if header_lines:
             work = tempfile.mktemp()
-            #file = os.popen('formail -t -r -A "Bcc: pinard" >%s' % work, 'w')
-            file = os.popen('formail -t -r -a "From: Translation Project Robot <translation@translationproject.org>" -I "Subject: %s" >%s' % (subject, work), 'w')
+            file = os.popen('formail -t -r -a "From: Translation Project Robot <robot@translationproject.org>" -I "Subject: %s" >%s' % (subject, work), 'w')
             file.writelines(header_lines)
             file.close()
             file = open(work)
@@ -159,7 +158,7 @@ class Submitter(Reporter):
             os.remove(work)
         elif translator_address:
             header = (_("""\
-From: Translation Project Robot <translation@translationproject.org>
+From: Translation Project Robot <robot@translationproject.org>
 To: "%s" <%s>
 Subject: Re: %s
 %s
@@ -172,14 +171,14 @@ Subject: Re: %s
         if header:
             if hints.domain and hints.version and hints.team:
                 announce = (_("""\
-Hi!  I am the service robot at the Translation Project, and was awakened
-by your submission for `%s'.
+Hi!  I am the service robot at the Translation Project,
+and was awakened by your submission for '%s'.
 """)
                             % hints.archive_base())
             else:
                 announce = _("""\
-Hi!  I am the service robot at the Translation Project, and was awakened
-by one of your submissions.
+Hi!  I am the service robot at the Translation Project,
+and was awakened by one of your submissions.
 """)
             return no_('%s\n%s') % (header, announce)
         return None
@@ -192,42 +191,21 @@ by one of your submissions.
         if rejected:
             self.prepare(force=1)
             self.write(_("""\
-Some error reported above is such that I cannot fully process your invoice.
-I'm sorry!  Do not fear resubmitting your PO file, once you think the problem
-has been corrected.  Being a robot, I'm incredibly patient at such things!
-
-To send your PO file as an Emacs user, merely hit `M' within PO mode.
-Otherwise, you may use various MIME (beware I'm too dumb for split parts)
-or `uuencode' (either old or new).  Have a `.gz' suffix on the file name
-if you decide to compress it with `gzip'.  You may also send your file all
-plain, but you have to make sure that we have an 8-bit clean email route.
-For now at least, do not submit more than one PO file in a single email.
-If I cannot decipher your packaging, I will forward it to the coordinator
-for manual unpacking.  Use a subject line looking like:
-
->    Subject: TP-Robot PACKAGE-VERSION.TEAM.po
-
-and send this whole thing to `translation@translationproject.org'.  You may
-expect a reply within the hour.  If you need help to resolve questions
-raised in this reply, or if you plainly suspect I'm behaving poorly, you
-may directly write the translation coordinator.  However, if you do so,
-be careful _not_ to start your message Subject with `TP-Robot'! :-)
+Some error reported above is such that I cannot process your message.
+Sorry!  But do not hesitate to resubmit your PO file, once you think the
+problem has been fixed.  I, robot, am incredibly patient at these things!
 """))
 
         self.write_nofill(_("""\
                                 The Translation Project robot, in the
                                 name of your kind translation coordinator.
-                                <translation@translationproject.org>
+                                <coordinator@translationproject.org>
 """))
 
         Reporter.complete(self)
 
 coordinator = Coordinator()
 submitter = Submitter()
-
-reject_warning = _("""\
-WARNING: This prevents the robot from forwarding your file to the archive.
-""")
 
 def reject_nofill(text, reason = None):
     global rejected, subject
@@ -239,7 +217,7 @@ def reject_nofill(text, reason = None):
         if reason:
             coordinator.reject(reason)
         coordinator.write_nofill(text)
-    submitter.write_nofill(text + reject_warning)
+    submitter.write_nofill(text)
 
 def reject(text, reason = None):
     global rejected, subject
@@ -251,7 +229,7 @@ def reject(text, reason = None):
         if reason:
             coordinator.reject(reason)
         coordinator.write(text)
-    submitter.write(text + reject_warning)
+    submitter.write(text)
 
 def refill(text):
     work = tempfile.mktemp()

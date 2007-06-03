@@ -4,7 +4,8 @@ Next:
 
 
 Just before going live:
-* convert trans and teams/PO symlinks to PO-files links
+* convert trans and teams/PO symlinks to PO-files links,
+  and remove the teams/ subdir
 
 Later:
 * weed out double assignments from registry.sgml

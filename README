@@ -41,15 +41,13 @@ The robot
 The user 'tp', that receives all mail sent to <*@translationproject.org>, has
 the following lines in its '.procmail' file:
 
-  :0:
-  * ^TO:robot
-  bot-queue
-
+  # Ignore the To line, just look for "TP-robot" at the
+  # start of the Subject line, as an anti-spam measure.
   :0:
   * ^Subject: *[Tt][Pp][-_ ][Rr]obot
   bot-queue
 
-Those rules filter all mail that is meant for the robot to the 'tpr-queue'
+Those rules filter all mail that is meant for the robot to the 'bot-queue'
 mailbox.  To handle this queue, the 'tp' user has this 'crontab' entry:
 
   0-50/10 * * * *	/bin/sh /home/tp/progs/bin/run-queue.sh

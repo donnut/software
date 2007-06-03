@@ -81,8 +81,7 @@ def main(*arguments):
             entries = None
         if not entries:
             run.reject(_("""\
-For some reason, your PO file seems to have no entries at all, like if it
-were empty.  Sigh!  It looks like there is something wrong, somewhere...
+Your PO file seems to have no entries at all, like if it were empty.
 """),"[no entries]")
             abort_robot()
         # We definitely found a non-empty PO file.
@@ -112,9 +111,8 @@ were empty.  Sigh!  It looks like there is something wrong, somewhere...
         traceback.print_exc()
         tb = "".join(traceback.format_exception(*sys.exc_info()))
         run.reject(_("""\
-I, the Translation Project robot, just failed in a rather unexpected way.
-Sigh!  Despair!  I'm bugged, lost, doomed :-(.  Help me!
-Report all details you can at <coordinator@translationproject.org>.
+The Translation Project robot failed in a rather unexpected way.
+Please report all details at <coordinator@translationproject.org>.
 """),"[robot bug]")
         run.submitter.write_nofill(tb)
         run.coordinator.write_nofill(tb)
@@ -178,19 +176,16 @@ I'm ignoring the whole following MIME part within your invoice:
                     parts.remove(part)
         if len(parts) == 0:
             run.reject(_("""\
-Hmph!  It seems I'm not clever enough yet to find your PO file within
-your message.  The translation coordinator, who is my beloved master,
-explained that I still have many things to learn about real life, before
-being able to handle all situations.  So, I'll go and ask him to help me
-unpack your email.
+Hmm...  It seems I'm not clever enough yet to find the PO file within
+your email.  I will go ask the coordinator to help me unpack your mail.
 """),"[submission not found]")
             abort_robot()
         if len(parts) > 1:
             # FIXME: Process multiple PO files in a single invoice.
             run.reject(_("""\
-Your message contains multiple MIME parts, and I see that I am not able to
-decide which one of these parts is meant to contain your PO file.  Would you
-help me, while resubmitting your message, by using a simpler MIME structure?
+Your message contains multiple MIME parts, and I'm not able to decide
+which one is meant to hold your PO file.  Please help me and resubmit
+your message with a simpler MIME structure.
 """),"[multiple submissions?]")
             abort_robot()
         return parts[0]
@@ -203,13 +198,12 @@ help me, while resubmitting your message, by using a simpler MIME structure?
             pass
         if run.hints.pot:
             run.reject(_("""\
-The translation coordinator does not trust me enough yet to let me handle
+The translation coordinator does not yet trust me enough to let me handle
 a PO template file all alone.  So, for this one, I'll go disturb him!
 """),"[robot does not support pot submission]")
             abort_robot()
         if not (run.hints.domain and run.hints.version and run.hints.team):
             run.reject(_("""\
-I was expecting information in the file name argument which I did not find.
 %s
 The file name argument should look like 'DOMAIN-VERSION.TEAM.po'.
 """)
@@ -351,21 +345,17 @@ Validating mail specific information.
         if not (run.translator_address
                 and run.hints.domain and run.hints.version and run.hints.team):
             run.reject(_("""\
-I was expecting information in your message header which I did not find.
 %s
-I'm not fully sure about what the exact problem is, yet it might be that
-the Subject field, in your message header, is not formatted properly.
-Just in case, let me say what the Subject line usually looks like:
+
+As a reminder, the Subject line of your message should look like this:
 
     Subject: TP-robot DOMAIN-VERSION.TEAM.po
 
-The words DOMAIN, VERSION and TEAM should be replaced by respectively
-the textual domain of the translation (in most cases this is just the
-package name, in lower case), the version number of said package, and
-the two-letter lower case language code for the team, also in lower case.
-In some rare cases, TEAM might have to be suffixed with either "_REGION"
-or "@DIALECT", where REGION is a capitalised two-letter country code
-and DIALECT is a lower case name.
+The DOMAIN is normally the package name in lower case, VERSION is the
+version number of the package, and TEAM is the two-letter lower case
+language code for your team.  In some rare cases, TEAM might need to
+be suffixed with either "_REGION" or "@DIALECT", where REGION is a
+capitalised two-letter country code and DIALECT a lower case name.
 """)
                        % unknown_elements_comment(check_translator=1),"[one of address, domain, version, team missing]")
             abort_robot()
@@ -376,22 +366,13 @@ and DIALECT is a lower case name.
             globals.team_mailtos = run.hints.team.mailto[:]
         else:
             run.reject(_("""\
-Within the Translation Project, no team has the code '%s'.
-It might be that you mispelled that code, in which case I merely invite
-you to correct the error and retry a new submission.
+Within the Translation Project, there is no team with the code '%s'.
+If you simply mistyped the code, I invite you to correct the error
+and retry the submission.
 
-Otherwise, I presume you would like that a new translation team be created.
-This is a simple matter, really.  You do not have to do any kind of
-recruiting (unless you really feel like it, which is then another story,
-of course!).  Most teams started with a single translator.  However, you
-should be able and willing to communicate with people later wanting to
-join you on the team.  The Translation Project does not favour real loners.
-
-You should write to the translation coordinator for that creation to occur.
-If by any chance there is some already existing mailing list ready to convey
-the new team interests, please say so in your email, so this mailing list
-gets registered.  If no such list exists, you may want to register your own
-email address instead, at least until there is a need for a bigger setup.
+If however the code is correct, I presume you would like a new translation
+team to be created.  This is a simple matter, really.  See
+http://www.translationproject.org/leaders.html for all the details.
 """)
                        % run.hints.team, "[unknown team]")
             globals.team_language = _('Unknown_Language')
@@ -1350,9 +1331,10 @@ def unknown_elements_comment(check_translator=0):
     else:
         unknown.append(_("the team code"))
     if known:
-        return ("I found that %s; but I'm still missing %s."
-                % (say_list(_('and'), known), say_list(_('and'), unknown)))
-    return "I would need to know %s." % say_list(_('and'), unknown)
+        return ("There is information missing from your message header: %s."
+                "  I did find that %s."
+                % (say_list(_('and'), unknown), say_list(_('and'), known)))
+    return "Information that is missing: %s." % say_list(_('and'), unknown)
 
 def say_alias_list(items):
     if len(items) == 0:
