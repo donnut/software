@@ -1,6 +1,10 @@
 
 2007-06-02  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* web/layout.html: Temporarily tell search engines to stay away.
+
+2007-06-02  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* tools/mirror_tp.py, tools/mkindex.py, lib/config.py:
 	Simplify the mirror script, add the make_index script.
 
