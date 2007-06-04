@@ -190,10 +190,10 @@ and was awakened by one of your submissions.
                 self.encoding = hints.team.charset
         if rejected:
             self.prepare(force=1)
-            self.write(_("""\
-Some error reported above is such that I cannot process your message.
-Sorry!  But do not hesitate to resubmit your PO file, once you think the
-problem has been fixed.  I, robot, am incredibly patient at these things!
+            self.write(_("""
+Some error reported above is such that I cannot accept your PO file.  Sorry! 
+But do not hesitate to resubmit your PO file, once you think the problem has
+been fixed.  As a robot I am incredibly patient at these things!
 """))
 
         self.write_nofill(_("""\

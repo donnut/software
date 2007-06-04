@@ -10,9 +10,9 @@ Attempt automatic processing of PO file submissions.
 Usage: tp-robot OPTION... <MESSAGE
  or  : tp-robot OPTION... PO-FILE
 
-  -d   Activate debugging code.
-  -n   Do not alter the Translation Project archives.
-  -r   Email a reply to the translator.
+  -d   debugging mode, show what would be mailed
+  -n   do not alter the PO archives
+  -r   email a reply to the translator
 """
 
 import os, sys, types, popen2
@@ -21,8 +21,10 @@ import re, string, quopri
 sys.path.insert(0, sys.path[0]+'/../lib')
 import config, po, registry, run, messages
 
-# Find sendmail in /usr/sbin or /usr/lib
+# Find sendmail in /usr/sbin or /usr/lib.
 os.environ['PATH'] = '/usr/lib:/usr/sbin:' + os.environ['PATH']
+
+# Unset possible localisation.
 try: del os.environ['LANGUAGE']
 except KeyError:pass
 try: del os.environ['LANG']
@@ -132,7 +134,8 @@ better to avoid the proliferation of alternate email addresses and stick
 to only one, whenever possible.  In any case, please keep the translation
 coordinator informed of such things, at least as a mild form of verification.
 Some stronger authentication scheme might be needed, one of these days!""")
-
+
+
 class Extract:
     """\
 Extracting information from the input.
@@ -335,7 +338,8 @@ my control.  It is safer that you use my real email address, which is
         #                       % temp_name, string.join(comment, ''))
 
 extract = Extract()
-
+
+
 class CheckMail:
     """\
 Validating mail specific information.
@@ -357,7 +361,8 @@ language code for your team.  In some rare cases, TEAM might need to
 be suffixed with either "_REGION" or "@DIALECT", where REGION is a
 capitalised two-letter country code and DIALECT a lower case name.
 """)
-                       % unknown_elements_comment(check_translator=1),"[one of address, domain, version, team missing]")
+                       % unknown_elements_comment(check_translator=1),
+                       "[one of address, domain, version, team is missing]")
             abort_robot()
 
         if run.hints.team:
@@ -379,7 +384,8 @@ http://www.translationproject.org/leaders.html for all the details.
             globals.team_mailto = run.translator_address
 
 check_mail = CheckMail()
-
+
+
 ########################### CheckPoFile #########################
 class CheckPoFile:
     """\
@@ -525,7 +531,7 @@ preferred spelling.
                 abort_robot()
             if first_address not in translator.mailto:
                 if first_address not in globals.reported_unknown:
-                    run.submitter.write(_("""\
+                    run.submitter.write(_("""
 The initial translator of this PO file is '%s'.  Yet,
 according to my own notes, '%s' is not known as a good address
 to reach that translator.
@@ -539,8 +545,8 @@ to reach that translator.
                     globals.unknown_address_insert = ''
                 return
             if first_translator != run.translator_name:
-                run.submitter.write(_("""\
-The last translator of this PO file appears to be different than the
+                run.submitter.write(_("""
+The last translator of this PO file appears to be different from the
 initial translator.  This is something quite possible and normal.  But if
 you do know that translators did not change, some more checking is needed.
 The third line of whole PO file says '%s', while the
@@ -554,7 +560,7 @@ acknowledgement is the only tribute paid for the work of that translator.
                                              % (first_translator,
                                                 run.translator_name))
             elif first_address != run.translator_address:
-                run.submitter.write(_("""\
+                run.submitter.write(_("""
 Your submission contains contradicting addresses for you.  The third line of
 the PO file says it is '%s', while the 'Last-Translator' field
 of the PO file header says it is '%s'.  Please arrange to have a
@@ -564,7 +570,7 @@ all your translation files.
                                              % (first_address,
                                                 run.translator_address))
         else:
-            run.reject(_("""\
+            run.reject(_("""
 The first author comment line is either missing or not formatted correctly.
 This should be the third line of the whole PO file, looking like:
 
@@ -720,7 +726,8 @@ joined the %s team.  If you do not know how to do so, please
 write to the translation coordinator for more information about it.
 """)
                            % (last_translator,
-                              _(globals.team_language), _(globals.team_language)),
+                              _(globals.team_language),
+                              _(globals.team_language)),
                            "[translator not in team]")
                 abort_robot()
             if last_address not in translator.mailto:
@@ -827,7 +834,8 @@ to get better organised, you might use the address of one of the team
 members, maybe yours if you are alone in the team!  In any case, please
 inform the translation coordinator of the address your team decides to use.
 """)
-                           % (_(globals.team_language), _(globals.team_language)),
+                           % (_(globals.team_language),
+                              _(globals.team_language)),
                            "[team address missing]")
             elif maybe_mailto != globals.team_mailto and \
                      maybe_mailto not in globals.team_mailtos:
@@ -873,23 +881,16 @@ not formatted properly.  The line containing it should exactly look like:
                        "[mime-version is not 1.0]")
         charsets = [
             'us-ascii',
-            #	 161	ISO-8859-1
-            #	  10	iso-8859-1
-            #	   3	ISO-Latin-1
-            #	   2	8859-1
-            '8859-1', 'ISO-8859-1', 'ISO-Latin-1', 'ISO-8859-15',
-            #	  42	ISO-8859-2
-            #	   4	iso-8859-2
+            'ISO-8859-1',
             'ISO-8859-2',
             'ISO-8859-3',
             'ISO-8859-7',
             'ISO-8859-8',
             'ISO-8859-9',
             'ISO-8859-13',
+            'ISO-8859-15',
             'koi8-r',
             'koi8-u',
-            #	  19	EUC-KR
-            #	   1	EUC
             'EUC-KR', 'big5', 'big5-hkscs',
             'ISO-2022-JP', 'EUC-JP',
             'gb2312', 'gb18030',
@@ -1015,7 +1016,9 @@ on your submitted PO file, and it told me that I should not let the file pass.
 More precisely, it said:
 
 %s""")
-                              % (run.hints.archive_base(), run.hints.template_base(), no_('').join(comment)),
+                              % (run.hints.archive_base(),
+                                 run.hints.template_base(),
+                                 no_('').join(comment)),
                               "[msgfmt errors after msgmerge]")
             abort_robot()
         if comment:
@@ -1044,7 +1047,8 @@ a sentence like
                 
 
 check_po_file = CheckPoFile()
-
+
+
 ########################### CheckRegistry ###########################
 class CheckRegistry:
     """\
@@ -1123,8 +1127,8 @@ matter to assign you the responsibility of '%s' for %s,
 given nobody else is already assigned to it.  However, some teams prefer
 to channel translations differently, for ensuring some quality control first.
 """)
-                       % (run.hints.domain, run.hints.domain, _(globals.team_language)),
-                       reason)
+                       % (run.hints.domain, run.hints.domain,
+                          _(globals.team_language)), reason)
 
     def have_pot(self):
         if not os.path.isfile(run.hints.template_path()):
@@ -1133,26 +1137,26 @@ You submitted a PO file for which the Translation Project does not have a
 corresponding template: there is no '%s', here.
 Please have the maintainer of the package send the corresponding POT file
 to the Translation Project.  It is best that we also have a precise URL
-of an official or pretest distribution to offer to translators.
+of an official or pretest distribution to offer to translators. 
 This URL is only for translation purposes, the package does not even have to
 compile.  A few translators like peeking at the source for getting finer
 translation context, for when messages are not clear enough in themselves.
 """)
                        % run.hints.template_base(),
-                       "[robot has no corresponding pot file]")
+                       "[there is no corresponding pot file]")
             return 0
         return 1
 
     def preexisting(self, work):
         if registry.compare_files(work, run.hints.archive_path()):
-            comment = [_("""\
+            comment = [_("""
 The Translation Project already holds an exact copy of your submission,
 which you may find as either one of:
 
 """)]
             for url in run.hints.archive_urls():
-                comment.append('>    %s\n' % url)
-            run.reject_nofill(no_('').join(comment),"[duplicate submission]")
+                comment.append('    %s\n' % url)
+            run.reject_nofill(no_('').join(comment), "[duplicate submission]")
 
     def translator_can_submit(self, translator, domain):
         # if it is the assigned translator, accept
@@ -1173,7 +1177,7 @@ which you may find as either one of:
         stats = data.load_postats()
         hints = registry.Hints(os.readlink(file))
         try:
-            stats = stats[(hints.domain.name,hints.version.name,hints.team.name)]
+            stats = stats[(hints.domain.name, hints.version.name, hints.team.name)]
             last_translator = stats[0]
             email = stats[1]
         except KeyError:
@@ -1191,16 +1195,18 @@ which you may find as either one of:
             return 0, "[translator not assigned to domain]"
 
 check_registry = CheckRegistry()
-
+
+
 class Process:
     """\
 Accomplishing actions.  In fact, putting here whatever does not fit elsewhere.
 """
 
     def make_canonical(self, where, virtual, entries, header):
-        os.system("recode -f /cl < %s | msgmerge -q --no-wrap - %s > %s.norm" % (where, run.hints.template_path(), where))
+        os.system('recode -f /cl <%s | msgmerge -q --no-wrap - %s >%s.norm'
+                  % (where, run.hints.template_path(), where))
         try:
-            lines = os.popen('recode -f /cl < %s | diff -u -L %s~ -L %s - %s.norm'
+            lines = os.popen('recode -f /cl <%s | diff -u -L %s~ -L %s - %s.norm'
                              % (where, virtual, virtual, where)).readlines()
         except:
             run.reject(_("""\
@@ -1247,7 +1253,7 @@ automatically, here.  This message continues after the (maybe long) quote.
 
     def congratulate(self):
         run.subject = run.subject + " [ACCEPTED]"
-        run.submitter.write(_("""\
+        run.submitter.write(_("""
 Your file has been accepted and uploaded into the archives: congratulations!
 Whenever the maintainer of '%s' submits a new POT file to the Translation
 Project, the translation you just made will probably need revision.  Your
@@ -1278,11 +1284,11 @@ service, you can ask for it by emailing to the translation coordinator.
         registry.move_file(work_name, incoming)
         try:
             if run.dry:
-                dry_flag = ' -n'
+                dry_flag = '-n'
             else:
                 dry_flag = ''
             lines = os.popen(
-                'cd %s && %s/bin/po-register%s %s 2>&1'
+                'cd %s && %s/bin/po-register %s %s 2>&1'
                 % (config.temp_path, config.progs_path, dry_flag, archive_base)
                 ).readlines()
         except:
@@ -1306,7 +1312,8 @@ I most probably need repairs.  I'll go whine to the translation coordinator.
         run.coordinator.write_nofill(no_('').join(comment))
 
 process = Process()
-
+
+
 ## Diagnostics.
 
 def unknown_elements_comment(check_translator=0):

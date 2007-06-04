@@ -1,4 +1,9 @@
 
+2007-06-05  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/tp-robot, lib/run.py: Wrap some overlong lines,
+	remove "^L"s, remove obsolete character-set aliases.
+
 2007-06-04  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot, lib/run.py: Simplify some of the robot's messages.
