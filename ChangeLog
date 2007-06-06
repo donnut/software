@@ -1,4 +1,8 @@
 
+2007-06-06  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* README: Updates.
+
 2007-06-05  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot, lib/run.py: Wrap some overlong lines,
