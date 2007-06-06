@@ -1,4 +1,12 @@
 
+2007-06-07  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/po-register, doc/index.html, doc/files.all, doc/robot.all,
+	doc/maintainers.all, doc/leaders.all, doc/translators.all,
+	lib/localweb.py, lib/run.py, tools/sendpo.sh:
+	Differentiate the coordinator's and robot's email addresses from
+	the general translation address, remove unneeded "mailto:".
+
 2007-06-06  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* README: Updates.

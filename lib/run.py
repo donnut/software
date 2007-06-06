@@ -93,17 +93,17 @@ class Coordinator(Reporter):
                 if hints.team.leader:
                     mailto = hints.team.leader.mailto[0]
                 else:
-                    mailto = '<translation@translationproject.org>'
+                    mailto = '<report@translationproject.org>'
                     orig_subject = subject
                     subject = 'team %s without leader' % hints.team.name
             else:
-                mailto = '<translation@translationproject.org>'
+                mailto = '<report@translationproject.org>'
                 orig_subject = subject
                 subject = 'No team determined'
         except (KeyError, TypeError, AttributeError),e:
             if not force:
                 return None
-            mailto = '<translation@translationproject.org>'
+            mailto = '<report@translationproject.org>'
             subject = 'reply_header: %s' % e.__class__.__name__
         return _("""\
 From: Translation Project Robot <robot@translationproject.org>

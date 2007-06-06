@@ -227,7 +227,7 @@ def notify_maintainer_for_pot(hints):
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
     write(_("""\
-From: Translation Project Robot <translation@translationproject.org>
+From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: New PO Template file for `%s'
 
@@ -286,7 +286,7 @@ Thank you for your collaboration,
 
                                 The Translation Project robot, in the
                                 name of your translation coordinator.
-                                <translation@translationproject.org>
+                                <coordinator@translationproject.org>
 """))
 
 def notify_team_leaders_for_pot(hints):
@@ -297,7 +297,7 @@ def notify_team_leaders_for_pot(hints):
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
     write(_("""\
-From: Translation Project Robot <translation@translationproject.org>
+From: Translation Project Robot <robot@translationproject.org>
 To: team-leaders@translationproject.org
 Subject: New PO Template file for `%s'
 
@@ -337,7 +337,7 @@ Thank you for your collaboration,
 
                                 The Translation Project robot, in the
                                 name of your translation coordinator.
-                                <translation@translationproject.org>
+                                <coordinator@translationproject.org>
 """))
 
 def notify_maintainer_for_po(hints, file_name, archive_base):
@@ -348,7 +348,7 @@ def notify_maintainer_for_po(hints, file_name, archive_base):
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
     write(_("""\
-From: Translation Project Robot <translation@translationproject.org>
+From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: New %s PO file for `%s'
 
@@ -403,7 +403,7 @@ Thank you for your collaboration,
 
                                 The Translation Project robot, in the
                                 name of your translation coordinator.
-                                <translation@translationproject.org>
+                                <coordinator@translationproject.org>
 """)
                % (registry.puburls[0], hints.domain.name))
 
@@ -433,7 +433,7 @@ def notify_team_for_po(hints, stats, ispot = 0):
         return file.write(messages.translate(msg, hints.team.code, charset,
                                              do_Q=True))
     write_header(_("""\
-From: Translation Project Robot <translation@translationproject.org>
+From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: %s-%s (%d%%, %d untranslated)
 %s
@@ -547,7 +547,7 @@ Allow me to thank you in name of all users of the %s language.
 
                                 The Translation Project robot, in the
                                 name of your translation coordinator.
-                                <translation@translationproject.org>
+                                <coordinator@translationproject.org>
 """)
                % (registry.puburls[0], hints.domain.name,
                   registry.puburls[0], hints.team.name,
@@ -572,7 +572,7 @@ def email_file(address, file_name, option = None):
     if option == "compress":
         name += ".gz"
     write(_("""\
-From: Translation Project Robot <translation@translationproject.org>
+From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: Contents of file `%s'
 MIME-Version: 1.0
@@ -595,7 +595,7 @@ Content-Transfer-Encoding: base64
 
                                 The Translation Project robot, in the
                                 name of your translation coordinator.
-                                <translation@translationproject.org>
+                                <coordinator@translationproject.org>
 
 --=-=-=--
 """))

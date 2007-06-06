@@ -347,7 +347,7 @@ class TeamPage(htmlpage.Htmlpage):
               ' file sent to them when a new POT file is added to the project'
               ' -- they don\'t want to fetch the PO file themselves, but'
               ' wish to receive it together with the notice. '
-              ' <a href="mailto:translation@translationproject.org">'
+              ' <a href="mailto:coordinator@translationproject.org">'
               'Just ask</a> if you want this service for yourself.</p>\n')
         write('  <p>Here is the current list of assignments of textual domains'
               ' to translators, as known to the Translation Project registry. '
@@ -366,7 +366,7 @@ class TeamPage(htmlpage.Htmlpage):
                      uni2html(team.leader.uniname()[0],'utf-8')))
         else:
             write(' directly to the'
-                  ' <a href="mailto:translation@translationproject.org">'
+                  ' <a href="mailto:coordinator@translationproject.org">'
                   'coordinator of the Translation Project</a>'
                   ' to get it corrected, as the team does not seem to have'
                   ' appointed its own coordinator yet.</p>\n')

@@ -9,7 +9,7 @@ available to all users, since translations are normally distributed within
 the published packages.
 
 Whatever permission bits you might have, avoid directly altering this
-hierarchy.  It is maintained by <translation@translationproject.org>,
+hierarchy.  It is maintained by <coordinator@translationproject.org>,
 representing the coordinators for the Translation Project.  Moreover, some
 of the files are only usable by the coordinator; they are listed here
 for the sake of transparency about the internal workings of the project.

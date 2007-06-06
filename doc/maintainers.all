@@ -11,7 +11,7 @@
    are free to use or not.  Of course, we believe there are many advantages
    to doing so, but some aspect of the project might bother you.  We are
    improving the service over time, and your suggestions are always welcome.
-   Please send them to <mailto:translation@translationproject.org>.
+   Please send them to <comments@translationproject.org>.
 
    The Translation Project does not force you into imposing translation
    disclaimers on translators.  For most GNU packages, disclaimers are
@@ -124,7 +124,7 @@
     be adjusted for your package.
 
     To announce the POT file, merely send the URL of a packaged distribution of
-    your program to  <mailto:translation@translationproject.org>.  Use the
+    your program to  <translation@translationproject.org>.  Use the
     string "DOMAIN-VERSION.pot" somewhere in the subject line of your email.
     Note that a POT file will be processed only once by the Translation Project:
     another submission *must* use a newer VERSION.  The distribution pointed to
@@ -159,7 +159,7 @@
 . + Add PO files to your package
     ----------------------------
 
-    From <mailto:translation@translationproject.org> you will receive
+    From <robot@translationproject.org> you will receive
     notifications about fresh PO files for your package.  Add these PO
     files containing the newest translations to your package.
 
@@ -183,7 +183,7 @@
     revise them first.  It would defeat the purpose of the teams if you were
     directly accepting PO files from individual translators, or were having
     "contracts" with them.  If people write to you, wanting to volunteer
-    as translators, direct them to <mailto:translation@translationproject.org>,
+    as translators, direct them to <coordinator@translationproject.org>,
     and the translation coordinator will send them appropriate documentation.
 
     Translators now have efficient means, which they are free to use or
@@ -203,9 +203,9 @@
 		LANGUAGE=LL gettext DOMAIN '' | grep Language-Team
 
     If any other question remains, don't hesitate to ask it:
-    <mailto:translation@translationproject.org>.  We're much slower than the
+    <coordinator@translationproject.org>.  We're much slower than the
     robot, but we're happy to help when we can.
 
 
                             Your translation coordinator
-                            <translation@translationproject.org>
+                            <coordinator@translationproject.org>

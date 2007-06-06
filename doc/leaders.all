@@ -24,7 +24,7 @@
    ISO 639.  You may find a list of team codes in the gettext manual,
    appendix A;  see 'info gettext Language Usual'.
 
-   Then write an email to <mailto:translation@translationproject.org> to
+   Then write an email to <coordinator@translationproject.org> to
    tell about your interest to create a new team.  You will reach the
    coordinator for all translation teams.
 
@@ -104,7 +104,7 @@
     of the coordinator nor of any other sole translator.  However, some
     teams may want to delegate responsibilities, if they find it convenient.
 
-    The coordinator tells <mailto:translation@translationproject.org> about
+    The team coordinator tells <coordinator@translationproject.org> about
     who in the team may directly submit translations for such and such package.
     This information is used to feed the project robot, so it takes
     proper decisions.  The coordinator represents the team here, and this
@@ -175,4 +175,4 @@
 
 
                             Your translation coordinator
-                            <translation@translationproject.org>
+                            <coordinator@translationproject.org>

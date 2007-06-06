@@ -71,7 +71,7 @@
 
         TP-Robot PACKAGE-VERSION.TEAM.po
 
-   and the whole thing should be sent to <mailto:translation@translationproject.org>.
+   and the whole thing should be sent to <robot@translationproject.org>.
    It works best to send the PO file as a gzip'ed attachment -- sending as
    plain text is dangerous because some mailers insert line breaks on their
    own and because some mail relays are not 8-bit clean.  Thus it's best
@@ -224,7 +224,7 @@
 
    Once your PO file is ready, you might submit it to your translation
    team to get feedback and criticism, and if everything is OK, send it to
-   <mailto:translation@translationproject.org> for later inclusion in the proper
+   <robot@translationproject.org> for later inclusion in the proper
    package.  Your submission might be rejected if the translation disclaimer
    has not been received, if someone else in your team is already assigned
    to the package you translated, or if your team officially disapproves
@@ -232,7 +232,7 @@
    should be seen as an authority for deciding which translations go,
    and which don't, so you'd better collaborate with it!
 
-   To ask for assignment, send an email to <mailto:translation@translationproject.org>
+   To ask for assignment, send an email to <coordinator@translationproject.org>
    with a CC: to your team leader and tell us the textdomain(s) you wish to
    work on.  If the team leader stays silent we usually take this as an
    agreement.
@@ -270,4 +270,4 @@
 
 
                             Your translation coordinator
-                            <translation@translationproject.org>
+                            <coordinator@translationproject.org>
