@@ -18,7 +18,7 @@ If both options are specified, the old database is decoded before rebuilt.
 import os, sys
 
 sys.path.insert(0, sys.path[0]+'/../lib')
-from sgml import *
+import sgml
 
 def main(*arguments):
     if len(arguments) == 0:
@@ -34,9 +34,9 @@ def main(*arguments):
         elif option == '-e':
             encode = 1
     if decode:
-        decode_database()
+        sgml.decode_database()
     if encode:
-        encode_database()
+        sgml.encode_database()
 
 if __name__ == '__main__':
     apply(main, tuple(sys.argv[1:]))

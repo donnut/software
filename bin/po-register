@@ -10,7 +10,6 @@ Process a received PO or POT file for the PO file Registry.
 Usage: po-register [OPTION]... PACKAGE-VERSION{.pot,.LL[.po]} [teams...]
 
   -n  dry run
-  -l  do not use /usr/local/bin/cluster
   -t  list teams
   -T "space separated teams"
 """
@@ -21,16 +20,16 @@ import commands, getopt, re, string
 sys.path.insert(0, sys.path[0]+'/../lib')
 import config, po, registry, messages
 
-#sendmail is sometimes in /usr/lib, sometimes in /usr/sbin
+# Find sendmail in /usr/sbin or /usr/lib.
 os.environ['PATH'] = '/usr/lib:/usr/sbin:' + os.environ['PATH']
+
+# Unset possible localisation.
 try: del os.environ['LANGUAGE']
 except KeyError:pass
 try: del os.environ['LANG']
 except KeyError:pass
-os.umask(002)
 
-cmd_msgmerge = "msgmerge"
-have_cluster = os.path.exists("/usr/local/bin/cluster")
+os.umask(002)
 
 
 def _(text):
@@ -47,14 +46,11 @@ def main(*arguments):
     if not arguments:
         sys.stdout.write(__doc__)
         sys.exit(0)
-    options, arguments = getopt.getopt(arguments, 'lntT:')
+    options, arguments = getopt.getopt(arguments, 'ntT:')
     teams = None
     for option, value in options:
         if option == '-n':
             run.dry = 1
-        if option == '-l':
-            global have_cluster
-            have_cluster = 0
         if option == '-t':
             print " ".join([x.name for x in registry.team_list()])
             return
@@ -612,11 +608,7 @@ def recode(hints,name):
     return hints.team.encode(u)
 
 def msgmerge(po, pot, out):
-    if have_cluster:
-        os.system("/usr/local/bin/cluster --typecpu all --wait --cwd %s --execute %s -- --no-wrap %s %s -o %s" % (os.getcwd(), cmd_msgmerge, po, pot, out))
-        os.chmod(out, 0664)
-    else:
-        os.system("%s --no-wrap %s %s -o %s" % (cmd_msgmerge, po, pot, out))
+    os.system("msgmerge --no-wrap %s %s -o %s" % (po, pot, out))
             
 
 if __name__ == '__main__':

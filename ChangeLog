@@ -5,6 +5,10 @@
 
 	* bin/fetch-pot, bin/make-maintain: Whitespace and comment tweaks.
 
+	* bin/registry-data: Standardize import.
+
+	* bin/po-register: Remove unneeded cluster workaround.
+
 2007-06-07  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register, doc/index.html, doc/files.all, doc/robot.all,
