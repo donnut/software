@@ -1,6 +1,10 @@
 
 2007-06-07  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* registry/AUTHORS, registry/registry.sgml: Synced with Montréal.
+
+2007-06-07  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* bin/po-register, doc/index.html, doc/files.all, doc/robot.all,
 	doc/maintainers.all, doc/leaders.all, doc/translators.all,
 	lib/localweb.py, lib/run.py, tools/sendpo.sh:

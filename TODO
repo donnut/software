@@ -4,6 +4,7 @@ Next:
 
 
 Just before going live:
+* run mirror_tp_data.py one last time
 * convert trans and teams/PO symlinks to PO-files links,
   and remove the teams/ subdir
 
@@ -11,4 +12,5 @@ Later:
 * weed out double assignments from registry.sgml
 * remove the obsolete fileutils, sh-utils, and textutils
 * sort AUTHORS by data
-
+* add support for retired translators
+* mail bug-tar about simpler fetch script
