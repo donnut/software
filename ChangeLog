@@ -3,6 +3,8 @@
 
 	* registry/AUTHORS, registry/registry.sgml: Synced with Montréal.
 
+	* bin/fetch-pot, bin/make-maintain: Whitespace and comment tweaks.
+
 2007-06-07  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register, doc/index.html, doc/files.all, doc/robot.all,

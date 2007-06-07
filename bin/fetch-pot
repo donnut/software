@@ -96,7 +96,7 @@ def find_pot_for_domain(domain):
                 print
                 print "WARNING: unregistered PO file",p
         if len(potlist) > 1:
-            # remove all po files
+            # Remove all po files.
             newlist = []
             for p in potlist:
                 if p[-3:] == "pot":
@@ -139,7 +139,7 @@ def find_pot_for_domain(domain):
         raise _("Extraction failed")
     registry.move_file(entry, becoming)
     process_externals(domain, extpolist)
-    # Cleanup intermediate directories created by the extraction process.
+    # Clean up intermediate directories created by the extraction process.
     fragments = string.split(entry, '/')
     del fragments[-1]
     if fragments and fragments[0] == '.':
@@ -163,7 +163,7 @@ def process_externals(domain, polist):
             stats['version'] = header['project-id-version']
         else:
             stats['version'] = "unknown"
-        # recompute external team
+        # Recompute external team.
         team = f.split("/")[-1][:-3]
         extstats[(domain.name, team)] = stats
         os.remove(f)

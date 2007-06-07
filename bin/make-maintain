@@ -51,7 +51,7 @@ def gen_registry():
 
     for team in registry.registry.team_list():
         for trans in team.translator.values():
-            trans = registry.registry.translator_info(team,trans.name[0])
+            trans = registry.registry.translator_info(team, trans.name[0])
             try:
                 _do = trans['do']
                 pos = _do.index(old_domain)
@@ -70,19 +70,19 @@ def gen_registry():
 renamed = {}
 def mv_po(dir):
     for f in os.listdir(dir):
-        dir1 = os.path.join(dir,f)
+        dir1 = os.path.join(dir, f)
         if not os.path.isdir(dir1):
             continue
         for f1 in os.listdir(dir1):
             f2 = re.sub(old_pattern, new_pattern, f1)
             if f1 == f2:
                 continue
-            print "mv %s %s" % (os.path.join(dir1,f1),os.path.join(dir1,f2))
+            print "mv %s %s" % (os.path.join(dir1, f1), os.path.join(dir1, f2))
 
-def byversion(a,b):
+def byversion(a, b):
     a = registry.hints(a[0])
     b = registry.hints(b[0])
-    return cmp(a.version,b.version)
+    return cmp(a.version, b.version)
 
 def mklinks():
     newdir = "%s/%s" % (config.last_path, new_domain)
@@ -98,7 +98,7 @@ def mklinks():
         oldlink = os.readlink(oldfile)
         newlink = re.sub(old_pattern, new_pattern, oldlink)
         if newlink == oldlink:
-            # link is good, need to make new link in newdir
+            # Link is good, need to make new link in newdir.
             podir = os.path.join(config.pos_path, team)
             pofiles = []
             for f in glob.glob1(podir, old_pattern+"*"):
@@ -108,13 +108,11 @@ def mklinks():
                 pofiles.append((f, f1))
             pofiles.sort(byversion)
             if pofiles:
-                print "ln -s ../../%s/%s/%s %s/%s" % \
+                print "ln -s ../../%s/%s/%s %s/%s" %
                       (config.pos_dir, team, pofiles[-1][1], newdir, link)
         else:
             # Removing the link is undesirable: this translation
             # continues to be useful for the old domain as well.
-            # print "rm",oldfile 
-            # mv link to newdir
             print "ln -s %s %s/%s" % (newlink, newdir, link)
 
 if __name__ == '__main__':
