@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 # -*- mode: python; coding: iso-8859-1 -*-
-# Copyright © 2001, 2002 Translation Project.
+# Copyright © 2001, 2002, 2007 Translation Project.
 # Copyright © 1996, 1997, 1998, 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1996.
 
 """\
-Process a received PO or POT file for the PO file Registry.
+Process a received POT or PO file, sending out notifications to the teams,
+the assigned translators, the team-leaders group, and the maintainer.
 
-Usage: po-register [OPTION]... PACKAGE-VERSION{.pot,.LL[.po]} [teams...]
+Usage: po-register [OPTION]... PACKAGE-VERSION.{pot,LL[.po]}
 
-  -n  dry run
-  -t  list teams
-  -T "space separated teams"
+  -n         dry run, display what would be mailed out
+  -t         display the list of known team codes and exit
+  -T "list"  when processing a POT file, only notify the listed teams; the list
+             of team codes should be space-separated and wrapped in quotes
 """
 
 import os, sys, shutil
@@ -42,6 +44,7 @@ def t_(text):
 class run:
     dry = 0
 
+
 def main(*arguments):
     if not arguments:
         sys.stdout.write(__doc__)
@@ -58,8 +61,7 @@ def main(*arguments):
             teams = value.split()
     for name in arguments:
         if name[0] == '/':
-            raise (_("`%s' may not be absolute notation, think `shar'...")
-                   % name)
+            raise (t_("argument '%s' may not be in absolute notation") % name)
         hints = registry.hints(name)
         if hints.pot:
             sys.stderr.write(t_('Processing %s\n') % name)
@@ -67,12 +69,13 @@ def main(*arguments):
         else:
             sys.stderr.write(t_('Processing %s\n') % name)
             process_po_file(hints, name, tell_maintainer=1)
-
-# POT file processing.
+
+
+# Processing of a POT file.
 
 def process_pot_file(hints, file, teams):
     if not hints.domain.mailto and not hints.domain.nomailto:
-        raise (_("No known maintainer for textual domain `%s'")
+        raise (t_("No known maintainer for textual domain '%s'")
                % hints.domain.name)
     if run.dry:
         template_path = '%s/%s-%s.pot' % (
@@ -149,8 +152,9 @@ def process_pot_file(hints, file, teams):
         notify_maintainer_for_pot(hints)
     sys.stderr.write(t_("    also notifying team leaders\n"))
     notify_team_leaders_for_pot(hints)
-
-# PO file processing.
+
+
+# Processing of a PO file.
 
 def process_po_file(hints, file, tell_maintainer=0):
     if not os.path.isdir('%s/%s' % (config.pos_path, hints.team.name)):
@@ -176,9 +180,9 @@ def process_po_file(hints, file, tell_maintainer=0):
         tell_maintainer = 0
     if (translated == 0 and os.path.isfile(template_path)
         and registry.compare_files(template_path, file)):
-        raise _('Translation empty and identical to Template, not loaded\n')
+        raise t_('Translation empty and identical to POT; not loaded\n')
     elif registry.compare_files(file, archive_path):
-        raise _('Translation identical to archive file, not loaded\n')
+        raise t_('Translation identical to archive file; not loaded\n')
     else:
         if os.path.isfile(archive_path):
             if not run.dry:
@@ -187,7 +191,8 @@ def process_po_file(hints, file, tell_maintainer=0):
             try:
                 registry.copy_file(file, archive_path)
             except IOError:
-                sys.stderr.write("ERROR: Could not write %s\n" % archive_path)
+                sys.stderr.write(t_("ERROR: Could not write %s\n")
+                                 % archive_path)
     mailto = hints.team.announce_address()
     sys.stderr.write(t_("    notifying `%s' about `%s'\n")
                      % (mailto, archive_base))
@@ -212,8 +217,9 @@ def process_po_file(hints, file, tell_maintainer=0):
         notify_maintainer_for_po(hints, file, archive_base)
     if not run.dry:
         os.remove(file)
-
-# Mail invoices.
+
+
+# Sending out email notifications.
 
 def notify_maintainer_for_pot(hints):
     if run.dry:

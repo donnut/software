@@ -1,4 +1,9 @@
 
+2007-06-08  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/po-register: Clarify its function, and ungettextize its 
+	local error messages.
+
 2007-06-07  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/AUTHORS, registry/registry.sgml: Synced with Montréal.
