@@ -4,6 +4,8 @@
 	* bin/po-register: Clarify its function, and ungettextize its 
 	local error messages.
 
+	* bin/po-register: Tweak the mails that are sent out.
+
 2007-06-07  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/AUTHORS, registry/registry.sgml: Synced with Montréal.

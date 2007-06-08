@@ -231,7 +231,7 @@ def notify_maintainer_for_pot(hints):
     write(_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
-Subject: New PO Template file for `%s'
+Subject: New PO template for '%s'
 
 """)
                % (hints.domain.mailto[0], hints.domain.name))
@@ -240,8 +240,8 @@ Hello, gentle maintainer.
 
 This is a message from the Translation Project robot.
 
-A new PO Template file for programs using the textual domain '%s'
-has just been made available to the language teams for translation.
+A new POT file for programs using the textual domain '%s' has
+just been made available to the language teams for translation. 
 A copy is available at:
 
     %s
@@ -249,15 +249,16 @@ A copy is available at:
 """)
                       % (hints.domain.name, hints.template_urls()[0])))
     write(messages.refill(_("""\
-In your releases, this file is usually found as `po/%s.pot'.  It is
-created or updated automatically at `make dist' time, or whenever you
-run `make update-po' in the `po/' subdirectory.
+In your releases this file is usually found as 'po/%s.pot'.  It is
+created or updated automatically at 'make dist' time, or whenever you
+run 'make update-po' in the 'po/' subdirectory.
 
 Whenever you have a new distribution with a new version number ready,
-containing a newer PO Template, please send the URL of this distribution
-to the address below.  The distribution may be just a pretest or snapshot,
-it does not even have to compile.  It is to be used by translators
-when they need to get some translation context from your sources.
+containing a newer POT file, please send the URL of this distribution
+to <translation@translationproject.org>.  The distribution may be just
+a pretest or snapshot, it does not even have to compile.  It is to be
+used by translators when they need to get some translation context
+from your sources.
 
 """)
                       % hints.domain.name))
@@ -266,7 +267,7 @@ when they need to get some translation context from your sources.
 
 Here is the URL information which has just been provided to translators for
 your package.  Please inform the translation coordinator, at the address
-given below, if this information does not appear to be adequate or current:
+given below, if this information is not adequate or current:
 
 """))
         for url in hints.domain.url:
@@ -301,7 +302,7 @@ def notify_team_leaders_for_pot(hints):
     write(_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: team-leaders@translationproject.org
-Subject: New PO Template file for `%s'
+Subject: New PO template for '%s'
 
 """)
                % hints.domain.name)
@@ -310,8 +311,8 @@ My nicest hello to all language team leaders.
 
 This is a message from the Translation Project robot.
 
-A new PO Template file for programs using the textual domain '%s'
-has just been made available to the language teams for translation.
+A new POT file for programs using the textual domain '%s' has
+just been made available to the language teams for translation. 
 A copy is available at:
 
     %s
@@ -352,7 +353,7 @@ def notify_maintainer_for_po(hints, file_name, archive_base):
     write(_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
-Subject: New %s PO file for `%s'
+Subject: New %s PO file for '%s'
 
 """)
                % (hints.domain.mailto[0], _(hints.team.language),
@@ -375,26 +376,25 @@ the %s team of translators.  The file is available at:
                          % (file_name, hints.domain.mailto[0]))
         email_file(hints.domain.mailto[0], file_name, hints.domain.autosend)
         write(_("""\
-This file has already been sent to you separately on %s,
-as a MIME invoice unpacking the file `%s'.
+(This file, '%s', has just now been sent to you in a separate email.)
 """)
-                   % (commands.getoutput('date +%Y-%m-%d'), archive_base))
+                   % archive_base)
     else:
         write(_("""\
-We can arrange things so that in the future such files are automatically
-e-mailed to you when they arrive.  Ask at the address below if you want this.
+(We can arrange things so that in the future such files are automatically
+e-mailed to you when they arrive.  Ask at the address below if you want this.)
 """))
     write(_("""\
 
 The following HTML page should be updated by tomorrow:
 
-    %s/HTML/domain-%s.html
+    %s/pass/domain-%s.html
 
-Please consider including all PO files, as they stand, in the `po/'
+Please consider including all PO files, as they stand, in the 'po/'
 subdirectory of your next release, whether it is official or a pretest.
 
 Whenever you have a new distribution with a new version number ready,
-containing a newer PO Template, please send the URL of this distribution
+containing a newer POT file, please send the URL of this distribution
 to the address below.  The distribution may be just a pretest or snapshot,
 it does not even have to compile.  It is to be used by translators
 when they need to get some translation context from your sources.
@@ -459,11 +459,11 @@ into the archives.  The file is available at:
     if translated == 0:
         if len(ass)>1:
             # XXX: more than two translators?
-            msg = _("%s and %s are currently assigned for the translation.  When you have completed the translation, send the result to the address given below, using the Subject line:")\
+            msg = _("%s and %s are currently assigned for the translation.  When the translation has been completed, send the result to <robot@translationproject.org>, using the Subject line:")\
                   % (uni(ass[0].name[0]),
                      uni(ass[1].name[0]))
         elif len(ass) == 1:
-            msg = _("%s is currently assigned for the translation.  When you have completed the translation, send the result to the address given below, using the Subject line:")\
+            msg = _("%s is currently assigned for the translation.  When the translation has been completed, send the result to <robot@translationproject.org>, using the Subject line:")\
                   % uni(ass[0].name[0])
         elif hints.team.code in hints.domain.ext:
             import data
@@ -480,12 +480,13 @@ There is currently a translator working on this translation who is not
 part of the Translation Project.  %s
 """ % msg)
         else:    
-            msg = _("""
-Please consider taking its translation in charge for the %s language.
-If you decide to do so, please get your team leader (if any) to inform
-the translation coordinator that you were assigned to `%s'.
-Once the translation is completed, send the result to the address given
-below, using the Subject line:""")\
+            msg = _("""\
+Please consider taking upon you the translation to the %s language. 
+If you decide to do this, get your team leader (if any) to inform
+the translation coordinator that you were assigned to '%s'.
+
+Once the translation is completed, send the result to
+<robot@translationproject.org>, using the Subject line:""")\
                      % (_(hints.team.language), hints.domain.name)
             
         write(messages.refill(_("""\
@@ -509,59 +510,64 @@ in a future release.
     else:
         if len(ass)>1:
             # XXX: more than two translators?
-            msg = _("%s and %s are currently assigned for the translation.")\
+            msg = _("""
+%s and %s are currently assigned for the translation.""")\
                   % (uni(ass[0].name[0]),
                      uni(ass[1].name[0]))
         elif len(ass) == 1:
-            msg = _("%s is currently assigned for the translation.")\
+            msg = _("""
+%s is currently assigned for the translation.""")\
                   % uni(ass[0].name[0])
         else:
-            msg = _("""Nobody in your team is currently assigned to the domain '%s'. The team leader (if any) should inform the translation coordinator of who will become responsible for it.""")\
+            msg = _("""
+Nobody in your team is currently assigned to the domain '%s'.  The
+team leader (if any) should inform the translation coordinator of who
+will become responsible for it.""")\
                   % (hints.domain.name)
         write(messages.refill(_("""\
 
-In this file, %d messages have been translated already,
-accounting for %d%% of the original text size (in raw bytes).  Still,
-%d messages need to be attended to.  %s
+In this file %d messages have been translated already, accounting for
+%d%% of the original text size (in raw bytes).  Still %d messages need
+to be attended to.  %s
 
 Please translate the remaining messages for the benefit of users of the
 %s language.  Once the translation is completed, send the result to
-the address given below, using the Subject line:
+<robot@translationproject.org>, using the Subject line:
 
     TP-Robot %s-%s.%s.po
 
 If any question arises, you may contact either your team leader or the
-central coordinator.  In the meantime, this PO file has been submitted
-to the maintainer of programs using the textual domain '%s'.
+central coordinator.
 """)
                           % (translated, percent, untranslated,
                              msg, _(hints.team.language),
                              hints.domain.name, hints.version.name,
-                             hints.team.name, hints.domain.name)))
+                             hints.team.name)))
     write(_("""\
 
 The following HTML pages should be updated by tomorrow:
 
-    %s/HTML/domain-%s.html
-    %s/HTML/team-%s.html
+    %s/pass/domain-%s.html
+    %s/pass/team-%s.html
+""")
+               % (registry.puburls[0], hints.domain.name,
+                  registry.puburls[0], hints.team.name))
+    if hints.domain.url:
+        write(_("""\
 
+You can find a copy of the distribution at:
+
+"""))
+        for url in hints.domain.url:
+            write('    %s\n\n' % url)
+    write(_("""\
 Allow me to thank you in name of all users of the %s language.
 
                                 The Translation Project robot, in the
                                 name of your translation coordinator.
                                 <coordinator@translationproject.org>
 """)
-               % (registry.puburls[0], hints.domain.name,
-                  registry.puburls[0], hints.team.name,
-                  _(hints.team.language)))
-    if hints.domain.url:
-        write(_("""\
-
-P.S. - You can find a copy of the distribution at:
-
-"""))
-        for url in hints.domain.url:
-            write('    %s\n\n' % url)
+                % _(hints.team.language))
 
 def email_file(address, file_name, option = None):
     if run.dry:
@@ -576,7 +582,7 @@ def email_file(address, file_name, option = None):
     write(_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
-Subject: Contents of file `%s'
+Subject: Contents of PO file '%s'
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="=-=-="
 
