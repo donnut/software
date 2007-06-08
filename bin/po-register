@@ -61,7 +61,7 @@ def main(*arguments):
             teams = value.split()
     for name in arguments:
         if name[0] == '/':
-            raise (t_("argument '%s' may not be in absolute notation") % name)
+            raise (t_("Argument '%s' may not be in absolute notation") % name)
         hints = registry.hints(name)
         if hints.pot:
             sys.stderr.write(t_('Processing %s\n') % name)
@@ -98,18 +98,18 @@ def process_pot_file(hints, file, teams):
         archive_path = hints.archive_path()
         maintainer_path = hints.maintainer_path()
         if os.path.isfile(archive_base):
-            sys.stderr.write(t_("  skipping `%s' as local `%s' waits\n")
+            sys.stderr.write(t_("  skipping '%s' as local '%s' is waiting\n")
                              % (team.name, archive_base))
             continue
         if os.path.isfile(archive_path):
-            sys.stderr.write(t_("  skipping `%s' as `%s' exists\n")
+            sys.stderr.write(t_("  skipping '%s' as '%s' exists\n")
                              % (team.name, archive_path))
             continue
         translator = None
         if os.path.isfile(maintainer_path):
             previous = commands.getoutput("ls -l %s | sed 's,.*/,,'"
                                           % maintainer_path)
-            sys.stderr.write(t_("  merging with `%s'") % previous)
+            sys.stderr.write(t_("  merging with '%s'") % previous)
 
             result_file = '%s/%s' % (config.temp_path, archive_base)
             msgmerge(maintainer_path, template_path, result_file)
@@ -126,13 +126,13 @@ def process_pot_file(hints, file, teams):
                     if translator.autosend:
                         if translator.mailto:
                             address = translator.mailto[0]
-                        sys.stderr.write(t_("      mailing `%s' to `%s'\n")
+                        sys.stderr.write(t_("      mailing '%s' to '%s'\n")
                                          % (archive_base, address))
                         email_file(address, result_file, translator.autosend)
             process_po_file(hints, result_file)
         elif not team.suppresspot:
             mailto = hints.team.announce_address()
-            sys.stderr.write(t_("    notifying `%s' about `%s'\n")
+            sys.stderr.write(t_("    notifying '%s' about '%s'\n")
                              % (mailto, template_base))
             if not potstats:
                 potstats = po.stats(po.read(template_path))
@@ -142,12 +142,12 @@ def process_pot_file(hints, file, teams):
                 if translator.mailto:
                     address = translator.mailto[0]
                     if translator.autosend:
-                        sys.stderr.write(t_("      mailing `%s' to `%s'\n")
+                        sys.stderr.write(t_("      mailing '%s' to '%s'\n")
                                          % (template_path, address))
                         email_file(address, template_path, translator.autosend)
     if hints.domain.mailto:
         maintainer = hints.domain.mailto[0]
-        sys.stderr.write(t_("  notifying `%s' about `%s-%s.pot'\n")
+        sys.stderr.write(t_("  notifying '%s' about '%s-%s.pot'\n")
                          % (maintainer, hints.domain.name, hints.version.name))
         notify_maintainer_for_pot(hints)
     sys.stderr.write(t_("    also notifying team leaders\n"))
@@ -158,7 +158,7 @@ def process_pot_file(hints, file, teams):
 
 def process_po_file(hints, file, tell_maintainer=0):
     if not os.path.isdir('%s/%s' % (config.pos_path, hints.team.name)):
-        sys.stderr.write(t_("    initializing `%s/%s'\n")
+        sys.stderr.write(t_("    initializing '%s/%s'\n")
                          % (config.pos_path, hints.team.name))
         if not run.dry:
             os.mkdir('%s/%s' % (config.pos_path, hints.team.name), 0755)
@@ -167,7 +167,7 @@ def process_po_file(hints, file, tell_maintainer=0):
     maintainer_path = hints.maintainer_path()
     template_path = hints.template_path()
     if registry.compare_files(archive_path, file):
-        sys.stderr.write(t_("  skipping `%s', as already uploaded\n") % file)
+        sys.stderr.write(t_("  skipping '%s', as already uploaded\n") % file)
         if not run.dry:
             os.remove(file)
         sys.exit(0)
@@ -194,7 +194,7 @@ def process_po_file(hints, file, tell_maintainer=0):
                 sys.stderr.write(t_("ERROR: Could not write %s\n")
                                  % archive_path)
     mailto = hints.team.announce_address()
-    sys.stderr.write(t_("    notifying `%s' about `%s'\n")
+    sys.stderr.write(t_("    notifying '%s' about '%s'\n")
                      % (mailto, archive_base))
     notify_team_for_po(hints, stats)
     if not hints.domain.mailto:
@@ -213,7 +213,7 @@ def process_po_file(hints, file, tell_maintainer=0):
                        (config.pos_dir, hints.team.name, archive_base),
                        maintainer_path)
         maintainer = hints.domain.mailto[0]
-        sys.stderr.write(t_("    also notifying `%s'\n") % maintainer)
+        sys.stderr.write(t_("    also notifying '%s'\n") % maintainer)
         notify_maintainer_for_po(hints, file, archive_base)
     if not run.dry:
         os.remove(file)
@@ -372,7 +372,7 @@ the %s team of translators.  The file is available at:
                       % (hints.domain.name, _(hints.team.language),
 		         hints.maintainer_urls()[0])))
     if hints.domain.autosend:
-        sys.stderr.write(t_("      mailing `%s' to `%s'\n")
+        sys.stderr.write(t_("      mailing '%s' to '%s'\n")
                          % (file_name, hints.domain.mailto[0]))
         email_file(hints.domain.mailto[0], file_name, hints.domain.autosend)
         write(_("""\

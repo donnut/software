@@ -6,6 +6,8 @@
 
 	* bin/po-register: Tweak the mails that are sent out.
 
+	* bin/po-register: Get rid of the backticks.
+
 2007-06-07  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/AUTHORS, registry/registry.sgml: Synced with Montréal.
