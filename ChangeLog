@@ -1,4 +1,9 @@
 
+2007-06-09  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/po-register: Move little functions to the top, make separate
+	functions for opening output file and for underwriting each mail.
+
 2007-06-08  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Clarify its function, and ungettextize its 

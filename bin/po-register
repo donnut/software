@@ -41,6 +41,34 @@ def _(text):
 def t_(text):
     return text
 
+def uni(name):
+    return unicode(name, "utf-8")
+
+def recode(hints, name):
+    try:
+        u = unicode(name, "utf-8")
+    except UnicodeError:
+        return name
+    return hints.team.encode(u)
+
+def msgmerge(po, pot, out):
+    os.system("msgmerge --no-wrap %s %s -o %s" % (po, pot, out))
+
+def open_output():
+    if run.dry:
+        return sys.stdout
+    else:
+        return os.popen('sendmail -i -t', 'w')
+
+def underwrite(write):
+    write(_("""
+Thank you for all your work,
+
+                                The Translation Project robot, in the
+                                name of your translation coordinator.
+                                <coordinator@translationproject.org>
+"""))
+
 class run:
     dry = 0
 
@@ -63,11 +91,10 @@ def main(*arguments):
         if name[0] == '/':
             raise (t_("Argument '%s' may not be in absolute notation") % name)
         hints = registry.hints(name)
+        sys.stderr.write(t_('Processing %s...\n') % name)
         if hints.pot:
-            sys.stderr.write(t_('Processing %s\n') % name)
             process_pot_file(hints, name, teams)
         else:
-            sys.stderr.write(t_('Processing %s\n') % name)
             process_po_file(hints, name, tell_maintainer=1)
 
 
@@ -222,10 +249,7 @@ def process_po_file(hints, file, tell_maintainer=0):
 # Sending out email notifications.
 
 def notify_maintainer_for_pot(hints):
-    if run.dry:
-        file = sys.stdout
-    else:
-        file = os.popen('sendmail -i -t', 'w')
+    file = open_output()
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
     write(_("""\
@@ -283,20 +307,10 @@ Translated PO files will later be automatically e-mailed to you.
 We can arrange things so that translated PO files are automatically e-mailed
 to you when they arrive.  Ask at the address below if you want this.
 """))
-    write(_("""\
-
-Thank you for your collaboration,
-
-                                The Translation Project robot, in the
-                                name of your translation coordinator.
-                                <coordinator@translationproject.org>
-"""))
+    underwrite(write)
 
 def notify_team_leaders_for_pot(hints):
-    if run.dry:
-        file = sys.stdout
-    else:
-        file = os.popen('sendmail -i -t', 'w')
+    file = open_output()
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
     write(_("""\
@@ -334,20 +348,10 @@ for this package:
 """))
         for url in hints.domain.url:
             write('    %s\n' % url)
-    write(_("""\
-
-Thank you for your collaboration,
-
-                                The Translation Project robot, in the
-                                name of your translation coordinator.
-                                <coordinator@translationproject.org>
-"""))
+    underwrite(write)
 
 def notify_maintainer_for_po(hints, file_name, archive_base):
-    if run.dry:
-        file = sys.stdout
-    else:
-        file = os.popen('sendmail -i -t', 'w')
+    file = open_output()
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
     write(_("""\
@@ -400,20 +404,15 @@ it does not even have to compile.  It is to be used by translators
 when they need to get some translation context from your sources.
 
 If any question arises, please contact the central coordinator.
-
-Thank you for your collaboration,
-
-                                The Translation Project robot, in the
-                                name of your translation coordinator.
-                                <coordinator@translationproject.org>
 """)
                % (registry.puburls[0], hints.domain.name))
+    underwrite(write)
 
 def mime_charset(hints):
     if hints.team.charset:
         return hints.team.charset
     return "utf-8"
-    
+
 def mime_header(charset):
     return """MIME-Version: 1.0
 Content-Type: text/plain;charset=%s
@@ -421,19 +420,16 @@ Content-Transfer-Encoding: 8bit
 """ % charset
 
 def notify_team_for_po(hints, stats, ispot = 0):
-    translated = stats['translated']
-    untranslated = stats['fuzzy'] + stats['untranslated']
-    percent = po.percentage(stats)
-    if run.dry:
-        file = sys.stdout
-    else:
-        file = os.popen('sendmail -i -t', 'w')
+    file = open_output()
     charset = mime_charset(hints)
     def write(msg):
         return file.write(messages.translate(msg, hints.team.code, charset))
     def write_header(msg):
         return file.write(messages.translate(msg, hints.team.code, charset,
                                              do_Q=True))
+    translated = stats['translated']
+    untranslated = stats['fuzzy'] + stats['untranslated']
+    percent = po.percentage(stats)
     write_header(_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
@@ -474,12 +470,11 @@ into the archives.  The file is available at:
 		trans = extstats['translated']
 		total = trans + extstats['untranslated'] + extstats['fuzzy']
                 msg = _("The most recent translation of this translator has %d of %d messages translated.") % (trans, total)
-                
             msg = _("""
 There is currently a translator working on this translation who is not
 part of the Translation Project.  %s
 """ % msg)
-        else:    
+        else:
             msg = _("""\
 Please consider taking upon you the translation to the %s language. 
 If you decide to do this, get your team leader (if any) to inform
@@ -488,14 +483,13 @@ the translation coordinator that you were assigned to '%s'.
 Once the translation is completed, send the result to
 <robot@translationproject.org>, using the Subject line:""")\
                      % (_(hints.team.language), hints.domain.name)
-            
         write(messages.refill(_("""\
 None of its messages has been translated yet.  %s
 
     TP-Robot %s-%s.%s.po
 
 If any question arises, you may contact either your team leader or the
-central coordinator.  
+central coordinator.
 """)
                           % (msg,
                              hints.domain.name, hints.version.name,
@@ -560,20 +554,10 @@ You can find a copy of the distribution at:
 """))
         for url in hints.domain.url:
             write('    %s\n\n' % url)
-    write(_("""\
-Allow me to thank you in name of all users of the %s language.
-
-                                The Translation Project robot, in the
-                                name of your translation coordinator.
-                                <coordinator@translationproject.org>
-""")
-                % _(hints.team.language))
+    underwrite(write)
 
 def email_file(address, file_name, option = None):
-    if run.dry:
-        file = sys.stdout
-    else:
-        file = os.popen('sendmail -i -t', 'w')
+    file = open_output()
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
     name = re.sub('.*/', '', file_name)
@@ -608,20 +592,6 @@ Content-Transfer-Encoding: base64
 --=-=-=--
 """))
 
-
-def uni(name):
-    return unicode(name, "utf-8")
-
-def recode(hints,name):
-    try:
-        u = unicode(name, "utf-8")
-    except UnicodeError:
-        return name
-    return hints.team.encode(u)
-
-def msgmerge(po, pot, out):
-    os.system("msgmerge --no-wrap %s %s -o %s" % (po, pot, out))
-            
 
 if __name__ == '__main__':
     apply(main, tuple(sys.argv[1:]))
