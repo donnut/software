@@ -2,6 +2,7 @@ Next:
 * test mails to the robot
 * test running of postats
 
+* create team-leaders mailing list at tp.org?
 
 Just before going live:
 * run mirror_tp_data.py one last time
@@ -14,3 +15,81 @@ Later:
 * sort AUTHORS by data
 * add support for retired translators
 * mail bug-tar about simpler fetch script
+
+
+==============================================
+* Some old TODO from Montréal about the robot:
+
+.* Site maintenance
+
+. + Registry handling
+.  - Update the statistical database synchronously.
+.  - Cross-validate AUTHORS with the registry, once in a while.
+
+. + Web aspects
+.  - Do not list mailto for those not wanting them there.
+.  - Reestablish mailtos for people having home Web pages.
+
+
+.* Accepting submissions
+
+. + Message format
+.  - Accept PGP validation.
+.  - Accept various end of line codings.
+
+. + Authentification
+.  - Meant for package maintainers submitting POT files, or URLs.
+.  - Meant for team leaders altering the registry.
+.  - Meant for translators to declare aliases, or envelope aliases.
+
+. + Validation
+.  - Try fuzzy matching on names and address, and diagnose matches.
+.  - Ignore case within the domain.
+.  - Have special envelope aliases to ignore.
+.  - Record that the initial translator is different and do not complain.
+.  - Process date intervals and precise packages for assignment validity.
+.  - Reject a submission if PO-Revision-Date has not been modified since last.
+
+
+.* Processing template files
+
+. + Versioning
+.  - Be uniform with the Web site about finding the best one.
+.  - Allow some per-package specifities.
+.  - Better documents problems for people wanting to lie:
+.   : Maintainers wanting to use the version number of a future release
+.   : Translators wanting to use the version number of a future release
+.  - Branch processing.
+
+. + When missing
+.  - Attempt automatic download and extraction.
+.  - Handle irregular archive names, not unpacking expectedly.
+.  - Maybe check all URLs for when they change?
+
+. + Further checks
+.  - Do not msgmerge PO files if the POT file is not the latest.
+.  - Refuse to upload a POT file we already have.
+.  - Force Project-Id-Version when sending PO files to translators.
+
+. + Maintainers should be able to handle POT files themselves
+.  - Set the pretest URLs.
+.  - Force POT file uploads.
+.  - Process and announce.
+
+
+.* Giving feedback
+
+. + What to send?
+.  - Redirection of rejects and difficulties directly to team leaders.
+.  - No multiple successive messages announcing uploads to all members.
+.  - Capability to send yet unmerged POT files to translators.
+
+. + Overall format
+.  - `formail -r' uses Sender instead of From.  Make this all more regular.
+.  - Make sure all messages have a From indicating the robot.
+.  - Ease Gnus threading for various log and debugging messages.
+.  - Internationalisation of the full robot suite, itself.
+
+. + Formatting details
+.  - Tidy up processing of \007 and other control characters.
+.  - Replace "probably someone is assigned" with registry information.

@@ -60,6 +60,17 @@ def open_output():
     else:
         return os.popen('sendmail -i -t', 'w')
 
+def mime_charset(hints):
+    if hints.team.charset:
+        return hints.team.charset
+    return "utf-8"
+
+def mime_header(charset):
+    return """MIME-Version: 1.0
+Content-Type: text/plain;charset=%s
+Content-Transfer-Encoding: 8bit
+""" % charset
+
 def underwrite(write):
     write(_("""
 Thank you for all your work,
@@ -246,7 +257,7 @@ def process_po_file(hints, file, tell_maintainer=0):
         os.remove(file)
 
 
-# Sending out email notifications.
+# Four main types of notifications.
 
 def notify_maintainer_for_pot(hints):
     file = open_output()
@@ -256,9 +267,9 @@ def notify_maintainer_for_pot(hints):
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: New PO template for '%s'
-
 """)
                % (hints.domain.mailto[0], hints.domain.name))
+    write('\n')
     write(messages.refill(_("""\
 Hello, gentle maintainer.
 
@@ -288,7 +299,6 @@ from your sources.
                       % hints.domain.name))
     if hints.domain.url:
         write(_("""\
-
 Here is the URL information which has just been provided to translators for
 your package.  Please inform the translation coordinator, at the address
 given below, if this information is not adequate or current:
@@ -309,17 +319,18 @@ to you when they arrive.  Ask at the address below if you want this.
 """))
     underwrite(write)
 
+
 def notify_team_leaders_for_pot(hints):
     file = open_output()
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
     write(_("""\
 From: Translation Project Robot <robot@translationproject.org>
-To: team-leaders@translationproject.org
+To: team-leaders@iro.umontreal.ca
 Subject: New PO template for '%s'
-
 """)
                % hints.domain.name)
+    write('\n')
     write(messages.refill(_("""\
 My nicest hello to all language team leaders.
 
@@ -350,6 +361,7 @@ for this package:
             write('    %s\n' % url)
     underwrite(write)
 
+
 def notify_maintainer_for_po(hints, file_name, archive_base):
     file = open_output()
     def write(msg):
@@ -358,10 +370,10 @@ def notify_maintainer_for_po(hints, file_name, archive_base):
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: New %s PO file for '%s'
-
 """)
                % (hints.domain.mailto[0], _(hints.team.language),
                   hints.domain.name))
+    write('\n')
     write(messages.refill(_("""\
 Hello, gentle maintainer.
 
@@ -388,8 +400,7 @@ the %s team of translators.  The file is available at:
 (We can arrange things so that in the future such files are automatically
 e-mailed to you when they arrive.  Ask at the address below if you want this.)
 """))
-    write(_("""\
-
+    write(_("""
 The following HTML page should be updated by tomorrow:
 
     %s/pass/domain-%s.html
@@ -405,19 +416,9 @@ when they need to get some translation context from your sources.
 
 If any question arises, please contact the central coordinator.
 """)
-               % (registry.puburls[0], hints.domain.name))
+          % (registry.puburls[0], hints.domain.name))
     underwrite(write)
 
-def mime_charset(hints):
-    if hints.team.charset:
-        return hints.team.charset
-    return "utf-8"
-
-def mime_header(charset):
-    return """MIME-Version: 1.0
-Content-Type: text/plain;charset=%s
-Content-Transfer-Encoding: 8bit
-""" % charset
 
 def notify_team_for_po(hints, stats, ispot = 0):
     file = open_output()
@@ -519,10 +520,10 @@ team leader (if any) should inform the translation coordinator of who
 will become responsible for it.""")\
                   % (hints.domain.name)
         write(messages.refill(_("""\
-
 In this file %d messages have been translated already, accounting for
 %d%% of the original text size (in raw bytes).  Still %d messages need
-to be attended to.  %s
+to be attended to.
+%s
 
 Please translate the remaining messages for the benefit of users of the
 %s language.  Once the translation is completed, send the result to
@@ -532,13 +533,13 @@ Please translate the remaining messages for the benefit of users of the
 
 If any question arises, you may contact either your team leader or the
 central coordinator.
+
 """)
                           % (translated, percent, untranslated,
                              msg, _(hints.team.language),
                              hints.domain.name, hints.version.name,
                              hints.team.name)))
     write(_("""\
-
 The following HTML pages should be updated by tomorrow:
 
     %s/pass/domain-%s.html
@@ -547,14 +548,14 @@ The following HTML pages should be updated by tomorrow:
                % (registry.puburls[0], hints.domain.name,
                   registry.puburls[0], hints.team.name))
     if hints.domain.url:
-        write(_("""\
-
+        write(_("""
 You can find a copy of the distribution at:
 
 """))
         for url in hints.domain.url:
-            write('    %s\n\n' % url)
+            write('    %s\n' % url)
     underwrite(write)
+
 
 def email_file(address, file_name, option = None):
     file = open_output()
@@ -567,6 +568,9 @@ def email_file(address, file_name, option = None):
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: Contents of PO file '%s'
+""")
+               % (address, name))
+    write(_("""\
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="=-=-="
 
@@ -576,7 +580,7 @@ Content-Disposition: attachment; filename=%s
 Content-Transfer-Encoding: base64
 
 """)
-               % (address, name, name,))
+               % name)
     if option == "compress":
         write(commands.getoutput('gzip -c %s | recode ../64' % file_name))
     else:

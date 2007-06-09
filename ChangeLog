@@ -4,6 +4,9 @@
 	* bin/po-register: Move little functions to the top, make separate
 	functions for opening output file and for underwriting each mail.
 
+	* bin/po-register, bin/tp-robot: Move more little functions to the
+	top, hard-code essential blank lines, adjust some whitespace.
+
 2007-06-08  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Clarify its function, and ungettextize its 

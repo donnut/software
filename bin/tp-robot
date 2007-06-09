@@ -84,7 +84,7 @@ def main(*arguments):
         if not entries:
             run.reject(_("""\
 Your PO file seems to have no entries at all, like if it were empty.
-"""),"[no entries]")
+"""), "[no entries]")
             abort_robot()
         # We definitely found a non-empty PO file.
         header = po.header(entries)
@@ -115,7 +115,7 @@ Your PO file seems to have no entries at all, like if it were empty.
         run.reject(_("""\
 The Translation Project robot failed in a rather unexpected way.
 Please report all details at <coordinator@translationproject.org>.
-"""),"[robot bug]")
+"""), "[robot bug]")
         run.submitter.write_nofill(tb)
         run.coordinator.write_nofill(tb)
     # Push some feedback out, whatever happened.
@@ -181,15 +181,15 @@ I'm ignoring the whole following MIME part within your invoice:
             run.reject(_("""\
 Hmm...  It seems I'm not clever enough yet to find the PO file within
 your email.  I will go ask the coordinator to help me unpack your mail.
-"""),"[submission not found]")
+"""), "[submission not found]")
             abort_robot()
         if len(parts) > 1:
             # FIXME: Process multiple PO files in a single invoice.
             run.reject(_("""\
-Your message contains multiple MIME parts, and I'm not able to decide
+Your message contains multiple MIME parts, and I am unable to decide
 which one is meant to hold your PO file.  Please help me and resubmit
 your message with a simpler MIME structure.
-"""),"[multiple submissions?]")
+"""), "[multiple submissions?]")
             abort_robot()
         return parts[0]
 
@@ -202,21 +202,22 @@ your message with a simpler MIME structure.
         if run.hints.pot:
             run.reject(_("""\
 The translation coordinator does not yet trust me enough to let me handle
-a PO template file all alone.  So, for this one, I'll go disturb him!
-"""),"[robot does not support pot submission]")
+a POT file all alone.  So, for this one, I'll go disturb him!
+"""), "[robot does not support pot submission]")
             abort_robot()
         if not (run.hints.domain and run.hints.version and run.hints.team):
             run.reject(_("""\
 %s
 The file name argument should look like 'DOMAIN-VERSION.TEAM.po'.
 """)
-                       % unknown_elements_comment(),"[ill-formatted file name]")
+                       % unknown_elements_comment(),
+                       "[ill-formatted file name]")
             abort_robot()
         if not run.hints.team:
             run.reject(_("""\
 Within the Translation Project, no team has the code '%s'.
 """)
-                           % run.hints.team, "[unknown team code]")
+                       % run.hints.team, "[unknown team code]")
             abort_robot()
         globals.team_language = run.hints.team.language
         globals.team_mailto = (run.hints.team.mailto[0]
@@ -284,7 +285,7 @@ Within the Translation Project, no team has the code '%s'.
                         run.reject(_("""\
 The translation coordinator does not trust me enough yet to let me handle
 a PO template file all alone.  So, for this one, I'll go disturb him!
-"""),"[pot not supported]")
+"""), "[pot not supported]")
                         abort_robot()
                 continue
         # Diagnose if the invoice was sent at a wrong address.
@@ -419,8 +420,8 @@ As this line is intended to be read by humans working in %s,
 you may have this title line translated as well, it does not have to be
 kept in English.
 """)
-                           % (run.hints.domain,
-                              globals.team_language, _(globals.team_language)),
+                       % (run.hints.domain,
+                          globals.team_language, _(globals.team_language)),
                        "[no title header]")
 
     def copyright(self, header):
@@ -467,7 +468,8 @@ The copyright for the PO file should be assigned to:
 
 and does not seem to be, yet it might be only a matter of proper spelling.
 %s
-""") % (author,comment),reason)
+""")
+                           % (author, comment), reason)
         elif run.hints.domain and run.hints.domain.disclaim:
             if text:
                 comment = (_("""\
@@ -693,7 +695,8 @@ still accepted for the time being, but are to be deprecated.
 The PO revision date is '%s', which looks older than the POT creation date.
 You should update the PO revision date before submitting a PO file.
 """)
-                           % date['PO-Revision-Date'],"[po revision date before creation date]")
+                           % date['PO-Revision-Date'],
+                           "[po revision date before creation date]")
 
     def last_translator(self, header):
         decfunc = po.decfunc(header)
@@ -738,8 +741,7 @@ to my own notes, '%s' is not known as a good address to reach
 that translator.
 %s%s
 """)
-                               % (last_translator,
-                                  last_address,
+                               % (last_translator, last_address,
                                   say_alias_list(translator.mailto),
                                   globals.unknown_address_insert),
                                "[last address unknown]")
@@ -972,7 +974,7 @@ where ENCODING should be the name of an encoding, like one of %s.
             run.reject(_("""\
 Sniff!  I'm unable to successfully start the 'msgfmt' program.  I most
 probably need repairs.  I'll go whine to the translation coordinator.
-"""),"[could not invoke msgfmt]")
+"""), "[could not invoke msgfmt]")
             abort_robot()
         comment = self.scan_gettext_output(lines, work, virtual)
         comment1 = self.scan_gettext_output(lines1, work, virtual)
@@ -1212,7 +1214,7 @@ Accomplishing actions.  In fact, putting here whatever does not fit elsewhere.
             run.reject(_("""\
 Sniff!  I'm unable to successfully start the 'diff' program.  I most
 probably need repairs.  I'll go whine to the translation coordinator.
-"""),"[recode or diff not found]")
+"""), "[recode or diff not found]")
             abort_robot()
         # FIXME: Maybe detect and better explain `msgid' reformatting, trailing
         # space elimination, and other less evident matters.
@@ -1223,7 +1225,7 @@ probably need repairs.  I'll go whine to the translation coordinator.
             run.reject(_("""\
 Sniff!  I'm unable to successfully canonicalise your PO file.  I most
 probably need repairs.  I'll go whine to the translation coordinator.
-"""),"[remove/rename failed]")
+"""), "[remove/rename failed]")
             abort_robot()
         if lines:
             if len(lines) > 50:
@@ -1295,7 +1297,7 @@ service, you can ask for it by emailing to the translation coordinator.
             run.reject(_("""\
 Sniff!  I'm unable to successfully start the 'po-register' program.
 I most probably need repairs.  I'll go whine to the translation coordinator.
-"""),"[po-register failed]")
+"""), "[po-register failed]")
             return
         comment = []
         write = comment.append
