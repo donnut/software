@@ -106,7 +106,7 @@ def main(*arguments):
         if hints.pot:
             process_pot_file(hints, name, teams)
         else:
-            process_po_file(hints, name, tell_maintainer=1)
+            process_po_file(hints, name)
 
 
 # Processing of a POT file.
@@ -167,14 +167,14 @@ def process_pot_file(hints, file, teams):
                         sys.stderr.write(t_("      mailing '%s' to '%s'\n")
                                          % (archive_base, address))
                         email_file(address, result_file, translator.autosend)
-            process_po_file(hints, result_file)
+            process_po_file(hints, result_file, fromnewpot = True)
         elif not team.suppresspot:
             mailto = hints.team.announce_address()
             sys.stderr.write(t_("    notifying '%s' about '%s'\n")
                              % (mailto, template_base))
             if not potstats:
                 potstats = po.stats(po.read(template_path))
-            notify_team_for_po(hints, potstats, ispot = 1)
+            notify_team_for_po(hints, potstats, fromnewpot = True)
         if not translator:
             for translator in team.translator_for_domain(hints.domain):
                 if translator.mailto:
@@ -194,7 +194,7 @@ def process_pot_file(hints, file, teams):
 
 # Processing of a PO file.
 
-def process_po_file(hints, file, tell_maintainer=0):
+def process_po_file(hints, file, fromnewpot = False):
     if not os.path.isdir('%s/%s' % (config.pos_path, hints.team.name)):
         sys.stderr.write(t_("    initializing '%s/%s'\n")
                          % (config.pos_path, hints.team.name))
@@ -214,8 +214,6 @@ def process_po_file(hints, file, tell_maintainer=0):
     untranslated = stats['fuzzy'] + stats['untranslated']
     obsolete = stats['obsolete']
     percent = po.percentage(stats)
-    if translated == 0:
-        tell_maintainer = 0
     if (translated == 0 and os.path.isfile(template_path)
         and registry.compare_files(template_path, file)):
         raise t_('Translation empty and identical to POT; not loaded\n')
@@ -234,10 +232,9 @@ def process_po_file(hints, file, tell_maintainer=0):
     mailto = hints.team.announce_address()
     sys.stderr.write(t_("    notifying '%s' about '%s'\n")
                      % (mailto, archive_base))
-    notify_team_for_po(hints, stats)
-    if not hints.domain.mailto:
-        tell_maintainer = 0
-    if tell_maintainer:
+    notify_team_for_po(hints, stats, fromnewpot)
+    if hints.domain.mailto and (not fromnewpot) and (translated > 0):
+        # Notify the maintainer of the updated PO file.
         if not run.dry:
             directory = os.path.dirname(maintainer_path)
             if not os.path.isdir(directory):
@@ -420,7 +417,7 @@ If any question arises, please contact the central coordinator.
     underwrite(write)
 
 
-def notify_team_for_po(hints, stats, ispot = 0):
+def notify_team_for_po(hints, stats, fromnewpot = False):
     file = open_output()
     charset = mime_charset(hints)
     def write(msg):
@@ -431,14 +428,28 @@ def notify_team_for_po(hints, stats, ispot = 0):
     translated = stats['translated']
     untranslated = stats['fuzzy'] + stats['untranslated']
     percent = po.percentage(stats)
-    write_header(_("""\
+    assignee = hints.team.translator_for_domain(hints.domain)
+    if fromnewpot:
+        write_header(_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
-Subject: %s-%s (%d%%, %d untranslated)
-%s
+Subject: New: %s-%s (%d%%, %d untranslated)
 """)
-               % (hints.team.announce_address(), hints.domain.name, hints.version.name, percent, untranslated, mime_header(charset)))
-    if ispot:
+                   % (hints.team.announce_address(),
+                      hints.domain.name, hints.version.name,
+                      percent, untranslated))
+    else:
+        write_header(_("""\
+From: Translation Project Robot <robot@translationproject.org>
+To: %s
+Subject: %s-%s (%d%%, %d untranslated) by %s
+""")
+                   % (hints.team.announce_address(),
+                      hints.domain.name, hints.version.name,
+                      percent, untranslated, assignee[0].name[0]))
+    write(mime_header(charset))
+    write('\n')
+    if fromnewpot:
         urls = hints.template_urls()
     else:
         urls = hints.archive_urls()
@@ -452,16 +463,15 @@ into the archives.  The file is available at:
 
 """)    % (_(hints.team.language), urls[0])
     write(messages.refill(msg))
-    ass = hints.team.translator_for_domain(hints.domain)
     if translated == 0:
-        if len(ass)>1:
+        if len(assignee)>1:
             # XXX: more than two translators?
-            msg = _("%s and %s are currently assigned for the translation.  When the translation has been completed, send the result to <robot@translationproject.org>, using the Subject line:")\
-                  % (uni(ass[0].name[0]),
-                     uni(ass[1].name[0]))
-        elif len(ass) == 1:
+            msg = _("%s AND %s are currently assigned for the translation.  (Please report this as an error, as only one translator should be assigned to a package.)  When the translation has been completed, send the result to <robot@translationproject.org>, using the Subject line:")\
+                  % (uni(assignee[0].name[0]),
+                     uni(assignee[1].name[0]))
+        elif len(assignee) == 1:
             msg = _("%s is currently assigned for the translation.  When the translation has been completed, send the result to <robot@translationproject.org>, using the Subject line:")\
-                  % uni(ass[0].name[0])
+                  % uni(assignee[0].name[0])
         elif hints.team.code in hints.domain.ext:
             import data
             extstats = data.load_extstats().get((hints.domain.name,
@@ -503,16 +513,16 @@ in a future release.
 """)
                    % (translated, hints.domain.name))
     else:
-        if len(ass)>1:
+        if len(assignee)>1:
             # XXX: more than two translators?
             msg = _("""
-%s and %s are currently assigned for the translation.""")\
-                  % (uni(ass[0].name[0]),
-                     uni(ass[1].name[0]))
-        elif len(ass) == 1:
+%s and %s are currently assigned for the translation.  (Please report this as an error, as only one translator should be assigned to a package.)""")\
+                  % (uni(assignee[0].name[0]),
+                     uni(assignee[1].name[0]))
+        elif len(assignee) == 1:
             msg = _("""
 %s is currently assigned for the translation.""")\
-                  % uni(ass[0].name[0])
+                  % uni(assignee[0].name[0])
         else:
             msg = _("""
 Nobody in your team is currently assigned to the domain '%s'.  The

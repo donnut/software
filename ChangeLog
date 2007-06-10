@@ -1,4 +1,10 @@
 
+2007-06-11  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/po-register: Differentiate the mails sent to team lists:
+	the addition of a new POT file from the submission of an updated
+	translation.
+
 2007-06-09  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Move little functions to the top, make separate
