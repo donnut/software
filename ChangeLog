@@ -3,6 +3,8 @@
 
 	* bin/tp-robot, lib/run.py: Tweak a few messages.
 
+	* registry/registry.sgml: Synced with Montréal.
+
 2007-06-11  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Differentiate the mails sent to team lists:

@@ -1,11 +1,13 @@
 Next:
-* test mails to the robot
+* start running queue by cron, then test mails to robot again
 * test running of postats
+
+* Update the postats database synchronously.
 
 * create team-leaders mailing list at tp.org?
 
 Just before going live:
-* run mirror_tp_data.py one last time
+* run mirror_tp_data.py one last time, the drop it
 * convert trans and teams/PO symlinks to PO-files links,
   and remove the teams/ subdir
 
@@ -23,7 +25,6 @@ Later:
 .* Site maintenance
 
 . + Registry handling
-.  - Update the statistical database synchronously.
 .  - Cross-validate AUTHORS with the registry, once in a while.
 
 . + Web aspects
