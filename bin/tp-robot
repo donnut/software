@@ -773,10 +773,10 @@ written by someone else.
                   and (string.lower(last_address)
                        != string.lower(run.translator_address))):
                 run.submitter.write(_("""\
-The header of the message you sent to me says that your email address is
-'%s', while the 'Last-Translator' field of PO file header says
-it should be '%s'.  Let me consider that the latter prevails.
-I merely bring this to your attention in case _you_ think it matters.
+Your message was sent from '%s', but the 'Last-Translator' field in the
+PO file says that your email address is '%s'.  I assume that the latter
+is correct.  I bring this to your attention just in case _you_ think it
+matters.
 """)
                                     % (run.translator_address, last_address))
             run.translator_name = last_translator
@@ -790,8 +790,8 @@ looks like:
     'Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n'
 
 In this line, FULL NAME has to be replaced by the full name of the current
-translator of the messages for the '%s' textual domain, who is you
-most probably :-), EMAIL@ADDRESS gives a way to reach that translator.
+translator of the messages for the '%s' textual domain, which means  you most
+probably :-); EMAIL@ADDRESS gives a way to reach that translator by email.
 """)
                        % run.hints.domain, "[last-translator missing]")
 

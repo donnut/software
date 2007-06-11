@@ -172,7 +172,7 @@ Subject: Re: %s
             if hints.domain and hints.version and hints.team:
                 announce = (_("""\
 Hi!  I am the service robot at the Translation Project,
-and was awakened by your submission for '%s'.
+and was awakened by your submission of '%s'.
 """)
                             % hints.archive_base())
             else:
