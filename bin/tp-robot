@@ -15,7 +15,7 @@ Usage: tp-robot OPTION... <MESSAGE
   -r   email a reply to the translator
 """
 
-import os, sys, types, popen2
+import os, sys, shutil, types, popen2
 import re, string, quopri
 
 sys.path.insert(0, sys.path[0]+'/../lib')
@@ -1283,7 +1283,7 @@ service, you can ask for it by emailing to the translation coordinator.
         # Remove any file left over from a previous try in dry mode.
         if os.path.isfile(incoming):
             os.remove(incoming)
-        registry.move_file(work_name, incoming)
+        shutil.move(work_name, incoming)
         try:
             if run.dry:
                 dry_flag = '-n'

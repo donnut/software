@@ -225,7 +225,7 @@ def process_po_file(hints, file, fromnewpot = False):
                 os.remove(archive_path)
         if not run.dry:
             try:
-                registry.copy_file(file, archive_path)
+                shutil.copy2(file, archive_path)
             except IOError:
                 sys.stderr.write(t_("ERROR: Could not write %s\n")
                                  % archive_path)

@@ -4,6 +4,10 @@
 	* registry/registry.sgml: Redirect mails to myself, temporarily,
 	for testing purposes.
 
+	* bin/fetch-pot, bin/po-register, bin/tp-robot, lib/registry.py:
+	Use shutil.py instead of custom functions, delete obsolete code,
+	small cleanups.
+
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot, lib/run.py: Tweak a few messages.

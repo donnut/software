@@ -95,7 +95,7 @@ class Team:
         if isinstance(msg, types.UnicodeType):
             try:
                 return msg.encode(self.charset)
-            except (UnicodeError,TypeError):
+            except (UnicodeError, TypeError):
                 # TypeError can occur when charset is None
                 return msg.encode("utf-8")
         return msg
@@ -150,7 +150,7 @@ class Translator:
         return self.showmail is None or self.showmail == "yes"
 
 DOMAIN = ('[-A-Za-z0-9_]+[A-Za-z](_[0-9]+)*'
-        '|a2ps|m4|libgphoto2_port|libgphoto2|gphoto2')
+          '|a2ps|m4|libgphoto2_port|libgphoto2|gphoto2')
 
 def domain(name, cache={}):
     domain = cache.get(name)
@@ -247,7 +247,8 @@ Consultation of the registry data file.
 registry = Registry()
 domain_list = registry.domain_list
 team_list = registry.team_list
-
+
+
 # PO and POT name services (hints, versions and charsets).
 
 def hints(name=None):
@@ -259,22 +260,18 @@ Splitting file names into components.
 """
 
     def __init__(self, name):
-        self.pot = None                 # true if this is a PO template file
-        self.domain = None              # textual domain of the PO file
+        self.pot = None                 # true if this is a template file
+        self.domain = None              # textual domain of the file
         self.version = None             # version numbers of the domain
-        self.team = None                # team code, include region or dialect
-        self.charset = None             # None, or `.' and translation charset
-        self.gzipped = None             # None, or `.gz' if compressed
+        self.team = None                # team code, including region or dialect
+        self.charset = None             # None, or '.' plus translation charset
+        self.gzipped = None             # None, or '.gz' if compressed
         if name:
             self.merge(name)
 
     def merge(self, name):
-        match = re.search(r'^(?P<dom>%s)-(?P<ver>%s)\.pot(?P<z>\.gz)?$' % (DOMAIN, VERSION), name)
-        if not match:
-            # not sure in what cases this code is triggered.
-            match = re.search(r'(?P<dom>%s)-(?P<ver>%s)\.pot(?P<z>\.gz)?$' % (DOMAIN, VERSION), name)
-            if match:
-                print "stripping beginning of '%s'" % name
+        match = re.search(r'(?P<dom>%s)-(?P<ver>%s)\.pot(?P<z>\.gz)?$'
+                          % (DOMAIN, VERSION), name)
         if match:
             found_pot = 1
             found_domain = domain(match.group('dom'))
@@ -283,8 +280,9 @@ Splitting file names into components.
             found_charset = None
             found_gzipped = match.group('z')
         else:
-            match = re.search((r'(?P<dom>%s)-(?P<ver>%s)\.(?P<team>%s)(?P<cs>%s)?\.po(?P<z>\.gz)?$'
-                               % (DOMAIN, VERSION, TEAM, CHARSET)), name)
+            match = re.search(r'(?P<dom>%s)-(?P<ver>%s)\.(?P<team>%s)'
+                               '(?P<cs>%s)?\.po(?P<z>\.gz)?$'
+                              % (DOMAIN, VERSION, TEAM, CHARSET), name)
             if match:
                 found_pot = 0
                 found_domain = domain(match.group('dom'))
@@ -469,8 +467,7 @@ class Version:
             self.sort_key = major, minor, patch, pre_val, pretest
             return self.sort_key
         match = re.match(
-            r'([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9.]+)$',
-            self.name)
+            r'([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9.]+)$', self.name)
         if match:
             major = int(match.group(1))
             minor = int(match.group(2))
@@ -480,7 +477,7 @@ class Version:
             return self.sort_key
         match = re.match(
             r'([0-9]{4})-([0-9]{2})-([0-9]{2})$', self.name)
-        if match:                       # Fake something
+        if match:  # Fake something
             major = int(match.group(1))
             minor = int(match.group(2))
             patch = int(match.group(3))
@@ -512,34 +509,12 @@ def archive_path(d, v, t):
     h.team = team(t)
     h.version = version(v)
     return h.archive_path()
-
-# Simple file services.
 
 def compare_files(file1, file2):
     if os.path.isfile(file1) and os.path.isfile(file2):
-        try:
-            import cmp
-        except ImportError:
-            return open(file1).read() == open(file2).read()
-        else:
-            return cmp.cmp(file1, file2)
+        return open(file1).read() == open(file2).read()
     return 0
 
-def copy_file(file1, file2):
-    import shutil
-    if sys.version < '1.5.2':
-        # copy2 invariably yields 1970-01-01, maybe a bug in Python 1.5.1
-        # which runs on `trex'.  Trying the simpler copy.
-        shutil.copy(file1, file2)
-    else:
-        shutil.copy2(file1, file2)
-
-def move_file(file1, file2):
-    try:
-        os.rename(file1, file2)
-    except os.error:
-        copy_file(file1, file2)
-        os.remove(file1)
 
 if __name__ == '__main__':
     langs = {}

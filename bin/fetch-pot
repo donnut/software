@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- mode: python; coding: iso-8859-1 -*-
-# Copyright © 2002 Translation Project.
+# Copyright © 2002, 2007 Translation Project.
 # Copyright © 1998, 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1998.
 
 """\
-Fetch a POT file given a domain name (use the registry).
+Fetch a POT file given a domain name (using the registry).
 
-Usage: fetch-pot DOMAIN...
+Usage: fetch-pot [OPTION] DOMAIN...
 
   -n  dry run
 """
 
-import os, sys
+import os, sys, shutil
 import commands, getopt, re, string, urllib
 
 sys.path.insert(0, sys.path[0]+'/../lib')
@@ -52,12 +52,6 @@ def find_pot_for_domain(domain):
             sys.stderr.write(_("Fetching %s...") % url)
             try:
                 archive, headers = urllib.urlretrieve(url, None, progress)
-            except TypeError:           # 1.5.1 does not accept 3rd argument
-                try:
-                    archive, headers = urllib.urlretrieve(url, None)
-                except IOError:
-                    sys.stderr.write(_("  apparently not found\n"))
-                    continue
             except IOError:
                 sys.stderr.write(_("  apparently not found\n"))
                 continue
@@ -120,9 +114,8 @@ def find_pot_for_domain(domain):
     if match:
         version = registry.version(match.group(1))
     else:
-        match = re.match('(ftp|http)://.*%s-(%s)\.(tar|tgz)' % (domain.name,
-                                                   registry.VERSION),
-                         url)
+        match = re.match('(ftp|http)://.*%s-(%s)\.(tar|tgz)'
+                         % (domain.name, registry.VERSION), url)
         if match:
             version = registry.version(match.group(2))
         else:
@@ -137,7 +130,7 @@ def find_pot_for_domain(domain):
     files = " ".join([entry]+extpolist)
     if os.system(tarcmd % (archive, files)) != 0:
         raise _("Extraction failed")
-    registry.move_file(entry, becoming)
+    shutil.move(entry, becoming)
     process_externals(domain, extpolist)
     # Clean up intermediate directories created by the extraction process.
     fragments = string.split(entry, '/')
@@ -154,8 +147,8 @@ def process_externals(domain, polist):
         entries = po.read(f)
         stats = po.stats(entries)
         header = po.header(entries)
-        match = re.search('(Free |GNU )?(?P<dom>%s)(?P<sep>[- ])(?P<ver>%s)' %
-                          (registry.DOMAIN, registry.VERSION),
+        match = re.search('(Free |GNU )?(?P<dom>%s)(?P<sep>[- ])(?P<ver>%s)'
+                          % (registry.DOMAIN, registry.VERSION),
                           header['project-id-version'])
         if match:
             stats['version'] = match.group('ver')
