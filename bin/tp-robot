@@ -83,10 +83,10 @@ Your PO file seems to have no entries at all, like if it were empty.
         check_registry.translator()
         have_pot = check_registry.have_pot()
         archive_base = run.hints.archive_base()
-        # First run msgfmt on the original submission
+        # First run msgfmt on the original submission.
         check_po_file.contents(part.work, archive_base)
         if have_pot:
-            # Can't merge without template
+            # Can't merge without template.
             process.make_canonical(part.work, archive_base, entries, header)
         check_po_file.contents(part.work, archive_base)
         check_po_file.special_instructions(part.work)
@@ -100,7 +100,7 @@ Your PO file seems to have no entries at all, like if it were empty.
         pass
     except:
         import traceback
-        # Print the exception to get a message from cron
+        # Print the exception to get a message from cron.
         traceback.print_exc()
         tb = "".join(traceback.format_exception(*sys.exc_info()))
         run.reject(_("""\
@@ -116,7 +116,7 @@ Please report all details at <coordinator@translationproject.org>.
 class globals:
     team_language = None                # language spoken by this team
     team_mailto = None                  # email address for the team
-    team_mailtos = []                   # alternative mailtos
+    team_mailtos = []                   # alternative email addresses
     reported_unknown = []               # to avoid reporting the same twice
     unknown_address_insert = _("""\
 In fact, the Translation Project registry holds the preferred email address
@@ -188,7 +188,7 @@ your message with a simpler MIME structure.
         try:
             run.hints.merge(input_name)
         except (KeyError, ValueError):
-            # ValueError: merge did not find a matching regular expression
+            # ValueError: merge did not find a matching regular expression.
             pass
         if run.hints.pot:
             run.reject(_("""\
@@ -287,7 +287,7 @@ a PO template file all alone.  So, for this one, I'll go disturb him!
 I see that you used '%s@%s' to reach me.  Even though it worked,
 a few email aliases were surely involved, which are not all under
 my control.  It is safer that you use my real email address, which is
-'robot@translationproject.org'.
+<robot@translationproject.org>.
 """)
                                          % (to_user, to_site))
         # Clean up translator name.
@@ -502,8 +502,7 @@ not accepted.
             if len(match.group(2)) != 1:
                 run.submitter.write(_("""\
 There is a slight formatting error.  In the initial comment lines,
-please use no more than a single space between '%s' and
-'<%s>'.
+please use no more than a single space between '%s' and '<%s>'.
 """)
                                     % (first_translator, first_address))
             try:
@@ -539,14 +538,13 @@ to reach that translator.
                 return
             if first_translator != run.translator_name:
                 run.submitter.write(_("""
-The last translator of this PO file appears to be different from the
-initial translator.  This is something quite possible and normal.  But if
-you do know that translators did not change, some more checking is needed.
-The third line of whole PO file says '%s', while the
-'Last-Translator' field of PO file header says '%s'.  If,
-and only if, the two names above are indeed misspellings of one another,
-you should ideally correct whichever is needed, and resubmit your PO file
-with the correction included.  On the other hand, I invite you to be fair,
+The last translator of this PO file is not the same as the initial
+translator.  This is something quite normal, but if you know that
+translators did not change, some more checking is needed.
+The third line of whole PO file says '%s', while the 'Last-Translator'
+field of PO file header says '%s'.  If, and only if, these two names are
+misspellings of one another, you should correct whichever is needed and
+resubmit the corrected PO file.  On the other hand, I ask you to be fair,
 and _never_ remove the initial translator of a given PO file, as this
 acknowledgement is the only tribute paid for the work of that translator.
 """)
@@ -554,11 +552,11 @@ acknowledgement is the only tribute paid for the work of that translator.
                                                 run.translator_name))
             elif first_address != run.translator_address:
                 run.submitter.write(_("""
-Your submission contains contradicting addresses for you.  The third line of
-the PO file says it is '%s', while the 'Last-Translator' field
-of the PO file header says it is '%s'.  Please arrange to have a
-single preferred address to reach you, and try to use it consistently in
-all your translation files.
+Your submission contains contradicting addresses for you.  The third
+line of the PO file says '%s', while the 'Last-Translator' field of the
+PO file header says '%s'.  Please arrange to have a single preferred
+address to reach you, and try to use it consistently in all your
+translation files.
 """)
                                              % (first_address,
                                                 run.translator_address))
@@ -577,12 +575,12 @@ digits year telling when the original translation occurred.
                        % run.hints.domain,
                        "[first author incorrectly formatted]")
             run.submitter.write(_("""\
-In case you want to add more historical details on the history of this
-particular PO file, or any comment you would feel useful, you may do so by
-adding other comment lines after the first three, using your own language
-if you feel like it.  Remember that there should always be a space after
-the initial '#' of each comment line, and there should not be a white
-line before the 'msgid' line of the PO file header.
+If you want to add some details on the history of this PO file, or any
+other comment you think useful, you may do so by adding other comment
+lines after the first three, even using your own language if you feel
+like it.  But remember that there should always be a space after the
+initial '#' of each comment line, and there should not be a blank line
+before the 'msgid' line of the PO file header.
 """))
 
     def project_id_version(self, header):
@@ -592,12 +590,12 @@ line before the 'msgid' line of the PO file header.
         if match:
             if match.group('dom') != run.hints.domain.name:
                 run.reject(_("""\
-The 'Project-Id-Version' field of your PO file header says that your textual
-domain is '%s' instead of the '%s' I was expecting.  They really
+The 'Project-Id-Version' field of your PO file header says that your
+textual domain is '%s' instead of the '%s' I was expecting.  They really
 should be identical.  The textual domain is the package name, usually.
 In some rare cases, there are differences in capitalisation, or the dubious
 addition of some 'g' prefix because of the GNU inheritance.  Currently,
-all textual domains are written all in lower case.  They also tend to
+all textual domains are written in all lower case.  They also tend to
 avoid those meaningless 'g' prefixes.
 """)
                            % (match.group('dom'), run.hints.domain),
@@ -615,10 +613,9 @@ I'll attempt to modify it for you, but just this time! :-)
             if match.group('ver') != run.hints.version.name:
                 run.reject(_("""\
 The 'Project-Id-Version' field of your submission says that your translations
-are meant for version '%s' of '%s', not '%s'.  I guess
-that they should be identical.  Consequently, I invite you to adjust either
-the file name of your submission, or the 'Project-Id-Version' field, whichever
-is appropriate.
+are meant for version '%s' of '%s', not '%s'.  I guess that they should be
+identical.  Consequently, I invite you to adjust either the file name of your
+submission, or the 'Project-Id-Version' field, whichever is appropriate.
 """)
                            % (match.group('ver'), run.hints.domain.name,
                               run.hints.version.name),
@@ -647,7 +644,7 @@ by the appropriate version numbers, maybe '%s' here.
             if match:
                 date[field] = value
             else:
-                # FIXME!  Should run.reject in the long run.
+                # FIXME: Should use run.reject soon.
                 run.submitter.write(_("""\
 The '%s' field was not found in your PO file header,
 or else it was not formatted properly.  The line containing this field
@@ -695,12 +692,11 @@ You should update the PO revision date before submitting a PO file.
         match = re.match('(.*?)( +)<(.+)>$', text)
         if match:
             last_translator, last_address = match.group(1, 3)
-            last_translator = decfunc(last_translator)[0] # ignore len
+            last_translator = decfunc(last_translator)[0]  # ignore len
             if len(match.group(2)) != 1:
                 run.submitter.write(_("""\
 There is a slight formatting error.  In the 'Last-Translator' header line,
-please use no more than a single space between '%s' and
-'<%s>'.
+please use no more than a single space between '%s' and '<%s>'.
 """)
                                              % (last_translator, last_address))
             if not run.translator_name:
@@ -792,7 +788,7 @@ probably :-); EMAIL@ADDRESS gives a way to reach that translator by email.
         if match:
             maybe_language, maybe_mailto = match.group(1, 3)
             try:
-                maybe_language.decode('ascii') # language name should be all ASCII
+                maybe_language.decode('ascii')  # language name should be all ASCII
             except UnicodeError:
                 m = []
                 for c in maybe_language:
@@ -802,8 +798,7 @@ probably :-); EMAIL@ADDRESS gives a way to reach that translator by email.
             if len(match.group(2)) != 1:
                 run.submitter.write(_("""\
 There is a slight formatting error.  In the 'Language-Team' header line,
-please use no more than a single space between '%s' and
-'<%s>'.
+please use no more than a single space between '%s' and '<%s>'.
 """)
                                     % (maybe_language, maybe_mailto))
             if maybe_language != globals.team_language:
@@ -836,7 +831,7 @@ inform the translation coordinator of the address your team decides to use.
 You wrote <%s> in the 'Language-Team' field of the PO file
 header, while I think it should have been <%s>.  I'm not fully sure
 about this.  If you think I got it wrong, please email to the translation
-coordinator for straightening this out.
+coordinator to get this straightened out.
 """)
                            % (maybe_mailto, globals.team_mailto),
                            "[team address incorrect]")
@@ -1125,15 +1120,11 @@ to channel translations differently, for ensuring some quality control first.
 
     def have_pot(self):
         if not os.path.isfile(run.hints.template_path()):
-            run.reject(_("""\
+            run.reject(_("""
 You submitted a PO file for which the Translation Project does not have a
-corresponding template: there is no '%s', here.
+corresponding template: there is no '%s' here.
 Please have the maintainer of the package send the corresponding POT file
-to the Translation Project.  It is best that we also have a precise URL
-of an official or pretest distribution to offer to translators. 
-This URL is only for translation purposes, the package does not even have to
-compile.  A few translators like peeking at the source for getting finer
-translation context, for when messages are not clear enough in themselves.
+to the Translation Project.  Or better: a URL of a distribution tarball.
 """)
                        % run.hints.template_base(),
                        "[there is no corresponding pot file]")
@@ -1144,28 +1135,29 @@ translation context, for when messages are not clear enough in themselves.
         if registry.compare_files(work, run.hints.archive_path()):
             comment = [_("""
 The Translation Project already holds an exact copy of your submission,
-which you may find as either one of:
+which you may find as:
 
 """)]
-            for url in run.hints.archive_urls():
-                comment.append('    %s\n' % url)
+##          for url in run.hints.urchive_urls():
+##              comment.append('    %s\n' % url)
+            comment.append('    %s\n' % run.hints.archive_urls()[0])
             run.reject_nofill(no_('').join(comment), "[duplicate submission]")
 
     def translator_can_submit(self, translator, domain):
-        # if it is the assigned translator, accept
+        # If it is the assigned translator, accept.
         if domain in translator.do:
             return 1, "[translator is assigned]"
-        # if somebody else is assigned, reject
+        # If somebody else is assigned, reject.
         if run.hints.team.translator_for_domain(domain):
             return 0, "[somebody else is assigned to this domain]"
-        # if there is an external translation, reject
+        # If there is an external translation, reject.
         if run.hints.team.code in domain.ext:
             return 0, "[there is an external translation]"
-        # if there is no preexisting translation, accept
+        # If there is no preexisting translation, accept.
         file = run.hints.maintainer_path()
         if not os.path.exists(file):
             return 1, "[first submission to this domain]"
-        # if it exists, find the submitter
+        # If it exists, find the submitter.
         import data
         stats = data.load_postats()
         hints = registry.Hints(os.readlink(file))
@@ -1174,7 +1166,7 @@ which you may find as either one of:
             last_translator = stats[0]
             email = stats[1]
         except KeyError:
-            # stats not updated yet, neet to read po file
+            # Stats not updated yet, need to read PO file.
             file = po.read(file)
             last_translator, email = po.last_translator(po.header(file))
         try:
@@ -1237,7 +1229,7 @@ might get irritably longish.  Please also note that you do not _need_
 to make such modifications, as I will continue doing them patiently and
 automatically, here.  This message continues after the (maybe long) quote.
 """))
-            # possibly non-ASCII byte strings, don't try to translate
+            # Possibly non-ASCII byte strings, don't try to translate.
             run.submitter.write_nofill("""\
 ---------------------------------------------------------------------->
 %s----------------------------------------------------------------------<
@@ -1377,25 +1369,25 @@ def mime_decode_header(h):
     rtn = []
     parts = ecre.split(h, 1)
     while parts:
-        # If there are less than 4 parts, it can't be encoded and we're done
+        # If there are less than 4 parts, it can't be encoded and we're done.
         if len(parts) < 5:
             rtn.extend(parts)
             break
-        # The first element is any non-encoded leading text
+        # The first element is any non-encoded leading text.
         rtn.append(parts[0])
         charset = parts[1]
         encoding = parts[2].lower()
         atom = parts[3].replace('_', ' ')
-        # The next chunk to decode should be in parts[4]
+        # The next chunk to decode should be in parts[4].
         parts = ecre.split(parts[4])
-        # The encoding must be either `q' or `b', case-insensitive
+        # The encoding must be either 'q' or 'b', case-insensitive.
         if encoding == 'q':
             func = _qdecodestring
         else:
-            # XXX base64 not supported
+            # XXX base64 not supported.
             return h
         try:
-            # Decode and get the unicode in the charset
+            # Decode and get the unicode in the charset.
             rtn.append(unicode(func(atom), charset))
         except:
             return h
@@ -1404,8 +1396,8 @@ def mime_decode_header(h):
     try:
         return u"".join(rtn)
     except UnicodeError:
-        # some of the ASCII parts contain characters above 128
-        # assume they are Latin-1
+        # Some of the ASCII parts contain characters above 128;
+        # assume they are Latin-1.
         for i in range(len(rtn)):
             if type(rtn[i])==types.StringType:
                 rtn[i] = unicode(rtn[i], "iso-8859-1")

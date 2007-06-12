@@ -5,6 +5,8 @@
 	Rename latest-POs/ -> latest/, clean up the configuration,
 	remove some obsolete variables.
 
+	* bin/tp-robot: Tweak some messages and comments.
+
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Redirect mails to myself, temporarily,
