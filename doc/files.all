@@ -33,10 +33,10 @@ for the sake of transparency about the internal workings of the project.
     the package name.  `LL' is the language code.  Old obsolete PO files
     may be deleted, they are not kept forever.
 
-. + `latest-POs/DOMAIN/LL.po'
-    Package maintainers may always grab the latest official copy of
+. + `latest/DOMAIN/LL.po'
+    Package maintainers can always grab the latest official copies of
     translation files, in PO format, pertaining to their own package,
-    in the `latest-POs/' hierarchy.  `DOMAIN' is usually the package name,
+    in the `latest/' directory.  `DOMAIN' is usually the package name,
     sans version, and `LL' is the language code as explained earlier.
 
 .* Text files

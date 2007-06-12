@@ -1,6 +1,12 @@
 
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* doc/files.all, Makefile, lib/config.py, web/layout.html:
+	Rename latest-POs/ -> latest/, clean up the configuration,
+	remove some obsolete variables.
+
+2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* registry/registry.sgml: Redirect mails to myself, temporarily,
 	for testing purposes.
 

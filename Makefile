@@ -9,7 +9,7 @@ VERSION=1.2
 all: registry matrix
 
 check: all
-	@find latest-POs -type l | while read file; do \
+	@find ../site/latest -type l | while read file; do \
 	  echo; \
 	  echo "Verifying \``ls -l $$file | sed 's,.*-> ../../,,'`'"; \
 	  msgfmt --statistics -c -v -o /dev/null $$file; \

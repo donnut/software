@@ -8,14 +8,19 @@ Next:
 
 Just before going live:
 * run mirror_tp_data.py one last time, the drop it
+* change robot's directive in layout.html to "index,follow"
 * convert trans and teams/PO symlinks to PO-files links,
   and remove the teams/ subdir
 
 Later:
+* run 'make check' and delete PO files with fatal errors,
+  at least the bad ones that are not the latest
+* add a page for retired translators
+* make fileutils, sh-utils, and textutils not show up on team pages
+* transform nano_1_0 back to plain nano
+* rename registry.dtd to tp-registry.dtd
 * weed out double assignments from registry.sgml
-* remove the obsolete fileutils, sh-utils, and textutils
 * sort AUTHORS by data
-* add support for retired translators
 * mail bug-tar about simpler fetch script
 
 
