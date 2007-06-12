@@ -1,6 +1,11 @@
 
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* registry/registry.sgml: Redirect mails to myself, temporarily,
+	for testing purposes.
+
+2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* bin/tp-robot, lib/run.py: Tweak a few messages.
 
 	* registry/registry.sgml: Synced with Montréal.
