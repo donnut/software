@@ -14,6 +14,10 @@
 	* bin/fetch-pot, bin/po-register, bin/po-tidy-links:
 	Make presentation of dry-run flags uniform.
 
+	* bin/run-queue.sh: Remove obsolete option.
+
+	* bin/tp-robot: Remove mistaken argument check.
+
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot, lib/run.py: Tweak a few messages.

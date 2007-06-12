@@ -50,9 +50,6 @@ def abort_robot():
 
 def main(*arguments):
     # Decode options.
-    if len(arguments) == 0:
-        sys.stdout.write(__doc__)
-        sys.exit(0)
     import getopt
     options, arguments = getopt.getopt(arguments, 'n')
     for (option, value) in options:

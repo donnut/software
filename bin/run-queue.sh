@@ -32,7 +32,7 @@ fi
 if [ -f $TP_EXEC ]; then
   lockfile $TP_EXEC_LOCK
     if [ -f $TP_EXEC ]; then
-      formail -s $PYTHON $progsdir/bin/tp-robot -r <$TP_EXEC
+      formail -s $PYTHON $progsdir/bin/tp-robot <$TP_EXEC
       rm -f $TP_EXEC
     fi
   rm -f $TP_EXEC_LOCK
