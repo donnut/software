@@ -8,6 +8,12 @@
 	Use shutil.py instead of custom functions, delete obsolete code,
 	small cleanups.
 
+	* lib/run.py, bin/tp-robot: Remove the unused debugging flag,
+	use a single dry-run flag.
+
+	* bin/fetch-pot, bin/po-register, bin/po-tidy-links:
+	Make presentation of dry-run flags uniform.
+
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot, lib/run.py: Tweak a few messages.

@@ -7,12 +7,10 @@
 """\
 Attempt automatic processing of PO file submissions.
 
-Usage: tp-robot OPTION... <MESSAGE
- or  : tp-robot OPTION... PO-FILE
+Usage: tp-robot [-n] <MESSAGE
+  or : tp-robot [-n] PO_FILE
 
-  -d   debugging mode, show what would be mailed
-  -n   do not alter the PO archives
-  -r   email a reply to the translator
+  -n   dry-run, do not send mails, do not change things
 """
 
 import os, sys, shutil, types, popen2
@@ -56,14 +54,10 @@ def main(*arguments):
         sys.stdout.write(__doc__)
         sys.exit(0)
     import getopt
-    options, arguments = getopt.getopt(arguments, 'dnr')
+    options, arguments = getopt.getopt(arguments, 'n')
     for (option, value) in options:
-        if option == '-d':
-            run.debug = 1
-        elif option == '-n':
+        if option == '-n':
             run.dry = 1
-        elif option == '-r':
-            run.robot = 1
     if len(arguments) > 1:
         raise "Too many arguments\n"
     # Do the processing.

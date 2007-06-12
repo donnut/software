@@ -4,9 +4,9 @@
 """\
 Fix the symlinks in the maintainer hierarchy.
 
-Usage: po-tidy-links [-n]
+Usage:  po-tidy-links [-n]
 
-  -n  Dry run
+  -n  dry run
 """
 
 import os, sys, shutil, glob

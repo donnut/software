@@ -16,9 +16,7 @@ def no_(text):
 
 # Execution variables.
 
-debug = 0                               # debugging flag, sometimes useful
-dry = 0                                 # dry run, do not modify things
-robot = 0                               # robot mode, send messages
+dry = 0                                 # don't send mail, don't modify things
 rejected = 0                            # a serious error was diagnosed
 
 subject = _('Report from TP-Robot')     # best known subject for messages
@@ -51,7 +49,7 @@ class Reporter:
         if self.delay:
             reply_header = self.reply_header(force)
             if reply_header:
-                if robot:
+                if not dry:
                     self.file = os.popen('sendmail -i -t', 'w')
                 else:
                     self.file = sys.stdout
@@ -70,7 +68,7 @@ class Reporter:
                     'Unable to send report.  Dumping it here instead.\n'
                     '================================================\n'))
                 sys.stderr.writelines(self.delayed)
-        if not self.delay and robot:
+        if not self.delay and not dry:
             self.file.close()
 
     def write_nofill(self, text):

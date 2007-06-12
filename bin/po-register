@@ -8,7 +8,7 @@
 Process a received POT or PO file, sending out notifications to the teams,
 the assigned translators, the team-leaders group, and the maintainer.
 
-Usage: po-register [OPTION]... PACKAGE-VERSION.{pot,LL[.po]}
+Usage:  po-register [-ntT] PACKAGE-VERSION.{pot,LL[.po]}
 
   -n         dry run, display what would be mailed out
   -t         display the list of known team codes and exit

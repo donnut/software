@@ -7,7 +7,7 @@
 """\
 Fetch a POT file given a domain name (using the registry).
 
-Usage: fetch-pot [OPTION] DOMAIN...
+Usage:  fetch-pot [-n] DOMAIN...
 
   -n  dry run
 """
