@@ -29,6 +29,7 @@ po_charset = None                       # charset in PO file
 
 hints = None                            # domain, version, team and charset
 
+
 # Mailing reports.
 
 class Reporter:
@@ -82,6 +83,7 @@ class Reporter:
     def write(self, text):
         self.write_nofill(messages.refill(text))
 
+
 class Coordinator(Reporter):
 
     def reply_header(self, force=0):
@@ -131,12 +133,6 @@ Subject: Re: %s
     def write_nofill(self, text):
         Reporter.write_nofill(self, text)
 
-    def reject(self, reason):
-        if orig_subject:
-            reason = orig_subject + " " + reason
-        else:
-            reason = subject + " " + reason
-        self.delayed.insert(0,"\n"+reason+"\n")
 
 class Submitter(Reporter):
 
@@ -202,30 +198,27 @@ been fixed.  As a robot I am incredibly patient at these things!
 
         Reporter.complete(self)
 
+
 coordinator = Coordinator()
 submitter = Submitter()
 
-def reject_nofill(text, reason = None):
+def reject_nofill(text, reason = ""):
     global rejected, subject
 
     if not rejected:
-        subject = subject + " [REJECTED]"
+        subject = subject + " [REJECTED] " + reason
     rejected = 1
     if not dry:
-        if reason:
-            coordinator.reject(reason)
         coordinator.write_nofill(text)
     submitter.write_nofill(text)
 
-def reject(text, reason = None):
+def reject(text, reason = ""):
     global rejected, subject
 
     if not rejected:
-        subject = subject + " [REJECTED]"
+        subject = subject + " [REJECTED] " + reason
     rejected = 1
     if not dry:
-        if reason:
-            coordinator.reject(reason)
         coordinator.write(text)
     submitter.write(text)
 
