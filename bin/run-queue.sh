@@ -32,8 +32,11 @@ fi
 if [ -f $TP_EXEC ]; then
   lockfile $TP_EXEC_LOCK
     if [ -f $TP_EXEC ]; then
+      # Let the robot handle the arrived emails.
       formail -s $PYTHON $progsdir/bin/tp-robot <$TP_EXEC
       rm -f $TP_EXEC
+      # Update the statistics database for new or changed files.
+      $progsdir/bin/calc-postats -u
     fi
   rm -f $TP_EXEC_LOCK
 fi

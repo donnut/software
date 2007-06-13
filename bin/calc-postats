@@ -7,12 +7,12 @@
 """\
 Adjust the database holding PO and POT file statistics.
 
-Usage:  postats-data [-dituv] [POFILE]...
+Usage:  calc-postats [-dituv] [POFILE]... [POTFILE]...
 
   -d  delete entries for which the PO file does not exist
   -i  re-initialise the whole database (takes very long)
-  -t  re-initialise the template statistics
-  -u  update the statistics for new or changed files
+  -t  re-initialise just the template statistics
+  -u  update the statistics for new or changed PO files
   -v  entertain the user by telling what's being done
 """
 
@@ -45,7 +45,7 @@ def main(*arguments):
     if initialize and delete:
         print "*** Option -d does not make sense together with -i"
 	sys.exit(2)
-    if (initialize or update) and arguments:
+    if (initialize or template or update) and arguments:
         print "*** Arguments are not allowed when initializing or updating"
 	sys.exit(2)
 

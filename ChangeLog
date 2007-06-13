@@ -1,4 +1,10 @@
 
+2007-06-14  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* Makefile, bin/run-queue.sh, bin/postats-data:
+	Rename "postats-data" to "calc-postats", and update the
+	statistics immediately after handling any PO submissions.
+
 2007-06-13  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/postats-data: Remove duplication of deletion code,

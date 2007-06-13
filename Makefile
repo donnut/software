@@ -37,7 +37,7 @@ $(HOME)/.mailrc-tp: ../cache/registry
 postats: ../cache/postats
 ../cache/postats: FORCE
 	VERSION_CONTROL=numbered cp -fb ../cache/postats ../cache/postats
-	bin/postats-data -v -u
+	bin/calc-postats -u -v
 FORCE:
 
 matrix: doc/matrix.texi
