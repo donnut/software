@@ -1,6 +1,11 @@
 
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* bin/postats-data: Remove duplication of deletion code,
+	make updating independent of initialization option.
+
+2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* doc/files.all, Makefile, lib/config.py, web/layout.html:
 	Rename latest-POs/ -> latest/, clean up the configuration,
 	remove some obsolete variables.

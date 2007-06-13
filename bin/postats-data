@@ -11,8 +11,8 @@ Usage: postats-data [OPTION] [POFILE]...
 
   -d  Delete entries for which the PO file does not exist
   -i  Re-initialise the whole database (takes very long)
-  -t  Re-initialise just the template information
-  -u  Take time stamps into account
+  -t  Re-initialise just the template statistics
+  -u  Update the statistics for new or changed files
   -v  Entertain the user by telling what goes on
 """
 
@@ -26,66 +26,60 @@ def main(*arguments):
     if not arguments:
         sys.stdout.write(__doc__)
         sys.exit(0)
-    delete_option = initialize_option = template_option = verbose_option = 0
-    update_option = 0
+    initialize_option = template_option = verbose_option = 0
+    delete_option = update_option = 0
     options, arguments = getopt.getopt(arguments, 'dituv')
     for option, value in options:
         if option == '-d':
             delete_option = 1
         elif option == '-i':
-            initialize_option = 1
+            initialize_option = template_option = 1
         elif option == '-t':
             template_option = 1
         elif option == '-u':
             update_option = 1
         elif option == '-v':
             verbose_option += 1
-    assert not initialize_option or not delete_option
-    if initialize_option or update_option:
-        assert len(arguments) == 0
-    #elif not delete_option:
-    #   assert len(argument) > 0
+    if initialize_option and update_option:
+        print "Option -u does not make sense together with -i"
+	sys.exit(2)
+    if initialize_option and delete_option:
+        print "Option -d does not make sense together with -i"
+	sys.exit(2)
+    if (initialize_option or update_option) and  len(arguments) > 0:
+        print "No arguments allowed when initializing or updating"
+	sys.exit(2)
+
     if initialize_option:
-        if update_option:
-            try:
-                postats = data.load_postats()
-            except:
-                # Failed to load old data; start from scratch
-                postats = UserDict.UserDict()
-                update_option = 0
-        else:
-            postats = UserDict.UserDict()
-        found = []
-        os.path.walk('%s' % config.pos_path,
-                     walker, (postats, found, verbose_option, update_option))
-        gen_potstats(postats, verbose_option)
-        if update_option:
-            # delete stats for which we have no file
-            for have in postats.keys():
-                if have not in found:
-                    if verbose_option:
-                        try:
-                            name = registry.archive_path(*have)
-                        except (KeyError, TypeError):
-                            name = str(have)
-                        sys.stderr.write('d - %s\n' % name)
-                    del postats[have]
-    elif template_option:
-        postats = data.load_postats()
-        gen_potstats(postats, [], verbose_option, update_option)
+        postats = UserDict.UserDict()
     else:
-        postats = data.load_postats()
-        if delete_option:
-            for key in postats.keys():
-                domain, version, team = key
-                name = registry.archive_path(domain, version, team)
-                if not os.path.exists(name):
-                    if verbose_option:
-                        sys.stderr.write('d - %s\n' % name)
-                    del postats[key]
-        for name in arguments:
-            update(postats, [], name, verbose_option, 0)
+        try:
+            postats = data.load_postats()
+        except:
+            # Failed to load old data; start from scratch
+            postats = UserDict.UserDict()
+            initialize_option = 1
+
+    if initialize_option or update_option:
+        os.path.walk('%s' % config.pos_path,
+                     walker, (postats, [], verbose_option, update_option))
+
+    if delete_option:
+        for key in postats.keys():
+            domain, version, team = key
+            name = registry.archive_path(domain, version, team)
+            if not os.path.exists(name):
+                if verbose_option:
+                    sys.stderr.write('d - %s\n' % name)
+                del postats[key]
+
+    if template_option:
+        gen_potstats(postats, [], verbose_option, update_option)
+
+    for name in arguments:
+        update(postats, [], name, verbose_option, 0)
     data.save_postats(postats)
+
 
 def walker((postats, found, verbose, update_only), dirname, bases):
     if verbose:
@@ -161,12 +155,12 @@ def gen_potstats(postats, verbose):
         except ValueError:
             continue
         except KeyError:
-            print "BAD FILE", f
+            print "UNREGISTERED FILE:", f
             continue
         try:
             h.version.set_sort_key()
         except AssertionError:
-            print "BAD VERSION in", f
+            print "UNREGISTERED VERSION:", f
             continue
         try:
             oldver = versions[h.domain.name][0]
