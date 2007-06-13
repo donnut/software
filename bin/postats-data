@@ -67,7 +67,7 @@ def main(*arguments):
         if verbose_option:
             print "Walking..."
         os.path.walk('%s' % config.pos_path,
-                     walker, (postats, [], verbose_option, update_option))
+                     walker, (postats, verbose_option))
 
     if delete_option:
         if verbose_option:
@@ -85,7 +85,7 @@ def main(*arguments):
 
     for name in arguments:
         if os.path.splitext(name)[1] == '.po':
-            tally_po(postats, [], name, verbose_option, 0)
+            tally_po(postats, name, verbose_option, 0)
         elif os.path.splitext(name)[1] == '.pot':
             tally_POT(postats, name, verbose_option)
         else:
@@ -96,15 +96,14 @@ def main(*arguments):
     data.save_postats(postats)
 
 
-def walker((postats, found, verbose, update_only), dirname, bases):
+def walker((postats, verbose), dirname, bases):
     if verbose:
         bases.sort()
     for base in bases:
         if os.path.splitext(base)[1] == '.po':
-             tally_po(postats, found, '%s/%s' % (dirname, base),
-                    verbose, update_only)
+             tally_po(postats, '%s/%s' % (dirname, base), verbose)
 
-def tally_po(postats, found, name, verbose, update_only):
+def tally_po(postats, name, verbose):
     try:
         hints = registry.hints(name)
     except KeyError, e:
@@ -112,7 +111,6 @@ def tally_po(postats, found, name, verbose, update_only):
         return
     if hints.domain and hints.version and hints.team:
         key = hints.domain.name, hints.version.name, hints.team.name
-        found.append(key)
         mtime = os.stat(name)[stat.ST_MTIME]
         oldstats = postats.get(key)
         if oldstats:

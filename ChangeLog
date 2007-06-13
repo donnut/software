@@ -14,6 +14,8 @@
 
 	* bin/postats-data: Better function names, better eror messages.
 
+	* bin/postats-data: Removed unused parameters.
+
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* doc/files.all, Makefile, lib/config.py, web/layout.html:
