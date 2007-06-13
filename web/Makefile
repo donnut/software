@@ -2,11 +2,14 @@
 # Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 
-cgidir = /home/tp/site
-htmldir = /home/tp/site
-passdir = /home/tp/site/pass
-cachedir= /home/tp/cache
-progsdir = /home/tp/progs
+homedir = /home/tp
+sitedir = $(homedir)/site
+
+cgidir = $(sitedir)
+htmldir = $(sitedir)
+passdir = $(sitedir)/pass
+cachedir= $(homedir)/cache
+progsdir = $(homedir)/progs
 
 CGI_FILES = registry.cgi
 PASS_FILES = domains.html teams.html

@@ -5,6 +5,8 @@
 	Rename "postats-data" to "calc-postats", and update the
 	statistics immediately after handling any PO submissions.
 
+	* web/Makefile: Make it a little easier to change.
+
 2007-06-13  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/postats-data: Remove duplication of deletion code,
