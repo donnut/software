@@ -103,8 +103,8 @@ def walker((postats, verbose), dirname, bases):
 def tally_po(postats, name, verbose):
     try:
         hints = registry.hints(name)
-    except KeyError, e:
-        sys.stderr.write("ERROR %s\n" % e)
+    except KeyError, err:
+        print "*** Error", err, "with", name
         return
     if hints.domain and hints.version and hints.team:
         key = hints.domain.name, hints.version.name, hints.team.name
@@ -118,17 +118,17 @@ def tally_po(postats, name, verbose):
             else:
                 if oldmtime == mtime:
                     if verbose > 1:
-                        print "  same -", name
+                        sys.stderr.write("  same - %s" % name)
                     return 0
         if verbose:
 	    if oldstats:
-                print "  update -", name,
+                sys.stderr.write("  update - %s..." % name)
 	    else:
-                print "  new -", name,
+                sys.stderr.write("  new - %s..." % name)
         try:
             entries = po.read(name)
         except IOError:
-            sys.stderr.write("UNREADABLE %s\n" % name)
+            print "*** Unreadable file:", name
             return 0
         header = po.header(entries)
         translator, mailto = header['last-translator'], None
@@ -151,10 +151,10 @@ def tally_po(postats, name, verbose):
                         stats['translated_length'], stats['total_length'],
                         mtime)
         if verbose:
-            print
+            sys.stderr.write("  %d / %d\n" % (stats['translated'], total))
         return 1
     else:
-        sys.stderr.write(_('%s: Not enough hints for a key\n') % name)
+        print "*** Not enough hints:", name
         return 0
 
 

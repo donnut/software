@@ -18,6 +18,8 @@
 
 	* bin/postats-data: Simplify variable names.
 
+	* bin/postats-data: Show results again when tallying PO files.
+
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* doc/files.all, Makefile, lib/config.py, web/layout.html:
