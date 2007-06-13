@@ -68,7 +68,6 @@ def main(*arguments):
             print "Walking..."
         os.path.walk('%s' % config.pos_path,
                      walker, (postats, [], verbose_option, update_option))
-        #XXX: update_potstats
 
     if delete_option:
         if verbose_option:
@@ -78,13 +77,14 @@ def main(*arguments):
             name = registry.archive_path(domain, version, team)
             if not os.path.exists(name):
                 if verbose_option:
-                    sys.stderr.write('deleted - %s\n' % name)
+                    sys.stderr.write('  deleted - %s\n' % name)
                 del postats[key]
 
     if template_option:
         regenerate_potstats(postats, verbose_option)
 
     for name in arguments:
+        ## FIXME check whether POT or PO file
         update(postats, [], name, verbose_option, 0)
 
     if verbose_option:
@@ -97,11 +97,8 @@ def walker((postats, found, verbose, update_only), dirname, bases):
         bases.sort()
     for base in bases:
         if os.path.splitext(base)[1] == '.po':
-            changed = update(postats, found, '%s/%s' % (dirname, base),
-                             verbose, update_only)
-            if update_only and changed:
-                # Save after each change
-                data.save_postats(postats)
+             update(postats, found, '%s/%s' % (dirname, base),
+                    verbose, update_only)
 
 def update(postats, found, name, verbose, update_only):
     try:
@@ -122,10 +119,13 @@ def update(postats, found, name, verbose, update_only):
             else:
                 if oldmtime == mtime:
                     if verbose > 1:
-                        print "same -", name
+                        print "  same -", name
                     return 0
         if verbose:
-            print "updating -", name,
+	    if oldstats:
+                print "  update -", name,
+	    else:
+                print "  new -", name,
         try:
             entries = po.read(name)
         except IOError:
@@ -157,6 +157,7 @@ def update(postats, found, name, verbose, update_only):
     else:
         sys.stderr.write(_('%s: Not enough hints for a key\n') % name)
         return 0
+
 
 def regenerate_potstats(postats, verbose):
     versions = {}

@@ -1,10 +1,13 @@
 
-2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
+2007-06-13  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/postats-data: Remove duplication of deletion code,
 	make updating independent of initialization option.
 
 	* bin/postats-data: Adapt usage message, be more verbose.
+
+	* bin/postats-data: Do not save after every change, and
+	distinguish between an updated and a new PO file.
 
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 

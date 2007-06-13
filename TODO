@@ -18,6 +18,8 @@ Just before going live:
 Later:
 * run 'make check' and delete PO files with fatal errors,
   at least the bad ones that are not the latest
+* delete problematic zh_TW/xchat Big5 file
+* simplify regex: filenames do not contain encoding any more
 * add a page for retired translators
 * make fileutils, sh-utils, and textutils not show up on team pages
 * transform nano_1_0 back to plain nano
