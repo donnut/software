@@ -85,9 +85,9 @@ def main(*arguments):
 
     for name in arguments:
         if os.path.splitext(name)[1] == '.po':
-            update(postats, [], name, verbose_option, 0)
+            tally_po(postats, [], name, verbose_option, 0)
         elif os.path.splitext(name)[1] == '.pot':
-            compute_potstat(postats, name, verbose_option)
+            tally_POT(postats, name, verbose_option)
         else:
 	    print "Not a message file:", name
 
@@ -101,10 +101,10 @@ def walker((postats, found, verbose, update_only), dirname, bases):
         bases.sort()
     for base in bases:
         if os.path.splitext(base)[1] == '.po':
-             update(postats, found, '%s/%s' % (dirname, base),
+             tally_po(postats, found, '%s/%s' % (dirname, base),
                     verbose, update_only)
 
-def update(postats, found, name, verbose, update_only):
+def tally_po(postats, found, name, verbose, update_only):
     try:
         hints = registry.hints(name)
     except KeyError, e:
@@ -169,14 +169,15 @@ def regenerate_potstats(postats, verbose):
         try:
             hints = registry.hints(file)
         except ValueError:
+            print "*** Bad filename:", file
             continue
         except KeyError:
-            print "UNREGISTERED FILE:", file
+            print "*** Unregistered package:", file
             continue
         try:
             hints.version.set_sort_key()
         except AssertionError:
-            print "UNREGISTERED VERSION:", file
+            print "*** Unsortable version:", file
             continue
         try:
             oldver = versions[hints.domain.name][0]
@@ -189,24 +190,33 @@ def regenerate_potstats(postats, verbose):
     for domain, (version, file) in versions.items():
         calculate(postats, domain, version, file, verbose)
 
-def compute_potstat(postats, file, verbose):
+def tally_POT(postats, file, verbose):
     try:
         hints = registry.hints(file)
-    except ValueError, KeyError:
-        print "UNREGISTERED:", file
+    except ValueError:
+        print "*** Bad filename:", file
         return
-    calculate(postats, hints.domain.name, hints.version, file, verbose)
-
-def calculate(postats, domain, version, file, verbose):
+    except KeyError:
+        print "*** Unregistered package:", file
+        return
     try:
-        oldfile = postats.potstats[domain][0]
-        hints = registry.hints(oldfile)
-        if version < hints.version:
+        hints.version.set_sort_key()
+    except AssertionError:
+        print "*** Unsortable version:", file
+        return
+    try:
+        oldfile = postats.potstats[hints.domain.name][0]
+        oldhints = registry.hints(oldfile)
+    except:
+        pass
+    else:
+        if hints.version < oldhints.version:
             if verbose:
                 sys.stderr.write("  skipping old - %s\n" % file)
             return
-    except KeyError:
-        pass
+    calculate(postats, hints.domain.name, hints.version, file, verbose)
+
+def calculate(postats, domain, version, file, verbose):
     if verbose:
         sys.stderr.write("  recounting - %s... " % file)
     entries = po.read('%s/%s' % (config.pots_path, file))

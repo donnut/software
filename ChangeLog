@@ -12,6 +12,8 @@
 	* bin/postats-data: Add the ability to recalculate the stats
 	for a single POT file; to be used by bin/fetch-pot.
 
+	* bin/postats-data: Better function names, better eror messages.
+
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* doc/files.all, Makefile, lib/config.py, web/layout.html:
