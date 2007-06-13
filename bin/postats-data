@@ -7,13 +7,13 @@
 """\
 Adjust the database holding PO file statistics.
 
-Usage: postats-data [OPTION] [POFILE]...
+Usage:  postats-data [-dituv] [POFILE]...
 
-  -d  Delete entries for which the PO file does not exist
-  -i  Re-initialise the whole database (takes very long)
-  -t  Re-initialise just the template statistics
-  -u  Update the statistics for new or changed files
-  -v  Entertain the user by telling what goes on
+  -d  delete entries for which the PO file does not exist
+  -i  re-initialise the whole database (takes very long)
+  -t  re-initialise the template statistics
+  -u  update the statistics for new or changed files
+  -v  entertain the user by telling what goes on
 """
 
 import os, sys, stat
@@ -23,12 +23,12 @@ sys.path.insert(0, sys.path[0]+'/../lib')
 import config, data, po, registry
 
 def main(*arguments):
-    if not arguments:
-        sys.stdout.write(__doc__)
-        sys.exit(0)
     initialize_option = template_option = verbose_option = 0
     delete_option = update_option = 0
     options, arguments = getopt.getopt(arguments, 'dituv')
+    if not arguments and not options:
+        sys.stdout.write(__doc__)
+        sys.exit(2)
     for option, value in options:
         if option == '-d':
             delete_option = 1
@@ -50,6 +50,8 @@ def main(*arguments):
         print "No arguments allowed when initializing or updating"
 	sys.exit(2)
 
+    if verbose_option:
+        print "Loading statistics file..."
     if initialize_option:
         postats = UserDict.UserDict()
     else:
@@ -59,25 +61,34 @@ def main(*arguments):
             # Failed to load old data; start from scratch
             postats = UserDict.UserDict()
             initialize_option = 1
+            update_option = 0
 
     if initialize_option or update_option:
+        if verbose_option:
+            print "Walking..."
         os.path.walk('%s' % config.pos_path,
                      walker, (postats, [], verbose_option, update_option))
+        #XXX: update_potstats
 
     if delete_option:
+        if verbose_option:
+            print "Checking for deletions..."
         for key in postats.keys():
             domain, version, team = key
             name = registry.archive_path(domain, version, team)
             if not os.path.exists(name):
                 if verbose_option:
-                    sys.stderr.write('d - %s\n' % name)
+                    sys.stderr.write('deleted - %s\n' % name)
                 del postats[key]
 
     if template_option:
-        gen_potstats(postats, [], verbose_option, update_option)
+        regenerate_potstats(postats, verbose_option)
 
     for name in arguments:
         update(postats, [], name, verbose_option, 0)
+
+    if verbose_option:
+        print "Saving statistics file..."
     data.save_postats(postats)
 
 
@@ -110,11 +121,11 @@ def update(postats, found, name, verbose, update_only):
                 pass
             else:
                 if oldmtime == mtime:
-                    if verbose>1:
-                        sys.stderr.write('S - %s\n' % name)
+                    if verbose > 1:
+                        print "same -", name
                     return 0
         if verbose:
-            sys.stderr.write('a - %s...' % name)
+            print "updating -", name,
         try:
             entries = po.read(name)
         except IOError:
@@ -141,13 +152,13 @@ def update(postats, found, name, verbose, update_only):
                         stats['translated_length'], stats['total_length'],
                         mtime)
         if verbose:
-            sys.stderr.write('\n')
+            print
         return 1
     else:
         sys.stderr.write(_('%s: Not enough hints for a key\n') % name)
         return 0
 
-def gen_potstats(postats, verbose):
+def regenerate_potstats(postats, verbose):
     versions = {}
     for f in os.listdir('%s' % config.pots_path):
         try:
