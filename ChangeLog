@@ -9,6 +9,9 @@
 	* bin/postats-data: Do not save after every change, and
 	distinguish between an updated and a new PO file.
 
+	* bin/postats-data: Add the ability to recalculate the stats
+	for a single POT file; to be used by bin/fetch-pot.
+
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* doc/files.all, Makefile, lib/config.py, web/layout.html:

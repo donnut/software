@@ -84,8 +84,12 @@ def main(*arguments):
         regenerate_potstats(postats, verbose_option)
 
     for name in arguments:
-        ## FIXME check whether POT or PO file
-        update(postats, [], name, verbose_option, 0)
+        if os.path.splitext(name)[1] == '.po':
+            update(postats, [], name, verbose_option, 0)
+        elif os.path.splitext(name)[1] == '.pot':
+            compute_potstat(postats, name, verbose_option)
+        else:
+	    print "Not a message file:", name
 
     if verbose_option:
         print "Saving statistics file..."
@@ -161,39 +165,59 @@ def update(postats, found, name, verbose, update_only):
 
 def regenerate_potstats(postats, verbose):
     versions = {}
-    for f in os.listdir('%s' % config.pots_path):
+    for file in os.listdir('%s' % config.pots_path):
         try:
-            h = registry.hints(f)
+            hints = registry.hints(file)
         except ValueError:
             continue
         except KeyError:
-            print "UNREGISTERED FILE:", f
+            print "UNREGISTERED FILE:", file
             continue
         try:
-            h.version.set_sort_key()
+            hints.version.set_sort_key()
         except AssertionError:
-            print "UNREGISTERED VERSION:", f
+            print "UNREGISTERED VERSION:", file
             continue
         try:
-            oldver = versions[h.domain.name][0]
+            oldver = versions[hints.domain.name][0]
         except KeyError:
-            versions[h.domain.name] = h.version, f
+            versions[hints.domain.name] = hints.version, file
             continue
-        if h.version > oldver:
-            versions[h.domain.name] = h.version, f
+        if hints.version > oldver:
+            versions[hints.domain.name] = hints.version, file
     postats.potstats = {}
     for domain, (version, file) in versions.items():
-        if verbose:
-            sys.stderr.write("%s ... " % file)
-        entries = po.read('%s/%s' % (config.pots_path, file))
-        stats = po.stats(entries)
-        # aegis.pot has translations
-        # assert stats['translated'] == 0, file
-        assert stats['fuzzy'] == 0, file
-        postats.potstats[domain] = (file, stats['untranslated'])
-        if verbose:
-            sys.stderr.write("%d\n" % stats['untranslated'])
-            
+        calculate(postats, domain, version, file, verbose)
+
+def compute_potstat(postats, file, verbose):
+    try:
+        hints = registry.hints(file)
+    except ValueError, KeyError:
+        print "UNREGISTERED:", file
+        return
+    calculate(postats, hints.domain.name, hints.version, file, verbose)
+
+def calculate(postats, domain, version, file, verbose):
+    try:
+        oldfile = postats.potstats[domain][0]
+        hints = registry.hints(oldfile)
+        if version < hints.version:
+            if verbose:
+                sys.stderr.write("  skipping old - %s\n" % file)
+            return
+    except KeyError:
+        pass
+    if verbose:
+        sys.stderr.write("  recounting - %s... " % file)
+    entries = po.read('%s/%s' % (config.pots_path, file))
+    stats = po.stats(entries)
+    assert stats['fuzzy'] == 0, file
+    if not domain == "aegis":  # aegis.pot has translations
+        assert stats['translated'] == 0, file
+    postats.potstats[domain] = (file, stats['untranslated'])
+    if verbose:
+        sys.stderr.write("%d\n" % stats['untranslated'])
+
 
 if __name__ == '__main__':
     apply(main, tuple(sys.argv[1:]))
