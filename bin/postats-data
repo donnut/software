@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- mode: python; coding: iso-8859-1 -*-
-# Copyright © 2001, 2002 Free Translation Project.
+# Copyright © 2001, 2002, 2007 Translation Project.
 # Copyright © 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 2000.
 
 """\
-Adjust the database holding PO file statistics.
+Adjust the database holding PO and POT file statistics.
 
 Usage:  postats-data [-dituv] [POFILE]...
 
@@ -13,7 +13,7 @@ Usage:  postats-data [-dituv] [POFILE]...
   -i  re-initialise the whole database (takes very long)
   -t  re-initialise the template statistics
   -u  update the statistics for new or changed files
-  -v  entertain the user by telling what goes on
+  -v  entertain the user by telling what's being done
 """
 
 import os, sys, stat
@@ -23,75 +23,72 @@ sys.path.insert(0, sys.path[0]+'/../lib')
 import config, data, po, registry
 
 def main(*arguments):
-    initialize_option = template_option = verbose_option = 0
-    delete_option = update_option = 0
+    initialize = template = delete = update = verbose = 0
     options, arguments = getopt.getopt(arguments, 'dituv')
     if not arguments and not options:
         sys.stdout.write(__doc__)
         sys.exit(2)
     for option, value in options:
         if option == '-d':
-            delete_option = 1
+            delete = 1
         elif option == '-i':
-            initialize_option = template_option = 1
+            initialize = template = 1
         elif option == '-t':
-            template_option = 1
+            template = 1
         elif option == '-u':
-            update_option = 1
+            update = 1
         elif option == '-v':
-            verbose_option += 1
-    if initialize_option and update_option:
-        print "Option -u does not make sense together with -i"
+            verbose += 1
+    if initialize and update:
+        print "*** Option -u does not make sense together with -i"
 	sys.exit(2)
-    if initialize_option and delete_option:
-        print "Option -d does not make sense together with -i"
+    if initialize and delete:
+        print "*** Option -d does not make sense together with -i"
 	sys.exit(2)
-    if (initialize_option or update_option) and  len(arguments) > 0:
-        print "No arguments allowed when initializing or updating"
+    if (initialize or update) and arguments:
+        print "*** Arguments are not allowed when initializing or updating"
 	sys.exit(2)
 
-    if verbose_option:
+    if verbose:
         print "Loading statistics file..."
-    if initialize_option:
+    if initialize:
         postats = UserDict.UserDict()
     else:
         try:
             postats = data.load_postats()
         except:
-            # Failed to load old data; start from scratch
+            # Failed to load old data; start from scratch.
             postats = UserDict.UserDict()
-            initialize_option = 1
-            update_option = 0
+            initialize = 1
 
-    if initialize_option or update_option:
-        if verbose_option:
+    if initialize or update:
+        if verbose:
             print "Walking..."
-        os.path.walk('%s' % config.pos_path,
-                     walker, (postats, verbose_option))
+        os.path.walk('%s' % config.pos_path, walker, (postats, verbose))
 
-    if delete_option:
-        if verbose_option:
+    if delete:
+        if verbose:
             print "Checking for deletions..."
         for key in postats.keys():
             domain, version, team = key
             name = registry.archive_path(domain, version, team)
             if not os.path.exists(name):
-                if verbose_option:
+                if verbose:
                     sys.stderr.write('  deleted - %s\n' % name)
                 del postats[key]
 
-    if template_option:
-        regenerate_potstats(postats, verbose_option)
+    if template:
+        regenerate_potstats(postats, verbose)
 
     for name in arguments:
         if os.path.splitext(name)[1] == '.po':
-            tally_po(postats, name, verbose_option, 0)
+            tally_po(postats, name, verbose, 0)
         elif os.path.splitext(name)[1] == '.pot':
-            tally_POT(postats, name, verbose_option)
+            tally_POT(postats, name, verbose)
         else:
-	    print "Not a message file:", name
+	    print "*** Not a message file:", name
 
-    if verbose_option:
+    if verbose:
         print "Saving statistics file..."
     data.save_postats(postats)
 

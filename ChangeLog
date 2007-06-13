@@ -14,7 +14,9 @@
 
 	* bin/postats-data: Better function names, better eror messages.
 
-	* bin/postats-data: Removed unused parameters.
+	* bin/postats-data: Remove unused parameters.
+
+	* bin/postats-data: Simplify variable names.
 
 2007-06-12  Benno Schulenberg  <benno@vertaalt.nl>
 
