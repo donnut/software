@@ -1,13 +1,22 @@
 Next:
-* start running queue by cron, then test mails to robot again
+* when translator submits PO file that is not for the latest available
+  POT version, then don't notify the maintainer
+* if there is a PO  file for a more recent version of the package,
+  do not change the symlink in the latest/ subdir
+* add the version number to the mail sent to the maintainer, so she
+  knows to what POT file the translators are reacting
+* the robot should send reactions to submissions by a translator
+  _not to the sending address, _not to the address in the PO header,
+  but to the address officially registered in the sgml file.
 * have the robot check the subject line with the actual contents
   of the email, or at least rewrite the subject line with the
   correct filename and version
-* test running of postats
-
-* Update the postats database synchronously.
-
-* create team-leaders mailing list at tp.org?
+* create a team-leaders mailing list at tp.org
+* improve the color scheme: the middle ones are too dark;
+  better would be: red-> pinkish -> grey -> softgreen -> green
+* add color to the domain pages too
+* figure out if there are still any mirrors, and then what and how
+  to mirror the new setup
 
 Just before going live:
 * run mirror_tp_data.py one last time, the drop it
@@ -27,6 +36,7 @@ Later:
 * weed out double assignments from registry.sgml
 * sort AUTHORS by data
 * mail bug-tar about simpler fetch script
+* search and delete the PO files with mistaken encoding specifications
 
 
 ==============================================

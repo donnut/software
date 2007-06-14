@@ -284,7 +284,7 @@ a PO template file all alone.  So, for this one, I'll go disturb him!
             or (to_site and not re.match(r'iro\.umontreal\.ca', to_site,
                                          re.I))):
             run.submitter.write(_("""\
-I see that you used '%s@%s' to reach me.  Even though it worked,
+I see that you used <%s@%s> to reach me.  Even though it worked,
 a few email aliases were surely involved, which are not all under
 my control.  It is safer that you use my real email address, which is
 <robot@translationproject.org>.
@@ -524,10 +524,8 @@ preferred spelling.
             if first_address not in translator.mailto:
                 if first_address not in globals.reported_unknown:
                     run.submitter.write(_("""
-The initial translator of this PO file is '%s'.  Yet,
-according to my own notes, '%s' is not known as a good address
-to reach that translator.
-%s%s
+The initial translator of this PO file is %s.  But according to my notes,
+<%s> is not a good address to reach that translator.  %s  %s
 """)
                                         % (
                         first_translator, first_address,
@@ -553,8 +551,8 @@ acknowledgement is the only tribute paid for the work of that translator.
             elif first_address != run.translator_address:
                 run.submitter.write(_("""
 Your submission contains contradicting addresses for you.  The third
-line of the PO file says '%s', while the 'Last-Translator' field of the
-PO file header says '%s'.  Please arrange to have a single preferred
+line of the PO file says <%s>, while the 'Last-Translator' field of the
+PO file header says <%s>.  Please arrange to have a single preferred
 address to reach you, and try to use it consistently in all your
 translation files.
 """)
@@ -723,10 +721,8 @@ write to the translation coordinator for more information about it.
             if last_address not in translator.mailto:
                 if last_address not in globals.reported_unknown:
                     run.reject(_("""\
-The last translator of this PO file is '%s'.  Yet, according
-to my own notes, '%s' is not known as a good address to reach
-that translator.
-%s%s
+The last translator of this PO file is %s.  But according to my notes,
+<%s> is not a good address to reach that translator.  %s  %s
 """)
                                % (last_translator, last_address,
                                   say_alias_list(translator.mailto),
@@ -828,10 +824,9 @@ inform the translation coordinator of the address your team decides to use.
             elif maybe_mailto != globals.team_mailto and \
                      maybe_mailto not in globals.team_mailtos:
                 run.reject(_("""\
-You wrote <%s> in the 'Language-Team' field of the PO file
-header, while I think it should have been <%s>.  I'm not fully sure
-about this.  If you think I got it wrong, please email to the translation
-coordinator to get this straightened out.
+The 'Language-Team' field of the PO file header contains <%s> as the team's
+email adress, but the registered team's address is <%s>.  If this is wrong,
+please email the translation coordinator to get it corrected.
 """)
                            % (maybe_mailto, globals.team_mailto),
                            "[team address incorrect]")
@@ -1331,12 +1326,11 @@ def unknown_elements_comment(check_translator=0):
 def say_alias_list(items):
     if len(items) == 0:
         return _("""\
-No official email address exists for this translator in the Translation
-Project registry.
+No official email address is registered for this translator.
 """)
     if len(items) == 1:
         return (_("""\
-The only address we officially know for this translator is '%s'.
+The only registered address for this translator is <%s>.
 """)
                 % items[0])
     aliases = items[:]
