@@ -188,7 +188,8 @@ def domain_page_walker((postats, write, team, domain), dirname, bases):
                       % (scramble(mailto), translator))
             else:
                 write('    <td>%s</td>\n' % translator)
-            write('    <td>%d / %d</td>\n' % (translated, total))
+            write('    <td bgcolor="%s">%d / %d</td>\n' %
+	          (colorize(translated, total), translated, total))
             write('   </tr>\n')
 
 # Generation of webpages describing national teams.
@@ -447,7 +448,7 @@ class TeamPage(htmlpage.Htmlpage):
                              translated, templ_msgs))
                 else:
                     if templ_msgs:
-                        color = ' bgcolor="#FF0000"'
+                        color = ' bgcolor="#00d0f8"'
                     else:
                         color = ''
                     write('    <td align="center">%s</td>\n'
@@ -505,8 +506,12 @@ def scramble(email):
     email = string.replace(email, ".", " (dot) ")
     return email
 
+palette = ['#ff0000', '#f8c040', '#f0e070', '#f0f090',
+                      '#e0f070', '#c0f840', '#00ff00']
+
 def colorize(translated, total):
-    pct = float(translated) / total
-    green = int(255.99 * pct)
-    red = int(255.99 * (1 - pct))
-    return "#%.2x%.2x00" % (red, green)
+    if total == 0:
+        return "#d7d7d7"
+    if translated > total:
+        return "#00f8f8"
+    return palette[6 * translated / total]

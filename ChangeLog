@@ -1,4 +1,9 @@
 
+2007-06-15  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/localweb.py: Use lighther colours, use blue for the fully
+	untranslated packages, and colourize domain pages too.
+
 2007-06-14  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Use angled brackets to quote email addresses.
