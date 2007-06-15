@@ -65,8 +65,7 @@ class DomainPage(htmlpage.Htmlpage):
         if domain.ref:
             write('  <p>This page is about the translation of messages for'
                   ' the <code>%s</code> textual domain.  More information'
-                  ' about this package can be found by visiting the'
-                  ' following link:</p>\n'
+                  ' about this package can be found here:</p>\n'
                   '  <table align=center border=2>\n'
                   '   <tr align=center>\n'
                   '    <th>Topic</th>\n'
@@ -238,13 +237,11 @@ class TeamPage(htmlpage.Htmlpage):
         self.prologue("Translation team for %s" % team.language, 'utf-8')
         assigned_domains = {}
         seen_translators = []
-        write('  <p>The %s translation team uses <code>%s</code> as'
-              ' language code.  This code can be used as the value of the'
-              ' <code>LANGUAGE</code> or <code>LANG</code> environment'
-              ' variable by users of internationalized software. '
-              ' It is also part of PO file names. '
-              ' We often use it as a short identification for the team.</p>\n'
-              % (team.language, team.code))
+        write('  <p>The %s translation team uses <b><code>%s</code></b> as'
+              ' its language code.  This code is part of the %s PO file'
+              ' names.  It is also sometimes used as a short identification'
+              ' for the team.</p>\n'
+              % (team.language, team.code, team.language))
 
         write('  <p>\n')
         if team.mailto:
@@ -278,7 +275,7 @@ class TeamPage(htmlpage.Htmlpage):
 
         if team.ref:
             write('  <p>You may get more information about the'
-                  ' %s effort by visiting some of these team links:</p>\n'
+                  ' %s effort here:</p>\n'
                   '  <table align=center border=2>\n'
                   '   <tr align=center>\n'
                   '    <th>Topic</th>\n'
@@ -352,9 +349,9 @@ class TeamPage(htmlpage.Htmlpage):
         write('  <p>Here is the current list of assignments of textual domains'
               ' to translators, as known to the Translation Project registry. '
               ' The robot relies on this information for directly accepting'
-              ' submissions from translators. '
-              ' If no current version is listed in the table, the information'
-              ' is identical to the most recent submission. '
+              ' submissions from translators.  If no <b>Current version</b>'
+              ' is listed in the table, the information is identical to the'
+              ' most recent submission (under <b>Version</b>). '
               ' If you find an error or omission, please write')
         if team.leader and team.leader.mailto and team.leader.can_show_mail():
             write(' to <a href="mailto:%s">%s</a> to get it corrected.</p>\n'
@@ -376,7 +373,7 @@ class TeamPage(htmlpage.Htmlpage):
               '    <th>Assigned translator</th>\n'
               '    <th>Version</th>\n'
               '    <th>Translated</th>\n'
-              '    <th>Current Version</th>\n'
+              '    <th>Current version</th>\n'
               '    <th>Translated</th>\n'
               '   </tr>\n')
         for domain in registry.domain_list():
