@@ -6,6 +6,10 @@
 
 	* lib/localweb.py: Simplify the writing of coloured table entries.
 
+	* lib/localweb.py: Rename a variable.
+
+	* registry/registry.sgml: Synced with Montréal.
+
 2007-06-14  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Use angled brackets to quote email addresses.

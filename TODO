@@ -12,9 +12,6 @@ Next:
   of the email, or at least rewrite the subject line with the
   correct filename and version
 * create a team-leaders mailing list at tp.org
-* improve the color scheme: the middle ones are too dark;
-  better would be: red-> pinkish -> grey -> softgreen -> green
-* add color to the domain pages too
 * figure out if there are still any mirrors, and then what and how
   to mirror the new setup
 
@@ -29,6 +26,9 @@ Later:
   at least the bad ones that are not the latest
 * delete problematic zh_TW/xchat Big5 file
 * simplify regex: filenames do not contain encoding any more
+* search and delete problematic version numbers, like 0.5g not
+  being recognized as older than 0.5.2; or improve the sort key
+* find out why there are no POT files for things like 'cook'
 * add a page for retired translators
 * make fileutils, sh-utils, and textutils not show up on team pages
 * transform nano_1_0 back to plain nano
@@ -37,6 +37,7 @@ Later:
 * sort AUTHORS by data
 * mail bug-tar about simpler fetch script
 * search and delete the PO files with mistaken encoding specifications
+* delete PO files for which translated strings is under 5%
 
 
 ==============================================

@@ -1,4 +1,4 @@
-# Project specific Web generation services.
+# Project-specific webpage generation services.
 # Copyright © 2001, 2002, 2003, 2004, 2007 Translation Project.
 # Copyright © 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 2000.
@@ -318,7 +318,7 @@ class TeamPage(htmlpage.Htmlpage):
                         % (domain.name, team.name))
                 assigned_domains[domain.name] = translator
                 domain_count = domain_count + 1
-            # displaying URLs in all cases allows to configure translators
+            # Displaying URLs in all cases allows to configure translators
             # who don't like their email addresses displayed.
             write('   <tr align=center>\n'
                   '    <td align=left>%s</td>\n'
@@ -402,21 +402,21 @@ class TeamPage(htmlpage.Htmlpage):
                 if postats.has_key(key):
                     (translated, total) = postats[key][2:4]
                     have_stats = 1
-                    curver = hints.version
+                    current = hints.version
             elif extstats:
                     translated = extstats['translated']
                     total = translated + extstats['untranslated'] + extstats['fuzzy']
-                    curver = registry.version(extstats['version'])
+                    current = registry.version(extstats['version'])
                     have_stats = 1
             if have_stats:
                 color = colorize(translated, total)
                 write('    <td align="center">%s</td>\n'
                       '   <td align="center" bgcolor="%s">%d / %d</td>\n'
-                      % (curver.name, color, translated, total))
+                      % (current.name, color, translated, total))
                 try:
-                    curver.set_sort_key()
+                    current.set_sort_key()
                 except AssertionError:
-                    curver = None
+                    current = None
                     have_stats = 0
             else:
                 write('  <td colspan=2>\n')
@@ -425,7 +425,7 @@ class TeamPage(htmlpage.Htmlpage):
                 templ_hints = registry.hints(templ_file)
             except KeyError:
                 templ_hints = None
-            if templ_hints and (not have_stats or curver!=templ_hints.version):
+            if templ_hints and (not have_stats or current!=templ_hints.version):
                 cur_key = domain.name, templ_hints.version.name, team.name
                 if postats.has_key(cur_key):
                     (translated, total) = postats[cur_key][2:4]
