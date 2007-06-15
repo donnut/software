@@ -946,11 +946,6 @@ where ENCODING should be the name of an encoding, like one of %s.
             proc = popen2.Popen3(cmd % work, 1)
             lines = proc.childerr.readlines()
             reject = proc.wait()
-            proc = popen2.Popen3(('OLD_PO_FILE_INPUT=yes '+cmd)
-                                 % work, 1)
-            lines1 = proc.childerr.readlines()
-            reject1 = proc.wait()
-            
         except:
             run.reject(_("""\
 Sniff!  I'm unable to successfully start the 'msgfmt' program.  I most
@@ -958,21 +953,6 @@ probably need repairs.  I'll go whine to the translation coordinator.
 """), "[could not invoke msgfmt]")
             abort_robot()
         comment = self.scan_gettext_output(lines, work, virtual)
-        comment1 = self.scan_gettext_output(lines1, work, virtual)
-        if not reject and reject1:
-            run.submitter.write(_("""\
-After running 'msgfmt' on your file, it seems that you need gettext 0.10.37
-for this file.  This is no problem at all, but you should be aware of that.
-"""))
-        if reject and not reject1:
-            run.submitter.write(_("""\
-After compiling your PO file with 'msgfmt  --statistics -c -v -o /dev/null',
-using msgfmt 0.10.37, I got some errors.  Fortunately, these errors can be
-silenced by setting the environment variable OLD_PO_FILE_INPUT to 'yes'.
-You might want to use the same option.
-"""))
-            reject = reject1
-            comment = comment1
         if reject:
             run.reject_nofill(_("""\
 Just to make sure, I called 'msgfmt --statistics -c -v -o /dev/null' on
@@ -985,8 +965,6 @@ More precisely, it said:
 #         if os.path.exists(run.hints.template_path()):
 #             # XXX msgmerge 0.11 will mark messages as fuzzy.
 #             # "msgmerge %s %s 2>/dev/null | msgfmt --statistics -c -v -o /dev/null -"
-#             cmd = "msgattrib --no-fuzzy --no-obsolete %s | msgmerge - %s 2>/dev/null |  msgattrib --clear-fuzzy | msgfmt --statistics -c -v -o /dev/null -"
-#             proc = popen2.Popen3(cmd % (work,run.hints.template_path()), 1)
 #             lines = proc.childerr.readlines()
 #             reject = proc.wait()
 #             comment = self.scan_gettext_output(lines, work, virtual)

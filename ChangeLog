@@ -12,6 +12,8 @@
 
 	* lib/localweb.py: Textual tweaks.
 
+	* bin/tp-robot: Remove support for very old PO files.
+
 2007-06-14  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Use angled brackets to quote email addresses.
