@@ -38,6 +38,8 @@ Later:
 * mail bug-tar about simpler fetch script
 * search and delete the PO files with mistaken encoding specifications
 * delete PO files for which translated strings is under 5%
+* remove unpacking of file; only standard input is possible
+
 
 
 ==============================================

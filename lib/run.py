@@ -8,11 +8,12 @@ import os, sys, tempfile, types
 import messages
 
 def _(text):
-    return messages.MultiString(text)
+#   return messages.MultiString(text)
+    return text 
 
 # MultiStrings, but not to translate
 def no_(text):
-    return messages.MultiString(text)
+    return text 
 
 # Execution variables.
 

@@ -14,6 +14,10 @@
 
 	* bin/tp-robot: Remove support for very old PO files.
 
+	* bin/tp-robot: The robot handles only emails, not PO files.
+	Also stop translating messages for now, as something goes wrong
+	there: it gets back an instance instead of a string.
+
 2007-06-14  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Use angled brackets to quote email addresses.

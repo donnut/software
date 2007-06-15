@@ -8,7 +8,6 @@
 Attempt automatic processing of PO file submissions.
 
 Usage: tp-robot [-n] <MESSAGE
-  or : tp-robot [-n] PO_FILE
 
   -n   dry-run, do not send mails, do not change things
 """
@@ -37,10 +36,11 @@ def _qdecodestring(s):
     return outfp.getvalue()
 
 def _(text):
-    return messages.MultiString(text)
+#   return messages.MultiString(text)
+    return text
 
 def no_(text):
-    return messages.MultiString(text)
+    return text
 
 class AbortRobot:
     pass
@@ -55,13 +55,14 @@ def main(*arguments):
     for (option, value) in options:
         if option == '-n':
             run.dry = 1
-    if len(arguments) > 1:
-        raise "Too many arguments\n"
+    if arguments:
+        print "No arguments allowed: use standard input."
+        sys.exit(2)
     # Do the processing.
     os.umask(002)
     run.hints = registry.hints()
     try:
-        part = extract.submission(len(arguments) == 1 and arguments[0])
+        part = extract.submission()
         if part.name:
             extract.hints_from_name(part.name)
         if part.stack:
