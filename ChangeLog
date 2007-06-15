@@ -4,6 +4,8 @@
 	* lib/localweb.py: Use lighther colours, use blue for the fully
 	untranslated packages, and colourize domain pages too.
 
+	* lib/localweb.py: Simplify the writing of coloured table entries.
+
 2007-06-14  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Use angled brackets to quote email addresses.

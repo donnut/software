@@ -157,8 +157,7 @@ def domain_page_walker((postats, write, team, domain), dirname, bases):
             if not postats.has_key(key):
                 sys.stderr.write(_("%s: Not in stats database!\n") % base)
                 continue
-            (translator, mailto, translated, total,
-             translated_length, total_length) = postats[key][:6]
+            (translator, mailto, translated, total) = postats[key][:4]
             table.append(
                 (hints.version, translator, mailto, translated, total))
     if table:
@@ -401,8 +400,7 @@ class TeamPage(htmlpage.Htmlpage):
                 hints = registry.Hints(os.readlink(file))
                 key = hints.domain.name, hints.version.name, hints.team.name
                 if postats.has_key(key):
-                    (translator, mailto, translated, total,
-                     translated_length, total_length) = postats[key][:6]
+                    (translated, total) = postats[key][2:4]
                     have_stats = 1
                     curver = hints.version
             elif extstats:
@@ -430,30 +428,24 @@ class TeamPage(htmlpage.Htmlpage):
             if templ_hints and (not have_stats or curver!=templ_hints.version):
                 cur_key = domain.name, templ_hints.version.name, team.name
                 if postats.has_key(cur_key):
-                    (translator, mailto, translated, total,
-                     translated_length, total_length) = postats[cur_key][:6]
-                    write('    <td align="center">%s</td>\n'
-                          '   <td align="center" bgcolor="%s">%d / %d</td>\n'
-                          % (templ_hints.version.name,
-                             colorize(translated, total),
-                             translated, total))
+                    (translated, total) = postats[cur_key][2:4]
+                    color = colorize(translated, total)
                 elif extstats:
                     if templ_msgs:
-                        color = ' bgcolor="%s"' % colorize(translated, templ_msgs)
+                        color = colorize(translated, templ_msgs)
                     else:
-                        color = ''
-                    write('    <td align="center">%s</td>\n'
-                          '   <td align="center"%s>(%d) / %d</td>\n'
-                          % (templ_hints.version.name, color,
-                             translated, templ_msgs))
+                        color = '#f8d0f8'  # Magenta; seems to never occur.
+                    total = templ_msgs
                 else:
                     if templ_msgs:
-                        color = ' bgcolor="#00d0f8"'
+                        color = '#00d0f8'  # Blue: fully untranslated.
                     else:
-                        color = ''
-                    write('    <td align="center">%s</td>\n'
-                          '   <td align="center"%s>0 / %d</td>\n'
-                          % (templ_hints.version.name, color, templ_msgs))
+                        color = '#f8d0f8'  # Magenta; seems to never occur.
+                    translated = 0
+                    total = templ_msgs
+                write('    <td align="center">%s</td>\n'
+                      '   <td align="center" bgcolor="%s">%d / %d</td>\n'
+                      % (templ_hints.version.name, color, translated, total))
             write('   </tr>\n')
         write('  </table>\n')
         language = string.split(team.language)[0]
