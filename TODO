@@ -1,10 +1,4 @@
 Next:
-* when translator submits PO file that is not for the latest available
-  POT version, then don't notify the maintainer
-* if there is a PO  file for a more recent version of the package,
-  do not change the symlink in the latest/ subdir
-* add the version number to the mail sent to the maintainer, so she
-  knows to what POT file the translators are reacting
 * the robot should send reactions to submissions by a translator
   _not to the sending address, _not to the address in the PO header,
   but to the address officially registered in the sgml file.

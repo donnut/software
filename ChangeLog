@@ -22,6 +22,10 @@
 	PO file is for the most recent POT file of the package.  Also
 	use angled brackets to mark email addresses.
 
+	* bin/po-register: Add the package version number to the mail sent
+	to the maintainer, so she knows to which POT file the translators
+	are reacting, in case someone else submitted the POT file.
+
 2007-06-14  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Use angled brackets to quote email addresses.

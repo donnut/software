@@ -267,7 +267,7 @@ def notify_maintainer_for_pot(hints):
     write(_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
-Subject: New PO template for '%s'
+Subject: New template for '%s' made available
 """)
                % (hints.domain.mailto[0], hints.domain.name))
     write('\n')
@@ -370,10 +370,10 @@ def notify_maintainer_for_po(hints, file_name, archive_base):
     write(_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
-Subject: New %s PO file for '%s'
+Subject: New %s PO file for '%s' version %s
 """)
                % (hints.domain.mailto[0], _(hints.team.language),
-                  hints.domain.name))
+                  hints.domain.name, hints.version))
     write('\n')
     write(messages.refill(_("""\
 Hello, gentle maintainer.
