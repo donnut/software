@@ -20,7 +20,7 @@ import os, sys, shutil
 import commands, getopt, re, string
 
 sys.path.insert(0, sys.path[0]+'/../lib')
-import config, po, registry, messages
+import config, data, po, registry, messages
 
 # Find sendmail in /usr/sbin or /usr/lib.
 os.environ['PATH'] = '/usr/lib:/usr/sbin:' + os.environ['PATH']
@@ -164,13 +164,13 @@ def process_pot_file(hints, file, teams):
                     if translator.autosend:
                         if translator.mailto:
                             address = translator.mailto[0]
-                        sys.stderr.write(t_("      mailing '%s' to '%s'\n")
+                        sys.stderr.write(t_("      mailing '%s' to <%s>\n")
                                          % (archive_base, address))
                         email_file(address, result_file, translator.autosend)
             process_po_file(hints, result_file, fromnewpot = True)
         elif not team.suppresspot:
             mailto = hints.team.announce_address()
-            sys.stderr.write(t_("    notifying '%s' about '%s'\n")
+            sys.stderr.write(t_("    notifying <%s> about '%s'\n")
                              % (mailto, template_base))
             if not potstats:
                 potstats = po.stats(po.read(template_path))
@@ -180,12 +180,12 @@ def process_pot_file(hints, file, teams):
                 if translator.mailto:
                     address = translator.mailto[0]
                     if translator.autosend:
-                        sys.stderr.write(t_("      mailing '%s' to '%s'\n")
+                        sys.stderr.write(t_("      mailing '%s' to <%s>\n")
                                          % (template_path, address))
                         email_file(address, template_path, translator.autosend)
     if hints.domain.mailto:
         maintainer = hints.domain.mailto[0]
-        sys.stderr.write(t_("  notifying '%s' about '%s-%s.pot'\n")
+        sys.stderr.write(t_("  notifying <%s> about '%s-%s.pot'\n")
                          % (maintainer, hints.domain.name, hints.version.name))
         notify_maintainer_for_pot(hints)
     sys.stderr.write(t_("    also notifying team leaders\n"))
@@ -230,11 +230,14 @@ def process_po_file(hints, file, fromnewpot = False):
                 sys.stderr.write(t_("ERROR: Could not write %s\n")
                                  % archive_path)
     mailto = hints.team.announce_address()
-    sys.stderr.write(t_("    notifying '%s' about '%s'\n")
+    sys.stderr.write(t_("    notifying <%s> about '%s'\n")
                      % (mailto, archive_base))
     notify_team_for_po(hints, stats, fromnewpot)
-    if hints.domain.mailto and (not fromnewpot) and (translated > 0):
-        # Notify the maintainer of the updated PO file.
+    # Only notify the maintainer (and relink the symlink) if the submitted
+    # PO file is for the most recent POT file of this package.
+    current_pot = data.load_postats().potstats[hints.domain.name][0]
+    if ((registry.hints(current_pot).version == registry.hints(file).version)
+        and hints.domain.mailto and (not fromnewpot) and (translated > 0)):
         if not run.dry:
             directory = os.path.dirname(maintainer_path)
             if not os.path.isdir(directory):
@@ -248,7 +251,8 @@ def process_po_file(hints, file, fromnewpot = False):
                        (config.pos_dir, hints.team.name, archive_base),
                        maintainer_path)
         maintainer = hints.domain.mailto[0]
-        sys.stderr.write(t_("    also notifying '%s'\n") % maintainer)
+        sys.stderr.write(t_("    also notifying maintainer <%s>\n")
+                         % maintainer)
         notify_maintainer_for_po(hints, file, archive_base)
     if not run.dry:
         os.remove(file)
@@ -385,7 +389,7 @@ the %s team of translators.  The file is available at:
                       % (hints.domain.name, _(hints.team.language),
 		         hints.maintainer_urls()[0])))
     if hints.domain.autosend:
-        sys.stderr.write(t_("      mailing '%s' to '%s'\n")
+        sys.stderr.write(t_("      mailing '%s' to <%s>\n")
                          % (file_name, hints.domain.mailto[0]))
         email_file(hints.domain.mailto[0], file_name, hints.domain.autosend)
         write(_("""\

@@ -18,6 +18,10 @@
 	Also stop translating messages for now, as something goes wrong
 	there: it gets back an instance instead of a string.
 
+	* bin/po-register: Only notify the maintainer if the submitted
+	PO file is for the most recent POT file of the package.  Also
+	use angled brackets to mark email addresses.
+
 2007-06-14  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Use angled brackets to quote email addresses.
