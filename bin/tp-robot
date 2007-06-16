@@ -133,26 +133,16 @@ class Extract:
 Extracting information from the input.
 """
 
-    def submission(self, name=None):
+    def submission(self):
         """\
-Return that message part (`unpack.py') most likely to contain the submission.
-Read standard input if NAME is not given or None, otherwise read NAME.
+Return the message part that is most likely to contain the submission.
 """
-        import unpack
-        if name:
-            parts = unpack.unpack_file(name)
-        else:
-            # `unpack_file' needs seekability, which sockets do not have.
-            try:
-                sys.stdin.tell()
-            except IOError:
-                import tempfile
-                work = tempfile.mktemp()
-                open(work, 'w').write(sys.stdin.read())
-                parts = unpack.unpack_file(open(work))
-                os.remove(work)
-            else:
-                parts = unpack.unpack_file(sys.stdin)
+        import unpack, tempfile
+        # Read input into a file, as unpacking needs seekability.
+        work = tempfile.mktemp()
+        open(work, 'w').write(sys.stdin.read())
+        parts = unpack.unpack_file(open(work))
+        os.remove(work)
         if parts[0].stack:
             self.mail_header(parts[0].stack[-1])
         if len(parts) > 1:
@@ -160,7 +150,7 @@ Read standard input if NAME is not given or None, otherwise read NAME.
                 if not part.name and part.size() < 1000:
                     if part.work:
                         run.submitter.write(_("""\
-I'm ignoring the whole following MIME part within your invoice:
+I'm ignoring the whole following MIME part within your message:
 """))
                         run.submitter.write_nofill("""\
 ---------------------------------------------------------------------->
@@ -176,7 +166,6 @@ your email.  I will go ask the coordinator to help me unpack your mail.
 """), "[submission not found]")
             abort_robot()
         if len(parts) > 1:
-            # FIXME: Process multiple PO files in a single invoice.
             run.reject(_("""\
 Your message contains multiple MIME parts, and I am unable to decide
 which one is meant to hold your PO file.  Please help me and resubmit
@@ -260,8 +249,7 @@ Within the Translation Project, no team has the code '%s'.
             if match:
                 run.translator_address = match.group(1)
                 continue
-            match = re.match('To:.*([^ \n,<]*translation)@([^ \n,>]+)', line,
-                             re.I)
+            match = re.match('To:.*([^ \n,<]*)@([^ \n,>]+)', line, re.I)
             if match:
                 to_user, to_site = match.group(1, 2)
                 continue
@@ -270,7 +258,7 @@ Within the Translation Project, no team has the code '%s'.
                 run.subject = match.group(1)
                 try:
                     run.hints.merge(match.group(1))
-                except (KeyError,ValueError):
+                except (KeyError, ValueError):
                     pass
                 else:
                     if run.hints.pot:
@@ -280,15 +268,14 @@ a PO template file all alone.  So, for this one, I'll go disturb him!
 """), "[pot not supported]")
                         abort_robot()
                 continue
-        # Diagnose if the invoice was sent at a wrong address.
-        if ((to_user and not re.match('translation$', to_user, re.I))
-            or (to_site and not re.match(r'iro\.umontreal\.ca', to_site,
-                                         re.I))):
+        # Check if the email was sent to a wrong address.
+        if ((to_user and (to_user != 'robot') and (to_user !='translation'))
+            or (to_site and (to_site !='translationproject.org'))):
             run.submitter.write(_("""\
 I see that you used <%s@%s> to reach me.  Even though it worked,
 a few email aliases were surely involved, which are not all under
-my control.  It is safer that you use my real email address, which is
-<robot@translationproject.org>.
+my control.  It is safer that you use my real email address, which
+is <robot@translationproject.org>.
 """)
                                          % (to_user, to_site))
         # Clean up translator name.

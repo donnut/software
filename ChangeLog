@@ -12,6 +12,9 @@
 
 	* bin/calc-postats: Handle non-existent files at a better spot.
 
+	* bin/calc-postats: Remove the unused name argument to
+	submission().  Update the matching of the To: address.
+
 2007-06-15  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Use lighther colours, use blue for the fully

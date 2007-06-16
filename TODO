@@ -1,7 +1,6 @@
 Next:
-* remove unpacking of file; only standard input is possible
+* calculate postats as soon as a file is registered
 * reject PO files for which translated strings are under 5%
-
 * have the robot check the subject line with the actual contents
   of the email, or at least rewrite the subject line with the
   correct filename and version
@@ -19,10 +18,12 @@ Later:
 * run 'make check' and delete PO files with fatal errors,
   at least the bad ones that are not the latest
 * delete problematic zh_TW/xchat Big5 file
-* simplify regex: filenames do not contain encoding any more
 * search and delete problematic version numbers, like 0.5g not
   being recognized as older than 0.5.2; or improve the sort key
+* search and delete the PO files with mistaken encoding specifications
+* delete PO files for which translated strings are under 5%
 * find out why there are no POT files for things like 'cook'
+* simplify regex: filenames do not contain encoding any more
 * add a page for retired translators
 * make fileutils, sh-utils, and textutils not show up on team pages
 * transform nano_1_0 back to plain nano
@@ -30,8 +31,6 @@ Later:
 * weed out double assignments from registry.sgml
 * sort AUTHORS by data
 * mail bug-tar about simpler fetch script
-* search and delete the PO files with mistaken encoding specifications
-* delete PO files for which translated strings are under 5%
 * check that 'Last-Translator' is the same as the _last_ line in the
   preheader, not the third line of that preheader
 
