@@ -85,15 +85,9 @@ def main(*arguments):
         # otherwise calculating stats makes no sense.
         name = os.path.basename(name)
         if os.path.splitext(name)[1] == '.po':
-            if os.path.exists(registry.hints(name).archive_path()):
-                tally_po(postats, name, verbose)
-            else:
-                print "*** File not in archive:", name
+            tally_po(postats, name, verbose)
         elif os.path.splitext(name)[1] == '.pot':
-            if os.path.exists(registry.hints(name).template_path()):
-                tally_POT(postats, name, verbose)
-            else:
-                print "*** File not in archive:", name
+            tally_POT(postats, name, verbose)
         else:
             print "*** Not a message file:", name
 
@@ -115,12 +109,15 @@ def tally_po(postats, name, verbose):
     # The file name should be just the basename.
     try:
         hints = registry.hints(name)
-    except KeyError, error:
-        print "*** Error", error, "with", name
+    except:
+        print "*** Not recognized:", name
         return
     if hints.domain and hints.version and hints.team:
         key = hints.domain.name, hints.version.name, hints.team.name
         fullname = hints.archive_path()
+        if not os.path.exists(fullname):
+            print "*** File not in archive:", fullname
+            sys.exit(3)
         mtime = os.stat(fullname)[stat.ST_MTIME]
         oldstats = postats.get(key)
         if oldstats:
@@ -223,6 +220,9 @@ def tally_POT(postats, file, verbose):
             if verbose:
                 sys.stderr.write("  skipping old - %s\n" % file)
             return
+    if not os.path.exists(hints.template_path()):
+        print "*** File not in archive:", hints.template_path()
+        sys.exit(3)
     calculate(postats, hints.domain.name, hints.version, file, verbose)
 
 def calculate(postats, domain, version, file, verbose):

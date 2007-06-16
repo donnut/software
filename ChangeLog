@@ -10,6 +10,8 @@
 	* bin/calc-postats: Make both tally routines require only the
 	basename of the file.  Some whitespace cleanups.
 
+	* bin/calc-postats: Handle non-existent files at a better spot.
+
 2007-06-15  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Use lighther colours, use blue for the fully
