@@ -7,6 +7,9 @@
 	as the files must be in the archives, otherwise calculating
 	the statistics makes no sense.
 
+	* bin/calc-postats: Make both tally routines require only the
+	basename of the file.  Some whitespace cleanups.
+
 2007-06-15  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Use lighther colours, use blue for the fully

@@ -41,13 +41,13 @@ def main(*arguments):
             verbose += 1
     if initialize and update:
         print "*** Option -u does not make sense together with -i"
-	sys.exit(2)
+        sys.exit(2)
     if initialize and delete:
         print "*** Option -d does not make sense together with -i"
-	sys.exit(2)
+        sys.exit(2)
     if (initialize or template or update) and arguments:
         print "*** Arguments are not allowed when initializing or updating"
-	sys.exit(2)
+        sys.exit(2)
 
     if verbose:
         print "Loading statistics file..."
@@ -83,10 +83,9 @@ def main(*arguments):
     for name in arguments:
         # Ignore given path, as file must be in archive,
         # otherwise calculating stats makes no sense.
-        name = os.path.split(name)[1]
+        name = os.path.basename(name)
         if os.path.splitext(name)[1] == '.po':
-            name = registry.hints(name).archive_path()
-            if os.path.exists(name):
+            if os.path.exists(registry.hints(name).archive_path()):
                 tally_po(postats, name, verbose)
             else:
                 print "*** File not in archive:", name
@@ -96,7 +95,7 @@ def main(*arguments):
             else:
                 print "*** File not in archive:", name
         else:
-	    print "*** Not a message file:", name
+            print "*** Not a message file:", name
 
     if verbose:
         print "Saving statistics file..."
@@ -108,20 +107,21 @@ def walker((postats, verbose), dirname, bases):
         bases.sort()
     for base in bases:
         if os.path.splitext(base)[1] == '.po':
-             tally_po(postats, '%s/%s' % (dirname, base), verbose)
+             tally_po(postats, base, verbose)
         elif not os.path.isdir('%s/%s' % (dirname, base)):
              print "*** Spurious file: %s/%s" % (dirname, base)
 
 def tally_po(postats, name, verbose):
-    # The file name should include the full path.
+    # The file name should be just the basename.
     try:
         hints = registry.hints(name)
-    except KeyError, err:
-        print "*** Error", err, "with", name
+    except KeyError, error:
+        print "*** Error", error, "with", name
         return
     if hints.domain and hints.version and hints.team:
         key = hints.domain.name, hints.version.name, hints.team.name
-        mtime = os.stat(name)[stat.ST_MTIME]
+        fullname = hints.archive_path()
+        mtime = os.stat(fullname)[stat.ST_MTIME]
         oldstats = postats.get(key)
         if oldstats:
             try:
@@ -131,17 +131,17 @@ def tally_po(postats, name, verbose):
             else:
                 if oldmtime == mtime:
                     if verbose > 1:
-                        sys.stderr.write("  same - %s" % name)
+                        sys.stderr.write("  same - %s\n" % fullname)
                     return 0
         if verbose:
-	    if oldstats:
-                sys.stderr.write("  update - %s..." % name)
-	    else:
-                sys.stderr.write("  new - %s..." % name)
+            if oldstats:
+                sys.stderr.write("  update - %s..." % fullname)
+            else:
+                sys.stderr.write("  new - %s..." % fullname)
         try:
-            entries = po.read(name)
+            entries = po.read(fullname)
         except IOError:
-            print "*** Unreadable file:", name
+            print "*** Unreadable file:", fullname
             return 0
         header = po.header(entries)
         translator, mailto = header['last-translator'], None
