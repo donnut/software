@@ -255,6 +255,11 @@ def process_po_file(hints, file, fromnewpot = False):
                          % maintainer)
         notify_maintainer_for_po(hints, file, archive_base)
     if not run.dry:
+        # Calculate the statistics for the new file.
+        # FIXME: Put tally_po in a separate module, or in data.py?
+        response = os.popen("calc-postats "+archive_path).readlines():
+        for line in response:
+            print line
         os.remove(file)
 
 
