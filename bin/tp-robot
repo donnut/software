@@ -541,7 +541,7 @@ The last translator of this PO file is not the same as the initial
 translator.  This is something quite normal, but if you know that
 translators did not change, some more checking is needed.
 The third line of whole PO file says '%s', while the 'Last-Translator'
-field of PO file header says '%s'.  If, and only if, these two names are
+field of the PO file header says '%s'.  If these two names are
 misspellings of one another, you should correct whichever is needed and
 resubmit the corrected PO file.  On the other hand, I ask you to be fair,
 and _never_ remove the initial translator of a given PO file, as this

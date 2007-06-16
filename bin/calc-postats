@@ -81,10 +81,20 @@ def main(*arguments):
         regenerate_potstats(postats, verbose)
 
     for name in arguments:
+        # Ignore given path, as file must be in archive,
+        # otherwise calculating stats makes no sense.
+        name = os.path.split(name)[1]
         if os.path.splitext(name)[1] == '.po':
-            tally_po(postats, name, verbose, 0)
+            name = registry.hints(name).archive_path()
+            if os.path.exists(name):
+                tally_po(postats, name, verbose)
+            else:
+                print "*** File not in archive:", name
         elif os.path.splitext(name)[1] == '.pot':
-            tally_POT(postats, name, verbose)
+            if os.path.exists(registry.hints(name).template_path()):
+                tally_POT(postats, name, verbose)
+            else:
+                print "*** File not in archive:", name
         else:
 	    print "*** Not a message file:", name
 
@@ -99,8 +109,11 @@ def walker((postats, verbose), dirname, bases):
     for base in bases:
         if os.path.splitext(base)[1] == '.po':
              tally_po(postats, '%s/%s' % (dirname, base), verbose)
+        elif not os.path.isdir('%s/%s' % (dirname, base)):
+             print "*** Spurious file: %s/%s" % (dirname, base)
 
 def tally_po(postats, name, verbose):
+    # The file name should include the full path.
     try:
         hints = registry.hints(name)
     except KeyError, err:
@@ -186,6 +199,7 @@ def regenerate_potstats(postats, verbose):
         calculate(postats, domain, version, file, verbose)
 
 def tally_POT(postats, file, verbose):
+    # The file name should be just the basename.
     try:
         hints = registry.hints(file)
     except ValueError:

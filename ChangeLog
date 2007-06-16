@@ -1,4 +1,12 @@
 
+2007-06-16  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/registry.py: Docstring tweaks.
+
+	* bin/calc-postats: Ignore the paths in any given argument,
+	as the files must be in the archives, otherwise calculating
+	the statistics makes no sense.
+
 2007-06-15  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Use lighther colours, use blue for the fully

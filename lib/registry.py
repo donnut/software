@@ -325,15 +325,15 @@ Splitting file names into components.
         return cmp((self.domain, self.version), (other.domain, other.version))
 
     def template_base(self):
-        """Base of POT file name."""
+        """Basename of POT file."""
         return '%s-%s.pot' % (self.domain.name, self.version.name)
 
     def template_path(self):
-        """Full file name of POT file within the registry."""
+        """Full path plus name of POT file within the archives."""
         return '%s/%s' % (config.pots_path, self.template_base())
 
     def template_urls(self):
-        """URLs of POT file within various registry copies."""
+        """URLs of POT file within various archive copies."""
         urls = []
         for puburl in puburls:
             urls.append('%s/%s/%s' %
@@ -341,7 +341,7 @@ Splitting file names into components.
         return tuple(urls)
 
     def archive_base(self):
-        """Base of PO file name."""
+        """Basename of PO file."""
         if self.charset:
             charset_name = self.charset.name
         else:
@@ -350,12 +350,12 @@ Splitting file names into components.
                                   self.team.name, charset_name)
 
     def archive_path(self):
-        """Full file name of PO file within the registry."""
+        """Full path plus name of PO file within the archives."""
         return '%s/%s/%s' % (config.pos_path, self.team.name,
                              self.archive_base())
 
     def archive_urls(self):
-        """URLs of PO file within various registry copies."""
+        """URLs of PO file within various archive copies."""
         urls = []
         for puburl in puburls:
             urls.append('%s/%s/%s/%s' % (puburl, config.pos_dir,
