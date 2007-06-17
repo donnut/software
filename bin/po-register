@@ -16,7 +16,7 @@ Usage:  po-register [-ntT] PACKAGE-VERSION.{pot,LL[.po]}
              of team codes should be space-separated and wrapped in quotes
 """
 
-import os, sys, stat, shutil
+import os, sys, shutil
 import commands, getopt, re, string
 
 sys.path.insert(0, sys.path[0]+'/../lib')
@@ -216,18 +216,7 @@ def process_po_file(hints, file, fromnewpot = False):
         raise t_('Translation empty and identical to POT; not loaded\n')
     elif registry.compare_files(file, archive_path):
         raise t_('Translation identical to archive file; not loaded\n')
-    # Compose the statistics entry for the new file.
-    translator = hints.team.translator_for_domain(hints.domain)[0].name[0]
-    email = hints.team.translator_for_domain(hints.domain)[0].mailto[0]
-    total = translated + stats['fuzzy'] + stats['untranslated']
-    done = stats['translated_length']
-    size = stats['total_length']
-    timestamp = os.stat(file)[stat.ST_MTIME]
-    entries = data.load_postats()
-    key = (hints.domain.name, hints.version.name, hints.team.name)
-    entries[key] = (translator, email, translated, total, done, size, timestamp)
     if not run.dry:
-        data.save_postats(entries)
         if os.path.isfile(archive_path):
             os.remove(archive_path)
         try:
@@ -242,9 +231,9 @@ def process_po_file(hints, file, fromnewpot = False):
     notify_team_for_po(hints, stats, fromnewpot)
     # Only notify the maintainer (and relink the symlink) if the submitted
     # PO file is for the most recent POT file of this package.
-    current_pot = entries.potstats[hints.domain.name][0]
-    if ((registry.hints(current_pot).version == registry.hints(file).version)
-        and hints.domain.mailto and (not fromnewpot) and (translated > 0)):
+    current_pot = data.load_postats().potstats[hints.domain.name][0]
+    if (hints.domain.mailto and (not fromnewpot) and (translated > 0)
+        and (registry.hints(current_pot).version == hints.version)):
         if not run.dry:
             directory = os.path.dirname(maintainer_path)
             if not os.path.isdir(directory):
@@ -262,6 +251,11 @@ def process_po_file(hints, file, fromnewpot = False):
                          % maintainer)
         notify_maintainer_for_po(hints, file, archive_base)
     if not run.dry:
+        # Calculate the statistics for the new file.
+        # FIXME: Maybe put tally_po into data.py?
+        response = os.popen("calc-postats "+archive_path).readlines()
+        for line in response:
+            print line
         os.remove(file)
 
 
