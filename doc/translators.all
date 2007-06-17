@@ -47,7 +47,7 @@
    PO files yourself, using the Translation Project robot.  If you do not know
    what a PO file is, skip this section for now, and come back to it later.
 
-   The Translation Project robot (or TP-Robot) is an email service which
+   The Translation Project robot (or TP-robot) is an email service which
    takes care of PO-file submissions.  The robot checks if the file is
    acceptable, that is, if a translator has filled out her disclaimer (where
    required), and if her team allows her to do the work.  It also calls
@@ -69,7 +69,7 @@
    for help if something is unclear or if you feel a little lost in this.
    To use the robot, your Subject line should look like:
 
-        TP-Robot PACKAGE-VERSION.TEAM.po
+        TP-robot PACKAGE-VERSION.TEAM.po
 
    and the whole thing should be sent to <robot@translationproject.org>.
    It works best to send the PO file as a gzip'ed attachment -- sending as
@@ -80,7 +80,7 @@
    You may expect a reply from the robot within fifteen minutes.  If you need
    help to resolve problems, or if you suspect the robot behaves poorly, you
    may  directly write to the translation coordinator.  However, if you do so,
-   be careful _not_ to start your message Subject with TP-Robot! :-)
+   be careful _not_ to start your message Subject with TP-robot! :-)
 
 .* Install GNU `gettext' and learn how to use it
    ---------------------------------------------

@@ -371,7 +371,7 @@ def notify_maintainer_for_po(hints, file_name, archive_base):
     write(_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
-Subject: New %s PO file for '%s' version %s
+Subject: New %s PO file for '%s' (version %s)
 """)
                % (hints.domain.mailto[0], _(hints.team.language),
                   hints.domain.name, hints.version))

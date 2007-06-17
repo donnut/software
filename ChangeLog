@@ -10,6 +10,9 @@
 	* bin/po-register: Wrap overlong lines, tweak the texts,
 	adjust some whitespace.
 
+	* doc/robot.all, doc/translators.all: Write "robot" with
+	initial lower case.
+
 2007-06-16  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/registry.py: Docstring tweaks.
