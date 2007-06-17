@@ -88,7 +88,7 @@ class UnpackedFile:
         # we still have an empty part.
         if start > 0:
             self.write_warning(_("""\
-I'm ignoring the following lines within your submission:
+I'm ignoring the following lines within your message:
 
 ---------------------------------------------------------------------->
 %s
@@ -97,7 +97,7 @@ I'm ignoring the following lines within your submission:
                                   % string.join(lines[:start], ''))
         if end < len(lines):
             self.write_warning(_("""\
-I'm ignoring the following lines within your submission:
+I'm ignoring the following lines within your message:
 
 ---------------------------------------------------------------------->
 %s
@@ -106,7 +106,7 @@ I'm ignoring the following lines within your submission:
                                   % string.join(lines[end:], ''))
         if terminator and lines[end-1] != terminator:
             self.write_fatal(_("""\
-Your submission seems to uses `uuencode' format, yet no proper terminator
+Your message seems to use the 'uuencode' format, yet no proper terminator
 was found to end the encoded region.
 """))
             self.parts.append(MessagePart(None, None, stack))

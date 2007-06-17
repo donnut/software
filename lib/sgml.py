@@ -1,4 +1,4 @@
-# Encode textual description into a more efficient database.
+# Conversion between a textual description and a more efficient database.
 # -*- coding: iso-8859-1 -*-
 # Copyright © 2001, 2002, 2003, 2004, 2007 Translation Project.
 # Copyright © 1998, 1999, 2000 Progiciels Bourbeau-Pinard inc.
@@ -15,6 +15,9 @@ def quote(text):
     if '&' in text:
         text = text.replace('&', '&amp;')
     return text
+
+
+### Encode a clear-text file into a database.
 
 def encode_database():
     sgml = read_sgml_file(config.progs_path + '/registry/registry.sgml')
@@ -131,6 +134,7 @@ def encode_database():
     team_list = map(team_postsort, items)
     data.save_registry((domains, domain_list, teams, team_list))
 
+
 def team_presort(team):
     return team['language'], team['code']
 def team_postsort((language, code)):
@@ -176,7 +180,7 @@ def read_sgml_file(name):
             return current[0]
     raise ValueError,_("SGML in `%s' is not conformant.\n") % name
 
-
+
 ### Decode the database to produce clear text.
 
 def decode_database():
@@ -358,20 +362,3 @@ def translator_description(translator):
     for remark in translator.remark:
         write('    <remark>%s\n' % remark)
     return string.join(lines, '')
-
-# Unused routines.
-
-def write_sgml_file(name, element):
-    write_sgml_file_rec(open(name, 'w').write, 0, element)
-
-def write_sgml_file_rec(write, depth, element, spacing='  '):
-    if type(element) is type(''):
-        write('%s%s\n' % (spacing * depth,
-                          string.replace(element, '\n', '\\n')))
-    else:
-        tag = element[0]
-        write('%s<%s>\n' % (spacing * depth, tag))
-        for sub_element in element[1:]:
-            write_sgml_file_rec(write, depth + 1, sub_element, spacing)
-        write('%s</%s>\n' % (spacing * depth, tag))
-

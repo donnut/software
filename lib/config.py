@@ -20,7 +20,7 @@ elif host in ('ordesa',):  # Benno's personal machine.
     site_base = "http://tp.vrijschrift.org"
 else:
     raise "Not configured for host '%s' -- edit config.py file." % host
-    
+
 progs_path = home_path + "/progs"
 cache_path = home_path + "/cache"
 site_path = home_path + "/site"

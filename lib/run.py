@@ -9,11 +9,11 @@ import messages
 
 def _(text):
 #   return messages.MultiString(text)
-    return text 
+    return text
 
 # MultiStrings, but not to translate
 def no_(text):
-    return text 
+    return text
 
 # Execution variables.
 
@@ -45,7 +45,6 @@ class Reporter:
         return "MIME-Version: 1.0\n" + \
                "Content-Type: text/plain; charset=%s\n" % self.encoding + \
                "Content-Transfer-Encoding: 8bit\n"
-    
 
     def prepare(self, force=0):
         if self.delay:

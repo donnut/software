@@ -18,7 +18,7 @@ puburls = (puburl,
           )
 tempfile.tempdir = config.temp_path
 
-# Emulate Python 1.5
+# Emulate Python 1.5.
 try:
     unicode
     have_unicode = 1
@@ -96,7 +96,7 @@ class Team:
             try:
                 return msg.encode(self.charset)
             except (UnicodeError, TypeError):
-                # TypeError can occur when charset is None
+                # TypeError can occur when charset is None.
                 return msg.encode("utf-8")
         return msg
 
@@ -520,7 +520,7 @@ if __name__ == '__main__':
     langs = {}
     for t in team_list():
         if langs.has_key(t.language):
-            # Nynorsk is duplicated
+            # Nynorsk is duplicated.
             continue
         print
         print 'msgid "%s"' % t.language

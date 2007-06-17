@@ -13,6 +13,12 @@
 	* doc/robot.all, doc/translators.all: Write "robot" with
 	initial lower case.
 
+	* lib/config.py, lib/data.py, lib/po.py, lib/registry.py,
+	lib/run.py, lib/sgml.py, lib/unpack.py:
+	Whitespace and comment tweaks, deletion of unused code.
+
+	* lib/textwrap.py: Delete this module as it comes with Python.
+
 2007-06-16  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/registry.py: Docstring tweaks.

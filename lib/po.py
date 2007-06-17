@@ -38,7 +38,7 @@ _default_order = [ 'Project-Id-Version',
                    'Content-Transfer-Encoding' ]
 
 # XXX: This doesn't produce the true canonical form: if there are many
-# #: source references, it writes them all in a single line, whereas
+# source references, it writes them all in a single line, whereas
 # GNU gettext breaks them at appropriate places. Use msgcat instead.
 def copy_canonical(source, to):
     entries = read(source)
@@ -172,7 +172,7 @@ def read(name):
             entry['msgstr'] = unquote(msgstr)
         _append(entries, entry, keys)
     elif status is None and entry.has_key('comment'):
-        # Allow terminating comment
+        # Allow terminating comments.
         entries.append(entry)
 
     return entries
@@ -404,7 +404,7 @@ def header(entries):
             del lines[-1]
 
         if not has_copyright:
-            # Guess that the first line is the title
+            # Guess that the first line is the title.
             header['TITLE'] = lines[0]
             del lines[0]
 
@@ -418,7 +418,7 @@ def header(entries):
                 header['TITLE'].append(match.group(1))
                 del lines[0]
             elif lines[0] == "#":
-                # empty line
+                # An empty line.
                 header['TITLE'].append('')
                 del lines[0]
             else:
@@ -438,7 +438,7 @@ def header(entries):
                         break
 
         # Add any lines between the copyright and the first author to
-        # the copyright
+        # the copyright.
         for lineno in range(len(lines)):
             match = cre.match('# (.+ <.+>, .*(199[4-9]|200[0-7]|YEAR).*)',
                               lines[lineno])

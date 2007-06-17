@@ -16,7 +16,7 @@ def load_postats():
     try:
         res = pickle.load(f)
     except:
-        # data corrupted, try to load backup
+        # Data is corrupted, try to load the backup.
         f.close()
         f = open('%s/postats.bak' % config.cache_path)
         res = pickle.load(f)
@@ -38,7 +38,7 @@ def save_postats(postats):
     except OSError:
         pass
     os.rename(name+suffix,name)
-    
+
 def load_registry():
     return pickle.load(open('%s/registry' % config.cache_path))
 
