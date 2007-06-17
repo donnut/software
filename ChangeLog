@@ -1,11 +1,14 @@
 
-2007-06-16  Benno Schulenberg  <benno@vertaalt.nl>
+2007-06-17  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Don't use 'calc-postats' to put an entry
 	into the statistics database, but plug it in directly.
 
 	* bin/po-register: Ehm... no.  Forget about plugging it in
 	directly -- it's too complicated.
+
+	* bin/po-register: Wrap overlong lines, tweak the texts,
+	adjust some whitespace.
 
 2007-06-16  Benno Schulenberg  <benno@vertaalt.nl>
 

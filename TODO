@@ -7,6 +7,7 @@ Next:
 * create a team-leaders mailing list at tp.org
 * figure out if there are still any mirrors, and then what and how
   to mirror the new setup
+* user relative links everywhere in the html pages, nit full URLs
 
 Just before going live:
 * run mirror_tp_data.py one last time, the drop it
@@ -36,6 +37,8 @@ Later:
 * translated_length and total_length seem only to get used in po-matrix;
   does it still make sense to produce these matrices?  as they are far
   too big to be comprehensible/overseeable
+* generate static pages at the moment a PO or POT file is registered,
+  not each time with CGI when someone asks for the page: far too slow
 
 
 

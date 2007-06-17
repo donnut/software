@@ -403,7 +403,7 @@ the %s team of translators.  The file is available at:
 e-mailed to you when they arrive.  Ask at the address below if you want this.)
 """))
     write(_("""
-The following HTML page should be updated by tomorrow:
+The following HTML page has been updated:
 
     %s/pass/domain-%s.html
 
@@ -454,11 +454,11 @@ Subject: %s-%s (%d%%, %d untranslated) by %s
                       percent, untranslated, assignee[0].name[0]))
     write(mime_header(charset))
     write('\n')
-    if fromnewpot:
+    if translated == 0:
         urls = hints.template_urls()
     else:
         urls = hints.archive_urls()
-    msg = _("""\
+    write(messages.refill(_("""\
 Hello, members of the %s team.
 
 The TP-robot is happy to announce that a new PO file has been integrated
@@ -466,88 +466,94 @@ into the archives.  The file is available at:
 
     %s
 
-""")    % (_(hints.team.language), urls[0])
-    write(messages.refill(msg))
+""")    % (_(hints.team.language), urls[0])))
     if translated == 0:
         if len(assignee)>1:
-            # XXX: more than two translators?
-            msg = _("%s AND %s are currently assigned for the translation.  (Please report this as an error, as only one translator should be assigned to a package.)  When the translation has been completed, send the result to <robot@translationproject.org>, using the Subject line:")\
+            msg = _("""\
+%s AND %s are currently assigned for the translation.  (Please report this
+as an error, as only one translator should be assigned to a package.)
+
+Once the translation is complete, send the result to
+<robot@translationproject.org>, using the Subject line:
+""")\
                   % (uni(assignee[0].name[0]),
                      uni(assignee[1].name[0]))
         elif len(assignee) == 1:
-            msg = _("%s is currently assigned for the translation.  When the translation has been completed, send the result to <robot@translationproject.org>, using the Subject line:")\
-                  % uni(assignee[0].name[0])
+            msg = _("""\
+%s is currently assigned for the translation.
+
+Once the translation is complete, send the result to
+<robot@translationproject.org>, using the Subject line:
+""")\
+                    % uni(assignee[0].name[0])
         elif hints.team.code in hints.domain.ext:
             import data
             extstats = data.load_extstats().get((hints.domain.name,
                                                  hints.team.code))
-            msg = ""
+            msg = _("""\
+There is currently a translator working on this translation who is not
+part of the Translation Project.""")
             if extstats:
 		trans = extstats['translated']
 		total = trans + extstats['untranslated'] + extstats['fuzzy']
-                msg = _("The most recent translation of this translator has %d of %d messages translated.") % (trans, total)
-            msg = _("""
-There is currently a translator working on this translation who is not
-part of the Translation Project.  %s
-""" % msg)
+                msg = msg + "  " + _("""\
+The most recent translation of this translator has %d of %d messages translated.
+""") % (trans, total)
         else:
             msg = _("""\
-Please consider taking upon you the translation to the %s language. 
-If you decide to do this, get your team leader (if any) to inform
-the translation coordinator that you were assigned to '%s'.
+Please consider translating this package to the %s language. 
+If you decide to do this, inform your team leader, who will then
+inform the translation coordinator that you were assigned to '%s'.
 
-Once the translation is completed, send the result to
-<robot@translationproject.org>, using the Subject line:""")\
-                     % (_(hints.team.language), hints.domain.name)
+Once the translation is complete, send the result to
+<robot@translationproject.org>, using the Subject line:
+""")\
+                  % (_(hints.team.language), hints.domain.name)
         write(messages.refill(_("""\
-None of its messages has been translated yet.  %s
+None of its messages has been translated yet.
 
-    TP-Robot %s-%s.%s.po
+%s
+    TP-robot %s-%s.%s.po
 
-If any question arises, you may contact either your team leader or the
-central coordinator.
 """)
-                          % (msg,
-                             hints.domain.name, hints.version.name,
-                             hints.team.name)))
+                              % (msg, hints.domain.name,
+                                 hints.version.name, hints.team.name)))
     elif untranslated == 0:
         write(_("""\
 All of its %d messages have been translated, and this PO file has been
 submitted to the maintainer of '%s', hoping he or she will include it
 in a future release.
+
 """)
-                   % (translated, hints.domain.name))
+              % (translated, hints.domain.name))
     else:
         if len(assignee)>1:
-            # XXX: more than two translators?
-            msg = _("""
-%s and %s are currently assigned for the translation.  (Please report this as an error, as only one translator should be assigned to a package.)""")\
+            msg = _("""\
+%s and %s are currently assigned for the translation.  (Please report this
+as an error, as only one translator should be assigned to a package.)""")\
                   % (uni(assignee[0].name[0]),
                      uni(assignee[1].name[0]))
         elif len(assignee) == 1:
-            msg = _("""
+            msg = _("""\
 %s is currently assigned for the translation.""")\
                   % uni(assignee[0].name[0])
         else:
-            msg = _("""
+            msg = _("""\
 Nobody in your team is currently assigned to the domain '%s'.  The
 team leader (if any) should inform the translation coordinator of who
 will become responsible for it.""")\
                   % (hints.domain.name)
         write(messages.refill(_("""\
-In this file %d messages have been translated already, accounting for
-%d%% of the original text size (in raw bytes).  Still %d messages need
-to be attended to.
+In this file %d messages are already translated, corresponding to %d%%
+of the original text size in bytes; %d messages still need some work.
+
 %s
 
-Please translate the remaining messages for the benefit of users of the
-%s language.  Once the translation is completed, send the result to
+Please translate the remaining messages for the benefit of the users of
+the %s language.  Once the translation is complete, send the result to
 <robot@translationproject.org>, using the Subject line:
 
-    TP-Robot %s-%s.%s.po
-
-If any question arises, you may contact either your team leader or the
-central coordinator.
+    TP-robot %s-%s.%s.po
 
 """)
                           % (translated, percent, untranslated,
@@ -555,7 +561,7 @@ central coordinator.
                              hints.domain.name, hints.version.name,
                              hints.team.name)))
     write(_("""\
-The following HTML pages should be updated by tomorrow:
+The following HTML pages have been updated:
 
     %s/pass/domain-%s.html
     %s/pass/team-%s.html
