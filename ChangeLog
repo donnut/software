@@ -1,6 +1,11 @@
 
 2007-06-16  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* bin/po-register: Don't use 'calc-postats' to put an entry
+	into the statistics database, but plug it in directly.
+
+2007-06-16  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* lib/registry.py: Docstring tweaks.
 
 	* bin/calc-postats: Ignore the paths in any given argument,

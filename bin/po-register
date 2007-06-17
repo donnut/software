@@ -16,7 +16,7 @@ Usage:  po-register [-ntT] PACKAGE-VERSION.{pot,LL[.po]}
              of team codes should be space-separated and wrapped in quotes
 """
 
-import os, sys, shutil
+import os, sys, stat, shutil
 import commands, getopt, re, string
 
 sys.path.insert(0, sys.path[0]+'/../lib')
@@ -211,31 +211,38 @@ def process_po_file(hints, file, fromnewpot = False):
         sys.exit(0)
     stats = po.stats(po.read(file))
     translated = stats['translated']
-    untranslated = stats['fuzzy'] + stats['untranslated']
-    obsolete = stats['obsolete']
-    percent = po.percentage(stats)
     if (translated == 0 and os.path.isfile(template_path)
         and registry.compare_files(template_path, file)):
         raise t_('Translation empty and identical to POT; not loaded\n')
     elif registry.compare_files(file, archive_path):
         raise t_('Translation identical to archive file; not loaded\n')
-    else:
+    # Compose the statistics entry for the new file.
+    translator = hints.team.translator_for_domain(hints.domain)[0].name[0]
+    email = hints.team.translator_for_domain(hints.domain)[0].mailto[0]
+    total = translated + stats['fuzzy'] + stats['untranslated']
+    done = stats['translated_length']
+    size = stats['total_length']
+    timestamp = os.stat(file)[stat.ST_MTIME]
+    entries = data.load_postats()
+    key = (hints.domain.name, hints.version.name, hints.team.name)
+    entries[key] = (translator, email, translated, total, done, size, timestamp)
+    if not run.dry:
+        data.save_postats(entries)
         if os.path.isfile(archive_path):
-            if not run.dry:
-                os.remove(archive_path)
-        if not run.dry:
-            try:
-                shutil.copy2(file, archive_path)
-            except IOError:
-                sys.stderr.write(t_("ERROR: Could not write %s\n")
-                                 % archive_path)
+            os.remove(archive_path)
+        try:
+            shutil.copy2(file, archive_path)
+        except IOError:
+            sys.stderr.write(t_("ERROR: Could not write %s\n")
+                             % archive_path)
+    # Notify team of the PO file, whether new or updated.
     mailto = hints.team.announce_address()
     sys.stderr.write(t_("    notifying <%s> about '%s'\n")
                      % (mailto, archive_base))
     notify_team_for_po(hints, stats, fromnewpot)
     # Only notify the maintainer (and relink the symlink) if the submitted
     # PO file is for the most recent POT file of this package.
-    current_pot = data.load_postats().potstats[hints.domain.name][0]
+    current_pot = entries.potstats[hints.domain.name][0]
     if ((registry.hints(current_pot).version == registry.hints(file).version)
         and hints.domain.mailto and (not fromnewpot) and (translated > 0)):
         if not run.dry:
@@ -255,11 +262,6 @@ def process_po_file(hints, file, fromnewpot = False):
                          % maintainer)
         notify_maintainer_for_po(hints, file, archive_base)
     if not run.dry:
-        # Calculate the statistics for the new file.
-        # FIXME: Put tally_po in a separate module, or in data.py?
-        response = os.popen("calc-postats "+archive_path).readlines():
-        for line in response:
-            print line
         os.remove(file)
 
 

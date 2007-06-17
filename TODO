@@ -33,6 +33,10 @@ Later:
 * mail bug-tar about simpler fetch script
 * check that 'Last-Translator' is the same as the _last_ line in the
   preheader, not the third line of that preheader
+* translated_length and total_length seem only to get used in po-matrix;
+  does it still make sense to produce these matrices?  as they are far
+  too big to be comprehensible/overseeable
+
 
 
 ==============================================
