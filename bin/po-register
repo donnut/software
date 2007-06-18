@@ -144,16 +144,15 @@ def process_pot_file(hints, file, teams):
                              % (team.name, archive_base))
             continue
         if os.path.isfile(archive_path):
-            sys.stderr.write(t_("  skipping '%s' as '%s' exists\n")
+            sys.stderr.write(t_("  skipping '%s' as '%s' already exists\n")
                              % (team.name, archive_path))
             continue
         translator = None
         if os.path.isfile(maintainer_path):
             previous = commands.getoutput("ls -l %s | sed 's,.*/,,'"
                                           % maintainer_path)
-            sys.stderr.write(t_("  merging with '%s'") % previous)
-
             result_file = '%s/%s' % (config.temp_path, archive_base)
+            sys.stderr.write(t_("  merging with '%s'") % previous)
             msgmerge(maintainer_path, template_path, result_file)
             header = po.header(po.read(result_file))
             match = re.match('(.*) <(.*)>$', header['last-translator'])
@@ -183,12 +182,11 @@ def process_pot_file(hints, file, teams):
                     address = translator.mailto[0]
                     if translator.autosend:
                         sys.stderr.write(t_("      mailing '%s' to <%s>\n")
-                                         % (template_path, address))
+                                         % (template_base, address))
                         email_file(address, template_path, translator.autosend)
     if hints.domain.mailto:
-        maintainer = hints.domain.mailto[0]
-        sys.stderr.write(t_("  notifying <%s> about '%s-%s.pot'\n")
-                         % (maintainer, hints.domain.name, hints.version.name))
+        sys.stderr.write(t_("  notifying maintainer <%s> about '%s'\n")
+                         % (hints.domain.mailto[0], template_base))
         notify_maintainer_for_pot(hints)
     sys.stderr.write(t_("    also notifying team leaders\n"))
     notify_team_leaders_for_pot(hints)
@@ -221,11 +219,11 @@ def process_po_file(hints, file, fromnewpot = False):
     if not run.dry:
         if os.path.isfile(archive_path):
             os.remove(archive_path)
-        try:
-            shutil.copy2(file, archive_path)
-        except IOError:
-            sys.stderr.write(t_("ERROR: Could not write %s\n")
-                             % archive_path)
+        shutil.copy2(file, archive_path)
+        # Calculate the statistics for the new PO file.
+        response = os.popen("calc-postats "+archive_path).readlines()
+        for line in response:
+            print line
     # Notify team of the PO file, whether new or updated.
     mailto = hints.team.announce_address()
     sys.stderr.write(t_("    notifying <%s> about '%s'\n")
@@ -253,10 +251,6 @@ def process_po_file(hints, file, fromnewpot = False):
                          % maintainer)
         notify_maintainer_for_po(hints, file, archive_base)
     if not run.dry:
-        # Calculate the statistics for the new PO file.
-        response = os.popen("calc-postats "+archive_path).readlines()
-        for line in response:
-            print line
         os.remove(file)
 
 
@@ -278,33 +272,26 @@ Hello, gentle maintainer.
 
 This is a message from the Translation Project robot.
 
-A new POT file for programs using the textual domain '%s' has
-just been made available to the language teams for translation. 
-A copy is available at:
+A new POT file for textual domain '%s' has been made available
+to the language teams for translation.  It is archived as:
 
     %s
 
 """)
                       % (hints.domain.name, hints.template_urls()[0])))
-    write(messages.refill(_("""\
-In your releases this file is usually found as 'po/%s.pot'.  It is
-created or updated automatically at 'make dist' time, or whenever you
-run 'make update-po' in the 'po/' subdirectory.
-
+    write(_("""\
 Whenever you have a new distribution with a new version number ready,
-containing a newer POT file, please send the URL of this distribution
-to <translation@translationproject.org>.  The distribution may be just
-a pretest or snapshot, it does not even have to compile.  It is to be
-used by translators when they need to get some translation context
-from your sources.
+containing a newer POT file, please send the URL of that distribution
+tarball to the address below.  The tarball may be just a pretest or a
+snapshot, it does not even have to compile.  It is just used by the
+translators when they need some extra translation context.
 
-""")
-                      % hints.domain.name))
+"""))
     if hints.domain.url:
         write(_("""\
-Here is the URL information which has just been provided to translators for
-your package.  Please inform the translation coordinator, at the address
-given below, if this information is not adequate or current:
+Below is the URL which has been provided to the translators of your
+package.  Please inform the translation coordinator, at the address
+at the bottom, if this information is not current:
 
 """))
         for url in hints.domain.url:
@@ -392,32 +379,45 @@ the %s team of translators.  The file is available at:
 		         hints.maintainer_urls()[0])))
     if hints.domain.autosend:
         sys.stderr.write(t_("      mailing '%s' to <%s>\n")
-                         % (file_name, hints.domain.mailto[0]))
+                         % (archive_base, hints.domain.mailto[0]))
         email_file(hints.domain.mailto[0], file_name, hints.domain.autosend)
         write(_("""\
-(This file, '%s', has just now been sent to you in a separate email.)
+(This file, '%s', has just now been sent to you in
+a separate email.)
+
 """)
                    % archive_base)
     else:
         write(_("""\
 (We can arrange things so that in the future such files are automatically
 e-mailed to you when they arrive.  Ask at the address below if you want this.)
+
 """))
-    write(_("""
+    dirname = os.path.dirname(hints.maintainer_urls()[0]) + "/"
+    write(_("""\
+All other PO files for your package are available in:
+
+    %s
+
+Please consider including all of these in your next release, whether
+official or a pretest.
+
+""")
+          % dirname)
+    write(_("""\
+Whenever you have a new distribution with a new version number ready,
+containing a newer POT file, please send the URL of that distribution
+tarball to the address below.  The tarball may be just a pretest or a
+snapshot, it does not even have to compile.  It is just used by the
+translators when they need some extra translation context.
+
+"""))
+    write(_("""\
 The following HTML page has been updated:
 
     %s/pass/domain-%s.html
 
-Please consider including all PO files, as they stand, in the 'po/'
-subdirectory of your next release, whether it is official or a pretest.
-
-Whenever you have a new distribution with a new version number ready,
-containing a newer POT file, please send the URL of this distribution
-to the address below.  The distribution may be just a pretest or snapshot,
-it does not even have to compile.  It is to be used by translators
-when they need to get some translation context from your sources.
-
-If any question arises, please contact the central coordinator.
+If any question arises, please contact the translation coordinator.
 """)
           % (registry.puburls[0], hints.domain.name))
     underwrite(write)
@@ -584,14 +584,14 @@ def email_file(address, file_name, option = None):
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
     name = re.sub('.*/', '', file_name)
-    if option == "compress":
-        name += ".gz"
     write(_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: Contents of PO file '%s'
 """)
                % (address, name))
+    if option == "compress":
+        name += ".gz"
     write(_("""\
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="=-=-="
@@ -606,7 +606,7 @@ Content-Transfer-Encoding: base64
     if option == "compress":
         write(commands.getoutput('gzip -c %s | recode ../64' % file_name))
     else:
-        write(commands.getoutput('recode ../64 < %s' % file_name))
+        write(commands.getoutput('recode ../64 <%s' % file_name))
     write('\n')
     write(_("""\
 --=-=-=

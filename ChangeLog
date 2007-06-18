@@ -14,6 +14,10 @@
 	* bin/po-register: Calculate the statistics as soon as a POT
 	file is registered.
 
+	* bin/po-register: Just break when moving the file fails: don't
+	continue, don't send out mails.  Calculate the statistics before
+	sending mails.  Tweak some messages.
+
 2007-06-17  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Don't use 'calc-postats' to put an entry
