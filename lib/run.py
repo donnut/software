@@ -64,10 +64,10 @@ class Reporter:
         if self.delayed:
             self.prepare(force=1)
             if self.delayed:
-                sys.stderr.write(_(
+                sys.stderr.write(
                     '================================================\n'
                     'Unable to send report.  Dumping it here instead.\n'
-                    '================================================\n'))
+                    '================================================\n')
                 sys.stderr.writelines(self.delayed)
         if not self.delay and not dry:
             self.file.close()

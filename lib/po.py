@@ -113,7 +113,7 @@ def read(name):
                 else:
                     entry['flags'] = line
             else:
-                sys.stderr.write(_('%s:%d: Unrecognised line\n%s')
+                sys.stderr.write('%s:%d: Unrecognised line\n%s'
                                  % (name, line_count, line))
         elif cre.match('msgid_plural', line):
             msgid_plural = line
@@ -155,10 +155,10 @@ def read(name):
                 else:
                     msgstr = msgstr + line
             else:
-                sys.stderr.write(_('%s:%d: Unrecognised line\n%s')
+                sys.stderr.write('%s:%d: Unrecognised line\n%s'
                                  % (name, line_count, line))
         else:
-            sys.stderr.write(_('%s:%d: Unrecognised line\n%s')
+            sys.stderr.write('%s:%d: Unrecognised line\n%s'
                              % (name, line_count, line))
 
     if name != '-':
@@ -200,7 +200,7 @@ def _append(entries, entry, keys):
                     else:
                         old_entry['flags'] = entry['flags']
             else:
-                sys.stderr.write(requote(_('Duplicate'), msgid))
+                sys.stderr.write(requote('Duplicate', msgid))
         else:
             entries.append(entry)
             keys[msgid] = entry

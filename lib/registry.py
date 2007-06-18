@@ -7,9 +7,6 @@
 import os, re, string, sys, tempfile, types
 import config
 
-def _(text):
-    return text
-
 puburl = config.site_base
 puburls = (puburl,
            'ftp://ftp.unex.es/pub/gnu-i18n/po',
@@ -84,7 +81,7 @@ class Team:
         try:
             return self.by_email[email]
         except KeyError:
-            raise KeyError,_("Unknown translator `%s'") % email
+            raise KeyError, "Unknown translator `%s'" % email
 
     def announce_address(self):
         if self.announceto:
@@ -214,7 +211,7 @@ Consultation of the registry data file.
         try:
             return self.domains[name]
         except KeyError:
-            raise KeyError, _("Unknown domain `%s'") % name
+            raise KeyError, "Unknown domain `%s'" % name
 
     def team_list(self):
         if self.domains is None:
@@ -236,13 +233,13 @@ Consultation of the registry data file.
                     return self.teams[match.group(1)]
                 except KeyError:
                     pass
-            raise KeyError, _("Unknown team `%s'") % name
+            raise KeyError, "Unknown team `%s'" % name
 
     def translator_info(self, team, name):
         try:
             return self.team_info(team.code)['translator'][name]
         except KeyError:
-            raise KeyError, _("Unknown translator `%s'") % name
+            raise KeyError, "Unknown translator `%s'" % name
 
 registry = Registry()
 domain_list = registry.domain_list
@@ -291,31 +288,31 @@ Splitting file names into components.
                 found_charset = charset(match.group('cs'))
                 found_gzipped = match.group('z')
             else:
-                raise ValueError, _("No hints from `%s'") % name
+                raise ValueError, "No hints from '%s'" % name
         message = None
         if self.pot is None:
             self.pot = found_pot
         elif found_pot != self.pot:
-            message = _("POT hint from `%s' contradicts previous") % name
+            message = "POT hint from '%s' contradicts previous" % name
         if self.domain is None:
             self.domain = found_domain
         elif found_domain != self.domain:
-            message = (_("Domain hint from `%s' contradicts `%s'")
+            message = ("Domain hint from '%s' contradicts '%s'"
                        % (name, self.domain.name))
         if self.version is None:
             self.version = found_version
         elif found_version != self.version:
-            message = (_("Version hint from `%s' contradicts `%s'")
+            message = ("Version hint from '%s' contradicts '%s'"
                        % (name, self.version.name))
         if self.team is None:
             self.team = found_team
         elif found_team != self.team:
-            message = (_("Team hint from `%s' contradicts `%s'")
+            message = ("Team hint from '%s' contradicts '%s'"
                        % (name, self.team.name))
         if self.charset is None:
             self.charset = found_charset
         elif found_charset != self.charset:
-            message = (_("Inconsistent charset hint from `%s'")
+            message = ("Inconsistent charset hint from '%s'"
                        % (name, self.charset))
         self.gzipped = self.gzipped or found_gzipped
         if message:
@@ -483,7 +480,7 @@ class Version:
             patch = int(match.group(3))
             self.sort_key = major, minor, patch, 0, 0
             return self.sort_key
-        assert 0, _('Unrecognised version: %s') % repr(self.name)
+        assert 0, 'Unrecognised version: %s' % repr(self.name)
 
     def __str__(self):
         return self.name

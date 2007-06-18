@@ -18,6 +18,10 @@
 	continue, don't send out mails.  Calculate the statistics before
 	sending mails.  Tweak some messages.
 
+	* lib/localweb.py, lib/po.py, lib/registry.py, lib/sgml.py,
+	lib/run.py: Stop gettexttizing the local error messages: the TP
+	programs aren't meant to be distributed to hundreds of users.
+
 2007-06-17  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Don't use 'calc-postats' to put an entry

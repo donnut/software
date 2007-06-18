@@ -1,12 +1,12 @@
 Next:
+* user relative links everywhere in the html pages, not full URLs
+* create a team-leaders mailing list at tp.org
 * reject PO files for which translated strings are under 5%
 * have the robot check the subject line with the actual contents
   of the email, or at least rewrite the subject line with the
   correct filename and version
-* create a team-leaders mailing list at tp.org
 * figure out if there are still any mirrors, and then what and how
   to mirror the new setup
-* user relative links everywhere in the html pages, nit full URLs
 
 Just before going live:
 * run mirror_tp_data.py one last time, the drop it

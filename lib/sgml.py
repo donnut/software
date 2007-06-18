@@ -8,9 +8,6 @@ import os, sys, string
 import config, data
 
 
-def _(text):
-    return text
-
 def quote(text):
     if '&' in text:
         text = text.replace('&', '&amp;')
@@ -99,7 +96,7 @@ def encode_database():
                         if tag == 'do':
                             e = domains[item[1]]['ext']
                             if info['code'] in e:
-                                raise "External assignment",(item[1],info['code'])
+                                raise "External assignment", (item[1], info['code'])
                         trans[tag].append(item[1])
                     elif tag == 'disclaimer':
                         if len(item) > 1:
@@ -174,11 +171,11 @@ def read_sgml_file(name):
             if attr[1] == "TOKEN":
                 attrs[attr[0].lower()] = attr[2].lower()
                 continue
-            raise ValueError,_("Unsupported attribute %s") % `attr`
+            raise ValueError, "Unsupported attribute %s" % `attr`
             continue
         if line[0] == 'C':
             return current[0]
-    raise ValueError,_("SGML in `%s' is not conformant.\n") % name
+    raise ValueError, "SGML in '%s' is not conformant.\n" % name
 
 
 ### Decode the database to produce clear text.
@@ -260,7 +257,7 @@ def domain_description(domain):
     if domain.potcopyright:
         write('   <potcopyright>%s\n' % domain.potcopyright)
     for ref in domain.ref:
-        write('   <ref>%s<url>%s\n' % (ref[0],quote(ref[1])))
+        write('   <ref>%s<url>%s\n' % (ref[0], quote(ref[1])))
     for mailto in domain.mailto:
         write('   <mailto>%s\n' % mailto)
     if domain.nomailto:
@@ -307,7 +304,7 @@ def team_description(team):
     if team.leader:
         write('   <leader>%s\n' % team.leader.name[0])
     for ref in team.ref:
-        write('   <ref>%s<url>%s\n' % (ref[0],quote(ref[1])))
+        write('   <ref>%s<url>%s\n' % (ref[0], quote(ref[1])))
     for remark in team.remark:
         write('   <remark>%s\n' % remark)
     for name in team.translators:

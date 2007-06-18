@@ -13,15 +13,13 @@ try:
 except NameError:
     have_unicode = 0
 
-def _(text):
-    return text
-
 _extstats = None
 def get_extstats():
     global _extstats
     if _extstats is None:
         _extstats = data.load_extstats()
     return _extstats
+
 
 # Generation of webpages describing domains.
 
@@ -144,18 +142,18 @@ def domain_page_walker((postats, write, team, domain), dirname, bases):
         try:
             hints = registry.Hints(base)
         except KeyError:
-            sys.stderr.write(_("%s: Nonexistent domain or team!\n") % base)
+            sys.stderr.write("%s: Nonexistent domain or team!\n" % base)
             continue
         except ValueError:
-            sys.stderr.write(_("%s: No hints found!\n") % base)
+            sys.stderr.write("%s: No hints found!\n" % base)
             continue
         if hints.domain == domain and hints.team == team:
             if hints.version is None:
-                sys.stderr.write(_("%s: Missing version?\n") % base)
+                sys.stderr.write("%s: Missing version?\n" % base)
                 continue
             key = hints.domain.name, hints.version.name, hints.team.name
             if not postats.has_key(key):
-                sys.stderr.write(_("%s: Not in stats database!\n") % base)
+                sys.stderr.write("%s: Not in stats database!\n" % base)
                 continue
             (translator, mailto, translated, total) = postats[key][:4]
             table.append(
@@ -190,6 +188,7 @@ def domain_page_walker((postats, write, team, domain), dirname, bases):
             write('    <td bgcolor="%s">%d / %d</td>\n' %
 	          (colorize(translated, total), translated, total))
             write('   </tr>\n')
+
 
 # Generation of webpages describing national teams.
 
@@ -449,6 +448,7 @@ class TeamPage(htmlpage.Htmlpage):
         language = string.split(team.language)[0]
         self.epilogue()
 
+
 def translator_best_href(translator, prefer_mail = 0, charset = None):
     url = mail = None
     name = uni2html(translator.uniname()[0],charset)
@@ -498,7 +498,6 @@ def scramble(email):
 
 palette = ['#ff0000', '#f8c040', '#f0e070', '#f0f090',
                       '#e0f070', '#c0f840', '#00ff00']
-
 def colorize(translated, total):
     if total == 0:
         return "#d7d7d7"
