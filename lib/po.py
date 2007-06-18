@@ -1,4 +1,5 @@
-# Handling of PO files contents.  -*- coding: iso-8859-1 -*-
+# Handling of PO files contents.
+# -*- mode: python; coding: iso-8859-1 -*-
 # Copyright © 2001, 2002, 2004, 2007 Free Translation Project.
 # Copyright © 1998, 1999, 2000, 2001 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1998.

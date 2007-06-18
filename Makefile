@@ -64,7 +64,8 @@ endif
 
 .PHONY:	pot
 pot:
-	xgettext -o translationproject.pot -kt_ -L Python bin/[a-z]* lib/*.py
+	xgettext -o translationproject.pot -kt_ -L Python \
+	    bin/[[:lower:]]*[!h] lib/*.py
 	# Add the list of language teams:
 	python lib/registry.py >>translationproject.pot
 

@@ -1,5 +1,5 @@
 # Conversion between a textual description and a more efficient database.
-# -*- coding: iso-8859-1 -*-
+# -*- mode: python; coding: iso-8859-1 -*-
 # Copyright © 2001, 2002, 2003, 2004, 2007 Translation Project.
 # Copyright © 1998, 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1998.

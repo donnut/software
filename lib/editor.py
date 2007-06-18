@@ -1,4 +1,5 @@
 # Editing and reconstruction of the PO file Registry.
+# -*- mode: python; coding: iso-8859-1 -*-
 # Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 

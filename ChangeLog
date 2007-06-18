@@ -1,4 +1,14 @@
 
+2007-06-18  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/config.py, lib/data.py, lib/editor.py, lib/htmlpage.py,
+	lib/localweb.py, lib/po.py, lib/registry.py, lib/run.py,
+	lib/sgml.py, lib/unpack.py, bin/po-tidy-links, web/html-to-cgi,
+	web/to-html, web/registry.cgi.in:
+	Make the line with "mode:" and "coding:" uniform.
+
+	* Makefile: Exclude shell scripts and Makefile from globbing.
+
 2007-06-17  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Don't use 'calc-postats' to put an entry
