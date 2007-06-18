@@ -11,6 +11,9 @@
 
 	* (Just about all files): Recode from ISO-8859-1 to UTF-8.
 
+	* bin/po-register: Calculate the statistics as soon as a POT
+	file is registered.
+
 2007-06-17  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Don't use 'calc-postats' to put an entry

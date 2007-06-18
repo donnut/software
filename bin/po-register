@@ -123,9 +123,13 @@ def process_pot_file(hints, file, teams):
     template_base = hints.template_base()
     shutil.copy(file, template_path)
     if not run.dry:
+        # Calculate the statistics for the new POT file.
+        response = os.popen("calc-postats "+template_path).readlines()
+        for line in response:
+            print line
         os.remove(file)
         os.chmod(template_path, 0664)
-    potstats = None
+    potstats = po.stats(po.read(template_path))
     if teams:
         teams = [registry.team(n) for n in teams]
     else:
@@ -172,8 +176,6 @@ def process_pot_file(hints, file, teams):
             mailto = hints.team.announce_address()
             sys.stderr.write(t_("    notifying <%s> about '%s'\n")
                              % (mailto, template_base))
-            if not potstats:
-                potstats = po.stats(po.read(template_path))
             notify_team_for_po(hints, potstats, fromnewpot = True)
         if not translator:
             for translator in team.translator_for_domain(hints.domain):
@@ -251,8 +253,7 @@ def process_po_file(hints, file, fromnewpot = False):
                          % maintainer)
         notify_maintainer_for_po(hints, file, archive_base)
     if not run.dry:
-        # Calculate the statistics for the new file.
-        # FIXME: Maybe put tally_po into data.py?
+        # Calculate the statistics for the new PO file.
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
             print line

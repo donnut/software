@@ -1,7 +1,4 @@
 Next:
-* also calculate the POTstats as soon as the file is registered
-* add encoding lines to the files that lack them
-* convert at least the Makefiles to UTF-8
 * reject PO files for which translated strings are under 5%
 * have the robot check the subject line with the actual contents
   of the email, or at least rewrite the subject line with the
