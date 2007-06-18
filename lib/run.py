@@ -1,8 +1,8 @@
 # Emailing for the Translation Project robot.
-# -*- mode: python; coding: iso-8859-1 -*-
-# Copyright © 2001, 2002, 2003, 2004 Translation Project.
-# Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
-# François Pinard <pinard@iro.umontreal.ca>, 1999.
+# -*- mode: python; coding: utf-8 -*-
+# Copyright Â© 2001, 2002, 2003, 2004 Translation Project.
+# Copyright Â© 1999, 2000 Progiciels Bourbeau-Pinard inc.
+# FranÃ§ois Pinard <pinard@iro.umontreal.ca>, 1999.
 
 import os, sys, tempfile, types
 import messages

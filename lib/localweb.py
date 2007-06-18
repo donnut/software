@@ -1,8 +1,8 @@
 # Project-specific webpage generation services.
-# -*- mode: python; coding: iso-8859-1 -*-
-# Copyright © 2001, 2002, 2003, 2004, 2007 Translation Project.
-# Copyright © 2000 Progiciels Bourbeau-Pinard inc.
-# François Pinard <pinard@iro.umontreal.ca>, 2000.
+# -*- mode: python; coding: utf-8 -*-
+# Copyright Â© 2001, 2002, 2003, 2004, 2007 Translation Project.
+# Copyright Â© 2000 Progiciels Bourbeau-Pinard inc.
+# FranÃ§ois Pinard <pinard@iro.umontreal.ca>, 2000.
 
 import os, string, sys
 import config, htmlpage, registry, data

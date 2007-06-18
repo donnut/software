@@ -1,7 +1,7 @@
 # Conveniently process the PO directory hierarchy.
-# Copyright (C) 2004, 2007 Translation Project.
-# Copyright (C) 1996, 1997, 1998, 1999, 2000, 2001 Free Software Foundation, Inc.
-# Fran�ois Pinard <pinard@iro.umontreal.ca>, 1996.
+# Copyright © 2004, 2007 Translation Project.
+# Copyright © 1996, 1997, 1998, 1999, 2000, 2001 Free Software Foundation, Inc.
+# François Pinard <pinard@iro.umontreal.ca>, 1996.
 
 VERSION=1.2
 

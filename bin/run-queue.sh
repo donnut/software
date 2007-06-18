@@ -2,7 +2,7 @@
 # Process the mail queue meant for the TP-robot.
 # Copyright © 2007 Translation Project.
 # Copyright © 1999 Progiciels Bourbeau-Pinard inc.
-# Franç�ois Pinard <pinard@iro.umontreal.ca>, 1999.
+# François Pinard <pinard@iro.umontreal.ca>, 1999.
 
 PYTHON=python
 

@@ -1,7 +1,7 @@
 # Make a digest from or validate the SGML in registry.sgml.
-# Copyright (C) 2007 Translation Project.
-# Copyright (C) 1996, 1997, 1998, 1999, 2000, 2002, 2003 Free Software Foundation, Inc.
-# Fran�ois Pinard <pinard@iro.umontreal.ca>, 1996.
+# Copyright © 2007 Translation Project.
+# Copyright © 1996, 1997, 1998, 1999, 2000, 2002, 2003 Free Software Foundation, Inc.
+# François Pinard <pinard@iro.umontreal.ca>, 1996.
 
 all: registry mailrc
 

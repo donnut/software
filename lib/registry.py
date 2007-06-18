@@ -1,8 +1,8 @@
 # Handling of the PO file Registry.
-# -*- mode: python; coding: iso-8859-1 -*-
-# Copyright © 2001, 2002, 2003, 2004 Translation Project.
-# Copyright © 1998, 1999, 2000 Progiciels Bourbeau-Pinard inc.
-# François Pinard <pinard@iro.umontreal.ca>, 1998.
+# -*- mode: python; coding: utf-8 -*-
+# Copyright Â© 2001, 2002, 2003, 2004 Translation Project.
+# Copyright Â© 1998, 1999, 2000 Progiciels Bourbeau-Pinard inc.
+# FranÃ§ois Pinard <pinard@iro.umontreal.ca>, 1998.
 
 import os, re, string, sys, tempfile, types
 import config

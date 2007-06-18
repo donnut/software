@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-# -*- mode: python; coding: iso-8859-1 -*-
-# Copyright © 2004 Translation Project
+# -*- mode: python; coding: utf-8 -*-
+# Copyright Â© 2004 Translation Project
 
 """\
 Fix the symlinks in the maintainer hierarchy.

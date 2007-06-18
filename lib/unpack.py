@@ -1,8 +1,8 @@
 # Unpacking messages sent to the Translation Project.
-# -*- mode: python; coding: iso-8859-1 -*-
-# Copyright © 2003 Translation Project
-# Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
-# François Pinard <pinard@iro.umontreal.ca>, 1998.
+# -*- mode: python; coding: utf-8 -*-
+# Copyright Â© 2003 Translation Project
+# Copyright Â© 1999, 2000 Progiciels Bourbeau-Pinard inc.
+# FranÃ§ois Pinard <pinard@iro.umontreal.ca>, 1998.
 
 import mimetools, multifile, os, re, string, tempfile
 import quopri, base64, cStringIO, gzip, popen2, binascii

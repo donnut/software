@@ -9,6 +9,8 @@
 
 	* Makefile: Exclude shell scripts and Makefile from globbing.
 
+	* (Just about all files): Recode from ISO-8859-1 to UTF-8.
+
 2007-06-17  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Don't use 'calc-postats' to put an entry

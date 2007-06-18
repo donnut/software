@@ -1,7 +1,7 @@
 #!/bin/sh
 # Unidiffs of a PO file and its canonical form.
-# Copyright © 1998 Progiciels Bourbeau-Pinard inc.
-# François Pinard <pinard@iro.umontreal.ca>, 1998.
+# Copyright Â© 1998 Progiciels Bourbeau-Pinard inc.
+# FranÃ§ois Pinard <pinard@iro.umontreal.ca>, 1998.
 
 for file in $*; do
   base=`echo $file | sed 's,.*/,,'`

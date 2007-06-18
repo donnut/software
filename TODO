@@ -14,6 +14,7 @@ Next:
 Just before going live:
 * run mirror_tp_data.py one last time, the drop it
 * change robot's directive in layout.html to "index,follow"
+* recode registry/registry.dtd to UTF-8
 * convert trans and teams/PO symlinks to PO-files links,
   remove the teams/ subdir, and remove the workaround in po-expire
 

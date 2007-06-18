@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-# -*- mode: python; coding: iso-8859-1 -*-
-# Copyright © 2002, 2003, 2007 Translation Project.
-# Copyright © 2000, 2001 Progiciels Bourbeau-Pinard inc.
-# François Pinard <pinard@iro.umontreal.ca>, 2000.
+# -*- mode: python; coding: utf-8 -*-
+# Copyright Â© 2002, 2003, 2007 Translation Project.
+# Copyright Â© 2000, 2001 Progiciels Bourbeau-Pinard inc.
+# FranÃ§ois Pinard <pinard@iro.umontreal.ca>, 2000.
 
 """\
 Configuration variables.
