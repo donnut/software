@@ -39,9 +39,6 @@ def _(text):
 #   return messages.MultiString(text)
     return text
 
-def no_(text):
-    return text
-
 class AbortRobot:
     pass
 
@@ -948,7 +945,7 @@ your submitted PO file, and it told me that I should not let the file pass.
 More precisely, it said:
 
 %s""")
-                              % no_('').join(comment), "[msgfmt errors]")
+                              % ('').join(comment), "[msgfmt errors]")
             abort_robot()
 #         if os.path.exists(run.hints.template_path()):
 #             # XXX msgmerge 0.11 will mark messages as fuzzy.
@@ -967,7 +964,7 @@ More precisely, it said:
 %s""")
                               % (run.hints.archive_base(),
                                  run.hints.template_base(),
-                                 no_('').join(comment)),
+                                 ('').join(comment)),
                               "[msgfmt errors after msgmerge]")
             abort_robot()
         if comment:
@@ -976,7 +973,7 @@ Merely for your information, let me share with you what the 'msgfmt'
 program has to say about your submitted PO file:
 
 %s""")
-                                       % no_('').join(comment))
+                                       % ('').join(comment))
 
     def special_instructions(self, work):
         if run.hints.domain.name == 'util-linux':
@@ -1102,7 +1099,7 @@ which you may find as:
 ##          for url in run.hints.urchive_urls():
 ##              comment.append('    %s\n' % url)
             comment.append('    %s\n' % run.hints.archive_urls()[0])
-            run.reject_nofill(no_('').join(comment), "[duplicate submission]")
+            run.reject_nofill(('').join(comment), "[duplicate submission]")
 
     def translator_can_submit(self, translator, domain):
         # If it is the assigned translator, accept.
@@ -1255,7 +1252,7 @@ I most probably need repairs.  I'll go whine to the translation coordinator.
         write('\n')
         for line in lines:
             write('>    ' + line)
-        run.coordinator.write_nofill(no_('').join(comment))
+        run.coordinator.write_nofill(('').join(comment))
 
 process = Process()
 
@@ -1311,7 +1308,7 @@ def say_list(word, items):
         return 'none'
     if len(items) == 1:
         return items[0]
-    return no_('%s %s %s') % (no_(', ').join(items[:-1]), word, items[-1])
+    return '%s %s %s' % ((', ').join(items[:-1]), word, items[-1])
 
 
 ecre = re.compile(r'''

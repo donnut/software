@@ -10,7 +10,7 @@ cre = re
 def _(text):
     return text
 
-_default_header = { 'TITLE': _('SOME DESCRIPTIVE TITLE.'),
+_default_header = { 'TITLE': _('SOME DESCRIPTIVE SENTENCE.'),
                     'COPYRIGHT'
                     : 'Copyright (C) YEAR Free Software Foundation, Inc.',
                     'FIRST-AUTHOR'
@@ -22,7 +22,8 @@ _default_header = { 'TITLE': _('SOME DESCRIPTIVE TITLE.'),
                     'pot-creation-date': _('YEAR-MO-DA HO:MI +ZONE'),
                     'po-revision-date': _('YEAR-MO-DA HO:MI +ZONE'),
                     'last-translator': _('FULL NAME <EMAIL@ADDRESS>'),
-                    'language-team': _('LANGUAGE <LL@li.org>'),
+                    'language-team'
+                    : _('LANGUAGE <translation-team-LL@lists.sourceforge.net>'),
                     'mime-version': '1.0',
                     'content-type': _('text/plain; charset=CHARSET'),
                     'content-transfer-encoding': _('ENCODING'),

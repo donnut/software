@@ -6,6 +6,11 @@
 
 	* Makefile: Include only the relevant files into the pot file.
 
+	* bin/tp-robot, lib/run.py: Do not mark simple strings as
+	non-gettextizable; there's no need.
+
+	* lib/po.py: Make two header line a bit more accurate.
+
 2007-06-18  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/config.py, lib/data.py, lib/editor.py, lib/htmlpage.py,

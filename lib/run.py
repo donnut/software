@@ -11,10 +11,6 @@ def _(text):
 #   return messages.MultiString(text)
     return text
 
-# MultiStrings, but not to translate
-def no_(text):
-    return text
-
 # Execution variables.
 
 dry = 0                                 # don't send mail, don't modify things
@@ -174,7 +170,7 @@ and was awakened by your submission of '%s'.
 Hi!  I am the service robot at the Translation Project,
 and was awakened by one of your submissions.
 """)
-            return no_('%s\n%s') % (header, announce)
+            return '%s\n%s' % (header, announce)
         return None
 
     def complete(self):
