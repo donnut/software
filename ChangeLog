@@ -13,6 +13,8 @@
 
 	* doc/index.html: Correct two paths.
 
+	* ChangeLog: Tiny corrections.
+
 2007-06-18  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/config.py, lib/data.py, lib/editor.py, lib/htmlpage.py,
@@ -387,9 +389,9 @@
 
 2007-05-21  Benno Schulenberg  <benno@vertaalt.nl>
 
-	*  doc/index.html, web/layout.html: Make links relative.
+	* doc/index.html, web/layout.html: Make links relative.
 
-	*  doc/matrix.texi: Delete obsolete file.
+	* doc/matrix.texi: Delete obsolete file.
 
 2007-05-21  Benno Schulenberg  <benno@vertaalt.nl>
 
@@ -397,8 +399,8 @@
 
 2007-05-21  Benno Schulenberg  <benno@vertaalt.nl>
 
-	* Replace 'iro.umontreal.ca' with 'translationproject.org' in many
-	places.
+	* (Several files): Replace 'iro.umontreal.ca' with
+	'translationproject.org' in many places.
 
 2007-05-20  Benno Schulenberg  <benno@vertaalt.nl>
 
