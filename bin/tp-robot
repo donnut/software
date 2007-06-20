@@ -432,7 +432,7 @@ For the time being, I merely guess that the Free Software Foundation is to
 be listed as the copyright holder for any package requiring translation
 disclaimers.  Yet, the truth is that this requirement goes further than
 the spirit of the disclaimer.  If this creates any problem in real life,
-please write to the translation coordinator, so we could discuss the matter,
+please write to the translation coordinator, so we can discuss the matter,
 and so he could eventually change me (the robot) for handling such cases.
 """)
                     reason = "[Copyright not FSF]"
@@ -1067,8 +1067,8 @@ I invite you to discuss such things with the translation coordinator.
             run.reject(_("""\
 Most teams allow translators to directly send their finished translations
 to the Translation Project, and do quality control only after the fact, to
-obtain a quicker turn-around.  The Translation Project registry does not list
-you as the usual translator for '%s'.  Your team leader might send
+obtain a quicker turn-around.  The Translation Project registry does not
+list you as the usual translator for '%s'.  Your team leader might send
 an email to the translation coordinator, warranting that you are indeed
 assigned to this textual domain.  For small teams not having a leader,
 you may write yourself to the translation coordinator.  It is a simple

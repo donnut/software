@@ -1,4 +1,11 @@
 
+2007-06-20  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/po-register: Stop gettextizing local progress and error
+	messages.
+
+	* Makefile: Include only the relevant files into the pot file.
+
 2007-06-18  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/config.py, lib/data.py, lib/editor.py, lib/htmlpage.py,
