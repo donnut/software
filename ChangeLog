@@ -11,6 +11,8 @@
 
 	* lib/po.py: Make two header line a bit more accurate.
 
+	* doc/index.html: Correct two paths.
+
 2007-06-18  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/config.py, lib/data.py, lib/editor.py, lib/htmlpage.py,
