@@ -14,10 +14,10 @@ host = string.split(socket.gethostname(), '.')[0]
 
 if host in ('neoduik',):  # The machine at Vrijschrift.
     home_path = "/home/tp"
-    site_base = "http://tp.vrijschrift.org"
+    site_base = "http://www.translationproject.org"
 elif host in ('ordesa',):  # Benno's personal machine.
     home_path = "/home/ben/TP"
-    site_base = "http://tp.vrijschrift.org"
+    site_base = "/home/ben/TP/site"
 else:
     raise "Not configured for host '%s' -- edit config.py file." % host
 

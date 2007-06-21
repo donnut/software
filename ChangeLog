@@ -20,6 +20,8 @@
 	produced HTML page in a file, and generate updated HTML pages as
 	soon as a PO or POT file is registered.
 
+	* lib/config.py: Adjust for change of domain name.
+
 2007-06-20  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Stop gettextizing local progress and error
