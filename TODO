@@ -1,4 +1,8 @@
 Next:
+* generate static pages at the moment a PO or POT file is registered,
+  not each time when someone asks for the page as it's too slow
+* do the file searching for generating a domain page in a smarter way
+* regenerate team and domain indexes when registry is modified
 * use relative links everywhere in the html pages, not full URLs
 * create a team-leaders mailing list at tp.org
 * reject PO files for which translated strings are under 5%
@@ -27,6 +31,8 @@ Later:
 * add a page for retired translators
 * make fileutils, sh-utils, and textutils not show up on team pages
 * transform nano_1_0 back to plain nano
+* walk through the packages to see if there are more recent versions;
+  there is for lilypond, for example
 * rename registry.dtd to tp-registry.dtd
 * weed out double assignments from registry.sgml
 * sort AUTHORS by data
@@ -36,8 +42,6 @@ Later:
 * translated_length and total_length seem only to get used in po-matrix;
   does it still make sense to produce these matrices?  as they are far
   too big to be comprehensible/overseeable
-* generate static pages at the moment a PO or POT file is registered,
-  not each time when someone asks for the page as it's too slow
 
 
 

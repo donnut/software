@@ -126,8 +126,6 @@ def process_pot_file(hints, file, teams):
             print line
         os.remove(file)
         os.chmod(template_path, 0664)
-    ##if not run.dry:
-    localweb.produce_page("domain", hints.domain)
     potstats = po.stats(po.read(template_path))
     if teams:
         teams = [registry.team(n) for n in teams]
@@ -135,8 +133,6 @@ def process_pot_file(hints, file, teams):
         teams = registry.team_list()
     for team in teams:
         hints.team = team
-        ##if not run.dry:
-        localweb.produce_page("team", team)
         archive_base = hints.archive_base()
         archive_path = hints.archive_path()
         maintainer_path = hints.maintainer_path()
@@ -185,6 +181,9 @@ def process_pot_file(hints, file, teams):
                         sys.stderr.write("      sending '%s' to <%s>\n"
                                          % (template_base, address))
                         email_file(address, template_path, translator.autosend)
+    if not run.dry:
+        # Regenerate the domain page after all statistics were updated:
+        localweb.generate_domain_page(hints.domain.name)
     if hints.domain.mailto:
         sys.stderr.write("  notifying maintainer <%s> about '%s'\n"
                          % (hints.domain.mailto[0], template_base))
@@ -225,9 +224,10 @@ def process_po_file(hints, file, fromnewpot = False):
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
             print line
-    ##if not run.dry:
-    localweb.produce_page("team", hints.team)
-    localweb.produce_page("domain", hints.domain)
+        # Regenerate the domain and team page, where needed.
+        if not fromnewpot:
+            localweb.generate_domain_page(hints.domain.name)
+        localweb.generate_team_page(hints.team.name)
     # Notify team of the PO file, whether new or updated.
     mailto = hints.team.announce_address()
     sys.stderr.write("    notifying <%s> about '%s'\n"

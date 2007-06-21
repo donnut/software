@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+# -*- mode: python; coding: utf-8 -*-
+# Copyright © 2007 Translation Project.
+
+"""\
+Regenerate the static domain and team pages.
+
+Usage:  generate-pages [-idt]
+
+  -i  regenerate the index pages
+  -d  regenerate the domain pages
+  -t  regenerate the team pages
+"""
+
+import sys, getopt
+
+sys.path.insert(0, sys.path[0]+'/../lib')
+import localweb, registry
+
+def main(*arguments):
+    domains = index = teams = False
+    options, arguments = getopt.getopt(arguments, 'dit')
+    for option, value in options:
+        if option == '-d':
+            domains = True
+        if option == '-i':
+            index = True
+        elif option == '-t':
+            teams = True
+    if not domains and not index and not teams:
+        domains = index = teams =True
+    if index:
+        localweb.generate_domain_page("index")
+        localweb.generate_team_page("index")
+    if domains:
+        for domain in registry.domain_list():
+            localweb.generate_domain_page("%s" % domain)
+    if teams:
+        for team in registry.team_list():
+            localweb.generate_team_page("%s" % team)
+
+
+if __name__ == '__main__':
+    apply(main, tuple(sys.argv[1:]))
+

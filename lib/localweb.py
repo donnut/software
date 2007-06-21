@@ -20,15 +20,21 @@ def get_extstats():
         _extstats = data.load_extstats()
     return _extstats
 
-def produce_page(type, which):
-    if type == "domain":
-        page = "%s/domainpages/%s.html" % (config.site_path, which)
-	produce_domain_page(data.load_postats(), "%s" % which , page)
-    elif type == "team":
-        page = "%s/teampages/%s.html" % (config.site_path, which)
-	produce_team_page(data.load_postats(), "%s" % which , page)
-    else:
-        raise "No good, what kind of page is that!"
+def generate_domain_page(domain):
+    if domain == "index":
+        file = "%s/domainpages/index.html" % config.site_path
+        return produce_domain_index(file)
+    sys.stderr.write("Generating domain page for %s...\n" % domain)
+    file = "%s/domainpages/%s.html" % (config.site_path, domain)
+    produce_domain_page(data.load_postats(), domain, file)
+
+def generate_team_page(team):
+    if team == "index":
+        file = "%s/teampages/index.html" % config.site_path
+        return produce_team_index(file)
+    sys.stderr.write("Generating team page for %s...\n" % team)
+    file = "%s/teampages/%s.html" % (config.site_path, team)
+    produce_team_page(data.load_postats(), team, file)
 
 
 # Generation of webpages describing domains.
