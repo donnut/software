@@ -11,6 +11,9 @@
 	team leaders when they get output in English only anyway.  Spare
 	the translators of tp-robot some pointless work.
 
+	* lib/run.py, bin/tp-robot: Shorten some lines to prevent needless
+	wraps in the pot file.
+
 2007-06-20  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Stop gettextizing local progress and error

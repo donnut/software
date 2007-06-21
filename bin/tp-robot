@@ -117,12 +117,11 @@ class globals:
     team_mailtos = []                   # alternative email addresses
     reported_unknown = []               # to avoid reporting the same twice
     unknown_address_insert = _("""\
-In fact, the Translation Project registry holds the preferred email address
-for many translators like you, and some necessary aliases as well.  It is
+The Translation Project registry holds the preferred email address for many
+translators like you, and, when necessary, some aliases as well.  But it is
 better to avoid the proliferation of alternate email addresses and stick
 to only one, whenever possible.  In any case, please keep the translation
-coordinator informed of such things, at least as a mild form of verification.
-Some stronger authentication scheme might be needed, one of these days!""")
+coordinator informed of them, at least as a mild form of verification.""")
 
 
 class Extract:
@@ -595,10 +594,10 @@ I'll attempt to modify it for you, but just this time! :-)
                     + header['project-id-version'][match.end('ver'):])
             if match.group('ver') != run.hints.version.name:
                 run.reject(_("""\
-The 'Project-Id-Version' field of your submission says that your translations
-are meant for version '%s' of '%s', not '%s'.  I guess that they should be
-identical.  Consequently, I invite you to adjust either the file name of your
-submission, or the 'Project-Id-Version' field, whichever is appropriate.
+The 'Project-Id-Version' field of your PO file says that your translation
+is meant for version '%s' of '%s', not for '%s' as the file name says.
+Therefore I invite you to adjust either the file name of your submission,
+or the 'Project-Id-Version' field, whichever is appropriate.
 """)
                            % (match.group('ver'), run.hints.domain.name,
                               run.hints.version.name),
@@ -638,11 +637,11 @@ ideally looks like:
                                 % (field, field))
                 if field == 'POT-Creation-Date':
                     run.submitter.write(_("""\
-Some older POT files did not have the 'POT-Creation-Date' field.  This might
-be the case here, I'm not sure.  But if so, you should not worry, as this
-will be repaired in some later release of this distribution.  This field
-is not really for the translator to set.  In the meantime, I will merely
-copy the value of the 'PO-Revision-Date' field into it, just to get going.
+Some older POT files did not have the 'POT-Creation-Date' field.  If
+this is the case here, you should not worry, as it will be repaired in
+some later release of this package.  This field is not really for the
+translator to set.  In the meantime, I will copy the value of the
+'PO-Revision-Date' field into it, just to get going.
 """))
                 reject = 1
         if reject:
@@ -721,19 +720,19 @@ The last translator of this PO file is %s.  But according to my notes,
                      != string.lower(run.translator_name))):
                 run.submitter.write(_("""\
 I'm not fully sure that you are the author of the translations you sent
-to me.  The header of your email says that you are '%s',
-while the 'Last-Translator' field of PO file header says your name should
-be '%s'.  The difference might be mere spelling differences.
-These may happen when you do not have full control over your name in the
-mailing system you are using.
+to me.  The header of your email says that you are '%s', while the
+'Last-Translator' field of the PO file header says your name should
+be '%s'.  The difference might be mere spelling differences.  These may
+happen when you do not have full control over your name in the mailing
+system you are using.
 
 As I expect you have better control over PO files, I'll consider that
-the second name is the most dependable one.  Yet, in some cases, this
-might represent some error I'm unable to analyse, while you do.  In the
-unlikely case the two names above are really different, the situation is
-more serious.  Some translation teams surely have their own ways and habits.
-Yet, on average, it is unusual that someone submits a translation file
-written by someone else.
+the second name is the most dependable.  Yet, in some cases, this might
+represent an error I am unable to analyse, while you do.  In the unlikely
+case that the two names above are really different, the situation is more
+serious.  Some translation teams surely have their own ways and habits,
+but it is unusual that someone submits a translation file written by
+someone else.
 """)
                                              % (run.translator_name,
                                                 last_translator))
@@ -758,8 +757,8 @@ looks like:
     'Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n'
 
 In this line, FULL NAME has to be replaced by the full name of the current
-translator of the messages for the '%s' textual domain, which means  you most
-probably :-); EMAIL@ADDRESS gives a way to reach that translator by email.
+translator for the '%s' textual domain (which most probably means you :-);
+EMAIL@ADDRESS gives a way to reach that translator by email.
 """)
                        % run.hints.domain, "[last-translator missing]")
 
@@ -784,10 +783,10 @@ please use no more than a single space between '%s' and '<%s>'.
                                     % (maybe_language, maybe_mailto))
             if maybe_language != globals.team_language:
                 run.reject(_("""\
-You wrote '%s' in the 'Language-Team' field of the PO file
-header, while I think it should have been '%s'.  I'm not
-fully sure about this.  If you think I got it wrong, please email to the
-translation coordinator for straigthening this out.
+You wrote '%s' in the 'Language-Team' field of the PO file header, while
+I think it should have been '%s'.  I'm not fully sure about this.  If you
+think I got it wrong, please email to the translation coordinator to get
+this straigthened this out.
 """)
                            % (maybe_language, _(globals.team_language)),
                            "[language-team incorrect]")
@@ -796,12 +795,12 @@ translation coordinator for straigthening this out.
 Each translation team should publish some mailing list address, meant
 to appear (between angular brackets) after the language name in the
 'Language-Team' field of the PO file header.  The Translation Project
-does not have such an address for the %s team.  You might
-already know some list dedicated to internationalisation efforts for
-%s, which may fit your needs.  In case you know none, waiting
-to get better organised, you might use the address of one of the team
-members, maybe yours if you are alone in the team!  In any case, please
-inform the translation coordinator of the address your team decides to use.
+does not have such an address for the %s team.  You might already know
+some list dedicated to internationalisation efforts for %s, which may
+fit your needs.  In case you know none, waiting to get better organised,
+you might use the address of one of the team members, maybe yours if you
+are alone in the team!  In any case, please inform the translation
+coordinator of the address your team decides to use.
 """)
                            % (_(globals.team_language),
                               _(globals.team_language)),
@@ -822,18 +821,18 @@ not formatted properly.  The line containing it often looks like:
 
     'Language-Team: LANGUAGE <TEAM-EMAIL-ADDRESS>\\n'
 
-In this line, LANGUAGE is the English name of your spoken language,
-capitalizing the first letter of words and leaving the rest in lower case.
-It sometimes happens, not always, that TEAM-EMAIL-ADDRESS has the form
-'TEAM@li.org', where TEAM is the ISO-639 code for the language (not to
-be confused with country codes, which are a different standard).  If I
-had to write this line myself, right now, according to the information
-which is available to me, I would use:
+In this line, LANGUAGE is the English name of your language, capitalizing
+the first letter of its words and leaving the rest in lower case.
+Sometimes the TEAM-EMAIL-ADDRESS takes the form of
+'translation-team-TEAM@lists.sourceforge.net', where TEAM is the ISO-639
+code for your language (not to be confused with country codes, which are
+a different standard).  If I had to write this line myself, right now,
+according to the information which is available to me, I would use:
 
     'Language-Team: %s <%s>\\n'
 
-If this leaves you clueless and you still want to correct it, please write to
-the translation coordinator for asking, and we will work this out together.
+If this leaves you clueless and you still want to correct it, please write
+to the translation coordinator and we will work this out together.
 """)
                        % (globals.team_language, globals.team_mailto),
                        "[language team missing]")
@@ -842,7 +841,7 @@ the translation coordinator for asking, and we will work this out together.
         if header['mime-version'] != '1.0':
             run.reject(_("""\
 The 'MIME-Version' field was not found in your PO file header, or is
-not formatted properly.  The line containing it should exactly look like:
+not formatted properly.  The line should be this one:
 
     'MIME-Version: 1.0\\n'
 """),
@@ -981,7 +980,7 @@ program has to say about your submitted PO file:
             if contents.find('Permission is granted to freely copy and distribute') == -1:
                 run.submitter.write(_("""\
 At first sight it seems like your translation does not contain a clause
-that permits distribution of your translation. Please consider inserting
+that permits distribution of your translation.  Please consider inserting
 a sentence like
 """))
                 run.submitter.write_nofill("""\
@@ -1009,11 +1008,11 @@ Processing with the registry of the Translation Project.
                                              run.translator_address)
         except KeyError:
             run.reject(_("""\
-According to my notes, you are not a member of the %s team.
-Or at least, you are not listed there under the name '%s'.  If this is
-only a matter of spelling differences, then I need to know exactly which
-alternate spellings of your name you use.  Write to the translation
-coordinator and explain why you need several different names.  It is usually
+According to my notes, you are not a member of the %s team. Or at least,
+you are not listed there under the name '%s'.  If this is only a matter
+of spelling differences, then I need to know exactly which alternate
+spellings of your name you use.  Write to the translation coordinator
+and explain why you need several different names.  But it is usually
 best to avoid such variance, and stick to a single preferred spelling.
 """)
                        % (_(globals.team_language), run.translator_name),
@@ -1069,9 +1068,9 @@ list you as the usual translator for '%s'.  Your team leader might send
 an email to the translation coordinator, warranting that you are indeed
 assigned to this textual domain.  For small teams not having a leader,
 you may write yourself to the translation coordinator.  It is a simple
-matter to assign you the responsibility of '%s' for %s,
-given nobody else is already assigned to it.  However, some teams prefer
-to channel translations differently, for ensuring some quality control first.
+matter to assign you the responsibility of '%s' for %s, if nobody else
+is yet assigned to it.  However, some teams prefer to channel translations
+differently, for ensuring some quality control first.
 """)
                        % (run.hints.domain, run.hints.domain,
                           _(globals.team_language)), reason)
@@ -1197,11 +1196,12 @@ automatically, here.  This message continues after the (maybe long) quote.
     def congratulate(self):
         run.subject = run.subject + " [ACCEPTED]"
         run.submitter.write(_("""
-Your file has been accepted and uploaded into the archives: congratulations!
-Whenever the maintainer of '%s' submits a new POT file to the Translation
+Your file has been accepted and stored in the archives: congratulations!
+
+When the maintainer of '%s' submits a new POT file to the Translation
 Project, the translation you just made will probably need revision.  Your
-team will then be notified of the URL of the PO file to revise, with a quick
-evaluation of the extent of the work needed.
+team will then be notified of the URL of the PO file to revise, together
+with a quick valuation of the extent of the work needed.
 """)
                             % run.hints.domain.name)
         try:
@@ -1213,9 +1213,10 @@ evaluation of the extent of the work needed.
         else:
             if not translator.autosend:
                 run.submitter.write(_("""\
-To speed things up, I could send you an updated copy of this PO file by email
-whenever a new template file for it arrives.  If you are interested in this
-service, you can ask for it by emailing to the translation coordinator.
+To speed things up, I could send you an updated copy of this PO file
+by email whenever a new template file for it arrives.  If you are
+interested in this service, you can ask for it by emailing to the
+translation coordinator.
 """))
 
     def upload_po_file(self, work_name):

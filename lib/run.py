@@ -181,9 +181,9 @@ and was awakened by one of your submissions.
         if rejected:
             self.prepare(force=1)
             self.write(_("""
-Some error reported above is such that I cannot accept your PO file.  Sorry! 
-But do not hesitate to resubmit your PO file, once you think the problem has
-been fixed.  As a robot I am incredibly patient at these things!
+Some error reported above prevents me from accepting your PO file.  Sorry! 
+But do not hesitate to resubmit your PO file, once you think the problem
+has been fixed.  As a robot I am incredibly patient at these things!
 """))
 
         self.write_nofill(_("""\
