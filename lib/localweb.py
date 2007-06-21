@@ -20,6 +20,16 @@ def get_extstats():
         _extstats = data.load_extstats()
     return _extstats
 
+def produce_page(type, which):
+    if type == "domain":
+        page = "%s/domainpages/%s.html" % (config.site_path, which)
+	produce_domain_page(data.load_postats(), "%s" % which , page)
+    elif type == "team":
+        page = "%s/teampages/%s.html" % (config.site_path, which)
+	produce_team_page(data.load_postats(), "%s" % which , page)
+    else:
+        raise "No good, what kind of page is that!"
+
 
 # Generation of webpages describing domains.
 

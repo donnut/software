@@ -16,6 +16,10 @@
 
 	* bin/tp-robot: Do not whine, and be a little clearer.
 
+	* lib/localweb.py, bin/po-register: Add a function to store a
+	produced HTML page in a file, and generate updated HTML pages as
+	soon as a PO or POT file is registered.
+
 2007-06-20  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Stop gettextizing local progress and error

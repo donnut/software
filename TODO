@@ -1,5 +1,4 @@
 Next:
-* stop gettextization of texts for maintainers and team-leaders
 * use relative links everywhere in the html pages, not full URLs
 * create a team-leaders mailing list at tp.org
 * reject PO files for which translated strings are under 5%
