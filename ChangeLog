@@ -1,4 +1,9 @@
 
+2007-06-21  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* po/*: Adding Finnish and Irish translations of the TP-robot,
+	updating the others with differentiated robot/coordinator addresses.
+
 2007-06-20  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Stop gettextizing local progress and error

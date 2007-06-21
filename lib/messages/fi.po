@@ -1,154 +1,153 @@
-# translation of tp-robot-1.1.po to Punjabi
-# This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Amanpreet Singh Alam <punjablinux@netscape.net>, 2004.
+# Finnish messages for tp-robot
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as the tp-robot package.
+# Jorma Karvonen <karvjorm@users.sourceforge.net>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: tp-robot-1.1\n"
+"Project-Id-Version: tp-robot 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-19 06:38-0400\n"
-"PO-Revision-Date: 2004-08-29 12:03+0530\n"
-"Last-Translator: Amanpreet Singh Alam <punjablinux@netscape.net>\n"
-"Language-Team: Punjabi <kde-i18n-pa@kde.org>\n"
+"PO-Revision-Date: 2005-11-20 23:34+0200\n"
+"Last-Translator: Jorma Karvonen <karvjorm@users.sourceforge.net>\n"
+"Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
-"Plural-Forms: Plural-Forms: Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"\n"
+"X-Poedit-Language: Finnish\n"
+"X-Poedit-Country: FINLAND\n"
 
 #: bin/fetch-pot:50
 #, python-format
 msgid "Domain `%s' has no associated URL"
-msgstr "ਡੋਮੇਨ %s URL ਨਾਲ ਸੰਬੰਧਿਤ ਨਹੀਂ ਹੈ"
+msgstr "Domainiin \"%s\" ei liity URL:ää"
 
 #: bin/fetch-pot:56
 #, python-format
 msgid "Examining %s..."
-msgstr "%s ਦੀ ਜਾਂਚ ਜਾਰੀ ਹੈ..."
+msgstr "Tutkitaan %s..."
 
 #: bin/fetch-pot:58
 #, python-format
 msgid "Fetching %s..."
-msgstr "%s ਪ੍ਰਾਪਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+msgstr "Noudetaan %s..."
 
 #: bin/fetch-pot:65 bin/fetch-pot:68
 msgid "  apparently not found\n"
-msgstr ""
+msgstr "  ei ilmeisesti löytynyt\n"
 
 #: bin/fetch-pot:86
 msgid "  no POT file in archive\n"
-msgstr "  ਕੋਈ POT ਫਾਇਲ ਸੁਕੰਚਿਤ ਵਿੱਚ ਨਹੀਂ \n"
+msgstr "  arkistossa ei ole POT-tiedostoa\n"
 
 #: bin/fetch-pot:113
 msgid "  more than one POT file in archive:\n"
-msgstr "  ਇੱਕ ਸੁਕੰਚਿਤ ਵਿੱਚ ਇੱਕ ਤੋਂ ਵਧੇਰੇ POT ਫਾਇਲ਼ਾਂ ਹਨ\n"
+msgstr "  enemmän kuin yksi POT-tiedosto arkistossa:\n"
 
 #: bin/fetch-pot:120
 msgid "Did not retain any POT file"
-msgstr "ਕੋਈ POT ਫਾਇਲ਼ ਪ੍ਰਾਪਤ ਨਹੀਂ ਹੋਈ"
+msgstr "Mitään POT-tiedostoa ei säilytetty"
 
 #: bin/fetch-pot:135
 #, python-format
 msgid "  extracting %s as %s\n"
-msgstr "  %s ਨੂੰ %s ਵਾਂਗ ਖੋਲਿਆ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "  puretaan %s nimellä %s\n"
 
 #: bin/fetch-pot:142
 msgid "Extraction failed"
-msgstr "ਖੋਲਣਾ ਅਸਫਲ"
+msgstr "Purkaminen epäonnistui"
 
 #: bin/msg-to-po:35 bin/msg-to-po:44
 #, python-format
 msgid "#. Message no %s\n"
-msgstr "#. ਸੁਨੇਹਾ ਕ੍ਰਮ %s\n"
+msgstr "#. Sanoma nro %s\n"
 
 #: bin/msg-to-po:47
 #, python-format
 msgid "msgid \"*** Unknown - message no %s ***\"\n"
-msgstr "msgid \"*** ਅਣਜਾਣਾ - ਸੁਨੇਹਾ ਅੰਕ %s ***\"\n"
+msgstr "msgid \"*** Tuntematon - sanoma nro %s ***\"\n"
 
 #: bin/msg-to-po:72
 #, python-format
 msgid "<stdin>:%d: ERROR: %s"
-msgstr "<stdin>:%d: ਗਲਤੀ: %s"
+msgstr "<vakiosyöte>:%d: VIRHE: %s"
 
 #: bin/po-empty:23 bin/po-normalize:23
 #, python-format
 msgid "Usage: %s [PO-FILE]"
-msgstr "ਵਰਤੋਂ: %s [PO-FILE]"
+msgstr "Käyttö: %s [PO-TIEDOSTO]"
 
 #: bin/po-register:59
 #, python-format
 msgid "`%s' may not be absolute notation, think `shar'..."
-msgstr ""
+msgstr "\"%s\" ei ehkä ole ehdoton merkintätapa, luulen \"shar\"..."
 
 #: bin/po-register:63 bin/po-register:66
 #, python-format
 msgid "Processing %s\n"
-msgstr "%s ਕਾਰਵਾਈ ਜਾਰੀ ਹੈ\n"
+msgstr "Käsitellään %s\n"
 
 #: bin/po-register:73
 #, python-format
 msgid "No known maintainer for textual domain `%s'"
-msgstr "ਪਾਠ ਡੋਮੇਨ '%s' ਲਈ ਕੋਈ ਜਾਣਿਆ ਪ੍ਰਬੰਧਕ ਨਹੀਂ ਹੈ"
+msgstr "Tekstidomainille \"%s\" ei ole tunnettua ylläpitäjää"
 
 #: bin/po-register:92
 #, python-format
 msgid "  skipping `%s' as local `%s' waits\n"
-msgstr "    '%s' ਨੂੰ ਸਥਾਨਿਕ '%s' ਉਡੀਕ ਕਰਕੇ ਛੱਡਿਆ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "  hypätään kohteen \"%s\" yli, koska paikallinen \"%s\" odottaa\n"
 
 #: bin/po-register:96
 #, python-format
 msgid "  skipping `%s' as `%s' exists\n"
-msgstr "    '%s' ਨੂੰ '%s' ਮੌਜੂਦਗੀ ਛੱਡਿਆ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "  hypätään kohteen \"%s\" yli, koska \"%s\" on olemassa\n"
 
 #: bin/po-register:103
 #, python-format
 msgid "  merging with `%s'"
-msgstr "  '%s' ਨਾਲ ਮਿਲਾਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+msgstr "  yhdistetään kohteeseen \"%s\""
 
 #: bin/po-register:121 bin/po-register:137
 #, python-format
 msgid "    sending `%s' to `%s'\n"
-msgstr "    '%s' ਤੋਂ '%s' ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "    lähetetään \"%s\" kohteelle \"%s\"\n"
 
 #: bin/po-register:127 bin/po-register:188
 #, python-format
 msgid "    notifying `%s' about `%s'\n"
-msgstr "   '%s' ਨੂੰ '%s' ਬਾਰੇ ਸੂਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "    ilmoitetaan kohteelle \"%s\" kohteesta \"%s\"\n"
 
 #: bin/po-register:142
 #, python-format
 msgid "  notifying `%s' about `%s-%s.pot'\n"
-msgstr "  '%s' ਨੂੰ %s-%s.pot' ਬਾਰੇ ਸੂਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "  ilmoitetaan kohteelle \"%s\" kohteesta \"%s-%s.pot\"\n"
 
 #: bin/po-register:145
 msgid "    also notifying team leaders\n"
-msgstr "   ਟੀਮ ਪ੍ਰਬੰਧਕ ਨੂੰ ਵੀ ਸੂਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "    ilmoitetaan myös ryhmänjohtajille\n"
 
 #: bin/po-register:152
 #, python-format
 msgid "    initializing `%s/teams/PO/%s'\n"
-msgstr "     `%s/teams/PO/%s' ਸ਼ੁਰੂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "    käyttöönotetaan \"%s/teams/PO/%s\"\n"
 
 #: bin/po-register:162
 #, python-format
 msgid "  skipping `%s', as already uploaded\n"
-msgstr "  '%s' ਨੂੰ ਛੱਡਿਆ ਜਾ ਰਿਹਾ ਹੈ, ਇਹ ਪਹਿਲਾਂ ਹੀ ਲੋਡ ਹੈ\n"
+msgstr "  hypätään kohteen \"%s\" yli, koska se on jo kopioitu palvelimelle\n"
 
 #: bin/po-register:175
 msgid "Translation empty and identical to Template, not loaded\n"
-msgstr "ਅਨੁਵਾਦ ਖਾਲੀ ਹੈ ਅਤੇ ਨਮੂਨੇ ਵਰਗਾ ਹੀ ਹੈ, ਲੋਡ ਨਹੀਂ ਹੋ ਸਕਦਾ\n"
+msgstr "Käännös tyhjä ja identtinen mallinneen kanssa, ei ladattu\n"
 
 #: bin/po-register:177
 msgid "Translation identical to archive file, not loaded\n"
-msgstr "ਅਨੁਵਾਦ ਸੁਕੰਚਿਤ ਫਾਇਲ ਵਰਗਾ ਹੀ ਹੈ, ਲੋਡ ਨਹੀਂ ਹੋ ਸਕਦਾ ਹੈ\n"
+msgstr "Käännös identtinen arkistotiedoston kanssa, ei ladattu\n"
 
 #: bin/po-register:207
 #, python-format
 msgid "    also notifying `%s'\n"
-msgstr "    '%s' ਨੂੰ ਵੀ ਸੂਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "    ilmoitetaan myös kohteelle \"%s\"\n"
 
 #: bin/po-register:221
 #, python-format
@@ -158,9 +157,9 @@ msgid ""
 "Subject: New PO Template file for `%s'\n"
 "\n"
 msgstr ""
-"ਵਲੋਂ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ: %s\n"
-"ਵਿਸ਼ਾ: `%s' ਲਈ ਨਵੀਂ PO ਫਾਇਲ\n"
+"From: Käännösrobotti <robot@translationproject.org>\n"
+"To: %s\n"
+"Subject: Uusi PO-mallinnetiedosto pakkaukselle \"%s\"\n"
 "\n"
 
 #: bin/po-register:228
@@ -173,11 +172,12 @@ msgid ""
 "has just been made available to language teams for translation, and a copy\n"
 "is available as:\n"
 msgstr ""
-"ਸਵਾਗਤ, ਪਿਆਰੇ ਗਭਰੇਟ ਪ੍ਰਬੰਧਕ,\n"
-"ਇਹ ਸੁਨੇਹਾ ਅਨੁਵਾਦ ਪ੍ਰੋਜਕੈਟ ਰੋਬੋਟ ਵਲੋਂ ਹੈ।\n"
+"Hei, lempeä ylläpitäjä.\n"
+"Tämä on Käännösrobotin sanoma.\n"
 "\n"
-"ਇੱਕ ਨਵੀਂ PO ਨਮੂਨਾ ਫਾਇਲ, ਪਾਠ ਡੋਮੇਨ '%s' ਆਧਾਰਿਤ ਕਾਰਜ ਲਈ, ਅਨੁਵਾਦ\n"
-"ਟੀਮਾਂ ਲਈ ਉਪਲੱਬਧ ਹੋਈ ਹੈ ਅਤੇ ਇਸ ਦੀ ਇੱਕ ਨਕਲ ਹੇਠਾਂ ਉਪਲੱਬਧ ਹੈ:\n"
+"Uusi PO-mallinetiedosto ohjelmille, jotka käyttävät tekstidomainia \"%s\",\n"
+"on juuri laitettu saataville käännösryhmien käännöksille ja kopio\n"
+"on saatavissa nimellä:\n"
 
 #: bin/po-register:238 bin/po-register:320 bin/po-register:381
 #, python-format
@@ -191,7 +191,7 @@ msgstr ""
 "\n"
 ">    %s\n"
 "\n"
-"ਫਾਇਲ ਪ੍ਰਤੀਬਿੰਬ ਸਾਇਟਾਂ ਤੇ ਛੇਤੀ ਹੀ ਉਪਲੱਬਧ ਹੋ ਜਾਵੇਗੀ:\n"
+"Tiedoston pitäisi pian olla saatavilla peilisivustojen kautta:\n"
 "\n"
 
 #: bin/po-register:248
@@ -211,6 +211,18 @@ msgid ""
 "version numbers, but since it is not OK to have two different distributions\n"
 "having same version numbers, this is not a problem in practice.\n"
 msgstr ""
+"\n"
+"Julkaisuissasi tämä tiedosto löytyy tavallisesti nimellä \"po/%s.pot\".\n"
+"Se luodaan tai päivitetään automaattisesti  \"make dist\"-hetkellä tai kun\n"
+"ajat \"make update-po\" alihakemistossa \"po/\".  Milloin tahansa sinulla on\n"
+"valmiina jakelu, joka sisältää uudemman PO-mallineen, lähetä jakelun URL\n"
+"alla olevaan osoitteeseen.  Jakelu voisi olla esitestaus tai otos,\n"
+"sen ei tarvitse kääntyä. Kääntäjät käyttävät sitä kun he tarvitsevat\n"
+"jotain käännöskonteksia lähdekoodistasi.\n"
+"\n"
+"Käännösprojektin sisällä kaikilla PO-mallineilla pitäisi olla erilaiset\n"
+"versionumerot, mutta koska ei ole hyväksyttävää olla kahta jakelua\n"
+"samalla versionumerolla, tämä ei ole käytännössä pulma.\n"
 
 #: bin/po-register:265
 msgid ""
@@ -220,14 +232,20 @@ msgid ""
 "given below, if the information does not appear to be adequate or current:\n"
 "\n"
 msgstr ""
+"\n"
+"Tässä on URL-tieto, joka on juuri annettu pakkauksesi kääntäjille.\n"
+"Kerro käännöskoordinaattorille, jonka osoite  on annettu alla,\n"
+"jos tiedot eivät tunnu olevan asianmukaiset tai ajan tasalla:\n"
+"\n"
 
+# Tässä puhutaan nimenomaan käännöksestä, ei suomennoksesta. Joku saattaa työskennellä jonkun muun kielisen käännöksen parissa kuin suomenkielisen.
 #: bin/po-register:275
 msgid ""
 "\n"
 "Translated PO files will later be automatically e-mailed to you.\n"
 msgstr ""
 "\n"
-"ਅਨੁਵਾਦ PO ਫਾਇਲਾਂ ਤੁਹਾਨੂੰ ਛੇਤੀ ਹੀ ਈ-ਪੱਤਰ ਰਾਹੀਂ ਭੇਜ ਦਿੱਤੀਆਂ ਜਾਣਗੀਆਂ।\n"
+"Käännetyt PO-tiedostot lähetetään sinulle sähköpostitse automaattisesti.\n"
 
 #: bin/po-register:280
 msgid ""
@@ -236,8 +254,9 @@ msgid ""
 "to you when they arrive.  Ask to the address below if you want this.\n"
 msgstr ""
 "\n"
-"ਅਸੀਂ ਸਭ ਕੁਝ ਇਸ ਤਰਾਂ ਤਰਤੀਬਵਾਰ ਕੀਤਾ ਹੈ ਕਿ ਅਨੁਵਾਦ PO ਫਾਇਲਾਂ ਆਉਣ ਤੋਂ \n"
-"ਤੁਰੰਤ ਬਾਅਦ ਤੁਹਾਨੂੰ ਈ-ਪੱਤਰ ਰਾਹੀਂ ਭੇਜ ਦਿੱਤੀਆਂ ਜਾਣਗੀਆਂ। ਜਾਣਕਾਰੀ ਲਈ ਹੇਠ ਦਿੱਤੇ ਸਿਰਨਾਵੇਂ ਤੇ ਸੰਪਰਕ ਕਰੋ।\n"
+"Voimme järjestää asian niin, että käännetyt PO-tiedostot lähetetään\n"
+"sinulle automaattisesti sähköpostilla, kun ne saapuvat.\n"
+"Tiedustele alla olevasta osoitteesta, jos haluta tätä.\n"
 
 #: bin/po-register:285 bin/po-register:346
 msgid ""
@@ -249,10 +268,10 @@ msgid ""
 "                                <coordinator@translationproject.org>\n"
 msgstr ""
 "\n"
-"ਸਹਿਯੋਗ ਲਈ ਸ਼ੁਕਰੀਆ,\n"
+"Kiitokset yhteistyöstäsi,\n"
 "\n"
-"                                ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ,\n"
-"                                ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਦੇ ਅਨੁਵਾਦ ਮੁੱਖੀ ਵੱਲ\n"
+"                                Käännösrobotti,\n"
+"                                käännöskoordinaattorisi puolesta.\n"
 "                                <coordinator@translationproject.org>\n"
 
 #: bin/po-register:303
@@ -263,9 +282,9 @@ msgid ""
 "Subject: New PO Template file for `%s'\n"
 "\n"
 msgstr ""
-"ਵੱਲੋਂ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ: team-leaders@translationproject.org\n"
-"ਵਿਸ਼ਾ: `%s' ਲਈ ਨਵਾਂ PO ਨਮੂਨਾ \n"
+"From: Käännösrobotti <robot@translationproject.org>\n"
+"To: team-leaders@translationproject.org\n"
+"Subject: Uusi PO-mallinnetiedosto pakkaukselle \"%s\"\n"
 "\n"
 
 #: bin/po-register:310
@@ -278,11 +297,12 @@ msgid ""
 "has just been made available to language teams for translation, and a copy\n"
 "is available as:\n"
 msgstr ""
-"ਸਭ ਟੀਮ ਮੁੱਖੀਆਂ ਨੂੰ ਮੇਰਾ ਦਿਲ ਸ਼ੁਭਕਾਮਨਾਵਾਂ।\n"
-"ਇਹ ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ ਵਲੋਂ ਸੁਨੇਹਾ ਹੈ।\n"
+"Herttaisin hei kaikille käännösprojektiryhmien johtajille.\n"
+"Tämä on Käännösrobotin sanoma.\n"
 "\n"
-"ਇੱਕ ਨਵੀਂ PO ਨਮੂਨਾ ਫਾਇਲ, ਪਾਠ ਡੋਮੇਨ '%s' ਆਧਾਰਿਤ ਕਾਰਜ ਲਈ, ਅਨੁਵਾਦ\n"
-"ਟੀਮਾਂ ਲਈ ਉਪਲੱਬਧ ਹੋਈ ਹੈ ਅਤੇ ਇਸ ਦੀ ਇੱਕ ਨਕਲ ਹੇਠਾਂ ਉਪਲੱਬਧ ਹੈ:\n"
+"Uusi PO-mallinnetiedosto ohjelmille, jotka käyttävät tekstidomainia \"%s\",\n"
+"on juuri laitettu saataville käännösryhmien käännettäväksi ja kopio on\n"
+"saatavissa nimellä:\n"
 
 #: bin/po-register:330
 msgid ""
@@ -293,10 +313,10 @@ msgid ""
 "translator might be recruited to take care of it.\n"
 msgstr ""
 "\n"
-"ਤੁਹਾਡੀ ਟੀਮ ਨੂੰ ਸੂਚਨਾ ਤਾਂ ਹੀ ਮਿਲੇਗੀ, ਜੇਕਰ ਇਸ ਨੇ ਅਨੁਵਾਦ ਕਮਿਟ ਕੀਤਾ\n"
-"ਜਾਂ ਜੇਕਰ ਤੁਸੀਂ ਇਹ ਸਵੀਕਾਰ ਕੀਤਾ ਕਿ ਟੀਮ ਨੂੰ ਸੂਚਿਤ ਕੀਤਾ ਜਾਵੇ, ਕਿਸੇ ਵੀ ਤਰਾਂ।\n"
-"ਨਹੀਂ ਤਾਂ, ਇਹ ਸਿਰਫ ਤੁਹਾਡੇ ਅਤੇ ਤੁਹਾਡੀ ਟੀਮ ਨੇ ਹੀ ਨਿਰਧਾਰਿਤ ਕਰਨਾ ਹੈ ਕਿ ਅਨੁਵਾਦਕ\n"
-"ਇਸ ਦਾ ਧਿਆਨ ਕਿਵੇਂ ਰੱਖੇ।\n"
+"Ryhmällesi ilmoitetaan vain jos teki käännöksen tai jos\n"
+"olet pyytänyt, että ryhmälle kerrotaan, miten vain. Muussa\n"
+"tapauksessa on sinun ja ryhmäsi asia päättää tarkalleen,\n"
+"kuinka hankitaan kääntäjä ottamaan se työkseen.\n"
 
 #: bin/po-register:338
 msgid ""
@@ -306,8 +326,8 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"ਇੱਥੇ ਕੁਝ URL ਜਾਣਕਾਰੀ ਹੈ, ਜੋ ਕਿ ਇਸ ਪੈਕੇਜ ਦੇ ਅਨੁਵਾਦਕਾਂ ਨੂੰ ਉਪਲੱਬਧ\n"
-"ਕਰਵਾਈ ਜਾ ਸਕਦੀ ਹੈ:\n"
+"Tässä  on muutamia URL-tietoja, jotka voitaisiin antaa tämän pakkauksen\n"
+"kääntäjille:\n"
 "\n"
 
 #: bin/po-register:362
@@ -318,9 +338,9 @@ msgid ""
 "Subject: New %s PO file for `%s'\n"
 "\n"
 msgstr ""
-"ਵਲੋਂ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ: %s\n"
-"ਵਿਸ਼ਾ: `%s' ਲਈ ਨਵੀਂ %s PO ਫਾਇਲ\n"
+"From: Käännösrobotti <robot@translationproject.org>\n"
+"To: %s\n"
+"Subject: Uusi %s PO-tiedosto pakkaukselle \"%s\"\n"
 "\n"
 
 #: bin/po-register:370
@@ -334,17 +354,18 @@ msgid ""
 "language.  This particular file, along with all other PO files pertaining\n"
 "to the same textual domain, is available as:\n"
 msgstr ""
-"ਸਵਾਗਤ, ਪਿਆਰੇ ਪ੍ਰਬੰਧਕ,\n"
-"ਇਹ ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ ਵਲੋਂ ਸੁਨੇਹਾ ਹੈ।\n"
+"Hei, leppoisa ylläpitäjä.\n"
+"Tämä on Käännösrobotin sanoma.\n"
 "\n"
-"ਇੱਕ ਨਵੀਂ PO ਨਮੂਨਾ ਫਾਇਲ, ਪਾਠ ਡੋਮੇਨ '%s' ਆਧਾਰਿਤ ਕਾਰਜ ਲਈ, \n"
-"ਅਨੁਵਾਦ ਟੀਮ %s ਲਈ ਉਪਲੱਬਧ ਹੋਈ ਹੈ। ਇਹ ਖਾਸ ਫਾਇਲ, ਹੋਰ PO ਫਾਇਲਾਂ ਨਾਲ\n"
-" ਕੁਝ ਪਾਠ ਡੋਮੇਨ ਨਾਲ ਸ਼ਾਮਿਲ ਹੈ, ਉਪਲੱਬਧ ਹੈ:\n"
+"Muuttunut PO-tiedosto ohjelmille, jotka käyttävät tekstidomainia \"%s\",\n"
+"on toimitettu kääntäjäryhmästä, joka huolehtii kielestä %s.\n"
+"Kyseinen tiedosto, yhdessä kaikkien muiden samaa tekstidomainia koskevien\n"
+"PO-tiedostojen kanssa on saatavissa nimellä:\n"
 
 #: bin/po-register:392
 #, python-format
 msgid "    mailing `%s' to `%s'\n"
-msgstr "    `%s' ਵੱਲੋਂ `%s' ਪੱਤਰ ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "    postitetaan \"%s\" vastaanottajalle \"%s\"\n"
 
 #: bin/po-register:395
 #, python-format
@@ -353,6 +374,9 @@ msgid ""
 "This file has already been sent to you separately on %s,\n"
 "as a MIME invoice unpacking the file `%s'.\n"
 msgstr ""
+"\n"
+"Tämä tiedosto on jo lähetetty sinulle erikseen %s\n"
+"MIME-lähetyspurettuna tiedostona \"%s\".\n"
 
 #: bin/po-register:402
 msgid ""
@@ -360,6 +384,10 @@ msgid ""
 "We may arrange things so future such files be automatically e-mailed\n"
 "to you when they arrive.  Ask to the address below if you want this.\n"
 msgstr ""
+"\n"
+"Voimme järjestää asiat tulevaisuudessa niin, että sellaiset tiedostot lähetetään\n"
+"sähköpostitse automaattisesti sinulle kun ne saapuvat. Kysy asiaa alla olevasta\n"
+"osoitteesta, jos haluat tätä.\n"
 
 #: bin/po-register:407
 #, python-format
@@ -387,6 +415,28 @@ msgid ""
 "                                name of your translation coordinator.\n"
 "                                <coordinator@translationproject.org>\n"
 msgstr ""
+"\n"
+"Seuraavan HTML-sivun pitäisi myös päivittyä huomiseen mennessä.\n"
+"\n"
+">    %s/HTML/domain-%s.html\n"
+"\n"
+"Muistathan lisätä kaikki PO-tiedostot sellaisinaan ohjelmasi seuraavan\n"
+"julkaisun \"po/\"-alihakemistoon käyttäen tuota tekstidomainia,\n"
+"oli kyseessä virallinen versio tai esitestaus.  Milloin sinulla on valmiina jakelu,\n"
+"joka sisältää uudemman PO-mallinneen, lähetä tämän jakelun URL alla\n"
+"olevaan osoitteeseen.  Jakelu voi olla esitestaus tai otos,\n"
+"sen ei tarvitse edes kääntyä.  Kääntäjät käyttävät sitä silloin kun\n"
+"he tarvitsevat jotain käännöskonteksia lähdekoodistasi.\n"
+"\n"
+"Käännösprojektin sisällä jokaisella PO-mallinnetiedostolla pitäisi olla erilaiset\n"
+"versionumerot, mutta koska kaksi eri jakelua ei käytä samaa versionnumeroa\n"
+"tämä ei ole käytännössä pulma.\n"
+"\n"
+"Ota yhteyttä minuun, jos ilmenee joitain kysymyksiä.  Kiitokset avustuksestasi,\n"
+"\n"
+"                                Käännösrobotti,\n"
+"                                käännöskoordinaattorisi puolesta.\n"
+"                                <coordinator@translationproject.org>\n"
 
 #: bin/po-register:453
 #, python-format
@@ -396,9 +446,9 @@ msgid ""
 "Subject: %s-%s (%d%%, %d untranslated)\n"
 "%s\n"
 msgstr ""
-"ਵਿਸ਼ਾ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ: %s\n"
-"ਵਿਸ਼ਾ: %s-%s (%d%%, %d ਨਾ-ਅਨੁਵਾਦ)\n"
+"From: Käännösrobotti <robot@translationproject.org>\n"
+"To: %s\n"
+"Subject: %s-%s (%d %%, %d kääntämättä)\n"
 "%s\n"
 
 #: bin/po-register:462
@@ -414,6 +464,15 @@ msgid ""
 "should soon be made available in mirror sites as:\n"
 "\n"
 msgstr ""
+"Hei, %s-ryhmän jäsenet projektissa \"%s\"'.\n"
+"Tämä on Käännösrobotin viesti.\n"
+"Minulla on ilo ilmoittaa, että uusi tiedosto, nimeltään:\n"
+"\n"
+">    %s\n"
+"\n"
+"on lisätty PO-tiedostojen keskusarkistoon.  Tiedoston\n"
+"pitäisi pian olla saatavilla peilisivustojen kautta:\n"
+"\n"
 
 #: bin/po-register:475
 #, python-format
@@ -429,21 +488,31 @@ msgid ""
 "in mirror sites as:\n"
 "\n"
 msgstr ""
+"Hei, %s-ryhmän jäsenet projektissa \"%s\".\n"
+"Tämä on Käännösrobotin sanoma.\n"
+"Minulla on ilo ilmoittaa, että uusi tiedosto, nimeltään:\n"
+"\n"
+">    %s\n"
+"\n"
+"on lisätty PO-tiedostojen keskusarkistoon, ja sitä säilytetään nyt kaikkien\n"
+"muiden hyväksyttyjen %s käännösten kanssa.  Tiedoston pitäisi olla pian saatavilla\n"
+"peilisivustojen kautta:\n"
+"\n"
 
 #: bin/po-register:495
 #, python-format
 msgid "%s and %s are currently assigned for the translation. When you have completed the translation, send the result to the address given below, using the Subject line:"
-msgstr ""
+msgstr "%s ja %s ovat nykyisiä kääntäjiä. Kun käännös on saatu valmiiksi, lähetä tulos alla ilmoitettuun osoitteeseen käyttäen Aihe-riviä:"
 
 #: bin/po-register:499
 #, python-format
 msgid "%s is currently assigned for the translation. When you have completed the translation, send the result to the address given below, using:"
-msgstr ""
+msgstr "%s on nykyinen kääntäjä. Kun olet saanut käännöksen valmiiksi, lähetä tulos alla ilmoitettuun osoitteeseen käyttäen:"
 
 #: bin/po-register:509
 #, python-format
 msgid "The most recent translation of this translator has %d of %d messages translated."
-msgstr "ਇਸ ਅਨੁਵਾਦਕ ਦੇ ਤਾਜ਼ਾ ਅਨੁਵਾਦ ਵਿੱਚ %d ਸੁਨੇਹੇ %d ਸੁਨੇਹਿਆਂ ਵਿੱਚੋਂ ਤਬਦੀਲ ਹਨ।"
+msgstr "Tämän kääntäjän viimeisimmässä käännöksessä on %d sanomaa %d sanomasta käännettty."
 
 #: bin/po-register:511
 #, python-format
@@ -453,8 +522,8 @@ msgid ""
 "part of the Translation Project. %s\n"
 msgstr ""
 "\n"
-"ਇੱਥੇ ਇੱਕ ਅਨੁਵਾਦਕ ਇਸ ਅਨੁਵਾਦ ਤੇ ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ, ਜੋ ਕਿ ਇਸ ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ\n"
-"ਦਾ ਭਾਗ ਹੈ:%s\n"
+"Tällä hetkellä ei ole kääntäjää, joka olisi osa käännösprojektia, kääntämässä\n"
+"tätä käännöstä. %s\n"
 
 #: bin/po-register:516
 #, python-format
@@ -466,6 +535,12 @@ msgid ""
 "Once the translation is completed, send the result to the address given\n"
 "below, using the Subject line:\n"
 msgstr ""
+"\n"
+"Harkitse ottavasi tehtäväksi sen kääntämisen kieleen %s.\n"
+"Jos päätät niin, pyydä ryhmänjohtajaa (jos on olemassa)\n"
+"kertomaan käännöskoordinaatorille, että olet ottanut\n"
+"tehtäväksi projektin \"%s\". Lähetä tulos valmistumisen\n"
+"jälkeen alla olevaan osoitteeseen ja kirjoita Aihe-riville:\n"
 
 #: bin/po-register:525
 #, python-format
@@ -478,6 +553,13 @@ msgid ""
 "in your message header.  You may contact either your team leader or me,\n"
 "if any question arises.\n"
 msgstr ""
+"\n"
+"Yhtään sen kääntämättömistä sanomista ei ole vielä käännetty. %s\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"sanomaotsakkeessasi.  Voit ottaa yhteyttä joko ryhmänjohtajaasi tai minuun,\n"
+"jos mieleen tulee kysyttävää.\n"
 
 #: bin/po-register:538
 #, python-format
@@ -489,21 +571,27 @@ msgid ""
 "\n"
 "Let me thank you for all users of the %s language.\n"
 msgstr ""
+"\n"
+"Kaikki sen %d sanomaa on käännetty, ja tämä PO-tiedosto on\n"
+"lähetetty pakkauksen \"%s\" ylläpitäjälle toivoen, että hän sisällyttää\n"
+"sen tätä tekstidomainia käyttävien ohjelmien tulevaan julkaisuun.\n"
+"\n"
+"Haluan kiittää kaikkien kielen %s käyttäjien puolesta.\n"
 
 #: bin/po-register:550
 #, python-format
 msgid "%s and %s are currently assigned for the translation."
-msgstr "%s ਅਤੇ %s ਅਨੁਵਾਦ ਲਈ ਭੇਜੀਆਂ ਜਾ ਚੁੱਕੀਆਂ ਹਨ।"
+msgstr "%s ja %s ovat nykyisiä kääntäjiä."
 
 #: bin/po-register:554
 #, python-format
 msgid "%s is currently assigned for the translation."
-msgstr "%s ਅਨੁਵਾਦ ਲਈ ਜਾਰੀ ਹੋ ਚੁੱਕੀਆਂ ਹਨ।"
+msgstr "%s on nykyinen kääntäjä."
 
 #: bin/po-register:557
 #, python-format
 msgid "Nobody in your team is currently assigned to the domain '%s'. The team leader (if any) should inform the translation coordinator of who will become responsible for it."
-msgstr ""
+msgstr "Kenellekään ryhmästänne ei ole nykyisin annettu tehtäväksi domainia \"%s\". Ryhmän johtajan (jos sellainen on) pitäisi kertoa käännöskoordinaattorille, että kuka on siitä vastuussa."
 
 #: bin/po-register:559
 #, python-format
@@ -525,6 +613,23 @@ msgid ""
 "\n"
 "Thanks!\n"
 msgstr ""
+"\n"
+"Jo %d sanomaa on jo käännetty tässä tiedostossa, yhteensä\n"
+"%d %% alkuperäistekstikoosta (raakatavuina).  Silti,\n"
+"%d sanomaa on vielä käännettävä.  %s\n"
+"\n"
+"Käännä loput sanomat kielen %s käyttäjien hyödyksi.\n"
+"Lähetä käännös valmistumisen jälkeen alla olevaan\n"
+"osoitteeseen käyttäen Aihe-riviä:\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"sanomasi otsakkeessa.  Jos mieleen tulee jotain kysyttävää, voit ottaa\n"
+"yhteyden joko ryhmänjohtajaan tai minuun.  Joka tapauksessa tämä\n"
+"PO-tiedosto lähetetään  tekstidomainia \"%s\" käyttävän\n"
+"ohjelmien ylläpitäjälle.\n"
+"\n"
+"Kiitoksia!\n"
 
 #: bin/po-register:581
 #, python-format
@@ -540,13 +645,13 @@ msgid ""
 "                                <coordinator@translationproject.org>\n"
 msgstr ""
 "\n"
-"ਹੇਠਲੇ HTML ਸਫੇ ਕੱਲ ਨਵੀਨੀਕ੍ਰਿਤ ਕੀਤੇ ਜਾਣਗੇ।\n"
+"Seuraavien HTML-sivujen pitäisi päivittyä huomiseen mennessä.\n"
 "\n"
 ">    %s/HTML/domain-%s.html\n"
 ">    %s/HTML/team-%s.html\n"
 "\n"
-"                                 ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਟੀਮ, ਵਿੱਚ\n"
-"                                ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਦਾ ਮੁੱਖੀ\n"
+"                                Käännösrobotti,\n"
+"                                käännöskoordinaattorisi puolesta.\n"
 "                                <coordinator@translationproject.org>\n"
 
 #: bin/po-register:595
@@ -556,9 +661,10 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"P.S. - ਵੰਡ ਦੀ ਨਕਲ (ਪ੍ਰਮਾਣਿਤ ਨਹੀਂ ਵੀ ਹੋ ਸਕਦਾ ਹੈ) ਤੁਹਾਡੀ ਪ੍ਰਾਪਤ ਕਰ ਸਕਦੇ ਹੋ:\n"
+"J.K. - Löydät kopion (ei ehkä virallisen) jakelusta osoitteesta:\n"
 "\n"
 
+# pitäisikö tuo attachment;filename suomentaa myös?
 #: bin/po-register:613
 #, python-format
 msgid ""
@@ -574,10 +680,10 @@ msgid ""
 "Content-Transfer-Encoding: base64\n"
 "\n"
 msgstr ""
-"ਵਲੋਂ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ: %s\n"
-"ਵਿਸ਼ਾ:`%s' ਫਾਇਲ ਦਾ ਪ੍ਰਸੰਗ\n"
-"MIME-ਵਰਜਨ: 1.0\n"
+"From: Käännösrobotti <robot@translationproject.org>\n"
+"To: %s\n"
+"Subject: Tiedoston \"%s\" sisältö\n"
+"MIME-Version: 1.0\n"
 "Content-Type: multipart/mixed; boundary=\"=-=-=\"\n"
 "\n"
 "--=-=-=\n"
@@ -598,8 +704,8 @@ msgid ""
 msgstr ""
 "--=-=-=\n"
 "\n"
-"                                ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ\n"
-"                                ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਦਾ ਮੁੱਖੀ।\n"
+"                                Käännösrobotti,\n"
+"                                käännöskoordinaattorisi puolesta.\n"
 "                                <coordinator@translationproject.org>\n"
 "\n"
 "--=-=-=--\n"
@@ -607,12 +713,12 @@ msgstr ""
 #: bin/po-to-scm:24
 #, python-format
 msgid "Usage: %s [ -scm | -el ] [FILE]..."
-msgstr "ਵਰਤੋਂ: %s [ -scm | -el ] [FILE]..."
+msgstr "Käyttö: %s [ -scm | -el ] [TIEDOSTO]..."
 
 #: bin/postats-data:155
 #, python-format
 msgid "%s: Not enough hints for a key\n"
-msgstr "%s: ਕੀ ਲਈ ਲੋੜੀਦੇ ਸੰਕੇਤ ਨਹੀਂ ਹਨ\n"
+msgstr "%s: Ei kylliksi vihjeitä avaimelle\n"
 
 #: bin/scm-to-po:59
 msgid ""
@@ -631,19 +737,19 @@ msgid ""
 "'Content-Type: text/plain; charset=CHARSET\\n'\n"
 "'Content-Transfer-Encoding: ENCODING\\n'\n"
 msgstr ""
-"# SOME DESCRIPTIVE TITLE.\n"
-"# ਹੱਕ ਰਾਖਵੇ ਹਨ (C) YEAR Free Software Foundation, Inc.\n"
-"# ਪਹਿਲਾਂ ਲੇਖਕ <EMAIL\\@ADDRESS>, ਸਾਲ।\n"
+"# JOKU KUVAAVA OTSIKKO.\n"
+"# Copyright (C) VUOSI Free Software Foundation, Inc.\n"
+"# ENSIMMÄINEN KÄÄNTÄJÄ <SÄHKÖPOSTI\\@OSOITE>, VUOSI.\n"
 "#\n"
 "#, fuzzy\n"
 "msgid ''\n"
 "msgstr ''\n"
-"'ਪ੍ਰਜੈਕਟ-Id-ਵਰਜਨ: PACKAGE VERSION\\n'\n"
-"'PO-ਦੁਹਰਾਓ ਮਿਤੀ: YEAR-MO-DA HO:MI+ZONE\\n'\n"
-"'ਅਖੀਰੀ ਅਨੁਵਾਦਕ ਨਾਂ: FULL NAME <EMAIL\\ADDRESS_ARRAY>\\n'\n"
-"'ਭਾਸ਼ਾ ਨਾਂ: LANGUAGE <LL\\li_ARRAY.org>\\n'\n"
-"'MIME-ਵਰਜਨ: 1.0\\n'\n"
-"'ਪ੍ਰਸੰਗ-ਕਿਸਮ: text/plain; charset=CHARSET\\n'\n"
+"'Project-Id-Version: PAKKAUS VERSIO\\n'\n"
+"'PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n'\n"
+"'Last-Translator: KOKO NIMI <EMAIL\\ADDRESS_ARRAY>\\n'\n"
+"'Language-Team: KIELI <LL\\li_ARRAY.org>\\n'\n"
+"'MIME-Version: 1.0\\n'\n"
+"'Content-Type: text/plain; charset=CHARSET\\n'\n"
 "'Content-Transfer-Encoding: ENCODING\\n'\n"
 
 #: bin/tp-robot:107
@@ -651,6 +757,8 @@ msgid ""
 "For some reason, your PO file seems to have no entries at all, like if it\n"
 "were empty.  Sigh!  It looks like there is something wrong, somewhere...\n"
 msgstr ""
+"Jostain syystä PO-tiedostossasi ei tunnu olevan ollenkaan alkioita. Ihan\n"
+"kuin se olisi tyhjä. Huokaus!  Näyttää, että joitain on vialla jossain...\n"
 
 #: bin/tp-robot:138
 msgid ""
@@ -659,6 +767,10 @@ msgid ""
 "Report all details you can at <coordinator@translationproject.org>.\n"
 "Please do _not_ start your Subject line with `TP-Robot'.\n"
 msgstr ""
+"Minä, Käännösrobotti, epäonnistuin juuri melko odottamattomalla tavalla.\n"
+"Huokaus! Epätoivo!  Olen buginen, kadotettu, tuomittu :-(.  Auta minua!\n"
+"Raportoi kaikki havaitsemasi yksityiskohdat osoitteeseen <coordinator@translationproject.org>.\n"
+"Ole kiltti ja _älä_ aloita Aihe-riviä sanoilla \"TP-Robot\".\n"
 
 #: bin/tp-robot:155
 msgid ""
@@ -669,10 +781,17 @@ msgid ""
 "coordinator informed of such things, at least as a mild form of verification.\n"
 "Some stronger authentication scheme might be needed, one of these days!"
 msgstr ""
+"Itse asiassa käännösprojektirekisterissä on etusijaiset sähköpostiosoitteet\n"
+"monille kaltaisillesi kääntäjille ja jotkut välttämättömät aliakset myös. On\n"
+"parempi välttää vaihtoehtoisten sähköpostiosoitteiden lisäystä ja pysytellä\n"
+"vain yhdessä, milloin se on mahdollista. Joka tapauksessa, kerro käännös-\n"
+"koordinaattorille tällaisista asioista, ainakin lievänä varmennuskeinona.\n"
+"Joku varmempi oikeaksitodistamissuunnitelma saatetaan tarvita,\n"
+"eletään sellaisia aikoja!"
 
 #: bin/tp-robot:194
 msgid "I'm ignoring the whole following MIME part within your invoice:\n"
-msgstr ""
+msgstr "En välitä lähetyksesi seuraavasta kokonaisesta MIME-osiosta:\n"
 
 #: bin/tp-robot:205
 msgid ""
@@ -682,6 +801,11 @@ msgid ""
 "being able to handle all situations.  So, I'll go and ask him to help me\n"
 "unpack your invoice.\n"
 msgstr ""
+"Hmm! Tuntuu, että en ole vielä kyllin älykäs löytääkseni PO-tiedostoasi\n"
+"sanomastasi. Käännöskoordinaattori, joka on minun rakas mestarini,\n"
+"selitti, että minulla on vielä monia asioita opittavana tosielämässä ennen\n"
+"kuin kykenen käsittelemään kaikkia tilanteita. Joten menen ja kysyn häneltä\n"
+"neuvoa voidakseni purkaa sinun lähetyksesi.\n"
 
 #: bin/tp-robot:215
 msgid ""
@@ -689,12 +813,17 @@ msgid ""
 "decide which one of these parts is meant to contain your PO file.  Would you\n"
 "help me, while resubmitting your message, by using a simpler MIME structure?\n"
 msgstr ""
+"Sanomasi sisältää useita MIME-osioita, ja huomaan että en kykene päättämään,\n"
+"mikä näistä osioista on tarkoitettu sisältämään PO-tiedostosi. Voitko auttaa minua\n"
+"lähettämällä sanomasi uudelleen käyttäen yksinkertaisempaa MIME-rakennetta?\n"
 
 #: bin/tp-robot:230 bin/tp-robot:312
 msgid ""
 "The translation coordinator does not trust me enough yet to let me handle\n"
 "a PO template file all alone.  So, for this one, I'll go disturb him!\n"
 msgstr ""
+"Käännöskoordinaattori ei luota minuun vielä tarpeeksi salliakseen minun käsitellä\n"
+"PO-mallinnetiedostoa yksinäni. Joten tässä tapauksessa menen häiritsemään häntä!\n"
 
 #: bin/tp-robot:236
 #, python-format
@@ -703,11 +832,14 @@ msgid ""
 "%s\n"
 "The file name argument should look like `DOMAIN-VERSION.TEAM.po'.\n"
 msgstr ""
+"Odotin tietoja tiedostonimiargumentissa, jota en löytänyt.\n"
+"%s\n"
+"Tiedostonimiargumentin pitäsi näyttää samalta kuin \"DOMAIN-VERSIO.RYHMÄ.po\".\n"
 
 #: bin/tp-robot:244
 #, python-format
 msgid "Within the Translation Project, no team has the code `%s'.\n"
-msgstr "ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ, ਕੋਡ '%s' ਨਾਲ ਕੋਈ ਟੀਮ ਨਹੀਂ ਹੈ।\n"
+msgstr "Käännösprojektissa millään ryhmällä ei ole koodia \"%s\".\n"
 
 #: bin/tp-robot:322
 #, python-format
@@ -717,6 +849,10 @@ msgid ""
 "control.  It is safer that you use my real email address, which is\n"
 "`translation@translationproject.org'.\n"
 msgstr ""
+"Huomaan, että käytit sähköpostiosoitetta \"%s@%s\" tavoittaaksesi minut.\n"
+"Vaikka se toimi, muutama sähköpostialias oli varmasti mukana, mitkä eivät ole\n"
+"ollenkaan hallinnassa. On turvallisempaa, jos käytät todellista sähköpostiosoitettani,\n"
+"joka on \"translation@translationproject.org\".\n"
 
 #: bin/tp-robot:378
 #, python-format
@@ -737,6 +873,21 @@ msgid ""
 "or \"@DIALECT\", where REGION is a capitalised two-letter country code\n"
 "and DIALECT is a lower case name.\n"
 msgstr ""
+"Odotin sanomaotsakkeessasi tietoja, joita en löytänyt.\n"
+"%s\n"
+"En ole täysin varma siitä, mikä on täsmällinen pulma, saattaa jopa olla, että\n"
+"sanomaotsakkeesi Aihe-rivi ei ole muotoiltu oikein. Siinä tapauksessa,\n"
+"salli minun selittää, että Aihe-rivi näyttää tavallisesti seuraavalta:\n"
+"\n"
+">    Aihe: TP-Robot DOMAIN-VERSIO.RYHMÄ.po\n"
+"\n"
+"PO-tiedoston DOMAIN, VERSIO ja RYHMÄ olisi korvattava vastaavilla\n"
+"käännöksen tekstidomainilla (useimmissa tapauksissa tämä on tarkalleen\n"
+"sama kuin pakkausnimi pienin kirjaimin), kyseisen pakkauksen versio-numerot\n"
+"ja ryhmäsi kaksikirjaiminen kielikoodi myös pienin kirjaimin.\n"
+"Joissakin harvinaisissa tapauksissa RYHMÄssä saattaa olla etuliite joko \"_REGION\"\n"
+"or \"@DIALECT\", jossa REGION kaksimerkkinen maakoodi suurin kirjaimin\n"
+"ja DIALECT on nimi pienin kirjaimin.\n"
 
 #: bin/tp-robot:403
 #, python-format
@@ -762,10 +913,31 @@ msgid ""
 "a mailing list to teams needing it.  Such lists are only offered to teams\n"
 "having been active for a while, and which produced a few usable translations.\n"
 msgstr ""
+"Käännösprojektissa ei ole ryhmäkoodia \"%s\". Olet saattanut\n"
+"kirjoittaa koodin väärin, missä tapauksessa pyydän sinua vain\n"
+"korjaamaan virheen ja lähettämään sanoman uudelleen.\n"
+"\n"
+"Muussa tapauksesa otaksun, että haluat, että luodaan uusi käännösryhmä.\n"
+"Tämä on todellisuudessa yksinkertainen tehtävä. Sinun ei tarvitse tehdä\n"
+"minkäänlaista värväystä (jollet todella halua niin, mikä onkin tietysti toinen juttu!).\n"
+"Useimmat ryhmät alkavat yhdestä kääntäjästä. Sinun pitäisi kuitenkin kyetä ja\n"
+"haluta viestiä ihmisten kanssa, jotka myöhemmin haluavat liittyä ryhmään.\n"
+"Käännösprojekti ei suosi todellisia yksinäisiä susia.\n"
+"\n"
+"Sinun tulisi kirjoitaa käännöskoordinaattorille ryhmän luomisesta. Jos sattumalta\n"
+"on jo olemassa postituslista valmiina kuljettamaan uuden ryhmän sanomat,\n"
+"kerro se kirjeessäsi, jotta postituslista saadaan rekisteröityä. Jos sellaista listaa\n"
+"ei ole olemassa, saatat haluta rekisteröidä sen sijasta oman sähköpostiosoitteesi,\n"
+"ainakin siihen asti, kunnes on tarvetta suurempaan kokoonpanoon.\n"
+"\n"
+"Linux International tekee yhteistyötä käännösprojektin kanssa tarjoten\n"
+"postituslistat ryhmille, jotka haluavat sitä. Sellaisia tarjotaan vain ryhmille,\n"
+"jotka ovat olleet jokin aikaa aktiivisina ja tuottaneet muutamia käyttökelpoisia\n"
+"käännöksiä.\n"
 
 #: bin/tp-robot:426
 msgid "Unknown_Language"
-msgstr "ਅਣਜਾਣੀ ਭਾਸ਼ਾ"
+msgstr "Tuntematon_Kieli"
 
 #: bin/tp-robot:453
 #, python-format
@@ -780,6 +952,15 @@ msgid ""
 "you may have this title line translated as well, it does not have to be\n"
 "kept in English.\n"
 msgstr ""
+"PO-tiedoston otsikkokommentti näyttää puuttuvan.  PO-tiedoston ensimmäinen\n"
+"rivi alkaa \"#\"-merkillä, välilyönnillä, ja sitten yksirivisellä PO-tiedoston\n"
+"kuvauksella.  PO-tiedoston otsikkokommentti näyttää tämän näköiseltä:\n"
+"\n"
+">    # Translation of \"%s\" messages to %s.\n"
+"\n"
+"Koska rivi on tarkoitettu niiden ihmisten luettavaksi, jotka työskentelevät\n"
+"%s:ssa, myös tämä rivi voidaan kääntää, sen ei tarvitse olla\n"
+"englanninkielinen.\n"
 
 #: bin/tp-robot:483
 msgid ""
@@ -795,6 +976,18 @@ msgid ""
 "please write to the translation coordinator, so we could discuss the matter,\n"
 "and so he could eventually change me (the robot) for handling such cases.\n"
 msgstr ""
+"PO-tiedoston copyright olisi luovutettava:\n"
+"\n"
+"   Free Software Foundation, Inc.\n"
+"\n"
+"ja niin ei näytä olevan, vaikka kyse saattaa olla vain oikeasta oikeinkirjoituksesta.\n"
+"Toistaiseksi ainoastaan arvaan, että Free Software Foundation olisi lueteltava\n"
+"copyright-omistajana kaikille käännösvastuuvapauslauseketta vaativille\n"
+"pakkauksille. Edelleen, totuus on, että tämä vaatimus menee pitemmälle\n"
+"kuin vastuuvapauslausekkeen henki. Jos se synnyttää mitään pulmia\n"
+"tosielämässä, ota yhteys käännöskoordinaattoriin, niin voimme keskustella\n"
+"asiasta ja hän voisi mahdollisesti muuttaa minua (robotti) käsittelemään\n"
+"sellaisia tapauksia.\n"
 
 #: bin/tp-robot:498
 #, python-format
@@ -805,12 +998,19 @@ msgid ""
 "\n"
 "while the copyright comment should look like:\n"
 msgstr ""
+"Copyright-kommentti ei tunnu olevan oikein muotoiltu.  Näen:\n"
+"\n"
+">    # %s\n"
+"\n"
+"kun copyright-kommentin tulisi näyttää tällaiselta:\n"
 
 #: bin/tp-robot:507
 msgid ""
 "The copyright comment, which should appear as the second line of the whole\n"
 "PO file, is apparently missing.  The copyright comment looks like:\n"
 msgstr ""
+"Copyright-kommentti, jonka pitäisi olla koko PO-tiedoston toisella rivillä\n"
+"ilmeisesti puuttuu. Copyright-kommentin tulisi näyttää seuraavan näköiseltä:\n"
 
 #: bin/tp-robot:512
 #, python-format
@@ -827,6 +1027,17 @@ msgid ""
 "space.  Years have to be explicitly enumerated, range notations are\n"
 "not accepted.\n"
 msgstr ""
+"%s\n"
+">    # Copyright (C) YEAR Free Software Foundation, Inc.\n"
+"\n"
+"Merkki \"(C)\" voidaan korvata yhdellä Latin-1-merkillä\n"
+"(desimaalikoodi 169) jos satut työskentelmään Latin-1-merkistöllä,\n"
+"tai vastaavalla UTF-8-sekvenssillä (\\xc2\\xa9). VUOSI on normaalisti\n"
+"nelinumeroinen luku. Se voi myös olla pilkulla eroteltu vuosien luettelo.\n"
+"Luettelossa ensimmäisen vuoden on oltava nelinumeroinen, seuraavat\n"
+"vuodet voivat olla joko kaksinumeroisia tai nelinumeroisia. Jokaista\n"
+"pilkkua tulisi seurata välilyönti. Vuodet on lueteltava yksitellen,\n"
+"vuosilukualuetta ei hyväksytä.\n"
 
 #: bin/tp-robot:535
 #, python-format
@@ -835,6 +1046,9 @@ msgid ""
 "lines, please use no more than a single space between `%s' and\n"
 "`<%s>'.\n"
 msgstr ""
+"Hups, lievä muotoiluvirhe.  Älä käytä ensimmäisillä kommenttiriveillä\n"
+"enempää kuin yhtä välilyöntiä välillä \"%s\" ja\n"
+"\"<%s>\".\n"
 
 #: bin/tp-robot:546
 #, python-format
@@ -846,6 +1060,12 @@ msgid ""
 "it is usually best to avoid such variance, and stick to a single preferred\n"
 "spelling.\n"
 msgstr ""
+"Merkintöjeni mukaan %s ei ole oikean %s-ryhmän jäsen,\n"
+"joten on epätodennäköistä, että hän on ensimmäinen kääntäjä.  Kyse\n"
+"saattaa olla vain oikeinkirjoituksesta?  Siinä tapauksessa minun täytyy\n"
+"tietää oikeinkirjoitusvaihtoehdot, joten kerro ne käännöskoordinaattorille.\n"
+"Edelleen, on tavallisesti paras välttää sellainen vaihtelu ja pysytellä yhdessä\n"
+"ainoassa parhaimpana pidetyssä oikeinkirjoituksessa.\n"
 
 #: bin/tp-robot:559
 #, python-format
@@ -855,6 +1075,10 @@ msgid ""
 "to reach that translator.\n"
 "%s%s\n"
 msgstr ""
+"Tämän PO-tiedoston ensimmäinen kääntäjä on \"%s\". Tosin\n"
+"omien merkintöjeni mukaan, osoitetta \"%s\" ei tiedetä\n"
+"hyväksi osoitteeksi tämän kääntäjän tavoittamiseksi.\n"
+"%s%s\n"
 
 #: bin/tp-robot:573
 #, python-format
@@ -870,6 +1094,15 @@ msgid ""
 "and _never_ remove the initial translator of a given PO file, as this\n"
 "acknowledgement is the only tribute paid for the work of that translator.\n"
 msgstr ""
+"Tämän PO-tiedoston viimeisin kääntäjä näyttää olevan eri kuin ensimmäinen\n"
+"kääntäjä. Tämä on jotain aivan mahdollista ja normaalia. Mutta jos tiedät, että\n"
+"kääntäjä ei vaihtunut, tarvitaan lisätarkistuksia. PO-tiedoston kolmas rivi sanoo\n"
+"\"%s\" kun taas PO-tiedosto-otsakkeen \"Last-Translator\"-kenttä sanoo\n"
+"\"%s\". Jos ja vain jos nuo kaksi nimeä ovat toistensa vääriä oikeinkirjoituksia,\n"
+"sinun pitäisi ihannetapauksessa korjata se mitä tarvitaan ja lähettää PO-tiedostosi\n"
+"uudelleen korjattuna. Toisaalta, pyydän sinua olemaan reilu ja _ei_koskaan_\n"
+"poistamaan tietyn PO-tiedoston ensimmäistä kääntäjää, koska tämä kiitos on\n"
+"ainoa tuolle kääntäjälle maksettu kunnianosoitus.\n"
 
 #: bin/tp-robot:588
 #, python-format
@@ -880,6 +1113,11 @@ msgid ""
 "single preferred address to reach you, and try to use it consistently in\n"
 "all your translation files.\n"
 msgstr ""
+"Lähetyksesi sisältää ristiriitaisia osoitteita sinusta. Koko PO-tiedoston kolmas\n"
+"rivi sanoo, että osoitteesi on \"%s\", kun taas PO-tiedosto-otsakkeen\n"
+"\"Last-Translator\"-kenttä sanoo,että se on \"%s\". Käytä yhtä etusijaista\n"
+"osoitetta, josta sinut tavoittaa ja yritä käyttää sitä johdonmukaisesti\n"
+"kaikissa käännöstiedostoissasi.\n"
 
 #: bin/tp-robot:598
 #, python-format
@@ -894,6 +1132,16 @@ msgid ""
 "EMAIL@ADDRESS gives a way to reach that translator, and YEAR is a four\n"
 "digits year telling when the original translation occurred.\n"
 msgstr ""
+"Ensimmäinen kääntäjäkommenttirivi joko puuttuu tai ei ole muotoiltu oikein.\n"
+"Tämän pitäisi olla koko PO-tiedoston kolmas rivi ja näyttää tämän kaltaiselta:\n"
+"\n"
+">    # ENSIMMÄINEN KÄÄNTÄJÄ <SÄHKÖPOSTI@OSOITE>, VUOSI.\n"
+"\n"
+"Tällä rivillä ENSIMMÄINEN KÄÄNTÄJÄ korvataan \"%s\"-tekstidomainin\n"
+"sanomien alkuperäisen kääntäjän koko nimellä, SÄHKÖPOSTI@OSOITE\n"
+"ilmoittaa osoitteen, josta kääntäjän tavoittaa, ja VUOSI on\n"
+"nelinumeroinen luku, joka kertoo, milloin alkuperäinen\n"
+"käännös tapahtui.\n"
 
 #: bin/tp-robot:611
 msgid ""
@@ -904,6 +1152,12 @@ msgid ""
 "the initial `#' of each comment line, and there should not be a white\n"
 "line before the `msgid' line of the PO file header.\n"
 msgstr ""
+"Siinä tapauksessa, että haluat vielä lisätä tämän nimenomaisen PO-tiedoston\n"
+"historiallisia yksityiskohtia, tai muita hyödyllisiksi kokemiasi kommentteja, voit\n"
+"tehdä sen lisäämällä omia kommenttejasi ensimmäisen kolmen rivin jälkeen\n"
+"omalla kielelläsi, jos se tuntuu parhaimmalta. Muista, että rivin alussa olevan\n"
+"\"#\"-merkin jälkeen on aina oltava välilyönti, ja kommentin ja\n"
+"PO-tiedosto-otsakkeen välissä ei saisi olla tyhjiä rivejä.\n"
 
 #: bin/tp-robot:626
 #, python-format
@@ -916,6 +1170,13 @@ msgid ""
 "all textual domains are written all in lower case.  They also tend to\n"
 "avoid those meaningless `g' prefixes.\n"
 msgstr ""
+"PO-tiedosto-otsakkeen \"Project-Id-Version\"-kenttä sanoo, että teksti-\n"
+"domainisi on \"%s\" eikä \"%s\" kuten itse odotin. Niiden pitäisi tosiasiassa\n"
+"olla identtiset. Tekstidomain on tavallisesti pakkausnimi. Joissain harvinaisissa\n"
+"tapauksissa niiden kirjainkoko on erilainen tai ne sisältävät kyseenalaisen\n"
+"\"g\"-etuliitteen GNU-perintönä. Nykyisin kaikki tekstidomainit kirjoitetaan\n"
+"pienillä kirjaimilla. Niillä on myös tapana välttää tuollaiset merkityksettömät\n"
+"\"g\"-etuliitteet.\n"
 
 #: bin/tp-robot:638
 msgid ""
@@ -924,6 +1185,10 @@ msgid ""
 "depend on a space being there, so best would be that you modify your file.\n"
 "I'll attempt to modify it for you, but this time! :-)\n"
 msgstr ""
+"\"Project-Id-Version\"-kentän sisällä domainnimi ja versionnumerot tulisi\n"
+"erotella välilyönnillä eikä yhdysmerkillä. Jotkut skriptit riippuvat välilyönnistä\n"
+"niiden välissä, joten olisi parasta, että muunnat tiedostoasi.\n"
+"Yritän muuttaa sitä sinulle, mutta tämä aika! :-)\n"
 
 #: bin/tp-robot:648
 #, python-format
@@ -934,6 +1199,11 @@ msgid ""
 "the file name of your submission, or the Project-Id-Version field, whichever\n"
 "is appropriate.\n"
 msgstr ""
+"Lähetyksesi Project-Id-Version-kenttä sanoo,että käännöksesi on tarkoitettu\n"
+"versioon \"%s\" pakkauksesta \"%s\", eikä \"%s\". Arvaan,\n"
+"että niiden pitäisi olla identtiset. Edelleen, pyydän sinua muuttamaan joko\n"
+"lähetyksesi tiedostonimeä tai Project-Id-Version-kenttää, kumpi vain tuntuu\n"
+"asianmukaiselta.\n"
 
 #: bin/tp-robot:659
 #, python-format
@@ -947,6 +1217,14 @@ msgid ""
 "translation, probably `%s' in this case, and VERSION be replaced\n"
 "by the appropriate version numbers, maybe `%s', here.\n"
 msgstr ""
+"PO-tiedosto-otsakkeestasi ei löytynyt \"Project-Id-Version\"-kenttää.\n"
+"Rivin sisällön tulisi ihannetapauksessa näyttää seuraavan kaltaiselta:\n"
+"\n"
+">    'Project-Id-Version: PAKKAUS VERSIO\\n'\n"
+"\n"
+", missä PAKKAUS todella korvataan käännöksesi tekstidomainilla,\n"
+"tässä tapauksessa luultavasti \"%s\", ja VERSIO korvataan\n"
+"sopivalla versionumerolla, tässä ehkä \"%s\".\n"
 
 #: bin/tp-robot:683
 #, python-format
@@ -957,6 +1235,11 @@ msgid ""
 "\n"
 ">    %s: YEAR-MO-DA HO:MI +ZONE\n"
 msgstr ""
+"PO-tiedosto-otsakkeestasi ei löytynyt kenttää \"%s\",\n"
+"tai muussa tapauksessa se ei ole muotoiltu oikein.  Tämä kentän\n"
+"sisältävä rivi näyttäisi ihannetapauksessa tällaiselta:\n"
+"\n"
+">    %s: VUOSI-KK-PV TU:MI +VYÖHYKE\n"
 
 #: bin/tp-robot:692
 msgid ""
@@ -966,7 +1249,14 @@ msgid ""
 "is not really for the translator to set.  In the meantime, I will merely\n"
 "copy the value of the `PO-Revision-Date' field into it, just to get going.\n"
 msgstr ""
+"Joissakin vanhemmissa POT-tiedostoissa ei ole \"POT-Creation-Date\"-kenttää.\n"
+"En ole varma onko tässä on kyse sellaisesta tapauksesta. Jos näin on, sinun ei\n"
+"pidä huolestua, sillä tämä korjautuu joissakin tämän jakelun myöhäisemmissä\n"
+"muutoksissa.  Tätä riviä kääntäjän ei todella pidä mennä muuttamaan. Sillä välin,\n"
+"minä vain kopioin \"PO-Revision-Date\"-kentän arvon siihen, jotta pääsemme\n"
+"eteenpäin.\n"
 
+# Toivottavasti tämän tulostuksen yläpuolella YEAR, KK, PV ja ZONE ovat suomeksi eikä englanniksi
 #: bin/tp-robot:701
 msgid ""
 "In the above line, YEAR is a four digits number giving the year, MO is\n"
@@ -981,6 +1271,18 @@ msgid ""
 "and 11), while MM, when used, says the number of zone minutes.  Other zone\n"
 "    notations are still accepted for the time being, but are to be deprecated.\n"
 msgstr ""
+"Ylläolevalla rivillä VUOSI on nelinumeroinen vuotta tarkoittava luku, KK on\n"
+"kaksinumeroinen luku tarkoittaen kuukautta (01...12) ja PV on kaksinumeroinen\n"
+"luku tarkoittaen kuukaudenpäivää (01...31). Päivän aika annetaan kahdella\n"
+"numerolla tunneille (00...23) ja kahdella numerolla MI annetaan minuutit\n"
+"(00...59).\n"
+"\n"
+"+VYÖHYKE pitäisi olla muotoa +HH, -HH, +HH:MM tai -HH:MM. Merkkiä\n"
+"\"+\" käytetään Greenwichistä itään, merkkiä \"-\" käytetään\n"
+"Greenwichistä länteen. HH kertoo vyöhyketuntinumeron kahdella numerolla\n"
+"(arvojen 00 ja 11 väliltä), kun taas MM, silloin kun sitä käytetään, kertoo\n"
+"vyöhykkeen minuuttinumeron.  Muut vyöhykemerkinnät hyväksytään vielä\n"
+"toistaiseksi, mutta ovat vanhentuneita.\n"
 
 #: bin/tp-robot:717
 #, python-format
@@ -988,6 +1290,8 @@ msgid ""
 "The PO revision date is `%s', which looks older than the POT creation date.\n"
 "You should update the PO revision date before submitting a PO file.\n"
 msgstr ""
+"PO-muutospäivä on \"%s\", mikä näyttää vanhemmalta kuin POT-luontipäivämäärä.\n"
+"Sinun pitäisi päivittää PO-muutospäivämäärää ennen PO-tiedoston lähetystä.\n"
 
 #: bin/tp-robot:731
 #, python-format
@@ -996,6 +1300,9 @@ msgid ""
 "header line, please use no more than a single space between `%s'\n"
 "and `<%s>'.\n"
 msgstr ""
+"Hups, lievä muotoiluvirhe. Älä käytä \"Last-Translator\"\n"
+"-otsakerivillä enempää kuin yhtä välilyöntiä merkkijonojen\n"
+"\"%s\" ja \"<%s>\" välissä.\n"
 
 #: bin/tp-robot:744
 #, python-format
@@ -1008,6 +1315,14 @@ msgid ""
 "joined the %s team.  If you do not know how to do so, please\n"
 "write to the translation coordinator for more information about it.\n"
 msgstr ""
+"Muistiinpanojeni mukaan %s ei ole %s-ryhmän varsinainen\n"
+"jäsen. Kyse saattaa olla oikeinkirjoituksesta. Siinä tapauksessa\n"
+"minun täytyy tietää oikeinkirjoitusvaihtoehdot, joten kerro ne\n"
+"käännöskoordinaattorille. Silti on paras tavallisesti välttää sellaista\n"
+"monimuotoisuutta ja pysyä yhdessä parhaaksi havaituksi oikeinkirjoituksessa.\n"
+"On myös mahdollista, että et ole koskaan liittynyt %s-ryhmään. Jos et\n"
+"tiedä, kuinka se tapahtuu, kirjoita käännöskoordinaattorille ja pyydä\n"
+"asiasta lisätietoja.\n"
 
 #: bin/tp-robot:759
 #, python-format
@@ -1017,6 +1332,10 @@ msgid ""
 "that translator.\n"
 "%s%s\n"
 msgstr ""
+"Tämän PO-tiedoston viimeisin kääntäjä on \"%s\".  Edelleen, omien\n"
+"merkintöjeni mukaan osoitetta \"%s\" ei tunneta hyvänä osoitteena\n"
+"tämän kääntäjän tavoittamiseksi.\n"
+"%s%s\n"
 
 #: bin/tp-robot:776
 #, python-format
@@ -1036,6 +1355,20 @@ msgid ""
 "Yet, on the average, it is unusual that someone submits a translation file\n"
 "written by someone else.\n"
 msgstr ""
+"En ole varma, että olet minulle lähettämäsi käännöksen kääntäjä.\n"
+"Sähköpostisi otsake sanoo, että olet \"%s\", kun taas\n"
+"PO-tiedoston \"Last-Translator\"-kenttä sanoo, että nimesi pitäisi\n"
+"olla \"%s\". Ero voi johtua oikeinkirjoituksesta. Näin voi tapahtua,\n"
+"kun sinulla ei ole täysi valta nimestäsi käyttämässäsi\n"
+"sähköpostijärjestelmässä.\n"
+"\n"
+"Koska otaksun, että sinulla on parempi kontrolli PO-tiedostoista, oletan\n"
+"että toinen nimi on luotettavampi. Silti joissakin tapauksissa tämä saattaa\n"
+"merkitä jotain virhettä, jota en kykene analysoimaan, mutta sinä kykenet.\n"
+"Siinä epätyypillisessä tapauksessa, että kaksi yllä olevaa nimeä ovat\n"
+"todella erilaisia, tilanne on vakavampi. Joillakin käännösryhmillä on toki\n"
+"omat tapansa ja tyylinsä. Silti on keskimäärin epätavallista, että joku lähettää\n"
+"jonkun toisen kirjoittaman käännöstiedoston.\n"
 
 #: bin/tp-robot:797
 #, python-format
@@ -1045,6 +1378,10 @@ msgid ""
 "it should be `%s'.  Let me consider that the later prevails.\n"
 "I merely bring this to your attention in case _you_ think it matters.\n"
 msgstr ""
+"Lähettämäsi sanoman otsake sanoo, että sähköpostiosoitteesi on\n"
+"\"%s\" kun taas PO-tiedosto-otsakkeen \"Last-Translator\"-kenttä sanoo,\n"
+"että sen pitäisi olla \"%s\". Pidän jälkimmäistä vallitsevana. Tuon tämän\n"
+"ainoastaan tietoosi siltä varalta, että _sinun_ mielestäsi asialla on väliä.\n"
 
 #: bin/tp-robot:807
 #, python-format
@@ -1059,6 +1396,15 @@ msgid ""
 "translator of the messages for the `%s' textual domain, who is you\n"
 "most probably :-), EMAIL@ADDRESS gives a way to reach that translator.\n"
 msgstr ""
+"PO-tiedosto-otsakkeesi \"Last-Translator\"-kenttää ei löydetty tai\n"
+"se saattaa olla väärin muotoiltu.  Ihannetapauksessa tämän kentän\n"
+"sisältävän rivin tulisi näyttää tältä:\n"
+"\n"
+">    'Last-Translator: KOKO NIMI <SÄHKÖPOSTI@OSOITE>\\n'\n"
+"\n"
+"Tällä rivillä KOKO NIMI korvataan \"%s\"-tekstidomainin sanomien nykyisen\n"
+"kääntäjän koko nimellä, joka on luultavasti sinä :-), SÄHKÖPOSTI@OSOITE\n"
+"kertoo, miten tuon kääntäjän tavoittaa.\n"
 
 #: bin/tp-robot:826
 #, python-format
@@ -1067,6 +1413,8 @@ msgid ""
 "header line, please use no more than a single space between `%s'\n"
 "and `<%s>'.\n"
 msgstr ""
+"Hups, lievä muotoiluvirhe.  Älä käytä \"Language-Team\"-otsakerivillä,\n"
+"yhtä välilyöntiä enempää merkkijonojen \"%s\" ja \"<%s>\" välillä.\n"
 
 #: bin/tp-robot:833
 #, python-format
@@ -1076,6 +1424,11 @@ msgid ""
 "fully sure about this.  If you think I got it wrong, please email to the\n"
 "translation coordinator for straingthening this out.\n"
 msgstr ""
+"Kirjoitit \"%s\" PO-tiedoston otsakkeen \"Language-Team\"\n"
+"-kenttään, kun siinä pitäisi minun mielestäni lukea\n"
+"\"%s\". En ole täysin varma tästä. Jos olen sinun mielestäsi\n"
+"väärässä, lähetä sähköpostiviesti käännöskoordinaattorille asian\n"
+"oikaisemiseksi.\n"
 
 #: bin/tp-robot:842
 #, python-format
@@ -1095,6 +1448,20 @@ msgid ""
 "few usable translation files -- after having dismantled a few unproductive\n"
 "teams, we decided for this stronger requirement.\n"
 msgstr ""
+"Jokaisen käännösryhmän tulisi julkaista joku postituslistaosoite, joka\n"
+"on tarkoitettu näkymään (kulmasulkeiden välissä) kielinimen jälkeen\n"
+"PO-tiedosto-otsakkeen \"Language-Team\"-kentässä. Käännösprojektilla\n"
+"ei ole sellaista osoitetta %s-ryhmälle. Saatat jo tietää jonkun\n"
+"lokalisointiponnistuksiin omistautuneen listan %s:lle, joka sopisi\n"
+"tarkoituksiisi. Jos vastaus on kielteinen, odottaessasi parempaa\n"
+"järjestäytymistä voit käyttää yhden ryhmän jäsenen osoitetta, ehkä\n"
+"sinun oma osoitettasi, jos olet yksin ryhmässä! Miten asia sitten olikin\n"
+"kerro käännöskoordinaattorille, mitä osoitetta ryhmäsi päättää käyttää.\n"
+"Huomaa myös, että käännösprojekti ja Linux International yhdessä\n"
+"avaavat postituslistoja ryhmille, jotka niitä tarvitsevat, mutta vain\n"
+"_edellyttäen_ että ryhmä on jo tuottava julkaisemalla muutaman\n"
+"käyttökelpoisen käännöstiedoston -- lakkautettuamme muutaman\n"
+"tuottamattoman ryhmän päätimme tämän vahvemman vaatimuksen.\n"
 
 #: bin/tp-robot:862
 #, python-format
@@ -1104,6 +1471,10 @@ msgid ""
 "about this.  If you think I got it wrong, please email to the translation\n"
 "coordinator for straightening this out.\n"
 msgstr ""
+"Kirjoitit <%s> PO-tiedosto-otsakkeen \"Language-Team\"-kentässä\n"
+"samalla kun minusta sen pitäisi olla <%s>. En ole tästä aivan varma.\n"
+"Jos olen mielestäsi väärässä, lähetä oikaiseva sähköpostiviesti\n"
+"käännöskoordinaattorille.\n"
 
 #: bin/tp-robot:871
 #, python-format
@@ -1127,6 +1498,24 @@ msgid ""
 "If this leaves you clueless and you still want to find it, please write to\n"
 "the translation coordinator for asking, and we will work this out together.\n"
 msgstr ""
+"PO-tiedosto-otsakkeestasi ei löytynyt \"Language-Team\"-kenttää tai\n"
+"se ei ehkä ole oikein muotoiltu.  Tämän kentän sisältävä rivi näyttää\n"
+"usein seuraavalta:\n"
+"\n"
+">    \"Language-Team: KIELI <KIELIRYHMÄN SÄHKÖPOSTIOSOITE>\\n\"\n"
+"\n"
+"Tällä rivillä KIELI on puhumasi kielen englanninkielinen nimi, kirjoita\n"
+"sana ensimmäinen kirjain isolla ja jätä loput kirjaimet pieniksi.\n"
+"Joskus, ei aina, tapahtuu, että RYHMÄN SÄHKÖPOSTIOSOITE on muotoa\n"
+"\"RYHMÄ@li.org\", missä RYHMÄ on kielen ISO-639-koodi (älä sekoita\n"
+"maakoodeihin, jotka ovat eri standardissa).  Jos minun on kirjoitettava\n"
+"tämä rivi itse, käyttäisin juuri nyt saamieni tietojen mukaan:\n"
+"\n"
+">    \"Language-Team: %s <%s>\\n\"\n"
+"\n"
+"Jos tämä jättää sinut vihjeettömäksi ja haluat edelleen löytää sen,\n"
+"kirjoita käännöskoordinaattorille kysyäksesi asiaa ja ratkaisemme\n"
+"tämän yhdessä.\n"
 
 #: bin/tp-robot:896
 msgid ""
@@ -1135,6 +1524,10 @@ msgid ""
 "\n"
 ">    'MIME-Version: 1.0\\n'\n"
 msgstr ""
+"\"MIME-Version\"-kenttää ei löytynyt PO-tiedostosi otsakkeesta, tai\n"
+"    sitä ei ole muotoiltu oikein. Rivin sisällön pitäisi näyttää tarkalleen tältä:\n"
+"\n"
+">    'MIME-Version: 1.0\\n'\n"
 
 #: bin/tp-robot:931
 #, python-format
@@ -1144,10 +1537,14 @@ msgid ""
 "for `%s' to be merely added to the list of acceptable charsets.\n"
 "This list currently holds: %s.\n"
 msgstr ""
+"Kenttä \"Content-Type\" esitteli epätavallisen merkistön \"%s\".\n"
+"Jos tämä ei ole virhe, ilmoita vain käännöskoordinaattorille,\n"
+"jotta \"%s\" lisätään hyväksyttyjen merkistöjen luetteloon.\n"
+"Lista on nykyään: %s.\n"
 
 #: bin/tp-robot:937 bin/tp-robot:948 bin/tp-robot:963 bin/tp-robot:974
 msgid "or"
-msgstr "ਜਾਂ"
+msgstr "tai"
 
 #: bin/tp-robot:940
 #, python-format
@@ -1159,6 +1556,12 @@ msgid ""
 "\n"
 "where CHARSET should be the name of a character set, like one of %s.\n"
 msgstr ""
+"Kenttä \"Content-Type\" ei löytynyt PO-tiedostosi otsakkeesta, tai\n"
+"    ei ole muotoiltu oikein.  Sen sisältävä rivi näyttäisi ihannetapauksessa kuten:\n"
+"\n"
+">    'Content-Type: text/plain; charset=CHARSET\\n'\n"
+"\n"
+"missä CHARSET olisi käytettävän merkistön nimi, kuten yksi seuraavista %s.\n"
 
 #: bin/tp-robot:957
 #, python-format
@@ -1168,6 +1571,10 @@ msgid ""
 "coordinator for `%s' to be merely added to the list of acceptable\n"
 "charsets.  This list currently holds: %s.\n"
 msgstr ""
+"Kentässä \"Content-Transfer-Encoding\" on epätävallinen koodaus\n"
+"\"%s\".  Jos tämä ei ole virhe, tiedota käännöskoordinaattorille,\n"
+"jotta \"%s\"  lisätään hyväksyttyjen merkistöjen luetteloon.\n"
+"Tätä luetteloa säilyttää nykyään: %s.\n"
 
 #: bin/tp-robot:966
 #, python-format
@@ -1179,18 +1586,29 @@ msgid ""
 "\n"
 "where ENCODING should be the name of an encoding, like one of %s.\n"
 msgstr ""
+"PO-tiedosto-otsakkeestasi ei löytynyt kenttää \"Content-Transfer-Encoding\",\n"
+"tai sitä ei ole muotoiltu oikein.  Sen sisältävä rivi näyttää ihannetapauksessa seuraavalta:\n"
+"\n"
+">    \"Content-Transfer-Encoding: ENCODING\\n\"\n"
+"\n"
+"missä ENCODING pitäisi olla enkoodauksen nimi, kuten yksi seuraavista %s.\n"
 
 #: bin/tp-robot:999
 msgid ""
 "Sniff!  I'm unable to successfully start the `msgfmt' program.  I most\n"
 "probably need repairs.  I'll go whine to the translation coordinator.\n"
 msgstr ""
+"Niiskaus! En kykene käynnistämään onnistuneesti \"msgfmt\"-ohjelmaa. Kaikkein\n"
+"luultavammin tarvitsen huoltoa. Menen marisemaan käännöskoordinaattorille.\n"
 
 #: bin/tp-robot:1007
 msgid ""
 "After running msgfmt on your file, it seems that you need gettext 0.10.37\n"
 "for this file. This is no problem at all, but you should be aware of that.\n"
 msgstr ""
+"Ajettuani tiedostosi msgfmt-ohjelmalla minusta tuntuu, että tarvitset gettext-ohjelman\n"
+"version 0.10.37 tätä tiedostoa varten. Tämä ei ole ollenkaan pulma, mutta sinun pitäisi\n"
+"olla tietoinen siitä.\n"
 
 #: bin/tp-robot:1021
 #, python-format
@@ -1201,10 +1619,15 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Asian varmistaakseni kutsuin \"msgfmt --statistics -c -v -o /dev/null\"\n"
+"toimittamallasi PO-tiedostolla ja \"msgfmt\" neuvoi minua hylkäämään\n"
+"tiedoston. Tarkemmin sanoen se sanoi:\n"
+"\n"
+"%s"
 
 #: bin/tp-robot:1038
 msgid "Just to make sure, I ran\n"
-msgstr "ਸਿਰਫ ਜਾਂਚ ਲਈ ਮੈਂ ਚਲਾਈ\n"
+msgstr "Varmistaakseni asian ajoin\n"
 
 #: bin/tp-robot:1040
 #, python-format
@@ -1218,8 +1641,8 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"ਤੁਹਾਡੇ ਵਲੋਂ PO ਫਾਇਲ ਪੇਸ਼ ਕਰਨ ਉਪਰੰਤ ਅਤੇ `msgfmt' ਨੇ ਮੈਨੂੰ ਕਿਹਾ ਕਿ ਮੈਂ ਇਸ \n"
-"ਨੂੰ ਨਾ ਜਾਣ ਦਿਓ। ਵਧੇਰੇ ਜਾਣਕਾਰੀ ਲਈ:\n"
+"lähettämälläsi PO-tiedostolla, ja \"msgfmt\" kertoi minulle, että minun ei pitäisi päästää\n"
+"sitä lävitse. Tarkasti ottaen se sanoi:\n"
 "\n"
 "%s"
 
@@ -1231,6 +1654,10 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Salli minun (ainoastaan tiedoksesi) jakaa kanssasi mitä \"msgfmt\"-ohjelma\n"
+"sanoi lähettämästäsi PO-tiedostosta:\n"
+"\n"
+"%s"
 
 #: bin/tp-robot:1061
 msgid ""
@@ -1238,6 +1665,9 @@ msgid ""
 "that permits distribution of your translation. Please consider inserting\n"
 "a sentence like\n"
 msgstr ""
+"Ensi silmäyksellä näyttää kuin käännöksesi ei sisällä lausetta, joka\n"
+"sallii käännöksesi jakelun. Harkitse seuraavan näköisen lauseen\n"
+"lisäystä\n"
 
 #: bin/tp-robot:1089
 #, python-format
@@ -1249,6 +1679,13 @@ msgid ""
 "coordinator and explain why you need many names.  It is usually best to\n"
 "avoid such variance, and stick to a single preferred spelling.\n"
 msgstr ""
+"Merkintöjeni mukaan et ole %s-ryhmän jäsen.\n"
+"Tai et ainakaan ole ryhmässä mukana nimellä \"%s\". Jos\n"
+"kyse on oikeinkirjoituseroista, minun täytyy tietää tarkalleen se\n"
+"nimesi vaihtoehtoinen kirjoitusasu, jota saatat käyttää. Kirjoita\n"
+"käännöskoordinaattorille ja selitä, miksi saatat tarvita useita nimiä.\n"
+"Tavallisesti on parasta välttää sellainen vaihtelu ja pysytellä\n"
+"yhdessä ainoassa parhaana pidetyssä oikeinkirjoituksessa.\n"
 
 #: bin/tp-robot:1102
 #, python-format
@@ -1257,8 +1694,8 @@ msgid ""
 "registry, as a valid way to reach you.\n"
 "%s%s\n"
 msgstr ""
-"ਈ-ਪੱਤਰ ਸਿਰਨਾਵਾਂ '%s' ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰਜਿਸਟਰ ਵਿੱਚ ਸ਼ਾਮਿਲ ਨਹੀਂ ਹੈ\n"
-"ਸਹੀ ਤਰੀਕਾ ਤੁਹਾਡੇ ਕੋਲ ਪੁੱਜਣਾ ਹੈ।\n"
+"Sähköpostiosoitetta \"%s\" ei tunneta käännösprojektin\n"
+"rekisterissä voimassa olevana tapana tavoittaa sinut.\n"
 "%s%s\n"
 
 #: bin/tp-robot:1114
@@ -1271,6 +1708,13 @@ msgid ""
 "contact us.  See `http://www.translationproject.org/HTML' and select\n"
 "`Textual Domains' to see the list of domains which are currently handled.\n"
 msgstr ""
+"Käännösprojekti ei tunne tekstidomainia \"%s\", ei ainakaan tuolla\n"
+"oikeinkirjoituksella. On myös mahdollista, että tuon projektin ylläpitäjä\n"
+"ei tehnyt vielä järjestelyjä, jotta käännösprojekti käsittelisi projektin\n"
+"PO-tiedostoja. Tässä tapauksessa, pyydä projektin ylläpitäjää ottamaan\n"
+"yhteyttä meihin. Katso \"http://www.translationproject.org/HTML\" ja\n"
+"valitse \"Textual Domains\" nähdäksesi luettelon domaineista, joita nykyään\n"
+"käsitellään.\n"
 
 #: bin/tp-robot:1127
 #, python-format
@@ -1286,6 +1730,18 @@ msgid ""
 "any question or objection with the translation disclaimer as it stands,\n"
 "I invite you to discuss such things with the translation coordinator.\n"
 msgstr ""
+"Muistiinpanojeni mukaan Free Software Foundation ei ole ilmoittanut\n"
+"vastaanottaneensa käännösvastuuvapauslauseketta sinulta. Sellainen\n"
+"vastuuvapauslauseke vaaditaan GNU-pakkauksille (tai kun ei-GNU-\n"
+"pakkausten ylläpitäjät pyytävät minua varmistamaan vastuuvapaus-\n"
+"lausekkeen olemassaolon). Näin on laita kohteelle \"%s\".\n"
+"Poimi \"http://www.translationproject.org/doc/DISCLAIM\"-\n"
+"kopio, tulosta se paperille ja palauta täytettynä normaalin postin\n"
+"kautta. Sinulle ilmoitetaan, kun FSF ilmoittaa vastaanotosta; voit sen\n"
+"jälkeen yrittää uudelleen PO-tiedostosi kopioimista käännösprojektiin.\n"
+"Jos sinulla on mitään kysymyksiä tai huomautuksia voimassa olevasta\n"
+"käännösvastuulausekkeesta, kehotan sinua keskustelemaan sellaisista\n"
+"asioista käännöskoordinaattorin kanssa.\n"
 
 #: bin/tp-robot:1142
 #, python-format
@@ -1301,6 +1757,15 @@ msgid ""
 "given nobody else is already assigned to it.  However, some teams prefer\n"
 "to channel translations differently, for ensuring some quality control first.\n"
 msgstr ""
+"Useimmat ryhmät sallivat kääntäjien lähettää aikaansaamansa käännökset suoraan\n"
+"käännösprojektille ja nopeamman kiertoajan saavuttaakseen tekevät laadunvalvontaa\n"
+"vasta tämän tapahtuman jälkeen. Käännösprojektin rekisteri ei luettele sinua\n"
+"pakkauksen \"%s\" tavallisena kääntäjänä. Ryhmänjohtaja on saattanut lähettää\n"
+"sähköpostin käännöskoordinaattorille taaten, että sinulle on todella annettu tehtäväksi\n"
+"tämä tekstidomain. Pienissä ryhmissä, joissa ei ole johtajaa, voit itse kirjoittaa\n"
+"käännöskoordinaattorille. On yksinkertainen asia antaa sinulle tehtäväksi \"%s\"-vastuu\n"
+"%s:sta, milloin sitä ei ole jo annettu kenellekään muulle. Jotkut ryhmä pitävät kuitenkin\n"
+"parempana kanavoida käännökset eri tavalla taatakseen ensin jotain laadunvalvontaa.\n"
 
 #: bin/tp-robot:1159
 #, python-format
@@ -1315,6 +1780,15 @@ msgid ""
 "compile.  A few translators do like peeking at the sources for getting finer\n"
 "translation contexts, for when messages are not clear enough in themselves.\n"
 msgstr ""
+"Lähetit PO-tiedoston, jolle ei ole käännösprojektissa vastaavaa\n"
+"PO-mallinetta. Täällä ei ole mitään \"%s\".\n"
+"Pyydä kyseisen pakkauksen ylläpitäjää tai ohjelmoijaa, joka\n"
+"huolehtii lokalisoinnista, lähettämään vastaavan POT-tiedoston\n"
+"käännösprojektille. On myös parasta, että meillä on jonkun virallisen,\n"
+"esitesti- tai otosjakelun tarkka URL tarjottavana kääntäjille.\n"
+"Tämä URL on vain käännöstarkoituksiin, pakkauksen ei tarvitse edes\n"
+"kääntyä. Muutamat kääntäjät haluavat kurkistaa lähdekoodiin saadakseen\n"
+"hienomman käännöskonteksin, jos sanomat eivät ole heille kyllin selviä.\n"
 
 #: bin/tp-robot:1177
 msgid ""
@@ -1322,8 +1796,8 @@ msgid ""
 "which you may find as either one of:\n"
 "\n"
 msgstr ""
-"ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਪਹਿਲਾਂ ਹੀ ਤੁਹਾਡੀ ਪੇਸ਼ਕਸ ਦੀ ਪਹਿਲਾਂ ਹੀ ਨਕਲ ਹੈ, ਤੁਸੀਂ ਉਸ ਨੂੰ\n"
-"ਇੱਥੇ ਵੇਖ ਸਕਦੇ ਹੋ:\n"
+"Käännösprojektilla on jo tarkka kopio lähetyksestäsi,\n"
+"jonka voit löytää yhdestä seuraavista kohteista:\n"
 "\n"
 
 #: bin/tp-robot:1235
@@ -1331,12 +1805,16 @@ msgid ""
 "Sniff!  I'm unable to successfully start the `diff' program.  I most\n"
 "probably need repairs.  I'll go whine to the translation coordinator.\n"
 msgstr ""
+"Niiskaus! En kyennyt käynnistämään onnistuneesti \"diff\"-ohjelmaa. Luultavammin\n"
+"tarvitsen huoltoa. Menen marisemaan käännöskoordinaattorille.\n"
 
 #: bin/tp-robot:1246
 msgid ""
 "Sniff!  I'm unable to successfully canonicalise your PO file.  I most\n"
 "probably need repairs.  I'll go whine to the translation coordinator.\n"
 msgstr ""
+"Niiskaus!  En kykene menestyksellisesti norminmukaistamaan PO-tiedostoasi.\n"
+"Luultavammin tarvitsen huoltoa. Menen marisemaan käännöskoordinaattorille.\n"
 
 #: bin/tp-robot:1254
 msgid ""
@@ -1355,6 +1833,20 @@ msgid ""
 "to make such modifications, as I will continue doing them patiently and\n"
 "automatically, here.  This message continues after the (maybe long) quote.\n"
 msgstr ""
+"Yritämme saavuttaa yhdenmukaisen käännösprojektin PO-tiedostojen\n"
+"esityksen, kautta kaikkien tekstidomainien ja äidinkielien. Robottina teen\n"
+"oman osuuteni tähän tavoitteeseen ja siksi tein seuraavia muutoksia\n"
+"lähetykseesi. Saatat itse hyväksyä samat muutokset; jos päätät tehdä\n"
+"niin, suosittelen yrittämään tarkkaa \"patch\"-apuohjelmaa.\n"
+"\n"
+"\"msgmerge\"-ohjelma, jota käytetään tekemään jakelupakkaukset,\n"
+"ei tuota norminmukaisia tiedostoja ja siihen asti kun tämä korjataan,\n"
+"sinun olisi paras poimia PO-tiedostosi suoraan käännösprojektista, koska\n"
+"ne tehdään aina norminmukaisesti. Jos et tee sitä, seuraava \"unidiffs\"-\n"
+"joukko saattaa tulla ärsyttävän pitkäksi. Huomaa myös, että sinun ei\n"
+"_pitäisi_ tehdä sellaisia muutoksia, koska jatkan niiden tekemistä\n"
+"kärsivällisesti ja automaattisesti täällä. Tämä sanoma jatkuu (ehkä\n"
+"pitkän) lainauksen jälkeen.\n"
 
 #: bin/tp-robot:1279
 #, python-format
@@ -1365,6 +1857,11 @@ msgid ""
 "probably require revision.  Your team will then be notified of the URL of the\n"
 "PO file to revise, with a quick evaluation of the extent of the work needed.\n"
 msgstr ""
+"Tiedostosi on hyväksytty ja tallennettu arkistoon: onneksi olkoon!\n"
+"Milloin tahansa \"%s\"-pakkauksen ylläpitäjä lähettää uuden PO-mallineen\n"
+"käännösprojektille, käännöstä jonka juuri sait aikaiseksi, on luultavasti\n"
+"muutettava. Ryhmällesi ilmoitetaan muutettavan PO-tiedoston URL yhdessä\n"
+"nopealla arvioinnilla tarvittavan työn laajuudesta.\n"
 
 #: bin/tp-robot:1295
 msgid ""
@@ -1372,332 +1869,338 @@ msgid ""
 "whenever I upload new PO Template files for it.  If you are interested in\n"
 "this service, you may register by emailing to the translation coordinator.\n"
 msgstr ""
+"Asioiden nopeuttamiseksi voisin lähettää sinulle tämän PO-tiedoston päivitettyjä\n"
+"kopioita sähköpostitse, aina kun tallennan serverille sen uuden PO-mallinnetiedoston.\n"
+"Jos olet kiinnostunut tästä palvelusta, voit rekisteröityä lähettämällä\n"
+"sähköpostia käännöskoordinaattorille.\n"
 
 #: bin/tp-robot:1318
 msgid ""
 "Sniff!  I'm unable to successfully start the `po-register' program.\n"
 "I most probably need repairs.  I'll go whine to the translation coordinator.\n"
 msgstr ""
+"Niiskaus! En kykene käynnistämään menestyksellisesti \"po-register\"-ohjelmaa.\n"
+"Tarvitsen luultavasti huoltoa. Lähden marisemaan käännöskoordinaattorille.\n"
 
 #: bin/tp-robot:1326
 msgid "Original message header:\n"
-msgstr "ਅਸਲੀ ਸੁਨੇਹਾ ਸਿਰਲੇਖ:\n"
+msgstr "Alkuperäinen sanomaotsake:\n"
 
 #: bin/tp-robot:1331
 msgid "Diagnostics issued by `po-register:\n"
-msgstr "`po-register ਦੁਆਰਾ ਜਾਰੀ ਜਾਂਚ:\n"
+msgstr "Kohteen \"po-register lisäämä diagnostiikka:\n"
 
 #: bin/tp-robot:1346
 #, python-format
 msgid "the translators's address is `%s'"
-msgstr "ਅਨੁਵਾਦਕ ਦਾ ਸਿਰਨਾਵਾਂ '%s' ਹੈ"
+msgstr "kääntäjän osoite on \"%s\""
 
 #: bin/tp-robot:1349
 msgid "the translator's address"
-msgstr "ਅਨੁਵਾਦਕ ਦਾ ਸਿਰਨਾਵਾਂ"
+msgstr "kääntäjän osoite"
 
 #: bin/tp-robot:1351
 #, python-format
 msgid "the textual domain is `%s'"
-msgstr "'%s' ਪਾਠ ਡੋਮੇਨ ਹੈ"
+msgstr "tekstidomain on \"%s\""
 
 #: bin/tp-robot:1353
 msgid "the textual domain"
-msgstr "ਪਾਠ ਡੋਮੇਨ"
+msgstr "tekstidomain"
 
 #: bin/tp-robot:1355
 #, python-format
 msgid "the domain version is `%s'"
-msgstr "'%s' ਡੋਮੇਨ ਵਰਜਨ ਹੈ"
+msgstr "domainversio on \"%s\""
 
 #: bin/tp-robot:1357
 msgid "the domain version"
-msgstr "ਡੋਮੇਨ ਵਰਜਨ"
+msgstr "domainversio"
 
 #: bin/tp-robot:1359
 #, python-format
 msgid "the team code is `%s'"
-msgstr "ਟੀਮ ਕੋਡ '%s' ਹੈ"
+msgstr "ryhmäkoodi on \"%s\""
 
 #: bin/tp-robot:1361
 msgid "the team code"
-msgstr "ਟੀਮ ਕੋਡ"
+msgstr "ryhmäkoodi"
 
 #: bin/tp-robot:1364 bin/tp-robot:1365 bin/tp-robot:1383
 msgid "and"
-msgstr "ਅਤੇ"
+msgstr "ja"
 
 #: bin/tp-robot:1369
 msgid ""
 "No official email address exist for this translator in the Translation\n"
 "Project registry.\n"
 msgstr ""
-"ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰਜਿਸਟਰ ਵਿੱਚ ਇਸ ਅਨੁਵਾਦਕ ਲਈ ਕੋਈ ਈ-ਪੱਤਰ ਮੌਜੂਦ \n"
-"ਨਹੀ ਹੈ।\n"
+"Käännösprojektin rekisterissä ei ole virallista sähköpostiosoitetta\n"
+"tälle kääntäjälle.\n"
 
 #: bin/tp-robot:1374
 #, python-format
 msgid "The only address we officially know for this translator is `%s'.\n"
-msgstr "ਇਸ ਅਨੁਵਾਦਕ ਦਾ ਪ੍ਰਮਾਣਿਤ ਸਿਰਨਾਵਾਂ, ਜੋ ਕਿ ਸਾਡੇ ਕੋਲ ਹੈ, ਉਹ '%s' ਹੈ।\n"
+msgstr "Tälle kääntäjälle tiedämme virallisesti vain tämän osoitteen \"%s\".\n"
 
 #: bin/tp-robot:1380
 #, python-format
 msgid "For this translator, the only registered addresses we have are: %s.\n"
-msgstr "ਇਸ ਅਨੁਵਾਦਕ ਦਾ ਪ੍ਰਮਾਣਿਤ ਸਿਰਨਾਵਾਂ, ਜੋ ਕਿ ਸਾਡੇ ਕੋਲ ਰਜਿਸਟਰ ਹੈ, ਉਹ '%s' ਹੈ।\n"
+msgstr "Ainoa rekisteröity osoitteemme tälle kääntäjälle on: %s.\n"
 
 #: web/lib/editor.py:34 web/lib/editor.py:160 web/lib/editor.py:298
 msgid "Use exactly one argument with `mailto'"
-msgstr "`mailto' ਲਈ ਸਿਰਫ ਇੱਕ ਮੁੱਲ ਹੀ ਵਰਤੋਂ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"mailto\":n kanssa"
 
 #: web/lib/editor.py:45
 msgid "Use exactly one argument with `keep'"
-msgstr "`keep' ਲਈ ਸਿਰਫ ਇੱਕ ਮੁੱਲ ਹੀ ਵਰਤੋਂ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"keep\":n kanssa"
 
 #: web/lib/editor.py:48 web/lib/editor.py:312
 #, python-format
 msgid "Version `%s' is already present"
-msgstr "ਵਰਜਨ `%s' ਪਹਿਲਾਂ ਹੀ ਹੈ"
+msgstr "Versio \"%s\" on jo olemassa"
 
 #: web/lib/editor.py:54
 msgid "Use exactly one argument with `nokeep'"
-msgstr "`nokeep' ਲਈ ਸਿਰਫ ਇੱਕ ਮੁੱਲ ਹੀ ਵਰਤੋਂ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"nokeep\":n kanssa"
 
 #: web/lib/editor.py:57
 #, python-format
 msgid "Version `%s' was not there anyway"
-msgstr "ਵਰਜਨ `%s' ਕਿਸੇ ਤਰਾਂ ਵੀ ਨਹੀਂ ਹੈ"
+msgstr "Versio \"%s\" ei kuitenkaan ollut siellä"
 
 #: web/lib/editor.py:62
 msgid "Use at least one argument with `keeps'"
-msgstr "`keeps' ਲਈ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਮੁੱਲ ਹੀ ਵਰਤੋਂ"
+msgstr "Käytä vähintään yhtä argumenttia \"keeps\":n kanssa"
 
 #: web/lib/editor.py:68
 #, python-format
 msgid "Version `%s' duplicated"
-msgstr "ਵਰਜਨ `%s' ਦੂਹਰਾ ਹੈ"
+msgstr "Versio \"%s\" on kaksoiskopioitu"
 
 #: web/lib/editor.py:75
 msgid "Do not use arguments with `disclaim'"
-msgstr "`disclaim' ਨਾਲ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "Älä käytä argumentteja \"disclaim\":n kanssa"
 
 #: web/lib/editor.py:80
 msgid "Do not use arguments with `nodisclaim'"
-msgstr "`nodisclaim' ਨਾਲ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "Älä käytä argumentteja \"nodisclaim\":n kanssa"
 
 #: web/lib/editor.py:85 web/lib/editor.py:349
 msgid "Do not use arguments with `autosend'"
-msgstr "`autosend' ਨਾਲ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "Älä käytä argumentteja \"autosend\":n kanssa"
 
 #: web/lib/editor.py:90 web/lib/editor.py:354
 msgid "Do not use arguments with `noautosend'"
-msgstr "`noautosend' ਨਾਲ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "Älä käytä argumentteja \"noautosend\":n kanssa"
 
 #: web/lib/editor.py:95
 msgid "Use exactly one argument with `url'"
-msgstr "`url' ਨਾਲ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "Käytä tarkalleen yhtä argumentti \"url\":n kanssa"
 
 #: web/lib/editor.py:98
 #, python-format
 msgid "URL `%s' is already present"
-msgstr "URL `%s' ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
+msgstr "URL \"%s\" on jo olemassa"
 
 #: web/lib/editor.py:103
 msgid "Use exactly one argument with `nourl'"
-msgstr "`nourl' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"nourl\":n kanssa"
 
 #: web/lib/editor.py:106
 #, python-format
 msgid "URL `%s' was not there anyway"
-msgstr "URL `%s' ਇੱਥੇ ਨਹੀਂ ਹੈ"
+msgstr "URL \"%s\" ei kuitenkaan ollut siellä"
 
 #: web/lib/editor.py:111
 msgid "Use at least one argument with `urls'"
-msgstr "`urls' ਨਾਲ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਮੁੱਲ ਦਿਓ"
+msgstr "Käytä vähintään yhtä argumenttia \"urls\":n kanssa"
 
 #: web/lib/editor.py:123 web/lib/editor.py:227 web/lib/editor.py:386
 msgid "Use exactly one argument with `remark'"
-msgstr "`remark' ਨਾਲ ਇੱਕ ਮੁੱਲ ਦਿਓ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"remark\":n kanssa"
 
 #: web/lib/editor.py:125 web/lib/editor.py:229 web/lib/editor.py:361
 #: web/lib/editor.py:388
 #, python-format
 msgid "Remark `%s' is already present"
-msgstr "ਟਿੱਪਣੀ `%s' ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
+msgstr "Kommentti \"%s\" on jo olemassa"
 
 #: web/lib/editor.py:130 web/lib/editor.py:234 web/lib/editor.py:393
 msgid "Use exactly one argument with `noremark'"
-msgstr "`noremark' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਦਿਓ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"noremark\":n kanssa"
 
 #: web/lib/editor.py:132 web/lib/editor.py:236 web/lib/editor.py:368
 #: web/lib/editor.py:395
 #, python-format
 msgid "Remark `%s' was not there anyway"
-msgstr "ਟਿੱਪਣੀ `%s' ਨਹੀਂ ਹੈ"
+msgstr "Kommentti \"%s\" ei kuitenkaan ollut siellä"
 
 #: web/lib/editor.py:137 web/lib/editor.py:241 web/lib/editor.py:400
 msgid "Do not use arguments with `remarks'"
-msgstr "`remarks' ਨਾਲ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "Älä käytä argumentteja \"remarks\":n kanssa"
 
 #: web/lib/editor.py:171
 msgid "Use exactly one argument with `charset'"
-msgstr "`charset' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਦਿਓ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"charset\":n kanssa"
 
 #: web/lib/editor.py:177
 msgid "Do not use arguments with `nocharset'"
-msgstr "`nocharset' ਨਾਲ ਕੋਈ ਮੁੱਲ ਨਾ ਦਿਓ"
+msgstr "Älä käytä argumentteja \"nocharset\":n kanssa"
 
 #: web/lib/editor.py:182
 msgid "Use exactly one argument with `leader'"
-msgstr "`leader' ਨਾਲ ਇੱਕ ਹੀ ਮੁੱਲ ਦਿਓ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"leader\":n kanssa"
 
 #: web/lib/editor.py:193
 msgid "Use exactly two arguments with `ref'"
-msgstr "`ref' ਨਾਲ ਦੋ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "Käytä tarkalleen kahta argumenttia \"ref\":in kanssa"
 
 #: web/lib/editor.py:197
 #, python-format
 msgid "Reference `%s, %s' is already present"
-msgstr "ਹਵਾਲਾ '%s','%s' ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
+msgstr "Viite \"%s, %s\" on jo olemassa"
 
 #: web/lib/editor.py:202
 msgid "Use exactly two arguments with `noref'"
-msgstr "`noref' ਨਾਲ ਸਿਰਫ ਦੋ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "Käytä tarkalleen kahta argumenttia \"noref\":in kanssa"
 
 #: web/lib/editor.py:206
 #, python-format
 msgid "Reference `%s, %s' was not there anyway"
-msgstr "ਹਵਾਲਾ '%s', '%s' ਇੱਥੇ ਕਿਤੇ ਵੀ ਨਹੀਂ ਹੈ"
+msgstr "Viite \"%s, %s\" ei kuitenkaan ollut siellä"
 
 #: web/lib/editor.py:211
 msgid "Use a pair number of arguments with `refs'"
-msgstr "`refs' ਨਾਲ ਇੱਕ ਜੋੜੀ ਮੁੱਲ ਦਿਓ"
+msgstr "Käytä \"refs\":n kanssa argumenttien parinumeroa"
 
 #: web/lib/editor.py:220
 #, python-format
 msgid "Reference `%s, %s' duplicated"
-msgstr "ਹਵਾਲਾ `%s, %s' ਦੂਹਰਾ ਹੈ"
+msgstr "Viite \"%s, %s\" on kaksoiskopioitu"
 
 #: web/lib/editor.py:246
 msgid "Use exactly one argument with `translator'"
-msgstr "`translator' ਨਾਲ ਇੱਕ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"translator\":in kanssa"
 
 #: web/lib/editor.py:248
 #, python-format
 msgid "Translator `%s' is already present"
-msgstr "ਅਨੁਵਾਦਕ '%s' ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
+msgstr "Kääntäjä \"%s\" on jo olemassa"
 
 #: web/lib/editor.py:265
 msgid "Use exactly one argument with `notranslator'"
-msgstr "`notranslator' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"notranslator\":in kanssa"
 
 #: web/lib/editor.py:267
 #, python-format
 msgid "Translator `%s' is not know anyway"
-msgstr "ਅਨੁਵਾਦਕ '%s' ਜਾਣਿਆ ਨਹੀਂ ਹੈ"
+msgstr "Kääntäjää \"%s\" ei kuitenkaan tunneta"
 
 #: web/lib/editor.py:270
 #, python-format
 msgid "Should keep `%s' because of disclaimer"
-msgstr "`%s' ਰੱਖਣਾ ਚਾਹੀਦਾ ਹੈ, ਕਿਉਕਿ ਇਹ ਦਾਅਵਾ ਹੈ"
+msgstr "Pitäisi pitää \"%s\" vastuuvapauslausekkeen vuoksi"
 
 #: web/lib/editor.py:309
 msgid "Use exactly one argument with `alias'"
-msgstr "`alias' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਦਿਓ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"alias\":n kanssa"
 
 #: web/lib/editor.py:317
 msgid "Do not use arguments with `noalias'"
-msgstr "`noalias' ਨਾਲ ਕੋਈ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "Älä käytä argumentteja \"noalias\":n kanssa"
 
 #: web/lib/editor.py:320
 #, python-format
 msgid "Alias `%s' was not there anyway"
-msgstr "ਉਪ-ਨਾਂ '%s' ਕਿਤੇ ਵੀ ਨਹੀਂ ਹੈ"
+msgstr "Alias \"%s\" ei kuitenkaan ollut siellä"
 
 #: web/lib/editor.py:325
 msgid "Use at least one argument with `aliases'"
-msgstr "`aliases' ਨਾਲ ਘੱਟੋ-ਘੱਟ ਮੁੱਲ ਦਿਓ"
+msgstr "Käytä vähintään yhtä argumenttia \"aliases\":n kanssa"
 
 #: web/lib/editor.py:331
 #, python-format
 msgid "Alias `%s' duplicated"
-msgstr "ਉਪ-ਨਾਂ '%s' ਦੂਹਰਾ ਹੈ"
+msgstr "Alias \"%s\" on kaksoiskopioitu"
 
 #: web/lib/editor.py:338
 msgid "Use exactly one argument with `http'"
-msgstr "`http' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਦਿਓ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"http\":n kanssa"
 
 #: web/lib/editor.py:344
 msgid "Do not use arguments with `nohttp'"
-msgstr "`nohttp' ਨਾਲ ਕੋਈ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "Älä käytä argumentteja \"nohttp\":n kanssa"
 
 #: web/lib/editor.py:359
 msgid "Use exactly one argument with `do'"
-msgstr "`do' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"do\":n kanssa"
 
 #: web/lib/editor.py:366
 msgid "Use exactly one argument with `nodo'"
-msgstr "`nodo' ਨਾਲ ਇੱਕ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "Käytä tarkalleen yhtä argumenttia \"nodo\":n kanssa"
 
 #: web/lib/editor.py:373
 msgid "Use at least one argument with `dos'"
-msgstr "`dos' ਨਾਲ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "Käytä ainakin yhtä argumenttia \"dos\":n kanssa"
 
 #: web/lib/editor.py:379
 #, python-format
 msgid "Do `%s' duplicated"
-msgstr ""
+msgstr "Tee \"%s\":stä on kaksoiskopioitu"
 
 #: web/lib/localweb.py:157
 #, python-format
 msgid "%s: Unexistent domain or team!\n"
-msgstr "%s: ਨਾ-ਮੌਜੂਦ ਡੋਮੇਨ ਜਾਂ ਟੀਮ!\n"
+msgstr "%s: ei-olemassa oleva domain tai ryhmä!\n"
 
 #: web/lib/localweb.py:160
 #, python-format
 msgid "%s: No hints found!\n"
-msgstr "%s: ਕੋਈ ਸੰਕੇਤ ਨਹੀਂ ਲੱਭਾ ਹੈ!\n"
+msgstr "%s: Vihjeitä ei löytynyt!\n"
 
 #: web/lib/localweb.py:164
 #, python-format
 msgid "%s: Missing version?\n"
-msgstr "%s: ਵਰਜਨ ਗੁੰਮ?\n"
+msgstr "%s: Version puuttuu?\n"
 
 #: web/lib/localweb.py:168
 #, python-format
 msgid "%s: Not in stats database!\n"
-msgstr "%s: ਕੋਈ ਸਥਿਰ ਡਾਟਾਬੇਸ ਨਹੀਂ!\n"
+msgstr "%s: Ei ollut stats-tietokannassa!\n"
 
 #: web/lib/po.py:12
 msgid "SOME DESCRIPTIVE TITLE."
-msgstr "ਕੋਈ ਵਰਣਨ ਕਰਦਾ ਸਿਰਲੇਖ।"
+msgstr "JOKU KUVAAVA OTSIKKO."
 
 #: web/lib/po.py:16
 msgid "FIRST AUTHOR <EMAIL@ADDRESS>, YEAR."
-msgstr "ਪਹਿਲਾਂ ਲੇਖਕ <EMAIL@ADDRESS>, ਸਾਲ"
+msgstr "ENSIMMÄINEN KÄÄNTÄJÄ <SÄHKÖPOSTI@OSOITE>, VUOSI."
 
 #: web/lib/po.py:19
 msgid "PACKAGE VERSION"
-msgstr "ਪੈਕੇਜ ਵਰਜਨ"
+msgstr "PAKKAUS VERSIO"
 
 #: web/lib/po.py:21 web/lib/po.py:22
 msgid "YEAR-MO-DA HO:MI +ZONE"
-msgstr "ਸਾਲ-ਮਮ-ਦਦ HO:MI +ਖੇਤਰ"
+msgstr "VUOSI-KK-PV TU:MI +VYÖHYKE"
 
 #: web/lib/po.py:23
 msgid "FULL NAME <EMAIL@ADDRESS>"
-msgstr "ਪੂਰਾ ਨਾਂ <EMAIL@ADDRESS>"
+msgstr "KOKO NIMI <SÄHKÖPOSTI@OSOITE>"
 
 #: web/lib/po.py:24
 msgid "LANGUAGE <LL@li.org>"
-msgstr "ਭਾਸ਼ਾ <LL@li.org>"
+msgstr "KIELI <LL@li.org>"
 
 #: web/lib/po.py:26
 msgid "text/plain; charset=CHARSET"
-msgstr "text/plain; ਅੱਖਰ ਸਮੂਹ=CHARSET"
+msgstr "text/plain; charset=CHARSET"
 
 #: web/lib/po.py:27
 msgid "ENCODING"
-msgstr "ਇੰਕੋਡਿੰਗ"
+msgstr "ENCODING"
 
 #: web/lib/po.py:115 web/lib/po.py:157 web/lib/po.py:160
 #, python-format
@@ -1705,66 +2208,66 @@ msgid ""
 "%s:%d: Unrecognised line\n"
 "%s"
 msgstr ""
-"%s:%d: ਬੇਪਛਾਣ ਸਤਰ\n"
+"%s:%d: Tunnistamaton rivi\n"
 "%s"
 
 #: web/lib/po.py:202
 msgid "Duplicate"
-msgstr "ਦੂਹਰੀ"
+msgstr "Kaksoiskopio"
 
 #: web/lib/registry.py:91 web/lib/registry.py:248
 #, python-format
 msgid "Unknown translator `%s'"
-msgstr "ਅਣਜਾਣਾ ਅਨੁਵਾਦਕ `%s'"
+msgstr "Tuntematon kääntäjä \"%s\""
 
 #: web/lib/registry.py:220
 #, python-format
 msgid "Unknown domain `%s'"
-msgstr "ਅਣਜਾਣੀ ਡੋਮੇਨ `%s'"
+msgstr "Tuntematon domain \"%s\""
 
 #: web/lib/registry.py:242
 #, python-format
 msgid "Unknown team `%s'"
-msgstr "ਅਣਜਾਣੀ ਟੀਮ `%s'"
+msgstr "Tuntematon ryhmä \"%s\""
 
 #: web/lib/registry.py:294
 #, python-format
 msgid "No hints from `%s'"
-msgstr "`%s' ਲਈ ਕੋਈ ਸੰਕੇਤ ਨਹੀਂ ਹੈ"
+msgstr "Ei vihjeitä kohteesta \"%s\""
 
 #: web/lib/registry.py:299
 #, python-format
 msgid "POT hint from `%s' contradicts previous"
-msgstr "'%s' ਤੋਂ POT ਸੰਕੇਤ ਪਹਿਲੇ ਨਾਲ ਅਪਵਾਦ ਹੈ"
+msgstr "POT-vihje merkkijonosta \"%s\" on ristiriidassa edellisen kanssa"
 
 #: web/lib/registry.py:303
 #, python-format
 msgid "Domain hint from `%s' contradicts `%s'"
-msgstr "'%s' ਤੋਂ ਡੋਮੇਨ ਸੰਕੇਤ '%s' ਨਾਲ ਅਪਵਾਦ ਹੈ"
+msgstr "Domain-vihje merkkijonosta \"%s\" on ristiriidassa merkkijonon \"%s\" kanssa"
 
 #: web/lib/registry.py:308
 #, python-format
 msgid "Version hint from `%s' contradicts `%s'"
-msgstr "'%s' ਤੋਂ ਵਰਜਨ ਸੰਕੇਤ '%s' ਨਾਲ ਅਪਵਾਦ ਹੈ"
+msgstr "Versiovihje merkkijonosta \"%s\" on ristiriidassa merkkijonon \"%s\" kanssa"
 
 #: web/lib/registry.py:313
 #, python-format
 msgid "Team hint from `%s' contradicts `%s'"
-msgstr "'%s' ਤੋਂ ਟੀਮ ਸੰਕੇਤ '%s' ਨਾਲ ਅਪਵਾਦ ਹੈ"
+msgstr "Ryhmävihje merkkijonosta \"%s\" on ristiriidassa merkkijonon \"%s\" kanssa"
 
 #: web/lib/registry.py:318
 #, python-format
 msgid "Inconsistent charset hint from `%s'"
-msgstr "'%s' ਤੋਂ ਨਾ-ਇਕਸਾਰ ਅੱਖਰ ਸਮੂਹ ਸੰਕੇਤ"
+msgstr "Yhteensopimaton merkistövihje kohteesta \"%s\""
 
 #: web/lib/registry.py:481
 #, python-format
 msgid "Unrecognised version: %s"
-msgstr "ਬੇਪਛਾਣ ਵਰਜਨ: %s"
+msgstr "Tunnistamaton versio: %s"
 
 #: web/lib/run.py:24
 msgid "Report from TP-Robot"
-msgstr "TP-ਰੋਬੋਟ ਤੋਂ ਜਾਣਕਾਰੀ"
+msgstr "Raportti TP-Robotilta"
 
 #: web/lib/run.py:61
 msgid ""
@@ -1773,7 +2276,7 @@ msgid ""
 "================================================\n"
 msgstr ""
 "================================================\n"
-"ਰਿਪੋਟ ਭੇਜਣ ਵਿੱਚ ਅਸਫਲ  ਸਿਰਫ ਸਮੂਹ ਹੀ ਰੱਖਿਆ ਗਿਆ ਹੈ।\n"
+"Raporttia ei voi lähettää.  Vedostan sen sensijaan tähän.\n"
 "================================================\n"
 
 #: web/lib/run.py:100
@@ -1783,9 +2286,9 @@ msgid ""
 "To: %s\n"
 "Subject: Re: %s\n"
 msgstr ""
-"ਵਲੋਂ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ: %s\n"
-"ਵਿਸ਼ਾ: ਜਵਾਬ: %s\n"
+"From: Käännösrobotti <robot@translationproject.org>\n"
+"To: %s\n"
+"Subject: Re: %s\n"
 
 #: web/lib/run.py:149
 #, python-format
@@ -1795,9 +2298,10 @@ msgid ""
 "Subject: Re: %s\n"
 "\n"
 msgstr ""
-"ਵਲੋਂ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ:  \"%s\" <%s>\n"
-"ਵਿਸ਼ਾ: ਜਵਾਬ: %s\n"
+"From: Käännösrobotti <robot@translationproject.org>\n"
+"To: \"%s\" <%s>\n"
+"Subject: Re: %s\n"
+"\n"
 
 #: web/lib/run.py:161
 #, python-format
@@ -1805,16 +2309,16 @@ msgid ""
 "Hi!  I am the service robot at the Translation Project, and was awakened\n"
 "by your submission for `%s'.\n"
 msgstr ""
-"ਹਾਂ ਜੀ, ਮੈਂ ਅਨੁਵਾਦ ਪ੍ਰਜੈਕਟ ਦਾ ਸੇਵਕ ਰੋਬੋਟ ਹਾਂ ਅਤੇ ਤੁਹਾਡੀ '%s' ਪੇਸ਼ਕਸ ਨੇ ਮੈਨੂੰ\n"
-"ਹਲੂਣਿਆ ਹੈ।\n"
+"Hei! Palvelen käännösprojektin robottina ja heräsin\n"
+"lähetykseesi pakkaukselle \"%s\".\n"
 
 #: web/lib/run.py:167
 msgid ""
 "Hi!  I am the service robot at the Translation Project, and was awakened\n"
 "by one of your submissions.\n"
 msgstr ""
-"ਹਾਂ ਜੀ, ਮੈਂ ਅਨੁਵਾਦ ਪ੍ਰਜੈਕਟ ਦਾ ਸੇਵਕ ਰੋਬੋਟ ਹਾਂ ਅਤੇ ਤੁਹਾਡੀ ਪੇਸ਼ਕਸ ਨੇ ਮੈਨੂੰ\n"
-"ਹਲੂਣਿਆ ਹੈ।\n"
+"Hei! Olen käännösprojektin palvelurobotti ja sinun lähetyksesi\n"
+"herätti minut.\n"
 
 #: web/lib/run.py:179
 msgid ""
@@ -1839,6 +2343,26 @@ msgid ""
 "may directly write the translation coordinator.  However, if you do so,\n"
 "be careful _not_ to start your message Subject with `TP-Robot'! :-)\n"
 msgstr ""
+"Jotkut yllä raportoidut virheet ovat sellaisia, että en voi kokonaan käsitellä lähetystäsi.\n"
+"Olen pahoillani! Älä pelkää lähettää uudelleen PO-tiedostoasi sitten kun ajattelet, että\n"
+"pulma on korjattu. Koska olen robotti, olen uskomattoman kärsivällinen tällaisissa asioissa!\n"
+"\n"
+"Emacs-käyttäjänä lähetät PO-tiedoston vain valitsemalla \"M\"-kirjaimen PO-tilassa.\n"
+"Muutoin, voit käyttää erilaisia MIME-muotoja (varo, olen liian tyhmä hajoitettuihin osioihin)\n"
+"tai \"uuencode\"-muotoa (joko vanhempaa tai uudempaa). Käytä \".gz\"-tarkenninta, jos\n"
+"päätät pakata \"gzip\"-ohjelmalla. Voit myös lähettää tiedostosi sellaisenaan, mutta\n"
+"sinun on varmistuttava, että meillä on 8-bittinen puhdas sähköpostireitti. Ainakaan tästä\n"
+"lähtien älä lähetä enempää kuin yksi PO-tiedosto yhdessä sähköpostisanomassa.\n"
+"Jos en voi avata pakkaustasi, lähetän sen edelleen koordinaattorille manuaalista avausta\n"
+"varten. Käytä Aihe-riviä, joka näyttää seuraavan näköiseltä:\n"
+"\n"
+">    Aihe: TP-Robot PAKKAUS-VERSIO.RYHMÄ.po\n"
+"\n"
+"ja lähetä kokonaisuudessaan osoitteeseen \"translation@translationproject.org\". Voit odottaa\n"
+"vastausta tunnin kuluessa. Jos sinun on ratkaistava tämän vastauksen synnyttämiä\n"
+"kysymyksiä tai jos epäilet minun toimivan puutteelisesti, voit kirjoittaa suoraan\n"
+"käännöskoordinaattorille. Kuitenkin, jos teet niin, ole tarkkana, että _et_ aloita\n"
+"sanomasi Aihe-riviä sanoilla \"TP-Robot\"! :-)\n"
 
 #: web/lib/run.py:202
 msgid ""
@@ -1846,23 +2370,23 @@ msgid ""
 "                                name of your kind translation coordinator.\n"
 "                                <coordinator@translationproject.org>\n"
 msgstr ""
-"                                ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ, ਵਿੱਚ\n"
-"                                ਤੁਹਾਡੇ ਅਨੁਵਾਦ ਮੁੱਖੀ ਦਾ ਨਾਂ\n"
+"                                Käännösrobotti,\n"
+"                                käännöskoordinaattorisi puolesta.\n"
 "                                <coordinator@translationproject.org>\n"
 
 #: web/lib/run.py:213
 msgid "WARNING: This prevents the robot from forwarding your file to the archive.\n"
-msgstr "ਚੇਤਾਵਨੀ:  ਇਹ ਤੁਹਾਡੀ ਫਾਇਲ ਨੂੰ ਰੋਬੋਟ ਤੋਂ ਅੱਗੇ ਭੇਜਣ ਵਿੱਚ ਸਮੱਸਿਆ ਬਣ ਰਿਹਾ ਹੈ।\n"
+msgstr "VAROITUS: Tämä estää robottia lähettämästä tiedostoasi edelleen arkistoon.\n"
 
 #: web/lib/sgml.py:173
 #, python-format
 msgid "Unsupported attribute %s"
-msgstr "ਨਾ-ਸਹਾਇਕ %s ਗੁਣ "
+msgstr "Ei-tuettu attribuutti %s"
 
 #: web/lib/sgml.py:177
 #, python-format
 msgid "SGML in `%s' is not conformant.\n"
-msgstr "`%s' ਵਿੱਚ SGML conformant ਨਹੀਂ ਹੈ।\n"
+msgstr "SGML kohteessa \"%s\" ei ole yhdenmukainen.\n"
 
 #: web/lib/unpack.py:90 web/lib/unpack.py:99
 #, python-format
@@ -1873,7 +2397,7 @@ msgid ""
 "%s\n"
 "----------------------------------------------------------------------<\n"
 msgstr ""
-"ਤੁਹਾਡੀ ਪੇਸ਼ਕਸ ਵਿੱਚੋਂ ਹੇਠ ਲਿਖਿਆਂ ਸਤਰਾਂ ਨੂੰ ਮੈਂ ਅਣਡਿੱਠਾ ਕਰ ਰਿਹਾ ਹਾਂ\n"
+"En välitä seuraavista riveistä lähetyksessäsi:\n"
 "\n"
 "---------------------------------------------------------------------->\n"
 "%s\n"
@@ -1884,8 +2408,8 @@ msgid ""
 "Your submission seems to uses `uuencode' format, yet no proper terminator\n"
 "was found to end the encoded region.\n"
 msgstr ""
-"ਤੁਹਾਡੀ ਪੇਸ਼ਕਸ `uuencode' ਫਾਰਮਿਟ ਵਰਤ ਰਹੀ ਹੈ, ਇੰਕੋਡਿੰਗ ਖੇਤਰ ਨੂੰ ਸਮਾਪਤ ਕਰਨ ਲਈ ਕੋਈ ਪੂਰਨ\n"
-"ਸਮਾਪਤੀ ਕਰਨ ਵਾਲਾ ਨਹੀਂ ਲੱਭਾ।\n"
+"Lähetyksesi näyttää käyttävän \"uuencode\"-muotoa, vaikka oikeaa päätettä\n"
+"ei löytynyt koodatun alueen lopusta.\n"
 
 #: web/lib/unpack.py:169
 #, python-format
@@ -1893,242 +2417,255 @@ msgid ""
 "Uncompressing your submission with gzip has failed. gzip said:\n"
 "%s\n"
 msgstr ""
-"ਤੁਹਾਡੀ ਭੇਜੀ gzip ਨੂੰ ਖੋਲਣਾ ਅਸਫਲ ਰਿਹਾ ਹੈ। gzip ਦਾ ਜਵਾਬ:\n"
+"Lähetyksesi purkaminen gzip-ohjelmalla epäonnistui. gzip sanoi:\n"
 "%s\n"
 
 msgid "Afrikaans"
-msgstr "ਅਫਰੀਕਨ"
+msgstr "afrikaans"
 
 msgid "Albanian"
-msgstr "ਅਲਬਾਨੀਆਨ"
+msgstr "albania"
 
 msgid "Amharic"
-msgstr "ਅਮਹਾਰਿਕ"
+msgstr "amhara"
 
 msgid "Arabic"
-msgstr "ਅਰਬੀ"
+msgstr "arabia"
 
+# Onko sellaista kieltä kuin argentiina?
 msgid "Argentinian"
-msgstr "ਅਰਗੀਨੀਅਨ"
+msgstr "argentiina"
 
+# Kielen vaihtoehtoinen suomenkielinen nimi: astuuri
 msgid "Asturian"
-msgstr "ਅਸਟੂਰੀਅਨ"
+msgstr "asturia"
 
 msgid "Azerbaijani"
-msgstr "ਅਜ਼ਰਬਾਈਜਾਨ"
+msgstr "azeri"
 
 msgid "Basque"
-msgstr "ਬਸਕਿਉ"
+msgstr "baski"
 
 msgid "Belarusian"
-msgstr "ਬੇਲਾਰੂਸੀ"
+msgstr "valkovenäjä"
 
 msgid "Bosnian"
-msgstr "ਬੋਸਨੀਅਨ"
+msgstr "bosnia"
 
 msgid "Brazilian Portuguese"
-msgstr "ਬਰਾਜ਼ੀਲੀਅਨ ਪੁਰਤਗਾਲੀ"
+msgstr "brasilian portugali"
 
 msgid "Bulgarian"
-msgstr "ਬੁਲਗਾਰੀਅਨ"
+msgstr "bulgaria"
 
 msgid "Catalan"
-msgstr "ਕਟਾਲਿਕ"
+msgstr "katalaani"
 
 msgid "Chinese (simplified)"
-msgstr "ਚੀਨੀ (ਸਧਾਰਨ)"
+msgstr "kiina (yksinkertaistettu)"
 
 msgid "Chinese (traditional)"
-msgstr "ਚੀਨੀ (ਮੂਲ)"
+msgstr "kiina (perinteinen)"
 
 msgid "Croatian"
-msgstr "ਕਰੋਆਟੀਅਨ"
+msgstr "kroatia"
 
 msgid "Czech"
-msgstr "ਚੈੱਕ"
+msgstr "tsekki"
 
 msgid "Danish"
-msgstr "ਡੈਨਿਸ਼"
+msgstr "tanska"
 
 msgid "Dutch"
-msgstr "ਡੱਚ"
+msgstr "hollanti"
 
 msgid "English"
-msgstr "ਅੰਗਰੇਜ਼ੀ"
+msgstr "englanti"
 
 msgid "English (British)"
-msgstr "ਅੰਗਰੇਜ਼ੀ (ਬਰਤਾਨੀਆ)"
+msgstr "englanti (brittiläinen)"
 
 msgid "Esperanto"
-msgstr "ਇਸਪਰਂਟੋ"
+msgstr "esperanto"
 
 msgid "Estonian"
-msgstr "ਇਸਪਨੀਨ"
+msgstr "eesti"
 
 msgid "Finnish"
-msgstr "ਫੈਨਿਸ਼"
+msgstr "suomi"
 
 msgid "French"
-msgstr "ਫਰੈਚ"
+msgstr "ranska"
 
+# Tätä kieltä puhutaan Espanjan siinä osassa,joka jää Portugalin pohjoispuolelle. Yksi Espanjan virallisista kielistä Galician itsehallintoalueella. Kieltä puhutaan myös pohjois-Portugalissa.
 msgid "Galician"
-msgstr "ਗਾਲੇਸ਼ੀਅਨ"
+msgstr "galician kieli"
 
 msgid "Georgian"
-msgstr "ਜਾਰਜੀਆਨ"
+msgstr "gruusia"
 
 msgid "German"
-msgstr "ਜਰਮਨ"
+msgstr "saksa"
 
 msgid "Greek"
-msgstr "ਗਰੀਕ"
+msgstr "kreikka"
 
 msgid "Hebrew"
-msgstr "ਹੇਬਰਿਊ"
+msgstr "heprea"
 
 msgid "Hungarian"
-msgstr "ਹੰਗਰੀਅਨ"
+msgstr "unkari"
 
 msgid "Icelandic"
-msgstr "ਆਇਸਲੈਡਿਕ"
+msgstr "islanti"
 
 msgid "Indonesian"
-msgstr "ਇੰਡੋਨੇਸ਼ੀਅਨ"
+msgstr "indonesia"
 
 msgid "Irish"
-msgstr "ਆਇਰਸ਼"
+msgstr "iiri"
 
 msgid "Italian"
-msgstr "ਇਤਾਲਵੀ"
+msgstr "italia"
 
 msgid "Japanese"
-msgstr "ਜਪਾਨੀ"
+msgstr "japani"
 
 msgid "Kinyarwanda"
-msgstr "ਕੀਂਯਾਰਵਾਡਾ"
+msgstr "indonesia"
 
 msgid "Korean"
-msgstr "ਕੋਰੀਅਨ"
+msgstr "korea"
 
 msgid "Kurdish"
-msgstr "ਕੁਰਦਿਸ਼"
+msgstr "kurdin kieli"
 
 msgid "Latvian"
-msgstr "ਲਾਟਵੀਅਨ"
+msgstr "latvia"
 
 msgid "Lithuanian"
-msgstr "ਲੀਥੂਨੀਅਨ"
+msgstr "liettua"
 
+# Lojban on keinotekoisesti luotu kieli, jonka Logical Language Group loi vuonna 1987 ja joka perustuu aikaisempaan Loglan-kieleen. Kielen ISO 639-kielikoodi on jbo.
 msgid "Lojban"
-msgstr "ਲੂਜਬਾਨ"
+msgstr "lojban-kieli"
 
 msgid "Luganda"
-msgstr "ਲੂਗਾਂਡਾ"
+msgstr "lugandan kieli"
 
 msgid "Macedonian"
-msgstr "ਮੇਕਾਡੋਨੀਅਨ"
+msgstr "makedonian kieli"
 
+# malaijin kieli
 msgid "Malay"
-msgstr "ਮਾਲਾਇਆ"
+msgstr "malaiji"
 
 msgid "Maltese"
-msgstr "ਮਾਲਟੀਸ"
+msgstr "maltan kieli"
 
+# mongolin kieli
 msgid "Mongolian"
-msgstr "ਮੰਗੋਲੀਅਨ"
+msgstr "mongoli"
 
+# Mikä on nicaraguan kieli? Nicaraguassa puhutaan espanjan lisäksi ainakin mayangna, rama, garifuna ja kreolienglanti nimisiä kieliä. Rama on kuolemassa sukupuuttoon. Yksikielisiä vain ramaa puhuvia ihmisiä oli äskettäin yksi kappale ja hänkin arviolta yli 100-vuotias.
 msgid "Nicaraguian"
-msgstr "ਨੀਕਾਰਾਗੁਆਨੀ"
+msgstr "nicaraguan kieli"
 
+# sotho on yksi eteläisen Afrikan kielistä. Se voidaan jakaa ainakin pohjoissothoon ja eteläsothoon.
 msgid "Northern Sotho"
-msgstr "ਉੱਤਰੀ ਸੋਥੋ"
+msgstr "pohjoissotho"
 
 msgid "Norwegian"
-msgstr "ਨਾਰਵੇਗੀਅਨ"
+msgstr "norja"
 
 msgid "Norwegian Bokmaal"
-msgstr "ਨਾਰਵੇਗੀਅਨ ਬੋਕਮਾਲ"
+msgstr "norja bokmaal"
 
 msgid "Norwegian Nynorsk"
-msgstr "ਨਾਰਵੇਗੀਅਨ ਨਯਨੋਰਸਕ"
+msgstr "Norja nynorsk"
 
 msgid "Persian"
-msgstr "ਪਰਸੀਅਨ"
+msgstr "persian kieli"
 
 msgid "Polish"
-msgstr "ਪੋਲਿਸ਼"
+msgstr "puola"
 
 msgid "Portuguese"
-msgstr "ਪੁਰਤਗਾਲੀ"
+msgstr "portugali"
 
 msgid "Punjabi"
-msgstr "ਪੰਜਾਬੀ"
+msgstr "pandzabi"
 
 msgid "Rhaeto-Romance"
-msgstr "ਰਹਾਈਟੋ-ਰੋਮਾਨਸ"
+msgstr "retoromaani"
 
 msgid "Romanian"
-msgstr "ਰੋਮਾਨੀਅਨ"
+msgstr "romania"
 
 msgid "Russian"
-msgstr "ਰੂਸੀ"
+msgstr "venäjä"
 
 msgid "Serbian"
-msgstr "ਸਰਬੀਅਨ"
+msgstr "serbi"
 
+# Vaihtoehtoinen ehdotus kielen suomenkieliseksi nimeksi: singaleesi
 msgid "Sinhalese"
-msgstr "ਸੀਂਹਾਲਿਸੀ"
+msgstr "sinhala"
 
 msgid "Slovak"
-msgstr "ਸਲੋਵਾਕ"
+msgstr "slovakki"
 
 msgid "Slovenian"
-msgstr "ਸਲੋਵਾਕੀਅਨ"
+msgstr "sloveeni"
 
+# sotho on eteläisen Afrikan kieli, joka voidaan jakaa ainakin kahdeksi eri kieleksi: pohjoissotho ja eteläsotho
 msgid "Sotho"
-msgstr "ਸੋਥੋ"
+msgstr "sotho"
 
 msgid "Spanish"
-msgstr "ਸਪੇਨੀ"
+msgstr "espanja"
 
+# Kielen ehdotettu vaihtoehtoinen suomenkielinen nimi: swazi
 msgid "Swati"
-msgstr "ਸਵਾਟੀ"
+msgstr "swati"
 
 msgid "Swedish"
-msgstr "ਸਵੀਡਅਨ"
+msgstr "ruotsi"
 
+# Tadzikistanin virallinen kieli.
 msgid "Tajik"
-msgstr "ਤਾਜਿਕ"
+msgstr "tad\\xc5\\xbeikki"
 
 msgid "Tamil"
-msgstr "ਤਾਮਿਲ"
+msgstr "tamili"
 
 msgid "Thai"
-msgstr "ਥਾਈ"
+msgstr "kymri"
 
 msgid "Turkish"
-msgstr "ਤੁਰਕਿਸ"
+msgstr "turkki"
 
 msgid "Turkmen"
-msgstr "ਤੁਕਮੇਨੀ"
+msgstr "turkmeeni"
 
 msgid "Ukrainian"
-msgstr "ਯੂਕਰੇਨੀ"
+msgstr "ukraina"
 
 msgid "Venda"
-msgstr "ਵਾਂਡਾ"
+msgstr "venda"
 
 msgid "Vietnamese"
-msgstr "ਵੀਅਤਨਾਮੀ"
+msgstr "vietnam"
 
 msgid "Walloon"
-msgstr "ਵਾਲਿਸ਼"
+msgstr "valloni"
 
+# Kielen vaihtoehtoinen suomenkielinen nimi: wales
 msgid "Welsh"
-msgstr "ਵਾਲਿਸ਼"
+msgstr "kymri"
 
 msgid "Xhosa"
-msgstr "ਜ਼ਹੋਸਾ"
+msgstr "xhosa"
 
 msgid "Zulu"
-msgstr "ਜ਼ੂਲੂ"
+msgstr "zulu"

@@ -1,154 +1,151 @@
-# translation of tp-robot-1.1.po to Punjabi
-# This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Amanpreet Singh Alam <punjablinux@netscape.net>, 2004.
+# Irish translations for tp-robot.
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as the tp-robot package.
+# Kevin Patrick Scannell <scannell@SLU.EDU>, 2005, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: tp-robot-1.1\n"
+"Project-Id-Version: tp-robot 1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-06-19 06:38-0400\n"
-"PO-Revision-Date: 2004-08-29 12:03+0530\n"
-"Last-Translator: Amanpreet Singh Alam <punjablinux@netscape.net>\n"
-"Language-Team: Punjabi <kde-i18n-pa@kde.org>\n"
+"PO-Revision-Date: 2006-07-17 19:01-0500\n"
+"Last-Translator: Kevin Patrick Scannell <scannell@SLU.EDU>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
-"Plural-Forms: Plural-Forms: Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"\n"
 
 #: bin/fetch-pot:50
 #, python-format
 msgid "Domain `%s' has no associated URL"
-msgstr "ਡੋਮੇਨ %s URL ਨਾਲ ਸੰਬੰਧਿਤ ਨਹੀਂ ਹੈ"
+msgstr "N�l URL a bhaineann le fearann `%s'"
 
 #: bin/fetch-pot:56
 #, python-format
 msgid "Examining %s..."
-msgstr "%s ਦੀ ਜਾਂਚ ਜਾਰੀ ਹੈ..."
+msgstr "%s � scr�d�..."
 
 #: bin/fetch-pot:58
 #, python-format
 msgid "Fetching %s..."
-msgstr "%s ਪ੍ਰਾਪਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+msgstr "%s � fh�il..."
 
 #: bin/fetch-pot:65 bin/fetch-pot:68
 msgid "  apparently not found\n"
-msgstr ""
+msgstr "  de r�ir cos�lachta, n�or aims�odh �\n"
 
 #: bin/fetch-pot:86
 msgid "  no POT file in archive\n"
-msgstr "  ਕੋਈ POT ਫਾਇਲ ਸੁਕੰਚਿਤ ਵਿੱਚ ਨਹੀਂ \n"
+msgstr "  n�l comhad POT sa chartlann\n"
 
 #: bin/fetch-pot:113
 msgid "  more than one POT file in archive:\n"
-msgstr "  ਇੱਕ ਸੁਕੰਚਿਤ ਵਿੱਚ ਇੱਕ ਤੋਂ ਵਧੇਰੇ POT ਫਾਇਲ਼ਾਂ ਹਨ\n"
+msgstr "  t� n�os m� n� comhad POT amh�in sa chartlann:\n"
 
 #: bin/fetch-pot:120
 msgid "Did not retain any POT file"
-msgstr "ਕੋਈ POT ਫਾਇਲ਼ ਪ੍ਰਾਪਤ ਨਹੀਂ ਹੋਈ"
+msgstr "N�or coime�dadh comhad POT ar bith"
 
 #: bin/fetch-pot:135
 #, python-format
 msgid "  extracting %s as %s\n"
-msgstr "  %s ਨੂੰ %s ਵਾਂਗ ਖੋਲਿਆ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "  %s � bhaint amach mar %s\n"
 
 #: bin/fetch-pot:142
 msgid "Extraction failed"
-msgstr "ਖੋਲਣਾ ਅਸਫਲ"
+msgstr "Theip ar bhaint amach"
 
 #: bin/msg-to-po:35 bin/msg-to-po:44
 #, python-format
 msgid "#. Message no %s\n"
-msgstr "#. ਸੁਨੇਹਾ ਕ੍ਰਮ %s\n"
+msgstr "#. Teachtaireacht %s\n"
 
 #: bin/msg-to-po:47
 #, python-format
 msgid "msgid \"*** Unknown - message no %s ***\"\n"
-msgstr "msgid \"*** ਅਣਜਾਣਾ - ਸੁਨੇਹਾ ਅੰਕ %s ***\"\n"
+msgstr "msgid \"*** Anaithnid - teachtaireacht %s ***\"\n"
 
 #: bin/msg-to-po:72
 #, python-format
 msgid "<stdin>:%d: ERROR: %s"
-msgstr "<stdin>:%d: ਗਲਤੀ: %s"
+msgstr "<stdin>:%d: EARR�ID: %s"
 
 #: bin/po-empty:23 bin/po-normalize:23
 #, python-format
 msgid "Usage: %s [PO-FILE]"
-msgstr "ਵਰਤੋਂ: %s [PO-FILE]"
+msgstr "�s�id: %s [COMHADPO]"
 
 #: bin/po-register:59
 #, python-format
 msgid "`%s' may not be absolute notation, think `shar'..."
-msgstr ""
+msgstr "is f�idir nach dearbhnodaireacht � `%s', cos�il le `shar'..."
 
 #: bin/po-register:63 bin/po-register:66
 #, python-format
 msgid "Processing %s\n"
-msgstr "%s ਕਾਰਵਾਈ ਜਾਰੀ ਹੈ\n"
+msgstr "%s � phr�ise�il\n"
 
 #: bin/po-register:73
 #, python-format
 msgid "No known maintainer for textual domain `%s'"
-msgstr "ਪਾਠ ਡੋਮੇਨ '%s' ਲਈ ਕੋਈ ਜਾਣਿਆ ਪ੍ਰਬੰਧਕ ਨਹੀਂ ਹੈ"
+msgstr "N�l cothaitheoir ar eolas i gcomhair fearann t�acsach `%s'"
 
 #: bin/po-register:92
 #, python-format
 msgid "  skipping `%s' as local `%s' waits\n"
-msgstr "    '%s' ਨੂੰ ਸਥਾਨਿਕ '%s' ਉਡੀਕ ਕਰਕੇ ਛੱਡਿਆ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "  `%s' � ligean thart agus `%s' log�nta ag fanacht\n"
 
 #: bin/po-register:96
 #, python-format
 msgid "  skipping `%s' as `%s' exists\n"
-msgstr "    '%s' ਨੂੰ '%s' ਮੌਜੂਦਗੀ ਛੱਡਿਆ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "  `%s' � ligean thart mar go bhfuil `%s' ann\n"
 
 #: bin/po-register:103
 #, python-format
 msgid "  merging with `%s'"
-msgstr "  '%s' ਨਾਲ ਮਿਲਾਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+msgstr "  � chumasc le `%s'"
 
 #: bin/po-register:121 bin/po-register:137
 #, python-format
 msgid "    sending `%s' to `%s'\n"
-msgstr "    '%s' ਤੋਂ '%s' ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "    `%s' � sheoladh chuig `%s'\n"
 
 #: bin/po-register:127 bin/po-register:188
 #, python-format
 msgid "    notifying `%s' about `%s'\n"
-msgstr "   '%s' ਨੂੰ '%s' ਬਾਰੇ ਸੂਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "    ag dul i dteagmh�il le `%s' maidir le `%s'\n"
 
 #: bin/po-register:142
 #, python-format
 msgid "  notifying `%s' about `%s-%s.pot'\n"
-msgstr "  '%s' ਨੂੰ %s-%s.pot' ਬਾਰੇ ਸੂਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "  ag dul i dteagmh�il le `%s' maidir le `%s-%s.pot'\n"
 
 #: bin/po-register:145
 msgid "    also notifying team leaders\n"
-msgstr "   ਟੀਮ ਪ੍ਰਬੰਧਕ ਨੂੰ ਵੀ ਸੂਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "    agus ag dul i dteagmh�il le ceannair� na bhfoirne freisin\n"
 
 #: bin/po-register:152
 #, python-format
 msgid "    initializing `%s/teams/PO/%s'\n"
-msgstr "     `%s/teams/PO/%s' ਸ਼ੁਰੂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "    `%s/teams/PO/%s' � th�s�\n"
 
 #: bin/po-register:162
 #, python-format
 msgid "  skipping `%s', as already uploaded\n"
-msgstr "  '%s' ਨੂੰ ਛੱਡਿਆ ਜਾ ਰਿਹਾ ਹੈ, ਇਹ ਪਹਿਲਾਂ ਹੀ ਲੋਡ ਹੈ\n"
+msgstr "  `%s' � ligean thart, mar go bhfuil s� uasluchtaithe cheana\n"
 
 #: bin/po-register:175
 msgid "Translation empty and identical to Template, not loaded\n"
-msgstr "ਅਨੁਵਾਦ ਖਾਲੀ ਹੈ ਅਤੇ ਨਮੂਨੇ ਵਰਗਾ ਹੀ ਹੈ, ਲੋਡ ਨਹੀਂ ਹੋ ਸਕਦਾ\n"
+msgstr "Is ionann an t-aistri�ch�n agus an Teimpl�ad; n�or luchta�odh �\n"
 
 #: bin/po-register:177
 msgid "Translation identical to archive file, not loaded\n"
-msgstr "ਅਨੁਵਾਦ ਸੁਕੰਚਿਤ ਫਾਇਲ ਵਰਗਾ ਹੀ ਹੈ, ਲੋਡ ਨਹੀਂ ਹੋ ਸਕਦਾ ਹੈ\n"
+msgstr "Is ionann an t-aistri�ch�n agus an leagan sa chartlann; n�or luchta�odh �\n"
 
 #: bin/po-register:207
 #, python-format
 msgid "    also notifying `%s'\n"
-msgstr "    '%s' ਨੂੰ ਵੀ ਸੂਚਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "    agus ag dul i dteagmh�il le `%s' freisin\n"
 
 #: bin/po-register:221
 #, python-format
@@ -158,9 +155,9 @@ msgid ""
 "Subject: New PO Template file for `%s'\n"
 "\n"
 msgstr ""
-"ਵਲੋਂ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ: %s\n"
-"ਵਿਸ਼ਾ: `%s' ਲਈ ਨਵੀਂ PO ਫਾਇਲ\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
+"To: %s\n"
+"Subject: Creatchomhad nua POT i gcomhair `%s'\n"
 "\n"
 
 #: bin/po-register:228
@@ -173,11 +170,12 @@ msgid ""
 "has just been made available to language teams for translation, and a copy\n"
 "is available as:\n"
 msgstr ""
-"ਸਵਾਗਤ, ਪਿਆਰੇ ਗਭਰੇਟ ਪ੍ਰਬੰਧਕ,\n"
-"ਇਹ ਸੁਨੇਹਾ ਅਨੁਵਾਦ ਪ੍ਰੋਜਕੈਟ ਰੋਬੋਟ ਵਲੋਂ ਹੈ।\n"
+"Dia dhuit, a chothaitheoir uasal.\n"
+"Seo � teachtaireacht � R�b� an Tionscadail Aistri�ch�in.\n"
 "\n"
-"ਇੱਕ ਨਵੀਂ PO ਨਮੂਨਾ ਫਾਇਲ, ਪਾਠ ਡੋਮੇਨ '%s' ਆਧਾਰਿਤ ਕਾਰਜ ਲਈ, ਅਨੁਵਾਦ\n"
-"ਟੀਮਾਂ ਲਈ ਉਪਲੱਬਧ ਹੋਈ ਹੈ ਅਤੇ ਇਸ ਦੀ ਇੱਕ ਨਕਲ ਹੇਠਾਂ ਉਪਲੱਬਧ ਹੈ:\n"
+"T� creatchomhad nua PO ann i gcomhair r�omhchl�ir a bhaineann �s�id\n"
+"as an bhfearann t�acsach `%s'.  T�im tar �is � a sheoladh go dt� na\n"
+"foirne aistri�ch�in, agus t� c�ip ar f�il mar:\n"
 
 #: bin/po-register:238 bin/po-register:320 bin/po-register:381
 #, python-format
@@ -191,7 +189,7 @@ msgstr ""
 "\n"
 ">    %s\n"
 "\n"
-"ਫਾਇਲ ਪ੍ਰਤੀਬਿੰਬ ਸਾਇਟਾਂ ਤੇ ਛੇਤੀ ਹੀ ਉਪਲੱਬਧ ਹੋ ਜਾਵੇਗੀ:\n"
+"Beidh an comhad ar f�il � shu�mh sc�th�naithe sula i bhfad, mar:\n"
 "\n"
 
 #: bin/po-register:248
@@ -211,6 +209,20 @@ msgid ""
 "version numbers, but since it is not OK to have two different distributions\n"
 "having same version numbers, this is not a problem in practice.\n"
 msgstr ""
+"\n"
+"Go hiond�il, aims�tear an comhad seo mar `po/%s.pot' i do phac�iste.\n"
+"Crutha�tear � n� nuashonra�tear � go huathoibr�och nuair a ritheann t�\n"
+"`make dist', n� nuair a ritheann t� `make update-po' san fhochomhadlann\n"
+"`po/'.  Ansin, cib� uair a bheidh leagan r�idh agat le creatchomhad PO\n"
+"n�os nua� ann, seol URL an phac�iste chuig an seoladh th�os.  Is f�idir\n"
+"leagan r�amhth�st�la n� roghbhl�ire a �s�id, go fi� n� g� go dtioms�dh s�.\n"
+"Bainfidh aistritheoir� �s�id as chun comhth�acs aistri�ch�in a fh�il\n"
+"� do chuid c�id fhoinsigh.\n"
+"\n"
+"Faoi sc�th an Tionscadal Aistri�ch�in, ba ch�ir leaganuimhir dhifri�il\n"
+"a bheith ag gach creatchomhad PO.  Ach de bhr� nach gceada�tear an\n"
+"leaganuimhir ch�anna a bheith ar phac�ist� difri�la, n�l aon fhadhb ann\n"
+"de ghn�th.\n"
 
 #: bin/po-register:265
 msgid ""
@@ -220,6 +232,12 @@ msgid ""
 "given below, if the information does not appear to be adequate or current:\n"
 "\n"
 msgstr ""
+"\n"
+"Seo dhuit an fhaisn�is URL a tugadh d'aistritheoir� do phac�iste anois beag.\n"
+"T�igh i dteagmh�il le comhordaitheoir na n-aistri�ch�n ag an seoladh th�os,\n"
+"le do thoil, m� t� easnamh san fhaisn�is seo, n� m� dhealra�onn s� a bheith\n"
+"as d�ta:\n"
+"\n"
 
 #: bin/po-register:275
 msgid ""
@@ -227,7 +245,7 @@ msgid ""
 "Translated PO files will later be automatically e-mailed to you.\n"
 msgstr ""
 "\n"
-"ਅਨੁਵਾਦ PO ਫਾਇਲਾਂ ਤੁਹਾਨੂੰ ਛੇਤੀ ਹੀ ਈ-ਪੱਤਰ ਰਾਹੀਂ ਭੇਜ ਦਿੱਤੀਆਂ ਜਾਣਗੀਆਂ।\n"
+"N�os d�ana�, seolfar na comhaid aistrithe PO chugat go huathoibr�och.\n"
 
 #: bin/po-register:280
 msgid ""
@@ -236,8 +254,9 @@ msgid ""
 "to you when they arrive.  Ask to the address below if you want this.\n"
 msgstr ""
 "\n"
-"ਅਸੀਂ ਸਭ ਕੁਝ ਇਸ ਤਰਾਂ ਤਰਤੀਬਵਾਰ ਕੀਤਾ ਹੈ ਕਿ ਅਨੁਵਾਦ PO ਫਾਇਲਾਂ ਆਉਣ ਤੋਂ \n"
-"ਤੁਰੰਤ ਬਾਅਦ ਤੁਹਾਨੂੰ ਈ-ਪੱਤਰ ਰਾਹੀਂ ਭੇਜ ਦਿੱਤੀਆਂ ਜਾਣਗੀਆਂ। ਜਾਣਕਾਰੀ ਲਈ ਹੇਠ ਦਿੱਤੇ ਸਿਰਨਾਵੇਂ ਤੇ ਸੰਪਰਕ ਕਰੋ।\n"
+"Is f�idir linn an c�ras a shocr� i sl� go seolfar comhaid aistrithe PO\n"
+"chugat nuair a thiocfaidh siad isteach.  Cuir iarratas chuig an seoladh\n"
+"th�os m�s mian leat an socr� seo a chur i ngn�omh.\n"
 
 #: bin/po-register:285 bin/po-register:346
 msgid ""
@@ -249,10 +268,10 @@ msgid ""
 "                                <coordinator@translationproject.org>\n"
 msgstr ""
 "\n"
-"ਸਹਿਯੋਗ ਲਈ ਸ਼ੁਕਰੀਆ,\n"
+"Go raibh maith agat as do chomhoibri�,\n"
 "\n"
-"                                ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ,\n"
-"                                ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਦੇ ਅਨੁਵਾਦ ਮੁੱਖੀ ਵੱਲ\n"
+"                                R�b� an Tionscadail Aistri�ch�in, in\n"
+"                                ainm do chomhordaitheora aistri�ch�in.\n"
 "                                <coordinator@translationproject.org>\n"
 
 #: bin/po-register:303
@@ -263,9 +282,9 @@ msgid ""
 "Subject: New PO Template file for `%s'\n"
 "\n"
 msgstr ""
-"ਵੱਲੋਂ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ: team-leaders@translationproject.org\n"
-"ਵਿਸ਼ਾ: `%s' ਲਈ ਨਵਾਂ PO ਨਮੂਨਾ \n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
+"To: team-leaders@translationproject.org\n"
+"Subject: Creatchomhad nua POT i gcomhair `%s'\n"
 "\n"
 
 #: bin/po-register:310
@@ -278,11 +297,12 @@ msgid ""
 "has just been made available to language teams for translation, and a copy\n"
 "is available as:\n"
 msgstr ""
-"ਸਭ ਟੀਮ ਮੁੱਖੀਆਂ ਨੂੰ ਮੇਰਾ ਦਿਲ ਸ਼ੁਭਕਾਮਨਾਵਾਂ।\n"
-"ਇਹ ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ ਵਲੋਂ ਸੁਨੇਹਾ ਹੈ।\n"
+"Beannachta� ar cheannair� na bhfoirne teanga.\n"
+"Seo � teachtaireacht � R�b� an Tionscadail Aistri�ch�in.\n"
 "\n"
-"ਇੱਕ ਨਵੀਂ PO ਨਮੂਨਾ ਫਾਇਲ, ਪਾਠ ਡੋਮੇਨ '%s' ਆਧਾਰਿਤ ਕਾਰਜ ਲਈ, ਅਨੁਵਾਦ\n"
-"ਟੀਮਾਂ ਲਈ ਉਪਲੱਬਧ ਹੋਈ ਹੈ ਅਤੇ ਇਸ ਦੀ ਇੱਕ ਨਕਲ ਹੇਠਾਂ ਉਪਲੱਬਧ ਹੈ:\n"
+"T� creatchomhad nua PO ann i gcomhair r�omhchl�ir a bhaineann �s�id\n"
+"as an bhfearann t�acsach `%s'.  T�im tar �is � a sheoladh go dt� na\n"
+"foirne aistri�ch�in, agus t� c�ip ar f�il mar:\n"
 
 #: bin/po-register:330
 msgid ""
@@ -293,10 +313,11 @@ msgid ""
 "translator might be recruited to take care of it.\n"
 msgstr ""
 "\n"
-"ਤੁਹਾਡੀ ਟੀਮ ਨੂੰ ਸੂਚਨਾ ਤਾਂ ਹੀ ਮਿਲੇਗੀ, ਜੇਕਰ ਇਸ ਨੇ ਅਨੁਵਾਦ ਕਮਿਟ ਕੀਤਾ\n"
-"ਜਾਂ ਜੇਕਰ ਤੁਸੀਂ ਇਹ ਸਵੀਕਾਰ ਕੀਤਾ ਕਿ ਟੀਮ ਨੂੰ ਸੂਚਿਤ ਕੀਤਾ ਜਾਵੇ, ਕਿਸੇ ਵੀ ਤਰਾਂ।\n"
-"ਨਹੀਂ ਤਾਂ, ਇਹ ਸਿਰਫ ਤੁਹਾਡੇ ਅਤੇ ਤੁਹਾਡੀ ਟੀਮ ਨੇ ਹੀ ਨਿਰਧਾਰਿਤ ਕਰਨਾ ਹੈ ਕਿ ਅਨੁਵਾਦਕ\n"
-"ਇਸ ਦਾ ਧਿਆਨ ਕਿਵੇਂ ਰੱਖੇ।\n"
+"Seoladh an teachtaireacht seo chugat de bharr go ndearna d'fhoireann\n"
+"aistri�ch�n ar an bhfearann seo cheana, n� de bharr gur iarr t� go mbeidh\n"
+"f�gra seolta chugaibh mar sin f�in.\n"
+"T� dualgas ort, agus ar d'fhoireann, aistritheoir oiri�nach a earc�\n"
+"chun an t-aistri�ch�n a chur i gcr�ch.\n"
 
 #: bin/po-register:338
 msgid ""
@@ -306,8 +327,8 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"ਇੱਥੇ ਕੁਝ URL ਜਾਣਕਾਰੀ ਹੈ, ਜੋ ਕਿ ਇਸ ਪੈਕੇਜ ਦੇ ਅਨੁਵਾਦਕਾਂ ਨੂੰ ਉਪਲੱਬਧ\n"
-"ਕਰਵਾਈ ਜਾ ਸਕਦੀ ਹੈ:\n"
+"Seo duit faisn�is URL gurbh fh�idir tabhairt d'aistritheoir�\n"
+"an phac�iste seo:\n"
 "\n"
 
 #: bin/po-register:362
@@ -318,9 +339,9 @@ msgid ""
 "Subject: New %s PO file for `%s'\n"
 "\n"
 msgstr ""
-"ਵਲੋਂ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ: %s\n"
-"ਵਿਸ਼ਾ: `%s' ਲਈ ਨਵੀਂ %s PO ਫਾਇਲ\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
+"To: %s\n"
+"Subject: Comhad nua PO %s i gcomhair `%s'\n"
 "\n"
 
 #: bin/po-register:370
@@ -334,17 +355,19 @@ msgid ""
 "language.  This particular file, along with all other PO files pertaining\n"
 "to the same textual domain, is available as:\n"
 msgstr ""
-"ਸਵਾਗਤ, ਪਿਆਰੇ ਪ੍ਰਬੰਧਕ,\n"
-"ਇਹ ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ ਵਲੋਂ ਸੁਨੇਹਾ ਹੈ।\n"
+"Dia dhuit, a chothaitheoir uasal.\n"
+"Seo � teachtaireacht � R�b� an Tionscadail Aistri�ch�in.\n"
 "\n"
-"ਇੱਕ ਨਵੀਂ PO ਨਮੂਨਾ ਫਾਇਲ, ਪਾਠ ਡੋਮੇਨ '%s' ਆਧਾਰਿਤ ਕਾਰਜ ਲਈ, \n"
-"ਅਨੁਵਾਦ ਟੀਮ %s ਲਈ ਉਪਲੱਬਧ ਹੋਈ ਹੈ। ਇਹ ਖਾਸ ਫਾਇਲ, ਹੋਰ PO ਫਾਇਲਾਂ ਨਾਲ\n"
-" ਕੁਝ ਪਾਠ ਡੋਮੇਨ ਨਾਲ ਸ਼ਾਮਿਲ ਹੈ, ਉਪਲੱਬਧ ਹੈ:\n"
+"T� comhad leasaithe PO ann i gcomhair r�omhchl�ir a bhaineann �s�id\n"
+"as an bhfearann t�acsach `%s'.  Is %s teanga an aistri�ch�in seo, agus\n"
+"ba � foireann an teanga seo a chuir an comhad nua � faoi do bhr�id.\n"
+"T� an comhad �irithe seo, agus gach comhad eile a bhaineann leis an bhfearann\n"
+"c�anna, ar f�il mar:\n"
 
 #: bin/po-register:392
 #, python-format
 msgid "    mailing `%s' to `%s'\n"
-msgstr "    `%s' ਵੱਲੋਂ `%s' ਪੱਤਰ ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ\n"
+msgstr "    `%s' � sheoladh chuig `%s'\n"
 
 #: bin/po-register:395
 #, python-format
@@ -353,6 +376,9 @@ msgid ""
 "This file has already been sent to you separately on %s,\n"
 "as a MIME invoice unpacking the file `%s'.\n"
 msgstr ""
+"\n"
+"Seoladh an comhad seo chugat go leithleach cheana ar %s,\n"
+"mar shonrasc MIME a dh�phac�lann comhad `%s'.\n"
 
 #: bin/po-register:402
 msgid ""
@@ -360,6 +386,10 @@ msgid ""
 "We may arrange things so future such files be automatically e-mailed\n"
 "to you when they arrive.  Ask to the address below if you want this.\n"
 msgstr ""
+"\n"
+"Is f�idir an c�ras a shocr� sa chaoi go seolfar comhaid mar seo chugat\n"
+"nuair a thiocfaidh siad isteach.  Fiafraigh d�nn ag an seoladh th�os m� t�\n"
+"an tseirbh�s seo uait.\n"
 
 #: bin/po-register:407
 #, python-format
@@ -387,6 +417,30 @@ msgid ""
 "                                name of your translation coordinator.\n"
 "                                <coordinator@translationproject.org>\n"
 msgstr ""
+"\n"
+"Um an dtaca seo am�rach, beidh na leathanaigh HTML seo nuashonraithe.\n"
+"\n"
+">    %s/HTML/domain-%s.html\n"
+"\n"
+"Anois, le do thoil, ba ch�ir duit gach comhad PO, mar at� siad, san\n"
+"fhochomhadlann `po/' sa ch�ad leagan eile de gach r�omhchl�r a bhaineann\n"
+"�s�id as an bhfearann t�acsach sin, c� acu leagan oifigi�il n� r�amhth�st�la.\n"
+"Cib� uair a bheidh leagan r�idh agat le creatchomhad PO n�os nua� ann, seol\n"
+"URL an phac�iste chuig an seoladh th�os.  Is f�idir leagan r�amhth�st�la n�\n"
+"roghbhl�ire a �s�id, go fi� n� g� go dtioms�dh s�. Bainfidh aistritheoir�\n"
+"�s�id as chun comhth�acs aistri�ch�in a fh�il � do chuid c�id foinsigh.\n"
+"\n"
+"Faoi sc�th an Tionscadal Aistri�ch�in, ba ch�ir leaganuimhir dhifri�il\n"
+"a bheith ag gach creatchomhad PO.  Ach de bhr� nach gceada�tear an\n"
+"leaganuimhir ch�anna a bheith ar phac�ist� difri�la, n�l aon fhadhb ann\n"
+"de ghn�th.\n"
+"\n"
+"T�igh i dteagmh�il liom m� t� ceisteanna ar bith agat.\n"
+"Go raibh maith agat as do chomhoibri�,\n"
+"\n"
+"                                R�b� an Tionscadail Aistri�ch�in, in\n"
+"                                ainm do chomhordaitheora aistri�ch�in.\n"
+"                                <coordinator@translationproject.org>\n"
 
 #: bin/po-register:453
 #, python-format
@@ -396,9 +450,9 @@ msgid ""
 "Subject: %s-%s (%d%%, %d untranslated)\n"
 "%s\n"
 msgstr ""
-"ਵਿਸ਼ਾ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ: %s\n"
-"ਵਿਸ਼ਾ: %s-%s (%d%%, %d ਨਾ-ਅਨੁਵਾਦ)\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
+"To: %s\n"
+"Subject: %s-%s (%d%%, %d gan aistri�)\n"
 "%s\n"
 
 #: bin/po-register:462
@@ -414,6 +468,15 @@ msgid ""
 "should soon be made available in mirror sites as:\n"
 "\n"
 msgstr ""
+"Dia dhaoibh, a bhaill den fhoireann %s ag `%s'.\n"
+"Seo � teachtaireacht � R�b� an Tionscadail Aistri�ch�in.\n"
+"T� �thas orm a fh�gairt go bhfuil comhad nua le f�il sna\n"
+"cartlanna l�rnacha PO, mar:\n"
+"\n"
+">    %s\n"
+"\n"
+"Beidh an comhad ar f�il � shu�mh sc�th�naithe sula i bhfad, mar:\n"
+"\n"
 
 #: bin/po-register:475
 #, python-format
@@ -429,21 +492,31 @@ msgid ""
 "in mirror sites as:\n"
 "\n"
 msgstr ""
+"Dia dhaoibh, a bhaill den fhoireann %s ag `%s'.\n"
+"Seo � teachtaireacht � R�b� an Tionscadail Aistri�ch�in.\n"
+"T� �thas orm a fh�gairt go bhfuil comhad nua le f�il sna\n"
+"cartlanna l�rnacha PO, mar:\n"
+"\n"
+">    %s\n"
+"\n"
+"agus t� s� i dtaisce anois le gach aistri�ch�n %s ar glacadh leis cheana.\n"
+"Beidh an comhad ar f�il � shu�mh sc�th�naithe sula i bhfad, mar:\n"
+"\n"
 
 #: bin/po-register:495
 #, python-format
 msgid "%s and %s are currently assigned for the translation. When you have completed the translation, send the result to the address given below, using the Subject line:"
-msgstr ""
+msgstr "T� an t-aistri�ch�n faoi ch�ram %s agus %s faoi l�thair. Nuair a bheidh an t-aistri�ch�n curtha i gcr�ch, seol � chuig an seoladh th�osluaite, leis an l�ne \"Subject\":"
 
 #: bin/po-register:499
 #, python-format
 msgid "%s is currently assigned for the translation. When you have completed the translation, send the result to the address given below, using:"
-msgstr ""
+msgstr "T� an t-aistri�ch�n faoi ch�ram %s faoi l�thair. Nuair a bheidh an t-aistri�ch�n curtha i gcr�ch, seol � chuig an seoladh th�osluaite, le:"
 
 #: bin/po-register:509
 #, python-format
 msgid "The most recent translation of this translator has %d of %d messages translated."
-msgstr "ਇਸ ਅਨੁਵਾਦਕ ਦੇ ਤਾਜ਼ਾ ਅਨੁਵਾਦ ਵਿੱਚ %d ਸੁਨੇਹੇ %d ਸੁਨੇਹਿਆਂ ਵਿੱਚੋਂ ਤਬਦੀਲ ਹਨ।"
+msgstr "T� %d as %d teachtaireacht aistrithe san aistri�ch�n is d�ana� �n aistritheoir seo."
 
 #: bin/po-register:511
 #, python-format
@@ -453,8 +526,8 @@ msgid ""
 "part of the Translation Project. %s\n"
 msgstr ""
 "\n"
-"ਇੱਥੇ ਇੱਕ ਅਨੁਵਾਦਕ ਇਸ ਅਨੁਵਾਦ ਤੇ ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ, ਜੋ ਕਿ ਇਸ ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ\n"
-"ਦਾ ਭਾਗ ਹੈ:%s\n"
+"T� aistritheoir ann at� ag obair ar an aistri�ch�n seo faoi l�thair, ach\n"
+"n�l s�/s� ball den Tionscadal Aistri�ch�in. %s\n"
 
 #: bin/po-register:516
 #, python-format
@@ -466,6 +539,12 @@ msgid ""
 "Once the translation is completed, send the result to the address given\n"
 "below, using the Subject line:\n"
 msgstr ""
+"\n"
+"Le do thoil, d�an machnamh ar an aistri�ch�n seo a ghlacadh faoi do ch�ramsa,\n"
+"ar son na %s.  M� chinneann t� an t-aistri�ch�n a dh�anamh, fiafraigh de\n"
+"cheannaire d'fhoirne (m�s ann d�) cur in i�l do chomhordaitheoir na\n"
+"n-aistri�ch�n gur tusa f�in at� i mbun `%s' anois. Nuair at� an t-aistri�ch�n\n"
+"curtha i gcr�ch, seol an comhad chuig an seoladh th�os, le l�ne \"Subject\":\n"
 
 #: bin/po-register:525
 #, python-format
@@ -478,6 +557,13 @@ msgid ""
 "in your message header.  You may contact either your team leader or me,\n"
 "if any question arises.\n"
 msgstr ""
+"\n"
+"N�or aistr�odh aon cheann de na teachtaireachta� at� ann f�s. %s\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"i gceannt�sc do theachtaireacht.  M� t� ceisteanna agat, is f�idir leat dul\n"
+"i dteagmh�il le ceannaire d'fhoireann, n� liomsa.\n"
 
 #: bin/po-register:538
 #, python-format
@@ -489,21 +575,31 @@ msgid ""
 "\n"
 "Let me thank you for all users of the %s language.\n"
 msgstr ""
+"\n"
+"Aistr�odh gach ceann de na %d teachtaireacht at� ann, agus sheol m�\n"
+"an comhad PO seo chuig an gcothaitheoir de `%s', le s�il go gcuirfidh s�/s�\n"
+"� isteach le heisi�int� de r�omhchl�ir a bhaineann �s�id as an bhfearann\n"
+"t�acsach seo.\n"
+"\n"
+"Go raibh m�le maith agat, � gach duine a �s�ideann saorbhogearra� as %s.\n"
 
 #: bin/po-register:550
 #, python-format
 msgid "%s and %s are currently assigned for the translation."
-msgstr "%s ਅਤੇ %s ਅਨੁਵਾਦ ਲਈ ਭੇਜੀਆਂ ਜਾ ਚੁੱਕੀਆਂ ਹਨ।"
+msgstr "T� an t-aistri�ch�n faoi ch�ram %s agus %s faoi l�thair."
 
 #: bin/po-register:554
 #, python-format
 msgid "%s is currently assigned for the translation."
-msgstr "%s ਅਨੁਵਾਦ ਲਈ ਜਾਰੀ ਹੋ ਚੁੱਕੀਆਂ ਹਨ।"
+msgstr "T� an t-aistri�ch�n faoi ch�ram %s faoi l�thair."
 
 #: bin/po-register:557
 #, python-format
 msgid "Nobody in your team is currently assigned to the domain '%s'. The team leader (if any) should inform the translation coordinator of who will become responsible for it."
 msgstr ""
+"N�l aon duine ar d'fhoireann ceaptha leis an bhfearann '%s' faoi l�thair.\n"
+"Ba ch�ir do cheannaire na foirne (m�s ann do) ainm aistritheora nua a chur\n"
+"in i�l do chomhordaitheoir na n-aistri�ch�n."
 
 #: bin/po-register:559
 #, python-format
@@ -525,6 +621,23 @@ msgid ""
 "\n"
 "Thanks!\n"
 msgstr ""
+"\n"
+"Aistr�odh %d teachtaireacht sa chomhad seo cheana,\n"
+"n� %d%% den chomhad, i dt�arma� l�on na mbeart. T� %d teachtaireacht\n"
+"f�gtha gan aon aistri�, n� le haistri�ch�n doil�ir.  %s\n"
+"\n"
+"D�an aistri�ch�n ar na teachtaireachta� at� f�gtha, ar son na ndaoine\n"
+"ar mian leo bogearra� a �s�id as %s.  Nuair at� an t-aistri�ch�n curtha\n"
+"i gcr�ch, seol an comhad chuig an seoladh th�os, leis an l�ne \"Subject\":\n"
+"\n"
+">    TP-Robot %s-%s.%s.po\n"
+"\n"
+"i gceannt�sc do theachtaireacht.  M� t� ceisteanna agat, is f�idir leat dul\n"
+"i dteagmh�il le ceannaire d'fhoireann, n� liomsa.  Idir an d� linn, sheol m�\n"
+"an comhad PO seo chuig an gcothaitheoir de cib� r�omhchl�ir a bhaineann �s�id\n"
+"as an bhfearann t�acsach `%s'.\n"
+"\n"
+"Go raibh maith agat!\n"
 
 #: bin/po-register:581
 #, python-format
@@ -540,13 +653,13 @@ msgid ""
 "                                <coordinator@translationproject.org>\n"
 msgstr ""
 "\n"
-"ਹੇਠਲੇ HTML ਸਫੇ ਕੱਲ ਨਵੀਨੀਕ੍ਰਿਤ ਕੀਤੇ ਜਾਣਗੇ।\n"
+"Um an dtaca seo am�rach, beidh na leathanaigh HTML seo nuashonraithe:\n"
 "\n"
 ">    %s/HTML/domain-%s.html\n"
 ">    %s/HTML/team-%s.html\n"
 "\n"
-"                                 ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਟੀਮ, ਵਿੱਚ\n"
-"                                ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਦਾ ਮੁੱਖੀ\n"
+"                                R�b� an Tionscadail Aistri�ch�in, in\n"
+"                                ainm do chomhordaitheora aistri�ch�in.\n"
 "                                <coordinator@translationproject.org>\n"
 
 #: bin/po-register:595
@@ -556,7 +669,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"P.S. - ਵੰਡ ਦੀ ਨਕਲ (ਪ੍ਰਮਾਣਿਤ ਨਹੀਂ ਵੀ ਹੋ ਸਕਦਾ ਹੈ) ਤੁਹਾਡੀ ਪ੍ਰਾਪਤ ਕਰ ਸਕਦੇ ਹੋ:\n"
+"P.S. - Is f�idir leat c�ip (b'fh�idir ceann neamhoifigi�il) den phac�iste mar:\n"
 "\n"
 
 #: bin/po-register:613
@@ -574,10 +687,10 @@ msgid ""
 "Content-Transfer-Encoding: base64\n"
 "\n"
 msgstr ""
-"ਵਲੋਂ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ: %s\n"
-"ਵਿਸ਼ਾ:`%s' ਫਾਇਲ ਦਾ ਪ੍ਰਸੰਗ\n"
-"MIME-ਵਰਜਨ: 1.0\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
+"To: %s\n"
+"Subject: Inneachar an chomhaid `%s'\n"
+"MIME-Version: 1.0\n"
 "Content-Type: multipart/mixed; boundary=\"=-=-=\"\n"
 "\n"
 "--=-=-=\n"
@@ -598,8 +711,8 @@ msgid ""
 msgstr ""
 "--=-=-=\n"
 "\n"
-"                                ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ\n"
-"                                ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਦਾ ਮੁੱਖੀ।\n"
+"                                R�b� an Tionscadail Aistri�ch�in, in\n"
+"                                ainm do chomhordaitheora aistri�ch�in.\n"
 "                                <coordinator@translationproject.org>\n"
 "\n"
 "--=-=-=--\n"
@@ -607,13 +720,14 @@ msgstr ""
 #: bin/po-to-scm:24
 #, python-format
 msgid "Usage: %s [ -scm | -el ] [FILE]..."
-msgstr "ਵਰਤੋਂ: %s [ -scm | -el ] [FILE]..."
+msgstr "�s�id: %s [ -scm | -el ] [COMHAD]..."
 
 #: bin/postats-data:155
 #, python-format
 msgid "%s: Not enough hints for a key\n"
-msgstr "%s: ਕੀ ਲਈ ਲੋੜੀਦੇ ਸੰਕੇਤ ਨਹੀਂ ਹਨ\n"
+msgstr "%s: N�l go leor leideanna le haghaidh eochrach\n"
 
+# leave alone, or else breaks POT-filling tools like kdeupdate
 #: bin/scm-to-po:59
 msgid ""
 "# SOME DESCRIPTIVE TITLE.\n"
@@ -632,18 +746,18 @@ msgid ""
 "'Content-Transfer-Encoding: ENCODING\\n'\n"
 msgstr ""
 "# SOME DESCRIPTIVE TITLE.\n"
-"# ਹੱਕ ਰਾਖਵੇ ਹਨ (C) YEAR Free Software Foundation, Inc.\n"
-"# ਪਹਿਲਾਂ ਲੇਖਕ <EMAIL\\@ADDRESS>, ਸਾਲ।\n"
+"# Copyright (C) YEAR Free Software Foundation, Inc.\n"
+"# FIRST AUTHOR <EMAIL\\@ADDRESS>, YEAR.\n"
 "#\n"
 "#, fuzzy\n"
 "msgid ''\n"
 "msgstr ''\n"
-"'ਪ੍ਰਜੈਕਟ-Id-ਵਰਜਨ: PACKAGE VERSION\\n'\n"
-"'PO-ਦੁਹਰਾਓ ਮਿਤੀ: YEAR-MO-DA HO:MI+ZONE\\n'\n"
-"'ਅਖੀਰੀ ਅਨੁਵਾਦਕ ਨਾਂ: FULL NAME <EMAIL\\ADDRESS_ARRAY>\\n'\n"
-"'ਭਾਸ਼ਾ ਨਾਂ: LANGUAGE <LL\\li_ARRAY.org>\\n'\n"
-"'MIME-ਵਰਜਨ: 1.0\\n'\n"
-"'ਪ੍ਰਸੰਗ-ਕਿਸਮ: text/plain; charset=CHARSET\\n'\n"
+"'Project-Id-Version: PACKAGE VERSION\\n'\n"
+"'PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n'\n"
+"'Last-Translator: FULL NAME <EMAIL\\ADDRESS_ARRAY>\\n'\n"
+"'Language-Team: LANGUAGE <LL\\li_ARRAY.org>\\n'\n"
+"'MIME-Version: 1.0\\n'\n"
+"'Content-Type: text/plain; charset=CHARSET\\n'\n"
 "'Content-Transfer-Encoding: ENCODING\\n'\n"
 
 #: bin/tp-robot:107
@@ -651,6 +765,8 @@ msgid ""
 "For some reason, your PO file seems to have no entries at all, like if it\n"
 "were empty.  Sigh!  It looks like there is something wrong, somewhere...\n"
 msgstr ""
+"Ar f�th �igin, dealra�onn s� nach bhfuil aon iontr�il i do chomhad PO, mar a\n"
+"bheadh s� folamh. Och! Is d�cha go bhfuil fadhb �igin ann, in �it �igin...\n"
 
 #: bin/tp-robot:138
 msgid ""
@@ -659,6 +775,10 @@ msgid ""
 "Report all details you can at <coordinator@translationproject.org>.\n"
 "Please do _not_ start your Subject line with `TP-Robot'.\n"
 msgstr ""
+"Theip ormsa, R�b� an Tionscadail Aistri�ch�in, gan aon choinne leis.\n"
+"Och, och, och�n!  T� mo chosa nite, mo phort seinnte! :-(.  Cabhair liom!\n"
+"Seol na sonra� uile gur f�idir chuig <coordinator@translationproject.org>.\n"
+"Le do thoil, _n�_ cuir `TP-Robot' i dtosach na l�ne \"Subject\".\n"
 
 #: bin/tp-robot:155
 msgid ""
@@ -669,10 +789,17 @@ msgid ""
 "coordinator informed of such things, at least as a mild form of verification.\n"
 "Some stronger authentication scheme might be needed, one of these days!"
 msgstr ""
+"T� seolta� molta r�omhphoist le haghaidh aistritheoir� cos�il leatsa againn\n"
+"sa chl�rlann mh�r ag an Tionscadal Aistri�ch�in, in �ineacht le roinnt\n"
+"ailiasanna riachtanach freisin. B'fhearr linn m� �s�ideann t� seoladh\n"
+"r�omhphost amh�in, m�s f�idir, i dtreo nach gcuirtear le l�on na seolta�\n"
+"sa chl�rlann gan gh�.  Ar aon chuma, cuir aon athruithe in i�l do\n"
+"chomhordaitheoir na n-aistri�ch�n, mar cine�l lag f�oraithe.  Seans\n"
+"go mbeidh f�or� n�os treise de dh�th orainn amach anseo!"
 
 #: bin/tp-robot:194
 msgid "I'm ignoring the whole following MIME part within your invoice:\n"
-msgstr ""
+msgstr "N�lim ag bacadh leis an bp�irt ioml�n MIME a leanas i do shonrasc:\n"
 
 #: bin/tp-robot:205
 msgid ""
@@ -682,6 +809,10 @@ msgid ""
 "being able to handle all situations.  So, I'll go and ask him to help me\n"
 "unpack your invoice.\n"
 msgstr ""
+"Hmph! N� raibh m� in ann do chomhad PO a aimsi� isteach i do theachtaireacht.\n"
+"D�irt comhordaitheoir na n-aistri�ch�n, mo ghr� geal, liom go bhfuil go leor\n"
+"ruda� le foghlaim agam sular f�idir liom gach c�s a l�imhse�il i gceart.\n"
+"Iarrfaidh m� air do shonrasc a dh�phac�il de l�imh.\n"
 
 #: bin/tp-robot:215
 msgid ""
@@ -689,12 +820,17 @@ msgid ""
 "decide which one of these parts is meant to contain your PO file.  Would you\n"
 "help me, while resubmitting your message, by using a simpler MIME structure?\n"
 msgstr ""
+"Feicim go bhfuil ilph�irteanna MIME i do theachtaireacht, agus n� f�idir liom\n"
+"cinneadh c� acu at� do chomhad PO.  Le do thoil, �s�id strucht�r MIME n�os\n"
+"simpl� agus do theachtaireacht � seoladh an ch�ad uair eile.\n"
 
 #: bin/tp-robot:230 bin/tp-robot:312
 msgid ""
 "The translation coordinator does not trust me enough yet to let me handle\n"
 "a PO template file all alone.  So, for this one, I'll go disturb him!\n"
 msgstr ""
+"N�l muin�n ag comhordaitheoir na n-aistri�ch�n asam f�s creatchomhaid PO a\n"
+"l�imhse�il as mo stuaim f�in.  Mar sin, cuirfidh m� isteach air sa ch�s seo!\n"
 
 #: bin/tp-robot:236
 #, python-format
@@ -703,11 +839,14 @@ msgid ""
 "%s\n"
 "The file name argument should look like `DOMAIN-VERSION.TEAM.po'.\n"
 msgstr ""
+"Bh� m� ag s�il le heolas �irithe in ainm an chomhaid ach n�or aimsigh m� �.\n"
+"%s\n"
+"Ba ch�ir ainm an chomhaid a bheith san fhoirm `FEARANN-LEAGAN.FOIREANN.po'.\n"
 
 #: bin/tp-robot:244
 #, python-format
 msgid "Within the Translation Project, no team has the code `%s'.\n"
-msgstr "ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ, ਕੋਡ '%s' ਨਾਲ ਕੋਈ ਟੀਮ ਨਹੀਂ ਹੈ।\n"
+msgstr "N�l foireann le c�d `%s' sa Tionscadal Aistri�ch�in GNU.\n"
 
 #: bin/tp-robot:322
 #, python-format
@@ -717,6 +856,10 @@ msgid ""
 "control.  It is safer that you use my real email address, which is\n"
 "`translation@translationproject.org'.\n"
 msgstr ""
+"Feicim go bhfuil an seoladh `%s@%s' in �s�id agat chun dul i dteagmh�il liom.\n"
+"C� gur oibrigh s�, is d�cha go raibh ailiasanna r�omhphoist in �s�id\n"
+"nach bhfuil faoin�r smacht.  Ba ch�ir duit m'fh�orsheoladh r�omhphoist\n"
+"a �s�id, .i. `translation@translationproject.org'.\n"
 
 #: bin/tp-robot:378
 #, python-format
@@ -737,6 +880,23 @@ msgid ""
 "or \"@DIALECT\", where REGION is a capitalised two-letter country code\n"
 "and DIALECT is a lower case name.\n"
 msgstr ""
+"Bh� m� ag s�il le heolas �irithe i gceannt�sc do theachtaireacht, ach n�or\n"
+"aimsigh m� �.\n"
+"%s\n"
+"N�lim cinnte c�n fhadhb at� ann, c� gur f�idir go bhfuil form�id mh�cheart\n"
+"ar an r�imse Subject i gceannt�sc do theachtaireacht.\n"
+"Ar eagla na heagla, seo � an fhorm�id cheart:\n"
+"\n"
+">    Subject: TP-Robot FEARANN-LEAGAN.FOIREANN.po\n"
+"\n"
+"Ba ch�ir duit fearann t�acsach an aistri�ch�in a chur in ionad an teaghr�in\n"
+"\"FEARANN\" (go hiond�il, is � seo ainm an phac�iste sa ch�s �ochtair).\n"
+"Cuirtear uimhir an leagain in ionad \"LEAGAN\" agus an c�d teanga le dh�\n"
+"litir (c�s �ochtair) den fhoireann in ionad \"FOIREANN\".\n"
+"I gc�sanna neamhchoitianta, caithfidh t� iarmh�r san fhoirm \"_R�IGI�N\"\n"
+"n� \"@CAN�INT\" a chur le hainm na foirne.  Sa ch�s seo, is c�d t�re le\n"
+"dh� litir � \"R�IGI�N\" (c�s uachtair), agus is ainm sa ch�s �ochtair �\n"
+"CAN�INT.\n"
 
 #: bin/tp-robot:403
 #, python-format
@@ -762,10 +922,33 @@ msgid ""
 "a mailing list to teams needing it.  Such lists are only offered to teams\n"
 "having been active for a while, and which produced a few usable translations.\n"
 msgstr ""
+"N�l aon fhoireann sa Tionscadal Aistri�ch�in leis an gc�d `%s'.\n"
+"Is f�idir go raibh an c�d m�litrithe, agus sa ch�s sin, ba ch�ir duit\n"
+"an earr�id a cheart� agus an comhad a athsheoladh.\n"
+"\n"
+"I ngach c�s eile, glacaim leis gur mian leat foireann nua aistri�ch�in a\n"
+"chur ar bun.  Is an-�asca � seo, i nd�ir�re.  N� g� duit earc� a dh�anamh -\n"
+"thosaigh formh�r na bhfoirne le haistritheoir aonair.  Mar sin f�in, ba\n"
+"ch�ir duit a bheith toilteanach dul i dteagmh�il le daoine is mian leo dul\n"
+"leatsa ar an fhoireann.  N� maith leis an Tionscadal Aistri�ch�in cadhain\n"
+"aonair!\n"
+"\n"
+"Ansin, ba ch�ir duit teachtaireacht a sheoladh chuig comhordaitheoir na\n"
+"n-aistri�ch�n chun an fhoireann a chur ar bun go hoifigi�il.  M� t�\n"
+"liosta r�omhphoist ag d'fhoireann cheana, abair � sin i do theachtaireacht,\n"
+"agus cl�r�far an liosta sin leis an tionscadal.  Mura bhfuil liosta agat,\n"
+"b'fh�idir leat do sheoladh f�in a chl�r�, go dt� gur g� le socr� n�os\n"
+"casta.\n"
+"\n"
+"T� cumann Linux International ag comhoibri� leis an Tionscadal\n"
+"Aistri�ch�in chun liosta� nua r�omhphoist a chruth� d'fhoirne nua.\n"
+"N� chrutha�onn siad liosta� ach d'fhoirne at� ag obair ar feadh\n"
+"tamaill, agus a bhfuil roinnt aistri�ch�n in�s�idte curtha i gcr�ch\n"
+"acu.\n"
 
 #: bin/tp-robot:426
 msgid "Unknown_Language"
-msgstr "ਅਣਜਾਣੀ ਭਾਸ਼ਾ"
+msgstr "Teanga_Anaithnid"
 
 #: bin/tp-robot:453
 #, python-format
@@ -780,6 +963,14 @@ msgid ""
 "you may have this title line translated as well, it does not have to be\n"
 "kept in English.\n"
 msgstr ""
+"Dealra�onn s� go bhfuil an n�ta teidil ar iarraidh �n chomhad PO.\n"
+"Tosa�onn an ch�ad l�ne de chomhad PO le `#', aon sp�s amh�in, agus\n"
+"cur s�os ar an gcomhad PO ina dhiaidh sin, ar an l�ne ch�anna.  Go minic,\n"
+"t� cuma ar an n�ta teidil cos�il leis seo:\n"
+"\n"
+">    # Aistri�ch�n de `%s' go %s.\n"
+"\n"
+"Is f�idir an l�ne seo a scr�obh as %s.\n"
 
 #: bin/tp-robot:483
 msgid ""
@@ -795,6 +986,18 @@ msgid ""
 "please write to the translation coordinator, so we could discuss the matter,\n"
 "and so he could eventually change me (the robot) for handling such cases.\n"
 msgstr ""
+"Ba ch�ir an sannadh c�ipchirt a bheith ag an:\n"
+"\n"
+"   Free Software Foundation, Inc.\n"
+"\n"
+"agus is cos�il nach bhfuil s� faoi l�thair (c� gur f�idir nach bhfuil ach\n"
+"focal m�litrithe i gceist).  De thuras na huaire, glacaim leis go bhfuil an\n"
+"c�ipcheart ag an Free Software Foundation ar aon phac�iste a theasta�onn s�anadh\n"
+"aistri�ch�in.  I nd�ir�re, t� an coinn�oll seo n�os cuimsith� n� spiorad\n"
+"an ts�anaidh f�in.  M� t� aon fhadhb agat, scr�obh teachtaireacht chuig\n"
+"comhordaitheoir na n-aistri�ch�n agus d�an comhr� leis/l�i faoi.\n"
+"B'fh�idir go mbeadh s� in ann R�b� an Tionscadail Aistri�ch�in (mise f�in)\n"
+"a athr� ionas go l�imhse�lfainn c�sanna cos�il leis seo amach anseo.\n"
 
 #: bin/tp-robot:498
 #, python-format
@@ -805,12 +1008,19 @@ msgid ""
 "\n"
 "while the copyright comment should look like:\n"
 msgstr ""
+"Dealra�onn s� nach bhfuil an n�ta c�ipchirt san fhorm�id cheart.  Feicim:\n"
+"\n"
+">    # %s\n"
+"\n"
+"ach ba ch�ir n�ta c�ipchirt a bheith san fhorm�id:\n"
 
 #: bin/tp-robot:507
 msgid ""
 "The copyright comment, which should appear as the second line of the whole\n"
 "PO file, is apparently missing.  The copyright comment looks like:\n"
 msgstr ""
+"De r�ir cos�lachta, n�l n�ta c�ipchirt i do chomhad PO.  Go hiond�il, is ar\n"
+"an dara l�ne sa chomhad � seo, agus t� s� san fhoirm a leanas:\n"
 
 #: bin/tp-robot:512
 #, python-format
@@ -827,6 +1037,17 @@ msgid ""
 "space.  Years have to be explicitly enumerated, range notations are\n"
 "not accepted.\n"
 msgstr ""
+"%s\n"
+">    # Copyright (C) YEAR Free Software Foundation, Inc.\n"
+"\n"
+"M� �s�ideann t� tacar carachtar Latin-1, is f�idir leat '�'\n"
+"(c�d deach�lach 169) a chur in ionad an chomhartha '(C)'.  M� �s�ideann\n"
+"t� UTF-8, is � ((\\xc2\\xa9) an seicheamh coibh�iseach.  Is bliain le\n"
+"ceithre dhigit YEAR de ghn�th, ach amanna is liosta de bhlianta �,\n"
+"scartha le cam�ga.  I liosta, n� m�r ceithre dhigit a bheith sa ch�ad\n"
+"bhliain, agus ansin is f�idir dh� n� ceithre dhigit a �s�id ina dhiaidh sin.\n"
+"Ba ch�ir freisin sp�s a chur i ndiaidh gach cam�g.  Caithfidh t� gach bliain\n"
+"a thabhairt go follasach; n� ghlactar le raonta.\n"
 
 #: bin/tp-robot:535
 #, python-format
@@ -835,6 +1056,8 @@ msgid ""
 "lines, please use no more than a single space between `%s' and\n"
 "`<%s>'.\n"
 msgstr ""
+"�ps, t� earr�id bheag ann san fhorm�id.  Sna n�ta� ag barr an chomhaid,\n"
+"n� cuir n�os m� n� sp�s amh�in idir `%s' agus `<%s>'.\n"
 
 #: bin/tp-robot:546
 #, python-format
@@ -846,6 +1069,12 @@ msgid ""
 "it is usually best to avoid such variance, and stick to a single preferred\n"
 "spelling.\n"
 msgstr ""
+"De r�ir mo chuid n�ta�, n�l %s ina bhall den fhoireann %s agus,\n"
+"d� bharr sin, n� d�cha go bhfuil s�/s� an bunaistritheoir.  B'fh�idir go\n"
+"bhfuil a (h)ainm m�litrithe?  M� t�, ceartaigh an earr�id n� t�igh i\n"
+"dteagmh�il le comhordaitheoir na n-aistri�ch�n agus cuir in i�l d�/di\n"
+"go bhfuil litri� malartach den ainm seo ann.  Go hiond�il, is � an rud\n"
+"is fearr n� litri� uath�il a �s�id do gach aistritheoir.\n"
 
 #: bin/tp-robot:559
 #, python-format
@@ -855,6 +1084,10 @@ msgid ""
 "to reach that translator.\n"
 "%s%s\n"
 msgstr ""
+"Is � `%s' bunaistritheoir an chomhaid PO seo.  Ach,\n"
+"de r�ir mo n�ta� f�in, n� f�idir dul i dteagmh�il leis an\n"
+"aistritheoir sin ag an seoladh `%s'.\n"
+"%s%s\n"
 
 #: bin/tp-robot:573
 #, python-format
@@ -870,6 +1103,16 @@ msgid ""
 "and _never_ remove the initial translator of a given PO file, as this\n"
 "acknowledgement is the only tribute paid for the work of that translator.\n"
 msgstr ""
+"De r�ir cos�lachta, n� ionann an t-aistritheoir is d�ana� ar an gcomhad PO seo\n"
+"agus an bunaistritheoir.  N�l s� seo as an ngn�th.  Ach, m� t� fhios agat\n"
+"gur an t-aistritheoir c�anna at� i gceist, is d�cha go mbeidh g� le\n"
+"ceart�ch�in.  Is � `%s' an t-ainm at� ar an tr�� l�ne den chomhad PO, ach is\n"
+"� `%s' at� sa r�imse `Last-Translator' i gceannt�sc an chomhaid PO.\n"
+"M�s leaganacha m�litrithe den ainm c�anna iad seo, agus sa ch�s seo amh�in,\n"
+"ceartaigh an ceann m�cheart agus seol do chomhad PO ar�s.  Ar an taobh eile,\n"
+"n� ceart ainm an bhunaistritheora a bhaint amach as comhad PO riamh,\n"
+"toisc nach bhfuil aon mholadh ag an aistritheoir seachas an admh�il\n"
+"bheag seo.\n"
 
 #: bin/tp-robot:588
 #, python-format
@@ -880,6 +1123,11 @@ msgid ""
 "single preferred address to reach you, and try to use it consistently in\n"
 "all your translation files.\n"
 msgstr ""
+"Tagann dh� sheoladh r�omhphoist sa chomhad seo salach ar a ch�ile.\n"
+"Is � `%s' do sheoladh de r�ir na tr�� l�ne den chomhad PO, ach is �\n"
+"`%s' de r�ir an r�imse `Last-Translator' i gceannt�sc an chomhaid.\n"
+"Ba ch�ir duit aon seoladh amh�in a bheith agat, agus � a �s�id i dt�lamh\n"
+"i ngach comhad a aistr�onn t�.\n"
 
 #: bin/tp-robot:598
 #, python-format
@@ -894,6 +1142,15 @@ msgid ""
 "EMAIL@ADDRESS gives a way to reach that translator, and YEAR is a four\n"
 "digits year telling when the original translation occurred.\n"
 msgstr ""
+"T� an ch�ad n�ta �dair ar iarraidh, n� t� s� i bhfoirm mh�cheart.\n"
+"Ba ch�ir d� a bheith an tr�� l�ne sa chomhad PO, san fhoirm seo a leanas:\n"
+"\n"
+">    # AN CH�AD �DAR <SEOLADH@R�OMHPHOIST>, BLIAIN.\n"
+"\n"
+"Sa l�ne seo, caithfidh t� ainm an bhunaistritheora den fhearann `%s'\n"
+"a chur in ionad \"AN CH�AD �DAR\"; is � SEOLADH@R�OMHPHOIST an seoladh\n"
+"le h�s�id chun dul i dteagmh�il leis an mbunaistritheoir sin, agus is �\n"
+"BLIAIN an bhliain (le ceithre dhigit) ina ndearnadh an t-aistri�ch�n ar dt�s.\n"
 
 #: bin/tp-robot:611
 msgid ""
@@ -904,6 +1161,12 @@ msgid ""
 "the initial `#' of each comment line, and there should not be a white\n"
 "line before the `msgid' line of the PO file header.\n"
 msgstr ""
+"Sa ch�s gur mian leat n�os m� sonra� stairi�la n� n�ta� �s�ideacha eile\n"
+"a chur leis an gcomhad PO seo, is f�idir leat l�nte tr�chta a chur isteach\n"
+"i ndiaidh an ch�ad tr� l�ne, as Gaeilge m�s fearr leat.  Cuimhnigh gur\n"
+"ch�ir sp�s amh�in ar a laghad a bheith i ndiaidh an `#' ag tosach gach\n"
+"l�ne thr�chta, agus n�or ch�ir l�ne bh�n a chur roimh an l�ne `msgid'\n"
+"i gceannt�sc an chomhaid PO.\n"
 
 #: bin/tp-robot:626
 #, python-format
@@ -916,6 +1179,13 @@ msgid ""
 "all textual domains are written all in lower case.  They also tend to\n"
 "avoid those meaningless `g' prefixes.\n"
 msgstr ""
+"De r�ir an r�imse \"Project-Id-Version\" i gceannt�sc an chomhaid PO,\n"
+"is � `%s' ainm an fhearainn t�acsaigh in ionad `%s' a raibh m� ag s�il leis.\n"
+"Ba ch�ir do na hainmneacha seo a bheith comhionann lena ch�ile.  Go hiond�il,\n"
+"is ionann an fearann t�acsach agus ainm an phac�iste. � am go ham, t�\n"
+"difr�ochta� beaga maidir le ceannlitreacha, n� r�im�r \"g\" mar oidhreacht �\n"
+"thionscadal GNU.  Faoi l�thair, scr�obhtar ainm de gach fearann t�acsach le\n"
+"litreacha beaga, agus go hiond�il gan na m�reanna d�omhaoine \"g\"\n"
 
 #: bin/tp-robot:638
 msgid ""
@@ -924,6 +1194,11 @@ msgid ""
 "depend on a space being there, so best would be that you modify your file.\n"
 "I'll attempt to modify it for you, but this time! :-)\n"
 msgstr ""
+"Sa r�imse `Project-Id-Version', ba ch�ir duit ainm an fhearainn agus\n"
+"uimhreacha an leagain a scaradh le sp�s in ionad an fhleisc�n at� ann faoi\n"
+"l�thair.  Is f�idir go bhfuil scripteanna ann at� ag brath ar an sp�s,\n"
+"agus mar sin ba ch�ir duit do chomhad a cheart�.  D�anfaidh m� iarracht\n"
+"ar � a cheart� ar do shon (an uair seo)!\n"
 
 #: bin/tp-robot:648
 #, python-format
@@ -934,6 +1209,11 @@ msgid ""
 "the file name of your submission, or the Project-Id-Version field, whichever\n"
 "is appropriate.\n"
 msgstr ""
+"De r�ir an r�imse \"Project-Id-Version\" sa chomhad PO a chuir t� faoi mo\n"
+"bhr�id, �s�idtear na haistri�ch�in seo i leagan `%s' de `%s', nach `%s'.\n"
+"Ba ch�ir do na leaganacha seo a bheith comhionann lena ch�ile.  Mar sin,\n"
+"athraigh ainm an chomhaid a sheol t�, n� an r�imse \"Project-Id-Version\",\n"
+"cib� acu is iomchu�.\n"
 
 #: bin/tp-robot:659
 #, python-format
@@ -947,6 +1227,14 @@ msgid ""
 "translation, probably `%s' in this case, and VERSION be replaced\n"
 "by the appropriate version numbers, maybe `%s', here.\n"
 msgstr ""
+"N�or aims�odh r�imse `Project-Id-Version' i gceannt�sc do chomhaid PO.\n"
+"Ba ch�ir don l�ne seo a bheith san fhorm�id seo a leanas:\n"
+"\n"
+">    'Project-Id-Version: PAC�ISTE LEAGAN\\n'\n"
+"\n"
+"inar cheart duit ainm an fhearainn t�acsaigh a chur in ionad \"PAC�ISTE\"\n"
+"(`%s' sa ch�s seo, is d�cha), agus na huimhreacha leagain a chur in ionad\n"
+"\"LEAGAN\", b'fh�idir `%s' anseo.\n"
 
 #: bin/tp-robot:683
 #, python-format
@@ -957,6 +1245,11 @@ msgid ""
 "\n"
 ">    %s: YEAR-MO-DA HO:MI +ZONE\n"
 msgstr ""
+"N�or aims�odh r�imse `%s' i gceannt�sc do chomhaid PO,\n"
+"is � sin n� n�l s� san fhoirm cheart.  Ba ch�ir don l�ne seo a bheith\n"
+"san fhorm�id seo a leanas:\n"
+"\n"
+">    %s: BLIAIN-M�-L� UA:N� +CRIOS\n"
 
 #: bin/tp-robot:692
 msgid ""
@@ -966,6 +1259,12 @@ msgid ""
 "is not really for the translator to set.  In the meantime, I will merely\n"
 "copy the value of the `PO-Revision-Date' field into it, just to get going.\n"
 msgstr ""
+"N�l r�imse `POT-Creation-Date' i roinnt comhad POT sean�rsa.  N�lim cinnte,\n"
+"ach is f�idir go bhfuil s� ar iarraidh sa ch�s seo freisin.  M� t�, n� b�\n"
+"buartha faoi, mar go ndeiseofar � i leaganacha den phac�iste seo amach anseo.\n"
+"Ar aon chaoi, n� c�ir d'aistritheoir� a bheith ag �nfairt leis an r�imse seo.\n"
+"Idir an d� linn, c�ipe�lfaidh m� luach an r�imse `PO-Revision-Date' isteach\n"
+"ann, de cheal smaoineamh n�os fearr.\n"
 
 #: bin/tp-robot:701
 msgid ""
@@ -981,6 +1280,18 @@ msgid ""
 "and 11), while MM, when used, says the number of zone minutes.  Other zone\n"
 "    notations are still accepted for the time being, but are to be deprecated.\n"
 msgstr ""
+"Sa l�ne thuas, is � BLIAIN an bhliain le ceithre dhigit, is � M� an mh�\n"
+"le dh� dhigit (idir 01 agus 12), agus is � L� an l� den mh� (idir 01 agus 31).\n"
+"Tabhair am an lae mar uimhir UA le dh� dhigit le haghaidh na huaire (idir\n"
+"00 agus 23) agus uimhir N� le dh� dhigit le haghaidh na n�im�ad (idir 00\n"
+"agus 59).\n"
+"\n"
+"Maidir le +CRIOS, ba ch�ir d� a bheith san fhoirm +UU, -UU, +UU:NN, n� -UU:NN.\n"
+"�s�id an comhartha `+' le haghaidh criosanna at� taobh thoir den fhadl�ne\n"
+"Greenwich, agus an comhartha `-' taobh thiar de Ghreenwich.  Is � UU l�on na\n"
+"n-uaireanta mar uimhir le dh� dhigit (idir 00 agus 11), agus is � NN (nuair\n"
+"at� s� ann) l�on na n�im�ad.  Glactar le nodaireachta� creasa eile faoi\n"
+"l�thair, ach rachaidh nodaireachta� neamhchaighde�nacha i l�ig sula i bhfad.\n"
 
 #: bin/tp-robot:717
 #, python-format
@@ -988,6 +1299,9 @@ msgid ""
 "The PO revision date is `%s', which looks older than the POT creation date.\n"
 "You should update the PO revision date before submitting a PO file.\n"
 msgstr ""
+"Is � `%s' an d�ta athraithe (PO-Revision-Date), ach t� s� seo n�os sine\n"
+"n� d�ta cruthaithe an teimpl�id (POT-Creation-Date).  Ba ch�ir duit an\n"
+"d�ta athraithe a nuashonr� sula seolann t� comhad PO chugam.\n"
 
 #: bin/tp-robot:731
 #, python-format
@@ -996,6 +1310,8 @@ msgid ""
 "header line, please use no more than a single space between `%s'\n"
 "and `<%s>'.\n"
 msgstr ""
+"�ps, t� earr�id bheag ann san fhorm�id.  Sa l�ne `Last-Translator' sa\n"
+"cheannt�sc, n� cuir n�os m� n� sp�s amh�in idir `%s' agus `<%s>'.\n"
 
 #: bin/tp-robot:744
 #, python-format
@@ -1008,6 +1324,15 @@ msgid ""
 "joined the %s team.  If you do not know how to do so, please\n"
 "write to the translation coordinator for more information about it.\n"
 msgstr ""
+"De r�ir mo chuid n�ta�, n�l %s ina bhall den fhoireann %s.\n"
+"B'fh�idir go bhfuil a (h)ainm m�litrithe?  M� t�, ceartaigh an earr�id\n"
+"n� t�igh i dteagmh�il le comhordaitheoir na n-aistri�ch�n agus cuir in\n"
+"i�l d�/di go bhfuil litri� malartach den ainm seo ann.  Go hiond�il, is �\n"
+"an rud is fearr n� litri� uath�il a �s�id do gach aistritheoir.\n"
+"B'fh�idir freisin n�r chl�raigh t� leis an bhfoireann %s riamh.\n"
+"Mura bhfuil fhios agat conas a chl�ra�tear, scr�obh teachtaireacht\n"
+"chuig comhordaitheoir na n-aistri�ch�n le haghaidh tuilleadh eolais\n"
+"faoi seo.\n"
 
 #: bin/tp-robot:759
 #, python-format
@@ -1017,6 +1342,10 @@ msgid ""
 "that translator.\n"
 "%s%s\n"
 msgstr ""
+"Is � `%s' an t-aistritheoir is d�ana� ar an gcomhad seo PO.  Ach, de r�ir\n"
+"mo chuid n�ta�, is d�cha nach f�idir dul i dteagmh�il leis an\n"
+"aistritheoir sin ag an seoladh `%s'.\n"
+"%s%s\n"
 
 #: bin/tp-robot:776
 #, python-format
@@ -1036,6 +1365,18 @@ msgid ""
 "Yet, on the average, it is unusual that someone submits a translation file\n"
 "written by someone else.\n"
 msgstr ""
+"N�lim cinnte go ndearna t� na haistri�ch�in a sheol t� chugam anois beag.\n"
+"`%s' is ainm duit, de r�ir ceannt�sca do r�omhphoist, ach is � `%s' de r�ir\n"
+"an r�imse `Last-Translator' i gceannt�sc an chomhaid PO.  Seans go bhfuil\n"
+"litrithe difri�la at� i gceist, mar shampla toisc nach bhfuil smacht\n"
+"ioml�n agat ar an gc�ras r�omhphoist at� in �s�id agat.\n"
+"\n"
+"Is d�cha go bhfuil smacht n�os ioml�ine agat ar chomhaid PO, agus d� bhr� sin,\n"
+"glacfaidh m� leis an dara hainm mar an ceann n�os �dar�sa�. Is f�idir go\n"
+"bhfuil fadhb ann nach bhfuil m� in ann a anail�si�, c� go bhfuil t� in ann.\n"
+"M� t� dh� ainm dhifri�il ann i nd�ir�re, is sc�al n�os tromch�is� �.\n"
+"C� go bhfuil n�sanna ar leith ag gach foireann aistri�ch�in, go hiond�il\n"
+"is � an duine a rinne an t-aistri�ch�n a sheolann an comhad PO chugam.\n"
 
 #: bin/tp-robot:797
 #, python-format
@@ -1045,6 +1386,11 @@ msgid ""
 "it should be `%s'.  Let me consider that the later prevails.\n"
 "I merely bring this to your attention in case _you_ think it matters.\n"
 msgstr ""
+"Is � `%s' do sheoladh r�omhphoist de r�ir ceannt�sca na teachtaireachta a\n"
+"sheol t� chugam, ach is � `%s' de r�ir an r�imse `Last-Translator' i\n"
+"gceannt�sc an chomhaid PO.  Glacfaidh m� leis an dara ceann mar an ceann\n"
+"n�os �dar�sa�.  Is cuma liomsa, ach t�im � chur in i�l duit\n"
+"ar eagla na heagla.\n"
 
 #: bin/tp-robot:807
 #, python-format
@@ -1059,6 +1405,16 @@ msgid ""
 "translator of the messages for the `%s' textual domain, who is you\n"
 "most probably :-), EMAIL@ADDRESS gives a way to reach that translator.\n"
 msgstr ""
+"N�or aims�odh r�imse `Last-Translator' i gceannt�sc do chomhaid PO, n�,\n"
+"b'fh�idir go bhfuil s� ann ach nach san fhorm�id cheart.\n"
+"Ba ch�ir d� a bheith san fhorm�id seo a leanas:\n"
+"\n"
+">    'Last-Translator: AINM IOML�N <SEOLADH@R�OMHPHOIST>\\n'\n"
+"\n"
+"Sa l�ne seo, cuir ainm ioml�n an aistritheora den fhearann t�acsach `%s'\n"
+"(tusa f�in, is d�cha :-)) in ionad AINM IOML�N, agus tabhair seoladh\n"
+"r�omhphoist lenar f�idir dul i dteagmh�il leis an aistritheoir sin in ionad\n"
+"<SEOLADH@R�OMHPHOIST>\n"
 
 #: bin/tp-robot:826
 #, python-format
@@ -1067,7 +1423,10 @@ msgid ""
 "header line, please use no more than a single space between `%s'\n"
 "and `<%s>'.\n"
 msgstr ""
+"�ps, t� earr�id bheag ann san fhorm�id.  Sa l�ne `Language-Team' sa\n"
+"cheannt�sc, n� cuir n�os m� n� sp�s amh�in idir `%s' agus `<%s>'.\n"
 
+# see 862
 #: bin/tp-robot:833
 #, python-format
 msgid ""
@@ -1076,6 +1435,10 @@ msgid ""
 "fully sure about this.  If you think I got it wrong, please email to the\n"
 "translation coordinator for straingthening this out.\n"
 msgstr ""
+"Chuir t� `%s' sa r�imse `Language-Team' i gceannt�sc an chomhaid PO,\n"
+"c� go gceapaim gurbh fhearr `%s' a �s�id.  N�lim cinnte faoi seo �fach.\n"
+"M� cheapann t� nach bhfuil an ceart agam, seol teachtaireacht chuig\n"
+"comhordaitheoir na n-aistri�ch�n chun an fhadhb a r�iteach.\n"
 
 #: bin/tp-robot:842
 #, python-format
@@ -1095,7 +1458,23 @@ msgid ""
 "few usable translation files -- after having dismantled a few unproductive\n"
 "teams, we decided for this stronger requirement.\n"
 msgstr ""
+"Ba ch�ir do gach foireann aistri�ch�in seoladh liosta r�omhphoist a\n"
+"fhoilsi�, agus an seoladh seo a chur isteach (idir l�ib�n� uilleacha)\n"
+"i ndiaidh ainm na teanga sa r�imse `Language-Team' i gceannt�sc an chomhaid\n"
+"PO.  N�l a leith�id de sheoladh ag an Tionscadal Aistri�ch�in le haghaidh\n"
+"foirne %s.  Seans go bhfuil aithne agat cheana ar liosta at� tugtha d'obair\n"
+"idirn�isi�naithe ar son %s.  Mura bhfuil, is f�idir libh an seoladh\n"
+"r�omhphoist at� ag ceann de na baill ar d'fhoireann a �s�id, go fi�\n"
+"an seoladh at� agatsa mura bhfuil daoine eile ar an bhfoireann leat!\n"
+"Ar aon chaoi, cuir seoladh an liosta a �s�idfidh t� in i�l do\n"
+"chomhordaitheoir na n-aistri�ch�n.  Tabhair faoi deara freisin go\n"
+"n-oibr�onn an Tionscadal Aistri�ch�in agus Linux International le ch�ile\n"
+"chun liosta� r�omhphoist a shol�thar nuair is g�, sa ch�s amh�in gur\n"
+"foireann th�irgi�il at� i gceist, agus at� tar �is roinnt aistri�ch�n\n"
+"in�s�idte a fhoilsi�.  Shocraigh muid rialacha n�os d�ine maidir leis seo\n"
+"tar �is gur gh� c�pla foireann neamhth�irgi�il a dh�birt.\n"
 
+# see 833
 #: bin/tp-robot:862
 #, python-format
 msgid ""
@@ -1104,6 +1483,10 @@ msgid ""
 "about this.  If you think I got it wrong, please email to the translation\n"
 "coordinator for straightening this out.\n"
 msgstr ""
+"Chuir t� <%s> sa r�imse `Language-Team' i gceannt�sc an chomhaid PO,\n"
+"c� go gceapaim gurbh fhearr <%s> a �s�id.  N�lim cinnte faoi seo �fach.\n"
+"M� cheapann t� nach bhfuil an ceart agam, seol teachtaireacht chuig\n"
+"comhordaitheoir na n-aistri�ch�n chun an fhadhb a r�iteach.\n"
 
 #: bin/tp-robot:871
 #, python-format
@@ -1127,6 +1510,21 @@ msgid ""
 "If this leaves you clueless and you still want to find it, please write to\n"
 "the translation coordinator for asking, and we will work this out together.\n"
 msgstr ""
+"N�or aims�odh r�imse `Language-Team' i gceannt�sc do chomhaid PO, n�,\n"
+"b'fh�idir go bhfuil s� ann ach nach san fhorm�id cheart.\n"
+"Go minic, t� s� san fhorm�id seo a leanas:\n"
+"\n"
+">    'Language-Team: TEANGA <SEOLADH-R�OMHPHOST-NA-FOIRNE>\\n'\n"
+"\n"
+"Sa l�ne seo, is � TEANGA an c�d ISO-639 le haghaidh na teanga (i gcodarsnacht\n"
+"le c�id t�re at� � chaighde�n difri�il ar fad).  De r�ir an eolais at� agam\n"
+"faoi l�thair, scr�obhfainn � mar a leanas:\n"
+"\n"
+">    'Language-Team: %s <%s>\\n'\n"
+"\n"
+"M� t� t� ar mearbhall mar sin f�in, seol teachtaireacht chuig\n"
+"comhordaitheoir na n-aistri�ch�n agus beidh t� �balta an fhadhb a r�iteach\n"
+"in �ineacht leis/l�i.\n"
 
 #: bin/tp-robot:896
 msgid ""
@@ -1135,6 +1533,11 @@ msgid ""
 "\n"
 ">    'MIME-Version: 1.0\\n'\n"
 msgstr ""
+"N�or aims�odh r�imse `MIME-Version' i gceannt�sc do chomhaid PO, n�,\n"
+"b'fh�idir go bhfuil s� ann ach nach san fhorm�id cheart.\n"
+"N� m�r d� a bheith san fhorm�id seo a leanas:\n"
+"\n"
+">    'MIME-Version: 1.0\\n'\n"
 
 #: bin/tp-robot:931
 #, python-format
@@ -1144,10 +1547,14 @@ msgid ""
 "for `%s' to be merely added to the list of acceptable charsets.\n"
 "This list currently holds: %s.\n"
 msgstr ""
+"Thug t� tacar carachtar neamhchoitianta `%s' sa r�imse `Content-Type'.\n"
+"M� t� s� seo ceart go leor, iarr ar chomhordaitheoir na n-aistri�ch�n\n"
+"`%s' a chur leis an liosta de thacair inghlactha.\n"
+"Seo � an liosta faoi l�thair: %s.\n"
 
 #: bin/tp-robot:937 bin/tp-robot:948 bin/tp-robot:963 bin/tp-robot:974
 msgid "or"
-msgstr "ਜਾਂ"
+msgstr "n�"
 
 #: bin/tp-robot:940
 #, python-format
@@ -1159,6 +1566,13 @@ msgid ""
 "\n"
 "where CHARSET should be the name of a character set, like one of %s.\n"
 msgstr ""
+"N�or aims�odh r�imse `Content-Type' i gceannt�sc do chomhaid PO, n�,\n"
+"b'fh�idir go bhfuil s� ann ach nach san fhorm�id cheart.\n"
+"Ba ch�ir d� a bheith san fhorm�id seo a leanas:\n"
+"\n"
+">    'Content-Type: text/plain; charset=TACAR\\n'\n"
+"\n"
+"Is ainm ar thacar carachtar � TACAR, mar shampla, ceann de %s.\n"
 
 #: bin/tp-robot:957
 #, python-format
@@ -1168,6 +1582,10 @@ msgid ""
 "coordinator for `%s' to be merely added to the list of acceptable\n"
 "charsets.  This list currently holds: %s.\n"
 msgstr ""
+"Thug t� ionch�d� neamhchoitianta `%s' sa r�imse `Content-Transfer-Encoding'.\n"
+"M� t� s� seo ceart go leor, iarr ar chomhordaitheoir na n-aistri�ch�n\n"
+"`%s' a chur leis an liosta de thacair inghlactha.\n"
+"Seo � an liosta faoi l�thair: %s.\n"
 
 #: bin/tp-robot:966
 #, python-format
@@ -1179,18 +1597,30 @@ msgid ""
 "\n"
 "where ENCODING should be the name of an encoding, like one of %s.\n"
 msgstr ""
+"N�or aims�odh r�imse `Content-Transfer-Encoding' i gceannt�sc do chomhaid PO,\n"
+"n�, b'fh�idir go bhfuil s� ann ach nach san fhorm�id cheart.\n"
+"Ba ch�ir d� a bheith san fhorm�id seo a leanas:\n"
+"\n"
+">    'Content-Transfer-Encoding: IONCH�D�\\n'\n"
+"\n"
+"Is ainm ar ionch�d� � IONCH�D�, mar shampla, ceann de %s.\n"
 
 #: bin/tp-robot:999
 msgid ""
 "Sniff!  I'm unable to successfully start the `msgfmt' program.  I most\n"
 "probably need repairs.  I'll go whine to the translation coordinator.\n"
 msgstr ""
+"Och! N�or �irigh liom an r�omhchl�r `msgfmt' a thos�.  Is d�cha go bhfuil\n"
+"deisi� de dh�th orm.  D�anfaidh m� cn�imhse�il le comhordaitheoir na\n"
+"n-aistri�ch�n.\n"
 
 #: bin/tp-robot:1007
 msgid ""
 "After running msgfmt on your file, it seems that you need gettext 0.10.37\n"
 "for this file. This is no problem at all, but you should be aware of that.\n"
 msgstr ""
+"Rith m� `msgfmt' ar do chomhad, agus dealra�onn s� go bhfuil gettext 0.10.37\n"
+"de dh�th ort. N� fadhb � seo, ach is ceart go bhfuil t� ar an eolas faoi seo.\n"
 
 #: bin/tp-robot:1021
 #, python-format
@@ -1201,10 +1631,15 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Ar eagla na heagla, rith m� 'msgfmt --statistics -c -v -o /dev/null' ar an\n"
+"gcomhad PO a chuir t� faoi mo bhr�id, agus d�irt `msgfmt' liom n�r cheart\n"
+"glacadh leis. Le bheith cruinn ceart, d�irt s�:\n"
+"\n"
+"%s"
 
 #: bin/tp-robot:1038
 msgid "Just to make sure, I ran\n"
-msgstr "ਸਿਰਫ ਜਾਂਚ ਲਈ ਮੈਂ ਚਲਾਈ\n"
+msgstr "Sa chaoi go mbeinn cinnte, rith m�\n"
 
 #: bin/tp-robot:1040
 #, python-format
@@ -1218,8 +1653,8 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"ਤੁਹਾਡੇ ਵਲੋਂ PO ਫਾਇਲ ਪੇਸ਼ ਕਰਨ ਉਪਰੰਤ ਅਤੇ `msgfmt' ਨੇ ਮੈਨੂੰ ਕਿਹਾ ਕਿ ਮੈਂ ਇਸ \n"
-"ਨੂੰ ਨਾ ਜਾਣ ਦਿਓ। ਵਧੇਰੇ ਜਾਣਕਾਰੀ ਲਈ:\n"
+"ar an gcomhad PO a sheol t� chugam, agus d�irt `msgfmt' liom gur ch�ir dom �\n"
+"a dhi�lt�.  Le bheith cruinn ceart, d�irt s�:\n"
 "\n"
 "%s"
 
@@ -1231,6 +1666,10 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Mar eolas duit, seo � an t-aschur �n r�omhchl�r `msgfmt' maidir leis\n"
+"an gcomhad PO a chuir t� faoi mo bhr�id:\n"
+"\n"
+"%s"
 
 #: bin/tp-robot:1061
 msgid ""
@@ -1238,6 +1677,9 @@ msgid ""
 "that permits distribution of your translation. Please consider inserting\n"
 "a sentence like\n"
 msgstr ""
+"Ar an ch�ad amharc, is d�igh liom nach bhfuil cl�sal i d'aistri�ch�n\n"
+"a thugann cead do dhaoine d'aistri�ch�n a dh�ileadh. Ba ch�ir duit cl�sal\n"
+"cu� a chur isteach ann, rud �igin cos�il le:\n"
 
 #: bin/tp-robot:1089
 #, python-format
@@ -1249,6 +1691,12 @@ msgid ""
 "coordinator and explain why you need many names.  It is usually best to\n"
 "avoid such variance, and stick to a single preferred spelling.\n"
 msgstr ""
+"De r�ir mo chuid n�ta�, n�l t� i do bhall den fhoireann %s.\n"
+"Ar a laghad, n�l t� cl�raithe faoin ainm `%s'.  B'fh�idir go\n"
+"bhfuil litrithe difri�la ar d'ainm?  M� t�, t�igh i\n"
+"dteagmh�il le comhordaitheoir na n-aistri�ch�n agus cuir in i�l d�/di\n"
+"go bhfuil litri� malartach ar d'ainm agus c�n f�th.  Go hiond�il,\n"
+"is � an rud is fearr n� litri� uath�il a �s�id do gach aistritheoir.\n"
 
 #: bin/tp-robot:1102
 #, python-format
@@ -1257,8 +1705,8 @@ msgid ""
 "registry, as a valid way to reach you.\n"
 "%s%s\n"
 msgstr ""
-"ਈ-ਪੱਤਰ ਸਿਰਨਾਵਾਂ '%s' ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰਜਿਸਟਰ ਵਿੱਚ ਸ਼ਾਮਿਲ ਨਹੀਂ ਹੈ\n"
-"ਸਹੀ ਤਰੀਕਾ ਤੁਹਾਡੇ ਕੋਲ ਪੁੱਜਣਾ ਹੈ।\n"
+"N�l an seoladh r�omhphoist `%s' sa chl�rlann mh�r at� ag an Tionscadal\n"
+"Aistri�ch�in.\n"
 "%s%s\n"
 
 #: bin/tp-robot:1114
@@ -1271,6 +1719,12 @@ msgid ""
 "contact us.  See `http://www.translationproject.org/HTML' and select\n"
 "`Textual Domains' to see the list of domains which are currently handled.\n"
 msgstr ""
+"N�l aon eolas ag an Tionscadal Aistri�ch�in faoi fhearann t�acsach `%s',\n"
+"n� nach bhfuil aithne againn ar an litri� sin.  Seans freisin n�r shocraigh\n"
+"cothaitheoir an tionscadail sin a c(h)omhaid PO leis an Tionscadal\n"
+"Aistri�ch�in.  Sa ch�s seo, iarr ar an gcothaitheoir dul i dteagmh�il linn.\n"
+"F�ach ar `http://www.translationproject.org/HTML' agus roghnaigh\n"
+"`Textual Domains' chun liosta d'fhearainn a fheice�il.\n"
 
 #: bin/tp-robot:1127
 #, python-format
@@ -1286,6 +1740,16 @@ msgid ""
 "any question or objection with the translation disclaimer as it stands,\n"
 "I invite you to discuss such things with the translation coordinator.\n"
 msgstr ""
+"De r�ir mo chuid n�ta�, n�l admh�il �n Free Software Foundation go bhfuair\n"
+"siad s�anadh aistri�ch�in uait.  Teasta�onn an s�anadh seo i gcomhair\n"
+"pac�ist� oifigi�la GNU (n� nuair at� an cothaitheoir de phac�iste neamh-GNU\n"
+"ag iarraidh a leith�id de sh�anadh).  Is amhlaidh i gcomhair `%s'.\n"
+"Faigh c�ip de `http://www.translationproject.org/doc/DISCLAIM',\n"
+"priont�il � ar ph�ip�ar, l�on � isteach, agus fill � tr�d an ghn�thch�ras\n"
+"poist.  Cuirfear in i�l duit nuair a admha�onn an FSF go bhfuair siad �;\n"
+"ag an am sin, b'fh�idir leat iarracht eile a dh�anamh ar do chomhad PO a\n"
+"uaslucht�.  M� t� aon cheist n� ag�id agat maidir leis an s�anadh aistri�ch�in\n"
+"mar at� s�, is f�idir an t-�bhar a phl� le comhordaitheoir na n-aistri�ch�n.\n"
 
 #: bin/tp-robot:1142
 #, python-format
@@ -1301,6 +1765,16 @@ msgid ""
 "given nobody else is already assigned to it.  However, some teams prefer\n"
 "to channel translations differently, for ensuring some quality control first.\n"
 msgstr ""
+"Ceada�onn formh�r na bhfoirne d� gcuid aistritheoir� aistri�ch�in\n"
+"chr�ochnaithe a sheoladh go d�reach go dt� an Tionscadal Aistri�ch�in, agus\n"
+"cuireann siad rial� c�il�ochta ar athl�, i dtreo go mbeidh aga freagartha\n"
+"n�os tapa acu.  N�l t� sa chl�rlann mh�r ag an Tionscadal Aistri�ch�in\n"
+"mar ghn�thaistritheoir ar `%s'.  Ba ch�ir do cheannaire d'fhoirne\n"
+"cur in i�l do chomhordaitheoir na n-aistri�ch�n gur tusa f�in at� i mbun\n"
+"an fhearainn t�acsaigh anois.  Mura bhfuil ceannaire ar d'fhoireann,\n"
+"is f�idir leatsa teachtaireacht a sheoladh go dt� an comhordaitheoir.\n"
+"T� s� furasta go leor c�ram de `%s' do %s a thabhairt duit, mura bhfuil\n"
+"aon duine eile i gceannas air faoi l�thair.\n"
 
 #: bin/tp-robot:1159
 #, python-format
@@ -1315,6 +1789,15 @@ msgid ""
 "compile.  A few translators do like peeking at the sources for getting finer\n"
 "translation contexts, for when messages are not clear enough in themselves.\n"
 msgstr ""
+"N�l creatchomhad POT ag an Tionscadal Aistri�ch�n at� comhoiri�nach leis\n"
+"an gcomhad PO a sheol t�.  N�l leith�id `%s' anseo.\n"
+"Iarr ar chothaitheoir an phac�iste at� i gceist, n� ar an r�omhchl�raitheoir\n"
+"i gceannas ar ch�rsa� idirn�isi�naithe, an creatchomhad oiri�nach a sheoladh\n"
+"chuig an Tionscadal Aistri�ch�in.  Ba ch�ir di/d� URL de leagan (is cuma\n"
+"leagan oifigi�il, r�amhth�st�la, n� roghbhl�ire -- n� g� go dtioms�dh s�)\n"
+"a sheoladh chugainn freisin, gurbh fh�idir le haistritheoir� a �s�id nuair\n"
+"is mian leo an c�d foinseach a scr�d�, le haghaidh comhth�acs n�os beaichte,\n"
+"n� chun teaghr�in dhoil�ire a shoil�iri�.\n"
 
 #: bin/tp-robot:1177
 msgid ""
@@ -1322,8 +1805,8 @@ msgid ""
 "which you may find as either one of:\n"
 "\n"
 msgstr ""
-"ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਪਹਿਲਾਂ ਹੀ ਤੁਹਾਡੀ ਪੇਸ਼ਕਸ ਦੀ ਪਹਿਲਾਂ ਹੀ ਨਕਲ ਹੈ, ਤੁਸੀਂ ਉਸ ਨੂੰ\n"
-"ਇੱਥੇ ਵੇਖ ਸਕਦੇ ਹੋ:\n"
+"T� c�ip bheacht ag an Tionscadal Aistri�ch�in cheana den chomhad at� t�\n"
+"tar �is seoladh chugainn; is f�idir � a aimsi� ag ceann de na seolta� seo:\n"
 "\n"
 
 #: bin/tp-robot:1235
@@ -1331,12 +1814,18 @@ msgid ""
 "Sniff!  I'm unable to successfully start the `diff' program.  I most\n"
 "probably need repairs.  I'll go whine to the translation coordinator.\n"
 msgstr ""
+"Och! N�or �irigh liom an r�omhchl�r `diff' a thos�.  Is d�cha go bhfuil\n"
+"deisi� de dh�th orm.  D�anfaidh m� cn�imhse�il le comhordaitheoir na\n"
+"n-aistri�ch�n.\n"
 
 #: bin/tp-robot:1246
 msgid ""
 "Sniff!  I'm unable to successfully canonicalise your PO file.  I most\n"
 "probably need repairs.  I'll go whine to the translation coordinator.\n"
 msgstr ""
+"Och! N�or �irigh liom do chomhad PO a chaighde�n�.  Is d�cha go bhfuil\n"
+"deisi� de dh�th orm.  D�anfaidh m� cn�imhse�il le comhordaitheoir na\n"
+"n-aistri�ch�n.\n"
 
 #: bin/tp-robot:1254
 msgid ""
@@ -1355,6 +1844,21 @@ msgid ""
 "to make such modifications, as I will continue doing them patiently and\n"
 "automatically, here.  This message continues after the (maybe long) quote.\n"
 msgstr ""
+"Ba mhaith linn leagan amach comhsheasmhach a chur i gcr�ch ar chomhaid\n"
+"PO sa Tionscadal Aistri�ch�in, i ngach fearann t�acsach agus i ngach teanga.\n"
+"Is r�b� m�, agus t�im toilteanach mo chion f�in a dh�anamh chun an sprioc\n"
+"seo a bhaint amach.  �s rud � sin, rinne m� na hathruithe seo a leanas ar\n"
+"do shonrasc.  M�s main leat, glac leis na hathruithe c�anna ar do thaobhsa,\n"
+"mar shampla b'fh�idir an uirlis mhaith `patch' a �s�id.\n"
+"\n"
+"N� th�irgeann `msgmerge' (an cl�r a �s�idtear chun aistri�ch�in a nuashonr�)\n"
+"comhaid chan�nta, agus go dt� go gceart�far an fhadhb seo, b'fhearr leat\n"
+"comhaid PO a fh�il go d�reach �n Tionscadal Aistri�ch�in, �s rud � gur\n"
+"can�nta iad seo i gc�na�.  Mura bhfuil s� d�anta agat, seans go n-�ireoidh\n"
+"an liosta seo `unidiffs' r�fhad.  Tabhair faoi deara freisin nach n-�il�mid\n"
+"go gcuireann t� na hathruithe seo i bhfeidhm -- d�anfaidh m� iad go foighneach\n"
+"agus go huathoibr�och anseo.  Leanann an teachtaireacht seo ar aghaidh\n"
+"i ndiaidh an shleachta (b'fh�idir fada) th�os.\n"
 
 #: bin/tp-robot:1279
 #, python-format
@@ -1365,6 +1869,11 @@ msgid ""
 "probably require revision.  Your team will then be notified of the URL of the\n"
 "PO file to revise, with a quick evaluation of the extent of the work needed.\n"
 msgstr ""
+"Glacadh leis do chomhad, agus uasluchta�odh � go dt� an chartlann:\n"
+"comhghairdeachas!  Nuair a sheolann cothaitheoir `%s' creatchomhad nua POT\n"
+"go dt� an Tionscadal Aistri�ch�in, is d�cha gur g� duit d'aistri�ch�n a\n"
+"leas�.  Cuirfear URL an chomhaid nua PO in i�l do d'fhoireann, in �ineacht le\n"
+"meastach�n ar an m�id oibre at� de dh�th.\n"
 
 #: bin/tp-robot:1295
 msgid ""
@@ -1372,332 +1881,347 @@ msgid ""
 "whenever I upload new PO Template files for it.  If you are interested in\n"
 "this service, you may register by emailing to the translation coordinator.\n"
 msgstr ""
+"Chun an pr�iseas a bhrost�, is f�idir liom c�ip nuashonraithe den chomhad\n"
+"PO seo a sheoladh chugat tr� r�omhphost nuair a uasluchta�m creatchomhad nua\n"
+"POT d�.  M� t� suim agat sa tseirbh�s seo, seol teachtaireacht r�omhphoist\n"
+"chuig comhordaitheoir na n-aistri�ch�n chun cl�r�.\n"
 
 #: bin/tp-robot:1318
 msgid ""
 "Sniff!  I'm unable to successfully start the `po-register' program.\n"
 "I most probably need repairs.  I'll go whine to the translation coordinator.\n"
 msgstr ""
+"Och! N�or �irigh liom an r�omhchl�r `po-register' a thos�.  Is d�cha go bhfuil\n"
+"deisi� de dh�th orm.  D�anfaidh m� cn�imhse�il le comhordaitheoir na\n"
+"n-aistri�ch�n.\n"
 
 #: bin/tp-robot:1326
 msgid "Original message header:\n"
-msgstr "ਅਸਲੀ ਸੁਨੇਹਾ ਸਿਰਲੇਖ:\n"
+msgstr "Ceannt�sc na bunteachtaireachta:\n"
 
 #: bin/tp-robot:1331
 msgid "Diagnostics issued by `po-register:\n"
-msgstr "`po-register ਦੁਆਰਾ ਜਾਰੀ ਜਾਂਚ:\n"
+msgstr "Diagn�isic eisithe ag `po-register:\n"
 
 #: bin/tp-robot:1346
 #, python-format
 msgid "the translators's address is `%s'"
-msgstr "ਅਨੁਵਾਦਕ ਦਾ ਸਿਰਨਾਵਾਂ '%s' ਹੈ"
+msgstr "seoladh an aistritheora: `%s'"
 
 #: bin/tp-robot:1349
 msgid "the translator's address"
-msgstr "ਅਨੁਵਾਦਕ ਦਾ ਸਿਰਨਾਵਾਂ"
+msgstr "seoladh an aistritheora"
 
 #: bin/tp-robot:1351
 #, python-format
 msgid "the textual domain is `%s'"
-msgstr "'%s' ਪਾਠ ਡੋਮੇਨ ਹੈ"
+msgstr "an fearann t�acsach: `%s'"
 
 #: bin/tp-robot:1353
 msgid "the textual domain"
-msgstr "ਪਾਠ ਡੋਮੇਨ"
+msgstr "an fearann t�acsach"
 
 #: bin/tp-robot:1355
 #, python-format
 msgid "the domain version is `%s'"
-msgstr "'%s' ਡੋਮੇਨ ਵਰਜਨ ਹੈ"
+msgstr "leagan an fhearainn: `%s'"
 
 #: bin/tp-robot:1357
 msgid "the domain version"
-msgstr "ਡੋਮੇਨ ਵਰਜਨ"
+msgstr "leagan an fhearainn"
 
 #: bin/tp-robot:1359
 #, python-format
 msgid "the team code is `%s'"
-msgstr "ਟੀਮ ਕੋਡ '%s' ਹੈ"
+msgstr "c�d na foirne: `%s'"
 
 #: bin/tp-robot:1361
 msgid "the team code"
-msgstr "ਟੀਮ ਕੋਡ"
+msgstr "c�d na foirne"
 
 #: bin/tp-robot:1364 bin/tp-robot:1365 bin/tp-robot:1383
 msgid "and"
-msgstr "ਅਤੇ"
+msgstr "agus"
 
 #: bin/tp-robot:1369
 msgid ""
 "No official email address exist for this translator in the Translation\n"
 "Project registry.\n"
 msgstr ""
-"ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰਜਿਸਟਰ ਵਿੱਚ ਇਸ ਅਨੁਵਾਦਕ ਲਈ ਕੋਈ ਈ-ਪੱਤਰ ਮੌਜੂਦ \n"
-"ਨਹੀ ਹੈ।\n"
+"N�l seoladh oifigi�il r�omhphoist don aistritheoir seo sa chl�rlann mh�r\n"
+"at� ag an Tionscadal Aistri�ch�in.\n"
 
 #: bin/tp-robot:1374
 #, python-format
 msgid "The only address we officially know for this translator is `%s'.\n"
-msgstr "ਇਸ ਅਨੁਵਾਦਕ ਦਾ ਪ੍ਰਮਾਣਿਤ ਸਿਰਨਾਵਾਂ, ਜੋ ਕਿ ਸਾਡੇ ਕੋਲ ਹੈ, ਉਹ '%s' ਹੈ।\n"
+msgstr "Is � `%s' an seoladh oifigi�il amh�in ar �r n-eolas don aistritheoir seo.\n"
 
 #: bin/tp-robot:1380
 #, python-format
 msgid "For this translator, the only registered addresses we have are: %s.\n"
-msgstr "ਇਸ ਅਨੁਵਾਦਕ ਦਾ ਪ੍ਰਮਾਣਿਤ ਸਿਰਨਾਵਾਂ, ਜੋ ਕਿ ਸਾਡੇ ਕੋਲ ਰਜਿਸਟਰ ਹੈ, ਉਹ '%s' ਹੈ।\n"
+msgstr "Is iad seo na seolta� amh�in cl�raithe at� againn don aistritheoir seo: %s.\n"
 
 #: web/lib/editor.py:34 web/lib/editor.py:160 web/lib/editor.py:298
 msgid "Use exactly one argument with `mailto'"
-msgstr "`mailto' ਲਈ ਸਿਰਫ ਇੱਕ ਮੁੱਲ ਹੀ ਵਰਤੋਂ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `mailto'"
 
 #: web/lib/editor.py:45
 msgid "Use exactly one argument with `keep'"
-msgstr "`keep' ਲਈ ਸਿਰਫ ਇੱਕ ਮੁੱਲ ਹੀ ਵਰਤੋਂ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `keep'"
 
 #: web/lib/editor.py:48 web/lib/editor.py:312
 #, python-format
 msgid "Version `%s' is already present"
-msgstr "ਵਰਜਨ `%s' ਪਹਿਲਾਂ ਹੀ ਹੈ"
+msgstr "T� leagan `%s' ann cheana"
 
 #: web/lib/editor.py:54
 msgid "Use exactly one argument with `nokeep'"
-msgstr "`nokeep' ਲਈ ਸਿਰਫ ਇੱਕ ਮੁੱਲ ਹੀ ਵਰਤੋਂ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `nokeep'"
 
 #: web/lib/editor.py:57
 #, python-format
 msgid "Version `%s' was not there anyway"
-msgstr "ਵਰਜਨ `%s' ਕਿਸੇ ਤਰਾਂ ਵੀ ਨਹੀਂ ਹੈ"
+msgstr "N� raibh leagan `%s' ann ar dh�igh ar bith"
 
 #: web/lib/editor.py:62
 msgid "Use at least one argument with `keeps'"
-msgstr "`keeps' ਲਈ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਮੁੱਲ ਹੀ ਵਰਤੋਂ"
+msgstr "�s�id arg�int amh�in ar a laghad le `keeps'"
 
 #: web/lib/editor.py:68
 #, python-format
 msgid "Version `%s' duplicated"
-msgstr "ਵਰਜਨ `%s' ਦੂਹਰਾ ਹੈ"
+msgstr "Leagan `%s' d�blach"
 
 #: web/lib/editor.py:75
 msgid "Do not use arguments with `disclaim'"
-msgstr "`disclaim' ਨਾਲ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "N� h�s�id arg�int� le `disclaim'"
 
 #: web/lib/editor.py:80
 msgid "Do not use arguments with `nodisclaim'"
-msgstr "`nodisclaim' ਨਾਲ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "N� h�s�id arg�int� le `nodisclaim'"
 
 #: web/lib/editor.py:85 web/lib/editor.py:349
 msgid "Do not use arguments with `autosend'"
-msgstr "`autosend' ਨਾਲ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "N� h�s�id arg�int� le `autosend'"
 
 #: web/lib/editor.py:90 web/lib/editor.py:354
 msgid "Do not use arguments with `noautosend'"
-msgstr "`noautosend' ਨਾਲ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "N� h�s�id arg�int� le `noautosend'"
 
 #: web/lib/editor.py:95
 msgid "Use exactly one argument with `url'"
-msgstr "`url' ਨਾਲ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `url'"
 
 #: web/lib/editor.py:98
 #, python-format
 msgid "URL `%s' is already present"
-msgstr "URL `%s' ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
+msgstr "T� URL `%s' ann cheana"
 
 #: web/lib/editor.py:103
 msgid "Use exactly one argument with `nourl'"
-msgstr "`nourl' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `nourl'"
 
 #: web/lib/editor.py:106
 #, python-format
 msgid "URL `%s' was not there anyway"
-msgstr "URL `%s' ਇੱਥੇ ਨਹੀਂ ਹੈ"
+msgstr "N� raibh URL `%s' ann ar aon chor"
 
 #: web/lib/editor.py:111
 msgid "Use at least one argument with `urls'"
-msgstr "`urls' ਨਾਲ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਮੁੱਲ ਦਿਓ"
+msgstr "�s�id arg�int amh�in ar a laghad le `urls'"
 
 #: web/lib/editor.py:123 web/lib/editor.py:227 web/lib/editor.py:386
 msgid "Use exactly one argument with `remark'"
-msgstr "`remark' ਨਾਲ ਇੱਕ ਮੁੱਲ ਦਿਓ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `remark'"
 
 #: web/lib/editor.py:125 web/lib/editor.py:229 web/lib/editor.py:361
 #: web/lib/editor.py:388
 #, python-format
 msgid "Remark `%s' is already present"
-msgstr "ਟਿੱਪਣੀ `%s' ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
+msgstr "T� n�ta `%s' ann cheana"
 
 #: web/lib/editor.py:130 web/lib/editor.py:234 web/lib/editor.py:393
 msgid "Use exactly one argument with `noremark'"
-msgstr "`noremark' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਦਿਓ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `noremark'"
 
 #: web/lib/editor.py:132 web/lib/editor.py:236 web/lib/editor.py:368
 #: web/lib/editor.py:395
 #, python-format
 msgid "Remark `%s' was not there anyway"
-msgstr "ਟਿੱਪਣੀ `%s' ਨਹੀਂ ਹੈ"
+msgstr "N� raibh n�ta `%s' ann ar aon chor"
 
 #: web/lib/editor.py:137 web/lib/editor.py:241 web/lib/editor.py:400
 msgid "Do not use arguments with `remarks'"
-msgstr "`remarks' ਨਾਲ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "N� h�s�id arg�int� le `remarks'"
 
 #: web/lib/editor.py:171
 msgid "Use exactly one argument with `charset'"
-msgstr "`charset' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਦਿਓ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `charset'"
 
 #: web/lib/editor.py:177
 msgid "Do not use arguments with `nocharset'"
-msgstr "`nocharset' ਨਾਲ ਕੋਈ ਮੁੱਲ ਨਾ ਦਿਓ"
+msgstr "N� h�s�id arg�int� le `nocharset'"
 
 #: web/lib/editor.py:182
 msgid "Use exactly one argument with `leader'"
-msgstr "`leader' ਨਾਲ ਇੱਕ ਹੀ ਮੁੱਲ ਦਿਓ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `leader'"
 
 #: web/lib/editor.py:193
 msgid "Use exactly two arguments with `ref'"
-msgstr "`ref' ਨਾਲ ਦੋ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "�s�id dh� arg�int go cruinn le `ref'"
 
 #: web/lib/editor.py:197
 #, python-format
 msgid "Reference `%s, %s' is already present"
-msgstr "ਹਵਾਲਾ '%s','%s' ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
+msgstr "T� tagairt `%s, %s' ann cheana"
 
 #: web/lib/editor.py:202
 msgid "Use exactly two arguments with `noref'"
-msgstr "`noref' ਨਾਲ ਸਿਰਫ ਦੋ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "�s�id dh� arg�int go cruinn le `noref'"
 
 #: web/lib/editor.py:206
 #, python-format
 msgid "Reference `%s, %s' was not there anyway"
-msgstr "ਹਵਾਲਾ '%s', '%s' ਇੱਥੇ ਕਿਤੇ ਵੀ ਨਹੀਂ ਹੈ"
+msgstr "N� raibh tagairt `%s, %s' ann ar dh�igh ar bith"
 
 #: web/lib/editor.py:211
 msgid "Use a pair number of arguments with `refs'"
-msgstr "`refs' ਨਾਲ ਇੱਕ ਜੋੜੀ ਮੁੱਲ ਦਿਓ"
+msgstr "�s�id r�-uimhir arg�int� le `refs'"
 
 #: web/lib/editor.py:220
 #, python-format
 msgid "Reference `%s, %s' duplicated"
-msgstr "ਹਵਾਲਾ `%s, %s' ਦੂਹਰਾ ਹੈ"
+msgstr "Tagairt `%s, %s' d�blach"
 
 #: web/lib/editor.py:246
 msgid "Use exactly one argument with `translator'"
-msgstr "`translator' ਨਾਲ ਇੱਕ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `translator'"
 
 #: web/lib/editor.py:248
 #, python-format
 msgid "Translator `%s' is already present"
-msgstr "ਅਨੁਵਾਦਕ '%s' ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
+msgstr "T� aistritheoir `%s' ann cheana"
 
 #: web/lib/editor.py:265
 msgid "Use exactly one argument with `notranslator'"
-msgstr "`notranslator' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `notranslator'"
 
 #: web/lib/editor.py:267
 #, python-format
 msgid "Translator `%s' is not know anyway"
-msgstr "ਅਨੁਵਾਦਕ '%s' ਜਾਣਿਆ ਨਹੀਂ ਹੈ"
+msgstr "N�l aistritheoir `%s' ar eolas ar dh�igh ar bith"
 
 #: web/lib/editor.py:270
 #, python-format
 msgid "Should keep `%s' because of disclaimer"
-msgstr "`%s' ਰੱਖਣਾ ਚਾਹੀਦਾ ਹੈ, ਕਿਉਕਿ ਇਹ ਦਾਅਵਾ ਹੈ"
+msgstr "Ba ch�ir `%s' a choinne�il mar gheall ar an s�anadh"
 
 #: web/lib/editor.py:309
 msgid "Use exactly one argument with `alias'"
-msgstr "`alias' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਦਿਓ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `alias'"
 
 #: web/lib/editor.py:317
 msgid "Do not use arguments with `noalias'"
-msgstr "`noalias' ਨਾਲ ਕੋਈ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "N� h�s�id arg�int� le `noalias'"
 
 #: web/lib/editor.py:320
 #, python-format
 msgid "Alias `%s' was not there anyway"
-msgstr "ਉਪ-ਨਾਂ '%s' ਕਿਤੇ ਵੀ ਨਹੀਂ ਹੈ"
+msgstr "N� raibh ailias `%s' ann ar dh�igh ar bith"
 
 #: web/lib/editor.py:325
 msgid "Use at least one argument with `aliases'"
-msgstr "`aliases' ਨਾਲ ਘੱਟੋ-ਘੱਟ ਮੁੱਲ ਦਿਓ"
+msgstr "�s�id arg�int amh�in ar a laghad le `aliases'"
 
 #: web/lib/editor.py:331
 #, python-format
 msgid "Alias `%s' duplicated"
-msgstr "ਉਪ-ਨਾਂ '%s' ਦੂਹਰਾ ਹੈ"
+msgstr "Ailias `%s' d�blach"
 
 #: web/lib/editor.py:338
 msgid "Use exactly one argument with `http'"
-msgstr "`http' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਦਿਓ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `http'"
 
 #: web/lib/editor.py:344
 msgid "Do not use arguments with `nohttp'"
-msgstr "`nohttp' ਨਾਲ ਕੋਈ ਮੁੱਲ ਨਾ ਵਰਤੋਂ"
+msgstr "N� h�s�id arg�int� le `nohttp'"
 
 #: web/lib/editor.py:359
 msgid "Use exactly one argument with `do'"
-msgstr "`do' ਨਾਲ ਸਿਰਫ ਇੱਕ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `do'"
 
 #: web/lib/editor.py:366
 msgid "Use exactly one argument with `nodo'"
-msgstr "`nodo' ਨਾਲ ਇੱਕ ਹੀ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "�s�id arg�int amh�in agus gan ach arg�int amh�in le `nodo'"
 
 #: web/lib/editor.py:373
 msgid "Use at least one argument with `dos'"
-msgstr "`dos' ਨਾਲ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਮੁੱਲ ਵਰਤੋਂ"
+msgstr "�s�id arg�int amh�in ar a laghad le `dos'"
 
 #: web/lib/editor.py:379
 #, python-format
 msgid "Do `%s' duplicated"
-msgstr ""
+msgstr "`Do' `%s' d�blach"
 
 #: web/lib/localweb.py:157
 #, python-format
 msgid "%s: Unexistent domain or team!\n"
-msgstr "%s: ਨਾ-ਮੌਜੂਦ ਡੋਮੇਨ ਜਾਂ ਟੀਮ!\n"
+msgstr "%s: Fearann n� foireann nach ann d�!\n"
 
 #: web/lib/localweb.py:160
 #, python-format
 msgid "%s: No hints found!\n"
-msgstr "%s: ਕੋਈ ਸੰਕੇਤ ਨਹੀਂ ਲੱਭਾ ਹੈ!\n"
+msgstr "%s: N�or aims�odh leid ar bith!\n"
 
 #: web/lib/localweb.py:164
 #, python-format
 msgid "%s: Missing version?\n"
-msgstr "%s: ਵਰਜਨ ਗੁੰਮ?\n"
+msgstr "%s: Leagan ar iarraidh?\n"
 
 #: web/lib/localweb.py:168
 #, python-format
 msgid "%s: Not in stats database!\n"
-msgstr "%s: ਕੋਈ ਸਥਿਰ ਡਾਟਾਬੇਸ ਨਹੀਂ!\n"
+msgstr "%s: N�l s� sa bhunachar sonra� staitistice!\n"
 
+# leave alone
 #: web/lib/po.py:12
 msgid "SOME DESCRIPTIVE TITLE."
-msgstr "ਕੋਈ ਵਰਣਨ ਕਰਦਾ ਸਿਰਲੇਖ।"
+msgstr "SOME DESCRIPTIVE TITLE."
 
+# leave alone
 #: web/lib/po.py:16
 msgid "FIRST AUTHOR <EMAIL@ADDRESS>, YEAR."
-msgstr "ਪਹਿਲਾਂ ਲੇਖਕ <EMAIL@ADDRESS>, ਸਾਲ"
+msgstr "FIRST AUTHOR <EMAIL@ADDRESS>, YEAR."
 
+# leave alone
 #: web/lib/po.py:19
 msgid "PACKAGE VERSION"
-msgstr "ਪੈਕੇਜ ਵਰਜਨ"
+msgstr "PACKAGE VERSION"
 
+# leave alone
 #: web/lib/po.py:21 web/lib/po.py:22
 msgid "YEAR-MO-DA HO:MI +ZONE"
-msgstr "ਸਾਲ-ਮਮ-ਦਦ HO:MI +ਖੇਤਰ"
+msgstr "YEAR-MO-DA HO:MI +ZONE"
 
+# leave alone
 #: web/lib/po.py:23
 msgid "FULL NAME <EMAIL@ADDRESS>"
-msgstr "ਪੂਰਾ ਨਾਂ <EMAIL@ADDRESS>"
+msgstr "FULL NAME <EMAIL@ADDRESS>"
 
+# leave alone
 #: web/lib/po.py:24
 msgid "LANGUAGE <LL@li.org>"
-msgstr "ਭਾਸ਼ਾ <LL@li.org>"
+msgstr "LANGUAGE <LL@li.org>"
 
+# leave alone
 #: web/lib/po.py:26
 msgid "text/plain; charset=CHARSET"
-msgstr "text/plain; ਅੱਖਰ ਸਮੂਹ=CHARSET"
+msgstr "text/plain; charset=CHARSET"
 
+# leave alone
 #: web/lib/po.py:27
 msgid "ENCODING"
-msgstr "ਇੰਕੋਡਿੰਗ"
+msgstr "ENCODING"
 
 #: web/lib/po.py:115 web/lib/po.py:157 web/lib/po.py:160
 #, python-format
@@ -1705,66 +2229,66 @@ msgid ""
 "%s:%d: Unrecognised line\n"
 "%s"
 msgstr ""
-"%s:%d: ਬੇਪਛਾਣ ਸਤਰ\n"
+"%s:%d: L�ne anaithnid\n"
 "%s"
 
 #: web/lib/po.py:202
 msgid "Duplicate"
-msgstr "ਦੂਹਰੀ"
+msgstr "D�blach"
 
 #: web/lib/registry.py:91 web/lib/registry.py:248
 #, python-format
 msgid "Unknown translator `%s'"
-msgstr "ਅਣਜਾਣਾ ਅਨੁਵਾਦਕ `%s'"
+msgstr "Aistritheoir anaithnid `%s'"
 
 #: web/lib/registry.py:220
 #, python-format
 msgid "Unknown domain `%s'"
-msgstr "ਅਣਜਾਣੀ ਡੋਮੇਨ `%s'"
+msgstr "Fearann anaithnid `%s'"
 
 #: web/lib/registry.py:242
 #, python-format
 msgid "Unknown team `%s'"
-msgstr "ਅਣਜਾਣੀ ਟੀਮ `%s'"
+msgstr "Foireann anaithnid `%s'"
 
 #: web/lib/registry.py:294
 #, python-format
 msgid "No hints from `%s'"
-msgstr "`%s' ਲਈ ਕੋਈ ਸੰਕੇਤ ਨਹੀਂ ਹੈ"
+msgstr "N� raibh leid ar bith � `%s'"
 
 #: web/lib/registry.py:299
 #, python-format
 msgid "POT hint from `%s' contradicts previous"
-msgstr "'%s' ਤੋਂ POT ਸੰਕੇਤ ਪਹਿਲੇ ਨਾਲ ਅਪਵਾਦ ਹੈ"
+msgstr "Br�agna�onn leid POT � `%s' an ceann roimhe seo"
 
 #: web/lib/registry.py:303
 #, python-format
 msgid "Domain hint from `%s' contradicts `%s'"
-msgstr "'%s' ਤੋਂ ਡੋਮੇਨ ਸੰਕੇਤ '%s' ਨਾਲ ਅਪਵਾਦ ਹੈ"
+msgstr "Br�agna�onn leid � `%s' maidir leis an bhfearann `%s'"
 
 #: web/lib/registry.py:308
 #, python-format
 msgid "Version hint from `%s' contradicts `%s'"
-msgstr "'%s' ਤੋਂ ਵਰਜਨ ਸੰਕੇਤ '%s' ਨਾਲ ਅਪਵਾਦ ਹੈ"
+msgstr "Br�agna�onn leid � `%s' maidir leis an leagan `%s'"
 
 #: web/lib/registry.py:313
 #, python-format
 msgid "Team hint from `%s' contradicts `%s'"
-msgstr "'%s' ਤੋਂ ਟੀਮ ਸੰਕੇਤ '%s' ਨਾਲ ਅਪਵਾਦ ਹੈ"
+msgstr "Br�agna�onn leid � `%s' maidir leis an bhfoireann `%s'"
 
 #: web/lib/registry.py:318
 #, python-format
 msgid "Inconsistent charset hint from `%s'"
-msgstr "'%s' ਤੋਂ ਨਾ-ਇਕਸਾਰ ਅੱਖਰ ਸਮੂਹ ਸੰਕੇਤ"
+msgstr "Leid chontr�rtha � `%s' maidir leis an tacar carachtar"
 
 #: web/lib/registry.py:481
 #, python-format
 msgid "Unrecognised version: %s"
-msgstr "ਬੇਪਛਾਣ ਵਰਜਨ: %s"
+msgstr "Leagan anaithnid: %s"
 
 #: web/lib/run.py:24
 msgid "Report from TP-Robot"
-msgstr "TP-ਰੋਬੋਟ ਤੋਂ ਜਾਣਕਾਰੀ"
+msgstr "Tuairisc �n TP-Robot"
 
 #: web/lib/run.py:61
 msgid ""
@@ -1772,9 +2296,9 @@ msgid ""
 "Unable to send report.  Dumping it here instead.\n"
 "================================================\n"
 msgstr ""
-"================================================\n"
-"ਰਿਪੋਟ ਭੇਜਣ ਵਿੱਚ ਅਸਫਲ  ਸਿਰਫ ਸਮੂਹ ਹੀ ਰੱਖਿਆ ਗਿਆ ਹੈ।\n"
-"================================================\n"
+"===============================================================\n"
+"N� f�idir an tuairisc a sheoladh.  � dump�il anseo ina �it sin.\n"
+"===============================================================\n"
 
 #: web/lib/run.py:100
 #, python-format
@@ -1783,9 +2307,9 @@ msgid ""
 "To: %s\n"
 "Subject: Re: %s\n"
 msgstr ""
-"ਵਲੋਂ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ: %s\n"
-"ਵਿਸ਼ਾ: ਜਵਾਬ: %s\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
+"To: %s\n"
+"Subject: Re: %s\n"
 
 #: web/lib/run.py:149
 #, python-format
@@ -1795,26 +2319,23 @@ msgid ""
 "Subject: Re: %s\n"
 "\n"
 msgstr ""
-"ਵਲੋਂ: ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ <robot@translationproject.org>\n"
-"ਵੱਲ:  \"%s\" <%s>\n"
-"ਵਿਸ਼ਾ: ਜਵਾਬ: %s\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
+"To: \"%s\" <%s>\n"
+"Subject: Re: %s\n"
+"\n"
 
 #: web/lib/run.py:161
 #, python-format
 msgid ""
 "Hi!  I am the service robot at the Translation Project, and was awakened\n"
 "by your submission for `%s'.\n"
-msgstr ""
-"ਹਾਂ ਜੀ, ਮੈਂ ਅਨੁਵਾਦ ਪ੍ਰਜੈਕਟ ਦਾ ਸੇਵਕ ਰੋਬੋਟ ਹਾਂ ਅਤੇ ਤੁਹਾਡੀ '%s' ਪੇਸ਼ਕਸ ਨੇ ਮੈਨੂੰ\n"
-"ਹਲੂਣਿਆ ਹੈ।\n"
+msgstr "Dia dhuit!  Is R�b� an Tionscadail Aistri�ch�in m�, agus mh�scail do theachtaireacht i gcomhair `%s' m�.\n"
 
 #: web/lib/run.py:167
 msgid ""
 "Hi!  I am the service robot at the Translation Project, and was awakened\n"
 "by one of your submissions.\n"
-msgstr ""
-"ਹਾਂ ਜੀ, ਮੈਂ ਅਨੁਵਾਦ ਪ੍ਰਜੈਕਟ ਦਾ ਸੇਵਕ ਰੋਬੋਟ ਹਾਂ ਅਤੇ ਤੁਹਾਡੀ ਪੇਸ਼ਕਸ ਨੇ ਮੈਨੂੰ\n"
-"ਹਲੂਣਿਆ ਹੈ।\n"
+msgstr "Dia dhuit!  Is R�b� an Tionscadail Aistri�ch�in m�, agus mh�scail ceann de do theachtaireachta� m�.\n"
 
 #: web/lib/run.py:179
 msgid ""
@@ -1839,6 +2360,29 @@ msgid ""
 "may directly write the translation coordinator.  However, if you do so,\n"
 "be careful _not_ to start your message Subject with `TP-Robot'! :-)\n"
 msgstr ""
+"Mar gheall ar cheann de na hearr�id� thuas, n� f�idir liom do shonrasc a\n"
+"phr�ise�il go hioml�n.  T� br�n orm!  Ach t� f�ilte romhat an comhad a\n"
+"athsheoladh nuair a cheapann t� go bhfuil na hearr�id� ceartaithe.\n"
+"Is r�b� m�, agus t�im chomh foighneach le cat.\n"
+"\n"
+"M� �s�ideann t� Emacs, n� g� duit ach `M' a bhr� i m�d PO chun do chomhad PO\n"
+"a sheoladh chugam.  I ngach c�s eile, is f�idir leat an comhad a sheoladh\n"
+"mar MIME (c� nach bhfuil m� �balta comhph�irteanna MIME a roinnt), n� le\n"
+"`uuencode' (sean n� nua).  B� cinnte go bhfuil iarmh�r `.gz' ar ainm an\n"
+"chomhaid m� chomhbhr�nn t� � le `gzip'.  Is f�idir do chomhad a sheoladh\n"
+"gan ionch�d� gan comhbhr� ar bith, ach t� g� le r�d glan 8-giot�n r�omhphoist\n"
+"sa ch�s sin.  Faoi l�thair, n� cheada�tear ach comhad amh�in PO\n"
+"i dteachtaireacht amh�in.  Mura bhfuil m� in ann do phac�isti� a thuiscint,\n"
+"cuirfidh m� � ar aghaidh go comhordaitheoir na n-aistri�ch�n, agus\n"
+"d�phac�lfaidh s�/s� �.  �s�id �bhar cos�il leis an gceann seo:\n"
+"\n"
+">    Subject: TP-Robot PAC�ISTE-LEAGAN.FOIREANN.po\n"
+"\n"
+"agus seol an rud ioml�n chuig `translation@translationproject.org'.  Gheobhaidh t�\n"
+"freagra roimh uair an chloig.  M� t� cabhair de dh�th ort, n� is d�igh leat\n"
+"nach bhfuil m� ag iompar m� f�in go maith, scr�obh teachtaireacht chuig\n"
+"comhordaitheoir na n-aistri�ch�n.  Sa ch�s sin, N� cuir `TP-Robot' in\n"
+"�bhar do theachtaireachta! :-)\n"
 
 #: web/lib/run.py:202
 msgid ""
@@ -1846,23 +2390,23 @@ msgid ""
 "                                name of your kind translation coordinator.\n"
 "                                <coordinator@translationproject.org>\n"
 msgstr ""
-"                                ਅਨੁਵਾਦ ਪ੍ਰੋਜੈਕਟ ਰੋਬੋਟ, ਵਿੱਚ\n"
-"                                ਤੁਹਾਡੇ ਅਨੁਵਾਦ ਮੁੱਖੀ ਦਾ ਨਾਂ\n"
+"                                R�b� an Tionscadail Aistri�ch�in, in\n"
+"                                ainm do chomhordaitheora aistri�ch�in.\n"
 "                                <coordinator@translationproject.org>\n"
 
 #: web/lib/run.py:213
 msgid "WARNING: This prevents the robot from forwarding your file to the archive.\n"
-msgstr "ਚੇਤਾਵਨੀ:  ਇਹ ਤੁਹਾਡੀ ਫਾਇਲ ਨੂੰ ਰੋਬੋਟ ਤੋਂ ਅੱਗੇ ਭੇਜਣ ਵਿੱਚ ਸਮੱਸਿਆ ਬਣ ਰਿਹਾ ਹੈ।\n"
+msgstr "RABHADH: N�l an r�b� in ann do chomhad a chur sa chartlann d� bharr seo.\n"
 
 #: web/lib/sgml.py:173
 #, python-format
 msgid "Unsupported attribute %s"
-msgstr "ਨਾ-ਸਹਾਇਕ %s ਗੁਣ "
+msgstr "Aitreab�id gan taca�ocht %s"
 
 #: web/lib/sgml.py:177
 #, python-format
 msgid "SGML in `%s' is not conformant.\n"
-msgstr "`%s' ਵਿੱਚ SGML conformant ਨਹੀਂ ਹੈ।\n"
+msgstr "N� gh�illeann an SGML i `%s' don chaighde�n.\n"
 
 #: web/lib/unpack.py:90 web/lib/unpack.py:99
 #, python-format
@@ -1873,7 +2417,7 @@ msgid ""
 "%s\n"
 "----------------------------------------------------------------------<\n"
 msgstr ""
-"ਤੁਹਾਡੀ ਪੇਸ਼ਕਸ ਵਿੱਚੋਂ ਹੇਠ ਲਿਖਿਆਂ ਸਤਰਾਂ ਨੂੰ ਮੈਂ ਅਣਡਿੱਠਾ ਕਰ ਰਿਹਾ ਹਾਂ\n"
+"T� m� ag d�anamh neamhshuim ar na l�nte seo sa chomhad a sheol t� chugam:\n"
 "\n"
 "---------------------------------------------------------------------->\n"
 "%s\n"
@@ -1884,8 +2428,8 @@ msgid ""
 "Your submission seems to uses `uuencode' format, yet no proper terminator\n"
 "was found to end the encoded region.\n"
 msgstr ""
-"ਤੁਹਾਡੀ ਪੇਸ਼ਕਸ `uuencode' ਫਾਰਮਿਟ ਵਰਤ ਰਹੀ ਹੈ, ਇੰਕੋਡਿੰਗ ਖੇਤਰ ਨੂੰ ਸਮਾਪਤ ਕਰਨ ਲਈ ਕੋਈ ਪੂਰਨ\n"
-"ਸਮਾਪਤੀ ਕਰਨ ਵਾਲਾ ਨਹੀਂ ਲੱਭਾ।\n"
+"Dealra�onn s� go bhfuil form�id `uuencode' in �s�id i do r�omhphost, ach\n"
+"n�or aims�odh cr�ochnaitheoir oiri�nach ag deireadh an r�igi�in ionch�daithe.\n"
 
 #: web/lib/unpack.py:169
 #, python-format
@@ -1893,242 +2437,242 @@ msgid ""
 "Uncompressing your submission with gzip has failed. gzip said:\n"
 "%s\n"
 msgstr ""
-"ਤੁਹਾਡੀ ਭੇਜੀ gzip ਨੂੰ ਖੋਲਣਾ ਅਸਫਲ ਰਿਹਾ ਹੈ। gzip ਦਾ ਜਵਾਬ:\n"
+"Theip ar dh�-chomhbhr� an chomhaid a sheol t�. D�irt gzip:\n"
 "%s\n"
 
 msgid "Afrikaans"
-msgstr "ਅਫਰੀਕਨ"
+msgstr "Afrac�inis"
 
 msgid "Albanian"
-msgstr "ਅਲਬਾਨੀਆਨ"
+msgstr "Alb�inis"
 
 msgid "Amharic"
-msgstr "ਅਮਹਾਰਿਕ"
+msgstr "Am�iris"
 
 msgid "Arabic"
-msgstr "ਅਰਬੀ"
+msgstr "Araibis"
 
 msgid "Argentinian"
-msgstr "ਅਰਗੀਨੀਅਨ"
+msgstr "Sp�innis (Airgint�neach)"
 
 msgid "Asturian"
-msgstr "ਅਸਟੂਰੀਅਨ"
+msgstr "Ast�iris"
 
 msgid "Azerbaijani"
-msgstr "ਅਜ਼ਰਬਾਈਜਾਨ"
+msgstr "Asarbaise�inis"
 
 msgid "Basque"
-msgstr "ਬਸਕਿਉ"
+msgstr "Bascais"
 
 msgid "Belarusian"
-msgstr "ਬੇਲਾਰੂਸੀ"
+msgstr "Bealar�isis"
 
 msgid "Bosnian"
-msgstr "ਬੋਸਨੀਅਨ"
+msgstr "Boisnis"
 
 msgid "Brazilian Portuguese"
-msgstr "ਬਰਾਜ਼ੀਲੀਅਨ ਪੁਰਤਗਾਲੀ"
+msgstr "Portaing�ilis na Brasa�le"
 
 msgid "Bulgarian"
-msgstr "ਬੁਲਗਾਰੀਅਨ"
+msgstr "Bulg�iris"
 
 msgid "Catalan"
-msgstr "ਕਟਾਲਿਕ"
+msgstr "Catal�inis"
 
 msgid "Chinese (simplified)"
-msgstr "ਚੀਨੀ (ਸਧਾਰਨ)"
+msgstr "S�nis (simplithe)"
 
 msgid "Chinese (traditional)"
-msgstr "ਚੀਨੀ (ਮੂਲ)"
+msgstr "S�nis (traidisi�nta)"
 
 msgid "Croatian"
-msgstr "ਕਰੋਆਟੀਅਨ"
+msgstr "Cr�itis"
 
 msgid "Czech"
-msgstr "ਚੈੱਕ"
+msgstr "Seicis"
 
 msgid "Danish"
-msgstr "ਡੈਨਿਸ਼"
+msgstr "Danmhairgis"
 
 msgid "Dutch"
-msgstr "ਡੱਚ"
+msgstr "Ollainnis"
 
 msgid "English"
-msgstr "ਅੰਗਰੇਜ਼ੀ"
+msgstr "B�arla"
 
 msgid "English (British)"
-msgstr "ਅੰਗਰੇਜ਼ੀ (ਬਰਤਾਨੀਆ)"
+msgstr "B�arla na Sasanach"
 
 msgid "Esperanto"
-msgstr "ਇਸਪਰਂਟੋ"
+msgstr "Esperanto"
 
 msgid "Estonian"
-msgstr "ਇਸਪਨੀਨ"
+msgstr "East�inis"
 
 msgid "Finnish"
-msgstr "ਫੈਨਿਸ਼"
+msgstr "Fionlainnis"
 
 msgid "French"
-msgstr "ਫਰੈਚ"
+msgstr "Fraincis"
 
 msgid "Galician"
-msgstr "ਗਾਲੇਸ਼ੀਅਨ"
+msgstr "Gail�sis"
 
 msgid "Georgian"
-msgstr "ਜਾਰਜੀਆਨ"
+msgstr "Seoirsis"
 
 msgid "German"
-msgstr "ਜਰਮਨ"
+msgstr "Gearm�inis"
 
 msgid "Greek"
-msgstr "ਗਰੀਕ"
+msgstr "Gr�igis"
 
 msgid "Hebrew"
-msgstr "ਹੇਬਰਿਊ"
+msgstr "Eabhrais"
 
 msgid "Hungarian"
-msgstr "ਹੰਗਰੀਅਨ"
+msgstr "Ung�iris"
 
 msgid "Icelandic"
-msgstr "ਆਇਸਲੈਡਿਕ"
+msgstr "�oslainnis"
 
 msgid "Indonesian"
-msgstr "ਇੰਡੋਨੇਸ਼ੀਅਨ"
+msgstr "Indin�isis"
 
 msgid "Irish"
-msgstr "ਆਇਰਸ਼"
+msgstr "Gaeilge"
 
 msgid "Italian"
-msgstr "ਇਤਾਲਵੀ"
+msgstr "Iod�ilis"
 
 msgid "Japanese"
-msgstr "ਜਪਾਨੀ"
+msgstr "Seap�inis"
 
 msgid "Kinyarwanda"
-msgstr "ਕੀਂਯਾਰਵਾਡਾ"
+msgstr "Cinearu�indis"
 
 msgid "Korean"
-msgstr "ਕੋਰੀਅਨ"
+msgstr "C�ir�is"
 
 msgid "Kurdish"
-msgstr "ਕੁਰਦਿਸ਼"
+msgstr "Coirdis"
 
 msgid "Latvian"
-msgstr "ਲਾਟਵੀਅਨ"
+msgstr "Laitvis"
 
 msgid "Lithuanian"
-msgstr "ਲੀਥੂਨੀਅਨ"
+msgstr "Liotu�inis"
 
 msgid "Lojban"
-msgstr "ਲੂਜਬਾਨ"
+msgstr "Lojban"
 
 msgid "Luganda"
-msgstr "ਲੂਗਾਂਡਾ"
+msgstr "Gandais"
 
 msgid "Macedonian"
-msgstr "ਮੇਕਾਡੋਨੀਅਨ"
+msgstr "Macad�inis"
 
 msgid "Malay"
-msgstr "ਮਾਲਾਇਆ"
+msgstr "Malaeis"
 
 msgid "Maltese"
-msgstr "ਮਾਲਟੀਸ"
+msgstr "M�ltais"
 
 msgid "Mongolian"
-msgstr "ਮੰਗੋਲੀਅਨ"
+msgstr "Mong�ilis"
 
 msgid "Nicaraguian"
-msgstr "ਨੀਕਾਰਾਗੁਆਨੀ"
+msgstr "Sp�innis (Nicearaguach)"
 
 msgid "Northern Sotho"
-msgstr "ਉੱਤਰੀ ਸੋਥੋ"
+msgstr "Seipidis"
 
 msgid "Norwegian"
-msgstr "ਨਾਰਵੇਗੀਅਨ"
+msgstr "Ioruais"
 
 msgid "Norwegian Bokmaal"
-msgstr "ਨਾਰਵੇਗੀਅਨ ਬੋਕਮਾਲ"
+msgstr "Ioruais (Bokm�l)"
 
 msgid "Norwegian Nynorsk"
-msgstr "ਨਾਰਵੇਗੀਅਨ ਨਯਨੋਰਸਕ"
+msgstr "Ioruais Nynorsk"
 
 msgid "Persian"
-msgstr "ਪਰਸੀਅਨ"
+msgstr "Peirsis"
 
 msgid "Polish"
-msgstr "ਪੋਲਿਸ਼"
+msgstr "Polainnis"
 
 msgid "Portuguese"
-msgstr "ਪੁਰਤਗਾਲੀ"
+msgstr "Portaing�ilis"
 
 msgid "Punjabi"
-msgstr "ਪੰਜਾਬੀ"
+msgstr "Painse�ibis"
 
 msgid "Rhaeto-Romance"
-msgstr "ਰਹਾਈਟੋ-ਰੋਮਾਨਸ"
+msgstr "Raeta-R�m�insis"
 
 msgid "Romanian"
-msgstr "ਰੋਮਾਨੀਅਨ"
+msgstr "R�m�inis"
 
 msgid "Russian"
-msgstr "ਰੂਸੀ"
+msgstr "R�isis"
 
 msgid "Serbian"
-msgstr "ਸਰਬੀਅਨ"
+msgstr "Seirbis"
 
 msgid "Sinhalese"
-msgstr "ਸੀਂਹਾਲਿਸੀ"
+msgstr "Siol�inis"
 
 msgid "Slovak"
-msgstr "ਸਲੋਵਾਕ"
+msgstr "Sl�vaicis"
 
 msgid "Slovenian"
-msgstr "ਸਲੋਵਾਕੀਅਨ"
+msgstr "Sl�iv�inis"
 
 msgid "Sotho"
-msgstr "ਸੋਥੋ"
+msgstr "S�t�"
 
 msgid "Spanish"
-msgstr "ਸਪੇਨੀ"
+msgstr "Sp�innis"
 
 msgid "Swati"
-msgstr "ਸਵਾਟੀ"
+msgstr "Sasuatais"
 
 msgid "Swedish"
-msgstr "ਸਵੀਡਅਨ"
+msgstr "Sualainnis"
 
 msgid "Tajik"
-msgstr "ਤਾਜਿਕ"
+msgstr "T�ids�cis"
 
 msgid "Tamil"
-msgstr "ਤਾਮਿਲ"
+msgstr "Tamailis"
 
 msgid "Thai"
-msgstr "ਥਾਈ"
+msgstr "T�alainnis"
 
 msgid "Turkish"
-msgstr "ਤੁਰਕਿਸ"
+msgstr "Tuircis"
 
 msgid "Turkmen"
-msgstr "ਤੁਕਮੇਨੀ"
+msgstr "Turcam�inis"
 
 msgid "Ukrainian"
-msgstr "ਯੂਕਰੇਨੀ"
+msgstr "�cr�inis"
 
 msgid "Venda"
-msgstr "ਵਾਂਡਾ"
+msgstr "Veindis"
 
 msgid "Vietnamese"
-msgstr "ਵੀਅਤਨਾਮੀ"
+msgstr "V�tneamais"
 
 msgid "Walloon"
-msgstr "ਵਾਲਿਸ਼"
+msgstr "Vall�nais"
 
 msgid "Welsh"
-msgstr "ਵਾਲਿਸ਼"
+msgstr "Breatnais"
 
 msgid "Xhosa"
-msgstr "ਜ਼ਹੋਸਾ"
+msgstr "C�isis"
 
 msgid "Zulu"
-msgstr "ਜ਼ੂਲੂ"
+msgstr "S�l�is"

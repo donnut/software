@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tp-robot 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-03 08:39+0100\n"
+"POT-Creation-Date: 2004-06-19 06:38-0400\n"
 "PO-Revision-Date: 2004-06-15 00:38+0100\n"
 "Last-Translator: Roland Illig <roland.illig@gmx.de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -75,92 +75,92 @@ msgstr "<stdin>:%d: FEHLER: %s"
 msgid "Usage: %s [PO-FILE]"
 msgstr "Aufruf: %s [.po-Datei]"
 
-#: bin/po-register:56
+#: bin/po-register:59
 #, python-format
 msgid "`%s' may not be absolute notation, think `shar'..."
 msgstr "»%s« darf kein absoluter Pfad sein, denken Sie an »shar« ..."
 
-#: bin/po-register:60 bin/po-register:63
+#: bin/po-register:63 bin/po-register:66
 #, python-format
 msgid "Processing %s\n"
 msgstr "Verarbeite %s\n"
 
-#: bin/po-register:70
+#: bin/po-register:73
 #, python-format
 msgid "No known maintainer for textual domain `%s'"
 msgstr "Kein Betreuer für die Textdomain »%s« bekannt"
 
-#: bin/po-register:89
+#: bin/po-register:92
 #, python-format
 msgid "  skipping `%s' as local `%s' waits\n"
 msgstr "  überspringe »%s«, da das lokale »%s« wartet\n"
 
-#: bin/po-register:93
+#: bin/po-register:96
 #, python-format
 msgid "  skipping `%s' as `%s' exists\n"
 msgstr "  überspringe »%s«, da »%s« existiert\n"
 
-#: bin/po-register:100
+#: bin/po-register:103
 #, python-format
 msgid "  merging with `%s'"
 msgstr "  verbinde mit »%s«"
 
-#: bin/po-register:118 bin/po-register:134
+#: bin/po-register:121 bin/po-register:137
 #, python-format
 msgid "    sending `%s' to `%s'\n"
 msgstr "    sende »%s« an »%s«\n"
 
-#: bin/po-register:124 bin/po-register:184
+#: bin/po-register:127 bin/po-register:188
 #, python-format
 msgid "    notifying `%s' about `%s'\n"
 msgstr "    benachrichtige »%s« über »%s«\n"
 
-#: bin/po-register:138
+#: bin/po-register:142
 #, python-format
 msgid "  notifying `%s' about `%s-%s.pot'\n"
 msgstr "  benachrichtige »%s« über »%s-%s.pot«\n"
 
-#: bin/po-register:141
+#: bin/po-register:145
 msgid "    also notifying team leaders\n"
 msgstr "    benachrichtige auch die Teamleiter\n"
 
-#: bin/po-register:148
+#: bin/po-register:152
 #, python-format
 msgid "    initializing `%s/teams/PO/%s'\n"
 msgstr "    initialisiere »%s/teams/PO/%s«\n"
 
-#: bin/po-register:158
+#: bin/po-register:162
 #, python-format
 msgid "  skipping `%s', as already uploaded\n"
 msgstr "  überspringe »%s«, ist schon hochgeladen\n"
 
-#: bin/po-register:171
+#: bin/po-register:175
 msgid "Translation empty and identical to Template, not loaded\n"
 msgstr "Übersetzung leer und identisch zur Vorlage, nicht geladen\n"
 
-#: bin/po-register:173
+#: bin/po-register:177
 msgid "Translation identical to archive file, not loaded\n"
 msgstr "Übersetzung identisch zur Archivdatei, nicht geladen\n"
 
-#: bin/po-register:201
+#: bin/po-register:207
 #, python-format
 msgid "    also notifying `%s'\n"
 msgstr "    benachrichtige auch »%s«\n"
 
-#: bin/po-register:213
+#: bin/po-register:221
 #, python-format
 msgid ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: %s\n"
 "Subject: New PO Template file for `%s'\n"
 "\n"
 msgstr ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: %s\n"
 "Subject: Neue PO-Vorlage-Datei für `%s'\n"
 "\n"
 
-#: bin/po-register:220
+#: bin/po-register:228
 #, python-format
 msgid ""
 "Hello, gentle maintainer.\n"
@@ -176,7 +176,7 @@ msgstr ""
 "Eine neue .po-Vorlagedatei, für Programme, die die Textdomain »%s« benutzen, wurde gerade für die Übersetzung durch die Sprachteams verfügbar, und eine\n"
 "Kopie ist verfügbar auf:\n"
 
-#: bin/po-register:230 bin/po-register:310 bin/po-register:369
+#: bin/po-register:238 bin/po-register:320 bin/po-register:381
 #, python-format
 msgid ""
 "\n"
@@ -191,7 +191,7 @@ msgstr ""
 "Die Datei wird bald auch über diese Mirrorseiten erreichbar sein:\n"
 "\n"
 
-#: bin/po-register:240
+#: bin/po-register:248
 #, python-format
 msgid ""
 "\n"
@@ -223,7 +223,7 @@ msgstr ""
 "Versionsnummern haben, aber da zwei verschiedene Distributionen nicht die\n"
 "gleichen Versionsnummern haben dürfen, ist das in der Praxis kein Problem.\n"
 
-#: bin/po-register:257
+#: bin/po-register:265
 msgid ""
 "\n"
 "Here is the URL information which has just been provided to translators for\n"
@@ -235,7 +235,7 @@ msgstr ""
 "Hier ist die URL-Information, die den Übersetzer Ihres Pakets gerade zugestellt wurde. Bitte informieren Sie den Übersetzungskoordinator (Adresse siehe unten),falls die Information nicht richtig oder nicht aktuell ist:\n"
 "\n"
 
-#: bin/po-register:267
+#: bin/po-register:275
 msgid ""
 "\n"
 "Translated PO files will later be automatically e-mailed to you.\n"
@@ -243,7 +243,7 @@ msgstr ""
 "\n"
 "Übersetzte .po-Dateien werden Ihnen später automatisch per E-Mail zugestellt.\n"
 
-#: bin/po-register:272
+#: bin/po-register:280
 msgid ""
 "\n"
 "We can arrange things so translated PO files be automatically e-mailed\n"
@@ -254,36 +254,36 @@ msgstr ""
 "E-Mail bekommen, sobald sie hier ankommen. Fragen Sie einfach bei der unten\n"
 "genannten Adresse nach, falls Sie das wollen.\n"
 
-#: bin/po-register:277 bin/po-register:336
+#: bin/po-register:285 bin/po-register:346
 msgid ""
 "\n"
 "Thanks for your collaboration,\n"
 "\n"
 "                                The Translation Project robot, in the\n"
 "                                name of your translation coordinator.\n"
-"                                <translation@translationproject.org>\n"
+"                                <coordinator@translationproject.org>\n"
 msgstr ""
 "\n"
 "Vielen Dank für Ihre Zusammenarbeit,\n"
 "\n"
 "                                Der Robot des Übersetzungsprojekts, im\n"
 "                                Namen Ihres Übesetzungskoordinators.\n"
-"                                <translation@translationproject.org>\n"
+"                                <coordinator@translationproject.org>\n"
 
-#: bin/po-register:293
+#: bin/po-register:303
 #, python-format
 msgid ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: team-leaders@translationproject.org\n"
 "Subject: New PO Template file for `%s'\n"
 "\n"
 msgstr ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: team-leaders@translationproject.org\n"
 "Subject: Neue .po-Vorlagendateien für `%s'\n"
 "\n"
 
-#: bin/po-register:300
+#: bin/po-register:310
 #, python-format
 msgid ""
 "My nicest hello to all language team leaders.\n"
@@ -300,7 +300,7 @@ msgstr ""
 "ist für die Sprachteams zum Übersetzen verfügbar, und eine Kopie\n"
 "liegt hier:\n"
 
-#: bin/po-register:320
+#: bin/po-register:330
 msgid ""
 "\n"
 "Your team will have been notified only if it committed a translation\n"
@@ -315,7 +315,7 @@ msgstr ""
 "Ansonsten ist es Ihre Sache und die Ihres Teams, wie genau\n"
 "ein Übersetzer gefunden wird, der sich darum kümmert.\n"
 
-#: bin/po-register:328
+#: bin/po-register:338
 msgid ""
 "\n"
 "Here is some URL information that could be provided to translators\n"
@@ -327,20 +327,20 @@ msgstr ""
 "könnten:\n"
 "\n"
 
-#: bin/po-register:350
+#: bin/po-register:362
 #, python-format
 msgid ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: %s\n"
 "Subject: New %s PO file for `%s'\n"
 "\n"
 msgstr ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: %s\n"
 "Subject: Neue %s .po-Datei für »%s«\n"
 "\n"
 
-#: bin/po-register:358
+#: bin/po-register:370
 #, python-format
 msgid ""
 "Hello, gentle maintainer.\n"
@@ -359,12 +359,12 @@ msgstr ""
 "Diese Datei, zusammen mit allen anderen .po-Dateien für die gleiche\n"
 "Textdomain, ist hier verfügbar:\n"
 
-#: bin/po-register:380
+#: bin/po-register:392
 #, python-format
 msgid "    mailing `%s' to `%s'\n"
 msgstr "    schicke »%s« an »%s«\n"
 
-#: bin/po-register:383
+#: bin/po-register:395
 #, python-format
 msgid ""
 "\n"
@@ -375,7 +375,7 @@ msgstr ""
 "Diese Datei wurde Ihnen bereits am %s separat als MIME-Mail\n"
 "mit der Datei »%s« zugeschickt.\n"
 
-#: bin/po-register:390
+#: bin/po-register:402
 msgid ""
 "\n"
 "We may arrange things so future such files be automatically e-mailed\n"
@@ -386,7 +386,7 @@ msgstr ""
 "per Mail erhalten, sobald sie hier ankommen. Fragen Sie unter der\n"
 "untenstehenden Adresse nach, falls Sie das wollen.\n"
 
-#: bin/po-register:395
+#: bin/po-register:407
 #, python-format
 msgid ""
 "\n"
@@ -410,7 +410,7 @@ msgid ""
 "\n"
 "                                The Translation Project robot, in the\n"
 "                                name of your translation coordinator.\n"
-"                                <translation@translationproject.org>\n"
+"                                <coordinator@translationproject.org>\n"
 msgstr ""
 "\n"
 "Die folgende HTML-Seite wird wohl morgen aktualisiert sein.\n"
@@ -434,22 +434,22 @@ msgstr ""
 "Danke für Ihre Zusammenarbeit,\n"
 "                                Der Robot des Übersetzungsprojekts, im Namen\n"
 "                                des Übersetzungskoordinators.\n"
-"                                <translation@translationproject.org>\n"
+"                                <coordinator@translationproject.org>\n"
 
-#: bin/po-register:439
+#: bin/po-register:453
 #, python-format
 msgid ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: %s\n"
 "Subject: %s-%s (%d%%, %d untranslated)\n"
 "%s\n"
 msgstr ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: %s\n"
 "Subject: %s-%s (%d%%, %d nicht übersetzt)\n"
 "%s\n"
 
-#: bin/po-register:448
+#: bin/po-register:462
 #, python-format
 msgid ""
 "Hello, members of the %s team at `%s'.\n"
@@ -472,7 +472,7 @@ msgstr ""
 "wird wohl bald auf den Mirrorseiten verfügbar sein, als da sind:\n"
 "\n"
 
-#: bin/po-register:461
+#: bin/po-register:475
 #, python-format
 msgid ""
 "Hello, members of the %s team at `%s'.\n"
@@ -497,22 +497,22 @@ msgstr ""
 "auf folgenden Mirrorseiten verfügbar sein:\n"
 "\n"
 
-#: bin/po-register:481
+#: bin/po-register:495
 #, python-format
 msgid "%s and %s are currently assigned for the translation. When you have completed the translation, send the result to the address given below, using the Subject line:"
 msgstr "%s und %s sind momentan der Übersetzung zugeordnet. Wenn Sie die Übersetzung fertiggestellt haben, schicken Sie das Ergebnis bitte an die unten angegebene Adresse und benutzen die folgende Betreffzeile:"
 
-#: bin/po-register:485
+#: bin/po-register:499
 #, python-format
 msgid "%s is currently assigned for the translation. When you have completed the translation, send the result to the address given below, using:"
 msgstr "%s ist momentan der Übersetzung zugeordnet. Wenn Sie die Übersetzung fertiggestellt haben, schicken Sie das Ergebnis bitte an die unten angegebene Adresse und benutzen die folgende Betreffzeile:"
 
-#: bin/po-register:495
+#: bin/po-register:509
 #, python-format
 msgid "The most recent translation of this translator has %d of %d messages translated."
 msgstr "In der neuesten Übersetzung dieses Übersetzers sind %d von %d Texten übersetzt."
 
-#: bin/po-register:497
+#: bin/po-register:511
 #, python-format
 msgid ""
 "\n"
@@ -523,7 +523,7 @@ msgstr ""
 "An dieser Übersetzung arbeitet gerade ein Übersetzer, der nicht zum\n"
 "Übersetzungsprojekt gehört. %s\n"
 
-#: bin/po-register:502
+#: bin/po-register:516
 #, python-format
 msgid ""
 "\n"
@@ -541,7 +541,7 @@ msgstr ""
 "Sobald die Übersetzung fertig ist, senden Sie das Ergebnis bitte an die\n"
 "unten angegebene Adresse und benutzen die Betreffzeile:\n"
 
-#: bin/po-register:511
+#: bin/po-register:525
 #, python-format
 msgid ""
 "\n"
@@ -560,7 +560,7 @@ msgstr ""
 "im Header der Nachricht. Sie können entweder Ihren Teamleiter oder mich\n"
 "kontaktieren, falls irgendwelche Fragen auftauchen.\n"
 
-#: bin/po-register:524
+#: bin/po-register:538
 #, python-format
 msgid ""
 "\n"
@@ -577,22 +577,22 @@ msgstr ""
 "aufnimmt, das diese Textdomain benutzt.\n"
 "Vielen Dank im Namen aller Benutzer der Sprache %s.\n"
 
-#: bin/po-register:536
+#: bin/po-register:550
 #, python-format
 msgid "%s and %s are currently assigned for the translation."
 msgstr "%s und %s sind momentan der Übersetzung zugeordnet."
 
-#: bin/po-register:540
+#: bin/po-register:554
 #, python-format
 msgid "%s is currently assigned for the translation."
 msgstr "%s ist momentan der Übersetzung zugeordnet."
 
-#: bin/po-register:543
+#: bin/po-register:557
 #, python-format
 msgid "Nobody in your team is currently assigned to the domain '%s'. The team leader (if any) should inform the translation coordinator of who will become responsible for it."
 msgstr "Niemand in Ihrem Team ist momentan der Textdomain »%s« zugeordnet. Der Teamleiter (falls es einen gibt) sollte den Übersetzungskoordinator informieren, wer für diese Übersetzung zuständig sein wird."
 
-#: bin/po-register:545
+#: bin/po-register:559
 #, python-format
 msgid ""
 "\n"
@@ -630,7 +630,7 @@ msgstr ""
 "\n"
 "Danke!\n"
 
-#: bin/po-register:567
+#: bin/po-register:581
 #, python-format
 msgid ""
 "\n"
@@ -641,7 +641,7 @@ msgid ""
 "\n"
 "                                The Translation Project robot, in the\n"
 "                                name of your translation coordinator.\n"
-"                                <translation@translationproject.org>\n"
+"                                <coordinator@translationproject.org>\n"
 msgstr ""
 "\n"
 "Die folgenden HTML-Seiten werden wohl morgen auch aktualisiert sein.\n"
@@ -651,9 +651,9 @@ msgstr ""
 "\n"
 "                                Der Robot des Übersetzungsprojekts, im Namen\n"
 "                                Ihres Übersetzungskoordinators.\n"
-"                                <translation@translationproject.org>\n"
+"                                <coordinator@translationproject.org>\n"
 
-#: bin/po-register:581
+#: bin/po-register:595
 msgid ""
 "\n"
 "P.S. - You may find a copy (maybe not official) of the distribution as:\n"
@@ -664,10 +664,10 @@ msgstr ""
 "die offizielle) hier finden:\n"
 "\n"
 
-#: bin/po-register:604
+#: bin/po-register:613
 #, python-format
 msgid ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: %s\n"
 "Subject: Contents of file `%s'\n"
 "MIME-Version: 1.0\n"
@@ -679,7 +679,7 @@ msgid ""
 "Content-Transfer-Encoding: base64\n"
 "\n"
 msgstr ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: %s\n"
 "Subject: Inhalt der Datei `%s'\n"
 "MIME-Version: 1.0\n"
@@ -691,13 +691,13 @@ msgstr ""
 "Content-Transfer-Encoding: base64\n"
 "\n"
 
-#: bin/po-register:623
+#: bin/po-register:632
 msgid ""
 "--=-=-=\n"
 "\n"
 "                                The Translation Project robot, in the\n"
 "                                name of your translation coordinator.\n"
-"                                <translation@translationproject.org>\n"
+"                                <coordinator@translationproject.org>\n"
 "\n"
 "--=-=-=--\n"
 msgstr ""
@@ -705,7 +705,7 @@ msgstr ""
 "\n"
 "                                Der Robot des Übersetzungsprojekts, im\n"
 "                                Namen Ihres Überstzungskoordinators.\n"
-"                                <translation@translationproject.org>\n"
+"                                <coordinator@translationproject.org>\n"
 "\n"
 "--=-=-=--\n"
 
@@ -751,11 +751,7 @@ msgstr ""
 "'Content-Type: text/plain; charset=ZEICHENSATZ\\n'\n"
 "'Content-Transfer-Encoding: CODIERUNG\\n'\n"
 
-#: bin/tp-robot:66
-msgid "Robot aborted"
-msgstr "Robot abgebrochen"
-
-#: bin/tp-robot:103
+#: bin/tp-robot:107
 msgid ""
 "For some reason, your PO file seems to have no entries at all, like if it\n"
 "were empty.  Sigh!  It looks like there is something wrong, somewhere...\n"
@@ -764,21 +760,21 @@ msgstr ""
 "Einträge zu haben, als ob sie leer wäre. *seufz*\n"
 "Sieht so aus, als sei irgendwo irgendwas falsch ...\n"
 
-#: bin/tp-robot:134
+#: bin/tp-robot:138
 msgid ""
 "I, the Translation Project robot, just failed in a rather unexpected way.\n"
 "Sigh!  Despair!  I'm bugged, lost, doomed :-(.  Help me!\n"
-"Report all details you can at <translation@translationproject.org>.\n"
+"Report all details you can at <coordinator@translationproject.org>.\n"
 "Please do _not_ start your Subject line with `TP-Robot'.\n"
 msgstr ""
 "Ich, der Robot des Übersetzungsprojekts, bin gerade hoffnungslos\n"
 "gescheitert. *seufz* *verzweifel* Ich bin am Ende, verloren,\n"
 "verdammt :-(. Helfen Sie mir!\n"
 "\n"
-"Berichten Sie alle Details, die es gibt, an <translation@translationproject.org>.\n"
+"Berichten Sie alle Details, die es gibt, an <coordinator@translationproject.org>.\n"
 "Bitte beginnen Sie die Betreffzeile nicht mit »TP-Robot«.\n"
 
-#: bin/tp-robot:150
+#: bin/tp-robot:155
 msgid ""
 "In fact, the Translation Project registry holds the preferred email address\n"
 "for many translators like you, and some necessary aliases as well.  It is\n"
@@ -795,11 +791,11 @@ msgstr ""
 "zumindestens als eine milde Form der Verifikation. Ein strengeres Authen-\n"
 "tifizierungsschema könnte bald nötig werden!"
 
-#: bin/tp-robot:189
+#: bin/tp-robot:194
 msgid "I'm ignoring the whole following MIME part within your invoice:\n"
 msgstr "Ich ignoriere den kompletten folgenden MIME-Teil in Ihrem Auftrag:\n"
 
-#: bin/tp-robot:200
+#: bin/tp-robot:205
 msgid ""
 "Hmph!  It seems I'm not clever enough yet to find your PO file within\n"
 "your message.  The translation coordinator, who is my beloved master,\n"
@@ -814,7 +810,7 @@ msgstr ""
 "umgehen kann. Ich werde mal hingehen und ihn um Hilfe beim Entziffern\n"
 "Ihres Auftrags bitten.\n"
 
-#: bin/tp-robot:210
+#: bin/tp-robot:215
 msgid ""
 "Your message contains multiple MIME parts, and I see that I am not able to\n"
 "decide which one of these parts is meant to contain your PO file.  Would you\n"
@@ -825,7 +821,7 @@ msgstr ""
 "Sie Ihre Nachricht noch einmal schicken, diesmal aber mit einer einfache-\n"
 "ren MIME-Struktur?\n"
 
-#: bin/tp-robot:225 bin/tp-robot:307
+#: bin/tp-robot:230 bin/tp-robot:312
 msgid ""
 "The translation coordinator does not trust me enough yet to let me handle\n"
 "a PO template file all alone.  So, for this one, I'll go disturb him!\n"
@@ -834,7 +830,7 @@ msgstr ""
 ".po-Vorlagen ganz alleine verarbeiten kann. Also werde ich\n"
 "diesmal hingehen und ihn stören!\n"
 
-#: bin/tp-robot:231
+#: bin/tp-robot:236
 #, python-format
 msgid ""
 "I was expecting information in the file name argument which I did not find.\n"
@@ -845,12 +841,12 @@ msgstr ""
 "%s\n"
 "Der Dateiname sollte die Form »DOMAIN-VERSION.TEAM.po« haben.\n"
 
-#: bin/tp-robot:239
+#: bin/tp-robot:244
 #, python-format
 msgid "Within the Translation Project, no team has the code `%s'.\n"
 msgstr "Innerhalb des Übersetzungsprojekts gibt es kein Team mit dem Code »%s«.\n"
 
-#: bin/tp-robot:317
+#: bin/tp-robot:322
 #, python-format
 msgid ""
 "I see that you used `%s@%s' to reach me.  Even it worked,\n"
@@ -863,7 +859,7 @@ msgstr ""
 "die nicht alle kontrolliert werden. Es ist sicherer, wenn Sie meine\n"
 "richtige Mailadresse (translation@translationproject.org) benutzen.\n"
 
-#: bin/tp-robot:373
+#: bin/tp-robot:378
 #, python-format
 msgid ""
 "I was expecting information in your message header which I did not find.\n"
@@ -898,7 +894,7 @@ msgstr ""
 "der Ländercode in Großbuchstaben und DIALEKT ein Name in Kleinbuchstaben\n"
 "ist.\n"
 
-#: bin/tp-robot:397
+#: bin/tp-robot:403
 #, python-format
 msgid ""
 "Within the Translation Project, no team has the code `%s'.\n"
@@ -945,11 +941,11 @@ msgstr ""
 "an Teams vergeben, die schon eine Zeit lang bestehen und ein paar\n"
 "brauchbare Übersetzungen produziert haben.\n"
 
-#: bin/tp-robot:420
+#: bin/tp-robot:426
 msgid "Unknown_Language"
 msgstr "Unbekannte_Sprache"
 
-#: bin/tp-robot:447
+#: bin/tp-robot:453
 #, python-format
 msgid ""
 "The PO file title comment appears to be missing.  The very first line of\n"
@@ -972,7 +968,7 @@ msgstr ""
 "Da diese Zeile gedacht ist, von Menschen, die in %s arbeiten, gelesen zu werden,\n"
 "können Sie diese Zeile auch gerne übersetzen. Sie muss nicht in Englisch sein.\n"
 
-#: bin/tp-robot:477
+#: bin/tp-robot:483
 msgid ""
 "The copyright for the PO file should be assigned to:\n"
 "\n"
@@ -1000,7 +996,7 @@ msgstr ""
 "diesen Fall diskutieren können und er mir (dem Robot) eventuell beibringen\n"
 "kann, solche Fälle selbst zu behandeln.\n"
 
-#: bin/tp-robot:492
+#: bin/tp-robot:498
 #, python-format
 msgid ""
 "The copyright comment does not seem to be correctly formatted.  I see:\n"
@@ -1015,7 +1011,7 @@ msgstr ""
 "\n"
 "aber der Copyright-Kommentar sollte so aussehen:\n"
 
-#: bin/tp-robot:501
+#: bin/tp-robot:507
 msgid ""
 "The copyright comment, which should appear as the second line of the whole\n"
 "PO file, is apparently missing.  The copyright comment looks like:\n"
@@ -1024,7 +1020,7 @@ msgstr ""
 "auftauchen sollte, fehlt anscheinend. Der Copyright-Kommentar sieht\n"
 "so aus:\n"
 
-#: bin/tp-robot:506
+#: bin/tp-robot:512
 #, python-format
 msgid ""
 "%s\n"
@@ -1051,7 +1047,7 @@ msgstr ""
 "gefolgt werden. Jahre müssen explizit aufgezählt werden, Jahresbereiche\n"
 "werden nicht akzeptiert.\n"
 
-#: bin/tp-robot:529
+#: bin/tp-robot:535
 #, python-format
 msgid ""
 "Oops, there is a slight formatting error.  In the initial comment\n"
@@ -1062,7 +1058,7 @@ msgstr ""
 "innerhalb der ersten Kommentarzeilen nicht mehr als ein Leerzeichen\n"
 "zwischen »%s« und »<%s>«.\n"
 
-#: bin/tp-robot:540
+#: bin/tp-robot:546
 #, python-format
 msgid ""
 "According to my notes, %s is not a member of the proper\n"
@@ -1080,7 +1076,7 @@ msgstr ""
 "am besten, solche Varianzen zu vermeiden und bei einer einzigen\n"
 "bevorzugten Schreibweise zu bleiben.\n"
 
-#: bin/tp-robot:553
+#: bin/tp-robot:559
 #, python-format
 msgid ""
 "The initial translator of this PO file is `%s'.  Yet,\n"
@@ -1093,7 +1089,7 @@ msgstr ""
 "bekannt ist, diesen Übersetzer zu erreichen.\n"
 "%s%s\n"
 
-#: bin/tp-robot:567
+#: bin/tp-robot:573
 #, python-format
 msgid ""
 "The last translator of this PO file appears to be different than the\n"
@@ -1119,7 +1115,7 @@ msgstr ""
 "da diese Nennung die einzige Anerkennung für die Arbeit des Übersetzers\n"
 "ist.\n"
 
-#: bin/tp-robot:582
+#: bin/tp-robot:588
 #, python-format
 msgid ""
 "Your submission contains contradicting addresses for you.  The third line of\n"
@@ -1134,7 +1130,7 @@ msgstr ""
 "der Sie erreichbar sind und versuchen Sie, diese konsistent in allen\n"
 "Ihren Übersetzungen zu verwenden.\n"
 
-#: bin/tp-robot:592
+#: bin/tp-robot:598
 #, python-format
 msgid ""
 "The first author comment line is either missing or not formatted correctly.\n"
@@ -1159,7 +1155,7 @@ msgstr ""
 "erreichen ist, und YEAR ist ein vierstelliges Jahr, in dem die\n"
 "ursprüngliche Übersetzung entstand.\n"
 
-#: bin/tp-robot:605
+#: bin/tp-robot:611
 msgid ""
 "In case you want to add more historical details on the history of this\n"
 "particular PO file, or any comment you would feel useful, you may do so by\n"
@@ -1176,7 +1172,7 @@ msgstr ""
 "Zeile stets genau ein Leerzeichen stehen sollte und keine Leerzeile vor\n"
 "dem »msgid« des Headers der .po-Datei.\n"
 
-#: bin/tp-robot:620
+#: bin/tp-robot:626
 #, python-format
 msgid ""
 "The Project-Id-Version field of your PO file header says that your textual\n"
@@ -1196,7 +1192,7 @@ msgstr ""
 "buchstaben geschrieben. Sie tendieren auch dazu, sinnlose »g«s am\n"
 "Anfang wegzulassen.\n"
 
-#: bin/tp-robot:632
+#: bin/tp-robot:638
 msgid ""
 "Within the Project-Id-Version field, the domain name and version numbers\n"
 "should be separated by a space rather than by a hyphen.  Some scripts might\n"
@@ -1210,7 +1206,7 @@ msgstr ""
 "dahingehend verändern. Ich versuche das für Sie zu ändern, aber nur dieses\n"
 "Mal! :-)\n"
 
-#: bin/tp-robot:642
+#: bin/tp-robot:648
 #, python-format
 msgid ""
 "The Project-Id-Version field of your submission says that your translations\n"
@@ -1225,7 +1221,7 @@ msgstr ""
 "den Dateiname Ihrer Übersetzung oder das Feld »Project-Id-Version« ändern,\n"
 "je nachdem, welches sinnvoller ist.\n"
 
-#: bin/tp-robot:653
+#: bin/tp-robot:659
 #, python-format
 msgid ""
 "The `Project-Id-Version' field was not found in your PO file header.\n"
@@ -1246,7 +1242,7 @@ msgstr ""
 "in diesem Fall wahrscheinlich »%s«, und VERSION durch die passende\n"
 "Versionsnummer, hier wahrscheinlich »%s«.\n"
 
-#: bin/tp-robot:677
+#: bin/tp-robot:683
 #, python-format
 msgid ""
 "The `%s' field was not found in your PO file header,\n"
@@ -1261,7 +1257,7 @@ msgstr ""
 "\n"
 ">    %s: JAHR-MO-TA ST:MI +ZONE\n"
 
-#: bin/tp-robot:686
+#: bin/tp-robot:692
 msgid ""
 "Some older POT files did not have the `POT-Creation-Date' field.  If might\n"
 "be the case here, I'm not sure.  If yes, you should not worry, as this\n"
@@ -1276,7 +1272,7 @@ msgstr ""
 "für den Übersetzer gedacht. In der Zwischenzeit werde ich einfach den\n"
 "Wert aus dem Feld »PO-Revision-Date« übernehmen, damit alles klappt.\n"
 
-#: bin/tp-robot:695
+#: bin/tp-robot:701
 msgid ""
 "In the above line, YEAR is a four digits number giving the year, MO is\n"
 "a two digits number giving the month (between 01 and 12) and DA is a\n"
@@ -1303,7 +1299,7 @@ msgstr ""
 "Andere Notationen für die Zeitzonen werden gerade noch unterstützt,\n"
 "sollten aber nicht mehr benutzt werden.\n"
 
-#: bin/tp-robot:711
+#: bin/tp-robot:717
 #, python-format
 msgid ""
 "The PO revision date is `%s', which looks older than the POT creation date.\n"
@@ -1313,7 +1309,7 @@ msgstr ""
 "»POT-Creation«. Sie sollten das Datum für die »PO-Revision« aktualisieren,\n"
 "bevor Sie die .po-Datei abschicken.\n"
 
-#: bin/tp-robot:725
+#: bin/tp-robot:731
 #, python-format
 msgid ""
 "Oops, there is a slight formatting error.  In the `Last-Translator'\n"
@@ -1323,7 +1319,7 @@ msgstr ""
 "Ups, da ist ein kleiner Formatierungsfehler. Bitte benutzen Sie nicht\n"
 "mehr als ein Leerzeichen zwischen »%s« und »<%s>«.\n"
 
-#: bin/tp-robot:738
+#: bin/tp-robot:744
 #, python-format
 msgid ""
 "According to my notes, %s is not a member of the proper\n"
@@ -1344,7 +1340,7 @@ msgstr ""
 "sollen, schreiben Sie an den Übersetzungskoordinator. Der kann\n"
 "Ihnen mehr dazu sagen.\n"
 
-#: bin/tp-robot:753
+#: bin/tp-robot:759
 #, python-format
 msgid ""
 "The last translator of this PO file is `%s'.  Yet, according\n"
@@ -1357,7 +1353,7 @@ msgstr ""
 "bekannt ist, diesen Übersetzer zu erreichen.\n"
 "%s%s\n"
 
-#: bin/tp-robot:770
+#: bin/tp-robot:776
 #, python-format
 msgid ""
 "I'm not fully sure that you are the author of the translations you sent\n"
@@ -1391,7 +1387,7 @@ msgstr ""
 "normal, dass jemand eine Übersetzung einreicht, die jemand anders geschrieben\n"
 "hat.\n"
 
-#: bin/tp-robot:791
+#: bin/tp-robot:797
 #, python-format
 msgid ""
 "The header of the message you sent to me says that your email address is\n"
@@ -1405,7 +1401,7 @@ msgstr ""
 "für die zweite Adresse. Ich sage Ihnen das auch nur, weil es\n"
 "vielleicht für Sie wichtig sein könnte.\n"
 
-#: bin/tp-robot:801
+#: bin/tp-robot:807
 #, python-format
 msgid ""
 "The `Last-Translator' field was not found in your PO file header, or\n"
@@ -1429,7 +1425,7 @@ msgstr ""
 "höchstwahrscheinlich Sie :-). EMAIL@ADDRESS ist ein Weg, diesen Übersetzer\n"
 "zu erreichen.\n"
 
-#: bin/tp-robot:820
+#: bin/tp-robot:826
 #, python-format
 msgid ""
 "Oops, there is a slight formatting error.  In the `Language-Team'\n"
@@ -1439,7 +1435,7 @@ msgstr ""
 "Ups, da ist ein kleiner Formatierungsfehler. Im Feld »Language-Team«\n"
 "muß zwischen »%s« und »<%s>« genau ein Leerzeichen stehen. Sonst nichts.\n"
 
-#: bin/tp-robot:827
+#: bin/tp-robot:833
 #, python-format
 msgid ""
 "You wrote `%s' in the `Language-Team' field of the PO file\n"
@@ -1452,7 +1448,7 @@ msgstr ""
 "Falls Sie denken, dass ich das falsch einschätze, schreiben Sie an\n"
 "den Übersetzungskoordinator, um dieses Problem zu beheben.\n"
 
-#: bin/tp-robot:836
+#: bin/tp-robot:842
 #, python-format
 msgid ""
 "Each translation team should publish some mailing list address, meant\n"
@@ -1485,7 +1481,7 @@ msgstr ""
 "Nachdem wir ein paar unproduktive Teams aufgelöst hatten, haben wir uns\n"
 "für diese strengere Regelung entschieden.\n"
 
-#: bin/tp-robot:855
+#: bin/tp-robot:862
 #, python-format
 msgid ""
 "You wrote <%s> in the `Language-Team' field of the PO file\n"
@@ -1498,7 +1494,7 @@ msgstr ""
 "Sie denken, dass ich falsch liege, informieren Sie bitte den\n"
 "Übersetzungskoordinator. Der wird das schon regeln.\n"
 
-#: bin/tp-robot:864
+#: bin/tp-robot:871
 #, python-format
 msgid ""
 "The `Language-Team' field was not found in your PO file header, or\n"
@@ -1539,7 +1535,7 @@ msgstr ""
 "Falls Ihnen das nicht weiterhilft, schreiben Sie bitte dem\n"
 "Übersetzungskoordinator, dann klären wir das zusammen.\n"
 
-#: bin/tp-robot:889
+#: bin/tp-robot:896
 msgid ""
 "The `MIME-Version' field was not found in your PO file header, or is\n"
 "    not formatted properly.  The line containing it should exactly look like:\n"
@@ -1552,7 +1548,7 @@ msgstr ""
 "\n"
 ">    'MIME-Version: 1.0\\n'\n"
 
-#: bin/tp-robot:924
+#: bin/tp-robot:931
 #, python-format
 msgid ""
 "The `Content-Type' field introduced an unusual character set `%s'.\n"
@@ -1565,11 +1561,11 @@ msgstr ""
 "koordinator, damit »%s« in die Liste der gültigen Zeichensätze\n"
 "aufgenommen wird. Diese Liste enthält momentan: %s.\n"
 
-#: bin/tp-robot:930 bin/tp-robot:941 bin/tp-robot:956 bin/tp-robot:967
+#: bin/tp-robot:937 bin/tp-robot:948 bin/tp-robot:963 bin/tp-robot:974
 msgid "or"
 msgstr "oder"
 
-#: bin/tp-robot:933
+#: bin/tp-robot:940
 #, python-format
 msgid ""
 "The `Content-Type' field was not found in your PO file header, or is\n"
@@ -1586,7 +1582,7 @@ msgstr ""
 "\n"
 "wobei ZEICHENSATZ der Name des Zeichensatzes ist, so wie %s.\n"
 
-#: bin/tp-robot:950
+#: bin/tp-robot:957
 #, python-format
 msgid ""
 "The `Content-Transfer-Encoding' field introduced an unusual encoding\n"
@@ -1599,7 +1595,7 @@ msgstr ""
 "koordinator, dass »%s« zu der Liste der akzeptierten Codierungen\n"
 "hinzugefügt wird. Diese Liste enthält momentan: %s.\n"
 
-#: bin/tp-robot:959
+#: bin/tp-robot:966
 #, python-format
 msgid ""
 "The `Content-Transfer-Encoding' field was not found in your PO file header,\n"
@@ -1617,7 +1613,7 @@ msgstr ""
 "\n"
 "wobei ENCODING der Name einer Codierung sein sollte, wie eine von %s.\n"
 
-#: bin/tp-robot:992
+#: bin/tp-robot:999
 msgid ""
 "Sniff!  I'm unable to successfully start the `msgfmt' program.  I most\n"
 "probably need repairs.  I'll go whine to the translation coordinator.\n"
@@ -1626,7 +1622,7 @@ msgstr ""
 "brauche ich eine Reparatur. Ich gehe jetzt zum Übersetzungskoordinator\n"
 "und heule mich sort aus.\n"
 
-#: bin/tp-robot:1000
+#: bin/tp-robot:1007
 msgid ""
 "After running msgfmt on your file, it seems that you need gettext 0.10.37\n"
 "for this file. This is no problem at all, but you should be aware of that.\n"
@@ -1635,7 +1631,7 @@ msgstr ""
 "gettext 0.10.37 benötigen. Das ist überhaupt kein Problem, aber Sie\n"
 "sollten es wissen.\n"
 
-#: bin/tp-robot:1014
+#: bin/tp-robot:1021
 #, python-format
 msgid ""
 "Just to make sure, I called 'msgfmt --statistics -c -v -o /dev/null' on\n"
@@ -1650,11 +1646,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: bin/tp-robot:1031
+#: bin/tp-robot:1038
 msgid "Just to make sure, I ran\n"
 msgstr "Nur um sicherzugehen, habe ich \n"
 
-#: bin/tp-robot:1033
+#: bin/tp-robot:1040
 #, python-format
 msgid ""
 "\n"
@@ -1671,7 +1667,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: bin/tp-robot:1043
+#: bin/tp-robot:1050
 #, python-format
 msgid ""
 "Merely for your information, let me share with you what the `msgfmt'\n"
@@ -1684,7 +1680,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: bin/tp-robot:1054
+#: bin/tp-robot:1061
 msgid ""
 "At first sight it seems like your translation does not contain a clause\n"
 "that permits distribution of your translation. Please consider inserting\n"
@@ -1694,7 +1690,7 @@ msgstr ""
 "enthält, die das Weiterverbeiten Ihrer Übersetzung erlaubt. Bitte erwägen\n"
 "Sie, ob Sie einen Satz wie den folgenden einfügen:\n"
 
-#: bin/tp-robot:1082
+#: bin/tp-robot:1089
 #, python-format
 msgid ""
 "According to my notes, you are not a member of the %s team.\n"
@@ -1713,7 +1709,7 @@ msgstr ""
 "solche Varianzen zu vermeiden und bei einer einzigen bevorzugten\n"
 "Schreibweise zu bleiben.\n"
 
-#: bin/tp-robot:1095
+#: bin/tp-robot:1102
 #, python-format
 msgid ""
 "The email address `%s' is not known, in the Translation Project\n"
@@ -1724,7 +1720,7 @@ msgstr ""
 "nicht als ein richtiger Weg, Sie zu erreichen, bekannt.\n"
 "%s%s\n"
 
-#: bin/tp-robot:1107
+#: bin/tp-robot:1114
 #, python-format
 msgid ""
 "The `%s' textual domain is not known to the Translation Project, at\n"
@@ -1739,10 +1735,10 @@ msgstr ""
 "des Projekts noch keine Anweisungen gegeben hat, wie seine .po-Dateien\n"
 "behandelt werden sollen. In diesem Fall sollten Sie den Projektmaintainer\n"
 "auffordern, uns zu kontaktieren. Gehen Sie auf die Seite\n"
-"»http://www.translationproject.org/HTML« und wählen Sie »Textual Domains«\n"
+"»http://www.iso.umontreal.ca/contrib/po/HTML« und wählen Sie »Textual Domains«\n"
 "aus, um die Liste der momentan behandelten Textdomains anzusehen.\n"
 
-#: bin/tp-robot:1120
+#: bin/tp-robot:1127
 #, python-format
 msgid ""
 "According to my notes, the Free Software Foundation did not acknowledge the\n"
@@ -1769,7 +1765,7 @@ msgstr ""
 "oder Bedenken zum Disclaimer haben, so wie er ist, diskutieren Sie\n"
 "bitte mit dem Übersetzungskoordinator darüber.\n"
 
-#: bin/tp-robot:1135
+#: bin/tp-robot:1142
 #, python-format
 msgid ""
 "Most teams allow translators to directly send their achieved translations\n"
@@ -1796,7 +1792,7 @@ msgstr ""
 "Veröffentlichen der Übersetzungen etwas anders, damit sie schon im\n"
 "Voraus eine Qualitätskontrolle durchführen können.\n"
 
-#: bin/tp-robot:1152
+#: bin/tp-robot:1159
 #, python-format
 msgid ""
 "You submit a PO file for which the Translation Project does not have a\n"
@@ -1820,7 +1816,7 @@ msgstr ""
 "Quelltext an, um einen besseren Kontext für die Übersetzung herauszufinden,\n"
 "für den Fall, dass die Texte an sich nicht klar genug sind.\n"
 
-#: bin/tp-robot:1170
+#: bin/tp-robot:1177
 msgid ""
 "The Translation Project already holds an exact copy of your submission,\n"
 "which you may find as either one of:\n"
@@ -1830,7 +1826,7 @@ msgstr ""
 "die Sie an einer dieser Stellen finden können:\n"
 "\n"
 
-#: bin/tp-robot:1228
+#: bin/tp-robot:1235
 msgid ""
 "Sniff!  I'm unable to successfully start the `diff' program.  I most\n"
 "probably need repairs.  I'll go whine to the translation coordinator.\n"
@@ -1840,7 +1836,7 @@ msgstr ""
 "und heule mich dort aus.\n"
 
 # TODO:canonicalize
-#: bin/tp-robot:1239
+#: bin/tp-robot:1246
 msgid ""
 "Sniff!  I'm unable to successfully canonicalise your PO file.  I most\n"
 "probably need repairs.  I'll go whine to the translation coordinator.\n"
@@ -1849,7 +1845,7 @@ msgstr ""
 "Wahrscheinlich brauche ich eine Reparatur. Ich gehe jetzt zum\n"
 "Übersetzungskoordinator und heule mich dort aus.\n"
 
-#: bin/tp-robot:1247
+#: bin/tp-robot:1254
 msgid ""
 "We are trying to reach a consistent presentation for PO files in the\n"
 "Translation Project, over all textual domains and native languages.\n"
@@ -1881,7 +1877,7 @@ msgstr ""
 "solche Dateien anmahnen und so lange Änderungslisten schicken. Diese\n"
 "Nachricht geht nach den (möglicherweise langen) Änderungen weiter.\n"
 
-#: bin/tp-robot:1271
+#: bin/tp-robot:1279
 #, python-format
 msgid ""
 "Your file has been accepted and uploaded into the archives: congratulations!\n"
@@ -1896,7 +1892,7 @@ msgstr ""
 "dann mit der URL der .po-Datei benachrichtigt, mit einer kurzen Übersicht,\n"
 "wieviel Arbeit an der Datei zu tun ist.\n"
 
-#: bin/tp-robot:1287
+#: bin/tp-robot:1295
 msgid ""
 "To speed things up, I could send you updated copies of this PO file by email,\n"
 "whenever I upload new PO Template files for it.  If you are interested in\n"
@@ -1907,7 +1903,7 @@ msgstr ""
 "Falls Sie an diesem Service interessiert sind, können Sie sich registrieren,\n"
 "indem Sie eine Mail an den Übersetzungskoordinator schreiben.\n"
 
-#: bin/tp-robot:1310
+#: bin/tp-robot:1318
 msgid ""
 "Sniff!  I'm unable to successfully start the `po-register' program.\n"
 "I most probably need repairs.  I'll go whine to the translation coordinator.\n"
@@ -1916,55 +1912,55 @@ msgstr ""
 "brauche ich eine Reparatur. Ich gehe jetzt zu dem Übersetzungskoordinator\n"
 "und heule mich dort aus.\n"
 
-#: bin/tp-robot:1318
+#: bin/tp-robot:1326
 msgid "Original message header:\n"
 msgstr "Ursprünglicher Mailheader:\n"
 
-#: bin/tp-robot:1323
+#: bin/tp-robot:1331
 msgid "Diagnostics issued by `po-register:\n"
 msgstr "Diagnose von »po-register«:\n"
 
-#: bin/tp-robot:1338
+#: bin/tp-robot:1346
 #, python-format
 msgid "the translators's address is `%s'"
 msgstr "Die Adresse des Übersetzers ist »%s«"
 
-#: bin/tp-robot:1341
+#: bin/tp-robot:1349
 msgid "the translator's address"
 msgstr "Die Adresse des Übersetzers"
 
-#: bin/tp-robot:1343
+#: bin/tp-robot:1351
 #, python-format
 msgid "the textual domain is `%s'"
 msgstr "Die Textdomain ist »%s«"
 
-#: bin/tp-robot:1345
+#: bin/tp-robot:1353
 msgid "the textual domain"
 msgstr "Die Textdomain"
 
-#: bin/tp-robot:1347
+#: bin/tp-robot:1355
 #, python-format
 msgid "the domain version is `%s'"
 msgstr "Die Version der Textdomain ist »%s«"
 
-#: bin/tp-robot:1349
+#: bin/tp-robot:1357
 msgid "the domain version"
 msgstr "Die Version der Textdomain"
 
-#: bin/tp-robot:1351
+#: bin/tp-robot:1359
 #, python-format
 msgid "the team code is `%s'"
 msgstr "Das Teamkürzel ist »%s«"
 
-#: bin/tp-robot:1353
+#: bin/tp-robot:1361
 msgid "the team code"
 msgstr "Das Teamkürzel"
 
-#: bin/tp-robot:1356 bin/tp-robot:1357 bin/tp-robot:1375
+#: bin/tp-robot:1364 bin/tp-robot:1365 bin/tp-robot:1383
 msgid "and"
 msgstr "und"
 
-#: bin/tp-robot:1361
+#: bin/tp-robot:1369
 msgid ""
 "No official email address exist for this translator in the Translation\n"
 "Project registry.\n"
@@ -1972,12 +1968,12 @@ msgstr ""
 "Dieser Übersetzer hat keine offizielle E-Mail-Adresse in der Datenbank\n"
 "des Übersetzungsprojekts.\n"
 
-#: bin/tp-robot:1366
+#: bin/tp-robot:1374
 #, python-format
 msgid "The only address we officially know for this translator is `%s'.\n"
 msgstr "Die einzige Adresse, die wir für diesen Übersetzer offiziell kennen, ist »%s«.\n"
 
-#: bin/tp-robot:1372
+#: bin/tp-robot:1380
 #, python-format
 msgid "For this translator, the only registered addresses we have are: %s.\n"
 msgstr "Die einzigen registrierten Adressen, die wir für diesen Übersetzer haben, sind: %s.\n"
@@ -2184,22 +2180,22 @@ msgstr "Benutze mindestens ein Argument mit »dos«"
 msgid "Do `%s' duplicated"
 msgstr "Doppeltes »Do %s«"
 
-#: web/lib/localweb.py:151
+#: web/lib/localweb.py:157
 #, python-format
 msgid "%s: Unexistent domain or team!\n"
 msgstr "%s: Domain oder Team existiert nicht!\n"
 
-#: web/lib/localweb.py:154
+#: web/lib/localweb.py:160
 #, python-format
 msgid "%s: No hints found!\n"
 msgstr "%s: Keine Hinweise gefunden!\n"
 
-#: web/lib/localweb.py:158
+#: web/lib/localweb.py:164
 #, python-format
 msgid "%s: Missing version?\n"
 msgstr "%s: Fehlende Version?\n"
 
-#: web/lib/localweb.py:162
+#: web/lib/localweb.py:168
 #, python-format
 msgid "%s: Not in stats database!\n"
 msgstr "%s: Nicht in der Statistikdatenbank!\n"
@@ -2216,27 +2212,27 @@ msgstr "ERSTER AUTOR <EMAIL@ADRESSE>, JAHR."
 msgid "PACKAGE VERSION"
 msgstr "PAKET VERSION"
 
-#: web/lib/po.py:20 web/lib/po.py:21
+#: web/lib/po.py:21 web/lib/po.py:22
 msgid "YEAR-MO-DA HO:MI +ZONE"
 msgstr "JAHR-MO-TA ST:MI +ZONE"
 
-#: web/lib/po.py:22
+#: web/lib/po.py:23
 msgid "FULL NAME <EMAIL@ADDRESS>"
 msgstr "VOLLSTÄNDIGER NAME <EMAIL@ADRESSE>"
 
-#: web/lib/po.py:23
+#: web/lib/po.py:24
 msgid "LANGUAGE <LL@li.org>"
 msgstr "SPRACHE <LL@li.org>"
 
-#: web/lib/po.py:25
+#: web/lib/po.py:26
 msgid "text/plain; charset=CHARSET"
 msgstr "text/plain; charset=ZEICHENSATZ"
 
-#: web/lib/po.py:26
+#: web/lib/po.py:27
 msgid "ENCODING"
 msgstr "CODIERUNG"
 
-#: web/lib/po.py:113 web/lib/po.py:155 web/lib/po.py:158
+#: web/lib/po.py:115 web/lib/po.py:157 web/lib/po.py:160
 #, python-format
 msgid ""
 "%s:%d: Unrecognised line\n"
@@ -2245,70 +2241,65 @@ msgstr ""
 "%s:%d: Unerkannte Zeile\n"
 "%s"
 
-#: web/lib/po.py:200
+#: web/lib/po.py:202
 msgid "Duplicate"
 msgstr "Duplikat"
 
-#: web/lib/registry.py:82
-#, python-format
-msgid "Unknown translator %s"
-msgstr "Unbekannter Übersetzer %s"
-
-#: web/lib/registry.py:210
-#, python-format
-msgid "Unknown domain `%s'"
-msgstr "Unbekannte Domain »%s«"
-
-#: web/lib/registry.py:232
-#, python-format
-msgid "Unknown team `%s'"
-msgstr "Unbekanntes Team »%s«"
-
-#: web/lib/registry.py:238
+#: web/lib/registry.py:91 web/lib/registry.py:248
 #, python-format
 msgid "Unknown translator `%s'"
 msgstr "Unbekannter Übersetzer »%s«"
 
-#: web/lib/registry.py:284
+#: web/lib/registry.py:220
+#, python-format
+msgid "Unknown domain `%s'"
+msgstr "Unbekannte Domain »%s«"
+
+#: web/lib/registry.py:242
+#, python-format
+msgid "Unknown team `%s'"
+msgstr "Unbekanntes Team »%s«"
+
+#: web/lib/registry.py:294
 #, python-format
 msgid "No hints from `%s'"
 msgstr "Keine Hinweise von »%s«"
 
-#: web/lib/registry.py:289
+#: web/lib/registry.py:299
 #, python-format
 msgid "POT hint from `%s' contradicts previous"
 msgstr "Der Vorlagenhinweis von »%s« widerspricht dem vorherigen"
 
-#: web/lib/registry.py:293
+#: web/lib/registry.py:303
 #, python-format
 msgid "Domain hint from `%s' contradicts `%s'"
 msgstr "Der Domainhinweis von »%s« widerspricht »%s«"
 
-#: web/lib/registry.py:298
+#: web/lib/registry.py:308
 #, python-format
 msgid "Version hint from `%s' contradicts `%s'"
 msgstr "Der Versionhinweis von »%s« widerspricht »%s«"
 
-#: web/lib/registry.py:303
+#: web/lib/registry.py:313
 #, python-format
 msgid "Team hint from `%s' contradicts `%s'"
 msgstr "Der Teamhinweis von »%s« widerspricht »%s«"
 
-#: web/lib/registry.py:308
+#: web/lib/registry.py:318
 #, python-format
 msgid "Inconsistent charset hint from `%s'"
 msgstr "Inkonsistenter Zeichensatzhinweis von »%s«"
 
-#: web/lib/registry.py:471
+#: web/lib/registry.py:481
 #, python-format
 msgid "Unrecognised version: %s"
 msgstr "Unerkannte Version: %s"
 
-#: web/lib/run.py:18
+#: web/lib/run.py:24
 msgid "Report from TP-Robot"
 msgstr "Bericht vom TP-Robot"
 
-#: web/lib/run.py:53
+#: web/lib/run.py:61
 msgid ""
 "================================================\n"
 "Unable to send report.  Dumping it here instead.\n"
@@ -2318,31 +2309,31 @@ msgstr ""
 "Kann den Bericht nicht senden. Stattdessen ist er hier.\n"
 "=======================================================\n"
 
-#: web/lib/run.py:92
+#: web/lib/run.py:100
 #, python-format
 msgid ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: %s\n"
 "Subject: Re: %s\n"
 msgstr ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: %s\n"
 "Subject: Re: %s\n"
 
-#: web/lib/run.py:141
+#: web/lib/run.py:149
 #, python-format
 msgid ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: \"%s\" <%s>\n"
 "Subject: Re: %s\n"
 "\n"
 msgstr ""
-"From: Translation Project Robot <translation@translationproject.org>\n"
+"From: Translation Project Robot <robot@translationproject.org>\n"
 "To: \"%s\" <%s>\n"
 "Subject: Re: %s\n"
 "\n"
 
-#: web/lib/run.py:153
+#: web/lib/run.py:161
 #, python-format
 msgid ""
 "Hi!  I am the service robot at the Translation Project, and was awakened\n"
@@ -2351,7 +2342,7 @@ msgstr ""
 "Hi! Ich bin der Service-Robot des Übersetzungsprojekts und wurde durch\n"
 "Ihre Einsendung für »%s« aufgeweckt.\n"
 
-#: web/lib/run.py:159
+#: web/lib/run.py:167
 msgid ""
 "Hi!  I am the service robot at the Translation Project, and was awakened\n"
 "by one of your submissions.\n"
@@ -2359,7 +2350,7 @@ msgstr ""
 "Hi!  Ich bin der Service-Robot des Übersetzungsprojekts und wurde von einem\n"
 "Ihrer Beiträge aufgeweckt.\n"
 
-#: web/lib/run.py:169
+#: web/lib/run.py:179
 msgid ""
 "Some error reported above is such that I cannot fully process your invoice.\n"
 "I'm sorry!  Do not fear resubmitting your PO file, once you think the problem\n"
@@ -2407,26 +2398,26 @@ msgstr ""
 "Übersetzungskoordinator schreiben. Falls Sie das machen, beginnen\n"
 "Sie die Betreffzeile auf keinen Fall mit »TP-Robot«! :-)\n"
 
-#: web/lib/run.py:192
+#: web/lib/run.py:202
 msgid ""
 "                                The Translation Project robot, in the\n"
 "                                name of your kind translation coordinator.\n"
-"                                <translation@translationproject.org>\n"
+"                                <coordinator@translationproject.org>\n"
 msgstr ""
 "                                Der Robot des Übersetzungsprojekts, im Namen\n"
 "                                des Übersetzungskoordinators.\n"
-"                                <translation@translationproject.org>\n"
+"                                <coordinator@translationproject.org>\n"
 
-#: web/lib/run.py:203
+#: web/lib/run.py:213
 msgid "WARNING: This prevents the robot from forwarding your file to the archive.\n"
 msgstr "WARNUNG: Dies hält den Robot davon ab, die Datei ins Archiv weiterzuleiten.\n"
 
-#: web/lib/sgml.py:172
+#: web/lib/sgml.py:173
 #, python-format
 msgid "Unsupported attribute %s"
 msgstr "Nicht untersütztes Attribut »%s«"
 
-#: web/lib/sgml.py:176
+#: web/lib/sgml.py:177
 #, python-format
 msgid "SGML in `%s' is not conformant.\n"
 msgstr "SGML in `%s' is nicht konform.\n"
@@ -2461,3 +2452,247 @@ msgid ""
 msgstr ""
 "Das Entpacken des Beitrages mit gzip ist fehlgeschlagen. gzip sagte:\n"
 "%s\n"
+
+msgid "Afrikaans"
+msgstr ""
+
+msgid "Albanian"
+msgstr ""
+
+msgid "Amharic"
+msgstr ""
+
+msgid "Arabic"
+msgstr ""
+
+msgid "Argentinian"
+msgstr ""
+
+msgid "Asturian"
+msgstr ""
+
+msgid "Azerbaijani"
+msgstr ""
+
+msgid "Basque"
+msgstr ""
+
+msgid "Belarusian"
+msgstr ""
+
+msgid "Bosnian"
+msgstr ""
+
+msgid "Brazilian Portuguese"
+msgstr ""
+
+msgid "Bulgarian"
+msgstr ""
+
+msgid "Catalan"
+msgstr ""
+
+msgid "Chinese (simplified)"
+msgstr ""
+
+msgid "Chinese (traditional)"
+msgstr ""
+
+msgid "Croatian"
+msgstr ""
+
+msgid "Czech"
+msgstr ""
+
+msgid "Danish"
+msgstr ""
+
+msgid "Dutch"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
+msgid "English (British)"
+msgstr ""
+
+msgid "Esperanto"
+msgstr ""
+
+msgid "Estonian"
+msgstr ""
+
+msgid "Finnish"
+msgstr ""
+
+msgid "French"
+msgstr ""
+
+msgid "Galician"
+msgstr ""
+
+msgid "Georgian"
+msgstr ""
+
+msgid "German"
+msgstr ""
+
+msgid "Greek"
+msgstr ""
+
+msgid "Hebrew"
+msgstr ""
+
+msgid "Hungarian"
+msgstr ""
+
+msgid "Icelandic"
+msgstr ""
+
+msgid "Indonesian"
+msgstr ""
+
+msgid "Irish"
+msgstr ""
+
+msgid "Italian"
+msgstr ""
+
+msgid "Japanese"
+msgstr ""
+
+msgid "Kinyarwanda"
+msgstr ""
+
+msgid "Korean"
+msgstr ""
+
+msgid "Kurdish"
+msgstr ""
+
+msgid "Latvian"
+msgstr ""
+
+msgid "Lithuanian"
+msgstr ""
+
+msgid "Lojban"
+msgstr ""
+
+#, fuzzy
+msgid "Luganda"
+msgstr "und"
+
+msgid "Macedonian"
+msgstr ""
+
+msgid "Malay"
+msgstr ""
+
+msgid "Maltese"
+msgstr ""
+
+msgid "Mongolian"
+msgstr ""
+
+msgid "Nicaraguian"
+msgstr ""
+
+msgid "Northern Sotho"
+msgstr ""
+
+msgid "Norwegian"
+msgstr ""
+
+msgid "Norwegian Bokmaal"
+msgstr ""
+
+msgid "Norwegian Nynorsk"
+msgstr ""
+
+msgid "Persian"
+msgstr ""
+
+msgid "Polish"
+msgstr ""
+
+msgid "Portuguese"
+msgstr ""
+
+msgid "Punjabi"
+msgstr ""
+
+msgid "Rhaeto-Romance"
+msgstr ""
+
+msgid "Romanian"
+msgstr ""
+
+msgid "Russian"
+msgstr ""
+
+msgid "Serbian"
+msgstr ""
+
+msgid "Sinhalese"
+msgstr ""
+
+msgid "Slovak"
+msgstr ""
+
+msgid "Slovenian"
+msgstr ""
+
+msgid "Sotho"
+msgstr ""
+
+msgid "Spanish"
+msgstr ""
+
+msgid "Swati"
+msgstr ""
+
+msgid "Swedish"
+msgstr ""
+
+msgid "Tajik"
+msgstr ""
+
+msgid "Tamil"
+msgstr ""
+
+msgid "Thai"
+msgstr ""
+
+msgid "Turkish"
+msgstr ""
+
+msgid "Turkmen"
+msgstr ""
+
+msgid "Ukrainian"
+msgstr ""
+
+msgid "Venda"
+msgstr ""
+
+msgid "Vietnamese"
+msgstr ""
+
+msgid "Walloon"
+msgstr ""
+
+msgid "Welsh"
+msgstr ""
+
+msgid "Xhosa"
+msgstr ""
+
+msgid "Zulu"
+msgstr ""
+
+#~ msgid "Robot aborted"
+#~ msgstr "Robot abgebrochen"
+
+#~ msgid "Unknown translator %s"
+#~ msgstr "Unbekannter Übersetzer %s"
