@@ -74,6 +74,7 @@ Thank you for all your work,
                                 The Translation Project robot, in the
                                 name of your translation coordinator.
                                 <coordinator@translationproject.org>
+
 """))
 
 class run:
@@ -163,7 +164,7 @@ def process_pot_file(hints, file, teams):
                     if translator.autosend:
                         if translator.mailto:
                             address = translator.mailto[0]
-                        sys.stderr.write("      mailing '%s' to <%s>\n"
+                        sys.stderr.write("      sending '%s' to <%s>\n"
                                          % (archive_base, address))
                         email_file(address, result_file, translator.autosend)
             process_po_file(hints, result_file, fromnewpot = True)
@@ -177,7 +178,7 @@ def process_pot_file(hints, file, teams):
                 if translator.mailto:
                     address = translator.mailto[0]
                     if translator.autosend:
-                        sys.stderr.write("      mailing '%s' to <%s>\n"
+                        sys.stderr.write("      sending '%s' to <%s>\n"
                                          % (template_base, address))
                         email_file(address, template_path, translator.autosend)
     if hints.domain.mailto:
@@ -256,14 +257,14 @@ def notify_maintainer_for_pot(hints):
     file = open_output()
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
-    write(_("""\
+    write("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: New template for '%s' made available
-""")
+"""
                % (hints.domain.mailto[0], hints.domain.name))
     write('\n')
-    write(messages.refill(_("""\
+    write(messages.refill("""\
 Hello, gentle maintainer.
 
 This is a message from the Translation Project robot.
@@ -273,36 +274,36 @@ to the language teams for translation.  It is archived as:
 
     %s
 
-""")
+"""
                       % (hints.domain.name, hints.template_urls()[0])))
-    write(_("""\
+    write("""\
 Whenever you have a new distribution with a new version number ready,
 containing a newer POT file, please send the URL of that distribution
 tarball to the address below.  The tarball may be just a pretest or a
 snapshot, it does not even have to compile.  It is just used by the
 translators when they need some extra translation context.
 
-"""))
+""")
     if hints.domain.url:
-        write(_("""\
+        write("""\
 Below is the URL which has been provided to the translators of your
 package.  Please inform the translation coordinator, at the address
 at the bottom, if this information is not current:
 
-"""))
+""")
         for url in hints.domain.url:
             write('    %s\n' % url)
     if hints.domain.autosend:
-        write(_("""\
+        write("""\
 
 Translated PO files will later be automatically e-mailed to you.
-"""))
+""")
     else:
-        write(_("""\
+        write("""\
 
 We can arrange things so that translated PO files are automatically e-mailed
 to you when they arrive.  Ask at the address below if you want this.
-"""))
+""")
     underwrite(write)
 
 
@@ -310,14 +311,14 @@ def notify_team_leaders_for_pot(hints):
     file = open_output()
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
-    write(_("""\
+    write("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: team-leaders@iro.umontreal.ca
 Subject: New PO template for '%s'
-""")
+"""
                % hints.domain.name)
     write('\n')
-    write(messages.refill(_("""\
+    write(messages.refill("""\
 My nicest hello to all language team leaders.
 
 This is a message from the Translation Project robot.
@@ -328,21 +329,20 @@ A copy is available at:
 
     %s
 
-""")
+"""
                       % (hints.domain.name, hints.template_urls()[0])))
-    write(_("""\
+    write("""\
 Your team will be notified only if it already committed a translation for
 this domain, or if you have requested that the team be notified anyway.
 Otherwise it is up to you to decide how a translator might be recruited
 to take care of it.
-"""))
+""")
     if hints.domain.url:
-        write(_("""\
-
+        write("""
 Here is some URL information that could be provided to translators
 for this package:
 
-"""))
+""")
         for url in hints.domain.url:
             write('    %s\n' % url)
     underwrite(write)
@@ -352,15 +352,15 @@ def notify_maintainer_for_po(hints, file_name, archive_base):
     file = open_output()
     def write(msg):
         return file.write(messages.translate(msg, 'en'))
-    write(_("""\
+    write("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: New %s PO file for '%s' (version %s)
-""")
-               % (hints.domain.mailto[0], _(hints.team.language),
+"""
+               % (hints.domain.mailto[0], hints.team.language,
                   hints.domain.name, hints.version))
     write('\n')
-    write(messages.refill(_("""\
+    write(messages.refill("""\
 Hello, gentle maintainer.
 
 This is a message from the Translation Project robot.
@@ -370,27 +370,27 @@ the %s team of translators.  The file is available at:
 
     %s
 
-""")
-                      % (hints.domain.name, _(hints.team.language),
+"""
+                      % (hints.domain.name, hints.team.language,
 		         hints.maintainer_urls()[0])))
     if hints.domain.autosend:
-        sys.stderr.write("      mailing '%s' to <%s>\n"
+        sys.stderr.write("      sending '%s' to <%s>\n"
                          % (archive_base, hints.domain.mailto[0]))
         email_file(hints.domain.mailto[0], file_name, hints.domain.autosend)
-        write(_("""\
+        write("""\
 (This file, '%s', has just now been sent to you in
 a separate email.)
 
-""")
+"""
                    % archive_base)
     else:
-        write(_("""\
+        write("""\
 (We can arrange things so that in the future such files are automatically
 e-mailed to you when they arrive.  Ask at the address below if you want this.)
 
-"""))
+""")
     dirname = os.path.dirname(hints.maintainer_urls()[0]) + "/"
-    write(_("""\
+    write("""\
 All other PO files for your package are available in:
 
     %s
@@ -398,23 +398,23 @@ All other PO files for your package are available in:
 Please consider including all of these in your next release, whether
 official or a pretest.
 
-""")
+"""
           % dirname)
-    write(_("""\
+    write("""\
 Whenever you have a new distribution with a new version number ready,
 containing a newer POT file, please send the URL of that distribution
 tarball to the address below.  The tarball may be just a pretest or a
 snapshot, it does not even have to compile.  It is just used by the
 translators when they need some extra translation context.
 
-"""))
-    write(_("""\
+""")
+    write("""\
 The following HTML page has been updated:
 
     %s/pass/domain-%s.html
 
 If any question arises, please contact the translation coordinator.
-""")
+"""
           % (registry.puburls[0], hints.domain.name))
     underwrite(write)
 

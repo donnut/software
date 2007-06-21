@@ -7,6 +7,10 @@
 	* Makefile: Store the tp-robot.pot file among the po files, but
 	let svn ignore it.
 
+	* bin/po-register: Stop gettextizing messages to maintainers and
+	team leaders when they get output in English only anyway.  Spare
+	the translators of tp-robot some pointless work.
+
 2007-06-20  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Stop gettextizing local progress and error
