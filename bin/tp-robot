@@ -932,9 +932,9 @@ where ENCODING should be the name of an encoding, like one of %s.
             reject = proc.wait()
         except:
             run.reject(_("""\
-Sniff!  I'm unable to successfully start the 'msgfmt' program.  I most
-probably need repairs.  I'll go whine to the translation coordinator.
-"""), "[could not invoke msgfmt]")
+I am unable to run the 'msgfmt' program.  Sorry.  Something needs
+to be fixed here.  I'll go warn the translation coordinator.
+"""), "[msgfmt failed]")
             abort_robot()
         comment = self.scan_gettext_output(lines, work, virtual)
         if reject:
@@ -1152,9 +1152,9 @@ Accomplishing actions.  In fact, putting here whatever does not fit elsewhere.
                              % (where, virtual, virtual, where)).readlines()
         except:
             run.reject(_("""\
-Sniff!  I'm unable to successfully start the 'diff' program.  I most
-probably need repairs.  I'll go whine to the translation coordinator.
-"""), "[recode or diff not found]")
+I am unable to run the 'diff' program.  Sorry.  Something needs
+to be fixed here.  I'll go warn the translation coordinator.
+"""), "[diff or recode failed]")
             abort_robot()
         # FIXME: Maybe detect and better explain `msgid' reformatting, trailing
         # space elimination, and other less evident matters.
@@ -1163,9 +1163,9 @@ probably need repairs.  I'll go whine to the translation coordinator.
             os.rename('%s.norm' % where, where)
         except:
             run.reject(_("""\
-Sniff!  I'm unable to successfully canonicalise your PO file.  I most
-probably need repairs.  I'll go whine to the translation coordinator.
-"""), "[remove/rename failed]")
+I am unable to canonicalise your PO file.  Sorry.  Something needs
+to be fixed here.  I'll go warn the translation coordinator.
+"""), "[remove or rename failed]")
             abort_robot()
         if lines:
             if len(lines) > 50:
@@ -1237,8 +1237,8 @@ translation coordinator.
                 ).readlines()
         except:
             run.reject(_("""\
-Sniff!  I'm unable to successfully start the 'po-register' program.
-I most probably need repairs.  I'll go whine to the translation coordinator.
+I am unable to run the 'po-register' program.  Sorry.  Something needs
+to be fixed here.  I'll go warn the translation coordinator.
 """), "[po-register failed]")
             return
         comment = []

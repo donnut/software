@@ -14,6 +14,8 @@
 	* lib/run.py, bin/tp-robot: Shorten some lines to prevent needless
 	wraps in the pot file.
 
+	* bin/tp-robot: Do not whine, and be a little clearer.
+
 2007-06-20  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Stop gettextizing local progress and error
