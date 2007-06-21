@@ -64,10 +64,10 @@ endif
 
 .PHONY:	pot
 pot:
-	xgettext -o translationproject.pot -kt_ -L Python \
+	xgettext -o po/tp-robot.pot -kt_ -L Python \
 	    bin/{tp-robot,po-register} lib/{po,run,unpack}.py
 	# Add the list of language teams:
-	python lib/registry.py >>translationproject.pot
+	python lib/registry.py >>po/tp-robot.pot
 
 dist:
 	tar -czv -f $(HOME)/translationproject-${VERSION}.tgz \
