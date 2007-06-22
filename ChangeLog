@@ -1,4 +1,11 @@
 
+2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/i18n-aliases: Add the ability to generate a procmailrc
+	file with forwarding rules for each team and each domain name,
+	but most importantly: with a rule to forward a mail to all
+	team leaders or all maintainers.
+
 2007-06-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* po/*: Add Finnish and Irish translations of the TP-robot, update

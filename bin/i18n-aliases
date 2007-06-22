@@ -1,17 +1,20 @@
 #!/usr/bin/env python
 # -*- mode: python; coding: utf-8 -*-
-# Copyright © 2002 Translation Project.
+# Copyright © 2002, 2007 Translation Project.
 # Copyright © 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 2000.
 
 """\
-Produce a `.mailrc'-like file aliasing teams and domains.
+Produce a '.mailrc' or '.procmailrc' file that aliases teams and domains.
+The most important are the "team-leaders" and "all-maintainers" aliases.
 
-Usage: i18n-aliases [OPTION]
+Usage: i18n-aliases [-mpDTf]
 
-  -D  domain aliases to reach maintainers
-  -T  team aliases to reach leaders
-  -f  fallback on team list when no team leader
+  -m  produce output for .mailrc
+  -p  produce output for .procmailrc
+  -D  make aliases or rules to reach domain maintainers
+  -T  make aliases or rules to reach team leaders
+  -f  fall back on the team list when team has no leader
 """
 
 import os, sys
@@ -24,21 +27,38 @@ def main(*arguments):
     if not arguments:
         sys.stdout.write(__doc__)
         sys.exit(0)
-    options, arguments = getopt.getopt(arguments, 'DTf')
-    domains = teams = fallback = 0
+    options, arguments = getopt.getopt(arguments, 'mpDTf')
+    mailrc = procmailrc = domains = teams = fallback = 0
     for option, value in options:
+        if option == '-m':
+            mailrc = 1
+        if option == '-p':
+            procmailrc = 1
         if option == '-D':
             domains = 1
         elif option == '-T':
             teams = 1
         elif option == '-f':
             fallback = 1
+    if mailrc and procmailrc:
+        sys.stderr.write("***Cannot produce both mailrc AND procmailrc.\n")
+        sys.exit(2)
+    if not mailrc and not procmailrc:
+        sys.stderr.write("***Use either option -m or -p.\n")
+        sys.exit(2)
     if domains:
-        define_maintainers()
+        if mailrc:
+            alias_maintainers()
+        else:
+            rules_for_maintainers()
     if teams:
-        define_leaders(fallback)
+        if mailrc:
+            alias_leaders(fallback)
+        else:	  
+            rules_for_leaders(fallback)
 
-def define_leaders(fallback_on_lists=1):
+
+def alias_leaders(fallback_on_lists):
     all_coord = []
     no_mailto = []
     for team in registry.team_list():
@@ -56,22 +76,60 @@ def define_leaders(fallback_on_lists=1):
             all_coord.append(team.code)
         else:
             no_mailto.append(team.code)
-    sys.stdout.write('alias all-coord %s\n' % string.join(all_coord, ', '))
+    sys.stdout.write('alias team-leaders %s\n' % string.join(all_coord, ', '))
     if no_mailto:
-        sys.stderr.write('* Missing aliases for %s\n'
+        sys.stderr.write('* No aliases for: %s\n'
                          % string.join(no_mailto, ', '))
 
-def define_maintainers():
+def rules_for_leaders(fallback_on_lists):
+    all_coord = []
+    no_mailto = []
+    for team in registry.team_list():
+        mailto = None
+        comment = None
+        if team.leader:
+            mailto = team.leader.mailto[0]
+        if not mailto and fallback_on_lists:
+            mailto = team.mailto[0]
+        if mailto:
+            sys.stdout.write(':0\n* ^To:.*%s@\n! <%s>\n'
+                             % (team.code, mailto))
+            all_coord.append('<%s>' % mailto)
+        else:
+            no_mailto.append(team.code)
+    sys.stdout.write(':0\n* ^To:.*team-leaders@\n! %s\n'
+                     % string.join(all_coord, ' '))
+    if no_mailto:
+        sys.stderr.write('* No rules for: %s\n'
+                         % string.join(no_mailto, ', '))
+
+
+def alias_maintainers():
     all_maint = []
     for domain in registry.domain_list():
         try:
-            email = domain.mailto[0]
+            mailto = domain.mailto[0]
         except IndexError:
-            email = domain.nomailto[0]
-        sys.stdout.write('alias %s "Textual domain for `%s\' <%s>"\n'
-                         % (domain.name, domain.name, email))
+            mailto = domain.nomailto[0]
+        sys.stdout.write('alias %s "Textual domain for \'%s\' <%s>"\n'
+                         % (domain.name, domain.name, mailto))
         all_maint.append(domain.name)
-    sys.stdout.write('alias all-maint %s\n' % string.join(all_maint, ', '))
+    sys.stdout.write('alias all-maintainers %s\n'
+                     % string.join(all_maint, ', '))
+
+def rules_for_maintainers():
+    all_maint = []
+    for domain in registry.domain_list():
+        try:
+            mailto = domain.mailto[0]
+        except IndexError:
+            mailto = domain.nomailto[0]
+        sys.stdout.write(':0\n* ^To:.*%s@\n! <%s>\n'
+                         % (domain.name, mailto))
+        all_maint.append('<%s>' % mailto)
+    sys.stdout.write(':0\n* ^To:.*all-maintainers@\n! %s\n'
+                     % string.join(all_maint, ' '))
+
 
 if __name__ == '__main__':
     apply(main, tuple(sys.argv[1:]))
