@@ -72,7 +72,7 @@ def relocate(name, description, params):
  </body>
 </html>
 """
-          % (config.cgi_base, params, description, config.cgi_base, params))
+          % (config.cgi_path, params, description, config.cgi_path, params))
 
 if __name__ == '__main__':
     apply(main, tuple(sys.argv[1:]))

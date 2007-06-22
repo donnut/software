@@ -34,8 +34,7 @@ pots_path = site_path + "/" + pots_dir
 pos_path = site_path + "/" + pos_dir
 last_path = site_path + "/"  + last_dir
 
-cgi_base = site_base
-pass_base = site_base + "/pass"
+cgi_path = "../cgi"
 
 environ = {
     'margin_color': 'white',

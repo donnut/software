@@ -1,32 +1,29 @@
 # Generating a website for the Translation Project.
-# Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
-# François Pinard <pinard@iro.umontreal.ca>, 1999.
+# Copyright Â© 1999, 2000 Progiciels Bourbeau-Pinard inc.
+# FranÃ§ois Pinard <pinard@iro.umontreal.ca>, 1999.
 
 homedir = /home/tp
 sitedir = $(homedir)/site
 
-cgidir = $(sitedir)
-htmldir = $(sitedir)
-passdir = $(sitedir)/pass
+cgidir = $(sitedir)/cgi
+htmldir = $(sitedir)/html
 cachedir= $(homedir)/cache
 progsdir = $(homedir)/progs
 
-CGI_FILES = registry.cgi
-PASS_FILES = domains.html teams.html
+CGI_FILES = registry.cgi domains.html teams.html
 
 LAYOUT_DEPS = ../lib/config.py layout.html html-to-cgi to-html
 
 
-all: cgi pass html
+all: cgi html
 
 cgi: $(cgidir) $(addprefix $(cgidir)/,$(CGI_FILES))
 
-pass: $(passdir) $(addprefix $(passdir)/,$(PASS_FILES))
-
 html:
+	cp stepinto.html.in $(sitedir)/index.html
 	$(MAKE) -C ../doc
 
-$(cgidir) $(passdir):
+$(cgidir):
 	mkdir -p $@
 
 $(cgidir)/%.cgi: %.cgi.in
@@ -34,14 +31,14 @@ $(cgidir)/%.cgi: %.cgi.in
 	chmod a+rx $@-tmp
 	mv -f $@-tmp $@
 
-domains $(passdir)/domains.html: $(LAYOUT_DEPS)
-	./html-to-cgi -C $(passdir) -D
+domains $(cgidir)/domains.html: $(LAYOUT_DEPS)
+	./html-to-cgi -C $(cgidir) -D
 
-teams $(passdir)/teams.html: $(LAYOUT_DEPS)
-	./html-to-cgi -C $(passdir) -T
+teams $(cgidir)/teams.html: $(LAYOUT_DEPS)
+	./html-to-cgi -C $(cgidir) -T
 
 lint: all
-	find $(htmldir) $(passdir) -name '*.html' | while read file; do \
+	find $(htmldir) $(cgidir) -name '*.html' | while read file; do \
 	  case $$file in \
 	    *po*) nsgmls -s $$file 2>&1 | egrep -v '"P"|"SMALL"' ;; \
 	    *gettext*) nsgmls -s $$file 2>&1 | egrep -v '"P"|"SMALL"' ;; \

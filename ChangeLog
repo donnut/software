@@ -12,6 +12,10 @@
 	* Makefile: Create a distributable package of just the progs/
 	subdirectory, which unpacks to a properly versioned directory.
 
+	* doc/Makefile, doc/index.html, lib/config.py, lib/localweb.py,
+	web/Makefile, web/html-to-cgi, web/layout.html, web/stepinto.html.in:
+	Make all hyperlinks relative instead of full URLs.
+
 2007-06-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* po/*: Add Finnish and Irish translations of the TP-robot, update
