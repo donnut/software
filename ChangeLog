@@ -16,6 +16,10 @@
 	web/Makefile, web/html-to-cgi, web/layout.html, web/stepinto.html.in:
 	Make all hyperlinks relative instead of full URLs.
 
+	* bin/make-package-links.sh: Add a script that creates a forest of
+	symlinks to the files in the PO-files/ subdirectory, but arranged in
+	a subdir per package instead of per language.
+
 2007-06-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* po/*: Add Finnish and Irish translations of the TP-robot, update
