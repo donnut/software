@@ -3,7 +3,7 @@
 # Copyright © 1996, 1997, 1998, 1999, 2000, 2002, 2003 Free Software Foundation, Inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1996.
 
-all: registry mailrc
+all: registry procmailrc
 
 registry: ../../cache/registry
 ../../cache/registry: registry.sgml
@@ -15,7 +15,19 @@ registry: ../../cache/registry
 
 mailrc: $(HOME)/.mailrc-tp
 $(HOME)/.mailrc-tp: ../../cache/registry
-	../bin/i18n-aliases -TDf >$@-tmp
+	../bin/i18n-aliases -mTDf >$@-tmp
+	mv $@-tmp $@
+
+procmailrc: leaders maintainers
+leaders: $(HOME)/.procmailrc-leaders
+maintainers: $(HOME)/.procmailrc-maintainers
+
+$(HOME)/.procmailrc-leaders: ../../cache/registry
+	../bin/i18n-aliases -pTf >$@-tmp
+	mv $@-tmp $@
+
+$(HOME)/.procmailrc-maintainers: ../../cache/registry
+	../bin/i18n-aliases -pDf >$@-tmp
 	mv $@-tmp $@
 
 validate val:

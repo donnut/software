@@ -6,6 +6,9 @@
 	but most importantly: with a rule to forward a mail to all
 	team leaders or all maintainers.
 
+	* Makefile, registry/Makefile: Regenerate the procmail rules when
+	the registry has changed.
+
 2007-06-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* po/*: Add Finnish and Irish translations of the TP-robot, update

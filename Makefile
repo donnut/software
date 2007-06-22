@@ -29,9 +29,11 @@ registry: ../cache/registry
 ../cache/registry: registry/registry.sgml
 	$(MAKE) -C registry registry
 
-mailrc: $(HOME)/.mailrc-tp
-$(HOME)/.mailrc-tp: ../cache/registry 
+mailrc:
 	$(MAKE) -C registry mailrc 
+
+procmailrc:
+	$(MAKE) -C registry procmailrc 
 
 .PRECIOUS: postats
 postats: ../cache/postats
