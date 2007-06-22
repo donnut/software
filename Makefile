@@ -27,13 +27,16 @@ tags-recursive:
 
 registry: ../cache/registry
 ../cache/registry: registry/registry.sgml
-	$(MAKE) -C registry registry
+	$(MAKE) -C registry all
+
+indexes:
+	$(MAKE) -C registry indexes
 
 mailrc:
-	$(MAKE) -C registry mailrc 
+	$(MAKE) -C registry mailrc
 
 procmailrc:
-	$(MAKE) -C registry procmailrc 
+	$(MAKE) -C registry procmailrc
 
 .PRECIOUS: postats
 postats: ../cache/postats

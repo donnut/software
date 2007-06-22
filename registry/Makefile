@@ -3,7 +3,7 @@
 # Copyright © 1996, 1997, 1998, 1999, 2000, 2002, 2003 Free Software Foundation, Inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1996.
 
-all: registry procmailrc
+all: registry indexes procmailrc
 
 registry: ../../cache/registry
 ../../cache/registry: registry.sgml
@@ -12,6 +12,9 @@ registry: ../../cache/registry
 	-../bin/registry-data -de >registry.tmp && \
 	    diff -u registry.tmp registry.sgml
 	rm registry.tmp
+
+indexes: ../../cache/registry
+	../bin/generate_pages -i
 
 mailrc: $(HOME)/.mailrc-tp
 $(HOME)/.mailrc-tp: ../../cache/registry
