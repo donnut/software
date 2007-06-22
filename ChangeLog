@@ -9,6 +9,9 @@
 	* Makefile, registry/Makefile: Regenerate the procmail rules when
 	the registry has changed.
 
+	* Makefile: Create a distributable package of just the progs/
+	subdirectory, which unpacks to a properly versioned directory.
+
 2007-06-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* po/*: Add Finnish and Irish translations of the TP-robot, update

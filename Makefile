@@ -3,7 +3,7 @@
 # Copyright © 1996, 1997, 1998, 1999, 2000, 2001 Free Software Foundation, Inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1996.
 
-VERSION=1.2
+VERSION=1.91
 
 
 all: registry matrix
@@ -72,5 +72,6 @@ pot:
 	python lib/registry.py >>po/tp-robot.pot
 
 dist:
-	tar -czv -f $(HOME)/translationproject-${VERSION}.tgz \
-	    --exclude=.svn  ../$(pwd)
+	tar -cz -f $(HOME)/translationproject-${VERSION}.tgz \
+	    --transform='s:^\./:translationproject-${VERSION}/:' \
+	    --exclude=.svn  .
