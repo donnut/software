@@ -20,6 +20,9 @@
 	symlinks to the files in the PO-files/ subdirectory, but arranged in
 	a subdir per package instead of per language.
 
+	* bin/po-register: Regenerate the static pages also when running dry;
+	there's no harm in that, and it's a good test.
+
 2007-06-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* po/*: Add Finnish and Irish translations of the TP-robot, update
