@@ -1,15 +1,17 @@
 Next:
-* do the file searching for generating a domain page in a smarter way
-* have the robot check the subject line with the actual contents
-  of the email, or at least rewrite the subject line with the
-  correct filename and version
 * figure out if there are still any mirrors, and then what and how
   to mirror the new setup
+* do the file searching for generating a domain page in a smarter way
+* on the domain pages, do not show the email address from the PO file,
+  but use the current email address of the translator; only if the
+  translator is no longer team member, then use the PO file email addres
 
 Just before going live:
 * run mirror_tp_data.py one last time, then drop it
 * run cv-symlinks.sh to convert trans and teams/PO to PO-files symlinks,
   remove the teams/ subdir, and remove the workaround in po-expire
+* run make-package-links.sh, and then 'generate_pages -idt' to regenerate
+  all the static domain and team pages
 * change robot's directive in layout.html to "index,follow"
 
 Later:
@@ -37,6 +39,9 @@ Later:
 * translated_length and total_length seem only to get used in po-matrix;
   does it still make sense to produce these matrices?  as they are far
   too big to be comprehensible/overseeable
+* change the robot text about the Subject line, so that it says that
+  it's not necessary to mention the filenam and version of the submitted
+  file when that file is in an attachment
 
 
 

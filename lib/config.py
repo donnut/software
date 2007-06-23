@@ -36,6 +36,9 @@ pos_path = site_path + "/" + pos_dir
 packs_path = site_path + "/" + packs_dir
 last_path = site_path + "/"  + last_dir
 
+domain_path = site_path + "/domain"
+team_path = site_path + "/team"
+
 cgi_path = "../cgi"
 
 environ = {

@@ -5,7 +5,7 @@
 """\
 Regenerate the static domain and team pages.
 
-Usage:  generate-pages [-idt]
+Usage:  generate-static-pages [-idt]
 
   -i  regenerate the index pages
   -d  regenerate the domain pages

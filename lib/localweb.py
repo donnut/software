@@ -22,18 +22,18 @@ def get_extstats():
 
 def generate_domain_page(domain):
     if domain == "index":
-        file = "%s/domainpages/index.html" % config.site_path
+        file = "%s/index.html" % config.domain_path
         return produce_domain_index(file)
     sys.stderr.write("Generating domain page for %s...\n" % domain)
-    file = "%s/domainpages/%s.html" % (config.site_path, domain)
+    file = "%s/%s.html" % (config.domain_path, domain)
     produce_domain_page(data.load_postats(), domain, file)
 
 def generate_team_page(team):
     if team == "index":
-        file = "%s/teampages/index.html" % config.site_path
+        file = "%s/index.html" % config.team_path
         return produce_team_index(file)
     sys.stderr.write("Generating team page for %s...\n" % team)
-    file = "%s/teampages/%s.html" % (config.site_path, team)
+    file = "%s/%s.html" % (config.team_path, team)
     produce_team_page(data.load_postats(), team, file)
 
 
