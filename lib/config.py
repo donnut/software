@@ -39,5 +39,5 @@ cgi_path = "../cgi"
 environ = {
     'margin_color': 'white',
     'caption_color': 'cyan',
-    'html_layout_file': '%s/web/layout.html.in' % progs_path,
+    'html_layout_file': '%s/webgen/layout.html.in' % progs_path,
     }

@@ -6,7 +6,7 @@
 VERSION=1.91
 
 
-all: registry matrix
+all: registry site
 
 check: all
 	@find ../site/latest -type l | while read file; do \
@@ -37,6 +37,9 @@ mailrc:
 
 procmailrc:
 	$(MAKE) -C registry procmailrc
+
+site:
+	$(MAKE) -C webgen all
 
 .PRECIOUS: postats
 postats: ../cache/postats

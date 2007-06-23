@@ -12,8 +12,8 @@
 	Rename 'layout.html' to 'layout.html.in', to bring it in line with
 	the other *.in files, and to make room for real *.html files.
 
-	* doc/index.html, doc/Makefile,  web/layout.html.in: Rename
-	'index.html' to a more descriptive 'welcome.html'.
+	* doc/index.html, doc/Makefile,  web/layout.html.in:
+	Rename 'index.html' to a more descriptive 'welcome.html'.
 
 	* web/stepinto.html.in: Link to the renamed entry page.
 
@@ -27,6 +27,9 @@
 	* doc/DISCLAIM, doc/Makefile, doc/: Delete obsolete remains.
 
 	* web/Makefile: Add missing dependencies.
+
+	* Makefile, lib/config.py, web/Makefile, web/registry.cgi.in:
+	Rename 'web/' to 'webgen/', add a rule in the main Makefile.
 
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 

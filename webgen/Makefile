@@ -46,10 +46,10 @@ allfiles: $(htmldir) $(addprefix $(htmldir)/,$(HTMA_FILES))
 htmlfiles: $(htmldir) $(addprefix $(htmldir)/,$(HTMH_FILES)) 
 
 $(htmldir)/%.html: %.all $(LAYOUT_DEPS)
-	../web/to-html.py -C $(htmldir) $<
+	./to-html.py -C $(htmldir) $<
 
 $(htmldir)/%.html: %.html $(LAYOUT_DEPS)
-	../web/to-html.py -C $(htmldir) $<
+	./to-html.py -C $(htmldir) $<
 
 $(sitedir)/index.html: stepinto.html.in
 	cp stepinto.html.in $(sitedir)/index.html
