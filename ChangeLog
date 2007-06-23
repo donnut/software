@@ -44,6 +44,8 @@
 	* lib/config.py, bin/po-register: Add a symlink in the site/packages/
 	subdirectory when a new PO file has been added to site/PO-files.
 
+	* bin/po-register, bin/tp-robot: Adjust a hard-coded path.
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc

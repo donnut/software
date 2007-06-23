@@ -1037,7 +1037,7 @@ The '%s' textual domain is not known to the Translation Project, at
 least not under that spelling.  It may also be that the maintainer of
 that project did not make arrangements yet for the Translation Project to
 handle its PO files.  In this case, please invite the project maintainer to
-contact us.  See 'http://www.translationproject.org/pass/domains.html'
+contact us.  See 'http://www.translationproject.org/cgi/domains.html'
 for the list of domains that are currently handled.
 """)
                        % run.hints.domain,
