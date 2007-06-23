@@ -92,7 +92,7 @@ def rules_for_leaders(fallback_on_lists):
         if not mailto and fallback_on_lists:
             mailto = team.mailto[0]
         if mailto:
-            sys.stdout.write(':0\n* ^To:.*%s@\n! <%s>\n'
+            sys.stdout.write(':0\n* ^To:.*[ <]%s@\n! <%s>\n'
                              % (team.code, mailto))
             all_coord.append('<%s>' % mailto)
         else:
@@ -124,7 +124,7 @@ def rules_for_maintainers():
             mailto = domain.mailto[0]
         except IndexError:
             mailto = domain.nomailto[0]
-        sys.stdout.write(':0\n* ^To:.*%s@\n! <%s>\n'
+        sys.stdout.write(':0\n* ^To:.*[ <]%s@\n! <%s>\n'
                          % (domain.name, mailto))
         all_maint.append('<%s>' % mailto)
     sys.stdout.write(':0\n* ^To:.*all-maintainers@\n! %s\n'

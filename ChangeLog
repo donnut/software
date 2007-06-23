@@ -34,6 +34,9 @@
 	* webgen/maintainers.all, webgen/leaders.all, webgen/translators.all:
 	Update some hard-coded paths.
 
+	* bin/i18n-aliases: Make sure team or domain aliases do not match the
+	tail of words like "coordinator".
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc

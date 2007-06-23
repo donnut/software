@@ -17,7 +17,7 @@ indexes: ../../cache/registry
 	../bin/generate_pages -i
 
 mailrc: $(HOME)/.mailrc-tp
-$(HOME)/.mailrc-tp: ../../cache/registry
+$(HOME)/.mailrc-tp: ../../cache/registry ../bin/i18n-aliases
 	../bin/i18n-aliases -mTDf >$@-tmp
 	mv $@-tmp $@
 
@@ -25,11 +25,11 @@ procmailrc: leaders maintainers
 leaders: $(HOME)/.procmailrc-leaders
 maintainers: $(HOME)/.procmailrc-maintainers
 
-$(HOME)/.procmailrc-leaders: ../../cache/registry
+$(HOME)/.procmailrc-leaders: ../../cache/registry ../bin/i18n-aliases
 	../bin/i18n-aliases -pTf >$@-tmp
 	mv $@-tmp $@
 
-$(HOME)/.procmailrc-maintainers: ../../cache/registry
+$(HOME)/.procmailrc-maintainers: ../../cache/registry ../bin/i18n-aliases
 	../bin/i18n-aliases -pDf >$@-tmp
 	mv $@-tmp $@
 
