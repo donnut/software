@@ -57,6 +57,9 @@
 	* lib/localweb.py, webgen/layout.html.in: Switch the whole site
 	over to the static pages.  Yay!
 
+	* webgen/translators.all, webgen/leaders.all, webgen/welcome.html,
+	bin/po-register, bin/tp-robot: Adjust some hard-coded paths.
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc

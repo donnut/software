@@ -427,7 +427,7 @@ translators when they need some extra translation context.
     write("""\
 The following HTML page has been updated:
 
-    %s/cgi/domain-%s.html
+    %s/domain/%s.html
 
 If any question arises, please contact the translation coordinator.
 """
@@ -576,8 +576,8 @@ the %s language.  Once the translation is complete, send the result to
     write(_("""\
 The following HTML pages have been updated:
 
-    %s/cgi/domain-%s.html
-    %s/cgi/team-%s.html
+    %s/domain/%s.html
+    %s/team/%s.html
 """)
                % (registry.puburls[0], hints.domain.name,
                   registry.puburls[0], hints.team.name))
