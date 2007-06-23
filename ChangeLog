@@ -21,6 +21,9 @@
 	Add the extension '.py' to 'html-to-cgi' and 'to-html', to clearly
 	show they are Python scripts, and not CGI or HTML things.
 
+	* doc/*.all, doc/*.html, doc/*.txt, web/Makefile: Move all template
+	files to the web generation directory, and adjust the 'make' rules. 
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc

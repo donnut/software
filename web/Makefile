@@ -1,4 +1,5 @@
-# Generating a website for the Translation Project.
+# Generating the documenting web pages for the Translation Project.
+# Copyright © 2007 Translation Project.
 # Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 
@@ -11,21 +12,22 @@ cachedir= $(homedir)/cache
 progsdir = $(homedir)/progs
 
 CGI_FILES = registry.cgi domains.html teams.html
+ALL_FILES = maintainers.all leaders.all translators.all \
+            files.all robot.all software.all
+HTMA_FILES = $(ALL_FILES:.all=.html)
+HTMH_FILES = welcome.html thanks.html whydisclaim.html
 
 LAYOUT_DEPS = ../lib/config.py layout.html.in html-to-cgi.py to-html.py
 
 
-all: cgi html
+all: cgi allfiles htmlfiles \
+     $(sitedir)/index.html $(sitedir)/disclaim.txt
+
+$(htmldir) $(cgidir):
+	mkdir -p $@
+
 
 cgi: $(cgidir) $(addprefix $(cgidir)/,$(CGI_FILES))
-
-html:
-	cp stepinto.html.in $(sitedir)/index.html
-	cp ../doc/disclaim.txt $(sitedir)
-	$(MAKE) -C ../doc
-
-$(cgidir):
-	mkdir -p $@
 
 $(cgidir)/%.cgi: %.cgi.in
 	sed 's,@progsdir@,$(progsdir),g' $< > $@-tmp
@@ -37,6 +39,24 @@ domains $(cgidir)/domains.html: $(LAYOUT_DEPS)
 
 teams $(cgidir)/teams.html: $(LAYOUT_DEPS)
 	./html-to-cgi.py -C $(cgidir) -T
+
+
+allfiles: $(htmldir) $(addprefix $(htmldir)/,$(HTMA_FILES))
+
+htmlfiles: $(htmldir) $(addprefix $(htmldir)/,$(HTMH_FILES)) 
+
+$(htmldir)/%.html: %.all $(LAYOUT_DEPS)
+	../web/to-html.py -C $(htmldir) $<
+
+$(htmldir)/%.html: %.html $(LAYOUT_DEPS)
+	../web/to-html.py -C $(htmldir) $<
+
+$(sitedir)/index.html:
+	cp stepinto.html.in $(sitedir)/index.html
+
+$(sitedir)/disclaim.txt:
+	cp disclaim.txt $(sitedir)/disclaim.txt
+
 
 lint: all
 	find $(htmldir) $(cgidir) -name '*.html' | while read file; do \
