@@ -10,7 +10,7 @@
    You should first find the address for your own national team.  There
    is a list of current teams at:
 
-   http://www.translationproject.org/HTML/teams.html
+   http://www.translationproject.org/cgi/teams.html
 
    For each language it lists the team code and the team's email address.
    Each team page gives some more details, like a possible team site or
@@ -21,7 +21,7 @@
    If there is no team for your language and you want to start one, you
    will find more information on how to proceed at:
 
-   http://www.translationproject.org/HTML/leaders.html
+   http://www.translationproject.org/html/leaders.html
 
 .* Fill out and return the disclaimer for translators
    --------------------------------------------------
@@ -37,7 +37,7 @@
 
    More details on the disclaimer, as well as a plain-text copy, are at:
 
-   http://www.translationproject.org/HTML/disclaim.html
+   http://www.translationproject.org/html/whydisclaim.html
 
 .* Learn how to use the Robot
    --------------------------

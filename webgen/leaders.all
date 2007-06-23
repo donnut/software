@@ -153,19 +153,14 @@
     explaining everything yourself, or already have other documents handy,
     you might want to invite newcomers to take a look at this document:
 
-    http://www.translationproject.org/HTML/translators.html
-
-    There is a plain-text copy of the same text, which you can more easily
-    include in an email message:
-
-    http://www.translationproject.org/doc/translators.all
+    http://www.translationproject.org/html/translators.html
 
 .* Checking that everything runs smoothly
    --------------------------------------
 
     Once created, the existence of your team should be reflected in:
 
-    http://www.translationproject.org/HTML/teams.html
+    http://www.translationproject.org/cgi/teams.html
 
     Following the relevant link should lead you into the description of your
     team, and all information there is updated regularly.  This is probably

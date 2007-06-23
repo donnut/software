@@ -31,6 +31,9 @@
 	* Makefile, lib/config.py, web/Makefile, web/registry.cgi.in:
 	Rename 'web/' to 'webgen/', add a rule in the main Makefile.
 
+	* webgen/maintainers.all, webgen/leaders.all, webgen/translators.all:
+	Update some hard-coded paths.
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc
@@ -85,7 +88,6 @@
 	Regenerate the team and domain pages after the relevant statistics
 	have been calculated.  Add the ability to generate the index pages.
 	Add a program to regenerate all pages in a single batch.
-
 
 2007-06-20  Benno Schulenberg  <benno@vertaalt.nl>
 
