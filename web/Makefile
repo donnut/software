@@ -51,10 +51,10 @@ $(htmldir)/%.html: %.all $(LAYOUT_DEPS)
 $(htmldir)/%.html: %.html $(LAYOUT_DEPS)
 	../web/to-html.py -C $(htmldir) $<
 
-$(sitedir)/index.html:
+$(sitedir)/index.html: stepinto.html.in
 	cp stepinto.html.in $(sitedir)/index.html
 
-$(sitedir)/disclaim.txt:
+$(sitedir)/disclaim.txt: disclaim.txt
 	cp disclaim.txt $(sitedir)/disclaim.txt
 
 

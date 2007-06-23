@@ -1,7 +1,5 @@
 Next:
-* rename index.html to welcome.html
 * do the file searching for generating a domain page in a smarter way
-* reject PO files for which translated strings are under 5%
 * have the robot check the subject line with the actual contents
   of the email, or at least rewrite the subject line with the
   correct filename and version
@@ -9,10 +7,10 @@ Next:
   to mirror the new setup
 
 Just before going live:
-* run mirror_tp_data.py one last time, the drop it
-* change robot's directive in layout.html to "index,follow"
-* convert trans and teams/PO symlinks to PO-files links,
+* run mirror_tp_data.py one last time, then drop it
+* run cv-symlinks.sh to convert trans and teams/PO to PO-files symlinks,
   remove the teams/ subdir, and remove the workaround in po-expire
+* change robot's directive in layout.html to "index,follow"
 
 Later:
 * run 'make check' and delete PO files with fatal errors,
@@ -22,6 +20,7 @@ Later:
   being recognized as older than 0.5.2; or improve the sort key
 * search and delete the PO files with mistaken encoding specifications
 * delete PO files for which translated strings are under 5%
+* reject PO files for which translated strings are under 5%
 * find out why there are no POT files for things like 'cook'
 * simplify regex: filenames do not contain encoding any more
 * add a page for retired translators

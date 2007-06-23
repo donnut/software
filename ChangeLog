@@ -26,6 +26,8 @@
 
 	* doc/DISCLAIM, doc/Makefile, doc/: Delete obsolete remains.
 
+	* web/Makefile: Add missing dependencies.
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc
