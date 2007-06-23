@@ -1,11 +1,11 @@
 <html>
  <head>
-  <meta http-equiv=refresh content="0; url=html/index.html">
+  <meta http-equiv=refresh content="0; url=html/welcome.html">
   <title>Redirecting...</title>
  </head>
  <body>
   <p></p>
   <p>Your browser does not support page redirection.</p>
-  <p>Please <a href="html/index.html">click here for the entry page</a>.</p>
+  <p>Please <a href="html/welcome.html">click here for the entry page</a>.</p>
  </body>
 </html>
