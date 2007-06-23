@@ -24,6 +24,8 @@
 	* doc/*.all, doc/*.html, doc/*.txt, web/Makefile: Move all template
 	files to the web generation directory, and adjust the 'make' rules. 
 
+	* doc/DISCLAIM, doc/Makefile, doc/: Delete obsolete remains.
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc
