@@ -7,7 +7,7 @@
 Create redirection pages which launch the CGI script that produces the
 page for the requested index, domain, or team.
 
-Usage:  html-to-cgi [-CDT]
+Usage:  html-to-cgi.py [-CDT]
 
   -C HTMLDIR  store produced files within this directory (mandatory option)
   -D          process all registered domains

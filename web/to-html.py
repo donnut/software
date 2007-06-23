@@ -6,7 +6,7 @@
 """\
 Create full HTML pages from template files.
 
-Usage:  to-html [-C] [SOURCE]...
+Usage:  to-html.py [-C] [SOURCE]...
 
   -C HTMLDIR  create the files within HTMLDIR instead of on stdout
 

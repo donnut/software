@@ -17,6 +17,10 @@
 
 	* web/stepinto.html.in: Link to the renamed entry page.
 
+	* web/html-to-cgi, web/to-html, doc/Makefile, web/Makefile:
+	Add the extension '.py' to 'html-to-cgi' and 'to-html', to clearly
+	show they are Python scripts, and not CGI or HTML things.
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc

@@ -23,8 +23,8 @@ $(htmldir):
 	mkdir -p $@
 
 $(htmldir)/%.html: %.all $(LAYOUT_DEPS)
-	../web/to-html -C $(htmldir) $<
+	../web/to-html.py -C $(htmldir) $<
 
 $(htmldir)/%.html: %.html $(LAYOUT_DEPS)
-	../web/to-html -C $(htmldir) $<
+	../web/to-html.py -C $(htmldir) $<
 

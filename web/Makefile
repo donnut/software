@@ -12,7 +12,7 @@ progsdir = $(homedir)/progs
 
 CGI_FILES = registry.cgi domains.html teams.html
 
-LAYOUT_DEPS = ../lib/config.py layout.html.in html-to-cgi to-html
+LAYOUT_DEPS = ../lib/config.py layout.html.in html-to-cgi.py to-html.py
 
 
 all: cgi html
@@ -33,10 +33,10 @@ $(cgidir)/%.cgi: %.cgi.in
 	mv -f $@-tmp $@
 
 domains $(cgidir)/domains.html: $(LAYOUT_DEPS)
-	./html-to-cgi -C $(cgidir) -D
+	./html-to-cgi.py -C $(cgidir) -D
 
 teams $(cgidir)/teams.html: $(LAYOUT_DEPS)
-	./html-to-cgi -C $(cgidir) -T
+	./html-to-cgi.py -C $(cgidir) -T
 
 lint: all
 	find $(htmldir) $(cgidir) -name '*.html' | while read file; do \
