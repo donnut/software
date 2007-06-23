@@ -9,8 +9,11 @@
 	overlooked files to UTF-8, and adjust their doc strings.
 
 	* web/layout.html, lib/config.py, doc/Makefile, web/Makefile:
-	Rename layout.html to layout.html.in, to bring it in line with the
-	other .in files, and to make room for real html files.
+	Rename 'layout.html' to 'layout.html.in', to bring it in line with
+	the other *.in files, and to make room for real *.html files.
+
+	* doc/index.html, doc/Makefile,  web/layout.html.in: Rename
+	'index.html' to a more descriptive 'welcome.html'.
 
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
