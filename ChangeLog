@@ -6,7 +6,7 @@
 	slightly tweak its layout.
 
 	* web/html-to-cgi, web/to-html, web/registry.cgi.in: Recode a few
-	overlooked files to UTF-8, and adjust their doc strings.
+	overlooked files to UTF-8, and adjust their docstrings.
 
 	* web/layout.html, lib/config.py, doc/Makefile, web/Makefile:
 	Rename 'layout.html' to 'layout.html.in', to bring it in line with
@@ -36,6 +36,8 @@
 
 	* bin/i18n-aliases: Make sure team or domain aliases do not match the
 	tail of words like "coordinator".
+
+	* bin/make-maintain: Rename to 'clone-domain' and expand its docstring.
 
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 

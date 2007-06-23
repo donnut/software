@@ -4,10 +4,12 @@
 # Martin v. Löwis <loewis@informatik.hu-berlin.de>, 2001.
 
 """\
-Create a maintainance branch of a package, outputting a new registry
-and shell commands.
+Create a clone of an existing package, adding an entry to the registry,
+assigning the translators of the existing package also to the new one,
+and then printing the new registry.sgml file on standard out plus the
+shell commands that would complete the cloning action.
 
-Usage: make-maintain magic-key
+Usage:  clone-domain MAGIC_KEY
 
 """
 
@@ -63,12 +65,12 @@ def gen_registry():
                 pass
 
     sgml.decode_database()
-    mv_po(config.pos_path)
-    mv_po(config.pots_path)
+    cp_po(config.pos_path)
+    cp_po(config.pots_path)
     mklinks()
 
 renamed = {}
-def mv_po(dir):
+def cp_po(dir):
     for f in os.listdir(dir):
         dir1 = os.path.join(dir, f)
         if not os.path.isdir(dir1):
@@ -77,7 +79,7 @@ def mv_po(dir):
             f2 = re.sub(old_pattern, new_pattern, f1)
             if f1 == f2:
                 continue
-            print "mv %s %s" % (os.path.join(dir1, f1), os.path.join(dir1, f2))
+            print "cp %s %s" % (os.path.join(dir1, f1), os.path.join(dir1, f2))
 
 def byversion(a, b):
     a = registry.hints(a[0])
