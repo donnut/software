@@ -1,17 +1,17 @@
 #!/usr/bin/env python
-# -*- mode: python; coding: iso-8859-1 -*-
-# Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
-# François Pinard <pinard@iro.umontreal.ca>, 1999.
+# -*- mode: python; coding: utf-8 -*-
+# Copyright Â© 1999, 2000 Progiciels Bourbeau-Pinard inc.
+# FranÃ§ois Pinard <pinard@iro.umontreal.ca>, 1999.
 
 """\
-Create HTML pages for various projects.
+Create full HTML pages from template files.
 
-Usage: to-html [OPTION]... [SOURCE]...
+Usage:  to-html [-C] [SOURCE]...
 
-  -C HTMLDIR    Create HTML files within HTMLDIR instead of on stdout
+  -C HTMLDIR  create the files within HTMLDIR instead of on stdout
 
 Each SOURCE is processed specially according to the name or extension.
-When a directory, find and process the `interesting' files it contains.
+When a directory, find and process the "interesting" files it contains.
 """
 
 import getopt, re, sys, os

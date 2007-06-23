@@ -5,6 +5,9 @@
 	Install the dislaimer text on the website, link to it, and
 	slightly tweak its layout.
 
+	* web/html-to-cgi, web/to-html, web/registry.cgi.in: Recode a few
+	overlooked files to UTF-8, and adjust their doc strings.
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc

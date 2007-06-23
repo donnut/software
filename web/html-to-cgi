@@ -1,16 +1,17 @@
 #!/usr/bin/env python
-# -*- mode: python; coding: iso-8859-1 -*-
-# Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
-# François Pinard <pinard@iro.umontreal.ca>, 1999.
+# -*- mode: python; coding: utf-8 -*-
+# Copyright Â© 1999, 2000 Progiciels Bourbeau-Pinard inc.
+# FranÃ§ois Pinard <pinard@iro.umontreal.ca>, 1999.
 
 """\
-Create relocating pages to launch CGI scripts for the Translation Project.
+Create redirection pages which launch the CGI script that produces the
+page for the requested index, domain, or team.
 
-Usage: html-to-cgi [OPTION]...
+Usage:  html-to-cgi [-CDT]
 
-  -C HTMLDIR    Create the files within this directory (mandatory option)
-  -D            Process all domains from registry data
-  -T            Process all teams from registry data
+  -C HTMLDIR  store produced files within this directory (mandatory option)
+  -D          process all registered domains
+  -T          process all regsitered teams
 """
 
 import getopt, re, sys, os
@@ -64,11 +65,11 @@ def relocate(name, description, params):
  </head>
  <body>
   <h1>Computing %s...</h1>
-  <p>
-   If your browser supports page redirection, this page will
-   get replaced within a second.  Otherwise, you may
-   <a href='%s/registry.cgi?%s'>click here</a>
-   to launch the generation of the results.
+  <p>If your browser supports page redirection,</p>
+  <p>this page will get replaced within a few seconds.</p>
+  <p></p>
+  <p>If not, you may <a href='%s/registry.cgi?%s'>click here</a>
+   to launch the page generation manually.</p>
  </body>
 </html>
 """
