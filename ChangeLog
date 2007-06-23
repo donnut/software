@@ -46,6 +46,9 @@
 
 	* bin/po-register, bin/tp-robot: Adjust a hard-coded path.
 
+	* bin/po-register: Stop rewrapping simple messages as none of their
+	lines will get overlong, but the URLs might mistakenly get wrapped.
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc

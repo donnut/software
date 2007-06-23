@@ -280,7 +280,7 @@ Subject: New template for '%s' made available
 """
                % (hints.domain.mailto[0], hints.domain.name))
     write('\n')
-    write(messages.refill("""\
+    write("""\
 Hello, gentle maintainer.
 
 This is a message from the Translation Project robot.
@@ -291,7 +291,7 @@ to the language teams for translation.  It is archived as:
     %s
 
 """
-                      % (hints.domain.name, hints.template_urls()[0])))
+                      % (hints.domain.name, hints.template_urls()[0]))
     write("""\
 Whenever you have a new distribution with a new version number ready,
 containing a newer POT file, please send the URL of that distribution
@@ -334,7 +334,7 @@ Subject: New PO template for '%s'
 """
                % hints.domain.name)
     write('\n')
-    write(messages.refill("""\
+    write("""\
 My nicest hello to all language team leaders.
 
 This is a message from the Translation Project robot.
@@ -346,7 +346,7 @@ A copy is available at:
     %s
 
 """
-                      % (hints.domain.name, hints.template_urls()[0])))
+                      % (hints.domain.name, hints.template_urls()[0]))
     write("""\
 Your team will be notified only if it already committed a translation for
 this domain, or if you have requested that the team be notified anyway.
@@ -376,19 +376,19 @@ Subject: New %s PO file for '%s' (version %s)
                % (hints.domain.mailto[0], hints.team.language,
                   hints.domain.name, hints.version))
     write('\n')
-    write(messages.refill("""\
+    write("""\
 Hello, gentle maintainer.
 
 This is a message from the Translation Project robot.
 
-A revised PO file for textual domain '%s' has been submitted by
-the %s team of translators.  The file is available at:
+A revised PO file for textual domain '%s' has been submitted
+by the %s team of translators.  The file is available at:
 
     %s
 
 """
                       % (hints.domain.name, hints.team.language,
-		         hints.maintainer_urls()[0])))
+		         hints.maintainer_urls()[0]))
     if hints.domain.autosend:
         sys.stderr.write("      sending '%s' to <%s>\n"
                          % (archive_base, hints.domain.mailto[0]))
@@ -471,15 +471,15 @@ Subject: %s-%s (%d%%, %d untranslated) by %s
         urls = hints.template_urls()
     else:
         urls = hints.archive_urls()
-    write(messages.refill(_("""\
+    write(_("""\
 Hello, members of the %s team.
 
-The TP-robot is happy to announce that a new PO file has been integrated
-into the archives.  The file is available at:
+The TP-robot is happy to announce that a new PO file has been
+integrated into the archives.  The file is available at:
 
     %s
 
-""")    % (_(hints.team.language), urls[0])))
+""")    % (_(hints.team.language), urls[0]))
     if translated == 0:
         if len(assignee)>1:
             msg = _("""\
