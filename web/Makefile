@@ -21,6 +21,7 @@ cgi: $(cgidir) $(addprefix $(cgidir)/,$(CGI_FILES))
 
 html:
 	cp stepinto.html.in $(sitedir)/index.html
+	cp ../doc/disclaim.txt $(sitedir)
 	$(MAKE) -C ../doc
 
 $(cgidir):

@@ -1,4 +1,10 @@
 
+2007-06-23  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* web/Makefile, doc/whydisclaim.html, doc/disclaim.txt:
+	Install the dislaimer text on the website, link to it, and
+	slightly tweak its layout.
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc

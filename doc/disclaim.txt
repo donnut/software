@@ -1,19 +1,18 @@
-Please print this out, sign it, write the date, and snail it to
-this address:
+Please print this out, sign it, write the date,
+and snail it to this address:
 
-Copyright Administrator
-Free Software Foundation
-51 Franklin Street, Fifth Floor
-Boston, MA 02110
-USA
+    Copyright Administrator
+    Free Software Foundation
+    51 Franklin Street, Fifth Floor
+    Boston, MA 02110
+    USA
 
 You can also send an facsimile:
 
-Fax
-    +1-617-542-2652 
+Fax  +1-617-542-2652
 
 
-Please print your email and snail addresses on the printed disclaimer.
+Please write your email and snail addresses on the printed disclaimer.
 *Don't forget to include the date.*
 
 In the unlikely event that you are employed on a continuing basis to do
@@ -23,9 +22,11 @@ ask for advice if you think this may apply to you.
 
 Note: if you want the wording modified to cover only a specific category
 of programs, or a specific program, we can easily do that.
+
 
 
-   DISCLAIMER OF COPYRIGHT IN TRANSLATIONS OF PARTS OF PROGRAMS
+
+    DISCLAIMER OF COPYRIGHT IN TRANSLATIONS OF PARTS OF PROGRAMS
 
 I, _____________________________________, a citizen of _____________
 (country), do hereby acknowledge to the Free Software Foundation, a
@@ -43,11 +44,11 @@ option names, help files, user interface text, and the like, contained
 within or made for use via these programs.
 
     Given as a sealed instrument this ___ day of ______ (month), ______
-(year), at _____________________ (city and country).
-   
+(year), at ________________________________________ (city and country).
+
 
                signed:         ___________________________
- 
+
                email address:  ___________________________
 
                postal address: ___________________________
@@ -56,11 +57,11 @@ within or made for use via these programs.
 
 		               ___________________________
 
- 
 
-I currently expect to work on the following translation teams (though
-this disclaimer applies to all such translations that I may
-subsequently provide to the FSF, whatever the language):
+
+I currently expect to work on the following translation teams
+(though this disclaimer applies to all such translations that
+I may subsequently provide to the FSF, whatever the language):
 
 	__________________________________________________
 
