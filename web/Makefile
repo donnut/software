@@ -12,7 +12,7 @@ progsdir = $(homedir)/progs
 
 CGI_FILES = registry.cgi domains.html teams.html
 
-LAYOUT_DEPS = ../lib/config.py layout.html html-to-cgi to-html
+LAYOUT_DEPS = ../lib/config.py layout.html.in html-to-cgi to-html
 
 
 all: cgi html

@@ -10,7 +10,7 @@ ALL_FILES = maintainers.all leaders.all translators.all \
 HTMA_FILES = $(ALL_FILES:.all=.html)
 HTMH_FILES = index.html thanks.html whydisclaim.html
 
-LAYOUT_DEPS = ../lib/config.py ../web/layout.html
+LAYOUT_DEPS = ../lib/config.py ../web/layout.html.in
 
 
 all: allfiles htmlfiles
