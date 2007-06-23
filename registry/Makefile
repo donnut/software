@@ -17,20 +17,20 @@ indexes: ../../cache/registry
 	../bin/generate_pages -i
 
 mailrc: $(HOME)/.mailrc-tp
-$(HOME)/.mailrc-tp: ../../cache/registry ../bin/i18n-aliases
-	../bin/i18n-aliases -mTDf >$@-tmp
+$(HOME)/.mailrc-tp: ../../cache/registry ../bin/create-mail-aliases
+	../bin/create-mail-aliases -mTDf >$@-tmp
 	mv $@-tmp $@
 
 procmailrc: leaders maintainers
 leaders: $(HOME)/.procmailrc-leaders
 maintainers: $(HOME)/.procmailrc-maintainers
 
-$(HOME)/.procmailrc-leaders: ../../cache/registry ../bin/i18n-aliases
-	../bin/i18n-aliases -pTf >$@-tmp
+$(HOME)/.procmailrc-leaders: ../../cache/registry ../bin/create-mail-aliases
+	../bin/create-mail-aliases -pTf >$@-tmp
 	mv $@-tmp $@
 
-$(HOME)/.procmailrc-maintainers: ../../cache/registry ../bin/i18n-aliases
-	../bin/i18n-aliases -pDf >$@-tmp
+$(HOME)/.procmailrc-maintainers: ../../cache/registry ../bin/create-mail-aliases
+	../bin/create-mail-aliases -pDf >$@-tmp
 	mv $@-tmp $@
 
 validate val:

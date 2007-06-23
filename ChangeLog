@@ -39,6 +39,8 @@
 
 	* bin/make-maintain: Rename to 'clone-domain' and expand its docstring.
 
+	* bin/i18n-aliases: Rename to 'create-mail-aliases'.
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc

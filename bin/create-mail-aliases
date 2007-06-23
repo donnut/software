@@ -8,7 +8,7 @@
 Produce a '.mailrc' or '.procmailrc' file that aliases teams and domains.
 The most important are the "team-leaders" and "all-maintainers" aliases.
 
-Usage: i18n-aliases [-mpDTf]
+Usage:  create-mail-aliases [-mpDTf]
 
   -m  produce output for .mailrc
   -p  produce output for .procmailrc
