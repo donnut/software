@@ -219,6 +219,16 @@ def process_po_file(hints, file, fromnewpot = False):
         if os.path.isfile(archive_path):
             os.remove(archive_path)
         shutil.copy2(file, archive_path)
+        # Create a symlink in the packages/ subdir to the new PO file.
+        package_dir = '%s/%s' % (config.packs_path, hints.domain.name)
+        package_path = '%s/%s' % (package_dir, archive_base)
+        if not os.path.isdir(package_dir):
+            os.mkdir(package_dir, 0755)
+        if (os.path.islink(package_path) or os.path.isfile(package_path)):
+            os.remove(package_path)
+        os.symlink('../../%s/%s/%s' %
+                   (config.pos_dir, hints.team.name, archive_base),
+                   package_path)
         # Calculate the statistics for the new PO file.
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
@@ -244,15 +254,15 @@ def process_po_file(hints, file, fromnewpot = False):
             if (os.path.islink(maintainer_path)
                 or os.path.isfile(maintainer_path)):
                 os.remove(maintainer_path)
-            elif os.path.isfile(registry.matrix):
-                os.remove(registry.matrix)
             os.symlink('../../%s/%s/%s' %
                        (config.pos_dir, hints.team.name, archive_base),
                        maintainer_path)
         maintainer = hints.domain.mailto[0]
-        sys.stderr.write("    also notifying maintainer <%s>\n"
+        sys.stderr.write("      also notifying maintainer <%s>\n"
                          % maintainer)
         notify_maintainer_for_po(hints, file, archive_base)
+    else:
+        sys.stderr.write("      NOT informing maintainer\n")
     if not run.dry:
         os.remove(file)
 

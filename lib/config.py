@@ -28,10 +28,12 @@ temp_path = home_path + "/tmp"
 
 pots_dir = "POT-files"
 pos_dir = "PO-files"
+packs_dir = "packages"
 last_dir = "latest"
 
 pots_path = site_path + "/" + pots_dir
 pos_path = site_path + "/" + pos_dir
+packs_path = site_path + "/" + packs_dir
 last_path = site_path + "/"  + last_dir
 
 cgi_path = "../cgi"

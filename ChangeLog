@@ -41,6 +41,9 @@
 
 	* bin/i18n-aliases: Rename to 'create-mail-aliases'.
 
+	* lib/config.py, bin/po-register: Add a symlink in the site/packages/
+	subdirectory when a new PO file has been added to site/PO-files.
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc
