@@ -57,8 +57,8 @@ class DomainIndex(htmlpage.Htmlpage):
               '   </tr>\n')
         for domain in registry.domain_list():
             write('   <tr>\n'
-                  '    <td><a href="%s/domain-%s.html">%s</a></td>\n'
-                  % (config.cgi_path, domain.name, domain.name))
+                  '    <td><a href="../domain/%s.html">%s</a></td>\n'
+                  % (domain.name, domain.name))
             if domain.url:
                 write('    <td><a href="%s">%s</a></td>\n'
                       % (domain.url[0], domain.url[0]))
@@ -142,11 +142,10 @@ class DomainPage(htmlpage.Htmlpage):
                 else:
                     version = stats = "unknown"
                 write('<tr align=center><td>%s</td>'
-                      '<td><a href="%s/registry.cgi?team=%s">%s</a></td>'
+                      '<td><a href="../team/%s.html">%s</a></td>'
                       '<td>%s</td>'
                       '<td><i>external</i></td><td>%s</td></tr>\n'
-                      % (team.code, config.cgi_path, team.code,
-                         team.language, version, stats))
+                      % (team.code, team.code, team.language, version, stats))
             os.path.walk('%s/%s' % (config.pos_path, team.name),
                          domain_page_walker, (postats, write, team, domain))
         write('  </table>\n')
@@ -184,14 +183,12 @@ def domain_page_walker((postats, write, team, domain), dirname, bases):
                 if len(table) > 1:
                     write('    <td rowspan=%d>%s</td>\n'
                           '    <td rowspan=%d>'
-                          '<a href="%s/registry.cgi?team=%s">%s</a></td>\n'
-                          % (len(table), code, len(table),
-                             config.cgi_path, code, language))
+                          '<a href="../team/%s.html">%s</a></td>\n'
+                          % (len(table), code, len(table), code, language))
                 else:
                     write('    <td>%s</td>\n'
-                          '    <td><a href="%s/registry.cgi?team=%s">'
-                          '%s</a></td>\n'
-                          % (code, config.cgi_path, code, language))
+                          '    <td><a href="../team/%s.html">%s</a></td>\n'
+                          % (code, code, language))
             version, translator, mailto, translated, total = table[counter]
             write('    <td><a href="%s/%s/%s/%s-%s.%s.po">%s</a></td>\n'
                   % (config.site_base, config.pos_dir, team.name, domain.name,
@@ -228,9 +225,8 @@ class TeamIndex(htmlpage.Htmlpage):
         for team in registry.team_list():
             write('   <tr align=center>\n'
                   '    <td>%s</td>\n'
-                  '    <td><a href="%s/team-%s.html">%s</a></td>\n'
-                  % (team.code, config.cgi_path, team.name,
-                     team.language))
+                  '    <td><a href="../team/%s.html">%s</a></td>\n'
+                  % (team.code, team.code, team.language))
             if team.mailto:
                 write('    <td><a href="mailto:%s">%s</a></td>\n'
                       % (team.mailto[0], team.mailto[0]))
@@ -394,9 +390,8 @@ class TeamPage(htmlpage.Htmlpage):
               '   </tr>\n')
         for domain in registry.domain_list():
             write('   <tr align=center>\n'
-                  '    <td align=left><a href="%s/registry.cgi?domain=%s">'
-                  '%s</a></td>\n'
-                  % (config.cgi_path, domain.name, domain.name))
+                  '    <td align=left><a href="../domain/%s.html">%s</a></td>\n'
+                  % (domain.name, domain.name))
             extstats = None
             if assigned_domains.has_key(domain.name):
                 write('    <td align=left>%s</td>\n'

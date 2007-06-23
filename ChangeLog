@@ -54,6 +54,9 @@
 	* lib/config.py, lib/localweb.py: Make the paths for the static
 	domain and team pages more easily configurable.
 
+	* lib/localweb.py, webgen/layout.html.in: Switch the whole site
+	over to the static pages.  Yay!
+
 2007-06-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/i18n-aliases: Add the ability to generate a procmailrc

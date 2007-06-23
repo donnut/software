@@ -24,8 +24,8 @@
 
 	<tr><td bgcolor="%(caption_color)s"><b>Overview</b></td></tr>
 	<tr><td><font size=-1>
-	   <a href="../cgi/domains.html"><b>The Packages</b></a><br>
-	   <a href="../cgi/teams.html"><b>The Teams</b></a><br>
+	   <a href="../domain/index.html"><b>The Packages</b></a><br>
+	   <a href="../team/index.html"><b>The Teams</b></a><br>
 	   <a href="../html/whydisclaim.html"><b>The&nbsp;Disclaimer</b></a><br>
 	   <a href="../html/robot.html"><b>The Robot</b></a><br>
 	  </font></td></tr>
