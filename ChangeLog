@@ -22,6 +22,8 @@
 
 	* README: Updates and additions.
 
+	* Makefile: Store the project tarball in an accessible place.
+
 2007-06-23  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* web/Makefile, doc/whydisclaim.html, doc/disclaim.txt:
