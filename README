@@ -15,32 +15,33 @@ like this:
 
     <VirtualHost *>
         DocumentRoot /home/translation/site
-        ServerName www.translationproject.org
-        ScriptAlias /registry.cgi /home/translation/site/registry.cgi
+        ServerName translationproject.org
+        ServerAlias *.translationproject.org
+        ScriptAlias /cgi//registry.cgi /home/tp/site/cgi/registry.cgi
     </VirtualHost>
 
-The ScriptAlias allows the execution of the registry.cgi script. This scipt
+The ScriptAlias allows the execution of the registry.cgi script. This script
 produces the dynamic pages that contain information about a domain or a team.
+Meanwhile these pages have been replaced with static pages that get remade
+only when actually something on them changes.
 
-The static pages are produced by running 'make' in ~/progs/web; the source
-for most of these pages is located in ~/progs/doc.
+The static documentation pages are produced by running 'make site' in the
+~/progs directory; the source for these pages is located in ~/progs/webgen.
 
 
 PO statistics
 -------------
 
 The file ~/cache/postats contains most of the data needed to produce the
-domain and team pages. The following 'crontab' entry recalculates this file
-twice per day:  [This should later be changed to on-every-submission.]
-
-    8 3,11 * * *    make -s -C /home/tp/progs postats
+domain and team pages.  This postats file gets updated by 'po-register'
+whenver a POT or PO file is added or updated.
 
 
 The robot
 ---------
 
 The user 'tp', that receives all mail sent to <*@translationproject.org>, has
-the following lines in its '.procmail' file:
+the following entry in its '.procmailrc' file:
 
     # Ignore the To line, just look for "TP-robot" at the
     # start of the Subject line, as an anti-spam measure.
@@ -48,18 +49,27 @@ the following lines in its '.procmail' file:
     * ^Subject: *[Tt][Pp][-_ ][Rr]obot
     bot-queue
 
-Those rules filter all mail that is meant for the robot to the 'bot-queue'
+That rule filter all mail that is meant for the robot to the 'bot-queue'
 mailbox.  To handle this queue, the 'tp' user has this 'crontab' entry:
 
     0-50/10 * * * *	/bin/sh /home/tp/progs/bin/run-queue.sh
 
-This runs the run-queue.sh every ten minutes.  That script is what actually
-launches the robot for each received file.
+This runs 'run-queue.sh' every ten minutes.  That script is what actually
+launches the robot for each received file.  The robot extracts the PO file
+from the email, runs several checks on the file, and sends a report back
+to the submitter.  If the PO file is good, it hands it to 'po-register',
+which adds the file to the archives, adds a symlink to it in the latest/
+subdir when appropriate, calls 'calc-postats' to calculate the statistics
+for the file and put these in ~/cache/postats, regenerates the affected
+team and domain pages, and sends out an email to mailing list of the
+corresponding language team, and also to the maintainer (but only when
+the submission was for the most recent POT file).
 
-[This could be changed to handle mail directly, upon receipt,
-if things can be locked correctly.]
-[Probably the robot also needs to be prevented form running when an admin is
-busy editing registry.sgml or anything else in /home/tp?]
+
+[It might be possible to handle mail immediately upon receipt,
+if things are locked correctly.]
+[Maybe the robot also needs to be prevented form running when an admin
+is busy editing registry.sgml or anything else in /home/tp?]
 
 
 Adding a new POT file
@@ -68,20 +78,21 @@ Adding a new POT file
 When package maintainers submit the URL of a new version of their package,
 a TP admin cd's to progs/registry, edits the registry.sgml file to update
 the <url> field of that package, runs 'make' in that dir (to create a digest
-in ~/cache/), and then runs 'fetch-pot $DOMAIN'.  If that succeeds, which it
-normally should, she runs 'po-register $DOMAIN-$VERSION.pot' -- this runs
-'msgmerge' with the new POT on the most recent PO file for each language,
-sends out notifications of the newly created PO files to the teams and to
-the last translators, and sends a confirmation to the maintainer.
+of the registry in ~/cache/), and then runs 'fetch-pot $DOMAIN'.  If that
+succeeds, which it normally should, she runs 'po-register $DOMAIN-$VERSION.pot'
+-- this runs 'msgmerge' with the new POT on the most recent PO file for each
+language, sends out notifications of the newly created PO files to the teams
+and to the last translators, and sends a confirmation to the maintainer.
 
 
 Changing translator details
 ---------------------------
 
 When a translator takes on a new package, or a new translator has joined a
-team, a TP admin cd's to progs/registry and edits registry.sgml, to adds or
+team, a TP admin cd's to progs/registry and edits registry.sgml, to add or
 change the required tags.  After that she runs 'make' in that directory to
-update the digest of this file in ~/cache/.
+update the registry digest in ~/cache/ [and run generate-static-pages with
+the affected as an argument].
 
 
 If anything is missing from this file, please report it to

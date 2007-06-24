@@ -1,4 +1,8 @@
 Next:
+* add possibility to regenerate a single team or single domain page;
+  the first is necessary when translator details have changed;
+  the second is normally taken care of automatically when a POT file
+  is registered
 * figure out if there are still any mirrors, and then what and how
   to mirror the new setup
 * do the file searching for generating a domain page in a smarter way

@@ -20,6 +20,8 @@
 	* bin/po-expire: Remove the workaround for old-style symlinks.
 	Plus some small tweaks and whitespace fixes.  And re-tweaks.
 
+	* README: Updates and additions.
+
 2007-06-23  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* web/Makefile, doc/whydisclaim.html, doc/disclaim.txt:
