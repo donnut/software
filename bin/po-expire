@@ -12,7 +12,7 @@ import os, sys, time
 sys.path.insert(0, sys.path[0]+'/../lib')
 import config, registry
 
-expired_folder = time.strftime("expired-%Y-%m-%d",time.localtime(time.time()))
+expired_folder = time.strftime("expired-%Y-%m-%d", time.localtime(time.time()))
 
 class run:
     pass
@@ -38,7 +38,7 @@ def main(*arguments):
     run.execute.flush()
 
 def find_pot_files():
-    warn('Checking POT files')
+    warn('Checking POT files...')
     command = run.execute.command
     # Make an inventory of all POT files, keep those with highest versions.
     inventory = {}
@@ -67,7 +67,7 @@ def find_pot_files():
     return inventory
 
 def find_po_files():
-    warn('Checking PO files')
+    warn('Checking PO files...')
     command = run.execute.command
     # Make an inventory of all PO files, keep those with highest versions.
     teams = {}
@@ -106,7 +106,7 @@ def find_po_files():
     return inventory
 
 def check_maintainer_links():
-    warn('Checking maintainer links')
+    warn('Checking maintainer links...')
     # Make an inventory of all maintainer links, keep all pointed to files.
     for domain in os.listdir('%s' % config.last_dir):
         for base in os.listdir(os.path.join('%s' % config.last_dir, domain)):
@@ -116,31 +116,21 @@ def check_maintainer_links():
                 continue
             link = os.readlink(name)
             team = base[:-3]
-            # FIXME: All maintainer links should be converted to prefix3.
-            prefix1 = '../../trans/%s/%s-' % (team, domain)
-            prefix2 = '../../teams/PO/%s/%s-' % (team, domain)
-            prefix3 = '../../%s/%s/%s-' % (config.last_dir, team, domain)
+            prefix = '../../%s/%s/%s-' % (config.pos_dir, team, domain)
             suffix = '.%s.po' % team
-            if (link[:len(prefix1)] == prefix1
+            if (link[:len(prefix)] == prefix
                 and link[-len(suffix):] == suffix):
-                version = link[len(prefix1):-len(suffix)]
-            elif (link[:len(prefix2)] == prefix2
-                  and link[-len(suffix):] == suffix):
-                version = link[len(prefix2):-len(suffix)]
-            elif (link[:len(prefix3)] == prefix3
-                  and link[-len(suffix):] == suffix):
-                version = link[len(prefix3):-len(suffix)]
+                version = link[len(prefix):-len(suffix)]
             else:
                 warn("Invalid symbolic link: %s/%s/%s.po -> %s"
                      % (config.last_dir, domain, team, link))
                 continue
-            #run.keep_pot[domain, version] = None
             if not run.keep_po.has_key((domain, version, team)):
                 run.keep_po[domain, version, team] = []
             run.keep_po[domain, version, team].append(name)
 
 def check_registry():
-    warn('Checking TP registry')
+    warn('Checking TP registry...')
     # Study the registry for versions to keep.
     for instance in registry.domain_list():
         domain = instance.name
@@ -160,7 +150,7 @@ def clean_out(pot_files, po_files):
         for version in versions:
             if run.keep_pot.has_key((domain, version)):
                 continue
-            for d,v,t in run.keep_po.keys():
+            for (d, v, t) in run.keep_po.keys():
                 if d == domain and v == version:
                     command((domain, version),
                             "# Keeping %s-%s.pot because of %s" % (d, v, t))
@@ -184,7 +174,7 @@ def diagnose_missing(pot_files, po_files):
     # Diagnose files to keep which are missing.
     for (domain, version), reasons in run.keep_pot.items():
         file = '%s/%s-%s.pot' % (config.pots_dir, domain, version)
-        if version in pot_files.get(domain,()):
+        if version in pot_files.get(domain, ()):
             if has_group((domain, version)):
                 command((domain, version),
                         '# Keeping %s because %s' % (file, reasons))
@@ -193,7 +183,7 @@ def diagnose_missing(pot_files, po_files):
                     'echo "Missing %s despite %s"' % (file, reasons))
     for (domain, version, team), reasons in run.keep_po.items():
         file = '%s/%s/%s-%s.%s.po' % (config.pos_dir, team, domain, version, team)
-        if version in po_files.get((domain, team),()):
+        if version in po_files.get((domain, team), ()):
             if has_group((domain, version)):
                 command((domain, version),
                         '# Keeping %s because %s' % (file, reasons))
@@ -219,9 +209,9 @@ class Execute:
             for command in commands:
                 self.write('%s\n' % command)
         self.groups = {}
-    def rmcommand(self,group,file):
+    def rmcommand(self, group, file):
         # self.command(group, "rm "+file)
-        self.command(group,"mv %s %s" % (file, expired_folder))
+        self.command(group, "mv %s %s" % (file, expired_folder))
 
 def warn(message):
     sys.stdout.write('# %s\n' % message)

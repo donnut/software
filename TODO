@@ -7,12 +7,12 @@ Next:
   translator is no longer team member, then use the PO file email addres
 
 Just before going live:
-* run mirror_tp_data.py one last time, then drop it
-* run cv-symlinks.sh to convert trans and teams/PO to PO-files symlinks,
-  remove the teams/ subdir, and remove the workaround in po-expire
-* run make-package-links.sh, and then 'generate_pages -idt' to regenerate
-  all the static domain and team pages
-* change robot's directive in layout.html to "index,follow"
+* run mirror_tp_data.py one last time, and clean up after it
+* svn commit the changes to registry.sgml, then run 'make'
+* run cv-symlinks.sh  to convert trans and teams to PO-files symlinks
+* run make-package-links.sh  to create a forest of symlinks
+* run generate_pages -idt  to regenerate domain and team pages
+* change the robot directive in layout.html.in to "index,follow"
 
 Later:
 * run 'make check' and delete PO files with fatal errors,
