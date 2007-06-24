@@ -18,7 +18,7 @@
 	group sticky.
 
 	* bin/po-expire: Remove the workaround for old-style symlinks.
-	Plus some small tweaks and whitespace fixes.
+	Plus some small tweaks and whitespace fixes.  And re-tweaks.
 
 2007-06-23  Benno Schulenberg  <benno@vertaalt.nl>
 

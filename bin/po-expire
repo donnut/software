@@ -38,7 +38,7 @@ def main(*arguments):
     run.execute.flush()
 
 def find_pot_files():
-    warn('Checking POT files...')
+    warn('Checking POT files')
     command = run.execute.command
     # Make an inventory of all POT files, keep those with highest versions.
     inventory = {}
@@ -106,7 +106,7 @@ def find_po_files():
     return inventory
 
 def check_maintainer_links():
-    warn('Checking maintainer links...')
+    warn('Checking maintainer links')
     # Make an inventory of all maintainer links, keep all pointed to files.
     for domain in os.listdir('%s' % config.last_dir):
         for base in os.listdir(os.path.join('%s' % config.last_dir, domain)):
@@ -130,7 +130,7 @@ def check_maintainer_links():
             run.keep_po[domain, version, team].append(name)
 
 def check_registry():
-    warn('Checking TP registry...')
+    warn('Checking TP registry')
     # Study the registry for versions to keep.
     for instance in registry.domain_list():
         domain = instance.name
@@ -210,7 +210,6 @@ class Execute:
                 self.write('%s\n' % command)
         self.groups = {}
     def rmcommand(self, group, file):
-        # self.command(group, "rm "+file)
         self.command(group, "mv %s %s" % (file, expired_folder))
 
 def warn(message):

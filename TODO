@@ -9,8 +9,10 @@ Next:
 Just before going live:
 * run mirror_tp_data.py one last time, and clean up after it
 * svn commit the changes to registry.sgml, then run 'make'
+* remove the spurious site/latest/coreutils/messages.mo
+* run calc-postats -uv  to make sure all POs are statted 
 * run cv-symlinks.sh  to convert trans and teams to PO-files symlinks
-* run make-package-links.sh  to create a forest of symlinks
+* run make-package-links.sh  to create a second hierarchy of symlinks
 * run generate_pages -idt  to regenerate domain and team pages
 * change the robot directive in layout.html.in to "index,follow"
 
