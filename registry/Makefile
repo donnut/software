@@ -14,7 +14,7 @@ registry: ../../cache/registry
 	rm registry.tmp
 
 indexes: ../../cache/registry
-	../bin/generate_pages -i
+	../bin/generate-static-pages -i
 
 mailrc: $(HOME)/.mailrc-tp
 $(HOME)/.mailrc-tp: ../../cache/registry ../bin/create-mail-aliases

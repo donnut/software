@@ -8,6 +8,10 @@
 	* webgen/welcome.html, webgen/software.all: Fix a typo, and point to
 	'poEdit' instead of the dead 'gtranslator'.
 
+	* registry/registry.sgml: Synced with Montréal.
+
+	* registry/Makefile: Fix name of script.
+
 2007-06-23  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* web/Makefile, doc/whydisclaim.html, doc/disclaim.txt:
