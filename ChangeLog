@@ -5,6 +5,9 @@
 	hard-coded as UTF-8, as everything should be in that encoding now.  If
 	some page is not, it's a fault, and should get reported.
 
+	* webgen/welcome.html, webgen/software.all: Fix a typo, and point to
+	'poEdit' instead of the dead 'gtranslator'.
+
 2007-06-23  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* web/Makefile, doc/whydisclaim.html, doc/disclaim.txt:

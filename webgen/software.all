@@ -4,7 +4,9 @@
 
    `KBabel' -- http://kbabel.kde.org/
 
-   `gtranslator' -- http://gtranslator.sourceforge.net/
+   `poEdit' -- http://www.poedit.net/
+
+   `gtranslator' (dead) -- http://gtranslator.sourceforge.net/
 
    `Emacs' with po-mode.el
 
