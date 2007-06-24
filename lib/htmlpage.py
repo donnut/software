@@ -127,7 +127,7 @@ INSERTION_POINT
             assert position >= 0
             position = position + 1
             write(text[:position])
-            write('<meta http-equiv="Content-Type"'
+            write('\n  <meta http-equiv="Content-Type"'
                   ' content="text/html; charset=%s">'
                   % charset)
             write(text[position:])
@@ -172,7 +172,7 @@ class Verbatim(Htmlpage):
         if not write:
             return
         lines = open(input).readlines()
-        self.prologue(title or self.find_title(lines))
+        self.prologue(title or self.find_title(lines), charset="utf-8")
         write('<pre>\n')
         for line in lines:
             write(enhance(line, 1))
@@ -200,7 +200,7 @@ class Allout(Htmlpage):
         lines = open(input).readlines()
         if lines and lines[0] and lines[0][0] != '*':
             abort('* line expected')
-        self.prologue(title or self.find_title(lines))
+        self.prologue(title or self.find_title(lines), charset="utf-8")
         self.element = None
         self.level = -1
         self.margin = '  '
@@ -299,7 +299,7 @@ class Html(Htmlpage):
         if not write:
             return
         lines = open(input).readlines()
-        self.prologue(title or self.find_title(lines))
+        self.prologue(title or self.find_title(lines), charset="utf-8")
         start = 0
         while start < len(lines):
             line = lines[start]
@@ -361,7 +361,7 @@ class Thanks(Htmlpage):
         if not write:
             return
         lines = open(input).readlines()
-        self.prologue(title)
+        self.prologue(title, charset="utf-8")
         # Transform the introductory paragraphs.
         within_p = 0
         counter = 0

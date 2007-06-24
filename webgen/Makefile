@@ -17,7 +17,8 @@ ALL_FILES = maintainers.all leaders.all translators.all \
 HTMA_FILES = $(ALL_FILES:.all=.html)
 HTMH_FILES = welcome.html thanks.html whydisclaim.html
 
-LAYOUT_DEPS = ../lib/config.py layout.html.in html-to-cgi.py to-html.py
+LAYOUT_DEPS = ../lib/config.py ../lib/htmlpage.py layout.html.in \
+              html-to-cgi.py to-html.py
 
 
 all: cgi allfiles htmlfiles \

@@ -1,4 +1,10 @@
 
+2007-06-24  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/htmlpage.py: Give each HTML page a Content-Type meta header tag,
+	hard-coded as UTF-8, as everything should be in that encoding now.  If
+	some page is not, it's a fault, and should get reported.
+
 2007-06-23  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* web/Makefile, doc/whydisclaim.html, doc/disclaim.txt:
