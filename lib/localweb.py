@@ -157,18 +157,18 @@ def domain_page_walker((postats, write, team, domain), dirname, bases):
         try:
             hints = registry.Hints(base)
         except KeyError:
-            sys.stderr.write("%s: Nonexistent domain or team!\n" % base)
+            sys.stderr.write("  * Nonexistent domain or team: %s\n" % base)
             continue
         except ValueError:
-            sys.stderr.write("%s: No hints found!\n" % base)
+            sys.stderr.write("  * No hints found for %s\n" % base)
             continue
         if hints.domain == domain and hints.team == team:
             if hints.version is None:
-                sys.stderr.write("%s: Missing version?\n" % base)
+                sys.stderr.write("  * Missing version: %s\n" % base)
                 continue
             key = hints.domain.name, hints.version.name, hints.team.name
             if not postats.has_key(key):
-                sys.stderr.write("%s: Not in stats database!\n" % base)
+                sys.stderr.write("  * Not in stats database: %s\n" % base)
                 continue
             (translator, mailto, translated, total) = postats[key][:4]
             table.append(
@@ -323,7 +323,7 @@ class TeamPage(htmlpage.Htmlpage):
             for domain in translator.do:
                 if assigned_domains.has_key(domain.name):
                     sys.stderr.write(
-                        "Domain `%s.%s' assigned more than once!\n"
+                        "  * Domain assigned more than once: %s.%s\n"
                         % (domain.name, team.name))
                 assigned_domains[domain.name] = translator
                 domain_count = domain_count + 1
