@@ -198,7 +198,7 @@ def process_po_file(hints, file, fromnewpot = False):
         sys.stderr.write("    initializing '%s/%s'\n"
                          % (config.pos_path, hints.team.name))
         if not run.dry:
-            os.mkdir('%s/%s' % (config.pos_path, hints.team.name), 0755)
+            os.mkdir('%s/%s' % (config.pos_path, hints.team.name), 2775)
     archive_base = hints.archive_base()
     archive_path = hints.archive_path()
     maintainer_path = hints.maintainer_path()
@@ -223,7 +223,7 @@ def process_po_file(hints, file, fromnewpot = False):
         package_dir = '%s/%s' % (config.packs_path, hints.domain.name)
         package_path = '%s/%s' % (package_dir, archive_base)
         if not os.path.isdir(package_dir):
-            os.mkdir(package_dir, 0755)
+            os.mkdir(package_dir, 2775)
         if (os.path.islink(package_path) or os.path.isfile(package_path)):
             os.remove(package_path)
         os.symlink('../../%s/%s/%s' %
@@ -250,7 +250,7 @@ def process_po_file(hints, file, fromnewpot = False):
         if not run.dry:
             directory = os.path.dirname(maintainer_path)
             if not os.path.isdir(directory):
-                os.mkdir(directory, 0755)
+                os.mkdir(directory, 2775)
             if (os.path.islink(maintainer_path)
                 or os.path.isfile(maintainer_path)):
                 os.remove(maintainer_path)

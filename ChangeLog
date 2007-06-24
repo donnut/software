@@ -14,6 +14,9 @@
 
 	* lib/localweb.py: Clearer error messages during page generation.
 
+	* bin/po-register: Make new package directories group writable and
+	group sticky.
+
 2007-06-23  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* web/Makefile, doc/whydisclaim.html, doc/disclaim.txt:
