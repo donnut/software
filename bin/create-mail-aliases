@@ -15,31 +15,34 @@ Usage:  create-mail-aliases [-mpDTf]
   -D  make aliases or rules to reach domain maintainers
   -T  make aliases or rules to reach team leaders
   -f  fall back on the team list when team has no leader
+  -t  make aliases or rules to reach the team lists
 """
 
-import os, sys
-import getopt, string
+import os, sys, getopt, string
 
 sys.path.insert(0, sys.path[0]+'/../lib')
 import registry
+
 
 def main(*arguments):
     if not arguments:
         sys.stdout.write(__doc__)
         sys.exit(0)
-    options, arguments = getopt.getopt(arguments, 'mpDTf')
-    mailrc = procmailrc = domains = teams = fallback = 0
+    options, arguments = getopt.getopt(arguments, 'mpDTft')
+    mailrc = procmailrc = domains = leaders = teams = fallback = 0
     for option, value in options:
         if option == '-m':
             mailrc = 1
-        if option == '-p':
+        elif option == '-p':
             procmailrc = 1
-        if option == '-D':
+        elif option == '-D':
             domains = 1
         elif option == '-T':
-            teams = 1
+            leaders = 1
         elif option == '-f':
             fallback = 1
+        elif option == '-t':
+            teams = 1
     if mailrc and procmailrc:
         sys.stderr.write("***Cannot produce both mailrc AND procmailrc.\n")
         sys.exit(2)
@@ -51,15 +54,20 @@ def main(*arguments):
             alias_maintainers()
         else:
             rules_for_maintainers()
-    if teams:
+    if leaders:
         if mailrc:
             alias_leaders(fallback)
         else:	  
             rules_for_leaders(fallback)
+    if teams:
+        if mailrc:
+            sys.stderr.write("***Not implemented.\n")
+        else:	  
+            rules_for_teams()
 
 
 def alias_leaders(fallback_on_lists):
-    all_coord = []
+    all_addresses = []
     no_mailto = []
     for team in registry.team_list():
         mailto = None
@@ -73,20 +81,20 @@ def alias_leaders(fallback_on_lists):
         if mailto:
             sys.stdout.write('alias %s "%s <%s>"\n'
                              % (team.code, comment, mailto))
-            all_coord.append(team.code)
+            all_addresses.append(team.code)
         else:
             no_mailto.append(team.code)
-    sys.stdout.write('alias team-leaders %s\n' % string.join(all_coord, ', '))
+    sys.stdout.write('alias team-leaders %s\n'
+                     % string.join(all_addresses, ', '))
     if no_mailto:
         sys.stderr.write('* No aliases for: %s\n'
                          % string.join(no_mailto, ', '))
 
 def rules_for_leaders(fallback_on_lists):
-    all_coord = []
+    all_addresses = []
     no_mailto = []
     for team in registry.team_list():
         mailto = None
-        comment = None
         if team.leader:
             mailto = team.leader.mailto[0]
         if not mailto and fallback_on_lists:
@@ -94,18 +102,37 @@ def rules_for_leaders(fallback_on_lists):
         if mailto:
             sys.stdout.write(':0\n* ^To:.*[ <]%s@\n! <%s>\n'
                              % (team.code, mailto))
-            all_coord.append('<%s>' % mailto)
+            all_addresses.append('<%s>' % mailto)
         else:
             no_mailto.append(team.code)
+    sys.stdout.write(':0\n* ^To:.*all-leaders@\n! %s\n'
+                     % string.join(all_addresses, ' '))
     sys.stdout.write(':0\n* ^To:.*team-leaders@\n! %s\n'
-                     % string.join(all_coord, ' '))
+                     % string.join(all_addresses, ' '))
+    if no_mailto:
+        sys.stderr.write('* No rules for: %s\n'
+                         % string.join(no_mailto, ', '))
+
+def rules_for_teams():
+    all_addresses = []
+    no_mailto = []
+    for team in registry.team_list():
+        mailto = team.mailto[0]
+        if mailto:
+            sys.stdout.write(':0\n* ^To:.*[ <]%s@\n! <%s>\n'
+                             % (team.code, mailto))
+            all_addresses.append('<%s>' % mailto)
+        else:
+            no_mailto.append(team.code)
+    sys.stdout.write(':0\n* ^To:.*all-teams@\n! %s\n'
+                     % string.join(all_addresses, ' '))
     if no_mailto:
         sys.stderr.write('* No rules for: %s\n'
                          % string.join(no_mailto, ', '))
 
 
 def alias_maintainers():
-    all_maint = []
+    all_maintainers = []
     for domain in registry.domain_list():
         try:
             mailto = domain.mailto[0]
@@ -113,12 +140,12 @@ def alias_maintainers():
             mailto = domain.nomailto[0]
         sys.stdout.write('alias %s "Textual domain for \'%s\' <%s>"\n'
                          % (domain.name, domain.name, mailto))
-        all_maint.append(domain.name)
+        all_maintainers.append(domain.name)
     sys.stdout.write('alias all-maintainers %s\n'
-                     % string.join(all_maint, ', '))
+                     % string.join(all_maintainers, ', '))
 
 def rules_for_maintainers():
-    all_maint = []
+    all_maintainers = []
     for domain in registry.domain_list():
         try:
             mailto = domain.mailto[0]
@@ -126,9 +153,9 @@ def rules_for_maintainers():
             mailto = domain.nomailto[0]
         sys.stdout.write(':0\n* ^To:.*[ <]%s@\n! <%s>\n'
                          % (domain.name, mailto))
-        all_maint.append('<%s>' % mailto)
+        all_maintainers.append('<%s>' % mailto)
     sys.stdout.write(':0\n* ^To:.*all-maintainers@\n! %s\n'
-                     % string.join(all_maint, ' '))
+                     % string.join(all_maintainers, ' '))
 
 
 if __name__ == '__main__':

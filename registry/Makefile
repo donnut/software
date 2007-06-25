@@ -21,16 +21,21 @@ $(HOME)/.mailrc-tp: ../../cache/registry ../bin/create-mail-aliases
 	../bin/create-mail-aliases -mTDf >$@-tmp
 	mv $@-tmp $@
 
-procmailrc: leaders maintainers
-leaders: $(HOME)/.procmailrc-leaders
+procmailrc: maintainers leaders teams
 maintainers: $(HOME)/.procmailrc-maintainers
+leaders: $(HOME)/.procmailrc-leaders
+teams: $(HOME)/.procmailrc-teams
+
+$(HOME)/.procmailrc-maintainers: ../../cache/registry ../bin/create-mail-aliases
+	../bin/create-mail-aliases -pDf >$@-tmp
+	mv $@-tmp $@
 
 $(HOME)/.procmailrc-leaders: ../../cache/registry ../bin/create-mail-aliases
 	../bin/create-mail-aliases -pTf >$@-tmp
 	mv $@-tmp $@
 
-$(HOME)/.procmailrc-maintainers: ../../cache/registry ../bin/create-mail-aliases
-	../bin/create-mail-aliases -pDf >$@-tmp
+$(HOME)/.procmailrc-teams: ../../cache/registry ../bin/create-mail-aliases
+	../bin/create-mail-aliases -ptf >$@-tmp
 	mv $@-tmp $@
 
 validate val:

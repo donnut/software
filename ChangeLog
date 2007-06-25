@@ -8,6 +8,9 @@
 
 	* bin/generate-static-pages: Handle mistyped arguments better.
 
+	* bin/create-mail-aliases, registry/Makefile: Also create a procmailrc
+	file with rules to reach team lists.
+
 2007-06-24  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/htmlpage.py: Give each HTML page a Content-Type meta header tag,
