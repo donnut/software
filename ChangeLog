@@ -1,8 +1,10 @@
 
-2007-06-24  Benno Schulenberg  <benno@vertaalt.nl>
+2007-06-25  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/generate-static-pages: Add the ability to regenerate just the
 	domains or teams given on the command line.
+
+	* bin/generate-static-pages, README: Adjust docstring and manual.
 
 2007-06-24  Benno Schulenberg  <benno@vertaalt.nl>
 

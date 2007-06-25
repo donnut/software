@@ -49,8 +49,8 @@ the following entry in its '.procmailrc' file:
     * ^Subject: *[Tt][Pp][-_ ][Rr]obot
     bot-queue
 
-That rule filter all mail that is meant for the robot to the 'bot-queue'
-mailbox.  To handle this queue, the 'tp' user has this 'crontab' entry:
+This rule filters all mail that is meant for the robot to the 'bot-queue'
+mailbox.  To handle the queue, the 'tp' user has this 'crontab' entry:
 
     0-50/10 * * * *	/bin/sh /home/tp/progs/bin/run-queue.sh
 
@@ -91,8 +91,8 @@ Changing translator details
 When a translator takes on a new package, or a new translator has joined a
 team, a TP admin cd's to progs/registry and edits registry.sgml, to add or
 change the required tags.  After that she runs 'make' in that directory to
-update the registry digest in ~/cache/ [and run generate-static-pages with
-the affected as an argument].
+update the registry digest in ~/cache/, and runs 'generate-static-pages'
+with the teamcode as an argument to update the team page.
 
 
 If anything is missing from this file, please report it to
