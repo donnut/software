@@ -193,9 +193,14 @@ def domain_page_walker((postats, write, team, domain), dirname, bases):
             write('    <td><a href="%s/%s/%s/%s-%s.%s.po">%s</a></td>\n'
                   % (config.site_base, config.pos_dir, team.name, domain.name,
                      version.name, team.name, version.name))
-            if mailto:
+            try:
+                transinfo = registry.registry.translator_info
+                email = transinfo(team, translator)['mailto'][0]
+            except (IndexError, KeyError):
+                email = mailto
+            if email:
                 write('    <td><a href="mailto:%s">%s</a></td>\n'
-                      % (scramble(mailto), translator))
+                      % (scramble(email), translator))
             else:
                 write('    <td>%s</td>\n' % translator)
             write('    <td bgcolor="%s">%d / %d</td>\n' %
