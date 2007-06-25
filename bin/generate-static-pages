@@ -42,14 +42,20 @@ def main(*arguments):
     if domains:
         if arguments:
             for domain in arguments:
-                localweb.generate_domain_page(domain)
+                try:
+                    localweb.generate_domain_page(domain)
+                except KeyError:
+                    print "  *** No such domain: '%s'" % domain
         else:
             for domain in registry.domain_list():
                 localweb.generate_domain_page("%s" % domain)
     if teams:
         if arguments:
             for team in arguments:
-                localweb.generate_team_page(team)
+                try:
+                    localweb.generate_team_page(team)
+                except KeyError:
+                    print "  *** No such team: '%s'" % team		
         else:
             for team in registry.team_list():
                 localweb.generate_team_page("%s" % team)

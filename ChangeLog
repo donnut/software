@@ -6,6 +6,8 @@
 
 	* bin/generate-static-pages, README: Adjust docstring and manual.
 
+	* bin/generate-static-pages: Handle mistyped arguments better.
+
 2007-06-24  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/htmlpage.py: Give each HTML page a Content-Type meta header tag,
