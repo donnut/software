@@ -27,17 +27,32 @@ def main(*arguments):
             index = True
         elif option == '-t':
             teams = True
-    if not domains and not index and not teams:
+    if not domains and not teams and not index and not arguments:
         domains = index = teams =True
+    if arguments:
+    	if domains and teams:
+            print "*** Use only option -d or option -t with arguments"
+            sys.exit(2)
+    	if not domains and not teams:
+            print "*** Use option -d or -t together with arguments"
+            sys.exit(2)
     if index:
         localweb.generate_domain_page("index")
         localweb.generate_team_page("index")
     if domains:
-        for domain in registry.domain_list():
-            localweb.generate_domain_page("%s" % domain)
+        if arguments:
+            for domain in arguments:
+                localweb.generate_domain_page(domain)
+        else:
+            for domain in registry.domain_list():
+                localweb.generate_domain_page("%s" % domain)
     if teams:
-        for team in registry.team_list():
-            localweb.generate_team_page("%s" % team)
+        if arguments:
+            for team in arguments:
+                localweb.generate_team_page(team)
+        else:
+            for team in registry.team_list():
+                localweb.generate_team_page("%s" % team)
 
 
 if __name__ == '__main__':
