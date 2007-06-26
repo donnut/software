@@ -39,8 +39,6 @@ last_path = site_path + "/"  + last_dir
 domain_path = site_path + "/domain"
 team_path = site_path + "/team"
 
-cgi_path = "../cgi"
-
 environ = {
     'margin_color': 'white',
     'caption_color': 'cyan',

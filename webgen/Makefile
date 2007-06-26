@@ -5,44 +5,23 @@
 
 homedir = /home/tp
 sitedir = $(homedir)/site
-
-cgidir = $(sitedir)/cgi
 htmldir = $(sitedir)/html
-cachedir= $(homedir)/cache
-progsdir = $(homedir)/progs
 
-CGI_FILES = registry.cgi domains.html teams.html
-ALL_FILES = maintainers.all leaders.all translators.all \
-            files.all robot.all software.all
-HTMA_FILES = $(ALL_FILES:.all=.html)
+ALLOUT_FILES = maintainers.all leaders.all translators.all \
+               files.all robot.all software.all
+HTMA_FILES = $(ALLOUT_FILES:.all=.html)
 HTMH_FILES = welcome.html thanks.html whydisclaim.html
 
-LAYOUT_DEPS = ../lib/config.py ../lib/htmlpage.py layout.html.in \
-              html-to-cgi.py to-html.py
+LAYOUT_DEPS = ../lib/config.py ../lib/htmlpage.py layout.html.in to-html.py
 
 
-all: cgi allfiles htmlfiles \
-     $(sitedir)/index.html $(sitedir)/disclaim.txt
+all: alloutfiles htmlfiles $(sitedir)/index.html $(sitedir)/disclaim.txt
 
-$(htmldir) $(cgidir):
+$(htmldir):
 	mkdir -p $@
 
 
-cgi: $(cgidir) $(addprefix $(cgidir)/,$(CGI_FILES))
-
-$(cgidir)/%.cgi: %.cgi.in
-	sed 's,@progsdir@,$(progsdir),g' $< > $@-tmp
-	chmod a+rx $@-tmp
-	mv -f $@-tmp $@
-
-domains $(cgidir)/domains.html: $(LAYOUT_DEPS)
-	./html-to-cgi.py -C $(cgidir) -D
-
-teams $(cgidir)/teams.html: $(LAYOUT_DEPS)
-	./html-to-cgi.py -C $(cgidir) -T
-
-
-allfiles: $(htmldir) $(addprefix $(htmldir)/,$(HTMA_FILES))
+alloutfiles: $(htmldir) $(addprefix $(htmldir)/,$(HTMA_FILES))
 
 htmlfiles: $(htmldir) $(addprefix $(htmldir)/,$(HTMH_FILES)) 
 
@@ -60,7 +39,7 @@ $(sitedir)/disclaim.txt: disclaim.txt
 
 
 lint: all
-	find $(htmldir) $(cgidir) -name '*.html' | while read file; do \
+	find $(htmldir) -name '*.html' | while read file; do \
 	  case $$file in \
 	    *po*) nsgmls -s $$file 2>&1 | egrep -v '"P"|"SMALL"' ;; \
 	    *gettext*) nsgmls -s $$file 2>&1 | egrep -v '"P"|"SMALL"' ;; \

@@ -3,6 +3,10 @@
 
 	* TODO: Update the steps to be taken during the server switch.
 
+	* webgen/html-to-cgi.py, webgen/registry.cgi.in: Delete obsolete files.
+
+	* lib/config.py, webgen/Makefile: Adjust for deletion of CGI stuff.
+
 2007-06-25  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/generate-static-pages: Add the ability to regenerate just the
