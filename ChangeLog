@@ -7,6 +7,10 @@
 
 	* lib/config.py, webgen/Makefile: Adjust for deletion of CGI stuff.
 
+	* webgen/changes.all, webgen/layout.html.in, webgen/Makefile:
+	Add a page that documents the most notable changes made to the scripts
+	during the move from Montréal to Vrijschrift.
+
 2007-06-25  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/generate-static-pages: Add the ability to regenerate just the

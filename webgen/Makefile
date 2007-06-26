@@ -8,7 +8,7 @@ sitedir = $(homedir)/site
 htmldir = $(sitedir)/html
 
 ALLOUT_FILES = maintainers.all leaders.all translators.all \
-               files.all robot.all software.all
+               changes.all files.all robot.all software.all
 HTMA_FILES = $(ALLOUT_FILES:.all=.html)
 HTMH_FILES = welcome.html thanks.html whydisclaim.html
 
