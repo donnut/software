@@ -4,7 +4,7 @@ Next:
 * do the file searching for generating a domain page in a smarter way
 
 Just before going live:
-* run mirror_tp_data.py one last time, and clean up after it
+* run mirror_tp_data.py one last time
 * svn commit the changes to registry.sgml, then run 'make'
 * remove the spurious site/latest/coreutils/messages.mo
 * run cv-symlinks.sh  to convert trans and teams/PO symlinks to PO-files ones
