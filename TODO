@@ -11,8 +11,9 @@ Just before going live:
 * run calc-postats -uv  to make sure all POs are statted 
 * run po-tidy-links -n  to inspect state of links, then create missing ones
 * run make-package-links.sh  to create a second hierarchy of symlinks
-* run generate-static-pages -idt  to regenerate domain and team pages
 * change the robot directive in layout.html.in to "index,follow"
+* run 'rm ~/site/html/*' and 'make site' in ~/progs/  to remake the site
+* run generate-static-pages -idt  to regenerate domain and team pages
 
 Later:
 * run 'make check' and delete PO files with fatal errors,
