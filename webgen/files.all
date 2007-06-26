@@ -1,86 +1,68 @@
-* Site Inventory                         allout -*- outline -*-
+* Site overview                               allout -*- outline -*-
 
-A hierarchy of public files has been set up for the Translation Project,
-to help maintainers, translators, and coordinators to share files and to
-communicate.
+The site of the Translation Project consists mainly of a hierarchy of 
+public PO files.  These are intended to help maintainers, translators, 
+and coordinators to share files and to communicate.  This site is not 
+intended as a distribution place that makes translations available to 
+all users: the PO files are normally distributed within the released 
+packages.
 
-This site is not intended as a distribution place that makes translations
-available to all users, since translations are normally distributed within
-the published packages.
+.* `POT-files/'
 
-Whatever permission bits you might have, avoid directly altering this
-hierarchy.  It is maintained by <coordinator@translationproject.org>,
-representing the coordinators for the Translation Project.  Moreover, some
-of the files are only usable by the coordinator; they are listed here
-for the sake of transparency about the internal workings of the project.
+This directory contains all available PO template files, which hold 
+untranslated messages only.  The most recent versions are there, but 
+also old ones.  Each file is named `DOMAIN-VERSION.pot', according to 
+the name of its textual domain and its version number.  The textual 
+domain name is usually identical to the package name.
 
+.* `PO-files/'
 
-.* PO files repository
+Volunteers that wish to translate packages find in this directory all 
+officially accepted PO files, for packages that have already been 
+released or will soon come out.  Each PO file is named according to its 
+textual domain, its version, and the language it translates to: 
+`DOMAIN-VERSION.LL.po'.  The `DOMAIN' part is usually identical to the 
+package name, and `LL' is a two-letter language code.  Old obsolete PO 
+files may be deleted, they are not kept forever.
 
-. + `POT-files/DOMAIN-VERSION.pot'
-    This subdirectory contains many template PO files, holding untranslated
-    messages only.  Each file is named `DOMAIN-VERSION.pot', according
-    to the textual domain name and version numbers.  The textual domain
-    name is usually identical to the package name.  Some files lack the
-    `-VERSION' part.  These are very old, or else, too young for having
-    version numbers yet.
+.* `latest/'
 
-. + `PO-files/LL/DOMAIN-VERSION.po'
-    Translating volunteers may find in the `teams/' directory all officially
-    accepted PO files, providing translations for packages already released
-    or still incoming.  Each PO file is identified according to textual
-    domain and version.  The textual domain name is usually identical to
-    the package name.  `LL' is the language code.  Old obsolete PO files
-    may be deleted, they are not kept forever.
+Package maintainers can always fetch the latest official PO files for 
+their package from the dedicated subdirectory of this directory.  Each 
+subdirectory is named simply `DOMAIN', without a version number, 
+contains symlinks of the form `LL.po', linking to the most recent file 
+for that language in the `PO-file' directory.
 
-. + `latest/DOMAIN/LL.po'
-    Package maintainers can always grab the latest official copies of
-    translation files, in PO format, pertaining to their own package,
-    in the `latest/' directory.  `DOMAIN' is usually the package name,
-    sans version, and `LL' is the language code as explained earlier.
+.* `packages/'
 
-.* Text files
+The subdirectories of this directory do not contain symlinks to only the 
+latest versions, but to all available PO files for a package.  This 
+hierarchy is provided just for information, to give an overview of all 
+PO files that have been available for a package.
 
-. + `THANKS'
-    For each name in the `ChangeLog' file, the corresponding email address
-    is given here.  So, the file holds a table of all listed contributors.
+.* SVN
 
-. + `doc/DISCLAIM'
+The scripts that produce the web pages and drive the TP mailing robot 
+are accessible through a Subversion repository:
+
+    http://svn.translationproject.org/tp-repo/TP/
+
+Among its contents are the following files:
+
+. + `webgen/disclaim.txt'
     This file contains the translator disclaimer all translators
     should print, fill in writing, and return to the FSF headquarters
     by usual mail.  Instructions are given within the file.
 
-. + `doc/maintainers.all'
+. + `webgen/maintainers.all'
     Whenever a maintainer wants to internationalize his/her package, this file
     holds some useful indications about how to proceed.  It does not say all
     that it should yet, however.
 
-. + `doc/translators.all'
+. + `webgen/translators.all'
     Whenever a new potential volunteer writes to your translation
     coordinator asking for more information, this file is usually fully
     included in the reply.
-
-. + `doc/files.all'
-    You are currently reading it!
-
-. + `doc/robot.all'
-    About what the robot does.
-
-. + `doc/theroad.all'
-    Some memories of getting packages translated.
-
-. + `doc/status.all'
-    The status of some packages that are not yet fully translated.
-
-. + `doc/matrix.texi'
-    This translation matrix tells which domains have been translated by
-    which teams.  Whenever a POT file is received for a package having
-    none yet, or the first version of a PO file is received, `matrix.texi'
-    is removed.  This is detected by `make', which then uses `bin/po-matrix'
-    to reconstruct it and mail it to a few people.
-    Ulrich Drepper places this new matrix in the `nls.texi' file in
-    his master copy of the `gettext' package, out of which `ABOUT-NLS'
-    is derived and mailed backed to the Translation Project.
 
 . + `registry/AUTHORS'
     This file lists all translators who fulfilled the requirement of
@@ -88,17 +70,19 @@ for the sake of transparency about the internal workings of the project.
     Translation Project may safely use and distribute it.
 
 . + `registry/registry.dtd'
+    This defines the structure for the `registry.sgml' file.
+
 . + `registry/registry.sgml'
 
-    The Translation Project registry is a single UTF-8 encoded SGML file
-    (obeying a specialised structure defined in `registry.dtd') which
-    replaces a few previous tabular files which were holding the Translation
-    Project data.  Most Python scripts in `bin/' have been adapted so they use
-    the registry, using interfacing Python modules kept in `lib/'.
+    The Translation Project registry is a single UTF-8 encoded SGML file 
+    which replaces a few previous tabular files which were holding the 
+    Translation Project data.  Most Python scripts in `bin/' have been 
+    adapted so they use the `cache/registry' file (which is a digest of
+    this SGML file) using interfacing Python modules kept in `lib/'.
 
     This fairly important file lists generic information about each team:
     what is the preferred charset in use, who coordinates it, what are
-    the local FTP or Web sites if any, etc.  For each team, all known
+    the local web sites and mailing lists, etc.  For each team, all known
     working volunteers are listed, together with their email address, their
     legalese status with the FSF, and for which textual domains they have
     clearance with their team, as established by the team coordinator.
@@ -114,13 +98,13 @@ for the sake of transparency about the internal workings of the project.
 
 .* Coordinator tools
 
-   (This is still a partial list.)
+   (This is still just a partial list.)
 
 . + `Makefile'
     This file is meant for handling this hierarchy in various ways.
     See `bin/' scripts if you are interested in how things are being done.
 
-. + bin/po-normalize
+. + `bin/po-normalize'
 
     To normalize a PO file the same way the robot does (which should also
     be the way `msgmerge' does it once it gets corrected), you might
