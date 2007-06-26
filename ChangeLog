@@ -1,4 +1,8 @@
 
+2007-06-26  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* TODO: Update the steps to be taken during the server switch.
+
 2007-06-25  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/generate-static-pages: Add the ability to regenerate just the
