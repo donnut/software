@@ -32,9 +32,9 @@ updates an older version of the PO file, and most of all: the robot
 should not mistakenly indicate this older version as the most recent 
 translation for that package and language.
 
-.* Differentiated mails
+.* Differentiated emails
 
-The mails that the robot sends to the team lists about new PO files are 
+The emails that the robot sends to the team lists about new PO files are 
 now differentiated: a translator-submitted PO file is now announced with 
 a different subject line than a completely new PO file (one that is 
 derived from a new POT file from upstream).

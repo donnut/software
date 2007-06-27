@@ -1,7 +1,7 @@
 * Site overview                               allout -*- outline -*-
 
 The site of the Translation Project consists mainly of a hierarchy of 
-public PO files.  These are intended to help maintainers, translators, 
+public PO files -- these are intended to help maintainers, translators, 
 and coordinators to share files and to communicate.  This site is not 
 intended as a distribution place that makes translations available to 
 all users: the PO files are normally distributed within the released 
@@ -17,28 +17,28 @@ domain name is usually identical to the package name.
 
 .* `PO-files/'
 
-Volunteers that wish to translate packages find in this directory all 
-officially accepted PO files, for packages that have already been 
-released or will soon come out.  Each PO file is named according to its 
-textual domain, its version, and the language it translates to: 
+This directory contains all officially accepted PO files, for packages 
+that have already been released or will soon come out.  Per language 
+there is a subdirectory, using the two-letter language code `LL' as its 
+name.  Each PO file in these subdirectories is named according to its 
+textual domain, its version number, and its target language: 
 `DOMAIN-VERSION.LL.po'.  The `DOMAIN' part is usually identical to the 
-package name, and `LL' is a two-letter language code.  Old obsolete PO 
-files may be deleted, they are not kept forever.
+package name.  Obsolete PO files may be deleted from these directories, 
+they are not kept forever.
 
 .* `latest/'
 
-Package maintainers can always fetch the latest official PO files for 
-their package from the dedicated subdirectory of this directory.  Each 
-subdirectory is named simply `DOMAIN', without a version number, 
-contains symlinks of the form `LL.po', linking to the most recent file 
-for that language in the `PO-file' directory.
+From this directory package maintainers can always fetch the latest 
+official PO files for their package, from the subdirectory that is named 
+simply `DOMAIN' (without a version number).  Each of these 
+subdirectories contains symlinks of the form `LL.po', which link to the 
+most recent file for that language in the `PO-files/' directory.
 
 .* `packages/'
 
-The subdirectories of this directory do not contain symlinks to only the 
-latest versions, but to all available PO files for a package.  This 
-hierarchy is provided just for information, to give an overview of all 
-PO files that have been available for a package.
+The subdirectories of this directory contain symlinks to all available 
+PO files for a package.  This hierarchy is provided just for 
+information, to give a per-package overview.
 
 .* SVN
 
@@ -60,9 +60,8 @@ Among its contents are the following files:
     that it should yet, however.
 
 . + `webgen/translators.all'
-    Whenever a new potential volunteer writes to your translation
-    coordinator asking for more information, this file is usually fully
-    included in the reply.
+    Whenever a new potential volunteer writes to the TP coordinator asking for
+    more information, this file is usually fully included in the reply.
 
 . + `registry/AUTHORS'
     This file lists all translators who fulfilled the requirement of
@@ -98,33 +97,46 @@ Among its contents are the following files:
 
 .* Coordinator tools
 
-   (This is still just a partial list.)
+   (This is still just a very partial list.)
 
 . + `Makefile'
-    This file is meant for handling this hierarchy in various ways.
-    See `bin/' scripts if you are interested in how things are being done.
+
+This file is meant for handling this hierarchy in various ways.  See
+the `bin/' scripts if you are interested in how things are being done.
+
+. + `bin/run-queue.sh'
+
+This script is run every ten minutes, and runs the robot if any mail has 
+arrived in its mail queue.
+
+. + `bin/tp-robot'
+
+The robot script extracts a PO file from each received submission, runs 
+several checks on the file, and mails a report back to the translator.  
+The extracted PO file it hands over to `po-register'.
+
+. + `bin/po-register'
+
+This script stores the given PO or POT file in the archives, calls 
+`calc-postats' to calculate the statistics for the file, calls 
+`localweb.py' to regenerate the affected team and domain 
+pages, and sends a notification email to the team list and (when 
+appropriate) to the package maintainer.
+
+. + `bin/calc-postats'
+
+Calculates the statistics for the given PO or POT file: the number 
+of translated messages, and the total number of messages.  It stores 
+these numbers, together with some other info, in `cache/postats' so that 
+they are later quickly accessible.
+
+. + `lib/localweb.py'
+
+This module contains the code that generates the `domain/' and `team/' 
+pages, which give an overview of the PO files available for a package 
+and of the translation situation of a team.
 
 . + `bin/po-normalize'
 
-    To normalize a PO file the same way the robot does (which should also
-    be the way `msgmerge' does it once it gets corrected), you might
-    use the following recipe.  Do this once to set things up:
-
-        cd
-        mkdir -p po/bin
-        cd po/bin
-        wget http://svn.vrijschrift.org/tp-repo/TP/bin/po-normalize
-        wget http://svn.vrijschrift.org/tp-repo/TP/lib/po.py
-
-    and ensure you have ~/po/bin on your search path, using one of:
-
-    export PATH=~/po/bin:$PATH			# bash
-    set path=(~po/bin $path)			# csh
-    export PATH; PATH=$HOME/po/bin:$PATH	# sh
-
-    Then, just use "po-normalize OLD-FILE >NEW-FILE"
-
-    If you want to use a different directory organisation, you might have
-    to tune both files a tiny bit, so the program finds its module, and the
-    module declares itself properly.  Of course, you need Python.
-
+This script was used to normalize a PO file before `msgmerge' was
+adjusted to do it correctly.  So this file is obsolete.
