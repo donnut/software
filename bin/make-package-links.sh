@@ -13,12 +13,11 @@ for pack in *; do
     cd ../PO-files/ &&
     echo "Making links for ${pack}..." &&
     for lang in *; do
-        if ! $(ls -1 ${lang} | grep -q "${pack}"); then
-            ##echo "No ${lang} translations for ${pack}"
+        if ! $(ls -1 ${lang} | grep -qw "^${pack}"); then
+            # The language has no translations for this package.
 	    continue
         fi
         for file in ${lang}/${pack}*; do
-	    ##echo "ln -s ../../PO-files/$file ../packages/${pack}/"
 	    ln -nsf ../../PO-files/$file ../packages/${pack}/
 	done
     done
