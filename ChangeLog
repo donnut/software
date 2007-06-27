@@ -20,6 +20,9 @@
 	a factor of four, by using the symlinks in site/packages, and
 	by rejecting non-fitting package names earlier.
 
+	* registry/Makefile: Add back the remote targets, now that I
+	understand what they do.
+
 2007-06-26  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* TODO: Update the steps to be taken during the server switch.

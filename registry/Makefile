@@ -5,6 +5,15 @@
 
 all: registry indexes procmailrc
 
+remote:
+	ssh tp@translationproject.org "(cd progs/registry; make fromremote)"
+
+fromremote:
+	umask 0002;
+	svn update;
+	$(MAKE) all
+	-chmod 664 registry.sgml
+
 registry: ../../cache/registry
 ../../cache/registry: registry.sgml
 	VERSION_CONTROL=numbered
