@@ -1,7 +1,7 @@
-* Notable Changes                             allout -*- outline -*-
+* Notable changes                             allout -*- outline -*-
 
-During the move of the Translation Project from the University of 
-Montréal to Vrijschrift in Amsterdam, several changes were made to the 
+During the move of the Translation Project (from the University of 
+Montréal to Vrijschrift in Amsterdam) several changes were made to the 
 scripts that drive the robot and generate the web pages.  Below is a 
 list of the most important ones.
 
@@ -14,11 +14,11 @@ some meaning: it is indeed the time the page was last updated.
 
 .* Immediate updates
 
-The PO-statistics (the "tranlated / total" numbers) are calculated the 
-moment a PO file is added to the archives, instead of twice per day by a 
-cron job.  The corresponding team and domain pages are regenerated 
-immediately after that, so they show the correct numbers instantly, 
-instead of half a day later.
+The PO-statistics (the "tranlated / total" numbers) are calculated at 
+the very moment a PO file is added to the archives, instead of twice per 
+day by a cron job.  The corresponding team and domain pages are 
+regenerated immediately after that, so they show the correct numbers 
+instantly, instead of maybe half a day later.
 
 .* Symlink updated correctly
 
@@ -26,27 +26,27 @@ The symlink in the `latest/' subdirectory is only updated when a
 translator submits a PO file for the *most* *recent* POT file of a 
 package, not when a translation of an older version is submitted.  And 
 only when the symlink is updated, the package maintainer is notified.  
-This fixes a bug, as the maintainer should not get an email when a 
+This fixes a bug, since the maintainer should not get an email when a 
 translator for some reason (maybe just to fix some glaring mistakes) 
 updates an older version of the PO file, and most of all: the robot 
 should not mistakenly indicate this older version as the most recent 
-translation.
+translation for that package and language.
 
 .* Differentiated mails
 
 The mails that the robot sends to the team lists about new PO files are 
-now differentiated: a translator-subimitted PO file is now announced 
-differently from a completely new PO file (a PO file derived from a new 
-POT file from upstream).
+now differentiated: a translator-submitted PO file is now announced with 
+a different subject line than a completely new PO file (one that is 
+derived from a new POT file from upstream).
 
 .* Better colours
 
-The colour scheme on the team pages has changed so that all colours now 
-have about the same brightness, instead of getting too dark around the 
-50% mark.  Fully untranslated packages are now blue instead of red. And 
+The colour scheme on the team pages was changed so that all colours are 
+now about the same brightness, instead of getting too dark around the 
+50% level.  Fully untranslated packages are now blue instead of red. And 
 the domain pages are now coloured too.
 
 .* Clearer structure
 
-The structure of the site has been made clearer, several unneeded 
-pages have been removed, others undusted and made more concise.
+The structure of the site has been made clearer, several unneeded pages 
+have been removed, and others undusted and made more concise.

@@ -4,6 +4,8 @@
 	* bin/create-mail-aliases: Comment out the extra alias for
 	team-leaders for now; something is going wrong in procmail.
 
+	* webgen/changes.all, webgen/software.all: Textual tweaks.
+
 2007-06-26  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* TODO: Update the steps to be taken during the server switch.
