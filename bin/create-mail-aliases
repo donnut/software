@@ -105,8 +105,8 @@ def rules_for_leaders(fallback_on_lists):
             all_addresses.append('<%s>' % mailto)
         else:
             no_mailto.append(team.code)
-    sys.stdout.write(':0\n* ^To:.*all-leaders@\n! %s\n'
-                     % string.join(all_addresses, ' '))
+##    sys.stdout.write(':0\n* ^To:.*all-leaders@\n! %s\n'
+##                     % string.join(all_addresses, ' '))
     sys.stdout.write(':0\n* ^To:.*team-leaders@\n! %s\n'
                      % string.join(all_addresses, ' '))
     if no_mailto:
