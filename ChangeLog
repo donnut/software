@@ -11,6 +11,8 @@
 	* webgen/changes.all, webgen/layout.html.in, webgen/files.all:
 	Textual tweaks and additions.
 
+	* webgen/files.all: Further tweaks and margin adjustments.
+
 2007-06-26  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* TODO: Update the steps to be taken during the server switch.

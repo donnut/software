@@ -45,55 +45,61 @@ information, to give a per-package overview.
 The scripts that produce the web pages and drive the TP mailing robot 
 are accessible through a Subversion repository:
 
-    http://svn.translationproject.org/tp-repo/TP/
+    http://svn.vrijschrift.org/tp-repo/TP/
 
 Among its contents are the following files:
 
 . + `webgen/disclaim.txt'
-    This file contains the translator disclaimer all translators
-    should print, fill in writing, and return to the FSF headquarters
-    by usual mail.  Instructions are given within the file.
+
+This file contains the translator disclaimer all translators should 
+print out on paper, fill out in writing, sign, and return to the FSF 
+by postal mail.  Detailed instructions are given within the file.
 
 . + `webgen/maintainers.all'
-    Whenever a maintainer wants to internationalize his/her package, this file
-    holds some useful indications about how to proceed.  It does not say all
-    that it should yet, however.
+
+Whenever a maintainer wants to internationalize his/her package, this 
+file holds some useful indications about how to proceed.  It does not 
+say all that it should yet, however.
 
 . + `webgen/translators.all'
-    Whenever a new potential volunteer writes to the TP coordinator asking for
-    more information, this file is usually fully included in the reply.
+
+Whenever a new potential volunteer writes to the TP coordinator asking 
+for more information, this file is usually fully included in the reply.
 
 . + `registry/AUTHORS'
-    This file lists all translators who fulfilled the requirement of
-    disclaiming their rights to the translation work they did, so the
-    Translation Project may safely use and distribute it.
+
+This file lists all translators who fulfilled the requirement of 
+disclaiming their rights to the translation work they did, so the 
+Translation Project may safely use and distribute it.
 
 . + `registry/registry.dtd'
-    This defines the structure for the `registry.sgml' file.
+
+This defines the structure for the `registry.sgml' file.
 
 . + `registry/registry.sgml'
 
-    The Translation Project registry is a single UTF-8 encoded SGML file 
-    which replaces a few previous tabular files which were holding the 
-    Translation Project data.  Most Python scripts in `bin/' have been 
-    adapted so they use the `cache/registry' file (which is a digest of
-    this SGML file) using interfacing Python modules kept in `lib/'.
+The Translation Project registry is a single UTF-8 encoded SGML file 
+which replaces a few previous tabular files which were holding the 
+ranslation Project data.  Most Python scripts in `bin/' have been 
+adapted so they use the `cache/registry' file (which is a digest of this 
+SGML file) using interfacing Python modules kept in `lib/'.
 
-    This fairly important file lists generic information about each team:
-    what is the preferred charset in use, who coordinates it, what are
-    the local web sites and mailing lists, etc.  For each team, all known
-    working volunteers are listed, together with their email address, their
-    legalese status with the FSF, and for which textual domains they have
-    clearance with their team, as established by the team coordinator.
+This fairly important file lists generic information about each team: 
+what is the preferred charset in use, who coordinates it, what are the 
+local web sites and mailing lists, etc.  For each team, all known 
+working volunteers are listed, together with their email address, their 
+legalese status with the FSF, and for which textual domains they have 
+clearance with their team, as established by the team coordinator.
 
-    This file also contains a subset of `iso-639' in a format suitable
-    for a few semi-automatic scripts needing to translate a team code to
-    the language name, while indicating which `PO-files/LL/' directories
-    currently exist in the Translation Project.
+This file also contains a subset of `iso-639' in a format suitable for a 
+few semi-automatic scripts needing to translate a team code to the 
+language name, while indicating which `PO-files/LL/' directories 
+currently exist in the Translation Project.
 
-    This file finally provides data for a few semi-automatic scripts with the
-    maintainers' address for various textual domains, for keeping maintainers
-    well informed of what is going on with the translations aimed for them.
+This file finally provides data for a few semi-automatic scripts with 
+the maintainers' address for various textual domains, for keeping 
+maintainers well informed of what is going on with the translations 
+aimed for them.
 
 .* Coordinator tools
 
@@ -101,8 +107,8 @@ Among its contents are the following files:
 
 . + `Makefile'
 
-This file is meant for handling this hierarchy in various ways.  See
-the `bin/' scripts if you are interested in how things are being done.
+This file is meant for handling this hierarchy in various ways.  See the 
+`bin/' scripts if you are interested in how things are being done.
 
 . + `bin/run-queue.sh'
 
@@ -138,5 +144,5 @@ and of the translation situation of a team.
 
 . + `bin/po-normalize'
 
-This script was used to normalize a PO file before `msgmerge' was
+This script was used to normalize a PO file before `msgmerge' was 
 adjusted to do it correctly.  So this file is obsolete.
