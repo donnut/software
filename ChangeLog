@@ -6,6 +6,8 @@
 
 	* webgen/changes.all, webgen/software.all: Textual tweaks.
 
+	* bin/create-mail-aliases: Make team-leaders rule less restrictive.
+
 2007-06-26  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* TODO: Update the steps to be taken during the server switch.
