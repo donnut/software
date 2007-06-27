@@ -16,6 +16,10 @@
 	* bin/make-package-links.sh: Make the grep command more precise,
 	to avoid creating some broken symlinks.
 
+	* lib/localweb.py: Speed up the generation of domain pages by
+	a factor of four, by using the symlinks in site/packages, and
+	by rejecting non-fitting package names earlier.
+
 2007-06-26  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* TODO: Update the steps to be taken during the server switch.

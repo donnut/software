@@ -146,7 +146,7 @@ class DomainPage(htmlpage.Htmlpage):
                       '<td>%s</td>'
                       '<td><i>external</i></td><td>%s</td></tr>\n'
                       % (team.code, team.code, team.language, version, stats))
-            os.path.walk('%s/%s' % (config.pos_path, team.name),
+            os.path.walk('%s/%s' % (config.packs_path, domain.name),
                          domain_page_walker, (postats, write, team, domain))
         write('  </table>\n')
         self.epilogue()
@@ -154,6 +154,8 @@ class DomainPage(htmlpage.Htmlpage):
 def domain_page_walker((postats, write, team, domain), dirname, bases):
     table = []
     for base in bases:
+        if team.name not in base:
+            continue
         try:
             hints = registry.Hints(base)
         except KeyError:
@@ -174,8 +176,6 @@ def domain_page_walker((postats, write, team, domain), dirname, bases):
             table.append(
                 (hints.version, translator, mailto, translated, total))
     if table:
-        code = team.code
-        language = team.language
         table.sort()
         for counter in range(len(table)):
             write('   <tr align=center>\n')
@@ -184,14 +184,15 @@ def domain_page_walker((postats, write, team, domain), dirname, bases):
                     write('    <td rowspan=%d>%s</td>\n'
                           '    <td rowspan=%d>'
                           '<a href="../team/%s.html">%s</a></td>\n'
-                          % (len(table), code, len(table), code, language))
+                          % (len(table), team.code, len(table), team.code,
+                             team.language))
                 else:
                     write('    <td>%s</td>\n'
                           '    <td><a href="../team/%s.html">%s</a></td>\n'
-                          % (code, code, language))
+                          % (team.code, team.code, team.language))
             version, translator, mailto, translated, total = table[counter]
-            write('    <td><a href="%s/%s/%s/%s-%s.%s.po">%s</a></td>\n'
-                  % (config.site_base, config.pos_dir, team.name, domain.name,
+            write('    <td><a href="../%s/%s/%s-%s.%s.po">%s</a></td>\n'
+                  % (config.pos_dir, team.name, domain.name,
                      version.name, team.name, version.name))
             try:
                 transinfo = registry.registry.translator_info
