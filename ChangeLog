@@ -29,6 +29,8 @@
 	* lib/localweb.py: Use globbing instead of directory walking when
 	generating a domain page; no need for a packages/ dir any more.
 
+	* registry/registry.sgml: Really remove the nano_1_0 branch.
+
 2007-06-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/create-mail-aliases: Comment out the extra alias for
