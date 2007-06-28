@@ -105,10 +105,10 @@ def rules_for_leaders(fallback_on_lists):
             all_addresses.append('<%s>' % mailto)
         else:
             no_mailto.append(team.code)
-    sys.stdout.write(':0\n* ^TO.*all-leaders@\n! %s\n'
-                     % string.join(all_addresses, ' '))
-    sys.stdout.write(':0\n* ^TO.*team-leaders@\n! %s\n'
-                     % string.join(all_addresses, ' '))
+    sys.stdout.write('\n:0\n* ^TO.*all-leaders@\n! %s\n'
+                     % string.join(all_addresses, '\n! '))
+    sys.stdout.write('\n:0\n* ^TO.*team-leaders@\n! %s\n'
+                     % string.join(all_addresses, '\n! '))
     if no_mailto:
         sys.stderr.write('* No rules for: %s\n'
                          % string.join(no_mailto, ', '))
@@ -124,8 +124,8 @@ def rules_for_teams():
             all_addresses.append('<%s>' % mailto)
         else:
             no_mailto.append(team.code)
-    sys.stdout.write(':0\n* ^To:.*all-teams@\n! %s\n'
-                     % string.join(all_addresses, ' '))
+    sys.stdout.write('\n:0\n* ^To:.*all-teams@\n! %s\n'
+                     % string.join(all_addresses, '\n! '))
     if no_mailto:
         sys.stderr.write('* No rules for: %s\n'
                          % string.join(no_mailto, ', '))
@@ -154,8 +154,8 @@ def rules_for_maintainers():
         sys.stdout.write(':0\n* ^To:.*[ <]%s@\n! <%s>\n'
                          % (domain.name, mailto))
         all_maintainers.append('<%s>' % mailto)
-    sys.stdout.write(':0\n* ^To:.*all-maintainers@\n! %s\n'
-                     % string.join(all_maintainers, ' '))
+    sys.stdout.write('\n:0\n* ^To:.*all-maintainers@\n! %s\n'
+                     % string.join(all_maintainers, '\n! '))
 
 
 if __name__ == '__main__':

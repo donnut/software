@@ -14,6 +14,8 @@
 	* bin/po-register: Add the path for 'calc-postats' to PATH,
 	so it can be found also when being run by cron.
 
+	* bin/create-mail-aliases: Use many short lines, not one long one.
+
 2007-06-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/create-mail-aliases: Comment out the extra alias for
