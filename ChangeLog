@@ -11,6 +11,9 @@
 	webgen/translators.all, webgen/leaders.all, README:
 	Remove the unneeded "www."; it makes for cleaner URLs.
 
+	* bin/po-register: Add the path for 'calc-postats' to PATH,
+	so it can be found also when being run by cron.
+
 2007-06-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/create-mail-aliases: Comment out the extra alias for

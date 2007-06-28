@@ -24,6 +24,8 @@ import config, data, localweb, po, registry, messages
 
 # Find sendmail in /usr/sbin or /usr/lib.
 os.environ['PATH'] = '/usr/lib:/usr/sbin:' + os.environ['PATH']
+# Find calc-postats.
+os.environ['PATH'] = progs_path + '/bin:' + os.environ['PATH']
 
 # Unset possible localisation.
 try: del os.environ['LANGUAGE']
