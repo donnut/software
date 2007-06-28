@@ -4,16 +4,16 @@ Next:
 * do the file searching for generating a domain page in a smarter way
 
 Just before going live:
-* run mirror_tp_data.py one last time
-* svn commit the changes to registry.sgml, then run 'make'
-* remove the spurious site/latest/coreutils/messages.mo
-* run cv-symlinks.sh  to convert trans and teams/PO symlinks to PO-files ones
-* run calc-postats -uv  to make sure all POs are statted 
-* run po-tidy-links -n  to inspect state of links, then create missing ones
-* run make-package-links.sh  to create a second hierarchy of symlinks
-* change the robot directive in layout.html.in to "index,follow"
-* run 'rm ~/site/html/*' and 'make site' in ~/progs/  to remake the site
-* run generate-static-pages -idt  to regenerate domain and team pages
+* run mirror_tp_data.py one last time (done - mvl)
+* svn commit the changes to registry.sgml, then run 'make' (not necessary, import subversion repository instead)
+* remove the spurious site/latest/coreutils/messages.mo  (done - benno)
+* run cv-symlinks.sh  to convert trans and teams/PO symlinks to PO-files ones (done - mvl)
+* run calc-postats -uv  to make sure all POs are statted (done - mvl)
+* run po-tidy-links -n  to inspect state of links, then create missing ones (done - benno)
+* run make-package-links.sh  to create a second hierarchy of symlinks (done - mvl)
+* change the robot directive in layout.html.in to "index,follow" (done - benno)
+* run 'rm ~/site/html/*' and 'make site' in ~/progs/  to remake the site (done - benno)
+* run generate-static-pages -idt  to regenerate domain and team pages (done - benno)
 
 Later:
 * run 'make check' and delete PO files with fatal errors,

@@ -2,7 +2,7 @@
 <html>
  <head>
   <title>%(page_title)s</title>
-  <meta name="robots" content="noindex,nofollow">
+  <meta name="robots" content="index,follow">
  </head>
  <body>
   <table cellpadding=5 width="100%%">

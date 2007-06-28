@@ -1,4 +1,9 @@
 
+2007-06-28  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* webgen/layout.html.in: Tell webspiders they are welcome now
+	that the site is going live.
+
 2007-06-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/create-mail-aliases: Comment out the extra alias for
