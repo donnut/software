@@ -4,7 +4,7 @@
 # Copyright © 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 2000.
 
-import os, string, sys
+import os, string, sys, glob
 import config, htmlpage, registry, data
 
 try:
@@ -146,35 +146,35 @@ class DomainPage(htmlpage.Htmlpage):
                       '<td>%s</td>'
                       '<td><i>external</i></td><td>%s</td></tr>\n'
                       % (team.code, team.code, team.language, version, stats))
-            os.path.walk('%s/%s' % (config.packs_path, domain.name),
-                         domain_page_walker, (postats, write, team, domain))
+            build_language_cell(postats, write, team, domain)
         write('  </table>\n')
         self.epilogue()
 
-def domain_page_walker((postats, write, team, domain), dirname, bases):
+def build_language_cell(postats, write, team, domain):
     table = []
-    for base in bases:
-        if team.name not in base:
-            continue
+    names = glob.glob("%s/%s/%s*.%s.po" %
+                      (config.pos_path, team.name, domain.name, team.name))
+    for filename in names:
         try:
-            hints = registry.Hints(base)
+            hints = registry.Hints(filename)
         except KeyError:
-            sys.stderr.write("  * Nonexistent domain or team: %s\n" % base)
+            sys.stderr.write("  * Nonexistent domain or team: %s\n" % filename)
             continue
         except ValueError:
-            sys.stderr.write("  * No hints found for %s\n" % base)
+            sys.stderr.write("  * No hints found for %s\n" % filename)
             continue
-        if hints.domain == domain and hints.team == team:
-            if hints.version is None:
-                sys.stderr.write("  * Missing version: %s\n" % base)
-                continue
-            key = hints.domain.name, hints.version.name, hints.team.name
-            if not postats.has_key(key):
-                sys.stderr.write("  * Not in stats database: %s\n" % base)
-                continue
-            (translator, mailto, translated, total) = postats[key][:4]
-            table.append(
-                (hints.version, translator, mailto, translated, total))
+        if hints.domain != domain and hints.team != team:
+            sys.stderr.write("  * Wrong domain or team in %s\n" % filename)
+            continue
+        if hints.version is None:
+            sys.stderr.write("  * Missing version number in %s\n" % filename)
+            continue
+        key = hints.domain.name, hints.version.name, hints.team.name
+        if not postats.has_key(key):
+            sys.stderr.write("  * Not in stats database: %s\n" % filename)
+            continue
+        (translator, mailto, translated, total) = postats[key][:4]
+        table.append((hints.version, translator, mailto, translated, total))
     if table:
         table.sort()
         for counter in range(len(table)):
