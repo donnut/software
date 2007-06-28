@@ -19,6 +19,11 @@
 	* bin/po-register: Fix path to 'calc-postats' correctly this time,
 	and use the team leaders address at tp.org instead of umontreal.ca.
 
+	* bin/create-mail-aliases: Don't make procmail rules for maintainers
+	who have <nomailto> set.
+
+	* registry/registry.sgml: Update URL for xkeyboard-config.
+
 2007-06-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/create-mail-aliases: Comment out the extra alias for

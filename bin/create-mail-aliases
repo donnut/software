@@ -150,10 +150,11 @@ def rules_for_maintainers():
         try:
             mailto = domain.mailto[0]
         except IndexError:
-            mailto = domain.nomailto[0]
-        sys.stdout.write(':0\n* ^To:.*[ <]%s@\n! <%s>\n'
-                         % (domain.name, mailto))
-        all_maintainers.append('<%s>' % mailto)
+            pass
+        else:
+            sys.stdout.write(':0\n* ^To:.*[ <]%s@\n! <%s>\n'
+                             % (domain.name, mailto))
+            all_maintainers.append('<%s>' % mailto)
     sys.stdout.write('\n:0\n* ^To:.*all-maintainers@\n! %s\n'
                      % string.join(all_maintainers, '\n! '))
 
