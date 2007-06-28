@@ -25,7 +25,7 @@ import config, data, localweb, po, registry, messages
 # Find sendmail in /usr/sbin or /usr/lib.
 os.environ['PATH'] = '/usr/lib:/usr/sbin:' + os.environ['PATH']
 # Find calc-postats.
-os.environ['PATH'] = progs_path + '/bin:' + os.environ['PATH']
+os.environ['PATH'] = config.progs_path + '/bin:' + os.environ['PATH']
 
 # Unset possible localisation.
 try: del os.environ['LANGUAGE']
@@ -263,7 +263,7 @@ def process_po_file(hints, file, fromnewpot = False):
         sys.stderr.write("      also notifying maintainer <%s>\n"
                          % maintainer)
         notify_maintainer_for_po(hints, file, archive_base)
-    else:
+    elif not fromnewpot:
         sys.stderr.write("      NOT informing maintainer\n")
     if not run.dry:
         os.remove(file)
@@ -331,7 +331,7 @@ def notify_team_leaders_for_pot(hints):
         return file.write(messages.translate(msg, 'en'))
     write("""\
 From: Translation Project Robot <robot@translationproject.org>
-To: team-leaders@iro.umontreal.ca
+To: team-leaders@translationproject.org
 Subject: New PO template for '%s'
 """
                % hints.domain.name)

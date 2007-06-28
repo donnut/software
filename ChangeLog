@@ -16,6 +16,9 @@
 
 	* bin/create-mail-aliases: Use many short lines, not one long one.
 
+	* bin/po-register: Fix path to 'calc-postats' correctly this time,
+	and use the team leaders address at tp.org instead of umontreal.ca.
+
 2007-06-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/create-mail-aliases: Comment out the extra alias for
