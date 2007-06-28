@@ -7,6 +7,10 @@
 	* lib/config.py, webgen/layout.html.in: Change the colour of the
 	website title banner, to clearly mark the site switch.
 
+	* bin/tp-robot, lib/config.py, webgen/maintainers.all,
+	webgen/translators.all, webgen/leaders.all, README:
+	Remove the unneeded "www."; it makes for cleaner URLs.
+
 2007-06-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/create-mail-aliases: Comment out the extra alias for

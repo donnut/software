@@ -10,8 +10,7 @@ Website
 -------
 
 To make the server produce the static and dynamic web pages, Apache is
-configured in /etc/apache2/sites-available/www.translationproject.org
-like this:
+configured in /etc/apache2/sites-available/translationproject.org like this:
 
     <VirtualHost *>
         DocumentRoot /home/translation/site

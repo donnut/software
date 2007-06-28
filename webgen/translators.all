@@ -10,7 +10,7 @@
    You should first find the address for your own national team.  There
    is a list of current teams at:
 
-   http://www.translationproject.org/team/index.html
+   http://translationproject.org/team/index.html
 
    For each language it lists the team code and the team's email address.
    Each team page gives some more details, like a possible team site or
@@ -21,7 +21,7 @@
    If there is no team for your language and you want to start one, you
    will find more information on how to proceed at:
 
-   http://www.translationproject.org/html/leaders.html
+   http://translationproject.org/html/leaders.html
 
 .* Fill out and return the disclaimer for translators
    --------------------------------------------------
@@ -37,7 +37,7 @@
 
    More details on the disclaimer, as well as a plain-text copy, are at:
 
-   http://www.translationproject.org/html/whydisclaim.html
+   http://translationproject.org/html/whydisclaim.html
 
 .* Learn how to use the Robot
    --------------------------
@@ -157,8 +157,8 @@
    been translated, and your team does not help you to choose a translation
    assignment, your might look into these directories:
 
-           http://www.translationproject.org/PO-files/LL/
-           http://www.translationproject.org/POT-files/
+           http://translationproject.org/PO-files/LL/
+           http://translationproject.org/POT-files/
 
    The first directory contains the availabe PO files for language LL that
    are completely or incompletely translated, but excludes files for which
