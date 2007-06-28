@@ -40,6 +40,7 @@ domain_path = site_path + "/domain"
 team_path = site_path + "/team"
 
 environ = {
+    'headline_color': '#d7ffd7',
     'margin_color': 'white',
     'caption_color': 'cyan',
     'html_layout_file': '%s/webgen/layout.html.in' % progs_path,

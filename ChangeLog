@@ -4,6 +4,9 @@
 	* webgen/layout.html.in: Tell webspiders they are welcome now
 	that the site is going live.
 
+	* lib/config.py, webgen/layout.html.in: Change the colour of the
+	website title banner, to clearly mark the site switch.
+
 2007-06-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/create-mail-aliases: Comment out the extra alias for

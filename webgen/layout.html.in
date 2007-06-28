@@ -8,7 +8,7 @@
   <table cellpadding=5 width="100%%">
     <tr align=left valign=bottom>
      <td align=center valign=middle colspan=3 width="100%%"
-	 bgcolor="%(margin_color)s">
+	 bgcolor="%(headline_color)s">
       <h1>Translation Project</h1>
      </td>
     </tr>
