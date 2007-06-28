@@ -31,6 +31,9 @@
 
 	* registry/registry.sgml: Really remove the nano_1_0 branch.
 
+	* bin/make-package-links.sh: Move the script to the tools/ directory,
+	since it is unneeded, was a bad idea, and is imperfectly executed.
+
 2007-06-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/create-mail-aliases: Comment out the extra alias for

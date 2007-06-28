@@ -1,11 +1,9 @@
 Today:
-* look through registry.sgml for things to fix
 * how to tell SVN that some files should stay executable?
 
 Soon:
 * discuss with Santiago what to mirror and at what rate
-* use globbing for generating a domain page instead of dir walking
-* after that remove all traces of the bad-idea packages/ subdir
+* look through registry.sgml for things to fix
 * run 'po-tidy-links -n' to inspect the state of latest/ symlinks again
 
 Later:

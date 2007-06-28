@@ -34,12 +34,6 @@ simply `DOMAIN' (without a version number).  Each of these
 subdirectories contains symlinks of the form `LL.po', which link to the 
 most recent file for that language in the `PO-files/' directory.
 
-.* `packages/'
-
-The subdirectories of this directory contain symlinks to all available 
-PO files for a package.  This hierarchy is provided just for 
-information, to give a per-package overview.
-
 .* SVN
 
 The scripts that produce the web pages and drive the TP mailing robot 
