@@ -1,34 +1,26 @@
-Next:
-* figure out if there are still any mirrors, and then what and how
-  to mirror the new setup
-* do the file searching for generating a domain page in a smarter way
+Today:
+* look through registry.sgml for things to fix
+* how to tell SVN that some files should stay executable?
 
-Just before going live:
-* run mirror_tp_data.py one last time (done - mvl)
-* svn commit the changes to registry.sgml, then run 'make' (not necessary, import subversion repository instead)
-* remove the spurious site/latest/coreutils/messages.mo  (done - benno)
-* run cv-symlinks.sh  to convert trans and teams/PO symlinks to PO-files ones (done - mvl)
-* run calc-postats -uv  to make sure all POs are statted (done - mvl)
-* run po-tidy-links -n  to inspect state of links, then create missing ones (done - benno)
-* run make-package-links.sh  to create a second hierarchy of symlinks (done - mvl)
-* change the robot directive in layout.html.in to "index,follow" (done - benno)
-* run 'rm ~/site/html/*' and 'make site' in ~/progs/  to remake the site (done - benno)
-* run generate-static-pages -idt  to regenerate domain and team pages (done - benno)
+Soon:
+* discuss with Santiago what to mirror and at what rate
+* use globbing for generating a domain page instead of dir walking
+* after that remove all traces of the bad-idea packages/ subdir
+* run 'po-tidy-links -n' to inspect the state of latest/ symlinks again
 
 Later:
 * run 'make check' and delete PO files with fatal errors,
   at least the bad ones that are not the latest
-* delete problematic zh_TW/xchat Big5 file
+* delete or rename problematic zh_TW/xchat Big5 file
 * search and delete problematic version numbers, like 0.5g not
   being recognized as older than 0.5.2; or improve the sort key
 * search and delete the PO files with mistaken encoding specifications
 * delete PO files for which translated strings are under 5%
-* reject PO files for which translated strings are under 5%
+* make robot reject PO files for which translated strings are under 5%
 * find out why there are no POT files for things like 'cook'
 * simplify regex: filenames do not contain encoding any more
 * add a page for retired translators
 * make fileutils, sh-utils, and textutils not show up on team pages
-* transform nano_1_0 back to plain nano
 * walk through the packages to see if there are more recent versions;
   there is for lilypond, for example
 * rename registry.dtd to tp-registry.dtd
