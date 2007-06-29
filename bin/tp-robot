@@ -1095,8 +1095,6 @@ The Translation Project already holds an exact copy of your submission,
 which you may find as:
 
 """)]
-##          for url in run.hints.urchive_urls():
-##              comment.append('    %s\n' % url)
             comment.append('    %s\n' % run.hints.archive_urls()[0])
             run.reject_nofill(('').join(comment), "[duplicate submission]")
 
@@ -1111,27 +1109,28 @@ which you may find as:
         if run.hints.team.code in domain.ext:
             return 0, "[there is an external translation]"
         # If there is no preexisting translation, accept.
+        #! This checking of a symlink is not foolproof, as there are some files
+        #! for which this symlink is missing or pointing to an old version.
         file = run.hints.maintainer_path()
         if not os.path.exists(file):
             return 1, "[first submission to this domain]"
-        # If it exists, find the submitter.
+        # If it exists, find its submitter, the "last maker".
         import data
         stats = data.load_postats()
         hints = registry.Hints(os.readlink(file))
         try:
-            stats = stats[(hints.domain.name, hints.version.name, hints.team.name)]
-            last_translator = stats[0]
-            email = stats[1]
+            st = stats[(hints.domain.name, hints.version.name, hints.team.name)]
+            last_maker, email = st[0], st[1]
         except KeyError:
             # Stats not updated yet, need to read PO file.
-            file = po.read(file)
-            last_translator, email = po.last_translator(po.header(file))
+            content = po.read(file)
+            last_maker, email = po.last_translator(po.header(content))
         try:
-            last_translator = registry.translator(hints.team, last_translator, email)
+            last_maker = registry.translator(hints.team, last_maker, email)
         except KeyError:
-            return 0, "[Unknown translator]"
-        
-        if last_translator == translator:
+            return 0, "[unknown translator]"
+        # If the current submitter equals the last maker, accept.
+        if translator == last_maker:
             return 1, "[translator equals last translator]"
         else:
             return 0, "[translator not assigned to domain]"

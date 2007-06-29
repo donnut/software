@@ -14,6 +14,8 @@
 	* bin/po-matrix, Makefile, webgen/layout.html.in:
 	Generate the matrices again, and link to the html one.
 
+	* bin/tp-robot: Clarify the acception of files for unassigned domains.
+
 2007-06-28  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/layout.html.in: Tell webspiders they are welcome now
