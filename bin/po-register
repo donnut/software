@@ -128,7 +128,7 @@ def process_pot_file(hints, file, teams):
             print line
         os.remove(file)
         os.chmod(template_path, 0664)
-    potstats = po.stats(po.read(template_path))
+    stats = po.stats(po.read(template_path))
     if teams:
         teams = [registry.team(n) for n in teams]
     else:
@@ -174,7 +174,7 @@ def process_pot_file(hints, file, teams):
             mailto = hints.team.announce_address()
             sys.stderr.write("    notifying <%s> about '%s'\n"
                              % (mailto, template_base))
-            notify_team_for_po(hints, potstats, fromnewpot = True)
+            notify_team_for_po(hints, stats, fromnewpot = True)
         if not translator:
             for translator in team.translator_for_domain(hints.domain):
                 if translator.mailto:

@@ -112,7 +112,7 @@ class Coordinator(Reporter):
         return _("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
-Subject: Re: %s
+Subject: XXX: %s
 %s"""
                  % (mailto, subject, self.mime_header()))
 
