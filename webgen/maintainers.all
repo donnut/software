@@ -68,7 +68,7 @@
 	2) modify main() to activate translation,
 	3) add some Autoconf/Automake or Makefile magic,
 	4) announce a pre-release package (containing the POT file) to
-      the Translation Project <translation@translationproject.org>,
+      the Translation Project <coordinator@translationproject.org>,
 	5) add the PO files that start coming back from the Translation
       Project to your package,
 	6) be kind to translators.
@@ -124,7 +124,7 @@
     be adjusted for your package.
 
     To announce the POT file, merely send the URL of a packaged distribution of
-    your program to  <translation@translationproject.org>.  Use the
+    your program to  <coordinator@translationproject.org>.  Use the
     string "DOMAIN-VERSION.pot" somewhere in the subject line of your email.
     Note that a POT file will be processed only once by the Translation Project:
     another submission *must* use a newer VERSION.  The distribution pointed to

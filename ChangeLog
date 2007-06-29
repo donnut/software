@@ -23,6 +23,8 @@
 
 	* lib/messages/*.po: Adapt URLs and email addresses to the latest.
 
+	* webgen/maintainers.all: Use the coordinator@ email address.
+
 2007-06-28  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/layout.html.in: Tell webspiders they are welcome now

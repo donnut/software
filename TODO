@@ -1,14 +1,13 @@
 Today:
-* remove all mentions of translation@
+* look through registry.sgml for things to fix
+* on the domain pages, do not show tarball URL but a site URL
 
 Soon:
 * discuss with Santiago what to mirror and at what rate
-* look through registry.sgml for things to fix
 * run 'po-tidy-links -n' to inspect the state of latest/ symlinks again
 * improve 'po-tidy-links' to find all links that do not point
   to the latest available version
 * make a reply for those who ask the robot for help
-* on the domain pages, do not show tarball URL but a site URL
 
 Later:
 * run 'make check' and delete PO files with fatal errors,
