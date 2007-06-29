@@ -51,8 +51,12 @@ class Reporter:
                 else:
                     self.file = sys.stdout
                 self.file.write(messages.translate(reply_header, self.lang))
-                for l in self.delayed:
-                    self.file.write(messages.translate(l, self.lang, self.encoding))
+                for line in self.delayed:
+                    try:
+                        self.file.write(messages.translate(line, self.lang,
+                                                           self.encoding))
+                    except UnicodeEncodeError:
+                        self.file.write(messages.translate(line, self.lang))
                 self.delay = 0
                 self.delayed = []
 
@@ -74,7 +78,11 @@ class Reporter:
             self.delayed.append(text)
         else:
             self.file.write('\n')
-            self.file.write(messages.translate(text, self.lang, self.encoding))
+            try:
+                self.file.write(messages.translate(text, self.lang,
+                                                   self.encoding))
+            except UnicodeEncodeError:
+                self.file.write(messages.translate(text, self.lang))
 
     def write(self, text):
         self.write_nofill(messages.refill(text))

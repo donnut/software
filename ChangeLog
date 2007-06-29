@@ -6,6 +6,11 @@
 	* registry/registry.sgml: Whitespace adjustments after removal of
 	nano_1_0 assignments.
 
+	* lib/run.py: Continue when encoding fails; better send a messed up
+	mail than no mail at all.  This is just a workaround for an error
+	seen in the logs: """UnicodeEncodeError: 'ascii' codec can't encode
+	character u'\xe1' in position 234: ordinal not in range(128)"""
+
 2007-06-28  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/layout.html.in: Tell webspiders they are welcome now
