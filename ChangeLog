@@ -19,6 +19,8 @@
 	* bin/po-register: Do not falter when a PO file is submitted by an
 	unassigned translator.
 
+	* bin/*: Tell SVN that most of these should stay executable.
+
 2007-06-28  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/layout.html.in: Tell webspiders they are welcome now

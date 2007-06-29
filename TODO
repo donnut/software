@@ -1,6 +1,4 @@
 Today:
-* should the robot really accept submissions for unassigned packages?
-* how to tell SVN that some files should stay executable?
 * remove all mentions of translation@
 
 Soon:
@@ -31,6 +29,7 @@ Later:
 * weed out double assignments from registry.sgml
 * sort AUTHORS by data
 * mail bug-tar about simpler fetch script
+* should the robot really accept submissions for unassigned packages?
 * check that 'Last-Translator' is the same as the _last_ line in the
   preheader, not the third line of that preheader
 * translated_length and total_length seem only to get used in po-matrix;
