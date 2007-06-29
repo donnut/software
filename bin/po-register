@@ -221,16 +221,6 @@ def process_po_file(hints, file, fromnewpot = False):
         if os.path.isfile(archive_path):
             os.remove(archive_path)
         shutil.copy2(file, archive_path)
-        # Create a symlink in the packages/ subdir to the new PO file.
-        package_dir = '%s/%s' % (config.packs_path, hints.domain.name)
-        package_path = '%s/%s' % (package_dir, archive_base)
-        if not os.path.isdir(package_dir):
-            os.mkdir(package_dir, 2775)
-        if (os.path.islink(package_path) or os.path.isfile(package_path)):
-            os.remove(package_path)
-        os.symlink('../../%s/%s/%s' %
-                   (config.pos_dir, hints.team.name, archive_base),
-                   package_path)
         # Calculate the statistics for the new PO file.
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
