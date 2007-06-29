@@ -5,6 +5,8 @@
 
 VERSION=1.92
 
+extra_dir=../site/extra
+
 
 all: registry site
 
@@ -48,27 +50,24 @@ postats: ../cache/postats
 	bin/calc-postats -u -v
 FORCE:
 
-matrix: doc/matrix.texi
-ifeq ($(SITE), iro.umontreal.ca)
-doc/matrix.texi: PO-files/*
+matrix: $(extra_dir)/matrix.texi
+$(extra_dir)/matrix.texi: ../site/PO-files/*
 	bin/po-matrix
-	mv tmp-matrix.html doc/matrix.html
-	@if cmp -s tmp-matrix.texi doc/matrix.texi; then \
+	mv tmp-matrix.html $(extra_dir)/matrix.html
+	@if cmp -s tmp-matrix.texi $(extra_dir)/matrix.texi; then \
 	  rm tmp-matrix.texi; \
 	else \
-	  mv tmp-matrix.texi doc/matrix.texi; \
-	  mail -s "New PO file matrix" sv@li.org <doc/matrix.texi; \
+	  mv tmp-matrix.texi $(extra_dir)/matrix.texi; \
+	  mail -s "New PO file matrix" sv@li.org \
+	          <$(extra_dir)/matrix.texi; \
 	fi
-	@if cmp -s tmp-matrix.xml doc/matrix.xml; then \
+	@if cmp -s tmp-matrix.xml $(extra_dir)/matrix.xml; then \
 	  rm tmp-matrix.xml; \
 	else \
-	  mv tmp-matrix.xml doc/matrix.xml; \
-	  mail -s "New PO file matrix" haible@ilog.fr <doc/matrix.xml; \
+	  mv tmp-matrix.xml $(extra_dir)/matrix.xml; \
+	  mail -s "New PO file matrix" haible@ilog.fr \
+	          <$(extra_dir)/matrix.xml; \
 	fi
-else
-doc/matrix.texi:
-	:
-endif
 
 .PHONY:	pot
 pot:

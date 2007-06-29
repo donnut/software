@@ -11,6 +11,9 @@
 	seen in the logs: """UnicodeEncodeError: 'ascii' codec can't encode
 	character u'\xe1' in position 234: ordinal not in range(128)"""
 
+	* bin/po-matrix, Makefile, webgen/layout.html.in:
+	Generate the matrices again, and link to the html one.
+
 2007-06-28  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/layout.html.in: Tell webspiders they are welcome now
