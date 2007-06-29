@@ -3,6 +3,9 @@
 
 	* lib/config.py, bin/po-register: Stop making symlinks in packages/.
 
+	* registry/registry.sgml: Whitespace adjustments after removal of
+	nano_1_0 assignments.
+
 2007-06-28  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/layout.html.in: Tell webspiders they are welcome now
