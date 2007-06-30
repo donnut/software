@@ -86,7 +86,7 @@ Your PO file seems to have no entries at all, like if it were empty.
         if have_pot:
             # Can't merge without template.
             process.make_canonical(part.work, archive_base, entries, header)
-        check_po_file.contents(part.work, archive_base)
+            check_po_file.contents(part.work, archive_base)
         check_po_file.special_instructions(part.work)
         # The submission is acceptable, unless it is a duplicate.
         check_registry.preexisting(part.work)
@@ -529,6 +529,7 @@ misspellings of one another, you should correct whichever is needed and
 resubmit the corrected PO file.  On the other hand, I ask you to be fair,
 and _never_ remove the initial translator of a given PO file, as this
 acknowledgement is the only tribute paid for the work of that translator.
+
 """)
                                              % (first_translator,
                                                 run.translator_name))
@@ -539,6 +540,7 @@ line of the PO file says <%s>, while the 'Last-Translator' field of the
 PO file header says <%s>.  Please arrange to have a single preferred
 address to reach you, and try to use it consistently in all your
 translation files.
+
 """)
                                              % (first_address,
                                                 run.translator_address))
