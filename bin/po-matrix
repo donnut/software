@@ -156,7 +156,7 @@ From an idea David Sven had on 1997-01-22.
               '    <th>Domain</th>\n'
               '    <td></td>\n')
         for team in inventory.all_teams:
-            write('    <th width=30><a href="team-%s.html">%s</a></th>\n'
+            write('    <th width=30><a href="../team/%s.html">%s</a></th>\n'
                   % (team.name, team_nick(team)))
         write('    <th>Count</th>\n'
               '   </tr>\n'
@@ -170,14 +170,13 @@ From an idea David Sven had on 1997-01-22.
         for domain in inventory.all_domains:
             counts = inventory.domains[domain.name]
             write('   <tr align=center>\n'
-                  '    <td align=left><a href="domain-%s.html">%s</a></td>\n'
+                  '    <td align=left><a href="../domain/%s.html">%s</a></td>\n'
                   % (domain.name, domain.name))
             write('    <td align=right>%d%%</td>\n' % percentage(counts))
             for team in inventory.all_teams:
                 pair = inventory.pofiles.get((domain.name, team.name))
                 if pair is not None:
                     version, percent = pair
-                    #write('    <td bgcolor=yellow><font color=yellow>')
                     write('    <td><a href="../%s/%s/%s-%s.%s.po">'
                           '%d%%</a></td>\n'
                           % (config.pos_dir, team.name, domain.name,
@@ -192,7 +191,7 @@ From an idea David Sven had on 1997-01-22.
               '    <td></td>\n'
               '    <td></td>\n')
         for team in inventory.all_teams:
-            write('    <th width=30><a href="team-%s.html">%s</a></th>\n'
+            write('    <th width=30><a href="../team/%s.html">%s</a></th>\n'
                   % (team.name, team_nick(team)))
         write('   </tr>\n'
               '   <tr>\n'

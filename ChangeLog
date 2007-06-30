@@ -41,6 +41,8 @@
 
 	* webgen/maintainers.all: Use the coordinator@ email address.
 
+	* bin/po-matrix: Correct the links to domain and team pages.
+
 2007-06-28  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/layout.html.in: Tell webspiders they are welcome now
