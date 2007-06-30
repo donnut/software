@@ -88,20 +88,20 @@ class UnpackedFile:
         # we still have an empty part.
         if start > 0:
             self.write_warning(_("""\
-I'm ignoring the following lines within your message:
+I'm ignoring the following leading lines within your message:
 
----------------------------------------------------------------------->
+--------------------------------------------------------------->
 %s
-----------------------------------------------------------------------<
+---------------------------------------------------------------<
 """)
                                   % string.join(lines[:start], ''))
         if end < len(lines):
             self.write_warning(_("""\
-I'm ignoring the following lines within your message:
+I'm ignoring the following final lines within your message:
 
----------------------------------------------------------------------->
+--------------------------------------------------------------->
 %s
-----------------------------------------------------------------------<
+---------------------------------------------------------------<
 """)
                                   % string.join(lines[end:], ''))
         if terminator and lines[end-1] != terminator:
