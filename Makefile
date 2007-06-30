@@ -54,23 +54,12 @@ matrix: $(extra_dir)/matrix.texi
 $(extra_dir)/matrix.texi: ../site/PO-files/*
 	bin/po-matrix
 	mv tmp-matrix.html $(extra_dir)/matrix.html
-	@if cmp -s tmp-matrix.texi $(extra_dir)/matrix.texi; then \
-	  rm tmp-matrix.texi; \
-	else \
-	  mv tmp-matrix.texi $(extra_dir)/matrix.texi; \
-	  mail -s "New PO file matrix" sv@li.org \
-	          <$(extra_dir)/matrix.texi; \
-	fi
-	@if cmp -s tmp-matrix.xml $(extra_dir)/matrix.xml; then \
-	  rm tmp-matrix.xml; \
-	else \
-	  mv tmp-matrix.xml $(extra_dir)/matrix.xml; \
-	  mail -s "New PO file matrix" haible@ilog.fr \
-	          <$(extra_dir)/matrix.xml; \
-	fi
+	mv tmp-matrix.texi $(extra_dir)/matrix.texi
+	mv tmp-matrix.xml $(extra_dir)/matrix.xml
 
 .PHONY:	pot
 pot:
+	# Extract translatable strings from relevant files:
 	xgettext -o po/tp-robot.pot -kt_ -L Python \
 	    bin/{tp-robot,po-register} lib/{po,run,unpack}.py
 	# Add the list of language teams:
