@@ -1073,6 +1073,7 @@ you may write yourself to the translation coordinator.  It is a simple
 matter to assign you the responsibility of '%s' for %s, if nobody else
 is yet assigned to it.  However, some teams prefer to channel translations
 differently, for ensuring some quality control first.
+
 """)
                        % (run.hints.domain, run.hints.domain,
                           _(globals.team_language)), reason)
