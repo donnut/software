@@ -77,6 +77,6 @@ pot:
 	python lib/registry.py >>po/tp-robot.pot
 
 dist:
-	tar -cz -f ../site/bundle/tp-robot-${VERSION}.tgz \
+	tar -cz -f ../site/bundles/tp-robot-${VERSION}.tgz \
 	    --transform='s:^\./:tp-robot-${VERSION}/:' \
 	    --exclude=.svn  .

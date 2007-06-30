@@ -10,7 +10,7 @@
 
 	* registry/registry.sgml: Cleanups.
 
-	* Makefile: Renaming 'tarballs/' to 'bundle/', and keeping the old,
+	* Makefile: Rename 'tarballs/' to 'bundles/', and return to the old,
 	incorrect name for the 'tp-robot' package for now.
 
 2007-06-29  Benno Schulenberg  <benno@vertaalt.nl>
