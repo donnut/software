@@ -1,4 +1,9 @@
 
+2007-06-30  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/create-mail-aliases: Sort each bundle of addresses, weed out
+	the duplicates, and join them with line continuation characters.
+
 2007-06-29  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/config.py, bin/po-register: Stop making symlinks in packages/.

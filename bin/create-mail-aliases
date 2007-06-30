@@ -57,12 +57,12 @@ def main(*arguments):
     if leaders:
         if mailrc:
             alias_leaders(fallback)
-        else:	  
+        else:
             rules_for_leaders(fallback)
     if teams:
         if mailrc:
             sys.stderr.write("***Not implemented.\n")
-        else:	  
+        else:
             rules_for_teams()
 
 
@@ -85,7 +85,7 @@ def alias_leaders(fallback_on_lists):
         else:
             no_mailto.append(team.code)
     sys.stdout.write('alias team-leaders %s\n'
-                     % string.join(all_addresses, ', '))
+                     % string.join(prune(all_addresses), ', '))
     if no_mailto:
         sys.stderr.write('* No aliases for: %s\n'
                          % string.join(no_mailto, ', '))
@@ -106,9 +106,9 @@ def rules_for_leaders(fallback_on_lists):
         else:
             no_mailto.append(team.code)
     sys.stdout.write('\n:0\n* ^TO.*all-leaders@\n! %s\n'
-                     % string.join(all_addresses, '\n! '))
+                     % string.join(prune(all_addresses), ',\\\n  '))
     sys.stdout.write('\n:0\n* ^TO.*team-leaders@\n! %s\n'
-                     % string.join(all_addresses, '\n! '))
+                     % string.join(prune(all_addresses), ',\\\n  '))
     if no_mailto:
         sys.stderr.write('* No rules for: %s\n'
                          % string.join(no_mailto, ', '))
@@ -125,7 +125,7 @@ def rules_for_teams():
         else:
             no_mailto.append(team.code)
     sys.stdout.write('\n:0\n* ^To:.*all-teams@\n! %s\n'
-                     % string.join(all_addresses, '\n! '))
+                     % string.join(prune(all_addresses), ',\\\n  '))
     if no_mailto:
         sys.stderr.write('* No rules for: %s\n'
                          % string.join(no_mailto, ', '))
@@ -142,7 +142,7 @@ def alias_maintainers():
                          % (domain.name, domain.name, mailto))
         all_maintainers.append(domain.name)
     sys.stdout.write('alias all-maintainers %s\n'
-                     % string.join(all_maintainers, ', '))
+                     % string.join(prune(all_maintainers), ', '))
 
 def rules_for_maintainers():
     all_maintainers = []
@@ -156,7 +156,17 @@ def rules_for_maintainers():
                              % (domain.name, mailto))
             all_maintainers.append('<%s>' % mailto)
     sys.stdout.write('\n:0\n* ^To:.*all-maintainers@\n! %s\n'
-                     % string.join(all_maintainers, '\n! '))
+                     % string.join(prune(all_maintainers), ',\\\n  '))
+
+def prune(list):
+    list.sort()
+    index = 1
+    while index < len(list):
+        if list[index-1] == list[index]:
+            del list[index]
+        else:
+            index += 1
+    return list
 
 
 if __name__ == '__main__':
