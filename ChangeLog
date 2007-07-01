@@ -4,6 +4,8 @@
 	* registry/registry.sgml: Blot out obsolete email addresses that keep
 	giving mail delivery failures; replace some of them with good guesses.
 
+	* bin/po-register: Don't send mail when address is '(nothing)'.
+
 2007-06-30  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/create-mail-aliases: Sort each bundle of addresses, weed out
