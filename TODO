@@ -10,6 +10,7 @@ Soon:
 * improve 'po-tidy-links' to find all links that do not point
   to the latest available version
 * make a reply for those who ask the robot for help
+* add note that project was never called "FTP".
 
 Later:
 * run 'make check' and delete PO files with fatal errors,
