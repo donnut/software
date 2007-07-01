@@ -1,4 +1,9 @@
 
+2007-07-01  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* registry/registry.sgml: Blot out obsolete email addresses that keep
+	giving mail delivery failures; replace some of them with good guesses.
+
 2007-06-30  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/create-mail-aliases: Sort each bundle of addresses, weed out
