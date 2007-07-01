@@ -232,7 +232,7 @@ def process_po_file(hints, file, fromnewpot = False):
     # Notify team of the PO file, whether new or updated.
     mailto = hints.team.announce_address()
     sys.stderr.write("    notifying `%s` <%s> about '%s'\n"
-                     % (team.name, mailto, archive_base))
+                     % (hints.team.name, mailto, archive_base))
     notify_team_for_po(hints, stats, fromnewpot)
     # Only notify the maintainer (and relink the symlink) if the submitted
     # PO file is for the most recent POT file of this package.
