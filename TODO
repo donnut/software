@@ -1,6 +1,8 @@
 Today:
 * look through registry.sgml for things to fix
 * on the domain pages, do not show tarball URL but a site URL
+* fix the bug where 2.0a is seen as a higher version than 2.2 (bison),
+  and 2.5g as higher than 2.5.1 (grep).
 
 Soon:
 * discuss with Santiago what to mirror and at what rate
@@ -13,8 +15,6 @@ Later:
 * run 'make check' and delete PO files with fatal errors,
   at least the bad ones that are not the latest
 * delete or rename problematic zh_TW/xchat Big5 file
-* search and delete problematic version numbers, like 0.5g not
-  being recognized as older than 0.5.2; or improve the sort key
 * search and delete the PO files with mistaken encoding specifications
 * delete PO files for which translated strings are under 5%
 * make robot reject PO files for which translated strings are under 5%
