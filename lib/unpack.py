@@ -1,6 +1,6 @@
 # Unpacking messages sent to the Translation Project.
 # -*- mode: python; coding: utf-8 -*-
-# Copyright © 2003 Translation Project
+# Copyright © 2003, 2007 Translation Project
 # Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1998.
 
@@ -77,7 +77,7 @@ class UnpackedFile:
         while end > start:
             if lines[end-1] == terminator:
                 break
-            if lines[end-1][:7] == 'msgstr ':
+            if lines[end-1][:6] == 'msgstr':
                 while end < len(lines) and lines[end][0] in '"#\n':
                     end = end + 1
                 while lines[end-1][0] == '\n':
