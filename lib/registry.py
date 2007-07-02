@@ -429,7 +429,7 @@ class Version:
             if match.group(3):
                 patch = int(match.group(3))
             else:
-                patch = pretest
+                patch = 0
             self.sort_key = major, minor, patch, 0, pretest
             return self.sort_key
         match = re.match(

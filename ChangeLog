@@ -1,4 +1,8 @@
 
+2007-07-02  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/registry.py: Make 2.5g a lower version than 2.5.1 (for grep).
+
 2007-07-01  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Blot out obsolete email addresses that keep

@@ -1,8 +1,8 @@
 Today:
+* fix the mistaken listing of bison-runtime versions on the bison page;
+  the same for gettext, gnucash, gst-plugins, keytouch, libgphoto2
 * look through registry.sgml for things to fix
 * on the domain pages, do not show tarball URL but a site URL
-* fix the bug where 2.0a is seen as a higher version than 2.2 (bison),
-  and 2.5g as higher than 2.5.1 (grep).
 
 Soon:
 * discuss with Santiago what to mirror and at what rate
