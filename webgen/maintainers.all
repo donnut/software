@@ -7,23 +7,20 @@
 
 .* About using the Translation Project
 
-   The Translation Project is meant as a service to everybody, which you
-   are free to use or not.  Of course, we believe there are many advantages
-   to doing so, but some aspect of the project might bother you.  We are
-   improving the service over time, and your suggestions are always welcome.
-   Please send them to <comments@translationproject.org>.
+The Translation Project is meant as a service which you are free to use or 
+not.  Of course, we believe there are many advantages to using the TP, but 
+some aspect of the project might bother you.  We are improving the service 
+over time, and your suggestions are always welcome. Please send them to 
+<comments@translationproject.org>.
 
-   The Translation Project does not force you into imposing translation
-   disclaimers on translators.  For most GNU packages, disclaimers are
-   required by the FSF (Free Software Foundation).  If, as a GNU
-   maintainer, you tell me that these are not required, I will presume
-   you are being straight and have cleared the matter with FSF
-   headquarters already.  Even for non-GNU packages, it is a good idea to
-   ask for disclaimers: this better protects available translations
-   against people who might change their mind about freedom; such things
-   can happen.  If you decide that disclaimers are required, the
-   Translation Project tries to guarantee that accepted translations are
-   all properly disclaimed.  Here is the disclaimer form:
+The Translation Project does not force you into imposing disclaimers on the 
+translators.  But for most GNU packages, disclaimers are required by the Free 
+Software Foundation (FSF).  Even for non-GNU packages, however, it is a good 
+idea to ask for disclaimers, as this better protects the made translations 
+against people who might change their mind about freedom; such things can 
+happen.  If you decide that disclaimers are required, the Translation Project 
+checks that translations are properly disclaimed before being accepted.  The 
+disclaimer form is here:
 
    http://translationproject.org/disclaim.txt
 
@@ -31,33 +28,35 @@
    the language they translate into, rather than by the package they are
    translating.  This often represents an important change from a previous
    setup you might have created for your package.  In general, translation
-   problems are more specific to spoken languages than particular packages,
+   problems are more specific to spoken languages than to particular packages,
    and we think overall efforts are better invested when people interested
    in a native language get together and share their energy.
 
    The Translation Project puts an administrative layer between you, as
-   a maintainer, and the translators working at your package.  In some
+   a maintainer, and the translators working at your package.  In a
    way, this creates some distance, which you may find difficult to accept
    at first.  It goes with the fact that the more languages your package
-   supports, more difficult it gets to synchronise everything for a release,
+   supports, the more difficult it gets to synchronise everything for a release,
    to the point of becoming impossible after enough growth.  The Translation
-   Project wants to relieve the pressure put on everybody.  It is set up to
-   handle that asynchronicity, and to keep responsibilities more separate.
-   You do not have to burden yourself so much about translation matters,
+   Project wants to relieve the pressure on everybody.  It is set up to
+   handle the asynchronicity, and to keep responsibilities more separate.
+   You do not have to bother much about translation matters,
    and your translators feel more comfortable working at their own pace.
 
-   At the beginnings of the Translation Project, everything was coordinated
-   *by hand*, and maintainers and translators were all receiving a lot
-   of personal help and coaching.  But as the data volume increased,
-   it became just impossible to sustain the same level of service:
-   delays became noticeable.  The Translation Project robot now attempts
-   to provide a good turnaround, while keeping good coaching for most of
-   the usual difficulties.  Currently, the robot is all geared up to handle
-   PO files submitted by translators.  It is currently being extended to
-   handle other aspects, like POT files from maintainers, or administration
-   of the registry by team leaders.  The initial setup for a new package,
-   or a new language team, is still to be all done *by hand*.
+At the beginnings of the Translation Project, everything was coordinated by 
+hand, and maintainers and translators were all receiving a lot of personal 
+help and coaching.  But as the data volume increased, it became just 
+impossible to sustain the same level of service: delays became noticeable.  
+The Translation Project robot now attempts to provide a good turnaround, while 
+keeping good coaching for most of the usual difficulties.  Currently, the 
+robot is geared up to handle PO files submitted by translators.  The initial 
+setup for a new package, or a new language team, is still done by hand.
 
+Sometimes a translator does not wish to make use of the Translation Project 
+but instead send his or her PO files straight to you, the maintainer.  For 
+these translators it is possible to mark the affected language for your 
+package as `external'; the Translation Project will then not handle the 
+corresponding PO files and will not send any notifications about them.
 
 .* How to proceed for a new package
 

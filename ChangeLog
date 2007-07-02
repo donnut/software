@@ -11,6 +11,8 @@
 
 	* registry/registry.sgml: Remove obsolete package 'gnucash-glossary'.
 
+	* webgen/maintainers.all: Mention the possibility of 'external'.
+
 2007-07-01  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Blot out obsolete email addresses that keep
