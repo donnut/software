@@ -152,7 +152,7 @@ class DomainPage(htmlpage.Htmlpage):
 
 def build_language_cell(postats, write, team, domain):
     table = []
-    names = glob.glob("%s/%s/%s*.%s.po" %
+    names = glob.glob("%s/%s/%s-[0-9]*.%s.po" %
                       (config.pos_path, team.name, domain.name, team.name))
     for filename in names:
         try:

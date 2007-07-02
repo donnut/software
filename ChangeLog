@@ -3,6 +3,9 @@
 
 	* lib/registry.py: Make 2.5g a lower version than 2.5.1 (for grep).
 
+	* lib/localweb.py: Make the globbing pattern more precise, so that
+	bison-runtime versions aren't listed on the bison page, for example.
+
 2007-07-01  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Blot out obsolete email addresses that keep

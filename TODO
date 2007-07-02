@@ -1,6 +1,4 @@
 Today:
-* fix the mistaken listing of bison-runtime versions on the bison page;
-  the same for gettext, gnucash, gst-plugins, keytouch, libgphoto2
 * look through registry.sgml for things to fix
 * on the domain pages, do not show tarball URL but a site URL
 
