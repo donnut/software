@@ -9,6 +9,8 @@
 	* bin/run-queue.sh: Don't run the robot when an admin is busy with
 	things that modify the cache/postats file.
 
+	* registry/registry.sgml: Remove obsolete package 'gnucash-glossary'.
+
 2007-07-01  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Blot out obsolete email addresses that keep
