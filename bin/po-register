@@ -532,8 +532,8 @@ None of its messages has been translated yet.
     elif untranslated == 0:
         write(_("""\
 All of its %d messages have been translated, and this PO file has been
-submitted to the maintainer of '%s', hoping he or she will include it
-in a future release.
+announced to the maintainer of '%s', hoping he or she will include
+it in a future release.
 
 """)
               % (translated, hints.domain.name))

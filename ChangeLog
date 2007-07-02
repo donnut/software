@@ -6,6 +6,9 @@
 	* lib/localweb.py: Make the globbing pattern more precise, so that
 	bison-runtime versions aren't listed on the bison page, for example.
 
+	* bin/run-queue.sh: Don't run the robot when an admin is busy with
+	things that modify the cache/postats file.
+
 2007-07-01  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Blot out obsolete email addresses that keep

@@ -15,7 +15,13 @@ TP_EXEC=$MAILDIR/bot-exec
 TP_EXEC_LOCK=$MAILDIR/bot-exec.lock
 
 
-##/usr/kerberos/bin/kinit gnutra </u/gnutra/.pass >/dev/null
+# Don't handle mail when an admin is busy with
+# things that modify the cache/postats file.
+if ps ax | grep -q tp/progs/bin/[p]o-register; then
+  exit 0
+elif ps ax | grep -q tp/progs/bin/[c]alc-postats; then
+  exit 0
+fi
 
 if [ ! -f $TP_EXEC ]; then
   lockfile $TP_EXEC_LOCK
