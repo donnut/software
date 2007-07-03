@@ -1,4 +1,9 @@
 
+2007-07-03  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* registry/registry.sgml: Remove packages that do not contain a POT
+	file: cantus_3, cook, flphoto, gnupg, jade, libtododb, pandora_*.
+
 2007-07-02  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/registry.py: Make 2.5g a lower version than 2.5.1 (for grep).
