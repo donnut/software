@@ -4,6 +4,9 @@
 	* registry/registry.sgml: Remove packages that do not contain a POT
 	file: cantus_3, cook, flphoto, gnupg, jade, libtododb, pandora_*.
 
+	* registry/Makefile: Add a target to normalize whitespace in the
+	registry.sgml file.
+
 2007-07-02  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/registry.py: Make 2.5g a lower version than 2.5.1 (for grep).

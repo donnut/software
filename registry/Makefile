@@ -3,6 +3,9 @@
 # Copyright © 1996, 1997, 1998, 1999, 2000, 2002, 2003 Free Software Foundation, Inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1996.
 
+DECODED = decoded-cached-registry
+
+
 all: registry indexes procmailrc
 
 remote:
@@ -22,6 +25,16 @@ registry: ../../cache/registry
 	    diff -u registry.tmp registry.sgml
 	rm registry.tmp
 
+normalize:
+	../bin/registry-data -d >$(DECODED)
+	if diff -q registry.sgml $(DECODED) >/dev/null; then \
+	    rm $(DECODED); \
+	else \
+	    mv $(DECODED) registry.sgml && \
+	    svn commit registry.sgml -m " (Whitespace adjustment.)" && \
+	    $(MAKE) all; \
+	fi
+	    
 indexes: ../../cache/registry
 	../bin/generate-static-pages -i
 
