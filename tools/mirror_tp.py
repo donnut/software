@@ -2,7 +2,7 @@
 
 import sys, os, urllib, gzip, stat, errno, string, time
 
-urlprefix = "http://www.translationproject.org/self/"
+urlprefix = "http://translationproject.org/"
 
 def mkdir(p):
     try:
@@ -24,9 +24,6 @@ if len(sys.argv) != 2:
 prefix = sys.argv[1]
 os.chdir(prefix)
 
-mkdir("mail")
-mkdir("tmp")
-
 mkdir("mirror")
 for i in range(5):
     sock = urllib.urlretrieve(urlprefix + "mirror/INDEX.gz","mirror/INDEX.gz")
@@ -39,7 +36,7 @@ for i in range(5):
         pass
     time.sleep(10)
 else:
-    # otherwise, it is an incomplete file
+    # The remote file is incomplete.
     raise SystemExit
 
 for line in data:
@@ -50,7 +47,7 @@ for line in data:
         try:
             type, name, dest = string.split(name, ' ')
         except ValueError:
-            # file name with spaces, ignore
+            # File name has spaces, ignore it.
             print 'Splitting',name,'failed'
             continue
     try:

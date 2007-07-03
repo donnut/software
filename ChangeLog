@@ -9,6 +9,9 @@
 
 	* webgen/layout.html.in: Add links to the latest/ and obsolete/ dirs.
 
+	* tools/mirror_tp.py, tools/mkindex.py: Tweak the scripts to mirror
+	only the actual data, not the web pages, not the code.
+
 2007-07-02  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/registry.py: Make 2.5g a lower version than 2.5.1 (for grep).

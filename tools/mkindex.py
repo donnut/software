@@ -6,7 +6,7 @@ sys.path.insert(0, sys.path[0]+'/../lib')
 import config
 
 starttime = time.time()
-prefix = config.home_path
+prefix = config.site_path
 plen = len(prefix)
 
 listing = []
@@ -14,13 +14,6 @@ listing = []
 def walker(arg, dir, files):
     newfiles = []
     for f in files:
-        # Skip files that should not get mirrored
-        if f == ".svn":
-            continue
-        if f[-1] == '~':
-            continue
-        if f[-3:] == "pyc":
-            continue
         newfiles.append(f)
         p = os.path.join(dir, f)
         st = os.lstat(p)
@@ -33,13 +26,15 @@ def walker(arg, dir, files):
         listing.append((st[stat.ST_MTIME], p[plen+1:]))
     files[:] = newfiles
 
-# Program files:
-os.path.walk(prefix+"/progs", walker, None)
-# Cache:
-os.path.walk(prefix+"/cache", walker, None)
 # Data files:
-os.path.walk(prefix+"/site", walker, None)
+os.path.walk(prefix+"/POT-files", walker, None)
+os.path.walk(prefix+"/PO-files", walker, None)
+# Symlinks:
+os.path.walk(prefix+"/latest", walker, None)
+# Tarballs of the code:
+os.path.walk(prefix+"/bundles", walker, None)
 
+# Compose the index.
 outfile=cStringIO.StringIO()
 for entry in listing:
     if len(entry) == 2:
@@ -51,6 +46,8 @@ data=outfile.getvalue()
 outfile = open(prefix+"/mirror/INDEX","w")
 outfile.write(data)
 outfile.close()
+
+# Gzip the index.
 os.chdir(prefix+"/mirror")
 try:
     os.unlink("INDEX.gz")
