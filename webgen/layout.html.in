@@ -49,6 +49,13 @@
 	 </font></td></tr>
 	<tr><td height=5></td></tr>
 
+	<tr><td bgcolor="%(caption_color)s"><b>PO Files</b></td></tr>
+	<tr><td><font size=-1>
+	   <a href="../latest/"><b>Latest</b></a><br>
+	   <a href="../obsolete/"><b>Obsolete</b></a><br>
+	 </font></td></tr>
+	<tr><td height=5></td></tr>
+
       </table>
      </td>
 
