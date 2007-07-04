@@ -93,6 +93,8 @@ def encode_database():
                         trans['name'].append(item[1])
                         info['translator'][item[1]] = trans
                     elif tag in ('do', 'remark', 'url'):
+                        if len(item) == 1:
+                            raise "*** Empty %s tag." % item[0]
                         if tag == 'do':
                             e = domains[item[1]]['ext']
                             if info['code'] in e:
@@ -107,8 +109,10 @@ def encode_database():
                         if len(item) == 3:
                             trans[tag].append(item[2])
                             trans['showmail'] = item[1]['show']
-                        else:
+                        elif len(item) == 2:
                             trans[tag].append(item[1])
+                        else:
+                            raise "*** Empty mailto tag." 
                     elif tag == 'autosend':
                         if len(item) == 3:
                             trans[tag] = item[1]['option']
