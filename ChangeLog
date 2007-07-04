@@ -3,6 +3,9 @@
 
 	* lib/localweb.py: Use clearer table headers for the team pages.
 
+	* lib/run.py: Let the robot send me copies of the emails it sends,
+	so I can see what gets accepted and rejected and why.
+
 2007-07-03  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Remove packages that do not contain a POT
