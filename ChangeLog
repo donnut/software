@@ -1,4 +1,8 @@
 
+2007-07-04  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/localweb.py: Use clearer table headers for the team pages.
+
 2007-07-03  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Remove packages that do not contain a POT

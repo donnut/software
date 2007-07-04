@@ -367,9 +367,10 @@ class TeamPage(htmlpage.Htmlpage):
         write('  <p>Here is the current list of assignments of textual domains'
               ' to translators, as known to the Translation Project registry. '
               ' The robot relies on this information for directly accepting'
-              ' submissions from translators.  If no <b>Current version</b>'
-              ' is listed in the table, the information is identical to the'
-              ' most recent submission (under <b>Version</b>). '
+              ' submissions from translators. '
+              ' If no <b>Current package version</b> is listed in the table,'
+              ' the information is identical to the  most recent submission'
+              ' (under <b>Last-submitted PO version</b>). '
               ' If you find an error or omission, please write')
         if team.leader and team.leader.mailto and team.leader.can_show_mail():
             write(' to <a href="mailto:%s">%s</a> to get it corrected.</p>\n'
@@ -389,9 +390,9 @@ class TeamPage(htmlpage.Htmlpage):
               '   <tr align=center>\n'
               '    <th>Domain</th>\n'
               '    <th>Assigned translator</th>\n'
-              '    <th>Version</th>\n'
+              '    <th>Last-submitted PO version</th>\n'
               '    <th>Translated</th>\n'
-              '    <th>Current version</th>\n'
+              '    <th>Current package version</th>\n'
               '    <th>Translated</th>\n'
               '   </tr>\n')
         for domain in registry.domain_list():
