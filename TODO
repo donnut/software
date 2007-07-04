@@ -3,7 +3,6 @@ Today:
 * on the domain pages, do not show tarball URL but a site URL
 
 Soon:
-* discuss with Santiago what to mirror and at what rate
 * run 'po-tidy-links -n' to inspect the state of latest/ symlinks again
 * improve 'po-tidy-links' to find all links that do not point
   to the latest available version
@@ -16,12 +15,10 @@ Later:
 * search and delete the PO files with mistaken encoding specifications
 * delete PO files for which translated strings are under 5%
 * make robot reject PO files for which translated strings are under 5%
-* find out why there are no POT files for things like 'cook'
 * simplify regex: filenames do not contain encoding any more
 * add a page for retired translators
 * make fileutils, sh-utils, and textutils not show up on team pages
 * walk through the packages to see if there are more recent versions;
-  there is for lilypond, for example
 * rename registry.dtd to tp-registry.dtd
 * weed out double assignments from registry.sgml
 * sort AUTHORS by data
