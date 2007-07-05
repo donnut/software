@@ -1,4 +1,10 @@
 
+2007-07-05  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* registry/registry.sgml: Remove the obsolete domains 'fileutils',
+	'sh-utils', and 'textutils'; they were merged to form 'coreutils'.
+	Remove 'gettext' too; it was split into three subpackages.
+
 2007-07-04  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Use clearer table headers for the team pages.
