@@ -5,6 +5,8 @@
 	'sh-utils', and 'textutils'; they were merged to form 'coreutils'.
 	Remove 'gettext' too; it was split into three subpackages.
 
+	* bin/tp-robot: Remove dead code, tweak some messages.
+
 2007-07-04  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Use clearer table headers for the team pages.

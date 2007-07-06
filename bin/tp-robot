@@ -938,40 +938,20 @@ I am unable to run the 'msgfmt' program.  Sorry.  Something needs
 to be fixed here.  I'll go warn the translation coordinator.
 """), "[msgfmt failed]")
             abort_robot()
-        comment = self.scan_gettext_output(lines, work, virtual)
         if reject:
             run.reject_nofill(_("""\
-Just to make sure, I called 'msgfmt --statistics -c -v -o /dev/null' on
-your submitted PO file, and it told me that I should not let the file pass.
-More precisely, it said:
+As a last check, I ran 'msgfmt --statistics -c -v -o /dev/null'
+on your PO file.  It told me that I cannot let the file pass.
+It reported these errors:
 
 %s""")
                               % ('').join(comment), "[msgfmt errors]")
             abort_robot()
-#         if os.path.exists(run.hints.template_path()):
-#             # XXX msgmerge 0.11 will mark messages as fuzzy.
-#             # "msgmerge %s %s 2>/dev/null | msgfmt --statistics -c -v -o /dev/null -"
-#             lines = proc.childerr.readlines()
-#             reject = proc.wait()
-#             comment = self.scan_gettext_output(lines, work, virtual)
-        if reject:
-            run.reject_nofill(_("""\
-Just to make sure, I ran
-"""+cmd+"""
-
-on your submitted PO file, and it told me that I should not let the file pass.
-More precisely, it said:
-
-%s""")
-                              % (run.hints.archive_base(),
-                                 run.hints.template_base(),
-                                 ('').join(comment)),
-                              "[msgfmt errors after msgmerge]")
-            abort_robot()
+        comment = self.scan_gettext_output(lines, work, virtual)
         if comment:
             run.submitter.write_nofill(_("""\
-Merely for your information, let me share with you what the 'msgfmt'
-program has to say about your submitted PO file:
+Merely for your information, let me share with you what the
+'msgfmt' program has to say about your PO file:
 
 %s""")
                                        % ('').join(comment))
@@ -981,9 +961,8 @@ program has to say about your submitted PO file:
             contents = open(work, 'r').read()
             if contents.find('Permission is granted to freely copy and distribute') == -1:
                 run.submitter.write(_("""\
-At first sight it seems like your translation does not contain a clause
-that permits distribution of your translation.  Please consider inserting
-a sentence like
+At first sight it seems your translation does not contain a clause that
+permits redistribution.  Please consider inserting a sentence like
 """))
                 run.submitter.write_nofill("""\
 # Permission is granted to freely copy and distribute
