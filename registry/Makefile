@@ -25,16 +25,6 @@ registry: ../../cache/registry
 	    diff -u registry.tmp registry.sgml
 	rm registry.tmp
 
-normalize:
-	../bin/registry-data -d >$(DECODED)
-	if diff -q registry.sgml $(DECODED) >/dev/null; then \
-	    rm $(DECODED); \
-	else \
-	    mv $(DECODED) registry.sgml && \
-	    svn commit registry.sgml -m " (Whitespace adjustment.)" && \
-	    $(MAKE) all; \
-	fi
-	    
 indexes: ../../cache/registry
 	../bin/generate-static-pages -i
 
@@ -60,5 +50,13 @@ $(HOME)/.procmailrc-teams: ../../cache/registry ../bin/create-mail-aliases
 	../bin/create-mail-aliases -ptf >$@-tmp
 	mv $@-tmp $@
 
+normalize: validate
+	# Use this to standardize whitespace in registry.sgml
+	# after adding or deleting <do> tags.
+	../bin/registry-data -e
+	../bin/registry-data -d >$(DECODED)
+	mv $(DECODED) registry.sgml
+
 validate val:
 	SP_CHARSET_FIXED=YES SP_ENCODING=utf-8 nsgmls -s registry.sgml
+

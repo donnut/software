@@ -4,6 +4,9 @@
 	* bin/po-register: Regenerate the team page _after_ the symlink in
 	latest/ has been made.
 
+	* registry/Makefile: Make the target for normalizing whitespace
+	simpler, so it can be used locally without any commits.
+
 2007-07-05  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Remove the obsolete domains 'fileutils',
@@ -238,7 +241,7 @@
 	show they are Python scripts, and not CGI or HTML things.
 
 	* doc/*.all, doc/*.html, doc/*.txt, web/Makefile: Move all template
-	files to the web generation directory, and adjust the 'make' rules. 
+	files to the web generation directory, and adjust the 'make' rules.
 
 	* doc/DISCLAIM, doc/Makefile, doc/: Delete obsolete remains.
 
@@ -520,7 +523,7 @@
 
 2007-06-08  Benno Schulenberg  <benno@vertaalt.nl>
 
-	* bin/po-register: Clarify its function, and ungettextize its 
+	* bin/po-register: Clarify its function, and ungettextize its
 	local error messages.
 
 	* bin/po-register: Tweak the mails that are sent out.
@@ -737,7 +740,7 @@
 2007-05-20  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* tools/tp_mirror -> tools/tp_mirror.py: Rename file, tweak comments.
-	
+
 	* bin/make-maintain, bin/po-empty, bin/po-expire, bin/po-matrix,
 	bin/po-tidy-links, bin/tp-robot: Comment tweaks.
 
@@ -823,7 +826,7 @@
 	registry/more-disclaimers, registry/names-mule,
 	web/to-html-for-tp-old, web/m17n99-to-html, web/m17n99.html:
 	Remove old and obsolete stuff.
-	
+
 	* doc/index.html, doc/Makefile, web/layout.html: Account
 	for removal of m17n99.html and fr-traduc.all.
 
