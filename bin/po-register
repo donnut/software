@@ -226,18 +226,14 @@ def process_po_file(hints, file, fromnewpot = False):
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
             print line
-    # Regenerate the domain and team page, where needed.
-    localweb.generate_team_page(hints.team.name)
-    if not fromnewpot:
-        localweb.generate_domain_page(hints.domain.name)
     # Notify team of the PO file, whether new or updated.
     mailto = hints.team.announce_address()
     if mailto != "(nothing)":
         sys.stderr.write("    notifying `%s` <%s> about '%s'\n"
                          % (hints.team.name, mailto, archive_base))
         notify_team_for_po(hints, stats, fromnewpot)
-    # Only notify the maintainer (and relink the symlink) if the submitted
-    # PO file is for the most recent POT file of this package.
+    # Only notify the maintainer (and update the symlink in latest/) if the
+    # submitted PO file is for the most recent POT file of this package.
     current_pot = data.load_postats().potstats[hints.domain.name][0]
     if (hints.domain.mailto and (not fromnewpot) and (translated > 0)
         and (registry.hints(current_pot).version == hints.version)):
@@ -257,6 +253,10 @@ def process_po_file(hints, file, fromnewpot = False):
         notify_maintainer_for_po(hints, file, archive_base)
     elif not fromnewpot:
         sys.stderr.write("      NOT informing maintainer\n")
+    # Regenerate the team page, and when appropriate the domain page too.
+    localweb.generate_team_page(hints.team.name)
+    if not fromnewpot:
+        localweb.generate_domain_page(hints.domain.name)
     if not run.dry:
         os.remove(file)
 
