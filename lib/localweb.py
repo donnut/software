@@ -315,7 +315,7 @@ class TeamPage(htmlpage.Htmlpage):
               '    <th>Website</th>\n'
               '    <th>Disclaimer</th>\n'
               '    <th>Autosend</th>\n'
-              '    <th>Count</th>\n'
+              '    <th>Assignments</th>\n'
               '   </tr>\n'
               % team.language)
         names = team.translator.keys()
