@@ -34,6 +34,12 @@ $(htmldir)/%.html: %.html $(LAYOUT_DEPS)
 $(sitedir)/disclaim.txt: disclaim.txt
 	cp disclaim.txt $(sitedir)/disclaim.txt
 
+domains:
+	../bin/generate-static-pages -d
+
+teams:
+	../bin/generate-static-pages -t
+
 
 lint: all
 	find $(htmldir) -name '*.html' | while read file; do \

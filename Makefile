@@ -43,6 +43,12 @@ procmailrc:
 site:
 	$(MAKE) -C webgen all
 
+domains:
+	$(MAKE) -C webgen domains
+
+teams:
+	$(MAKE) -C webgen teams
+
 .PRECIOUS: postats
 postats: ../cache/postats
 ../cache/postats: FORCE
