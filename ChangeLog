@@ -4,6 +4,8 @@
 	* webgen/Makefile, webgen/stepinto.html.in: Remove the redirecting
 	index page, made obsolete by a permanent redirection in Apache.
 
+	* README: Add an entry about obsoleting a package.
+
 2007-07-07  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Regenerate the team page _after_ the symlink in

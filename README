@@ -82,6 +82,16 @@ language, sends out notifications of the newly created PO files to the teams
 and to the last translators, and sends a confirmation to the maintainer.
 
 
+Removing PO files
+-----------------
+
+When a package has become obsolete, a TP admin first moves or removes all
+the corresponding POT and PO files, then runs 'calc-postats -duv' to delete
+the stats for those files from the statistics database, then removes the
+domain plus all its assignments from the registry.sgml file, and finally
+regenerates the team pages with 'generate-static-pages -t'.
+
+
 Changing translator details
 ---------------------------
 
