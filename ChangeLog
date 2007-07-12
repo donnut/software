@@ -1,4 +1,9 @@
 
+2007-07-12  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/tp-robot: Shorten and clarify the texts that explain why the
+	submitting translator is not allowed to do so.
+
 2007-07-09  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/Makefile, webgen/stepinto.html.in: Remove the redirecting

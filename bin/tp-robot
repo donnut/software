@@ -995,6 +995,7 @@ of spelling differences, then I need to know exactly which alternate
 spellings of your name you use.  Write to the translation coordinator
 and explain why you need several different names.  But it is usually
 best to avoid such variance, and stick to a single preferred spelling.
+
 """)
                        % (_(globals.team_language), run.translator_name),
                        "[translator not found]")
@@ -1018,8 +1019,9 @@ The '%s' textual domain is not known to the Translation Project, at
 least not under that spelling.  It may also be that the maintainer of
 that project did not make arrangements yet for the Translation Project to
 handle its PO files.  In this case, please invite the project maintainer to
-contact us.  See 'http://translationproject.org/domain/index.html'
+contact us.  See http://translationproject.org/domain/index.html
 for the list of domains that are currently handled.
+
 """)
                        % run.hints.domain,
                        "[unknown domain]")
@@ -1029,33 +1031,20 @@ for the list of domains that are currently handled.
                 run.reject(_("""\
 According to my notes, the Free Software Foundation did not acknowledge the
 receipt of a translation disclaimer for you.  Such a disclaimer is required
-for GNU packages (or when maintainers of non-GNU packages ask me to ensure
-the existence of such a disclaimer).  This is the case for '%s'.
-Grab a copy of 'http://translationproject.org/disclaim.txt',
-print it on paper, fill it out, and return it by the usual postal system.
-You will be notified when the FSF acknowledges its receipt; you can then
-re-attempt uploading your PO file to the Translation Project.  If you have
-any question or objection with the translation disclaimer as it stands,
-I invite you to discuss such things with the translation coordinator.
+for '%s'.  See http://translationproject.org/html/whydisclaim.html for an
+explanantion of this.
+
 """)
                            % run.hints.domain,
                            "[translator has no disclaimer]")
         else:
             run.reject(_("""\
-Most teams allow translators to directly send their finished translations
-to the Translation Project, and do quality control only after the fact, to
-obtain a quicker turn-around.  The Translation Project registry does not
-list you as the usual translator for '%s'.  Your team leader might send
-an email to the translation coordinator, warranting that you are indeed
-assigned to this textual domain.  For small teams not having a leader,
-you may write yourself to the translation coordinator.  It is a simple
-matter to assign you the responsibility of '%s' for %s, if nobody else
-is yet assigned to it.  However, some teams prefer to channel translations
-differently, for ensuring some quality control first.
+You are not registered as the usual translator for '%s': %s.  If you wish
+to be assigned to this textual domain, your team leader may send an email
+to the translation coordinator warranting that you are indeed assigned.
 
 """)
-                       % (run.hints.domain, run.hints.domain,
-                          _(globals.team_language)), reason)
+                       % (run.hints.domain, reason[1:-1]), reason)
 
     def have_pot(self):
         if not os.path.isfile(run.hints.template_path()):
@@ -1064,6 +1053,7 @@ You submitted a PO file for which the Translation Project does not have a
 corresponding template: there is no '%s' here.
 Please have the maintainer of the package send the corresponding POT file
 to the Translation Project.  Or better: a URL of a distribution tarball.
+
 """)
                        % run.hints.template_base(),
                        "[there is no corresponding pot file]")
@@ -1086,10 +1076,10 @@ which you may find as:
             return 1, "[translator is assigned]"
         # If somebody else is assigned, reject.
         if run.hints.team.translator_for_domain(domain):
-            return 0, "[somebody else is assigned to this domain]"
+            return 0, "[someone else is assigned to this domain]"
         # If there is an external translation, reject.
         if run.hints.team.code in domain.ext:
-            return 0, "[there is an external translation]"
+            return 0, "[the domain is externally translated]"
         # If there is no preexisting translation, accept.
         #! This checking of a symlink is not foolproof, as there are some files
         #! for which this symlink is missing or pointing to an old version.
@@ -1115,7 +1105,7 @@ which you may find as:
         if translator == last_maker:
             return 1, "[translator equals last translator]"
         else:
-            return 0, "[translator not assigned to domain]"
+            return 0, "[someone else made the last submission]"
 
 check_registry = CheckRegistry()
 
