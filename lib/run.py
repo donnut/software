@@ -56,7 +56,7 @@ class Reporter:
                         self.file.write(messages.translate(line, self.lang,
                                                            self.encoding))
                     except UnicodeEncodeError:
-                        self.file.write(messages.translate(line, self.lang))
+                        self.file.write(line)
                 self.delay = 0
                 self.delayed = []
 
