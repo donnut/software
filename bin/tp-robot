@@ -117,11 +117,11 @@ class globals:
     team_mailtos = []                   # alternative email addresses
     reported_unknown = []               # to avoid reporting the same twice
     unknown_address_insert = _("""\
-The Translation Project registry holds the preferred email address for many
-translators like you, and, when necessary, some aliases as well.  But it is
-better to avoid the proliferation of alternate email addresses and stick
-to only one, whenever possible.  In any case, please keep the translation
-coordinator informed of them, at least as a mild form of verification.""")
+The Translation Project registry holds the preferred email address for all
+translators, and where necessary some aliases as well.  But it is better to
+avoid the proliferation of alternate email addresses and stick to only one,
+whenever possible.  In any case, please keep the translation coordinator
+informed of them.""")
 
 
 class Extract:
@@ -574,13 +574,10 @@ before the 'msgid' line of the PO file header.
         if match:
             if match.group('dom') != run.hints.domain.name:
                 run.reject(_("""\
-The 'Project-Id-Version' field of your PO file header says that your
-textual domain is '%s' instead of the '%s' I was expecting.  They really
-should be identical.  The textual domain is the package name, usually.
-In some rare cases, there are differences in capitalisation, or the dubious
-addition of some 'g' prefix because of the GNU inheritance.  Currently,
-all textual domains are written in all lower case.  They also tend to
-avoid those meaningless 'g' prefixes.
+The 'Project-Id-Version' field of your PO file says that the textual domain
+is '%s', instead of '%s' as the file name says.  They should be the same. 
+The domain name is usually just the package name, in all lower case.
+
 """)
                            % (match.group('dom'), run.hints.domain),
                            "[domain from project-id-version conflicts with file name]")
@@ -590,16 +587,18 @@ Within the 'Project-Id-Version' field, the domain name and version numbers
 should be separated by a space rather than by a hyphen.  Some scripts might
 depend on a space being there, so best would be that you modify your file.
 I'll attempt to modify it for you, but just this time! :-)
+
 """))
                 header['project-id-version'] = (
                     header['project-id-version'][:match.start('ver')] + ' '
                     + header['project-id-version'][match.end('ver'):])
             if match.group('ver') != run.hints.version.name:
                 run.reject(_("""\
-The 'Project-Id-Version' field of your PO file says that your translation
-is meant for version '%s' of '%s', not for '%s' as the file name says.
-Therefore I invite you to adjust either the file name of your submission,
-or the 'Project-Id-Version' field, whichever is appropriate.
+The 'Project-Id-Version' field of your PO file says the translation
+is meant for version '%s' of '%s', but the file name says it is for
+version '%s'.  Please adjust either the 'Project-Id-Version' field or
+the file name, whichever is appropriate.
+
 """)
                            % (match.group('ver'), run.hints.domain.name,
                               run.hints.version.name),
@@ -614,6 +613,7 @@ The line containing this field ideally looks like:
 in which PACKAGE should be replaced by the textual domain of your
 translation, probably '%s' in this case, and VERSION be replaced
 by the appropriate version numbers, maybe '%s' here.
+
 """)
                        % (run.hints.domain.name, run.hints.version.name),
                        "[no project-id-version]")
@@ -666,9 +666,10 @@ still accepted for the time being, but are to be deprecated.
                 run.reject(_("""\
 The PO revision date is '%s', which looks older than the POT creation date.
 You should update the PO revision date before submitting a PO file.
+
 """)
                            % date['PO-Revision-Date'],
-                           "[po revision date before creation date]")
+                           "[revision date before creation date]")
 
     def last_translator(self, header):
         decfunc = po.decfunc(header)
@@ -691,13 +692,15 @@ please use no more than a single space between '%s' and '<%s>'.
                 translator = registry.translator(run.hints.team, last_translator, last_address)
             except KeyError:
                 run.reject(_("""\
-According to my notes, %s is not a member of the proper
-%s team.  It might only be a question of spelling?  In case
-yes, I then need to know about spelling alternatives, so please tell the
-translation coordinator.  Yet, it is usually best to avoid such variance,
-and stick to a single preferred spelling.  It might also be that you never
-joined the %s team.  If you do not know how to do so, please
-write to the translation coordinator for more information about it.
+According to my notes, %s is not a member of the %s team.  If this is only
+a matter of spelling, then I need to know about the alternatives, so please
+tell the translation coordinator about these.  It is, however, usually best
+to avoid such variance, and stick to a single preferred spelling.
+
+It may also be that you never joined the %s team.  Please write to the leader
+of your team (see http://translationproject.org/team/index.html for a list,
+then go to the relevant team's page), or else to the translation coordinator.
+
 """)
                            % (last_translator,
                               _(globals.team_language),
@@ -709,6 +712,7 @@ write to the translation coordinator for more information about it.
                     run.reject(_("""\
 The last translator of this PO file is %s.  But according to my notes,
 <%s> is not a good address to reach that translator.  %s  %s
+
 """)
                                % (last_translator, last_address,
                                   say_alias_list(translator.mailto),
@@ -761,6 +765,7 @@ looks like:
 In this line, FULL NAME has to be replaced by the full name of the current
 translator for the '%s' textual domain (which most probably means you :-);
 EMAIL@ADDRESS gives a way to reach that translator by email.
+
 """)
                        % run.hints.domain, "[last-translator missing]")
 
@@ -789,6 +794,7 @@ You wrote '%s' in the 'Language-Team' field of the PO file header, while
 I think it should have been '%s'.  I'm not fully sure about this.  If you
 think I got it wrong, please email to the translation coordinator to get
 this straigthened this out.
+
 """)
                            % (maybe_language, _(globals.team_language)),
                            "[language-team incorrect]")
@@ -803,6 +809,7 @@ fit your needs.  In case you know none, waiting to get better organised,
 you might use the address of one of the team members, maybe yours if you
 are alone in the team!  In any case, please inform the translation
 coordinator of the address your team decides to use.
+
 """)
                            % (_(globals.team_language),
                               _(globals.team_language)),
@@ -813,6 +820,7 @@ coordinator of the address your team decides to use.
 The 'Language-Team' field of the PO file header contains <%s> as the team's
 email adress, but the registered team's address is <%s>.  If this is wrong,
 please email the translation coordinator to get it corrected.
+
 """)
                            % (maybe_mailto, globals.team_mailto),
                            "[team address incorrect]")
@@ -835,6 +843,7 @@ according to the information which is available to me, I would use:
 
 If this leaves you clueless and you still want to correct it, please write
 to the translation coordinator and we will work this out together.
+
 """)
                        % (globals.team_language, globals.team_mailto),
                        "[language team missing]")
@@ -846,6 +855,7 @@ The 'MIME-Version' field was not found in your PO file header, or is
 not formatted properly.  The line should be this one:
 
     'MIME-Version: 1.0\\n'
+
 """),
                        "[mime-version is not 1.0]")
         charsets = [
@@ -874,6 +884,7 @@ The 'Content-Type' field introduced an unusual character set '%s'.
 If this is not an error, please merely inform the translation coordinator
 that '%s' be added to the list of acceptable charsets.
 This list currently holds: %s.
+
 """)
                            % (charset, charset, say_list(_('or'), charsets)),
                            "[unknown charset in content-type]")
@@ -886,6 +897,7 @@ not formatted properly.  The line containing it ideally looks like:
     'Content-Type: text/plain; charset=CHARSET\\n'
 
 where CHARSET should be the name of a character set, like one of %s.
+
 """)
                        % say_list(_('or'), charsets),
                        "[content-type missing or ill-formatted]")
@@ -901,6 +913,7 @@ The 'Content-Transfer-Encoding' field introduced an unusual encoding
 '%s'.  If this is not an error, please inform the translation
 coordinator that '%s' be added to the list of acceptable charsets.
 This list currently holds: %s.
+
 """)
                            % (cte, cte, say_list(_('or'), encodings)),
                            "[unknown content-transfer-encoding]")
@@ -912,6 +925,7 @@ or is not formatted properly.  The line containing it ideally looks like:
     'Content-Transfer-Encoding: ENCODING\\n'
 
 where ENCODING should be the name of an encoding, like one of %s.
+
 """)
                        % say_list(_('or'), encodings),
                        "[content-transfer-encoding missing]")
@@ -936,6 +950,7 @@ where ENCODING should be the name of an encoding, like one of %s.
             run.reject(_("""\
 I am unable to run the 'msgfmt' program.  Sorry.  Something needs
 to be fixed here.  I'll go warn the translation coordinator.
+
 """), "[msgfmt failed]")
             abort_robot()
         if reject:
@@ -1003,9 +1018,9 @@ best to avoid such variance, and stick to a single preferred spelling.
         if run.translator_address not in translator.mailto:
             if run.translator_address not in globals.reported_unknown:
                 run.reject(_("""\
-The email address '%s' is not known, in the Translation Project
-registry, as a valid way to reach you.
-%s%s
+According to my notes, the address <%s> is not a valid way to reach you. 
+%s  %s
+
 """)
                            % (run.translator_address,
                               say_alias_list(translator.mailto),
@@ -1125,6 +1140,7 @@ Accomplishing actions.  In fact, putting here whatever does not fit elsewhere.
             run.reject(_("""\
 I am unable to run the 'diff' program.  Sorry.  Something needs
 to be fixed here.  I'll go warn the translation coordinator.
+
 """), "[diff or recode failed]")
             abort_robot()
         # FIXME: Maybe detect and better explain `msgid' reformatting, trailing
@@ -1136,6 +1152,7 @@ to be fixed here.  I'll go warn the translation coordinator.
             run.reject(_("""\
 I am unable to canonicalise your PO file.  Sorry.  Something needs
 to be fixed here.  I'll go warn the translation coordinator.
+
 """), "[remove or rename failed]")
             abort_robot()
         if lines:
@@ -1210,6 +1227,7 @@ translation coordinator.
             run.reject(_("""\
 I am unable to run the 'po-register' program.  Sorry.  Something needs
 to be fixed here.  I'll go warn the translation coordinator.
+
 """), "[po-register failed]")
             return
         comment = []

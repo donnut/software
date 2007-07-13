@@ -1,4 +1,9 @@
 
+2007-07-13  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/tp-robot: Shorten and tweak some rejection texts, and separate
+	them by blank lines.
+
 2007-07-12  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Shorten and clarify the texts that explain why the
