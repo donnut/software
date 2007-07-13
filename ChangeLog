@@ -4,6 +4,10 @@
 	* bin/tp-robot: Shorten and tweak some rejection texts, and separate
 	them by blank lines.
 
+	* bin/po-register: Solve the bug where the symlink in latest/ would
+	sometimes not get updated: having a maintainer's email address should
+	not be a condition for this.
+
 2007-07-12  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Shorten and clarify the texts that explain why the

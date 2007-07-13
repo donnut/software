@@ -235,8 +235,8 @@ def process_po_file(hints, file, fromnewpot = False):
     # Only notify the maintainer (and update the symlink in latest/) if the
     # submitted PO file is for the most recent POT file of this package.
     current_pot = data.load_postats().potstats[hints.domain.name][0]
-    if (hints.domain.mailto and (not fromnewpot) and (translated > 0)
-        and (registry.hints(current_pot).version == hints.version)):
+    if ((registry.hints(current_pot).version == hints.version)
+        and (not fromnewpot) and (translated > 0)):
         if not run.dry:
             directory = os.path.dirname(maintainer_path)
             if not os.path.isdir(directory):
@@ -244,13 +244,16 @@ def process_po_file(hints, file, fromnewpot = False):
             if (os.path.islink(maintainer_path)
                 or os.path.isfile(maintainer_path)):
                 os.remove(maintainer_path)
+            sys.stderr.write("      pointing symlink to %s" % archive_base)
             os.symlink('../../%s/%s/%s' %
                        (config.pos_dir, hints.team.name, archive_base),
                        maintainer_path)
-        maintainer = hints.domain.mailto[0]
-        sys.stderr.write("      also notifying maintainer <%s>\n"
-                         % maintainer)
-        notify_maintainer_for_po(hints, file, archive_base)
+        if hints.domain.mailto:
+            maintainer = hints.domain.mailto[0]
+            sys.stderr.write("      notifying maintainer <%s>\n" % maintainer)
+            notify_maintainer_for_po(hints, file, archive_base)
+	else:
+            sys.stderr.write("      maintainer has no email address\n")
     elif not fromnewpot:
         sys.stderr.write("      NOT informing maintainer\n")
     # Regenerate the team page, and when appropriate the domain page too.
