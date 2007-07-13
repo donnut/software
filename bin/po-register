@@ -244,7 +244,7 @@ def process_po_file(hints, file, fromnewpot = False):
             if (os.path.islink(maintainer_path)
                 or os.path.isfile(maintainer_path)):
                 os.remove(maintainer_path)
-            sys.stderr.write("      pointing symlink to %s" % archive_base)
+            sys.stderr.write("      pointing symlink to %s\n" % archive_base)
             os.symlink('../../%s/%s/%s' %
                        (config.pos_dir, hints.team.name, archive_base),
                        maintainer_path)
