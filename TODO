@@ -1,5 +1,4 @@
 Today:
-* add note to first page about current coordinators
 * look through registry.sgml for things to fix
 * on the domain pages, do not show tarball URL but a site URL
 
@@ -18,8 +17,7 @@ Later:
 * make robot reject PO files for which translated strings are under 5%
 * simplify regex: filenames do not contain encoding any more
 * add a page for retired translators
-* make fileutils, sh-utils, and textutils not show up on team pages
-* walk through the packages to see if there are more recent versions;
+* walk through the packages to see if there are more recent versions
 * rename registry.dtd to tp-registry.dtd
 * weed out double assignments from registry.sgml
 * sort AUTHORS by data
