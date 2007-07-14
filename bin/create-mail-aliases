@@ -166,7 +166,7 @@ def prune(list):
 
 def group_rule(target, list):
     list = prune(list)
-    sys.stdout.write('\n:0 c\n* ^TO.*%s@\n{\n' % target)
+    sys.stdout.write('\n:0\n* ^TO.*%s@\n{\n' % target)
     for item in list:
         sys.stdout.write('  ! %s\n' % item)
     sys.stdout.write('}\n')
