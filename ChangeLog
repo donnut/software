@@ -5,8 +5,8 @@
 	packages, add a hyperlink to the online gettext manual, remove some
 	dead text, and add a paragraph about past and current managers.
 
-	* registry/registry.sgml: Remove the obsolete domains 'batchelor'
-	and 'silky'.
+	* registry/registry.sgml: Remove the obsolete domains 'batchelor',
+	'silky', and 'sketch'.
 
 2007-07-13  Benno Schulenberg  <benno@vertaalt.nl>
 
