@@ -78,7 +78,7 @@ def alias_leaders(fallback_on_lists):
         if not mailto and fallback_on_lists:
             mailto = team.mailto[0]
             comment = "%s team" % team.language
-        if mailto:
+        if mailto and mailto != "(nothing)":
             sys.stdout.write('alias %s "%s <%s>"\n'
                              % (team.code, comment, mailto))
             all_addresses.append(team.code)
@@ -99,7 +99,7 @@ def rules_for_leaders(fallback_on_lists):
             mailto = team.leader.mailto[0]
         if not mailto and fallback_on_lists:
             mailto = team.mailto[0]
-        if mailto:
+        if mailto and mailto != "(nothing)":
             sys.stdout.write(':0\n* ^To:.*[ <]%s@\n! <%s>\n'
                              % (team.code, mailto))
             all_addresses.append('<%s>' % mailto)
@@ -115,7 +115,7 @@ def rules_for_teams():
     no_mailto = []
     for team in registry.team_list():
         mailto = team.mailto[0]
-        if mailto:
+        if mailto and mailto != "(nothing)":
             sys.stdout.write(':0\n* ^To:.*[ <]%s@\n! <%s>\n'
                              % (team.code, mailto))
             all_addresses.append('<%s>' % mailto)
