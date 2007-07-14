@@ -8,6 +8,9 @@
 	* registry/registry.sgml: Remove the obsolete domains 'batchelor',
 	'silky', and 'sketch'.
 
+	* bin/create-mail-aliases: Use braces to create groups of commands,
+	instead of artificially chopping up long lines.
+
 2007-07-13  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Shorten and tweak some rejection texts, and separate
