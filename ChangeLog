@@ -1,7 +1,8 @@
 
 2007-07-15  Benno Schulenberg  <benno@vertaalt.nl>
 
-	* registry/registry.sgml: Rename 'id-utils' to 'idutils'.
+	* registry/registry.sgml: Rename 'id-utils' to 'idutils', remove
+	the dead 'impost'.
 
 2007-07-14  Benno Schulenberg  <benno@vertaalt.nl>
 
