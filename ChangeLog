@@ -1,4 +1,8 @@
 
+2007-07-15  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* registry/registry.sgml: Rename 'id-utils' to 'idutils'.
+
 2007-07-14  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/welcome.html: Mention that the TP handles only gettextized
