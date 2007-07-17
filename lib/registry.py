@@ -326,7 +326,7 @@ Splitting file names into components.
 
     def template_url(self):
         """URL of a POT file within the TP archive."""
-        return '%s/%s/%s' % (puburl, config.pots_dir, self.template_base()))
+        return '%s/%s/%s' % (puburl, config.pots_dir, self.template_base())
 
     def archive_base(self):
         """Basename of a PO file."""
@@ -334,19 +334,19 @@ Splitting file names into components.
             charset_name = self.charset.name
         else:
             charset_name = ''
-        return '%s-%s.%s%s.po' %
-               (self.domain.name, self.version.name, self.team.name,
-                charset_name)
+        return ('%s-%s.%s%s.po' %
+                (self.domain.name, self.version.name, self.team.name,
+                 charset_name))
 
     def archive_path(self):
         """Full path plus name of a PO file within the TP archive."""
-        return '%s/%s/%s' %
-               (config.pos_path, self.team.name, self.archive_base())
+        return ('%s/%s/%s' %
+                (config.pos_path, self.team.name, self.archive_base()))
 
     def archive_url(self):
         """URL of a PO file within the TP archive."""
-        return '%s/%s/%s/%s' %
-               (puburl, config.pos_dir, self.team.name, self.archive_base()))
+        return ('%s/%s/%s/%s' %
+                (puburl, config.pos_dir, self.team.name, self.archive_base())))
 
     def maintainer_base(self):
         """Maintainer's view of the basename of a PO file."""
@@ -358,14 +358,14 @@ Splitting file names into components.
 
     def maintainer_path(self):
         """Maintainer's view of the full file name of a PO file."""
-        return '%s/%s/%s' %
-               (config.last_path, self.domain.name, self.maintainer_base())
+        return ('%s/%s/%s' %
+                (config.last_path, self.domain.name, self.maintainer_base()))
 
     def maintainer_url(self):
         """Maintainer's view of the URL of a PO file."""
-        return '%s/%s/%s/%s' %
-               (puburl, config.last_dir, self.domain.name,
-                self.maintainer_base()))
+        return ('%s/%s/%s/%s' %
+                (puburl, config.last_dir, self.domain.name,
+                 self.maintainer_base()))
 
 
 VERSION = ('[.0-9]+-?b[0-9]+'
