@@ -523,7 +523,7 @@ preferred spelling.
                 if first_address not in globals.reported_unknown:
                     run.submitter.write(_("""
 The initial translator of this PO file is %s.  But according to my notes,
-<%s> is not a good address to reach that translator.  %s  %s
+<%s> is not a good address to reach that translator.  %s %s
 
 """)
                                         % (
@@ -729,7 +729,7 @@ then go to the relevant team's page), or else to the translation coordinator.
                 if last_address not in globals.reported_unknown:
                     run.reject(_("""\
 The last translator of this PO file is %s.  But according to my notes,
-<%s> is not a good address to reach that translator.  %s  %s
+<%s> is not a good address to reach that translator.  %s %s
 
 """)
                                % (last_translator, last_address,
@@ -1040,7 +1040,7 @@ best to avoid such variance, and stick to a single preferred spelling.
             if run.translator_address not in globals.reported_unknown:
                 run.reject(_("""\
 According to my notes, the address <%s> is not a valid way to reach you. 
-%s  %s
+%s %s
 
 """)
                            % (run.translator_address,
@@ -1310,9 +1310,9 @@ The only registered address for this translator is <%s>.
     aliases = items[:]
     aliases.sort()
     return (_("""\
-For this translator, the only registered addresses we have are: %s.
+The only registered addresses for this translator are: %s.
 """)
-                % say_list(_('and'), aliases))
+            % say_list(_('and'), aliases))
 
 def say_list(word, items):
     if len(items) == 0:
