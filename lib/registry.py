@@ -330,13 +330,8 @@ Splitting file names into components.
 
     def archive_base(self):
         """Basename of a PO file."""
-        if self.charset:
-            charset_name = self.charset.name
-        else:
-            charset_name = ''
-        return ('%s-%s.%s%s.po' %
-                (self.domain.name, self.version.name, self.team.name,
-                 charset_name))
+        return ('%s-%s.%s.po' %
+                (self.domain.name, self.version.name, self.team.name))
 
     def archive_path(self):
         """Full path plus name of a PO file within the TP archive."""
@@ -348,24 +343,15 @@ Splitting file names into components.
         return ('%s/%s/%s/%s' %
                 (puburl, config.pos_dir, self.team.name, self.archive_base()))
 
-    def maintainer_base(self):
-        """Maintainer's view of the basename of a PO file."""
-        if self.charset:
-            charset_name = self.charset.name
-        else:
-            charset_name = ''
-        return '%s%s.po' % (self.team.name, charset_name)
-
     def maintainer_path(self):
         """Maintainer's view of the full file name of a PO file."""
-        return ('%s/%s/%s' %
-                (config.last_path, self.domain.name, self.maintainer_base()))
+        return ('%s/%s/%s.po' %
+                (config.last_path, self.domain.name, self.team.name))
 
     def maintainer_url(self):
         """Maintainer's view of the URL of a PO file."""
-        return ('%s/%s/%s/%s' %
-                (puburl, config.last_dir, self.domain.name,
-                 self.maintainer_base()))
+        return ('%s/%s/%s/%s.po' %
+                (puburl, config.last_dir, self.domain.name, self.team.name))
 
 
 VERSION = ('[.0-9]+-?b[0-9]+'

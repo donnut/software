@@ -4,6 +4,9 @@
 	* lib/localweb.py, lib/registry.py, bin/po-register, bin/tp-robot:
 	Delete the remains of the mechanisms for multiple archives.
 
+	* lib/registry.py: PO file names do not contain the name of the
+	character set any more; delete some of the mechanisms for this.
+
 2007-07-15  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Rename 'id-utils' to 'idutils', remove
