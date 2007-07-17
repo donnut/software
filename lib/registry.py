@@ -346,7 +346,7 @@ Splitting file names into components.
     def archive_url(self):
         """URL of a PO file within the TP archive."""
         return ('%s/%s/%s/%s' %
-                (puburl, config.pos_dir, self.team.name, self.archive_base())))
+                (puburl, config.pos_dir, self.team.name, self.archive_base()))
 
     def maintainer_base(self):
         """Maintainer's view of the basename of a PO file."""
