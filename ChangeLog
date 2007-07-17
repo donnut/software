@@ -1,4 +1,9 @@
 
+2007-07-17  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/localweb.py, lib/registry.py, bin/po-register, bin/tp-robot:
+	Delete the remains of the mechanisms for multiple archives.
+
 2007-07-15  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Rename 'id-utils' to 'idutils', remove

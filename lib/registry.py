@@ -8,11 +8,6 @@ import os, re, string, sys, tempfile, types
 import config
 
 puburl = config.site_base
-puburls = (puburl,
-           'ftp://ftp.unex.es/pub/gnu-i18n/po',
-           'http://translation.sf.net',
-           #'ftp://tiger.informatik.hu-berlin.de/pub/po'
-          )
 tempfile.tempdir = config.temp_path
 
 # Emulate Python 1.5.
@@ -322,45 +317,39 @@ Splitting file names into components.
         return cmp((self.domain, self.version), (other.domain, other.version))
 
     def template_base(self):
-        """Basename of POT file."""
+        """Basename of a POT file."""
         return '%s-%s.pot' % (self.domain.name, self.version.name)
 
     def template_path(self):
-        """Full path plus name of POT file within the archives."""
+        """Full path plus name of a POT file within the TP archive."""
         return '%s/%s' % (config.pots_path, self.template_base())
 
-    def template_urls(self):
-        """URLs of POT file within various archive copies."""
-        urls = []
-        for puburl in puburls:
-            urls.append('%s/%s/%s' %
-                        (puburl, config.pots_dir, self.template_base()))
-        return tuple(urls)
+    def template_url(self):
+        """URL of a POT file within the TP archive."""
+        return '%s/%s/%s' % (puburl, config.pots_dir, self.template_base()))
 
     def archive_base(self):
-        """Basename of PO file."""
+        """Basename of a PO file."""
         if self.charset:
             charset_name = self.charset.name
         else:
             charset_name = ''
-        return '%s-%s.%s%s.po' % (self.domain.name, self.version.name,
-                                  self.team.name, charset_name)
+        return '%s-%s.%s%s.po' %
+               (self.domain.name, self.version.name, self.team.name,
+                charset_name)
 
     def archive_path(self):
-        """Full path plus name of PO file within the archives."""
-        return '%s/%s/%s' % (config.pos_path, self.team.name,
-                             self.archive_base())
+        """Full path plus name of a PO file within the TP archive."""
+        return '%s/%s/%s' %
+               (config.pos_path, self.team.name, self.archive_base())
 
-    def archive_urls(self):
-        """URLs of PO file within various archive copies."""
-        urls = []
-        for puburl in puburls:
-            urls.append('%s/%s/%s/%s' % (puburl, config.pos_dir,
-                        self.team.name, self.archive_base()))
-        return tuple(urls)
+    def archive_url(self):
+        """URL of a PO file within the TP archive."""
+        return '%s/%s/%s/%s' %
+               (puburl, config.pos_dir, self.team.name, self.archive_base()))
 
     def maintainer_base(self):
-        """Maintainer's view for the base of PO file name."""
+        """Maintainer's view of the basename of a PO file."""
         if self.charset:
             charset_name = self.charset.name
         else:
@@ -368,17 +357,16 @@ Splitting file names into components.
         return '%s%s.po' % (self.team.name, charset_name)
 
     def maintainer_path(self):
-        """Maintainer's view for the full file name of PO file."""
-        return '%s/%s/%s' % (config.last_path, self.domain.name,
-                             self.maintainer_base())
+        """Maintainer's view of the full file name of a PO file."""
+        return '%s/%s/%s' %
+               (config.last_path, self.domain.name, self.maintainer_base())
 
-    def maintainer_urls(self):
-        """Maintainer's view for the URLs of PO files."""
-        urls = []
-        for puburl in puburls:
-            urls.append('%s/%s/%s/%s' % (puburl, config.last_dir,
-                        self.domain.name, self.maintainer_base()))
-        return tuple(urls)
+    def maintainer_url(self):
+        """Maintainer's view of the URL of a PO file."""
+        return '%s/%s/%s/%s' %
+               (puburl, config.last_dir, self.domain.name,
+                self.maintainer_base()))
+
 
 VERSION = ('[.0-9]+-?b[0-9]+'
            '|[.0-9]+-?dev[0-9]+'

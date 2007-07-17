@@ -275,7 +275,7 @@ From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: New template for '%s' made available
 """
-               % (hints.domain.mailto[0], hints.domain.name))
+          % (hints.domain.mailto[0], hints.domain.name))
     write('\n')
     write("""\
 Hello, gentle maintainer.
@@ -288,7 +288,7 @@ to the language teams for translation.  It is archived as:
     %s
 
 """
-                      % (hints.domain.name, hints.template_urls()[0]))
+          % (hints.domain.name, hints.template_url()))
     write("""\
 Whenever you have a new distribution with a new version number ready,
 containing a newer POT file, please send the URL of that distribution
@@ -329,7 +329,7 @@ From: Translation Project Robot <robot@translationproject.org>
 To: team-leaders@translationproject.org
 Subject: New PO template for '%s'
 """
-               % hints.domain.name)
+          % hints.domain.name)
     write('\n')
     write("""\
 My nicest hello to all language team leaders.
@@ -343,7 +343,7 @@ A copy is available at:
     %s
 
 """
-                      % (hints.domain.name, hints.template_urls()[0]))
+          % (hints.domain.name, hints.template_url()))
     write("""\
 Your team will be notified only if it already committed a translation for
 this domain, or if you have requested that the team be notified anyway.
@@ -370,8 +370,8 @@ From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: New %s PO file for '%s' (version %s)
 """
-               % (hints.domain.mailto[0], hints.team.language,
-                  hints.domain.name, hints.version))
+          % (hints.domain.mailto[0], hints.team.language,
+             hints.domain.name, hints.version))
     write('\n')
     write("""\
 Hello, gentle maintainer.
@@ -384,8 +384,7 @@ by the %s team of translators.  The file is available at:
     %s
 
 """
-                      % (hints.domain.name, hints.team.language,
-		         hints.maintainer_urls()[0]))
+          % (hints.domain.name, hints.team.language, hints.maintainer_url()))
     if hints.domain.autosend:
         sys.stderr.write("      sending '%s' to <%s>\n"
                          % (archive_base, hints.domain.mailto[0]))
@@ -395,14 +394,14 @@ by the %s team of translators.  The file is available at:
 a separate email.)
 
 """
-                   % archive_base)
+              % archive_base)
     else:
         write("""\
 (We can arrange things so that in the future such files are automatically
 e-mailed to you when they arrive.  Ask at the address below if you want this.)
 
 """)
-    dirname = os.path.dirname(hints.maintainer_urls()[0]) + "/"
+    dirname = os.path.dirname(hints.maintainer_url()) + "/"
     write("""\
 All other PO files for your package are available in:
 
@@ -428,7 +427,7 @@ The following HTML page has been updated:
 
 If any question arises, please contact the translation coordinator.
 """
-          % (registry.puburls[0], hints.domain.name))
+          % (registry.puburl, hints.domain.name))
     underwrite(write)
 
 
@@ -469,9 +468,9 @@ Subject: %s-%s (%d%%, %d untranslated) by %s
     write(mime_header(charset))
     write('\n')
     if translated == 0:
-        urls = hints.template_urls()
+        url = hints.template_url()
     else:
-        urls = hints.archive_urls()
+        url = hints.archive_url()
     write(_("""\
 Hello, members of the %s team.
 
@@ -480,7 +479,7 @@ integrated into the archives.  The file is available at:
 
     %s
 
-""")    % (_(hints.team.language), urls[0]))
+""")    % (_(hints.team.language), url))
     if translated == 0:
         if len(assignee)>1:
             msg = _("""\
@@ -580,8 +579,8 @@ The following HTML pages have been updated:
     %s/domain/%s.html
     %s/team/%s.html
 """)
-               % (registry.puburls[0], hints.domain.name,
-                  registry.puburls[0], hints.team.name))
+               % (registry.puburl, hints.domain.name,
+                  registry.puburl, hints.team.name))
     if hints.domain.url:
         write(_("""
 You can find a copy of the distribution at:

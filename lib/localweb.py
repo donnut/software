@@ -109,7 +109,7 @@ class DomainPage(htmlpage.Htmlpage):
                   ' prior to accepting translations.</p>\n')
         if postats.potstats.has_key(domain.name):
             file = postats.potstats[domain.name][0]
-            url = registry.hints(file).template_urls()[0]
+            url = registry.hints(file).template_url()
             write('  <p>The current template for this domain is'
                   ' <a href="%s">%s</a>.\n' % (url, file))
         if domain.url:

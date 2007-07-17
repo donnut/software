@@ -25,12 +25,6 @@ Later:
 * should the robot really accept submissions for unassigned packages?
 * check that 'Last-Translator' is the same as the _last_ line in the
   preheader, not the third line of that preheader
-* translated_length and total_length seem only to get used in po-matrix;
-  does it still make sense to produce these matrices?  as they are far
-  too big to be comprehensible/overseeable
-* change the robot text about the Subject line, so that it says that
-  it's not necessary to mention the filenam and version of the submitted
-  file when that file is in an attachment
 
 
 

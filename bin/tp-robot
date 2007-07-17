@@ -1082,7 +1082,7 @@ The Translation Project already holds an exact copy of your submission,
 which you may find as:
 
 """)]
-            comment.append('    %s\n' % run.hints.archive_urls()[0])
+            comment.append('    %s\n' % run.hints.archive_url())
             run.reject_nofill(('').join(comment), "[duplicate submission]")
 
     def translator_can_submit(self, translator, domain):
