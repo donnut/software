@@ -6,7 +6,7 @@
 
 PYTHON=python
 
-MAILDIR=~/mail
+MAILDIR=~/Mail
 progsdir=~/progs
 
 TP_QUEUE=$MAILDIR/bot-queue
