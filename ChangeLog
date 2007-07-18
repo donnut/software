@@ -4,6 +4,8 @@
 	* bin/clone-domain: Adapt for the cloning of 'findutils', and fix
 	some errors.
 
+	* registry/registry.sgml: Add a 'findutils_stable' domain.
+
 2007-07-17  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py, lib/registry.py, bin/po-register, bin/tp-robot:
