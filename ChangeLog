@@ -6,6 +6,9 @@
 
 	* registry/registry.sgml: Add a 'findutils_stable' domain.
 
+	* registry/registry.sgml: Remove leadership from those who are
+	unreachable by email.
+
 2007-07-17  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py, lib/registry.py, bin/po-register, bin/tp-robot:
