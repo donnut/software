@@ -1,4 +1,9 @@
 
+2007-07-18  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/clone-domain: Adapt for the cloning of 'findutils', and fix
+	some errors.
+
 2007-07-17  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py, lib/registry.py, bin/po-register, bin/tp-robot:

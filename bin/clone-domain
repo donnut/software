@@ -18,28 +18,26 @@ import os, sys, re, glob
 sys.path.insert(0, sys.path[0]+'/../lib')
 import config, registry, sgml
 
-# XXX check team against registry (PO/ca.tmp)
-
 os.environ['PATH'] = '/usr/lib:' + os.environ['PATH']
 try: del os.environ['LANGUAGE']
 except KeyError:pass
 try: del os.environ['LANG']
 except KeyError:pass
 
-magic_key = "neues nano"
+magic_key = "older findutils"
 
-old_domain = 'gettext'                  # nano
-new_domain = 'gettext-runtime'          # nano_1_0
+old_domain = 'findutils'                  # gettext
+new_domain = 'findutils_stable'           # gettext-runtime
 
-old_pattern = "gettext-0.11.5"          # nano-1.0
-new_pattern = "gettext-runtime-0.11.5"  # nano_1_0-1.0
+old_pattern = "findutils-4.2.27"          # gettext-0.11.5
+new_pattern = "findutils_stable-4.2.27"   # gettext-runtime-0.11.5
 
 def main(*arguments):
     if not arguments:
         sys.stdout.write(__doc__)
         sys.exit(0)
     if arguments[0] != magic_key:
-        sys.stdout.write("Key is wrong, edit the script")
+        sys.stdout.write("Key is wrong, edit the script.\n")
         sys.exit(0)
     gen_registry()
 
@@ -89,7 +87,7 @@ def byversion(a, b):
 def mklinks():
     newdir = "%s/%s" % (config.last_path, new_domain)
     print "mkdir", newdir
-    dir = (config.last_path"/"+old_domain)
+    dir = (config.last_path+"/"+old_domain)
     for link in os.listdir(dir):
         oldfile = os.path.join(dir, link)
         if not os.path.islink(oldfile):
@@ -110,8 +108,8 @@ def mklinks():
                 pofiles.append((f, f1))
             pofiles.sort(byversion)
             if pofiles:
-                print "ln -s ../../%s/%s/%s %s/%s" %
-                      (config.pos_dir, team, pofiles[-1][1], newdir, link)
+                print ("ln -s ../../%s/%s/%s %s/%s" %
+                       (config.pos_dir, team, pofiles[-1][1], newdir, link))
         else:
             # Removing the link is undesirable: this translation
             # continues to be useful for the old domain as well.
