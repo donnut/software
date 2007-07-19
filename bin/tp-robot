@@ -974,6 +974,7 @@ to be fixed here.  I'll go warn the translation coordinator.
 
 """), "[msgfmt failed]")
             abort_robot()
+        comment = self.scan_gettext_output(lines, work, virtual)
         if reject:
             run.reject_nofill(_("""\
 As a last check, I ran 'msgfmt --statistics -c -v -o /dev/null'
@@ -983,7 +984,6 @@ It reported these errors:
 %s""")
                               % ('').join(comment), "[msgfmt errors]")
             abort_robot()
-        comment = self.scan_gettext_output(lines, work, virtual)
         if comment:
             run.submitter.write_nofill(_("""\
 Merely for your information, let me share with you what the

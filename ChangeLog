@@ -1,4 +1,8 @@
 
+2007-07-19  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/tp-robot: Put output scanning in correct place.
+
 2007-07-18  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/clone-domain: Adapt for the cloning of 'findutils', and fix
