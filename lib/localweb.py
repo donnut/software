@@ -49,7 +49,7 @@ class DomainIndex(htmlpage.Htmlpage):
         write = self.writer
         if not write:
             return
-        self.prologue("Textual domains for translations", 'utf-8')
+        self.prologue("Textual domains", 'utf-8')
         write('  <table align=center border=2>\n'
               '   <tr align=left>\n'
               '    <th>Domain</th>\n'
@@ -76,11 +76,15 @@ class DomainPage(htmlpage.Htmlpage):
         write = self.writer
         if not write:
             return
-        self.prologue("The '%s' textual domain" % domain.name,'utf-8')
-        if domain.ref:
-            write('  <p>This page is about the translation of messages for'
-                  ' the <code>%s</code> textual domain.  More information'
-                  ' about this package can be found here:</p>\n'
+        self.prologue("The '%s' textual domain" % domain.name, 'utf-8')
+        if not domain.ref:
+            write('  <p>This page is about the translation of the messages'
+                  ' for the <b><code>%s</code></b> textual domain.</p>\n'
+                  % domain.name)
+        else:
+            write('  <p>This page is about the translation of the messages'
+                  ' for the <b><code>%s</code></b> textual domain.  More'
+                  ' information about the package can be found here:</p>\n'
                   '  <table align=center border=2>\n'
                   '   <tr align=center>\n'
                   '    <th>Topic</th>\n'
@@ -204,8 +208,8 @@ def build_language_cell(postats, write, team, domain):
                       % (scramble(email), translator))
             else:
                 write('    <td>%s</td>\n' % translator)
-            write('    <td bgcolor="%s">%d / %d</td>\n' %
-	          (colorize(translated, total), translated, total))
+            write('    <td bgcolor="%s">%d / %d</td>\n'
+                  % (colorize(translated, total), translated, total))
             write('   </tr>\n')
 
 
