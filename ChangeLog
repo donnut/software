@@ -5,6 +5,9 @@
 
 	* lib/localweb.py: Always print introductory sentence on domain page.
 
+	* lib/localweb.py: On the domains index page, when possible, point
+	to the website instead of the tarball.
+
 2007-07-18  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/clone-domain: Adapt for the cloning of 'findutils', and fix

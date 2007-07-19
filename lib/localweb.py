@@ -59,7 +59,10 @@ class DomainIndex(htmlpage.Htmlpage):
             write('   <tr>\n'
                   '    <td><a href="../domain/%s.html">%s</a></td>\n'
                   % (domain.name, domain.name))
-            if domain.url:
+            if domain.ref:
+                write('    <td><a href="%s">%s</a></td>\n'
+                      % (domain.ref[0][1], domain.ref[0][1]))
+            elif domain.url:
                 write('    <td><a href="%s">%s</a></td>\n'
                       % (domain.url[0], domain.url[0]))
             write('   </tr>\n')
