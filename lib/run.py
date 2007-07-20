@@ -46,7 +46,7 @@ class Reporter:
         pruned = []
         for char in line:
             if ord(char) > 127:
-                pruned.append(".")
+                pruned.append("[]")
             else:
                 pruned.append(char)
         return "".join(pruned)
