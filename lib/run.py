@@ -42,7 +42,7 @@ class Reporter:
                "Content-Type: text/plain; charset=%s\n" % self.encoding + \
                "Content-Transfer-Encoding: 8bit\n"
 
-    def prune_hibit(line):
+    def prune_hibit(self, line):
         pruned = []
         for char in line:
             if ord(char) > 127:
@@ -66,7 +66,7 @@ class Reporter:
                                                            self.encoding))
                     except UnicodeEncodeError:
                         # XXX Chapuza, to finally get to see what goes wrong.
-                        self.file.write(prune_hibit(line))
+                        self.file.write(self.prune_hibit(line))
                 self.delay = 0
                 self.delayed = []
 
@@ -92,7 +92,7 @@ class Reporter:
                 self.file.write(messages.translate(text, self.lang,
                                                    self.encoding))
             except UnicodeEncodeError:
-                self.file.write(prune_hibit(text))
+                self.file.write(self.prune_hibit(text))
 
     def write(self, text):
         self.write_nofill(messages.refill(text))
