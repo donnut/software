@@ -42,6 +42,15 @@ class Reporter:
                "Content-Type: text/plain; charset=%s\n" % self.encoding + \
                "Content-Transfer-Encoding: 8bit\n"
 
+    def prune_hibit(line):
+        pruned = []
+        for char in line:
+            if ord(char) > 127:
+                pruned.append(".")
+            else:
+                pruned.append(char)
+        return "".join(pruned)
+
     def prepare(self, force=0):
         if self.delay:
             reply_header = self.reply_header(force)
@@ -56,7 +65,8 @@ class Reporter:
                         self.file.write(messages.translate(line, self.lang,
                                                            self.encoding))
                     except UnicodeEncodeError:
-                        self.file.write(line)
+                        # XXX Chapuza, to finally get to see what goes wrong.
+                        self.file.write(prune_hibit(line))
                 self.delay = 0
                 self.delayed = []
 
@@ -82,7 +92,7 @@ class Reporter:
                 self.file.write(messages.translate(text, self.lang,
                                                    self.encoding))
             except UnicodeEncodeError:
-                self.file.write(messages.translate(text, self.lang))
+                self.file.write(prune_hibit(text))
 
     def write(self, text):
         self.write_nofill(messages.refill(text))
@@ -144,7 +154,11 @@ class Submitter(Reporter):
     def reply_header(self, force=0):
         if header_lines:
             work = tempfile.mktemp()
-            file = os.popen('formail -t -r -a "From: Translation Project Robot <robot@translationproject.org>" -I "Subject: %s" >%s' % (subject, work), 'w')
+            file = os.popen('formail -t -r '
+'-a "From: Translation Project Robot <robot@translationproject.org>" '
+'-a "BCC: robot-mail@benno.vertaalt.nl" '
+'-I "Subject: %s" >%s'
+                            % (subject, work), 'w')
             file.writelines(header_lines)
             file.close()
             file = open(work)
