@@ -1,4 +1,11 @@
 
+2007-07-20  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* registry/AUTHORS: Add 18 missing disclaimers from FSF file (except
+	Chinese and Korean ones, as I don't comprehend those), add several
+	missing diacritics, change some postfix diacritics to real ones, and
+	remove one misspelled duplicate disclaimer.
+
 2007-07-19  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Put output scanning in correct place.
