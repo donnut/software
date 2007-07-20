@@ -743,12 +743,12 @@ The last translator of this PO file is %s.  But according to my notes,
                 and (string.lower(last_translator)
                      != string.lower(run.translator_name))):
                 run.submitter.write(_("""\
-I'm not fully sure that you are the author of the translations you sent
-to me.  The header of your email says that you are '%s', while the
-'Last-Translator' field of the PO file header says your name should
-be '%s'.  The difference might be mere spelling differences.  These may
-happen when you do not have full control over your name in the mailing
-system you are using.
+I'm not fully sure that you are the author of the translations you
+sent me.  The header of your email says that you are '%s', while the
+'Last-Translator' field of the PO file header says your name is '%s'. 
+The difference might be a mere spelling difference.  This can happen
+when you do not have full control over your name in the mailing system
+you are using.
 
 As I expect you have better control over PO files, I'll consider that
 the second name is the most dependable.  Yet, in some cases, this might
