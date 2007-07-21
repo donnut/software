@@ -10,6 +10,8 @@
 	* registry/registry.sgml: Remove the obsolete domains 'gbiff' and
 	'darkstat'.
 
+	* registry/AUTHORS: Sort disclaimers by date and name.
+
 2007-07-20  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/AUTHORS: Add 18 missing disclaimers from FSF file (except
