@@ -7,7 +7,8 @@
 	* lib/run.py, bin/tp-robot: Add newlines in one spot instead of all
 	over the place.
 
-	* registry/registry.sgml: Remove the obsolete domain 'gbiff'.
+	* registry/registry.sgml: Remove the obsolete domains 'gbiff' and
+	'darkstat'.
 
 2007-07-20  Benno Schulenberg  <benno@vertaalt.nl>
 
