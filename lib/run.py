@@ -86,6 +86,7 @@ class Reporter:
         if self.delay:
             self.delayed.append('\n')
             self.delayed.append(text)
+            self.delayed.append('\n')
         else:
             self.file.write('\n')
             try:
@@ -93,6 +94,7 @@ class Reporter:
                                                    self.encoding))
             except UnicodeEncodeError:
                 self.file.write(self.prune_hibit(text))
+            self.file.write('\n')
 
     def write(self, text):
         self.write_nofill(messages.refill(text))

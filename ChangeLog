@@ -4,6 +4,9 @@
 	* registry/AUTHORS: Delete copyright assignments and disclaimers that
 	do not belong here; they were not PO translators.
 
+	* lib/run.py, bin/tp-robot: Add newlines in one spot instead of all
+	over the place.
+
 2007-07-20  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/AUTHORS: Add 18 missing disclaimers from FSF file (except

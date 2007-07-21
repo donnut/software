@@ -73,7 +73,6 @@ def main(*arguments):
         if not entries:
             run.reject(_("""\
 Your PO file seems to have no entries at all, like if it were empty.
-
 """), "[no entries]")
             abort_robot()
         # We definitely found a non-empty PO file.
@@ -105,7 +104,6 @@ Your PO file seems to have no entries at all, like if it were empty.
         run.reject(_("""\
 The Translation Project robot failed in a rather unexpected way.
 Please report all details at <coordinator@translationproject.org>.
-
 """), "[robot bug]")
         run.submitter.write_nofill(tb)
         run.coordinator.write_nofill(tb)
@@ -161,7 +159,6 @@ I'm ignoring the whole following MIME part within your message:
             run.reject(_("""\
 Hmm...  It seems I'm not clever enough yet to find the PO file within
 your email.  I will go ask the coordinator to help me unpack your mail.
-
 """), "[submission not found]")
             abort_robot()
         if len(parts) > 1:
@@ -169,7 +166,6 @@ your email.  I will go ask the coordinator to help me unpack your mail.
 Your message contains multiple MIME parts, and I am unable to decide
 which one is meant to hold your PO file.  Please help me and resubmit
 your message with a simpler MIME structure.
-
 """), "[multiple submissions?]")
             abort_robot()
         return parts[0]
@@ -184,14 +180,12 @@ your message with a simpler MIME structure.
             run.reject(_("""\
 The translation coordinator does not yet trust me enough to let me handle
 a POT file all alone.  So, for this one, I'll go disturb him!
-
 """), "[robot does not support pot submission]")
             abort_robot()
         if not (run.hints.domain and run.hints.version and run.hints.team):
             run.reject(_("""\
 %s
 The file name argument should look like 'DOMAIN-VERSION.TEAM.po'.
-
 """)
                        % unknown_elements_comment(),
                        "[ill-formatted file name]")
@@ -199,7 +193,6 @@ The file name argument should look like 'DOMAIN-VERSION.TEAM.po'.
         if not run.hints.team:
             run.reject(_("""\
 Within the Translation Project, no team has the code '%s'.
-
 """)
                        % run.hints.team, "[unknown team code]")
             abort_robot()
@@ -268,7 +261,6 @@ Within the Translation Project, no team has the code '%s'.
                         run.reject(_("""\
 The translation coordinator does not trust me enough yet to let me handle
 a PO template file all alone.  So, for this one, I'll go disturb him!
-
 """), "[pot not supported]")
                         abort_robot()
                 continue
@@ -344,7 +336,6 @@ version number of the package, and TEAM is the two-letter lower case
 language code for your team.  In some rare cases, TEAM might need to
 be suffixed with either "_REGION" or "@DIALECT", where REGION is a
 capitalised two-letter country code and DIALECT a lower case name.
-
 """)
                        % unknown_elements_comment(check_translator=1),
                        "[one of address, domain, version, team is missing]")
@@ -363,7 +354,6 @@ and retry the submission.
 If however the code is correct, I presume you would like a new translation
 team to be created.  This is a simple matter, really.  See
 http://translationproject.org/leaders.html for all the details.
-
 """)
                        % run.hints.team, "[unknown team]")
             globals.team_language = _('Unknown_Language')
@@ -404,7 +394,6 @@ what this PO file is about.  The PO file title comment may look like:
 As this line is intended to be read by humans working in %s,
 you may have this title line translated as well, it does not have to be
 kept in English.
-
 """)
                        % (run.hints.domain,
                           globals.team_language, _(globals.team_language)),
@@ -454,7 +443,6 @@ The copyright for the PO file should be assigned to:
 
 and does not seem to be, yet it might be only a matter of proper spelling.
 %s
-
 """)
                            % (author, comment), reason)
         elif run.hints.domain and run.hints.domain.disclaim:
@@ -485,7 +473,6 @@ a list, the first year has to be four digits, subsequent years may be
 either two or four digits.  Each comma should be followed with a
 space.  Years have to be explicitly enumerated, range notations are
 not accepted.
-
 """)
                        % comment, "[copyright incorrectly formatted]")
 
@@ -514,7 +501,6 @@ only a matter of spelling?  If this is the case, then I need to know
 about spelling alternatives, so please tell the translation coordinator.
 Yet, it is usually best to avoid such variance, and stick to a single
 preferred spelling.
-
 """)
                            % (first_translator, globals.team_language),
                            "[unknown translator]")
@@ -524,7 +510,6 @@ preferred spelling.
                     run.submitter.write(_("""
 The initial translator of this PO file is %s.  But according to my notes,
 <%s> is not a good address to reach that translator.  %s %s
-
 """)
                                         % (
                         first_translator, first_address,
@@ -544,7 +529,6 @@ misspellings of one another, you should correct whichever is needed and
 resubmit the corrected PO file.  On the other hand, I ask you to be fair,
 and _never_ remove the initial translator of a given PO file, as this
 acknowledgement is the only tribute paid for the work of that translator.
-
 """)
                                              % (first_translator,
                                                 run.translator_name))
@@ -555,7 +539,6 @@ line of the PO file says <%s>, while the 'Last-Translator' field of the
 PO file header says <%s>.  Please arrange to have a single preferred
 address to reach you, and try to use it consistently in all your
 translation files.
-
 """)
                                              % (first_address,
                                                 run.translator_address))
@@ -570,7 +553,6 @@ In this line, FIRST AUTHOR has to be replaced by the full name of the
 original translator of the messages for the '%s' textual domain,
 EMAIL@ADDRESS gives a way to reach that translator, and YEAR is a four
 digits year telling when the original translation occurred.
-
 """)
                        % run.hints.domain,
                        "[first author incorrectly formatted]")
@@ -581,7 +563,6 @@ lines after the first three, even using your own language if you feel
 like it.  But remember that there should always be a space after the
 initial '#' of each comment line, and there should not be a blank line
 before the 'msgid' line of the PO file header.
-
 """))
 
     def project_id_version(self, header):
@@ -594,7 +575,6 @@ before the 'msgid' line of the PO file header.
 The 'Project-Id-Version' field of your PO file says that the textual domain
 is '%s', instead of '%s' as the file name says.  They should be the same. 
 The domain name is usually just the package name, in all lower case.
-
 """)
                            % (match.group('dom'), run.hints.domain),
                            "[domain from project-id-version conflicts with file name]")
@@ -604,7 +584,6 @@ Within the 'Project-Id-Version' field, the domain name and version numbers
 should be separated by a space rather than by a hyphen.  Some scripts might
 depend on a space being there, so best would be that you modify your file.
 I'll attempt to modify it for you, but just this time! :-)
-
 """))
                 header['project-id-version'] = (
                     header['project-id-version'][:match.start('ver')] + ' '
@@ -615,7 +594,6 @@ The 'Project-Id-Version' field of your PO file says the translation
 is meant for version '%s' of '%s', but the file name says it is for
 version '%s'.  Please adjust either the 'Project-Id-Version' field or
 the file name, whichever is appropriate.
-
 """)
                            % (match.group('ver'), run.hints.domain.name,
                               run.hints.version.name),
@@ -630,7 +608,6 @@ The line containing this field ideally looks like:
 in which PACKAGE should be replaced by the textual domain of your
 translation, probably '%s' in this case, and VERSION be replaced
 by the appropriate version numbers, maybe '%s' here.
-
 """)
                        % (run.hints.domain.name, run.hints.version.name),
                        "[no project-id-version]")
@@ -683,7 +660,6 @@ still accepted for the time being, but are to be deprecated.
                 run.reject(_("""\
 The PO revision date is '%s', which looks older than the POT creation date.
 You should update the PO revision date before submitting a PO file.
-
 """)
                            % date['PO-Revision-Date'],
                            "[revision date before creation date]")
@@ -699,7 +675,6 @@ You should update the PO revision date before submitting a PO file.
                 run.submitter.write(_("""\
 There is a slight formatting error.  In the 'Last-Translator' header line,
 please use no more than a single space between '%s' and '<%s>'.
-
 """)
                                              % (last_translator, last_address))
             if not run.translator_name:
@@ -718,7 +693,6 @@ to avoid such variance, and stick to a single preferred spelling.
 It may also be that you never joined the %s team.  Please write to the leader
 of your team (see http://translationproject.org/team/index.html for a list,
 then go to the relevant team's page), or else to the translation coordinator.
-
 """)
                            % (last_translator,
                               _(globals.team_language),
@@ -730,7 +704,6 @@ then go to the relevant team's page), or else to the translation coordinator.
                     run.reject(_("""\
 The last translator of this PO file is %s.  But according to my notes,
 <%s> is not a good address to reach that translator.  %s %s
-
 """)
                                % (last_translator, last_address,
                                   say_alias_list(translator.mailto),
@@ -757,7 +730,6 @@ case that the two names above are really different, the situation is more
 serious.  Some translation teams surely have their own ways and habits,
 but it is unusual that someone submits a translation file written by
 someone else.
-
 """)
                                              % (run.translator_name,
                                                 last_translator))
@@ -769,7 +741,6 @@ Your message was sent from '%s', but the 'Last-Translator' field in the
 PO file says that your email address is '%s'.  I assume that the latter
 is correct.  I bring this to your attention just in case _you_ think it
 matters.
-
 """)
                                     % (run.translator_address, last_address))
             run.translator_name = last_translator
@@ -785,7 +756,6 @@ looks like:
 In this line, FULL NAME has to be replaced by the full name of the current
 translator for the '%s' textual domain (which most probably means you :-);
 EMAIL@ADDRESS gives a way to reach that translator by email.
-
 """)
                        % run.hints.domain, "[last-translator missing]")
 
@@ -806,7 +776,6 @@ EMAIL@ADDRESS gives a way to reach that translator by email.
                 run.submitter.write(_("""\
 There is a slight formatting error.  In the 'Language-Team' header line,
 please use no more than a single space between '%s' and '<%s>'.
-
 """)
                                     % (maybe_language, maybe_mailto))
             if maybe_language != globals.team_language:
@@ -815,7 +784,6 @@ You wrote '%s' in the 'Language-Team' field of the PO file header, while
 I think it should have been '%s'.  I'm not fully sure about this.  If you
 think I got it wrong, please email to the translation coordinator to get
 this straigthened this out.
-
 """)
                            % (maybe_language, _(globals.team_language)),
                            "[language-team incorrect]")
@@ -830,7 +798,6 @@ fit your needs.  In case you know none, waiting to get better organised,
 you might use the address of one of the team members, maybe yours if you
 are alone in the team!  In any case, please inform the translation
 coordinator of the address your team decides to use.
-
 """)
                            % (_(globals.team_language),
                               _(globals.team_language)),
@@ -841,7 +808,6 @@ coordinator of the address your team decides to use.
 The 'Language-Team' field of the PO file header contains <%s> as the team's
 email adress, but the registered team's address is <%s>.  If this is wrong,
 please email the translation coordinator to get it corrected.
-
 """)
                            % (maybe_mailto, globals.team_mailto),
                            "[team address incorrect]")
@@ -864,7 +830,6 @@ according to the information which is available to me, I would use:
 
 If this leaves you clueless and you still want to correct it, please write
 to the translation coordinator and we will work this out together.
-
 """)
                        % (globals.team_language, globals.team_mailto),
                        "[language team missing]")
@@ -876,7 +841,6 @@ The 'MIME-Version' field was not found in your PO file header, or is
 not formatted properly.  The line should be this one:
 
     'MIME-Version: 1.0\\n'
-
 """),
                        "[mime-version is not 1.0]")
         charsets = [
@@ -905,7 +869,6 @@ The 'Content-Type' field introduced an unusual character set '%s'.
 If this is not an error, please merely inform the translation coordinator
 that '%s' be added to the list of acceptable charsets.
 This list currently holds: %s.
-
 """)
                            % (charset, charset, say_list(_('or'), charsets)),
                            "[unknown charset in content-type]")
@@ -918,7 +881,6 @@ not formatted properly.  The line containing it ideally looks like:
     'Content-Type: text/plain; charset=CHARSET\\n'
 
 where CHARSET should be the name of a character set, like one of %s.
-
 """)
                        % say_list(_('or'), charsets),
                        "[content-type missing or ill-formatted]")
@@ -934,7 +896,6 @@ The 'Content-Transfer-Encoding' field introduced an unusual encoding
 '%s'.  If this is not an error, please inform the translation
 coordinator that '%s' be added to the list of acceptable charsets.
 This list currently holds: %s.
-
 """)
                            % (cte, cte, say_list(_('or'), encodings)),
                            "[unknown content-transfer-encoding]")
@@ -946,7 +907,6 @@ or is not formatted properly.  The line containing it ideally looks like:
     'Content-Transfer-Encoding: ENCODING\\n'
 
 where ENCODING should be the name of an encoding, like one of %s.
-
 """)
                        % say_list(_('or'), encodings),
                        "[content-transfer-encoding missing]")
@@ -971,7 +931,6 @@ where ENCODING should be the name of an encoding, like one of %s.
             run.reject(_("""\
 I am unable to run the 'msgfmt' program.  Sorry.  Something needs
 to be fixed here.  I'll go warn the translation coordinator.
-
 """), "[msgfmt failed]")
             abort_robot()
         comment = self.scan_gettext_output(lines, work, virtual)
@@ -980,7 +939,6 @@ to be fixed here.  I'll go warn the translation coordinator.
 As a last check, I ran 'msgfmt --statistics -c -v -o /dev/null'
 on your PO file.  It told me that I cannot let the file pass.
 It reported these errors:
-
 %s""")
                               % ('').join(comment), "[msgfmt errors]")
             abort_robot()
@@ -988,7 +946,6 @@ It reported these errors:
             run.submitter.write_nofill(_("""\
 Merely for your information, let me share with you what the
 'msgfmt' program has to say about your PO file:
-
 %s""")
                                        % ('').join(comment))
 
@@ -1031,7 +988,6 @@ of spelling differences, then I need to know exactly which alternate
 spellings of your name you use.  Write to the translation coordinator
 and explain why you need several different names.  But it is usually
 best to avoid such variance, and stick to a single preferred spelling.
-
 """)
                        % (_(globals.team_language), run.translator_name),
                        "[translator not found]")
@@ -1041,7 +997,6 @@ best to avoid such variance, and stick to a single preferred spelling.
                 run.reject(_("""\
 According to my notes, the address <%s> is not a valid way to reach you. 
 %s %s
-
 """)
                            % (run.translator_address,
                               say_alias_list(translator.mailto),
@@ -1057,7 +1012,6 @@ that project did not make arrangements yet for the Translation Project to
 handle its PO files.  In this case, please invite the project maintainer to
 contact us.  See http://translationproject.org/domain/index.html
 for the list of domains that are currently handled.
-
 """)
                        % run.hints.domain,
                        "[unknown domain]")
@@ -1069,7 +1023,6 @@ According to my notes, the Free Software Foundation did not acknowledge the
 receipt of a translation disclaimer for you.  Such a disclaimer is required
 for '%s'.  See http://translationproject.org/html/whydisclaim.html for an
 explanantion of this.
-
 """)
                            % run.hints.domain,
                            "[translator has no disclaimer]")
@@ -1078,7 +1031,6 @@ explanantion of this.
 You are not registered as the usual translator for '%s': %s.  If you wish
 to be assigned to this textual domain, your team leader may send an email
 to the translation coordinator warranting that you are indeed assigned.
-
 """)
                        % (run.hints.domain, reason[1:-1]), reason)
 
@@ -1089,7 +1041,6 @@ You submitted a PO file for which the Translation Project does not have a
 corresponding template: there is no '%s' here.
 Please have the maintainer of the package send the corresponding POT file
 to the Translation Project.  Or better: a URL of a distribution tarball.
-
 """)
                        % run.hints.template_base(),
                        "[there is no corresponding pot file]")
@@ -1101,7 +1052,6 @@ to the Translation Project.  Or better: a URL of a distribution tarball.
             comment = [_("""
 The Translation Project already holds an exact copy of your submission,
 which you may find as:
-
 """)]
             comment.append('    %s\n' % run.hints.archive_url())
             run.reject_nofill(('').join(comment), "[duplicate submission]")
@@ -1161,7 +1111,6 @@ Accomplishing actions.  In fact, putting here whatever does not fit elsewhere.
             run.reject(_("""\
 I am unable to run the 'diff' program.  Sorry.  Something needs
 to be fixed here.  I'll go warn the translation coordinator.
-
 """), "[diff or recode failed]")
             abort_robot()
         # FIXME: Maybe detect and better explain `msgid' reformatting, trailing
@@ -1173,7 +1122,6 @@ to be fixed here.  I'll go warn the translation coordinator.
             run.reject(_("""\
 I am unable to canonicalise your PO file.  Sorry.  Something needs
 to be fixed here.  I'll go warn the translation coordinator.
-
 """), "[remove or rename failed]")
             abort_robot()
         if lines:
@@ -1248,7 +1196,6 @@ translation coordinator.
             run.reject(_("""\
 I am unable to run the 'po-register' program.  Sorry.  Something needs
 to be fixed here.  I'll go warn the translation coordinator.
-
 """), "[po-register failed]")
             return
         comment = []
