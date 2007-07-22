@@ -8,8 +8,9 @@
 	more informative; do not link names to URLs.
 
 	* lib/localweb.py: Do not show Last-Submitted column for external
-	translations, use grey to colour code such externals, and show
-	"unknown" also on team page.
+	translations, use grey to colour code such externals, show "unknown"
+	also on team page, and use magenta to show a conflict: translation
+	is marked as external but PO file is present.
 
 2007-07-21  Benno Schulenberg  <benno@vertaalt.nl>
 
