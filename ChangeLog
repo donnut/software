@@ -1,4 +1,9 @@
 
+2007-07-22  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* registry/registry.sgml: Delete the old, empty teams for Norwegian
+	Bokmaal and Norwegian Nynorsk.
+
 2007-07-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/AUTHORS: Delete copyright assignments and disclaimers that
