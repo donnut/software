@@ -12,6 +12,8 @@
 	also on team page, and use magenta to show a conflict: translation
 	is marked as external but PO file is present.
 
+	* bin/po-register: Add option to not show mails when running dry.
+
 2007-07-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/AUTHORS: Delete copyright assignments and disclaimers that
