@@ -320,7 +320,7 @@ class TeamPage(htmlpage.Htmlpage):
               '   <tr align=center>\n'
               '    <th>Translator</th>\n'
               '    <th>Website</th>\n'
-              '    <th>Disclaimer</th>\n'
+              '    <th>Disclaimed</th>\n'
               '    <th>Autosend</th>\n'
               '    <th>Assignments</th>\n'
               '   </tr>\n'
