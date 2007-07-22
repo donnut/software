@@ -4,6 +4,9 @@
 	* registry/registry.sgml: Delete the old, empty teams for Norwegian
 	Bokmaal and Norwegian Nynorsk.
 
+	* lib/localweb.py: Put "yes" in lower case; make Autosend column
+	more informative.
+
 2007-07-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/AUTHORS: Delete copyright assignments and disclaimers that

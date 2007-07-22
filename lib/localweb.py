@@ -344,21 +344,22 @@ class TeamPage(htmlpage.Htmlpage):
             # who don't like their email addresses displayed.
             write('   <tr align=center>\n'
                   '    <td align=left>%s</td>\n'
-                  % translator_best_href(translator,prefer_mail = 0,
-                                         charset = 'utf-8'))
+                  % translator_best_href(translator, charset = 'utf-8'))
             if translator.url:
-                write('    <td><a href="%s">Yes</a></td>\n'
+                write('    <td><a href="%s">yes</a></td>\n'
                       % translator.url[0])
             else:
                 write('    <td></td>\n')
             if translator.disclaimer:
-                write('    <td>Yes</td>\n')
+                write('    <td>yes</td>\n')
             else:
                 write('    <td></td>\n')
-            if translator.autosend:
-                write('    <td>Yes</td>\n')
+            if translator.autosend == "compress":
+                write('    <td>compress</td>\n')
+            elif translator.autosend:
+                write('    <td>plain</td>\n')
             else:
-                write('    <td></td>\n')
+                write('    <td>-</td>\n')
             if domain_count:
                 write('    <td>%d</td>\n' % domain_count)
             else:
