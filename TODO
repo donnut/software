@@ -1,6 +1,5 @@
 Today:
 * look through registry.sgml for things to fix
-* on the domain pages, do not show tarball URL but a site URL
 
 Soon:
 * run 'po-tidy-links -n' to inspect the state of latest/ symlinks again
@@ -20,7 +19,6 @@ Later:
 * walk through the packages to see if there are more recent versions
 * rename registry.dtd to tp-registry.dtd
 * weed out double assignments from registry.sgml
-* sort AUTHORS by data
 * mail bug-tar about simpler fetch script
 * should the robot really accept submissions for unassigned packages?
 * check that 'Last-Translator' is the same as the _last_ line in the
