@@ -7,6 +7,10 @@
 	* lib/localweb.py: Put "yes" in lower case; make Autosend column
 	more informative; do not link names to URLs.
 
+	* lib/localweb.py: Do not show Last-Submitted column for external
+	translations, use grey to colour code such externals, and show
+	"unknown" also on team page.
+
 2007-07-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/AUTHORS: Delete copyright assignments and disclaimers that

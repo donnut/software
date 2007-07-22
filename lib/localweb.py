@@ -140,20 +140,21 @@ class DomainPage(htmlpage.Htmlpage):
               '   </tr>\n')
         for team in registry.team_list():
             if team.code in domain.ext:
-                st = get_extstats().get((domain.name, team.name))
-                if st:
-                    version = st['version']
-                    trans = st['translated']
-                    total = trans + st['untranslated'] + st['fuzzy']
-                    stats = "%s / %s" % (trans, total)
+                stats = get_extstats().get((domain.name, team.name))
+                if stats:
+                    trans = stats['translated']
+                    total = trans + stats['untranslated'] + stats['fuzzy']
+                    numbers = "%s / %s" % (trans, total)
                 else:
-                    version = stats = "unknown"
+                    numbers = "unknown"
                 write('<tr align=center><td>%s</td>'
                       '<td><a href="../team/%s.html">%s</a></td>'
-                      '<td>%s</td>'
-                      '<td><i>external</i></td><td>%s</td></tr>\n'
-                      % (team.code, team.code, team.language, version, stats))
-            build_language_cell(postats, write, team, domain)
+                      '<td>--</td>'
+                      '<td><i>external</i></td>'
+                      '<td bgcolor="#e8e8e8">%s</td></tr>\n'
+                      % (team.code, team.code, team.language, numbers))
+            else:		    
+                build_language_cell(postats, write, team, domain)
         write('  </table>\n')
         self.epilogue()
 
@@ -412,36 +413,36 @@ class TeamPage(htmlpage.Htmlpage):
                 write('    <td align=left>%s</td>\n'
                       % translator_best_href(assigned_domains[domain.name]))
             elif team.code in domain.ext:
-                write('   <td><i>external</i></td>\n')
+                write('    <td bgcolor="#e8e8e8"><i>external</i></td>\n')
                 extstats = get_extstats().get((domain.name, team.code))
             else:
-                write('   <td></td>\n')
+                write('    <td></td>\n')
             file = '%s/%s/%s.po' % (config.last_path, domain.name, team.name)
-            have_stats = 0
+            have_stats = False
             if os.path.isfile(file):
                 hints = registry.Hints(os.readlink(file))
                 key = hints.domain.name, hints.version.name, hints.team.name
                 if postats.has_key(key):
                     (translated, total) = postats[key][2:4]
-                    have_stats = 1
+                    have_stats = True
                     current = hints.version
             elif extstats:
                     translated = extstats['translated']
-                    total = translated + extstats['untranslated'] + extstats['fuzzy']
-                    current = registry.version(extstats['version'])
-                    have_stats = 1
+                    total = (translated +
+                             extstats['untranslated'] + extstats['fuzzy'])
+                    current = None
             if have_stats:
                 color = colorize(translated, total)
                 write('    <td align="center">%s</td>\n'
-                      '   <td align="center" bgcolor="%s">%d / %d</td>\n'
+                      '    <td align="center" bgcolor="%s">%d / %d</td>\n'
                       % (current.name, color, translated, total))
                 try:
                     current.set_sort_key()
                 except AssertionError:
                     current = None
-                    have_stats = 0
+                    have_stats = False
             else:
-                write('  <td colspan=2>\n')
+                write('    <td colspan=2></td>\n')
             try:
                 templ_file, templ_msgs = postats.potstats[domain.name]
                 templ_hints = registry.hints(templ_file)
@@ -451,23 +452,21 @@ class TeamPage(htmlpage.Htmlpage):
                 cur_key = domain.name, templ_hints.version.name, team.name
                 if postats.has_key(cur_key):
                     (translated, total) = postats[cur_key][2:4]
+		    numbers = "%d / %d" % (translated, total)
                     color = colorize(translated, total)
                 elif extstats:
-                    if templ_msgs:
-                        color = colorize(translated, templ_msgs)
-                    else:
-                        color = '#f8d0f8'  # Magenta; seems to never occur.
-                    total = templ_msgs
+                    color = "#e8e8e8"  # Grey.
+                    numbers = "%d / %d" % (extstats['translated'], templ_msgs)
                 else:
-                    if templ_msgs:
-                        color = '#00d0f8'  # Blue: fully untranslated.
+                    if team.code in domain.ext:
+                        color = "#e8e8e8"  # Grey.
+                        numbers = "unknown"
                     else:
-                        color = '#f8d0f8'  # Magenta; seems to never occur.
-                    translated = 0
-                    total = templ_msgs
+                        color = "#00d0f8"  # Blue: fully untranslated.
+                        numbers = "%d / %d" % (0, templ_msgs)
                 write('    <td align="center">%s</td>\n'
-                      '   <td align="center" bgcolor="%s">%d / %d</td>\n'
-                      % (templ_hints.version.name, color, translated, total))
+                      '    <td align="center" bgcolor="%s">%s</td>\n'
+                      % (templ_hints.version.name, color, numbers))
             write('   </tr>\n')
         write('  </table>\n')
         language = string.split(team.language)[0]
