@@ -344,7 +344,7 @@ class TeamPage(htmlpage.Htmlpage):
             # who don't like their email addresses displayed.
             write('   <tr align=center>\n'
                   '    <td align=left>%s</td>\n'
-                  % translator_best_href(translator, charset = 'utf-8'))
+                  % translator_best_href(translator))
             if translator.url:
                 write('    <td><a href="%s">yes</a></td>\n'
                       % translator.url[0])
@@ -410,8 +410,7 @@ class TeamPage(htmlpage.Htmlpage):
             extstats = None
             if assigned_domains.has_key(domain.name):
                 write('    <td align=left>%s</td>\n'
-                      % translator_best_href(assigned_domains[domain.name],
-                                             charset = 'utf-8'))
+                      % translator_best_href(assigned_domains[domain.name]))
             elif team.code in domain.ext:
                 write('   <td><i>external</i></td>\n')
                 extstats = get_extstats().get((domain.name, team.code))
@@ -475,17 +474,15 @@ class TeamPage(htmlpage.Htmlpage):
         self.epilogue()
 
 
-def translator_best_href(translator, prefer_mail = 0, charset = None):
-    url = mail = None
-    name = uni2html(translator.uniname()[0],charset)
-    if translator.url and translator.showmail != 'no':
-        url = '<a href="%s">%s</a>' % (translator.url[0], name)
+def translator_best_href(translator):
+    name = uni2html(translator.uniname()[0], 'utf-8')
+    if translator.url:
+        return name
     if translator.mailto and translator.can_show_mail():
-        mail = '<a href="mailto:%s">%s</a>' % (scramble(translator.mailto[0]), name)
-    if mail and prefer_mail: return mail
-    if url: return url
-    if mail: return mail
-    return name
+        return ('<a href="mailto:%s">%s</a>'
+                % (scramble(translator.mailto[0]), name))
+    else:
+        return name
 
 _entities = {}
 def _uni2html(char):

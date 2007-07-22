@@ -5,7 +5,7 @@
 	Bokmaal and Norwegian Nynorsk.
 
 	* lib/localweb.py: Put "yes" in lower case; make Autosend column
-	more informative.
+	more informative; do not link names to URLs.
 
 2007-07-21  Benno Schulenberg  <benno@vertaalt.nl>
 
