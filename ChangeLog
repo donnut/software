@@ -1,4 +1,9 @@
 
+2007-07-23  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* registry/registry.sgml: Rename 'GNUnet' to 'gnunet', to be
+	consistent and have everything alphabetically.
+
 2007-07-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Delete the old, empty teams for Norwegian
