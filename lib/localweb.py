@@ -132,9 +132,9 @@ class DomainPage(htmlpage.Htmlpage):
               ' PO files that are available for this domain:</p>\n'
               '  <table align=center border=2>\n'
               '   <tr>\n'
-              '    <th>Code</th>\n'
               '    <th>Language</th>\n'
-              '    <th>Version</th>\n'
+              '    <th>Code</th>\n'
+              '    <th>Package version</th>\n'
               '    <th>Last translator</th>\n'
               '    <th>Translated</th>\n'
               '   </tr>\n')
@@ -152,12 +152,12 @@ class DomainPage(htmlpage.Htmlpage):
                     color = "#f8d0f8"  # Magenta: external but file is present.
                 else:
                     color = "#e8e8e8"  # Grey: plain external.
-                write('<tr align=center><td>%s</td>'
+                write('<tr align=center>'
                       '<td><a href="../team/%s.html">%s</a></td>'
-                      '<td>--</td>'
+                      '<td>%s</td><td>--</td>'
                       '<td><i>external</i></td>'
                       '<td bgcolor="%s">%s</td></tr>\n'
-                      % (team.code, team.code, team.language, color, numbers))
+                      % (team.code, team.language, team.code, color, numbers))
             else:    
                 build_language_cell(postats, write, team, domain)
         write('  </table>\n')
@@ -193,16 +193,11 @@ def build_language_cell(postats, write, team, domain):
         for counter in range(len(table)):
             write('   <tr align=center>\n')
             if counter == 0:
-                if len(table) > 1:
-                    write('    <td rowspan=%d>%s</td>\n'
-                          '    <td rowspan=%d>'
-                          '<a href="../team/%s.html">%s</a></td>\n'
-                          % (len(table), team.code, len(table), team.code,
-                             team.language))
-                else:
-                    write('    <td>%s</td>\n'
-                          '    <td><a href="../team/%s.html">%s</a></td>\n'
-                          % (team.code, team.code, team.language))
+                write('    <td rowspan=%d>'
+                      '<a href="../team/%s.html">%s</a></td>\n'
+                      '    <td rowspan=%d>%s</td>\n'
+                      % (len(table), team.code, team.language,
+                         len(table), team.code))
             version, translator, mailto, translated, total = table[counter]
             write('    <td><a href="../%s/%s/%s-%s.%s.po">%s</a></td>\n'
                   % (config.pos_dir, team.name, domain.name,
@@ -237,15 +232,15 @@ class TeamIndex(htmlpage.Htmlpage):
         self.prologue("National translation teams", 'utf-8')
         write('  <table align=center border=2>\n'
               '   <tr align=center>\n'
-              '    <th>Code</th>\n'
               '    <th>Language</th>\n'
+              '    <th>Code</th>\n'
               '    <th>Team address</th>\n'
               '   </tr>\n')
         for team in registry.team_list():
             write('   <tr align=center>\n'
-                  '    <td>%s</td>\n'
                   '    <td><a href="../team/%s.html">%s</a></td>\n'
-                  % (team.code, team.code, team.language))
+                  '    <td>%s</td>\n'
+                  % (team.code, team.language, team.code))
             if team.mailto:
                 write('    <td><a href="mailto:%s">%s</a></td>\n'
                       % (team.mailto[0], team.mailto[0]))

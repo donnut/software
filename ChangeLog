@@ -4,6 +4,9 @@
 	* lib/localweb.py: Use magenta also on domain pages to indicate a
 	conflict: translation marked as external but PO file is present.
 
+	* lib/localweb.py: Put language name before language code on domain
+	pages and on team index, as that is the field the table is sorted on.
+
 2007-07-23  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Rename 'GNUnet' to 'gnunet', to be
