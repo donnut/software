@@ -147,12 +147,17 @@ class DomainPage(htmlpage.Htmlpage):
                     numbers = "%s / %s" % (trans, total)
                 else:
                     numbers = "unknown"
+                if os.path.isfile('%s/%s/%s.po'
+                                  % (config.last_path, domain.name, team.name)):
+                    color = "#f8d0f8"  # Magenta: external but file is present.
+                else:
+                    color = "#e8e8e8"  # Grey: plain external.
                 write('<tr align=center><td>%s</td>'
                       '<td><a href="../team/%s.html">%s</a></td>'
                       '<td>--</td>'
                       '<td><i>external</i></td>'
-                      '<td bgcolor="#e8e8e8">%s</td></tr>\n'
-                      % (team.code, team.code, team.language, numbers))
+                      '<td bgcolor="%s">%s</td></tr>\n'
+                      % (team.code, team.code, team.language, color, numbers))
             else:    
                 build_language_cell(postats, write, team, domain)
         write('  </table>\n')

@@ -1,4 +1,9 @@
 
+2007-07-24  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/localweb.py: Use magenta also on domain pages to indicate a
+	conflict: translation marked as external but PO file is present.
+
 2007-07-23  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Rename 'GNUnet' to 'gnunet', to be
