@@ -1151,9 +1151,9 @@ automatically, here.  This message continues after the (maybe long) quote.
                                   % ''.join(lines))
 
     def congratulate(self):
-        run.subject = run.subject + " [ACCEPTED]"
-        run.submitter.write(_("""
-Your file has been accepted and stored in the archives: congratulations!
+        run.subject = 'TP: %s [ACCEPTED]' % run.shorten(run.subject)
+        run.submitter.write(_("""\
+Your file has been accepted and stored in the archives.  Thank you!
 
 When the maintainer of '%s' submits a new POT file to the Translation
 Project, the translation you just made will probably need revision.  Your

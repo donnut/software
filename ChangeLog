@@ -7,6 +7,9 @@
 	* lib/localweb.py: Put language name before language code on domain
 	pages and on team index, as that is the field the table is sorted on.
 
+	* lib/run.py, bin/tp-robot: Remove "TP-robot" from the subject line
+	of the reply email to the translator; remove unused orig_subject.
+
 2007-07-23  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Rename 'GNUnet' to 'gnunet', to be

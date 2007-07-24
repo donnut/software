@@ -4,7 +4,7 @@
 # Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 
-import os, sys, tempfile, types
+import os, sys, re, tempfile, types
 import messages
 
 def _(text):
@@ -17,7 +17,6 @@ dry = 0                                 # don't send mail, don't modify things
 rejected = 0                            # a serious error was diagnosed
 
 subject = _('Report from TP-Robot')     # best known subject for messages
-orig_subject = None
 translator_name = None                  # translator name when known
 translator_address = None               # translator address when known
 header_lines = []                       # header of submission message
@@ -103,24 +102,23 @@ class Reporter:
 class Coordinator(Reporter):
 
     def reply_header(self, force=0):
-        global subject, orig_subject
+        global subject
         try:
             if hints.team:
                 if hints.team.leader:
                     mailto = hints.team.leader.mailto[0]
+                    subject = shorten(subject)
                 else:
                     mailto = '<report@translationproject.org>'
-                    orig_subject = subject
-                    subject = 'team %s without leader' % hints.team.name
+                    subject = 'Team %s is without leader' % hints.team.name
             else:
                 mailto = '<report@translationproject.org>'
-                orig_subject = subject
                 subject = 'No team determined'
         except (KeyError, TypeError, AttributeError),e:
             if not force:
                 return None
             mailto = '<report@translationproject.org>'
-            subject = 'reply_header: %s' % e.__class__.__name__
+            subject = 'reply_header(): %s' % e.__class__.__name__
         return _("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
@@ -227,7 +225,7 @@ def reject_nofill(text, reason = ""):
     global rejected, subject
 
     if not rejected:
-        subject = subject + " [REJECTED] " + reason
+        subject = 'TP: %s [REJECTED]: %s' % (shorten(subject), reason[1:-1])
     rejected = 1
     if not dry:
         coordinator.write_nofill(text)
@@ -237,11 +235,18 @@ def reject(text, reason = ""):
     global rejected, subject
 
     if not rejected:
-        subject = subject + " [REJECTED] " + reason
+        subject = 'TP: %s [REJECTED]: %s' % (shorten(subject), reason[1:-1])
     rejected = 1
     if not dry:
         coordinator.write(text)
     submitter.write(text)
+
+def shorten(subject):
+    match = re.match('( *)([Tt][Pp][-_ ][Rr]obot)( *)(.*)', subject)
+    if match:
+        return match.group(4)
+    else:
+        return subject
 
 def refill(text):
     work = tempfile.mktemp()
