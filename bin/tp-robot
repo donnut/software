@@ -507,7 +507,7 @@ preferred spelling.
                 abort_robot()
             if first_address not in translator.mailto:
                 if first_address not in globals.reported_unknown:
-                    run.submitter.write(_("""
+                    run.submitter.write(_("""\
 The initial translator of this PO file is %s.  But according to my notes,
 <%s> is not a good address to reach that translator.  %s %s
 """)
@@ -519,7 +519,7 @@ The initial translator of this PO file is %s.  But according to my notes,
                     globals.unknown_address_insert = ''
                 return
             if first_translator != run.translator_name:
-                run.submitter.write(_("""
+                run.submitter.write(_("""\
 The last translator of this PO file is not the same as the initial
 translator.  This is something quite normal, but if you know that
 translators did not change, some more checking is needed.
@@ -533,7 +533,7 @@ acknowledgement is the only tribute paid for the work of that translator.
                                              % (first_translator,
                                                 run.translator_name))
             elif first_address != run.translator_address:
-                run.submitter.write(_("""
+                run.submitter.write(_("""\
 Your submission contains contradicting addresses for you.  The third
 line of the PO file says <%s>, while the 'Last-Translator' field of the
 PO file header says <%s>.  Please arrange to have a single preferred
@@ -543,7 +543,7 @@ translation files.
                                              % (first_address,
                                                 run.translator_address))
         else:
-            run.reject(_("""
+            run.reject(_("""\
 The first author comment line is either missing or not formatted correctly.
 This should be the third line of the whole PO file, looking like:
 
@@ -1036,7 +1036,7 @@ to the translation coordinator warranting that you are indeed assigned.
 
     def have_pot(self):
         if not os.path.isfile(run.hints.template_path()):
-            run.reject(_("""
+            run.reject(_("""\
 You submitted a PO file for which the Translation Project does not have a
 corresponding template: there is no '%s' here.
 Please have the maintainer of the package send the corresponding POT file
@@ -1128,20 +1128,12 @@ to be fixed here.  I'll go warn the translation coordinator.
             if len(lines) > 50:
                 lines = lines[:50] + ["[truncated]\n"]
             run.submitter.write(_("""\
-We are trying to reach a consistent presentation for PO files in the
-Translation Project, over all textual domains and native languages.
-As a robot, I contribute my good share towards this goal, and thus I made
-the following modifications to your submission.  You may feel like doing
-the same on your side; if you decide to do so, let me suggest that you
-try the nice 'patch' utility.
-
-The 'msgmerge' program which is used for making distributions does not
-produce canonical files, and until this gets corrected, you should rather
-grab your PO files directly from the Translation Project, as these are now
-always made canonical.  If you do not, the following set of 'unidiffs'
-might get irritably longish.  Please also note that you do not _need_
-to make such modifications, as I will continue doing them patiently and
-automatically, here.  This message continues after the (maybe long) quote.
+The Translation Project is trying to reach a consistent presentation for
+PO files, over all domains and languages.  Your submission was not fully
+canonical, so the robot has made the following modifications to your PO
+file.  You can use 'patch' to apply these changes to your local file,
+but you do not need to: the robot will continue making them patiently and
+automatically here.  This message continues after the (maybe long) diff.
 """))
             # Possibly non-ASCII byte strings, don't try to translate.
             run.submitter.write_nofill("""\
