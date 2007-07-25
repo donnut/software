@@ -1,4 +1,8 @@
 
+2007-07-25  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/tp-robot: Show comments from 'msgfmt' only once.
+
 2007-07-24  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Use magenta also on domain pages to indicate a

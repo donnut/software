@@ -81,12 +81,12 @@ Your PO file seems to have no entries at all, like if it were empty.
         check_registry.translator()
         have_pot = check_registry.have_pot()
         archive_base = run.hints.archive_base()
-        # First run msgfmt on the original submission.
-        check_po_file.contents(part.work, archive_base)
+        # Run 'msgfmt -c' on the original submission.
+        check_po_file.contents(part.work, archive_base, "first")
         if have_pot:
-            # Can't merge without template.
             process.make_canonical(part.work, archive_base, entries, header)
-            check_po_file.contents(part.work, archive_base)
+            # Then check that the merged file is okay too.
+            check_po_file.contents(part.work, archive_base, "second")
         check_po_file.special_instructions(part.work)
         # The submission is acceptable, unless it is a duplicate.
         check_registry.preexisting(part.work)
@@ -918,10 +918,10 @@ where ENCODING should be the name of an encoding, like one of %s.
                 continue
             if line[:len(work)] == work:
                 line = virtual + line[len(work):]
-            comment.append('>    %s' % line)
+            comment.append('> %s' % line)
         return comment
 
-    def contents(self, work, virtual):
+    def contents(self, work, virtual, cycle):
         try:
             cmd = 'msgfmt --statistics -c -v -o /dev/null %s'
             proc = popen2.Popen3(cmd % work, 1)
@@ -942,7 +942,7 @@ It reported these errors:
 %s""")
                               % ('').join(comment), "[msgfmt errors]")
             abort_robot()
-        if comment:
+        if comment and (cycle == "first"):
             run.submitter.write_nofill(_("""\
 Merely for your information, let me share with you what the
 'msgfmt' program has to say about your PO file:
