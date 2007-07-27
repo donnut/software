@@ -1,4 +1,9 @@
 
+2007-07-27  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/localweb.py: Put columns in the translators table in order of
+	relevance: Assignments first, Personal website last.
+
 2007-07-25  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Show comments from 'msgfmt' only once.

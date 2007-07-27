@@ -320,10 +320,10 @@ class TeamPage(htmlpage.Htmlpage):
               '  <table align=center border=2>\n'
               '   <tr align=center>\n'
               '    <th>Translator</th>\n'
-              '    <th>Website</th>\n'
+              '    <th>Assignments</th>\n'
               '    <th>Disclaimed</th>\n'
               '    <th>Autosend</th>\n'
-              '    <th>Assignments</th>\n'
+              '    <th>Personal website</th>\n'
               '   </tr>\n'
               % team.language)
         names = team.translator.keys()
@@ -346,9 +346,8 @@ class TeamPage(htmlpage.Htmlpage):
             write('   <tr align=center>\n'
                   '    <td align=left>%s</td>\n'
                   % translator_best_href(translator))
-            if translator.url:
-                write('    <td><a href="%s">yes</a></td>\n'
-                      % translator.url[0])
+            if domain_count:
+                write('    <td>%d</td>\n' % domain_count)
             else:
                 write('    <td></td>\n')
             if translator.disclaimer:
@@ -361,8 +360,9 @@ class TeamPage(htmlpage.Htmlpage):
                 write('    <td>plain</td>\n')
             else:
                 write('    <td>-</td>\n')
-            if domain_count:
-                write('    <td>%d</td>\n' % domain_count)
+            if translator.url:
+                write('    <td><a href="%s">yes</a></td>\n'
+                      % translator.url[0])
             else:
                 write('    <td></td>\n')
             write('   </tr>\n')
