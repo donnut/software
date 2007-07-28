@@ -377,7 +377,7 @@ Validating the PO file.
             self.language_team(header)
         self.title(header)
         self.copyright(header)
-        self.first_author(header)
+        self.last_author(header)
         self.project_id_version(header)
         self.both_dates(header)
         self.mime_fields(header)
@@ -476,8 +476,8 @@ not accepted.
 """)
                        % comment, "[copyright incorrectly formatted]")
 
-    def first_author(self, header):
-        match = re.search('(.+?)( +)<(.+)>, .*(199[4-9]|200[0-7])',
+    def last_author(self, header):
+        match = re.search('.*; (.+?)( +)<([^ ]+)>, .*(199[4-9]|200[0-7])$',
                           header['AUTHORS'])
         if not match:
             run.reject(_("""\
@@ -497,41 +497,38 @@ the very first 'msgid' (the empty one).
 """))
             return
         decfunc = po.decfunc(header)
-        first_translator, first_address = match.group(1, 3)
-        first_translator = decfunc(first_translator)[0]
+        last_person, last_address = match.group(1, 3)
+        last_person = decfunc(last_person)[0]
         if len(match.group(2)) != 1:
             run.submitter.write(_("""\
 There is a slight formatting error.  In the initial comment lines,
 please use no more than a single space between '%s' and '<%s>'.
 """)
-                                % (first_translator, first_address))
+                                % (last_person, last_address))
         try:
             translator = registry.translator(run.hints.team,
-                                             first_translator, first_address)
+                                             last_person, last_address)
         except KeyError:
             return
-        if first_translator != run.translator_name:
+        if last_person != run.translator_name:
             run.submitter.write(_("""\
-The last translator of this PO file is not the same as the initial
-translator.  This is something quite normal, but if you know that
-translators did not change, some more checking is needed.
-The third line of whole PO file says '%s', while the 'Last-Translator'
-field of the PO file header says '%s'.  If these two names are
-misspellings of one another, you should correct whichever is needed and
-resubmit the corrected PO file.  On the other hand, I ask you to be fair,
-and _never_ remove the initial translator of a given PO file, as this
-acknowledgement is the only tribute paid for the work of that translator.
+The last name in the introductory author lines differs from the name
+in the PO file header.  The first says '%s', while the 'Last-Translator'
+field says '%s'.  If these two names are merely spelling alternatives,
+please make them equal and resubmit your PO file.  If there is no
+misspelling, then maybe the author lines are in the wrong order.  The
+expected order is chronological, the earliest translator first, and
+yourself last.
 """)
-                                % (first_translator, run.translator_name))
-        elif first_address != run.translator_address:
+                                % (last_person, run.translator_name))
+        elif last_address != run.translator_address:
             run.submitter.write(_("""\
-Your submission contains contradicting addresses for you.  The third
-line of the PO file says <%s>, while the 'Last-Translator' field of the
-PO file header says <%s>.  Please arrange to have a single preferred
-address to reach you, and try to use it consistently in all your
-translation files.
+Your submission contains contradicting addresses for you.  The last of the
+introductory author lines says <%s>, while the 'Last-Translator' field of
+the PO file header says <%s>.  Please arrange to have a single preferred
+address to reach you, and use it consistently in all your translation files.
 """)
-                                % (first_address, run.translator_address))
+                                % (last_address, run.translator_address))
 
     def project_id_version(self, header):
         match = re.search('(Free |GNU )?(?P<dom>%s)(?P<sep>[- ])(?P<ver>%s)' %

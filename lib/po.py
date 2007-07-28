@@ -453,7 +453,7 @@ def header(entries):
             match = cre.match(authorline_regex, lines[0])
             if not match:
                 break
-            header['AUTHORS'] += (match.group(1) + '; ')
+            header['AUTHORS'] += ('; ' + match.group(1))
             del lines[0]
 
         # Any further lines are comments.
