@@ -1,5 +1,5 @@
 Today:
-* look through registry.sgml for things to fix
+* ask teams using special charset if UTF-8 is okay now
 
 Soon:
 * run 'po-tidy-links -n' to inspect the state of latest/ symlinks again

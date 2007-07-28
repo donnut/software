@@ -4,6 +4,8 @@
 	* lib/po.py, bin/tp-robot: Do not take just the first author line,
 	but all of them, in preparation for some better diagnostics.
 
+	* bin/tp-robot: Do not bother later translators with changed email
+	addresses of earlier translators.  Reorder the checks.
 2007-07-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Put columns in the translators table in order of
