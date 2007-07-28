@@ -10,6 +10,10 @@
 	* bin/tp-robot: Do not compare the last translator with the first
 	author but with the last author.
 
+	* bin/tp-robot: Check that the last year in the last author line is
+	the current year.  This allows relaxing of the year-matching regex
+	to include some future years.
+
 2007-07-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Put columns in the translators table in order of

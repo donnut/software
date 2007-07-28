@@ -13,7 +13,7 @@ Usage: tp-robot [-n] <MESSAGE
 """
 
 import os, sys, shutil, types, popen2
-import re, string, quopri
+import re, string, quopri, datetime
 
 sys.path.insert(0, sys.path[0]+'/../lib')
 import config, po, registry, run, messages
@@ -477,7 +477,7 @@ not accepted.
                        % comment, "[copyright incorrectly formatted]")
 
     def last_author(self, header):
-        match = re.search('.*; (.+?)( +)<([^ ]+)>, .*(199[4-9]|200[0-7])$',
+        match = re.search('.*; (.+?)( +)<([^ ]+)>, .*(199[4-9]|20[0-1][0-9])$',
                           header['AUTHORS'])
         if not match:
             run.reject(_("""\
@@ -497,7 +497,7 @@ the very first 'msgid' (the empty one).
 """))
             return
         decfunc = po.decfunc(header)
-        last_person, last_address = match.group(1, 3)
+        last_person, last_address, last_year = match.group(1, 3, 4)
         last_person = decfunc(last_person)[0]
         if len(match.group(2)) != 1:
             run.submitter.write(_("""\
@@ -518,7 +518,7 @@ field says '%s'.  If these two names are only spelling alternatives,
 please make them equal and resubmit your PO file.  If there is no
 misspelling, then maybe the author lines are in the wrong order.  The
 expected order is chronological: the earliest translator first, and
-your own name last.
+your own author line last.
 """)
                                 % (last_person, run.translator_name))
         elif last_address != run.translator_address:
@@ -529,6 +529,13 @@ the PO file header says <%s>.  Please arrange to have a single preferred
 address to reach you, and use it consistently in all your translation files.
 """)
                                 % (last_address, run.translator_address))
+        elif last_year != datetime.date.today().strftime('%Y'):
+            run.submitter.write(_("""\
+The final year (%s) given in the last author line (which should be yours)
+is not the current year.  Please correct either the year or the order of
+the author lines: the earliest author first, the latest last.
+""")
+                                % last_year)
 
     def project_id_version(self, header):
         match = re.search('(Free |GNU )?(?P<dom>%s)(?P<sep>[- ])(?P<ver>%s)' %
