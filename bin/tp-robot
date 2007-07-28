@@ -497,20 +497,20 @@ the very first 'msgid' (the empty one).
 """))
             return
         decfunc = po.decfunc(header)
-        last_person, last_address, last_year = match.group(1, 3, 4)
-        last_person = decfunc(last_person)[0]
+        last_name, last_address, last_year = match.group(1, 3, 4)
+        last_name = decfunc(last_name)[0]
         if len(match.group(2)) != 1:
             run.submitter.write(_("""\
 There is a slight formatting error.  In the initial comment lines,
 please use no more than a single space between '%s' and '<%s>'.
 """)
-                                % (last_person, last_address))
+                                % (last_name, last_address))
         try:
             translator = registry.translator(run.hints.team,
-                                             last_person, last_address)
+                                             last_name, last_address)
         except KeyError:
             return
-        if last_person != run.translator_name:
+        if last_name != run.translator_name:
             run.submitter.write(_("""\
 The last name in the author lines differs from the name in the PO file
 header.  The last of the author lines says '%s', while the 'Last-Translator'
@@ -520,7 +520,7 @@ misspelling, then maybe the author lines are in the wrong order.  The
 expected order is chronological: the earliest translator first, and
 your own author line last.
 """)
-                                % (last_person, run.translator_name))
+                                % (last_name, run.translator_name))
         elif last_address != run.translator_address:
             run.submitter.write(_("""\
 Your submission contains contradicting addresses for you.  The last of the
