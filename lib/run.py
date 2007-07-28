@@ -203,10 +203,11 @@ and was awakened by one of your submissions.
                 self.encoding = hints.team.charset
         if rejected:
             self.prepare(force=1)
-            self.write(_("""
-Some error reported above prevents me from accepting your PO file.  Sorry! 
-But do not hesitate to resubmit your PO file, once you think the problem
-has been fixed.  As a robot I am incredibly patient at these things!
+            self.write(_("""\
+Some error reported above (marked with "***>") prevents me from
+accepting your PO file.  Sorry!  But do not hesitate to resubmit your
+PO file, once you think the problem has been fixed.  As a robot I am
+incredibly patient at these things!
 """))
 
         self.write_nofill(_("""\
@@ -229,7 +230,7 @@ def reject_nofill(text, reason = ""):
     rejected = 1
     if not dry:
         coordinator.write_nofill(text)
-    submitter.write_nofill(text)
+    submitter.write_nofill('***> %s' % text)
 
 def reject(text, reason = ""):
     global rejected, subject
@@ -239,7 +240,7 @@ def reject(text, reason = ""):
     rejected = 1
     if not dry:
         coordinator.write(text)
-    submitter.write(text)
+    submitter.write('***> %s' % text)
 
 def shorten(subject):
     match = re.match('( *)([Tt][Pp][-_ ][Rr]obot)( *)(.*)', subject)

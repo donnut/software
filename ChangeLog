@@ -14,6 +14,8 @@
 	the current year.  This allows relaxing of the year-matching regex
 	to include some future years.
 
+	* lib/run.py: Mark rejection reason more clearly.
+
 2007-07-27  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Put columns in the translators table in order of
