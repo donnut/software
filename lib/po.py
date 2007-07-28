@@ -7,14 +7,16 @@
 import re, string, sys, types
 cre = re
 
+authorline_regex = '# (.+ <.+>, .*(199[4-9]|200[0-7]))'
+
 def _(text):
     return text
 
 _default_header = { 'TITLE': _('SOME DESCRIPTIVE SENTENCE.'),
                     'COPYRIGHT'
                     : 'Copyright (C) YEAR Free Software Foundation, Inc.',
-                    'FIRST-AUTHOR'
-                    : _('FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.'),
+                    'AUTHORS'
+                    : _('AUTHOR <EMAIL@ADDRESS>, YEAR.'),
                     'COMMENTS': '',
                     'FLAGS': '',
                     'project-id-version': _('PACKAGE VERSION'),
@@ -379,7 +381,7 @@ def header(entries):
 
     header = { 'TITLE': [],
                'COPYRIGHT': '',
-               'FIRST-AUTHOR': '',
+               'AUTHORS': '',
                'COMMENTS': '',
                'FLAGS': '',
                'project-id-version': '',
@@ -410,10 +412,10 @@ def header(entries):
             header['TITLE'] = lines[0]
             del lines[0]
 
+        # Add any other lines before copyright or authors to the title too.
         while has_copyright and len(lines) > 0:
             if (cre.match('# .*opyright', lines[0])
-                or cre.match('# (.*) <(.*)>, .*(199[4-9]|200[0-7])',
-                             lines[0])):
+                or cre.match(authorline_regex, lines[0])):
                 break
             match = cre.match('# +(.*)', lines[0])
             if match:
@@ -439,17 +441,22 @@ def header(entries):
                     else:
                         break
 
-        # Add any lines between the copyright and the first author to
-        # the copyright.
-        for lineno in range(len(lines)):
-            match = cre.match('# (.+ <.+>, .*(199[4-9]|200[0-7]|YEAR).*)',
-                              lines[lineno])
-            if match:
-                add_copyright(header, lines[:lineno])
-                header['FIRST-AUTHOR'] = match.group(1)
-                del lines[:lineno+1]
+        # Add the lines before the author lines to the copyright.
+        while len(lines) > 0:
+            if cre.match(authorline_regex, lines[0]):
                 break
+            add_copyright(header, lines[0])
+            del lines[0]
 
+        # Gather the lines that look like author lines.
+        while len(lines) > 0:
+            match = cre.match(authorline_regex, lines[0])
+            if not match:
+                break
+            header['AUTHORS'] += (match.group(1) + '; ')
+            del lines[0]
+
+        # Any further lines are comments.
         if len(lines) > 0:
             header['COMMENTS'] = string.joinfields(lines, '\n') + '\n'
 
@@ -520,7 +527,7 @@ def set_header(entries, header):
 
     entry['comment'] = (title
                         + copyright
-                        + '# %s\n' % header['FIRST-AUTHOR']
+                        + '# %s\n' % header['AUTHORS']
                         + header['COMMENTS']
                         + '#\n')
 

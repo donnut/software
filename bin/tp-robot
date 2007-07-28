@@ -478,7 +478,7 @@ not accepted.
 
     def first_author(self, header):
         match = re.search('(.+?)( +)<(.+)>, .*(199[4-9]|200[0-7])',
-                          header['FIRST-AUTHOR'])
+                          header['AUTHORS'])
         if match:
             decfunc = po.decfunc(header)
             first_translator, first_address = match.group(1, 3)
@@ -544,25 +544,19 @@ translation files.
                                                 run.translator_address))
         else:
             run.reject(_("""\
-The first author comment line is either missing or not formatted correctly.
-This should be the third line of the whole PO file, looking like:
+There is no author comment line in your PO file, or it is not formatted
+correctly.  Author lines should come after the copyright lines, and look
+like this:
 
-    # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+    # AUTHOR <EMAIL@ADDRESS>, YEAR.
 
-In this line, FIRST AUTHOR has to be replaced by the full name of the
-original translator of the messages for the '%s' textual domain,
-EMAIL@ADDRESS gives a way to reach that translator, and YEAR is a four
-digits year telling when the original translation occurred.
-""")
-                       % run.hints.domain,
-                       "[first author incorrectly formatted]")
+There may be several of these lines, normally in chronological order.
+"""), "[missing or ill-formatted author line]")
             run.submitter.write(_("""\
-If you want to add some details on the history of this PO file, or any
-other comment you think useful, you may do so by adding other comment
-lines after the first three, even using your own language if you feel
-like it.  But remember that there should always be a space after the
-initial '#' of each comment line, and there should not be a blank line
-before the 'msgid' line of the PO file header.
+If you want to add some general comments to the PO file, you can put them
+after the title, copyright, and author lines.  There should be a space
+after the '#' that starts each comment line, and no blank line before
+the first 'msgid'.
 """))
 
     def project_id_version(self, header):
