@@ -28,8 +28,6 @@ def walker((translators), dirname, filenames):
             print "        %s" % field
 
     for filename in filenames:
-        ##header = po.header(po.read('%s/%s' % (dirname, filename)))
-        header = po.header(po.read('%s/%s' % (dirname, filename)))
         header = po.header(po.read('%s/%s' % (dirname, filename)))
         authors = header['AUTHORS'].split("; ")[1:]
         last_translator = header['last-translator']
@@ -86,6 +84,7 @@ def main(*arguments):
     for name, year in translators.iteritems():
         thelist.append([year, name])
     thelist.sort()
+    print
     for translator in thelist:
         print translator[0], translator[1], "-", arguments[0]
 
