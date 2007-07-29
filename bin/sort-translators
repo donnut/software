@@ -1,0 +1,93 @@
+#!/usr/bin/env python
+# -*- mode: python; coding: utf-8 -*-
+# Copyright © 2007 Translation Project.
+# Benno Schulenberg <benno@vertaalt.nl>, 2007.
+
+"""\
+Extract translator names from PO files and sort them by date.
+
+Usage:  sort-translators [-v] DIR
+
+  -v  report formatting mistakes
+"""
+
+import os, sys, getopt, re
+
+sys.path.insert(0, sys.path[0]+'/../lib')
+import config, data, po, registry
+
+bydate = 1
+verbose = 0
+
+def walker((translators), dirname, filenames):
+
+    def report(text, field):
+        global verbose
+        if verbose:
+            print "*** %s in %s" % (text, filename)
+            print "        %s" % field
+
+    for filename in filenames:
+        ##header = po.header(po.read('%s/%s' % (dirname, filename)))
+        header = po.header(po.read('%s/%s' % (dirname, filename)))
+        header = po.header(po.read('%s/%s' % (dirname, filename)))
+        authors = header['AUTHORS'].split("; ")[1:]
+        last_translator = header['last-translator']
+        revision_date = header['po-revision-date']
+        match = re.match('(.*[^ ]) <(.*)>', last_translator)
+        if not match:
+            report("Last-Translator field", last_translator)
+            continue
+        last_name = match.group(1)
+        match = re.match('.*(199[4-9]|20[0-1][0-9])', revision_date)       
+        if not match:
+            report("Revision-Date field", revision_date)
+            continue
+        last_year = match.group(1)
+        for author in authors:
+            match = re.match(' *(.*[^ ]) <(.*)>', author)
+            if not match:
+                report("Author name", author)
+                continue
+            name = match.group(1)
+            match = re.match('.*(199[4-9]|20[0-1][0-9])$', author)
+            if not match:
+                report("Author year", author)
+                continue
+            year = match.group(1)
+            if (not name in translators) or (translators[name] < year):
+                translators[name] = year
+            if name == last_name and year != last_year and verbose:
+                print ("*** Mismatch: author %s, revision %s in %s"
+                       % (year, last_year, filename))
+            if ((not last_name in translators) or
+                (translators[last_name] < last_year)):
+                translators[last_name] = last_year
+
+
+def main(*arguments):
+    global bydate, verbose
+    options, arguments = getopt.getopt(arguments, 'dnv')
+    if not arguments or len(arguments) > 1 or not os.path.isdir(arguments[0]):
+        sys.stdout.write(__doc__)
+        sys.exit(2)
+    for option, value in options:
+        if option == '-d':
+            bydate = 1
+        elif option == '-n':
+            bydate = 0
+        elif option == '-v':
+           verbose += 1
+    translators = {}  
+    if verbose:
+        print "Walking through '%s'..." % arguments[0]
+    os.path.walk(arguments[0], walker, (translators))
+    thelist = []
+    for name, year in translators.iteritems():
+        thelist.append([year, name])
+    thelist.sort()
+    for translator in thelist:
+        print translator[0], translator[1], arguments[0]
+
+if __name__ == '__main__':
+    apply(main, tuple(sys.argv[1:]))
