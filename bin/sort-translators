@@ -87,7 +87,7 @@ def main(*arguments):
         thelist.append([year, name])
     thelist.sort()
     for translator in thelist:
-        print translator[0], translator[1], arguments[0]
+        print translator[0], translator[1], "-", arguments[0]
 
 if __name__ == '__main__':
     apply(main, tuple(sys.argv[1:]))
