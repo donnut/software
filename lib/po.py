@@ -7,7 +7,7 @@
 import re, string, sys, types
 cre = re
 
-authorline_regex = '# (.+ <.+>, .*(199[4-9]|20[0-1][0-9]))'
+authorline_regex = '# (.+ <.+>.*(199[4-9]|20[0-1][0-9]))'
 
 def _(text):
     return text
