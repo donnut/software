@@ -477,9 +477,11 @@ not accepted.
                        % comment, "[copyright incorrectly formatted]")
 
     def last_author(self, header):
-        match = re.search('.*; (.+?)( +)<([^ ]+)>, .*(199[4-9]|20[0-1][0-9])$',
+        match1 = re.search('.*; *(.*[^ ]) *<(.*)>.*(199[4-9]|20[0-4][0-9])$',
                           header['AUTHORS'])
-        if not match:
+        match2 = re.search('.*; ([^ ].+[^ ]) <([^ ]+)>, .*(20[0-4][0-9])$',
+                          header['AUTHORS'])
+        if not match1:
             run.reject(_("""\
 There is no author comment line in your PO file, or it is not formatted
 correctly.  Author lines should come after the copyright lines, and look
@@ -496,15 +498,15 @@ after the '#' that starts each comment line, and no blank line before
 the very first 'msgid' (the empty one).
 """))
             return
-        decfunc = po.decfunc(header)
-        last_name, last_address, last_year = match.group(1, 3, 4)
-        last_name = decfunc(last_name)[0]
-        if len(match.group(2)) != 1:
+        if ((match1 and not match2) or
+            (match1.group(1, 2, 3) != match2.group(1, 2, 3))):
             run.submitter.write(_("""\
-There is a slight formatting error.  In the initial comment lines,
-please use no more than a single space between '%s' and '<%s>'.
-""")
-                                % (last_name, last_address))
+There is a slight formatting error in one of the author lines:
+superfluous spaces, no name, a lacking comma, or a bad year.
+"""))
+        decfunc = po.decfunc(header)
+        last_name, last_address, last_year = match1.group(1, 2, 3)
+        last_name = decfunc(last_name)[0]
         try:
             translator = registry.translator(run.hints.team,
                                              last_name, last_address)

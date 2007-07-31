@@ -1,4 +1,9 @@
 
+2007-07-31  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/po.py, bin/tp-robot: Relax the regex for author lines still
+	further, but let a failing second tighter check issue a warning.
+
 2007-07-28  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/po.py, bin/tp-robot: Do not take just the first author line,
