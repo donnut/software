@@ -1,4 +1,9 @@
 
+2007-08-01  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* webgen/Makefile, webgen/whydisclaim.html: Install a copy of the
+	AUTHORS file on the website, and link to it properly.
+
 2007-07-31  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/po.py, bin/tp-robot: Relax the regex for author lines still

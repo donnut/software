@@ -15,7 +15,7 @@ HTMH_FILES = welcome.html thanks.html whydisclaim.html
 LAYOUT_DEPS = ../lib/config.py ../lib/htmlpage.py layout.html.in to-html.py
 
 
-all: alloutfiles htmlfiles $(sitedir)/disclaim.txt
+all: alloutfiles htmlfiles $(sitedir)/disclaim.txt $(sitedir)/AUTHORS
 
 $(htmldir):
 	mkdir -p $@
@@ -32,7 +32,10 @@ $(htmldir)/%.html: %.html $(LAYOUT_DEPS)
 	./to-html.py -C $(htmldir) $<
 
 $(sitedir)/disclaim.txt: disclaim.txt
-	cp disclaim.txt $(sitedir)/disclaim.txt
+	cp -p disclaim.txt $(sitedir)/disclaim.txt
+
+$(sitedir)/AUTHORS: ../registry/AUTHORS
+	cp -p ../registry/AUTHORS $(sitedir)/AUTHORS
 
 domains:
 	../bin/generate-static-pages -d
