@@ -282,36 +282,6 @@ is <robot@translationproject.org>.
 
     def mail_body(self, where):
         run.body_lines = open(where).readlines()
-        #match = re.match('begin(-base64)? %s (.+?)(\.gz)?$' % uuperm,
-        #                 run.body_lines[counter])
-        #if match:
-        #    base64, temp_name, temp_gzipped = match.group(1, 2, 3)
-        #    match = re.search(r'(%s)-(%s)\.(%s)(%s)?\.po$'
-        #                      % (registry.DOMAIN, registry.VERSION,
-        #                         registry.TEAM, registry.CHARSET), temp_name)
-        #    if match:
-        #        comment = []
-        #        if match.group(1) != run.hints.domain:
-        #            comment.append(
-        #                '>    the textual domain or package name.\n')
-        #        if match.group(2) != run.hints.version:
-        #            comment.append(
-        #                '>    the version numbers for the package.\n')
-        #        if match.group(3) != run.hints.team:
-        #            comment.append(
-        #                '>    the team two-letter language code.\n')
-        #        if match.group(4) != run.hints.charset:
-        #            comment.append(
-        #                '>    the character set used for translations.\n')
-        #        if comment:
-        #            run.reject("""\
-        #There are inconsistencies between the file from the Subject line of
-        #your message, and the uuencoded file name `%s', regarding:
-        #
-        #%s
-        #
-        #"""
-        #                       % temp_name, string.join(comment, ''))
 
 extract = Extract()
 
