@@ -1,4 +1,9 @@
 
+2007-08-02  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/po-register: Remove sentence about submission, since the
+	translation could be made externally.
+
 2007-08-01  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/Makefile, webgen/whydisclaim.html: Install a copy of the

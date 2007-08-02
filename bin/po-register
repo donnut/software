@@ -490,27 +490,20 @@ integrated into the archives.  The file is available at:
             msg = _("""\
 %s AND %s are currently assigned for the translation.  (Please report this
 as an error, as only one translator should be assigned to a package.)
-
-Once the translation is complete, send the result to
-<robot@translationproject.org>, using the Subject line:
 """)\
                   % (uni(assignee[0].name[0]),
                      uni(assignee[1].name[0]))
         elif len(assignee) == 1:
             msg = _("""\
 %s is currently assigned for the translation.
-
-Once the translation is complete, send the result to
-<robot@translationproject.org>, using the Subject line:
 """)\
                     % uni(assignee[0].name[0])
         elif hints.team.code in hints.domain.ext:
-            import data
-            extstats = data.load_extstats().get((hints.domain.name,
-                                                 hints.team.code))
             msg = _("""\
 There is currently a translator working on this translation who is not
 part of the Translation Project.""")
+            extstats = data.load_extstats().get((hints.domain.name,
+                                                 hints.team.code))
             if extstats:
 		trans = extstats['translated']
 		total = trans + extstats['untranslated'] + extstats['fuzzy']
@@ -522,20 +515,13 @@ The most recent translation of this translator has %d of %d messages translated.
 Please consider translating this package to the %s language. 
 If you decide to do this, inform your team leader, who will then
 inform the translation coordinator that you were assigned to '%s'.
-
-Once the translation is complete, send the result to
-<robot@translationproject.org>, using the Subject line:
 """)\
                   % (_(hints.team.language), hints.domain.name)
         write(messages.refill(_("""\
 None of its messages has been translated yet.
 
 %s
-    TP-robot %s-%s.%s.po
-
-""")
-                              % (msg, hints.domain.name,
-                                 hints.version.name, hints.team.name)))
+""") % msg
     elif untranslated == 0:
         write(_("""\
 All of its %d messages have been translated, and this PO file has been
