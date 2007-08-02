@@ -2,7 +2,10 @@
 2007-08-02  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Remove sentence about submission, since the
-	translation could be made externally.
+	translation could be made externally.  Remove duplication of
+	assignee messages; check that the package is not both assigned
+	and externally translated; say that PO file is announced to the
+	maintainer only when this is actually the case.
 
 2007-08-01  Benno Schulenberg  <benno@vertaalt.nl>
 

@@ -453,10 +453,8 @@ def notify_team_for_po(hints, stats, fromnewpot = False):
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: New: %s-%s (%d%%, %d untranslated)
-""")
-                   % (hints.team.announce_address(),
-                      hints.domain.name, hints.version.name,
-                      percent, untranslated))
+""") % (hints.team.announce_address(), hints.domain.name, hints.version.name,
+        percent, untranslated))
     else:
         if len(assignee) > 0:
             translator = assignee[0].name[0]
@@ -466,10 +464,8 @@ Subject: New: %s-%s (%d%%, %d untranslated)
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: %s-%s (%d%%, %d untranslated) by %s
-""")
-                   % (hints.team.announce_address(),
-                      hints.domain.name, hints.version.name,
-                      percent, untranslated, translator))
+""") % (hints.team.announce_address(), hints.domain.name, hints.version.name,
+        percent, untranslated, translator))
     write(mime_header(charset))
     write('\n')
     if translated == 0:
@@ -484,94 +480,91 @@ integrated into the archives.  The file is available at:
 
     %s
 
-""")    % (_(hints.team.language), url))
+""") % (_(hints.team.language), url))
+    # Say how much has been translated.
     if translated == 0:
-        if len(assignee)>1:
-            msg = _("""\
-%s AND %s are currently assigned for the translation.  (Please report this
-as an error, as only one translator should be assigned to a package.)
-""")\
-                  % (uni(assignee[0].name[0]),
-                     uni(assignee[1].name[0]))
-        elif len(assignee) == 1:
-            msg = _("""\
-%s is currently assigned for the translation.
-""")\
-                    % uni(assignee[0].name[0])
-        elif hints.team.code in hints.domain.ext:
-            msg = _("""\
-There is currently a translator working on this translation who is not
-part of the Translation Project.""")
-            extstats = data.load_extstats().get((hints.domain.name,
-                                                 hints.team.code))
-            if extstats:
-		trans = extstats['translated']
-		total = trans + extstats['untranslated'] + extstats['fuzzy']
-                msg = msg + "  " + _("""\
-The most recent translation of this translator has %d of %d messages translated.
-""") % (trans, total)
-        else:
-            msg = _("""\
-Please consider translating this package to the %s language. 
-If you decide to do this, inform your team leader, who will then
-inform the translation coordinator that you were assigned to '%s'.
-""")\
-                  % (_(hints.team.language), hints.domain.name)
-        write(messages.refill(_("""\
+        write(_("""\
 None of its messages has been translated yet.
 
-%s
-""") % msg
+"""))
     elif untranslated == 0:
         write(_("""\
-All of its %d messages have been translated, and this PO file has been
-announced to the maintainer of '%s', hoping he or she will include
-it in a future release.
+All of its %d messages have been translated.
 
-""")
-              % (translated, hints.domain.name))
+""") % translated)
     else:
-        if len(assignee)>1:
-            msg = _("""\
-%s and %s are currently assigned for the translation.  (Please report this
-as an error, as only one translator should be assigned to a package.)""")\
-                  % (uni(assignee[0].name[0]),
-                     uni(assignee[1].name[0]))
-        elif len(assignee) == 1:
-            msg = _("""\
-%s is currently assigned for the translation.""")\
-                  % uni(assignee[0].name[0])
-        else:
-            msg = _("""\
-Nobody in your team is currently assigned to the domain '%s'.  The
-team leader (if any) should inform the translation coordinator of who
-will become responsible for it.""")\
-                  % (hints.domain.name)
         write(messages.refill(_("""\
 In this file %d messages are already translated, corresponding to %d%%
 of the original text size in bytes; %d messages still need some work.
 
+""") % (translated, percent, untranslated)))
+    # PO file is announced to maintainer only when it's for latest version.
+    current_pot = data.load_postats().potstats[hints.domain.name][0]
+    current_version = registry.hints(current_pot).version
+    if (not fromnewpot) and (current_version == hints.version):
+        write(messages.refill(_("""\
+This PO file has been announced to the maintainer of '%s', hoping
+he or she will include it in a future release.
+
+""") % hints.domain.name))
+    # Check and show who is assigned.
+    if (len(assignee) > 0) and (hints.team.code in hints.domain.ext):
+        write(messages.refill(_("""\
+This package is both assigned to a team member AND marked as externally
+translated.  Please report this error to the translation coordinator.
+
+""")))
+    elif len(assignee) > 1:
+        write(messages.refill(_("""\
+Both %s AND %s are currently assigned for the translation.  Please report
+this error to the translation coordinator.
+
+""") % (uni(assignee[0].name[0]), uni(assignee[1].name[0]))))
+    elif len(assignee) == 1:
+        if untranslated > 0:
+            write(messages.refill(_("""\
+%s is currently assigned for the translation.  Please translate the
+remaining messages for the benefit of the users of the %s language.  
+""") % (uni(assignee[0].name[0]), _(hints.team.language))))
+    elif hints.team.code in hints.domain.ext:
+        msg = _("""\
+There is currently a translator working on this translation who is not
+part of the Translation Project.""")
+        extstats = data.load_extstats().get((hints.domain.name,
+                                             hints.team.code))
+        if extstats:
+            trans = extstats['translated']
+            total = trans + extstats['untranslated'] + extstats['fuzzy']
+            msg = _("""\
+%s  The most recent translation of this translator has %d of %d
+messages translated.""") % (msg, trans, total)
+        write(messages.refill("""\
 %s
 
-Please translate the remaining messages for the benefit of the users of
-the %s language.  Once the translation is complete, send the result to
+""") % msg)
+    else:
+        write(messages.refill(_("""\
+Nobody in your team is currently assigned to the domain '%s'.
+Please consider translating this package to the %s language. 
+If you decide to do this, then inform your team leader, who will
+inform the translation coordinator that you were assigned to '%s'.
+
+""") % (_(hints.team.language), hints.domain.name)))
+    # Show where to send submission only if there's still work to be done.
+    if (untranslated > 0) and (hints.team.code not in hints.domain.ext):
+        write(messages.refill(_("""\
+Once the translation is complete, please send the result to
 <robot@translationproject.org>, using the Subject line:
 
     TP-robot %s-%s.%s.po
 
-""")
-                          % (translated, percent, untranslated,
-                             msg, _(hints.team.language),
-                             hints.domain.name, hints.version.name,
-                             hints.team.name)))
+""") % (hints.domain.name, hints.version.name, hints.team.name)))
     write(_("""\
 The following HTML pages have been updated:
 
     %s/domain/%s.html
     %s/team/%s.html
-""")
-               % (registry.puburl, hints.domain.name,
-                  registry.puburl, hints.team.name))
+""") % (registry.puburl, hints.domain.name, registry.puburl, hints.team.name))
     if hints.domain.url:
         write(_("""
 You can find a copy of the distribution at:
