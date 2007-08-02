@@ -525,6 +525,7 @@ this error to the translation coordinator.
             write(messages.refill(_("""\
 %s is currently assigned for the translation.  Please translate the
 remaining messages for the benefit of the users of the %s language.  
+
 """) % (uni(assignee[0].name[0]), _(hints.team.language))))
     elif hints.team.code in hints.domain.ext:
         msg = _("""\
