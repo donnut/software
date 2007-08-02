@@ -374,13 +374,10 @@ kept in English.
         if isinstance(text, types.ListType):
             # XXX ignore other copyrights
             text = text[0]
-
         utext = po.decfunc(header)(text)[0]
-
-        match = re.match(
-            ('Copyright (\\(C\\)|\xa9|\xc2\xa9).*'
-             r' (199[4-9]|200[0-7])(, ((19)?9[4-9]|(20)?0[0-7]))* (?P<author>.*)'),
-            text)
+        match = re.match('Copyright (\\(C\\)|\xa9|\xc2\xa9).* '
+                         '(199[4-9]|200[0-7])(, ((19)?9[4-9]|(20)?0[0-7]))* '
+                         '(?P<author>.*)', text)
         if match:
             # FIXME: Better validate year lists.
             author = 'Free Software Foundation, Inc.'
@@ -561,7 +558,8 @@ by the appropriate version numbers, maybe '%s' here.
         date = {}
         for field in 'POT-Creation-Date', 'PO-Revision-Date':
             value = header[string.lower(field)]
-            match = re.match('(199[4-9]|200[0-7])-[01][0-9]-[0-3][0-9] [0-2][0-9]:[0-5][0-9]( ?[-+][0-1][0-9](:?00)?)?',
+            match = re.match('(199[4-9]|200[0-7])-[01][0-9]-[0-3][0-9] '
+                             '[0-2][0-9]:[0-5][0-9]( ?[-+][0-1][0-9](:?00)?)?',
                              value)
             if match:
                 date[field] = value
@@ -620,13 +618,14 @@ You should update the PO revision date before submitting a PO file.
 There is a slight formatting error.  In the 'Last-Translator' header line,
 please use no more than a single space between '%s' and '<%s>'.
 """)
-                                             % (last_translator, last_address))
+                                    % (last_translator, last_address))
             if not run.translator_name:
                 run.translator_name = last_translator
             if not run.translator_address:
                 run.translator_address = last_address
             try:
-                translator = registry.translator(run.hints.team, last_translator, last_address)
+                translator = registry.translator(run.hints.team,
+                                                 last_translator, last_address)
             except KeyError:
                 run.reject(_("""\
 According to my notes, %s is not a member of the %s team.  If this is only
@@ -675,8 +674,7 @@ serious.  Some translation teams surely have their own ways and habits,
 but it is unusual that someone submits a translation file written by
 someone else.
 """)
-                                             % (run.translator_name,
-                                                last_translator))
+                                    % (run.translator_name, last_translator))
             elif (run.translator_address
                   and (string.lower(last_address)
                        != string.lower(run.translator_address))):
