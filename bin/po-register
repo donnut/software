@@ -545,16 +545,16 @@ messages translated.""") % (msg, trans, total)
 """) % msg)
     else:
         write(messages.refill(_("""\
-Nobody in your team is currently assigned to the domain '%s'.
-Please consider translating this package to the %s language. 
-If you decide to do this, then inform your team leader, who will
-inform the translation coordinator that you were assigned to '%s'.
+No one in your team is currently assigned to textual domain '%s'.
+If you decide to translate this package to the %s language,
+please inform your team leader, who will inform the
+translation coordinator that you were assigned to '%s'.
 
-""") % (_(hints.team.language), hints.domain.name)))
+""") % (hints.domain.name, _(hints.team.language), hints.domain.name)))
     # Show where to send submission only if there's still work to be done.
     if (untranslated > 0) and (hints.team.code not in hints.domain.ext):
         write(messages.refill(_("""\
-Once the translation is complete, please send the result to
+Once the translation is complete, send the result to
 <robot@translationproject.org>, using the Subject line:
 
     TP-robot %s-%s.%s.po
