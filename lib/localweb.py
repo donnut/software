@@ -326,9 +326,8 @@ class TeamPage(htmlpage.Htmlpage):
               '    <th>Personal website</th>\n'
               '   </tr>\n'
               % team.language)
-        names = team.translator.keys()
-        names.sort()
-        for name in names:
+        # Construct the table of translators.
+        for name in team.translators:
             translator = registry.translator(team, name)
             domain_count = 0
             if translator.name[0] in seen_translators:
@@ -336,13 +335,10 @@ class TeamPage(htmlpage.Htmlpage):
             seen_translators.append(translator.name[0])
             for domain in translator.do:
                 if assigned_domains.has_key(domain.name):
-                    sys.stderr.write(
-                        "  * Domain assigned more than once: %s.%s\n"
-                        % (domain.name, team.name))
+                    sys.stderr.write("  * Domain multiply assigned: %s.%s\n"
+                                     % (domain.name, team.name))
                 assigned_domains[domain.name] = translator
                 domain_count = domain_count + 1
-            # Displaying URLs in all cases allows to configure translators
-            # who don't like their email addresses displayed.
             write('   <tr align=center>\n'
                   '    <td align=left>%s</td>\n'
                   % translator_best_href(translator))
@@ -404,6 +400,7 @@ class TeamPage(htmlpage.Htmlpage):
               '    <th>Current package version</th>\n'
               '    <th>Translated</th>\n'
               '   </tr>\n')
+        # Construct the table of packages.
         for domain in registry.domain_list():
             write('   <tr align=center>\n'
                   '    <td align=left><a href="../domain/%s.html">%s</a></td>\n'

@@ -39,7 +39,8 @@ def encode_database():
             tag = item[0]
             if tag == 'ref':
                 info[tag].append((item[1], item[2][1]))
-            elif tag in ('keep', 'mailto', 'nomailto', 'remark', 'url', 'ext', 'note'):
+            elif tag in ('keep', 'mailto', 'nomailto', 'remark',
+                         'url', 'ext', 'note'):
                 info[tag].append(item[1])
             elif tag == 'autosend':
                 if len(item) == 3:
@@ -67,7 +68,7 @@ def encode_database():
                 'ref': [],
                 'remark': [],
                 'translator': {},
-                'translators': None, # sorted keys of translator
+                'translators': None,  # Sorted keys of translators.
                 'suppresspot': 0,
                 }
         for item in team[3:]:
@@ -120,7 +121,7 @@ def encode_database():
                             trans[tag] = 1
                     else:
                         trans[tag] = 1
-            elif tag == "suppresspot":
+            elif tag == 'suppresspot':
                 info[tag] = 1
             else:
                 info[tag] = item[1]
