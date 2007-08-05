@@ -677,8 +677,8 @@ someone else.
                   and (string.lower(last_address)
                        != string.lower(run.translator_address))):
                 run.submitter.write(_("""\
-Your message was sent from <%s>, but the 'Last-Translator' field in the
-PO file says that your email address is <%s>.  I assume that the latter
+Your message was sent from '%s', but the 'Last-Translator' field in the
+PO file says that your email address is '%s'.  I assume that the latter
 is correct -- I bring this to your attention just in case _you_ think it
 matters.
 """)
