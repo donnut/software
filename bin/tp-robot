@@ -241,11 +241,11 @@ Within the Translation Project, no team has the code '%s'.
                 run.translator_address = match.group(1)
                 run.translator_name = mime_decode_header(match.group(2))
                 continue
-            match = re.match('From: +([^ ]+)$', line)
+            match = re.match('From: +([^ \n,<]+@[^ \n,>]+)$', line)
             if match:
                 run.translator_address = match.group(1)
                 continue
-            match = re.match('To:.*([^ \n,<]*)@([^ \n,>]+)', line, re.I)
+            match = re.match('To:.*?([^ \n,<]+)@([^ \n,>]+)', line, re.I)
             if match:
                 to_user, to_site = match.group(1, 2)
                 continue
