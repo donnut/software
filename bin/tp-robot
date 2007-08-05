@@ -482,12 +482,10 @@ superfluous spaces, no name, a lacking comma, or a bad year.
         if last_name != run.translator_name:
             run.submitter.write(_("""\
 The last name in the author lines differs from the name in the PO file
-header.  The last of the author lines says '%s', while the 'Last-Translator'
-field says '%s'.  If these two names are only spelling alternatives,
-please make them equal and resubmit your PO file.  If there is no
-misspelling, then maybe the author lines are in the wrong order.  The
-expected order is chronological: the earliest translator first, and
-your own author line last.
+header.  The last of the author lines mentions '%s', while the
+'Last-Translator' field says '%s'.  Maybe the author lines are in the
+wrong order?  The expected order is chronological: the earliest
+translator first, and your own author line last.
 """)
                                 % (last_name, run.translator_name))
         elif last_address != run.translator_address:
