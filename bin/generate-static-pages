@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- mode: python; coding: utf-8 -*-
 # Copyright © 2007 Translation Project.
+# Benno Schulenberg <benno@vertaalt.nl>, 2007.
 
 """\
 Regenerate the static domain and team pages.
@@ -28,7 +29,7 @@ def main(*arguments):
         elif option == '-t':
             teams = True
     if not domains and not teams and not index and not arguments:
-        domains = index = teams =True
+        domains = index = teams = True
     if arguments and (domains or teams):
         print "*** Option -d and -t don't take any arguments"
         sys.exit(2)
