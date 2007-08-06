@@ -5,7 +5,7 @@
 """\
 Regenerate the static domain and team pages.
 
-Usage:  generate-static-pages [-idt] [DOMAINNAME...|TEAMCODE...]
+Usage:  generate-static-pages [ -idt | DOMAINNAME... | TEAMCODE... ]
 
   -i  regenerate the index pages
   -d  regenerate the domain pages
@@ -29,36 +29,31 @@ def main(*arguments):
             teams = True
     if not domains and not teams and not index and not arguments:
         domains = index = teams =True
-    if arguments:
-    	if domains and teams:
-            print "*** Use only option -d or option -t with arguments"
-            sys.exit(2)
-    	if not domains and not teams:
-            print "*** Use option -d or -t together with arguments"
-            sys.exit(2)
+    if arguments and (domains or teams):
+        print "*** Option -d and -t don't take any arguments"
+        sys.exit(2)
+    domain_names = []
+    for domain in registry.domain_list():
+        domain_names.append(domain.name)
+    team_names = []
+    for team in registry.team_list():
+        team_names.append(team.name)
     if index:
         localweb.generate_domain_page("index")
         localweb.generate_team_page("index")
     if domains:
-        if arguments:
-            for domain in arguments:
-                try:
-                    localweb.generate_domain_page(domain)
-                except KeyError:
-                    print "  *** No such domain: '%s'" % domain
-        else:
-            for domain in registry.domain_list():
-                localweb.generate_domain_page("%s" % domain)
+        for domain in domain_names:
+            localweb.generate_domain_page("%s" % domain)
     if teams:
-        if arguments:
-            for team in arguments:
-                try:
-                    localweb.generate_team_page(team)
-                except KeyError:
-                    print "  *** No such team: '%s'" % team		
+        for team in team_names:
+            localweb.generate_team_page("%s" % team)
+    for argument in arguments:
+        if argument in domain_names:
+            localweb.generate_domain_page("%s" % argument)
+        elif argument in team_names:
+            localweb.generate_team_page("%s" % argument)
         else:
-            for team in registry.team_list():
-                localweb.generate_team_page("%s" % team)
+            print "  *** No such team or domain: '%s'" % argument
 
 
 if __name__ == '__main__':

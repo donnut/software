@@ -1,5 +1,10 @@
 
-2007-08-02  Benno Schulenberg  <benno@vertaalt.nl>
+2007-08-06  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/generate-static-pages: Autodetect the type of each argument:
+	whether it's a domain or a team.
+
+2007-08-04  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Remove the obsolete domain 'tp-robot';
 	don't bother with texts that only translators will see.
