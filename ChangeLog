@@ -1,4 +1,9 @@
 
+2007-08-07  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/localweb.py: Add a column to the domain index page that shows
+	current version number, with a link to the POT file.
+
 2007-08-06  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/generate-static-pages: Autodetect the type of each argument:

@@ -49,16 +49,25 @@ class DomainIndex(htmlpage.Htmlpage):
         write = self.writer
         if not write:
             return
+        postats = data.load_postats()
         self.prologue("Textual domains", 'utf-8')
         write('  <table align=center border=2>\n'
               '   <tr align=left>\n'
               '    <th>Domain</th>\n'
-              '    <th align=center>Reference</th>\n'
+              '    <th>Current<br>version</th>\n'
+              '    <th>Reference</th>\n'
               '   </tr>\n')
         for domain in registry.domain_list():
             write('   <tr>\n'
                   '    <td><a href="../domain/%s.html">%s</a></td>\n'
                   % (domain.name, domain.name))
+            if postats.potstats.has_key(domain.name):
+                hints = registry.hints(postats.potstats[domain.name][0])
+                write('    <td><a href="%s">%s</a></td>\n'
+                      % (hints.template_url(), hints.version))
+            else:
+                write('    <td>-</td>\n')
+                sys.stderr.write("  * No stats for '%s'\n" % domain.name)
             if domain.ref:
                 write('    <td><a href="%s">%s</a></td>\n'
                       % (domain.ref[0][1], domain.ref[0][1]))
