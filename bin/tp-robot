@@ -444,9 +444,9 @@ not accepted.
                        % comment, "[copyright incorrectly formatted]")
 
     def last_author(self, header):
-        match1 = re.search('.*; *(.*[^ ]) *<(.*)>.*(199[4-9]|20[0-4][0-9])$',
+        match1 = re.search('.*; *(.*[^ ]) *<(.*)>.*?([0-9]*)$',
                           header['AUTHORS'])
-        match2 = re.search('.*; ([^ ].+[^ ]) <([^ ]+)>, .*(20[0-4][0-9])$',
+        match2 = re.search('.*; ([^ ].+[^ ]) <([^ ]+)>, .*(199[4-9]|200[0-9])$',
                           header['AUTHORS'])
         if not match1:
             run.reject(_("""\
