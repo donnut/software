@@ -1,28 +1,24 @@
 Today:
-* ask teams using special charset if UTF-8 is okay now
+* run 'po-tidy-links -n' to inspect the state of latest/ symlinks again
 
 Soon:
-* run 'po-tidy-links -n' to inspect the state of latest/ symlinks again
-* improve 'po-tidy-links' to find all links that do not point
-  to the latest available version
-* make a reply for those who ask the robot for help
-* add note that project was never called "FTP".
-
-Later:
 * run 'make check' and delete PO files with fatal errors,
   at least the bad ones that are not the latest
+* walk through the packages to see if there are more recent versions
+* rename registry.dtd to tp-registry.dtd
+* mail bug-tar about simpler fetch script
+
+Later:
 * search and delete the PO files with mistaken encoding specifications
 * delete PO files for which translated strings are under 5%
 * make robot reject PO files for which translated strings are under 5%
 * simplify regex: filenames do not contain encoding any more
 * add a page for retired translators
-* walk through the packages to see if there are more recent versions
-* rename registry.dtd to tp-registry.dtd
-* weed out double assignments from registry.sgml
-* mail bug-tar about simpler fetch script
 * should the robot really accept submissions for unassigned packages?
-* check that 'Last-Translator' is the same as the _last_ line in the
-  preheader, not the third line of that preheader
+* improve 'po-tidy-links' to find all links that do not point
+  to the latest available version
+* make a reply for those who ask the robot for help
+* add note that project was never called "FTP".
 
 
 
@@ -34,18 +30,13 @@ Later:
 . + Registry handling
 .  - Cross-validate AUTHORS with the registry, once in a while.
 
-. + Web aspects
-.  - Do not list mailto for those not wanting them there.
-.  - Reestablish mailtos for people having home Web pages.
-
-
 .* Accepting submissions
 
 . + Message format
 .  - Accept PGP validation.
 .  - Accept various end of line codings.
 
-. + Authentification
+. + Authentication
 .  - Meant for package maintainers submitting POT files, or URLs.
 .  - Meant for team leaders altering the registry.
 .  - Meant for translators to declare aliases, or envelope aliases.
@@ -54,9 +45,7 @@ Later:
 .  - Try fuzzy matching on names and address, and diagnose matches.
 .  - Ignore case within the domain.
 .  - Have special envelope aliases to ignore.
-.  - Record that the initial translator is different and do not complain.
 .  - Process date intervals and precise packages for assignment validity.
-.  - Reject a submission if PO-Revision-Date has not been modified since last.
 
 
 .* Processing template files
@@ -77,7 +66,6 @@ Later:
 . + Further checks
 .  - Do not msgmerge PO files if the POT file is not the latest.
 .  - Refuse to upload a POT file we already have.
-.  - Force Project-Id-Version when sending PO files to translators.
 
 . + Maintainers should be able to handle POT files themselves
 .  - Set the pretest URLs.
@@ -87,17 +75,10 @@ Later:
 
 .* Giving feedback
 
-. + What to send?
-.  - Redirection of rejects and difficulties directly to team leaders.
-.  - No multiple successive messages announcing uploads to all members.
-.  - Capability to send yet unmerged POT files to translators.
-
 . + Overall format
 .  - `formail -r' uses Sender instead of From.  Make this all more regular.
 .  - Make sure all messages have a From indicating the robot.
 .  - Ease Gnus threading for various log and debugging messages.
-.  - Internationalisation of the full robot suite, itself.
 
 . + Formatting details
 .  - Tidy up processing of \007 and other control characters.
-.  - Replace "probably someone is assigned" with registry information.
