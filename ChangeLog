@@ -1,4 +1,9 @@
 
+2007-08-08  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/extract-pot-files.sh: Add rule for 'libgphoto', use tabs
+	consistently, move 'gettext' into alphabetical position.
+
 2007-08-07  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Add a column to the domain index page that shows

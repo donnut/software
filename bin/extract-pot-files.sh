@@ -17,9 +17,9 @@ case ${domain} in
     aspell)
 	$echo $domain
 	oversion=${archive%.tar.$suffix}
-        version=${oversion#$domain-}
+	version=${oversion#$domain-}
 	version=${version/-/-b}
-        $echo $version
+	$echo $version
 	cp -v $oversion/po/$domain.pot $domain-$version.pot
 	;;
     binutils)
@@ -43,10 +43,10 @@ case ${domain} in
 	cp -v $domain-$version/src/po/$domain.pot $domain-$version.pot
 	;;
     gcc)
-        $echo $domain
+	$echo $domain
 	version=${archive%.tar.$suffix}
-        version=${version#${domain}-}
-        $echo $version
+	version=${version#${domain}-}
+	$echo $version
 	date=${version#*-}
 	if [ $version = $date ]; then
 	    tgcc=$domain-$version.pot
@@ -58,7 +58,18 @@ case ${domain} in
 	fi
 	cp -v $domain-$version/gcc/po/$domain.pot $tgcc
 	cp -v $domain-$version/libcpp/po/cpplib.pot $tcpp
-
+	;;
+    gettext)
+	domain=gettext
+	version=${archive%.tar.$suffix}
+	version=${version#gettext-}
+	$echo $version
+	cp ${domain}-$version/gettext-tools/po/gettext-tools.pot \
+	    gettext-tools-$version.pot -v
+	cp ${domain}-$version/gettext-tools/examples/po/gettext-examples.pot \
+	    gettext-examples-$version.pot -v
+	cp ${domain}-$version/gettext-runtime/po/gettext-runtime.pot \
+	    gettext-runtime-$version.pot -v
 	;;
     gsasl)
 	domain=gsasl
@@ -67,18 +78,6 @@ case ${domain} in
 	$echo $version
 	cp -v ${domain}-$version/po/$domain.pot $domain-$version.pot
 	cp -v ${domain}-$version/lib/po/lib$domain.pot lib$domain-$version.pot
-	;;
-    gettext)
-	domain=gettext
-	version=${archive%.tar.$suffix}
-	version=${version#gettext-}
-	$echo $version
-	cp -v ${domain}-$version/gettext-tools/po/gettext-tools.pot \
-	    gettext-tools-$version.pot
-	cp -v ${domain}-$version/gettext-tools/examples/po/gettext-examples.pot \
-	    gettext-examples-$version.pot
-	cp -v ${domain}-$version/gettext-runtime/po/gettext-runtime.pot \
-	    gettext-runtime-$version.pot
 	;;
     iso-codes)
 	$echo $domain
@@ -99,12 +98,22 @@ case ${domain} in
 	done
 	popd
 	;;
+    libgphoto2)
+	$echo $domain
+	version=${archive%.tar.$suffix}
+	version=${version#$domain-}
+	$echo $version
+	cp -v ${domain}-$version/po/${domain}-2.pot \
+	    $domain-$version.pot
+	cp -v ${domain}-$version/libgphoto2_port/po/${domain}_port-0.pot \
+	    ${domain}_port-$version.pot
+	;;
     util-linux)
 	echo "warning: probably obsolete.  util-linux now is standard?" 
 	version=${archive%.tar.$suffix}
-        version=${version#$domain-}
+	version=${version#$domain-}
 	$echo $version
-        pushd $domain-$version
+	pushd $domain-$version
 	./configure
 	pushd po
 	make $domain.pot
