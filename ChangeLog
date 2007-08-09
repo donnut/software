@@ -1,4 +1,8 @@
 
+2007-08-09  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* registry/registry.sgml: Add the 'util-linux-ng' domain.
+
 2007-08-08  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/extract-pot-files.sh: Add rule for 'libgphoto', use tabs
