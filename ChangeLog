@@ -1,4 +1,10 @@
 
+2007-08-10  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/calc-postats: Do not fail when domain or team is unknown, but
+	simply delete the associated stat.  Do not stop when some file does
+	not exist, but stubbornly continue after printing a warning.
+
 2007-08-09  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Add the 'util-linux-ng' domain.

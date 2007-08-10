@@ -71,7 +71,12 @@ def main(*arguments):
             print "Checking for deletions..."
         for key in postats.keys():
             domain, version, team = key
-            name = registry.archive_path(domain, version, team)
+            try:
+                name = registry.archive_path(domain, version, team)
+            except KeyError:
+                sys.stderr.write('  unknown - %s\n' % name)
+                del postats[key]
+                continue
             if not os.path.exists(name):
                 if verbose:
                     sys.stderr.write('  deleted - %s\n' % name)
@@ -117,7 +122,7 @@ def tally_po(postats, name, verbose):
         fullname = hints.archive_path()
         if not os.path.exists(fullname):
             print "*** File not in archive:", fullname
-            sys.exit(3)
+            return
         mtime = os.stat(fullname)[stat.ST_MTIME]
         oldstats = postats.get(key)
         if oldstats:
@@ -222,7 +227,7 @@ def tally_POT(postats, file, verbose):
             return
     if not os.path.exists(hints.template_path()):
         print "*** File not in archive:", hints.template_path()
-        sys.exit(3)
+        return
     calculate(postats, hints.domain.name, hints.version, file, verbose)
 
 def calculate(postats, domain, version, file, verbose):
