@@ -5,6 +5,9 @@
 	simply delete the associated stat.  Do not stop when some file does
 	not exist, but stubbornly continue after printing a warning.
 
+	* bin/make-obsolete.sh: A script to move files of an obsolete domain
+	out of the way, and delete its stats and symlinks.
+
 2007-08-09  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* registry/registry.sgml: Add the 'util-linux-ng' domain.
