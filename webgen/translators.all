@@ -39,110 +39,41 @@
 
    http://translationproject.org/html/whydisclaim.html
 
-.* Learn how to use the Robot
+.* Learn to use the robot
+   ----------------------
+
+Becoming a team member is a quick process, but having the disclaimer 
+acknowledged by the FSF usually takes in the order of one month.  Before 
+that time has elapsed, you can nevertheless submit your PO file to the 
+robot.  The robot will not accept the PO file into the archives, but it 
+will discover any errors and diagnose them.  People translating for the 
+first time usually make various errors, and it may require a few tries 
+before you get everything right.  Maybe by the time you have finished 
+this, your disclaimer will have been received, and you will be ready for 
+a real, successful upload.
+
+The robot might be a bit frightening at first, because it is extremely 
+picky at many details.  Don't be discouraged, the robot is very patient.  
+:-) All there is to know about submitting PO files is explained here:
+
+    http://translationproject.org/html/robot.html
+
+
+.* Learn to use GNU `gettext'
    --------------------------
 
-   Once you are member of a team and your translation disclaimer has been
-   received and acknowledged by the FSF, you may proceed to successfully upload
-   PO files yourself, using the Translation Project robot.  If you do not know
-   what a PO file is, skip this section for now, and come back to it later.
+You could work on translations without having GNU `gettext' installed. 
+However, you would miss the `msgfmt' program, which is quite useful at 
+validating your translated files, and the GNU `gettext' documentation, 
+which explains the Translation Project in greater detail.
 
-   The Translation Project robot (or TP-robot) is an email service which
-   takes care of PO-file submissions.  The robot checks if the file is
-   acceptable, that is, if a translator has filled out her disclaimer (where
-   required), and if her team allows her to do the work.  It also calls
-   `msgfmt' to see if the PO file is healthy, and checks for various
-   other problems too.
+GNU `gettext' should normally already be present on your system.  If 
+not, find the package in your distribution and install it.  Then skim 
+through the contents of the Info document for `gettext'; especially 
+learn to use `msgfmt', `msgmerge', and `msgcat'.  The latter command is 
+useful for making a compendium (a collection of commonly occurring 
+strings).  Always use the option `--no-wrap' to not break long lines.
 
-   Becoming a team member is a quick process, but having the disclaimer
-   acknowledged usually takes in the order of one month.  Before that time has
-   elapsed, you can nevertheless submit your PO file to the robot.  It will not
-   accept uploading it, but at least it will discover errors and diagnose them.
-   People translating for the first time usually make various errors, and
-   it may require a few tries before you get everything right.
-   Maybe by the time you have finished this, your disclaimer will have
-   been received, and you will be just ready for a real, successful upload.
-
-   The robot might be a bit frightening at first, because it is extremely
-   picky at many details.  The fellow members of your team might help you to
-   get acquainted with it.  You may also write to the translation coordinator
-   for help if something is unclear or if you feel a little lost in this.
-   To use the robot, your Subject line should look like:
-
-        TP-robot PACKAGE-VERSION.TEAM.po
-
-   and the whole thing should be sent to <robot@translationproject.org>.
-   It works best to send the PO file as a gzip'ed attachment -- sending as
-   plain text is dangerous because some mailers insert line breaks on their
-   own and because some mail relays are not 8-bit clean.  Thus it's best
-   sending compressed attachments.
-
-   You may expect a reply from the robot within fifteen minutes.  If you need
-   help to resolve problems, or if you suspect the robot behaves poorly, you
-   may  directly write to the translation coordinator.  However, if you do so,
-   be careful _not_ to start your message Subject with TP-robot! :-)
-
-.* Install GNU `gettext' and learn how to use it
-   ---------------------------------------------
-
-   You could work on translations without installing GNU `gettext'.
-   However, you would miss the `msgfmt' program which is quite useful at
-   validating the format of your translated files, the PO mode for GNU Emacs
-   which makes editing such files easier, and the GNU `gettext' documentation
-   which explains the Translation Project in greater detail.
-
-   Fetch the GNU `gettext' distribution from ftp://ftp.gnu.org/pub/gnu/gettext/
-   or any mirror site from which you can download GNU packages, and install it
-   at your place.  If you do not have the ability or authority to install
-   GNU `gettext', try to get the system administrator of your
-   site to install it for you (the sysadmin will use a recipe very similar
-   to the one given below, but will not use the `--prefix' argument to
-   `configure', letting the default `/usr/local' flow in).  The recipe
-   below is valid when you want to install GNU `gettext' for yourself
-   alone, as a user.  Once you have the distribution (let's say it is
-   `gettext-N.M.tar.gz'), just do:
-
-           gunzip < gettext-N.M.tar.gz | tar xf -
-           cd gettext-N.M
-           ./configure --with-included-gettext --prefix=$HOME
-           make install
-
-   After that, just ensure `~/bin' is in your search path.  If you are using
-   `sh' (or `bash', or `ksh'), modify your `.profile' or `.bash_login' file
-   so that it contains:
-
-           export PATH; PATH=$HOME/bin:$PATH
-
-   If you are using `csh' (or `tcsh') instead, modify your `.login' or
-   `.cshrc' file so that it contains:
-
-           set path=(~/bin $path)
-
-   If you use GNU Emacs, you might want to load PO mode, coming with GNU
-   `gettext'.  Add these few lines to your `.emacs' file:
-
-           (setq load-path (cons "~/gettext-N.M/misc" load-path))
-           (setq auto-mode-alist (cons '("\\.po\\'\\|\\.po\\." . po-mode)
-                                       auto-mode-alist))
-           (autoload 'po-mode "po-mode")
-
-   If you use GNU Emacs 20 with international fonts installed, also add:
-
-           (autoload 'po-find-file-coding-system "po-mode")
-           (modify-coding-system-alist 'file "\\.po\\'\\|\\.po\\."
-                                       'po-find-file-coding-system)
-
-   The load-path line may be omitted if `gettext-N.M/misc/po-mode.elc' has
-   already been moved to some standard place where GNU Emacs will find it.
-
-   Finally, read through the `~/info/gettext.info*' files.  Or even better,
-   if you have TeX already installed on your site, do something like:
-
-           cd gettext-N.M/doc
-           make dvi
-           dvips gettext.dvi
-
-   to print a nice manual about GNU `gettext'.
 
 .* Dive into real translation work
    -------------------------------
@@ -157,8 +88,8 @@
    been translated, and your team does not help you to choose a translation
    assignment, your might look into these directories:
 
-           http://translationproject.org/PO-files/LL/
-           http://translationproject.org/POT-files/
+		http://translationproject.org/PO-files/LL/
+		http://translationproject.org/POT-files/
 
    The first directory contains the availabe PO files for language LL that
    are completely or incompletely translated, but excludes files for which

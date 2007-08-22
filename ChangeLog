@@ -1,4 +1,10 @@
 
+2007-08-22  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* webgen/robot.all, webgen/translators.all: Explain usage of the
+	robot in a single place.  Remove instructions on how to install
+	gettext.  Add some suggestions on which commands to study.
+
 2007-08-10  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/calc-postats: Do not fail when domain or team is unknown, but
