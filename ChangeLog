@@ -1,4 +1,9 @@
 
+2007-08-25  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/po-expire: Don't fail when finding a POT file for a
+	non-existent domain.
+
 2007-08-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/robot.all, webgen/translators.all: Explain usage of the

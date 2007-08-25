@@ -46,7 +46,11 @@ def find_pot_files():
         if base[-1] == '~':
             command(None, 'rm %s/%s' % (config.pots_dir, base))
             continue
-        hints = registry.Hints(base)
+        try:
+            hints = registry.Hints(base)
+        except KeyError:
+            warn("File for unknown domain: %s" % base)
+            continue
         if base[-4:] != '.pot' or hints.team or hints.gzipped:
             warn("Not recognized as a POT file name: %s/%s" %
                  (config.pots_dir, base))
