@@ -4,13 +4,13 @@
 # Benno Schulenberg <benno@vertaalt.nl>, 2007.
 
 """\
-Regenerate the static domain and team pages.
+Regenerate the indicated domain and team pages.
 
 Usage:  generate-static-pages [ -idt | DOMAINNAME... | TEAMCODE... ]
 
-  -i  regenerate the index pages
-  -d  regenerate the domain pages
-  -t  regenerate the team pages
+  -i  regenerate the two index pages
+  -d  regenerate all domain pages
+  -t  regenerate all team pages
 """
 
 import sys, getopt
@@ -29,9 +29,10 @@ def main(*arguments):
         elif option == '-t':
             teams = True
     if not domains and not teams and not index and not arguments:
-        domains = index = teams = True
+        sys.stdout.write(__doc__)
+        sys.exit(2)
     if arguments and (domains or teams):
-        print "*** Option -d and -t don't take any arguments"
+        print "*** Options -d and -t cannot be combined with arguments"
         sys.exit(2)
     domain_names = []
     for domain in registry.domain_list():

@@ -4,6 +4,9 @@
 	* bin/po-expire: Don't fail when finding a POT file for a
 	non-existent domain.
 
+	* bin/generate-static-pages: Don't do anything when no option or
+	argument is given.
+
 2007-08-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/robot.all, webgen/translators.all: Explain usage of the
