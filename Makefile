@@ -40,6 +40,12 @@ mailrc:
 procmailrc:
 	$(MAKE) -C registry procmailrc
 
+normal normalize:
+	$(MAKE) -C registry normalize
+
+remote:
+	$(MAKE) -C registry remote
+
 site:
 	$(MAKE) -C webgen all
 
