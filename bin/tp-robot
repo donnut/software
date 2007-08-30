@@ -427,19 +427,17 @@ while the copyright comment should look like:
 The copyright comment, which should appear as the second line of the whole
 PO file, is apparently missing.  The copyright comment should look like:
 """)
-
             run.reject(_("""\
 %s
     # Copyright (C) YEAR Free Software Foundation, Inc.
 
-The '(C)' sign may be replaced by the single Latin-1 character for it
-(decimal code 169) if you happen to work in Latin-1, or with the
-equivalent UTF-8 seqquence (\\xc2\\xa9).  YEAR is normally a four
-digits year, yet it might be a list of years, separated by commas.  In
-a list, the first year has to be four digits, subsequent years may be
-either two or four digits.  Each comma should be followed with a
-space.  Years have to be explicitly enumerated, range notations are
-not accepted.
+If the encoding of your file allows it, the '(C)' triplet may be replaced
+by a single character: either the single Latin-1 byte (decimal code 169)
+or the equivalent UTF-8 sequence (\\xc2\\xa9).  The YEAR is either a single
+four-digit year or a list of years separated by commas.  In a list, the
+first year has to be four digits, while subsequent years may be either
+two or four digits.  Each comma should be followed with a space.  Years
+have to be explicitly enumerated, range notations are not accepted.
 """)
                        % comment, "[copyright incorrectly formatted]")
 
