@@ -1,4 +1,10 @@
 
+2007-09-02  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/po-register, bin/tp-robot: "TP-robot" in Subject line is no
+	longer required.  Show in notification mails to team lists either
+	the URLs of updated HTML pages or the URL of the new tarball.
+
 2007-08-25  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-expire: Don't fail when finding a POT file for a

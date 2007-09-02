@@ -557,16 +557,18 @@ translation coordinator that you were assigned to '%s'.
 Once the translation is complete, send the result to
 <robot@translationproject.org>, using the Subject line:
 
-    TP-robot %s-%s.%s.po
+    %s-%s.%s.po
 
 """) % (hints.domain.name, hints.version.name, hints.team.name)))
-    write(_("""\
+    # Show either the URLs of updated HTML pages or the URL of the tarball.
+    if (not fromnewpot):
+        write(_("""\
 The following HTML pages have been updated:
 
     %s/domain/%s.html
     %s/team/%s.html
 """) % (registry.puburl, hints.domain.name, registry.puburl, hints.team.name))
-    if hints.domain.url:
+    elif hints.domain.url:
         write(_("""
 You can find a copy of the distribution at:
 

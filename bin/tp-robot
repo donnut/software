@@ -299,7 +299,7 @@ Validating mail specific information.
 
 As a reminder, the Subject line of your message should look like this:
 
-    Subject: TP-robot DOMAIN-VERSION.TEAM.po
+    Subject: DOMAIN-VERSION.TEAM.po
 
 The DOMAIN is normally the package name in lower case, VERSION is the
 version number of the package, and TEAM is the two-letter lower case
