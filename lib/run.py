@@ -8,7 +8,7 @@ import os, sys, re, tempfile, types
 import messages
 
 def _(text):
-#   return messages.MultiString(text)
+##  return messages.MultiString(text)
     return text
 
 # Execution variables.
@@ -133,15 +133,12 @@ Subject: XXX: %s
             self.file.write('-' * 70 + '>\n')
             self.file.writelines(header_lines)
             self.file.write('\n')
-            # The body_lines might get very large, so they are suppressed
-            # self.file.writelines(body_lines)
+            # The body lines may be very many, so they aren't included.
             self.file.write("[Body lines suppressed]\n")
             self.file.write('-' * 70 + '<\n')
-
             self.file.write(
 "\n\nIf necessary, please help the translator to get the error fixed \n"
 "and assist her to submit the fixed file again.\n\n")
-
         Reporter.complete(self)
 
     def write_nofill(self, text):
@@ -175,9 +172,7 @@ To: "%s" <%s>
 BCC: robot-mail@benno.vertaalt.nl
 Subject: Re: %s
 %s
-""")
-                            % (translator_name, translator_address,
-                               subject, self.mime_header()))
+""") % (translator_name, translator_address, subject, self.mime_header()))
         else:
             header = None
 
@@ -186,8 +181,7 @@ Subject: Re: %s
                 announce = (_("""\
 Hi!  I am the service robot at the Translation Project,
 and was awakened by your submission of '%s'.
-""")
-                            % hints.archive_base())
+""") % hints.archive_base())
             else:
                 announce = _("""\
 Hi!  I am the service robot at the Translation Project,
@@ -209,13 +203,11 @@ accepting your PO file.  Sorry!  But do not hesitate to resubmit your
 PO file, once you think the problem has been fixed.  As a robot I am
 incredibly patient at these things!
 """))
-
         self.write_nofill(_("""\
                                 The Translation Project robot, in the
                                 name of your kind translation coordinator.
                                 <coordinator@translationproject.org>
 """))
-
         Reporter.complete(self)
 
 
