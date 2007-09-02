@@ -268,12 +268,9 @@ a PO template file all alone.  So, for this one, I'll go disturb him!
         if ((to_user and (to_user != 'robot') and (to_user !='translation'))
             or (to_site and (to_site !='translationproject.org'))):
             run.submitter.write(_("""\
-I see that you used <%s@%s> to reach me.  Even though it worked,
-a few email aliases were surely involved, which are not all under
-my control.  It is safer that you use my real email address, which
-is <robot@translationproject.org>.
-""")
-                                         % (to_user, to_site))
+Instead of using the old address <%s@%s> for PO file submissions,
+please use my new address <robot@translationproject.org>.
+""") % (to_user, to_site))
         # Clean up translator name.
         if run.translator_name:
             match = re.match('"(.+)"$', run.translator_name)
@@ -540,7 +537,7 @@ the file name, whichever is appropriate.
 The 'Project-Id-Version' field was not found in your PO file header.
 The line containing this field ideally looks like:
 
-    'Project-Id-Version: PACKAGE VERSION\\n'
+    "Project-Id-Version: PACKAGE VERSION\\n"
 
 in which PACKAGE should be replaced by the textual domain of your
 translation, probably '%s' in this case, and VERSION be replaced
@@ -562,11 +559,10 @@ by the appropriate version numbers, maybe '%s' here.
             else:
                 # FIXME: Should use run.reject soon.
                 run.submitter.write(_("""\
-The '%s' field was not found in your PO file header,
-or else it was not formatted properly.  The line containing this field
-ideally looks like:
+The '%s' field was not found in your PO file header, or was not
+formatted properly.  The line containing it should look like:
 
-    %s: YEAR-MO-DA HO:MI +ZONE
+    "%s: YEAR-MO-DA HO:MI +ZONE\\n"
 """)
                                 % (field, field))
                 if field == 'POT-Creation-Date':
@@ -583,7 +579,7 @@ translator to set.  In the meantime, I will copy the value of the
 In the above line, YEAR is a four-digit number giving the year,
 MO is a two-digit number giving the month (from 01 to 12), and DA
 is a two-digit number giving the day within the month (from 01 to 31).
-The time of the day is provided by a two-digit HO for the hour (from
+The time of day is provided by a two-digit HO for the hour (from
 00 to 23) and a two-digit MI for the minutes (from 00 to 59).
 
 As for +ZONE, it should have the format +HH, -HH, +HH:MM, or -HH:MM.
@@ -686,10 +682,9 @@ matters.
         else:
             run.reject(_("""\
 The 'Last-Translator' field was not found in your PO file header, or
-might not be formatted properly.  The line containing this field ideally
-looks like:
+is not formatted properly.  The line containing it should look like:
 
-    'Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n'
+    "Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n"
 
 In this line, FULL NAME has to be replaced by the full name of the current
 translator for the '%s' textual domain (which most probably means you :-);
@@ -754,7 +749,7 @@ please email the translation coordinator to get it corrected.
 The 'Language-Team' field was not found in your PO file header, or is
 not formatted properly.  The line containing it often looks like:
 
-    'Language-Team: LANGUAGE <TEAM-EMAIL-ADDRESS>\\n'
+    "Language-Team: LANGUAGE <TEAM-EMAIL-ADDRESS>\\n"
 
 In this line, LANGUAGE is the English name of your language, capitalizing
 the first letter of its words and leaving the rest in lower case.
@@ -764,7 +759,7 @@ code for your language (not to be confused with country codes, which are
 a different standard).  If I had to write this line myself, right now,
 according to the information which is available to me, I would use:
 
-    'Language-Team: %s <%s>\\n'
+    "Language-Team: %s <%s>\\n"
 
 If this leaves you clueless and you still want to correct it, please write
 to the translation coordinator and we will work this out together.
@@ -778,7 +773,7 @@ to the translation coordinator and we will work this out together.
 The 'MIME-Version' field was not found in your PO file header, or is
 not formatted properly.  The line should be this one:
 
-    'MIME-Version: 1.0\\n'
+    "MIME-Version: 1.0\\n"
 """),
                        "[mime-version is not 1.0]")
         charsets = [
@@ -816,7 +811,7 @@ This list currently holds: %s.
 The 'Content-Type' field was not found in your PO file header, or is
 not formatted properly.  The line containing it ideally looks like:
 
-    'Content-Type: text/plain; charset=CHARSET\\n'
+    "Content-Type: text/plain; charset=CHARSET\\n"
 
 where CHARSET should be the name of a character set, like one of %s.
 """)
@@ -842,7 +837,7 @@ This list currently holds: %s.
 The 'Content-Transfer-Encoding' field was not found in your PO file header,
 or is not formatted properly.  The line containing it ideally looks like:
 
-    'Content-Transfer-Encoding: ENCODING\\n'
+    "Content-Transfer-Encoding: ENCODING\\n"
 
 where ENCODING should be the name of an encoding, like one of %s.
 """)
