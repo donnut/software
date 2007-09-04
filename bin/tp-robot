@@ -531,7 +531,7 @@ the file name, whichever is appropriate.
 """)
                            % (match.group('ver'), run.hints.domain.name,
                               run.hints.version.name),
-                           "[version from project-id-version conflicts with file name")
+                           "[project-id-version conflicts with file name")
         else:
             run.reject(_("""\
 The 'Project-Id-Version' field was not found in your PO file header.
