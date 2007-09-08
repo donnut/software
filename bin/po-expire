@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- mode: python; coding: utf-8 -*-
+# Copyright © 2007 Translation Project
 # Copyright © 1996, 1997, 1998, 1999, 2001 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1996.
 
@@ -12,7 +13,7 @@ import os, sys, time
 sys.path.insert(0, sys.path[0]+'/../lib')
 import config, registry
 
-expired_folder = time.strftime("expired-%Y-%m-%d", time.localtime(time.time()))
+expired_folder = 'expired'
 
 class run:
     pass
@@ -103,7 +104,6 @@ def find_po_files():
             versions.append(instance.name)
         version = versions[-1]
         versions = versions[:-1]
-        #run.keep_pot[domain, version] = None
         if not run.keep_po.has_key((domain, version, team)):
             run.keep_po[domain, version, team] = []
         run.keep_po[domain, version, team].append('Highest PO')
@@ -186,7 +186,8 @@ def diagnose_missing(pot_files, po_files):
             command((domain, version),
                     'echo "Missing %s despite %s"' % (file, reasons))
     for (domain, version, team), reasons in run.keep_po.items():
-        file = '%s/%s/%s-%s.%s.po' % (config.pos_dir, team, domain, version, team)
+        file = ('%s/%s/%s-%s.%s.po'
+	        % (config.pos_dir, team, domain, version, team))
         if version in po_files.get((domain, team), ()):
             if has_group((domain, version)):
                 command((domain, version),
