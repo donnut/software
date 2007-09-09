@@ -1,5 +1,7 @@
 Today:
 * run 'po-tidy-links -n' to inspect the state of latest/ symlinks again
+* mail the zero-assignment translators for
+  de, es, fr, it, ms, pt_BR, ru, sv, tr
 
 Soon:
 * run 'make check' and delete PO files with fatal errors,
