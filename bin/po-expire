@@ -215,7 +215,7 @@ class Execute:
                 self.write('%s\n' % command)
         self.groups = {}
     def rmcommand(self, group, file):
-        self.command(group, "mv %s %s" % (file, expired_folder))
+        self.command(group, "mv %s %s/" % (file, expired_folder))
 
 def warn(message):
     sys.stdout.write('# %s\n' % message)
