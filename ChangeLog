@@ -1,4 +1,12 @@
 
+2007-09-15  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* tools/find-common-messages.sh: New tool, that finds
+	messages that are worth including in a compendium.
+
+	* tools/make-package-links.sh, tools/process-disclaimers.py:
+	Add copyright lines.
+
 2007-09-02  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register, bin/tp-robot: "TP-robot" in Subject line is no

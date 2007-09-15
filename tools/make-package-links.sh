@@ -1,4 +1,7 @@
 #!/bin/sh
+# Copyright © 2007 Translation Project.
+# Benno Schulenberg <benno@vertaalt.nl>, 2007.
+
 # Create for each package a series of symlinks to its corresponding files in
 # the PO-files/ subdirectory.  With the goal of making domain walking easy.
 

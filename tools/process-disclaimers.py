@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# Copyright © 2007 Translation Project.
+# Benno Schulenberg <benno@vertaalt.nl>, 2007.
 
 # Digest translation disclaimers and output these in sorted order.
 
