@@ -10,11 +10,11 @@ grep "<domain>" progs/registry/registry.sgml  |
     sed -e 's/  <domain>//' -e '/Compendium/d'  |
     while read domain;
         do echo $(ls -1tr site/POT-files/${domain}-[0-9]* | tail -1);
-    done  >list-of-pots  &&
+    done  >~/list-of-pots  &&
 
-msgcomm  --no-location --no-wrap --more-than=4  -f list-of-pots  |
+msgcomm  --no-location --no-wrap --more-than=4  -f ~/list-of-pots  |
     msgfilter  --keep-header  sed -e d  |
     sed -e '/^#/d'  &&
 
-rm list-of-pots
+rm ~/list-of-pots
 
