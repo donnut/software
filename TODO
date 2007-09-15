@@ -1,12 +1,8 @@
 Today:
-* run 'po-tidy-links -n' to inspect the state of latest/ symlinks again
-* mail the zero-assignment translators for
-  de, es, fr, it, ms
-
-Soon:
 * run 'make check' and delete PO files with fatal errors,
   at least the bad ones that are not the latest
-* walk through the packages to see if there are more recent versions
+
+Soon:
 * rename registry.dtd to tp-registry.dtd
 * mail bug-tar about simpler fetch script
 
