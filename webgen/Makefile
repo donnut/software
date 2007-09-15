@@ -32,10 +32,10 @@ $(htmldir)/%.html: %.html $(LAYOUT_DEPS)
 	./to-html.py -C $(htmldir) $<
 
 $(sitedir)/disclaim.txt: disclaim.txt
-	cp -p disclaim.txt $(sitedir)/disclaim.txt
+	cp disclaim.txt $(sitedir)/disclaim.txt
 
 $(sitedir)/AUTHORS: ../registry/AUTHORS
-	cp -p ../registry/AUTHORS $(sitedir)/AUTHORS
+	cp ../registry/AUTHORS $(sitedir)/AUTHORS
 
 domains:
 	../bin/generate-static-pages -d
