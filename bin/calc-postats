@@ -9,11 +9,11 @@ Adjust the database holding PO and POT file statistics.
 
 Usage:  calc-postats [-dituv] [POFILE]... [POTFILE]...
 
-  -d  delete entries for which the PO file does not exist
+  -d  delete entries for which the PO file no longer exists
   -i  re-initialise the whole database (takes very long)
-  -t  re-initialise just the template statistics
-  -u  update the statistics for new or changed PO files
-  -v  entertain the user by telling what's being done
+  -t  re-initialise just the POT statistics
+  -u  update the database with new or changed PO files
+  -v  show what's being done
 """
 
 import os, sys, stat
