@@ -411,9 +411,14 @@ class TeamPage(htmlpage.Htmlpage):
               '   </tr>\n')
         # Construct the table of packages.
         for domain in registry.domain_list():
+            if domain.disclaim:
+                hue = "#fff3f3"
+            else:
+                hue = "#f3fff3"
             write('   <tr align=center>\n'
-                  '    <td align=left><a href="../domain/%s.html">%s</a></td>\n'
-                  % (domain.name, domain.name))
+                  '    <td align=left bgcolor="%s">'
+                  '<a href="../domain/%s.html">%s</a></td>\n'
+                  % (hue, domain.name, domain.name))
             extstats = None
             if assigned_domains.has_key(domain.name):
                 write('    <td align=left>%s</td>\n'

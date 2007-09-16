@@ -1,4 +1,9 @@
 
+2007-09-17  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/localweb.py: Differentiate the background colour for packages
+	depending on whether they require a disclaimer.
+
 2007-09-15  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* tools/find-common-messages.sh: New tool, that finds
