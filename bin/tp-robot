@@ -575,14 +575,14 @@ HH gives the number of zone hours as two digits (from 00 to 11), while MM,
 when used, gives the number of zone minutes.  Other zone notations are
 still accepted for the time being, but are to be deprecated.
 """))
-        if ((date.has_key('POT-Creation-Date')
-             and date.has_key('PO-Revision-Date'))):
+        if ('POT-Creation-Date' in date and 'PO-Revision-Date' in date):
             if date['PO-Revision-Date'] <= date['POT-Creation-Date']:
                 run.reject(_("""\
-The PO revision date is '%s', which is older than the POT creation date.
-Please update the revision date field before submitting a PO file.
+The PO revision date is '%s', which is older than the POT creation date,
+'%s'.  Please update the revision date field before submitting a PO file.
 """)
-                           % date['PO-Revision-Date'],
+                           % (date['PO-Revision-Date'],
+                              date['POT-Creation-Date']),
                            "[revision date before creation date]")
 
     def last_translator(self, header):
