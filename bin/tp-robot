@@ -511,7 +511,7 @@ is '%s', instead of '%s' as the file name says.  They should be the same.
 The domain name is usually just the package name, in all lower case.
 """)
                            % (match.group('dom'), run.hints.domain),
-                           "[domain from project-id-version conflicts with file name]")
+                           "[domain in project-id conflicts with file name]")
             if match.group('sep') == '-':
 	        # Silently replace a hyphen with a space.
                 header['project-id-version'] = (
@@ -526,7 +526,7 @@ the file name, whichever is appropriate.
 """)
                            % (match.group('ver'), run.hints.domain.name,
                               run.hints.version.name),
-                           "[project-id-version conflicts with file name")
+                           "[version project-id conflicts with file name]")
         else:
             run.reject(_("""\
 The 'Project-Id-Version' field was not found in your PO file header.
