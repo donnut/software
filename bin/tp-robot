@@ -542,7 +542,6 @@ by the appropriate version numbers, maybe '%s' here.
                        "[no project-id-version]")
 
     def both_dates(self, header):
-        reject = 0
         date = {}
         for field in 'POT-Creation-Date', 'PO-Revision-Date':
             value = header[string.lower(field)]
@@ -551,26 +550,19 @@ by the appropriate version numbers, maybe '%s' here.
                              value)
             if match:
                 date[field] = value
-            else:
-                # FIXME: Should use run.reject soon.
+            elif field == 'POT-Creation-Date':
                 run.submitter.write(_("""\
-The '%s' field was not found in your PO file header, or was not
-formatted properly.  The line containing it should look like:
-
-    "%s: YEAR-MO-DA HO:MI +ZONE\\n"
-""")
-                                % (field, field))
-                if field == 'POT-Creation-Date':
-                    run.submitter.write(_("""\
-Some older POT files did not have the 'POT-Creation-Date' field.  If
-this is the case here, you should not worry, as it will be repaired in
-some later release of this package.  This field is not really for the
-translator to set.  In the meantime, I will copy the value of the
-'PO-Revision-Date' field into it, just to get going.
+The 'POT-Creation-Date' field is missing from your PO file header, or
+misformatted.  I will copy the original line from the POT file.
 """))
-                reject = 1
-        if reject:
-            run.submitter.write(_("""\
+            else:
+                run.reject(_("""\
+The 'PO-Revision-Date' field was not found in your PO file header, or
+was not formatted properly.  The line containing it should look like:
+
+    "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\\n"
+"""), "[missing revision date]")
+                run.submitter.write(_("""\
 In the above line, YEAR is a four-digit number giving the year,
 MO is a two-digit number giving the month (from 01 to 12), and DA
 is a two-digit number giving the day within the month (from 01 to 31).
