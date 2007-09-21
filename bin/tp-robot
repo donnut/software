@@ -412,7 +412,7 @@ and does not seem to be, yet it might be only a matter of proper spelling.
         elif run.hints.domain and run.hints.domain.disclaim:
             if text:
                 comment = (_("""\
-The copyright comment does not seem to be correctly formatted.  I see:
+The copyright comment seems to be incorrectly formatted.  I see:
 
     # %s
 
@@ -449,7 +449,7 @@ There is no author comment line in your PO file, or it is not formatted
 correctly.  Author lines should come after the copyright lines, and look
 like this:
 
-    # AUTHOR <EMAIL@ADDRESS>, YEAR.
+    # NAME OF AUTHOR <EMAIL@ADDRESS>, YEAR.
 
 There may be several of these lines, normally in chronological order.
 """), "[missing or ill-formatted author line]")
@@ -579,8 +579,8 @@ still accepted for the time being, but are to be deprecated.
              and date.has_key('PO-Revision-Date'))):
             if date['PO-Revision-Date'] <= date['POT-Creation-Date']:
                 run.reject(_("""\
-The PO revision date is '%s', which looks older than the POT creation date.
-You should update the PO revision date before submitting a PO file.
+The PO revision date is '%s', which is older than the POT creation date.
+Please update the revision date field before submitting a PO file.
 """)
                            % date['PO-Revision-Date'],
                            "[revision date before creation date]")
