@@ -513,12 +513,7 @@ The domain name is usually just the package name, in all lower case.
                            % (match.group('dom'), run.hints.domain),
                            "[domain from project-id-version conflicts with file name]")
             if match.group('sep') == '-':
-                run.submitter.write(_("""\
-Within the 'Project-Id-Version' field, the domain name and version numbers
-should be separated by a space rather than by a hyphen.  Some scripts might
-depend on a space being there, so best would be that you modify your file.
-I'll attempt to modify it for you, but just this time! :-)
-"""))
+	        # Silently replace a hyphen with a space.
                 header['project-id-version'] = (
                     header['project-id-version'][:match.start('ver')] + ' '
                     + header['project-id-version'][match.end('ver'):])
