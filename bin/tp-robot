@@ -681,18 +681,18 @@ EMAIL@ADDRESS gives a way to reach that translator by email.
 
     def language_team(self, header):
         text = header['language-team']
-        match = re.match('(.+?)( +)<(.+)>$', text)
+        match = re.match('(.*?)( *)<(.+)>$', text)
         if match:
             maybe_language, maybe_mailto = match.group(1, 3)
             try:
-                maybe_language.decode('ascii')  # language name should be all ASCII
+                maybe_language.decode('ascii')  # language name should be ASCII
             except UnicodeError:
                 m = []
                 for c in maybe_language:
                     if ord(c) < 128: m.append(c)
                     else: m.append('\\%2x' % ord(c))
                 maybe_language = ''.join(m)
-            if len(match.group(2)) != 1:
+            if len(match.group(2)) > 1:
                 run.submitter.write(_("""\
 There is a slight formatting error.  In the 'Language-Team' header line,
 please use no more than a single space between '%s' and '<%s>'.
@@ -701,9 +701,8 @@ please use no more than a single space between '%s' and '<%s>'.
             if maybe_language != globals.team_language:
                 run.reject(_("""\
 You wrote '%s' in the 'Language-Team' field of the PO file header, while
-I think it should have been '%s'.  I'm not fully sure about this.  If you
-think I got it wrong, please email to the translation coordinator to get
-this straigthened this out.
+I think it should have been '%s'.  If I am wrong, please email the
+translation coordinator to get this straightened out.
 """)
                            % (maybe_language, _(globals.team_language)),
                            "[language-team incorrect]")
@@ -726,30 +725,27 @@ coordinator of the address your team decides to use.
                      maybe_mailto not in globals.team_mailtos:
                 run.reject(_("""\
 The 'Language-Team' field of the PO file header contains <%s> as the team's
-email adress, but the registered team's address is <%s>.  If this is wrong,
-please email the translation coordinator to get it corrected.
+email adress, but the registered team's address is <%s>.  If the latter is
+wrong, please email the translation coordinator to get it corrected.
 """)
                            % (maybe_mailto, globals.team_mailto),
                            "[team address incorrect]")
         else:
             run.reject(_("""\
 The 'Language-Team' field was not found in your PO file header, or is
-not formatted properly.  The line containing it often looks like:
+not formatted correctly.  The line containing it should look like:
 
     "Language-Team: LANGUAGE <TEAM-EMAIL-ADDRESS>\\n"
 
 In this line, LANGUAGE is the English name of your language, capitalizing
 the first letter of its words and leaving the rest in lower case.
-Sometimes the TEAM-EMAIL-ADDRESS takes the form of
+In several cases the TEAM-EMAIL-ADDRESS takes the form of
 'translation-team-TEAM@lists.sourceforge.net', where TEAM is the ISO-639
 code for your language (not to be confused with country codes, which are
 a different standard).  If I had to write this line myself, right now,
 according to the information which is available to me, I would use:
 
     "Language-Team: %s <%s>\\n"
-
-If this leaves you clueless and you still want to correct it, please write
-to the translation coordinator and we will work this out together.
 """)
                        % (globals.team_language, globals.team_mailto),
                        "[language team missing]")
