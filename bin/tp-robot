@@ -613,12 +613,12 @@ tell the translation coordinator about these.  It is, however, usually best
 to avoid such variance, and stick to a single preferred spelling.
 
 It may also be that you never joined the %s team.  Please write to the leader
-of your team (see http://translationproject.org/team/index.html for a list,
-then go to the relevant team's page), or else to the translation coordinator.
+of your team (see %s/team/%s.html), or else to the translation coordinator.
 """)
                            % (last_translator,
                               _(globals.team_language),
-                              _(globals.team_language)),
+                              _(globals.team_language),
+                              config.site_base, run.hints.team.code),
                            "[translator not in team]")
                 abort_robot()
             if last_address not in translator.mailto:
