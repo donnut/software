@@ -185,7 +185,8 @@ a POT file all alone.  So, for this one, I'll go disturb him!
         if not (run.hints.domain and run.hints.version and run.hints.team):
             run.reject(_("""\
 %s
-The file name argument should look like 'DOMAIN-VERSION.TEAM.po'.
+The file name argument should look like 'DOMAIN-VERSION.TEAM.po'
+(all in lower case).
 """)
                        % unknown_elements_comment(),
                        "[ill-formatted file name]")
