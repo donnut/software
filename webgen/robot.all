@@ -14,13 +14,15 @@ that looks like:
 
 (The word "TP-robot" at the start is no longer required, but still 
 allowed.)  The mail should be sent to <robot@translationproject.org>.  
-You may expect a reply within ten minutes.  (It may take a while longer 
-when a project coordinator is busy registering things.)
+You may expect a reply within ten minutes -- but it may take a while 
+longer when a project coordinator is busy registering things.
 
 It works best to send the PO file as an attachment (optionally gzipped). 
 Sending it in the body as plain text is dangerous because some mailers 
 insert line breaks on their own, and because some mail relays are not 
-8-bit clean.  Thus it is best sending an attachment.
+8-bit clean.  When sending the file uuencoded, make sure to use base64 
+encoding, because the default encoding looks too much like spam and is 
+thus likely to be rejected.
 
 If the robot cannot decipher your email, or finds some small error in 
 your PO file, it will complain.  When you cannot solve the problem on 
