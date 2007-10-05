@@ -290,15 +290,28 @@ class TeamPage(htmlpage.Htmlpage):
             if team.leader.can_show_mail():
                 write('   <a href="mailto:%s">%s</a>'
                       ' currently acts as the team leader,'
-                      ' and you may write to him or her for all matters'
-                      ' related to team coordination.\n'
                       % (team.leader.mailto[0], name))
             elif team.leader.url:
                 write('   <a href="%s">%s</a>'
-                      ' currently acts as the team leader.\n'
+                      ' currently acts as the team leader,'
                       % (team.leader.url[0], name))
             else:
-                write('   %s currently acts as the team leader.\n' % (name))
+                write('   %s currently acts as the team leader,' % name)
+            write(' and you may write to him or her for all matters related'
+                  ' to team coordination.\n')
+        elif team.mailto:
+            write('   The team does not seem to have appointed a leader, so'
+                  ' for any questions you may write to the above team address.'
+                  ' To get a package assigned, you can write directly to a'
+                  ' <a href="mailto:coordinator@translationproject.org">'
+                  'TP coordinator</a> while CC\'ing the team list.\n')
+        else:
+            write('   The team does not seem to have appointed a leader, so'
+                  ' for any questions or to get a package assigned, you may'
+                  ' write directly to a'
+                  ' <a href="mailto:coordinator@translationproject.org">'
+                  'TP coordinator</a>.\n')
+
         if team.charset:
             write('   Team members expressed a preference towards using the'
                   ' <code>%s</code> charset. '
@@ -395,11 +408,8 @@ class TeamPage(htmlpage.Htmlpage):
                   % (team.leader.url[0],
                      uni2html(team.leader.uniname()[0],'utf-8')))
         else:
-            write(' directly to the'
-                  ' <a href="mailto:coordinator@translationproject.org">'
-                  'coordinator of the Translation Project</a>'
-                  ' to get it corrected, as the team does not seem to have'
-                  ' appointed its own coordinator yet.</p>\n')
+            write(' to a <a href="mailto:coordinator@translationproject.org">'
+                  'TP coordinator</a> to get it corrected.</p>\n')
         write('  <table align=center border=2>\n'
               '   <tr align=center>\n'
               '    <th>Domain</th>\n'

@@ -1,6 +1,10 @@
 
 2007-09-21  Benno Schulenberg  <benno@vertaalt.nl>
 
+	* lib/localweb.py: Clarify things when team has no leader.
+
+2007-09-21  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* bin/tp-robot: Reject PO files that don't contain a correct
 	PO-Revision-Date field.  Don't make long comments about an
 	incorrect POT-Creation-Date, but simply restore it.
