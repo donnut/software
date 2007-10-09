@@ -199,7 +199,7 @@ corresponding PO files and will not send any notifications about them.
     linguistic problems for some language LL and the textual domain DOMAIN
     of your package, try this:
 
-		LANGUAGE=LL gettext DOMAIN '' | grep Language-Team
+		env LANGUAGE=LL gettext DOMAIN '' | grep Language-Team
 
     If any other question remains, don't hesitate to ask it:
     <coordinator@translationproject.org>.  We're much slower than the
