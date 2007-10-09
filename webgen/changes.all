@@ -14,7 +14,7 @@ some meaning: it is indeed the time the page was last updated.
 
 .* Immediate updates
 
-The PO-statistics (the "tranlated / total" numbers) are calculated at 
+The PO-statistics (the "translated / total" numbers) are calculated at 
 the very moment a PO file is added to the archives, instead of twice per 
 day by a cron job.  The corresponding team and domain pages are 
 regenerated immediately after that, so they show the correct numbers 
