@@ -838,7 +838,7 @@ where ENCODING should be the name of an encoding, like one of %s.
 
     def contents(self, work, virtual, cycle):
         try:
-            cmd = 'msgfmt --statistics -c -v -o /dev/null %s'
+            cmd = 'msgfmt -cv -o /dev/null %s'
             proc = popen2.Popen3(cmd % work, 1)
             lines = proc.childerr.readlines()
             reject = proc.wait()
@@ -851,18 +851,15 @@ to be fixed here.  I'll go warn the translation coordinator.
         comment = self.scan_gettext_output(lines, work, virtual)
         if reject:
             run.reject_nofill(_("""\
-As a last check, I ran 'msgfmt --statistics -c -v -o /dev/null'
-on your PO file.  It told me that I cannot let the file pass.
-It reported these errors:
-%s""")
-                              % ('').join(comment), "[msgfmt errors]")
+As a last check, I ran 'msgfmt -cv -o /dev/null' on your PO file.  It
+told me that I cannot let the file pass.  It reported these errors:
+%s""") % ('').join(comment), "[msgfmt errors]")
             abort_robot()
         if comment and (cycle == "first"):
             run.submitter.write_nofill(_("""\
 Merely for your information, let me share with you what the
 'msgfmt' program has to say about your PO file:
-%s""")
-                                       % ('').join(comment))
+%s""") % ('').join(comment))
 
     def special_instructions(self, work):
         if run.hints.domain.name == 'util-linux':
