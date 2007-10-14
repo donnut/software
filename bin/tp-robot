@@ -290,8 +290,12 @@ Validating mail specific information.
 """
 
     def header(self):
-        if not (run.translator_address
-                and run.hints.domain and run.hints.version and run.hints.team):
+        if not run.translator_address:
+            run.reject(_("""\
+Cannot find a translator's email address in your submission.
+"""), "[no email address]")
+            abort_robot()
+        if not (run.hints.domain and run.hints.version and run.hints.team):
             run.reject(_("""\
 %s
 
@@ -302,10 +306,9 @@ As a reminder, the Subject line of your message should look like this:
 DOMAIN is normally the package name, VERSION is the version number, and
 TEAM is the two-letter language code for your team, all in lower case.
 """)
-                       % unknown_elements_comment(check_translator=1),
-                       "[one of address, domain, version, team is missing]")
+                       % unknown_elements_comment(),
+                       "[domain, version, or team is missing]")
             abort_robot()
-
         if run.hints.team:
             globals.team_language = run.hints.team.language
             globals.team_mailto = (run.hints.team.mailto[0]
@@ -1124,32 +1127,27 @@ process = Process()
 
 ## Diagnostics.
 
-def unknown_elements_comment(check_translator=0):
+def unknown_elements_comment():
     known = []
     unknown = []
-    if check_translator:
-        if run.translator_address:
-            known.append(_("the translators's address is '%s'")
-                         % run.translator_address)
-        else:
-            unknown.append(_("the translator's address"))
     if run.hints.domain:
-        known.append(_("the textual domain is '%s'") % run.hints.domain)
+        known.append(_("the domain name is '%s'") % run.hints.domain)
     else:
-        unknown.append(_("the textual domain"))
+        unknown.append(_("the domain name"))
     if run.hints.version:
-        known.append(_("the domain version is '%s'") % run.hints.version)
+        known.append(_("the version number is '%s'") % run.hints.version)
     else:
-        unknown.append(_("the domain version"))
+        unknown.append(_("the version number"))
     if run.hints.team:
-        known.append(_("the team code is '%s'" % run.hints.team))
+        known.append(_("the team code is '%s'") % run.hints.team)
     else:
         unknown.append(_("the team code"))
     if known:
-        return ("There is information missing from your message header: %s."
-                "  I did find that %s."
+        return (_("Some information is missing in your message header: %s."
+                "  I did find that %s.")
                 % (say_list(_('and'), unknown), say_list(_('and'), known)))
-    return "Information that is missing: %s." % say_list(_('and'), unknown)
+    return (_("Information that is missing in your message header: %s.")
+            % say_list(_('and'), unknown))
 
 def say_alias_list(items):
     if len(items) == 0:
