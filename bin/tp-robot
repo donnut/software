@@ -65,8 +65,7 @@ def main(*arguments):
         if part.stack:
             check_mail.header()
         if part.work:
-            # This is only useful for coordinator reports, currently.
-            extract.mail_body(part.work)
+            extract.mail_body(part.work)  # Only used for coordinator reports.
             entries = po.read(part.work)
         else:
             entries = None
@@ -79,11 +78,10 @@ Your PO file seems to have no entries at all, like if it were empty.
         header = po.header(entries)
         check_po_file.header(header)
         check_registry.translator()
-        have_pot = check_registry.have_pot()
         archive_base = run.hints.archive_base()
-        # Run 'msgfmt -c' on the original submission.
+        # First run 'msgfmt -c' on the original submission.
         check_po_file.contents(part.work, archive_base, "first")
-        if have_pot:
+        if check_registry.have_pot():
             process.make_canonical(part.work, archive_base, entries, header)
             # Then check that the merged file is okay too.
             check_po_file.contents(part.work, archive_base, "second")
@@ -93,7 +91,7 @@ Your PO file seems to have no entries at all, like if it were empty.
         if run.rejected:
             abort_robot()
         process.congratulate()
-        process.upload_po_file(part.work)
+        process.store_po_file(part.work)
     except AbortRobot:
         pass
     except:
@@ -110,6 +108,7 @@ Please report all details at <coordinator@translationproject.org>.
     # Push some feedback out, whatever happened.
     run.coordinator.complete()
     run.submitter.complete()
+
 
 class globals:
     team_language = None                # language spoken by this team
@@ -284,6 +283,7 @@ please use my new address <robot@translationproject.org>.
 extract = Extract()
 
 
+########################### Verify submission details ##############
 class CheckMail:
     """\
 Validating mail specific information.
@@ -299,11 +299,8 @@ As a reminder, the Subject line of your message should look like this:
 
     Subject: DOMAIN-VERSION.TEAM.po
 
-The DOMAIN is normally the package name in lower case, VERSION is the
-version number of the package, and TEAM is the two-letter lower case
-language code for your team.  In some rare cases, TEAM might need to
-be suffixed with either "_REGION" or "@DIALECT", where REGION is a
-capitalised two-letter country code and DIALECT a lower case name.
+DOMAIN is normally the package name, VERSION is the version number, and
+TEAM is the two-letter language code for your team, all in lower case.
 """)
                        % unknown_elements_comment(check_translator=1),
                        "[one of address, domain, version, team is missing]")
@@ -311,7 +308,8 @@ capitalised two-letter country code and DIALECT a lower case name.
 
         if run.hints.team:
             globals.team_language = run.hints.team.language
-            globals.team_mailto = run.hints.team.mailto[0] or run.translator_address
+            globals.team_mailto = (run.hints.team.mailto[0]
+                                   or run.translator_address)
             globals.team_mailtos = run.hints.team.mailto[:]
         else:
             run.reject(_("""\
@@ -330,7 +328,7 @@ http://translationproject.org/leaders.html for all the details.
 check_mail = CheckMail()
 
 
-########################### CheckPoFile #########################
+########################### Verify PO header and contents ##########
 class CheckPoFile:
     """\
 Validating the PO file.
@@ -881,14 +879,13 @@ permits redistribution.  Please consider inserting a sentence like
 # as such.
 """)
                 
-
 check_po_file = CheckPoFile()
 
 
-########################### CheckRegistry ###########################
+########################### Verify submitter and existence #########
 class CheckRegistry:
     """\
-Processing with the registry of the Translation Project.
+Comparing data of the submission with data in the TP registry.
 """
 
     def translator(self):
@@ -1016,9 +1013,10 @@ which you may find as:
 check_registry = CheckRegistry()
 
 
+########################### Canonicalize and store #################
 class Process:
     """\
-Accomplishing actions.  In fact, putting here whatever does not fit elsewhere.
+Accomplishing some actions.
 """
 
     def make_canonical(self, where, virtual, entries, header):
@@ -1088,7 +1086,7 @@ interested in this service, you can ask for it by emailing to the
 translation coordinator.
 """))
 
-    def upload_po_file(self, work_name):
+    def store_po_file(self, work_name):
         archive_base = run.hints.archive_base()
         incoming = '%s/%s' % (config.temp_path, archive_base)
         # Remove any file left over from a previous try in dry mode.
@@ -1191,7 +1189,7 @@ ecre = re.compile(r'''
   \?=                   # literal ?=
   ''', re.VERBOSE | re.IGNORECASE)
 
-#from email.Utils.decode
+## Taken from email.Utils.decode.
 def mime_decode_header(h):
     rtn = []
     parts = ecre.split(h, 1)
