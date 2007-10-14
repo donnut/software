@@ -155,10 +155,10 @@ def process_pot_file(hints, file, teams):
         if os.path.isfile(maintainer_path):
             previous = commands.getoutput("ls -l %s | sed 's,.*/,,'"
                                           % maintainer_path)
-            potfile = '%s/%s' % (config.temp_path, archive_base)
             sys.stderr.write("  merging with '%s'" % previous)
-            msgmerge(maintainer_path, template_path, potfile)
-            header = po.header(po.read(potfile))
+            merged_file = '%s/%s' % (config.temp_path, archive_base)
+            msgmerge(maintainer_path, template_path, merged_file)
+            header = po.header(po.read(merged_file))
             match = re.match('(.*) <(.*)>$', header['last-translator'])
             if match:
                 name = po.decfunc(header)(match.group(1))[0]
@@ -173,8 +173,8 @@ def process_pot_file(hints, file, teams):
                             address = translator.mailto[0]
                         sys.stderr.write("      sending '%s' to <%s>\n"
                                          % (archive_base, address))
-                        email_file(address, potfile, translator.autosend)
-            process_po_file(hints, potfile, fromnewpot = True)
+                        email_file(address, merged_file, translator.autosend)
+            process_po_file(hints, merged_file, fromnewpot = True)
         elif not team.suppresspot:
             mailto = hints.team.announce_address()
             if mailto != "(nothing)":
