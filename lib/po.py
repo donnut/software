@@ -559,11 +559,9 @@ def decfunc(header):
     return retval
 
 def last_translator(header):
-    d = decfunc(header)
-    text = header['last-translator']
-    match = re.match('(.*?)( +)<(.+)>$', text)
+    match = re.match('(.*?)( +)<(.+)>$', header['last-translator'])
     if match:
         last_translator, last_address = match.group(1, 3)
-        last_translator = d(last_translator)[0] # ignore len
+        last_translator = decfunc(header)(last_translator)[0]
         return last_translator, last_address
     return header['last-translator'], None

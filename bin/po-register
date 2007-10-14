@@ -158,11 +158,8 @@ def process_pot_file(hints, file, teams):
             sys.stderr.write("  merging with '%s'" % previous)
             merged_file = '%s/%s' % (config.temp_path, archive_base)
             msgmerge(maintainer_path, template_path, merged_file)
-            header = po.header(po.read(merged_file))
-            match = re.match('(.*) <(.*)>$', header['last-translator'])
-            if match:
-                name = po.decfunc(header)(match.group(1))[0]
-                address = match.group(2)
+            name, address = po.last_translator(po.header(po.read(merged_file)))
+            if address:
                 try:
                     translator = registry.translator(team, name, address)
                 except KeyError:
@@ -183,12 +180,11 @@ def process_pot_file(hints, file, teams):
                 notify_team_for_po(hints, stats, "nobody", fromnewpot = True)
         if not translator:
             for translator in team.translator_for_domain(hints.domain):
-                if translator.mailto:
+                if translator.autosend and translator.mailto:
                     address = translator.mailto[0]
-                    if translator.autosend:
-                        sys.stderr.write("      sending '%s' to <%s>\n"
-                                         % (template_base, address))
-                        email_file(address, template_path, translator.autosend)
+                    sys.stderr.write("      sending '%s' to <%s>\n"
+                                     % (template_base, address))
+                    email_file(address, template_path, translator.autosend)
     # Regenerate the domain page after all statistics were updated:
     localweb.generate_domain_page(hints.domain.name)
     if hints.domain.mailto:
