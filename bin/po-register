@@ -180,7 +180,7 @@ def process_pot_file(hints, file, teams):
             if mailto != "(nothing)":
                 sys.stderr.write("    notifying `%s` <%s> about '%s'\n"
                                  % (team.name, mailto, template_base))
-                notify_team_for_po(hints, stats, fromnewpot = True)
+                notify_team_for_po(hints, stats, "nobody", fromnewpot = True)
         if not translator:
             for translator in team.translator_for_domain(hints.domain):
                 if translator.mailto:
@@ -234,9 +234,10 @@ def process_po_file(hints, file, fromnewpot = False):
     # Notify team of the PO file, whether new or updated.
     mailto = hints.team.announce_address()
     if mailto != "(nothing)":
+        translatorname = po.last_translator(po.header(po.read(file)))[0]
         sys.stderr.write("    notifying `%s` <%s> about '%s'\n"
                          % (hints.team.name, mailto, archive_base))
-        notify_team_for_po(hints, stats, fromnewpot)
+        notify_team_for_po(hints, stats, translatorname, fromnewpot)
     # Only notify the maintainer (and update the symlink in latest/) if the
     # submitted PO file is for the most recent POT file of this package.
     current_pot = data.load_postats().potstats[hints.domain.name][0]
@@ -436,7 +437,7 @@ If any question arises, please contact the translation coordinator.
     underwrite(write)
 
 
-def notify_team_for_po(hints, stats, fromnewpot = False):
+def notify_team_for_po(hints, stats, translatorname, fromnewpot = False):
     file = open_output()
     charset = mime_charset(hints)
     def write(msg):
@@ -456,16 +457,12 @@ Subject: New: %s-%s (%d%%, %d untranslated)
 """) % (hints.team.announce_address(), hints.domain.name, hints.version.name,
         percent, untranslated))
     else:
-        if len(assignee) > 0:
-            translator = assignee[0].name[0]
-        else:
-            translator = _("unassigned translator")
         write_header(_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
 Subject: %s-%s (%d%%, %d untranslated) by %s
 """) % (hints.team.announce_address(), hints.domain.name, hints.version.name,
-        percent, untranslated, translator))
+        percent, untranslated, translatorname))
     write(mime_header(charset))
     write('\n')
     if translated == 0:

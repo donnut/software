@@ -1,4 +1,11 @@
 
+2007-10-14  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/tp-robot: Allow team leaders to upload PO files for any domain.
+
+	* bin/po-register: Show in the subject line the name of the actual
+	last translator instead of the assigned translator.
+
 2007-09-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Clarify things when team has no leader.
