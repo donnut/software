@@ -1,9 +1,11 @@
 # HTML related routines.
 # -*- mode: python; coding: utf-8 -*-
+# Copyright © 2007 Translation Project.
 # Copyright © 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 2000.
 
 import commands, os, re, stat, string, sys
+
 
 # Generic file transformations.
 
@@ -22,7 +24,10 @@ def transform_generic(input, html_dir=None):
                     transform_generic('%s/%s' % (input, name), html_dir)
         return
     directory, filename = os.path.split(input)
-    if filename == 'NEWS':
+    if filename == 'AUTHORS':
+        transform_authors(input, html_dir and '%s/authors.html' % html_dir,
+                           'Who have signed a disclaimer')
+    elif filename == 'NEWS':
         transform_verbatim(input, html_dir and '%s/news.html' % html_dir,
                            'NEWS - History of user-visible changes')
     elif filename == 'README':
@@ -44,7 +49,8 @@ def transform_generic(input, html_dir=None):
         else:
             transform_verbatim(input, output,
                                'The %s file' % string.upper(filename))
-
+
+
 # Configuration and layout of generated HTML pages.
 
 class Htmlpage:
@@ -158,8 +164,9 @@ INSERTION_POINT
 
     def html_buttons(self):
         return None
-
-# Transform a page, taken almost verbatim, in HTML.
+
+
+# Transform a page, taken almost verbatim, into HTML.
 
 def transform_verbatim(input, output=None, title=None):
     Verbatim(input, output, title)
@@ -184,7 +191,42 @@ class Verbatim(Htmlpage):
         if not title and lines and lines[0]:
             title = string.strip(lines[0])
         return title
-
+
+
+# Transform the AUTHORS file into a simple HTML table.
+
+def transform_authors(input, output=None, title=None):
+    Authors(input, output, title)
+
+class Authors(Htmlpage):
+
+    def __init__(self, input, output, title):
+        Htmlpage.__init__(self, input, output)
+        write = self.writer
+        if not write:
+            return
+        lines = open(input).readlines()
+        self.prologue(title, charset="utf-8")
+        write('<table>\n')
+        write('<b><th align="left">Author<th>Signed<th>Language</b>\n')
+        tack = False
+        for line in lines:
+            if line[:12] == "TRANSLATIONS":
+                name = " ".join(line.split()[1:-1])
+                date = line.split()[-1]
+                write('<tr><td>%s<td>%s' % (name, date))
+                tack = True
+            elif tack:
+                tack = False
+                if name == "Ingenieurburo":
+                    write('<td></tr>\n')
+                    continue
+                team = line.split("[")[1].split("]")[0]
+                write('<td align="center">%s</tr>\n' % team)
+        write('</table>\n')
+        self.epilogue()
+
+
 # Transform an `allout' outline file into HTML.
 
 def transform_allout(input, output=None, title=None):
@@ -285,7 +327,8 @@ class Allout(Htmlpage):
         if tag == self.element:
             write('</%s>\n' % self.element)
             self.element = None
-
+
+
 # Transform an HTML file into another.
 
 def transform_html(input, output=None, title=None):
@@ -347,7 +390,8 @@ class Html(Htmlpage):
         if title:
             return string.strip(title)
         return None
-
+
+
 # Transform a `THANKS' file into HTML.
 
 def transform_thanks(input, output=None, title=None):
@@ -431,7 +475,8 @@ class Thanks(Htmlpage):
             else:
                 write('    <td></td>\n')
         write('   </tr>\n')
-
+
+
 # Services.
 
 def enhance(text, verbatim=0):

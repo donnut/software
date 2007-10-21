@@ -31,11 +31,11 @@ $(htmldir)/%.html: %.all $(LAYOUT_DEPS)
 $(htmldir)/%.html: %.html $(LAYOUT_DEPS)
 	./to-html.py -C $(htmldir) $<
 
-$(sitedir)/disclaim.txt: disclaim.txt
+disclaimer $(sitedir)/disclaim.txt: disclaim.txt
 	cp disclaim.txt $(sitedir)/disclaim.txt
 
-$(sitedir)/AUTHORS: ../registry/AUTHORS
-	cp ../registry/AUTHORS $(sitedir)/AUTHORS
+authors $(sitedir)/AUTHORS: ../registry/AUTHORS
+	./to-html.py -C $(htmldir) ../registry/AUTHORS
 
 domains:
 	../bin/generate-static-pages -d

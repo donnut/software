@@ -1,4 +1,9 @@
 
+2007-10-21  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/htmlpage.py: Add a transform_authors() function to process
+	the AUTHORS file into a simple HTML list of names and dates.
+
 2007-10-14  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Allow team leaders to upload PO files for any domain.
