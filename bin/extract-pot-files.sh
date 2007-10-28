@@ -79,6 +79,13 @@ case ${domain} in
 	cp -v ${domain}-$version/po/$domain.pot $domain-$version.pot
 	cp -v ${domain}-$version/lib/po/lib$domain.pot lib$domain-$version.pot
 	;;
+    hylafax)
+	$echo domain
+	version=${archive%.tar.$suffix}
+	version=${version#$domain-}
+	$echo $version
+	cp -v ${domain}-$version/po/$domain.pot $domain-$version.pot
+	;;
     iso-codes)
 	$echo $domain
 	version=${archive%.tar.$suffix}
