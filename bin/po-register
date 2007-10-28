@@ -370,6 +370,7 @@ def notify_maintainer_for_po(hints, file_name, archive_base):
     write("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
+BCC: robot-mail@benno.vertaalt.nl
 Subject: New %s PO file for '%s' (version %s)
 """
           % (hints.domain.mailto[0], hints.team.language,
