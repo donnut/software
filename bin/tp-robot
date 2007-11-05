@@ -1111,15 +1111,14 @@ to be fixed here.  I'll go warn the translation coordinator.
         comment = []
         write = comment.append
         if run.header_lines:
-            write(_('Original message header:\n'))
-            write('\n')
+            write(_("Original message header:\n\n"))
             for line in run.header_lines:
                 write('>    ' + line)
-            write('\n')
-        write(_('Diagnostics issued by \'po-register\':\n'))
-        write('\n')
+        write(_("\nDiagnostics issued by 'po-register':\n\n"))
         for line in lines:
             write('>    ' + line)
+	write(_("\nIf something needs changing, write to:\n"))
+	write(_(" <coordinator@translationproject.org>\n"))
         run.coordinator.write_nofill(('').join(comment))
 
 process = Process()
