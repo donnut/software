@@ -1,4 +1,9 @@
 
+2007-11-07  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* webgen/whydisclaim.html: Remove paragraph about non-existent PDF;
+	suggested by Karl Berry.
+
 2007-10-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/htmlpage.py: Add a transform_authors() function to process
