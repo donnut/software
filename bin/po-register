@@ -282,7 +282,8 @@ Subject: New template for '%s' made available
     write("""\
 Hello, gentle maintainer.
 
-This is a message from the Translation Project robot.
+This is a message from the Translation Project robot.  (If you have
+any questions, send them to <coordinator@translationproject.org>.)
 
 A new POT file for textual domain '%s' has been made available
 to the language teams for translation.  It is archived as:
