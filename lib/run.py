@@ -137,8 +137,10 @@ Subject: XXX: %s
             self.file.write("[Body lines suppressed]\n")
             self.file.write('-' * 70 + '<\n')
             self.file.write(
-"\n\nIf necessary, please help the translator to get the error fixed \n"
-"and assist her to submit the fixed file again.\n\n")
+"\nIf necessary, please help the translator to get the error fixed\n"
+"and assist her to submit the fixed file again.\n"
+"\nIf anything needs changing, please write to:\n"
+" <coordinator@translationproject.org>\n\n")
         Reporter.complete(self)
 
     def write_nofill(self, text):
