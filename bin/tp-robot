@@ -156,15 +156,15 @@ I'm ignoring the whole following MIME part within your message:
                     parts.remove(part)
         if len(parts) == 0:
             run.reject(_("""\
-Hmm...  It seems I'm not clever enough yet to find the PO file within
-your email.  I will go ask the coordinator to help me unpack your mail.
+Hmm...  I cannot find a PO file within your email.  If you are certain
+it is there, please report a robot bug to the coordinator.
 """), "[submission not found]")
             abort_robot()
         if len(parts) > 1:
             run.reject(_("""\
 Your message contains multiple MIME parts, and I am unable to decide
-which one is meant to hold your PO file.  Please help me and resubmit
-your message with a simpler MIME structure.
+which one holds your PO file.  Please help me and resubmit your message
+with a simpler MIME structure.
 """), "[multiple submissions?]")
             abort_robot()
         return parts[0]
