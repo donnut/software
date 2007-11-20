@@ -371,7 +371,7 @@ kept in English.
     def copyright(self, header):
         text = header['COPYRIGHT']
         if isinstance(text, types.ListType):
-            # XXX ignore other copyrights
+            # Ignore other copyrights, just look at the first one.
             text = text[0]
         utext = po.decfunc(header)(text)[0]
         match = re.match('Copyright (\\(C\\)|\xa9|\xc2\xa9).* '
@@ -401,14 +401,13 @@ and so he could eventually change me (the robot) for handling such cases.
                 else:
                     comment = ""
                     reason = "[Copyright not %s]" % author
-                                
                 run.reject(_("""\
 The copyright for the PO file should be assigned to:
 
     %s
 
-and does not seem to be, yet it might be only a matter of proper spelling.
-%s
+Maybe you didn't spell it right, or there is a superfluous period
+at the end?  %s
 """)
                            % (author, comment), reason)
         elif run.hints.domain and run.hints.domain.disclaim:
