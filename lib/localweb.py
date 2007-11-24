@@ -167,7 +167,7 @@ class DomainPage(htmlpage.Htmlpage):
                       '<td><i>external</i></td>'
                       '<td bgcolor="%s">%s</td></tr>\n'
                       % (team.code, team.language, team.code, color, numbers))
-            else:    
+            else:
                 build_language_cell(postats, write, team, domain)
         write('  </table>\n')
         self.epilogue()
@@ -442,7 +442,7 @@ class TeamPage(htmlpage.Htmlpage):
             file = '%s/%s/%s.po' % (config.last_path, domain.name, team.name)
             # Show current version not for absent files nor for externals.
             if os.path.isfile(file) and (not team.code in domain.ext):
-                hints = registry.Hints(os.readlink(file))
+                hints = registry.hints(os.readlink(file))
                 key = hints.domain.name, hints.version.name, hints.team.name
                 if postats.has_key(key):
                     (translated, total) = postats[key][2:4]
@@ -450,7 +450,7 @@ class TeamPage(htmlpage.Htmlpage):
                     write('    <td><a href="../%s/%s/%s-%s.%s.po">%s</a></td>\n'
                           % (config.pos_dir, team.name, domain.name,
                              current.name, team.name, current.name))
-                    write('    <td align="center" bgcolor="%s">%d / %d</td>\n'
+                    write('    <td bgcolor="%s">%d / %d</td>\n'
                           % (colorize(translated, total), translated, total))
                     try:
                         current.set_sort_key()
@@ -459,37 +459,35 @@ class TeamPage(htmlpage.Htmlpage):
             else:
                 write('    <td colspan=2></td>\n')
             try:
-                templ_file, templ_msgs = postats.potstats[domain.name]
-                templ_hints = registry.hints(templ_file)
+                template, tally = postats.potstats[domain.name]
+                version = registry.hints(template).version
             except KeyError:
-                templ_hints = None
-            if templ_hints and (not current or current != templ_hints.version):
-                cur_key = domain.name, templ_hints.version.name, team.name
+                version = None
+            if version and (not current or current != version):
+                key = domain.name, version.name, team.name
                 if team.code in domain.ext:
-                    reference = '%s' % templ_hints.version
+                    reference = '%s' % version
                     if os.path.isfile(file):
                         color = "#f8d0f8"  # Magenta: external but file present.
                     else:
                         color = "#e8e8e8"  # Grey: external.
                     if extstats:
-                        numbers = ("%d / %d"
-                                   % (extstats['translated'], templ_msgs))
+                        numbers = ("%d / %d" % (extstats['translated'], tally))
                     else:
                         numbers = "unknown"
-                elif postats.has_key(cur_key):
+                elif postats.has_key(key):
                     reference = ('<a href="../%s/%s/%s-%s.%s.po">%s</a>'
                                  % (config.pos_dir, team.name,
-                                    domain.name, templ_hints.version, team.name,
-                                    templ_hints.version))
-                    (translated, total) = postats[cur_key][2:4]
-                    numbers = "%d / %d" % (translated, total)
-                    color = colorize(translated, total)
+                                    domain.name, version, team.name, version))
+                    translated = postats[key][2]
+                    numbers = "%d / %d" % (translated, tally)
+                    color = colorize(translated, tally)
                 else:
-                    reference = "%s" % templ_hints.version
+                    reference = "%s" % version
                     color = "#00d0f8"  # Blue: fully untranslated.
-                    numbers = "%d / %d" % (0, templ_msgs)
+                    numbers = "%d / %d" % (0, tally)
                 write('    <td>%s</td>\n'
-                      '    <td align="center" bgcolor="%s">%s</td>\n'
+                      '    <td bgcolor="%s">%s</td>\n'
                       % (reference, color, numbers))
             write('   </tr>\n')
         write('  </table>\n')
