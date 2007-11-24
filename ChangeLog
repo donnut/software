@@ -1,4 +1,8 @@
 
+2007-11-24  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/localweb.py: Add on the team pages hyperlinks to the PO files.
+
 2007-11-07  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/whydisclaim.html: Remove paragraph about non-existent PDF;

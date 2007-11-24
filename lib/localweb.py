@@ -447,10 +447,11 @@ class TeamPage(htmlpage.Htmlpage):
                 if postats.has_key(key):
                     (translated, total) = postats[key][2:4]
                     current = hints.version
-                    color = colorize(translated, total)
-                    write('    <td align="center">%s</td>\n'
-                          '    <td align="center" bgcolor="%s">%d / %d</td>\n'
-                          % (current.name, color, translated, total))
+                    write('    <td><a href="../%s/%s/%s-%s.%s.po">%s</a></td>\n'
+                          % (config.pos_dir, team.name, domain.name,
+                             current.name, team.name, current.name))
+                    write('    <td align="center" bgcolor="%s">%d / %d</td>\n'
+                          % (colorize(translated, total), translated, total))
                     try:
                         current.set_sort_key()
                     except AssertionError:
@@ -465,6 +466,7 @@ class TeamPage(htmlpage.Htmlpage):
             if templ_hints and (not current or current != templ_hints.version):
                 cur_key = domain.name, templ_hints.version.name, team.name
                 if team.code in domain.ext:
+                    reference = '%s' % templ_hints.version
                     if os.path.isfile(file):
                         color = "#f8d0f8"  # Magenta: external but file present.
                     else:
@@ -475,15 +477,20 @@ class TeamPage(htmlpage.Htmlpage):
                     else:
                         numbers = "unknown"
                 elif postats.has_key(cur_key):
+                    reference = ('<a href="../%s/%s/%s-%s.%s.po">%s</a>'
+                                 % (config.pos_dir, team.name,
+                                    domain.name, templ_hints.version, team.name,
+                                    templ_hints.version))
                     (translated, total) = postats[cur_key][2:4]
                     numbers = "%d / %d" % (translated, total)
                     color = colorize(translated, total)
                 else:
+                    reference = "%s" % templ_hints.version
                     color = "#00d0f8"  # Blue: fully untranslated.
                     numbers = "%d / %d" % (0, templ_msgs)
-                write('    <td align="center">%s</td>\n'
+                write('    <td>%s</td>\n'
                       '    <td align="center" bgcolor="%s">%s</td>\n'
-                      % (templ_hints.version.name, color, numbers))
+                      % (reference, color, numbers))
             write('   </tr>\n')
         write('  </table>\n')
         self.epilogue()
