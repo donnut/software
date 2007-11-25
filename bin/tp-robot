@@ -467,9 +467,8 @@ the very first 'msgid' (the empty one).
 There is a slight formatting error in one of the author lines:
 superfluous spaces, no name, a lacking comma, or a bad year.
 """))
-        decfunc = po.decfunc(header)
         last_name, last_address, last_year = match1.group(1, 2, 3)
-        last_name = decfunc(last_name)[0]
+        last_name = po.decfunc(header)(last_name)[0]
         try:
             translator = registry.translator(run.hints.team,
                                              last_name, last_address)
@@ -587,12 +586,11 @@ The PO revision date is '%s', which is older than the POT creation date,
                            "[revision date before creation date]")
 
     def last_translator(self, header):
-        decfunc = po.decfunc(header)
         text = header['last-translator']
         match = re.match('(.*?)( +)<(.+)>$', text)
         if match:
             last_translator, last_address = match.group(1, 3)
-            last_translator = decfunc(last_translator)[0]  # ignore len
+            last_translator = po.decfunc(header)(last_translator)[0]
             if len(match.group(2)) != 1:
                 run.submitter.write(_("""\
 There is a slight formatting error.  In the 'Last-Translator' header line,
@@ -635,9 +633,7 @@ The last translator of this PO file is %s.  But according to my notes,
                     globals.reported_unknown.append(last_address)
                     globals.unknown_address_insert = ''
                 return
-            if (run.translator_name
-                and (string.lower(last_translator)
-                     != string.lower(run.translator_name))):
+            if last_translator != run.translator_name:
                 run.submitter.write(_("""\
 I'm not fully sure that you are the author of the translations you
 sent me.  The header of your email says that you are '%s', while the
@@ -655,9 +651,7 @@ but it is unusual that someone submits a translation file written by
 someone else.
 """)
                                     % (run.translator_name, last_translator))
-            elif (run.translator_address
-                  and (string.lower(last_address)
-                       != string.lower(run.translator_address))):
+            elif last_address != run.translator_address:
                 run.submitter.write(_("""\
 Your message was sent from '%s', but the 'Last-Translator' field in the
 PO file says that your email address is '%s'.  I assume that the latter
