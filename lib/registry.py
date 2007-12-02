@@ -444,7 +444,7 @@ class Version:
             minor = int(match.group(2))
             patch = int(match.group(3))
             pretest = map(int, match.group(4).split("."))
-            self.sort_key = major, minor, patch, -2, pretest
+            self.sort_key = major, minor, patch, 0, pretest
             return self.sort_key
         match = re.match(
             r'([0-9]{4})-([0-9]{2})-([0-9]{2})$', self.name)

@@ -1,4 +1,9 @@
 
+2007-12-02  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/registry.py: A normal version number is _not_ a beta version:
+	make 0.10.14.5 sort after 0.10.14, not before, for gst-plugins-base.
+
 2007-11-24  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Add on the team pages hyperlinks to the PO files.
