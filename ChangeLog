@@ -3,6 +3,8 @@
 
 	* bin/run-queue.sh: Exit immediately if there is no robot queue.
 
+	* bin/tp-robot: Reject PO file when less than half is translated.
+
 2007-12-02  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/registry.py: A normal version number is _not_ a beta version:
