@@ -4,8 +4,6 @@
 # Copyright © 1999 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 
-PYTHON=python
-
 MAILDIR=~/Mail
 progsdir=~/progs
 
@@ -14,6 +12,11 @@ TP_QUEUE_LOCK=$MAILDIR/bot-queue.lock
 TP_EXEC=$MAILDIR/bot-exec
 TP_EXEC_LOCK=$MAILDIR/bot-exec.lock
 
+
+# Don't look at anything else if there is no queue.
+if [ ! -f $TP_QUEUE ]; then
+  exit 0
+fi;
 
 # Don't handle mail when an admin is busy with
 # things that modify the cache/postats file.
@@ -39,7 +42,7 @@ if [ -f $TP_EXEC ]; then
   lockfile $TP_EXEC_LOCK
     if [ -f $TP_EXEC ]; then
       # Let the robot handle the arrived emails.
-      formail -s $PYTHON $progsdir/bin/tp-robot <$TP_EXEC
+      formail -s python $progsdir/bin/tp-robot <$TP_EXEC
       rm -f $TP_EXEC
     fi
   rm -f $TP_EXEC_LOCK
