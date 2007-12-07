@@ -513,7 +513,7 @@ The domain name is usually just the package name, in all lower case.
                            % (match.group('dom'), run.hints.domain),
                            "[domain in project-id conflicts with file name]")
             if match.group('sep') == '-':
-	        # Silently replace a hyphen with a space.
+                # Silently replace a hyphen with a space.
                 header['project-id-version'] = (
                     header['project-id-version'][:match.start('ver')] + ' '
                     + header['project-id-version'][match.end('ver'):])
@@ -796,9 +796,6 @@ where CHARSET should be the name of a character set, like one of %s.
                        % say_list(_('or'), charsets),
                        "[content-type missing or ill-formatted]")
         encodings = ['8-bit', '8bit', 'Base64']
-        #   218	8-bit
-        #    28	8bit
-        #     2	Base64
         cte = header['content-transfer-encoding']
         if cte:
             if cte not in encodings:        # FIXME: ignore case
@@ -808,7 +805,7 @@ The 'Content-Transfer-Encoding' field introduced an unusual encoding
 coordinator that '%s' be added to the list of acceptable charsets.
 This list currently holds: %s.
 """)
-                           % (cte, cte, say_list(_('or'), encodings)),
+                           % (cte, cte, say_list(_('and'), encodings)),
                            "[unknown content-transfer-encoding]")
         else:
             run.reject(_("""\
@@ -978,7 +975,7 @@ which you may find as:
         # If it is the assigned translator, accept.
         if domain in translator.do:
             return 1, "[translator is assigned]"
-        # If it is the team leader, accept.	    
+        # If it is the team leader, accept.    
         if translator.name == run.hints.team.leader.name:
             return 1, "[team leader can upload any domain]"
         # If somebody else is assigned, reject.
@@ -1121,8 +1118,8 @@ to be fixed here.  I'll go warn the translation coordinator.
         write(_("\nDiagnostics issued by 'po-register':\n\n"))
         for line in lines:
             write('>    ' + line)
-	write(_("\nIf something needs changing, write to:\n"))
-	write(_(" <coordinator@translationproject.org>\n"))
+        write(_("\nIf something needs changing, write to:\n"))
+        write(_(" <coordinator@translationproject.org>\n"))
         run.coordinator.write_nofill(('').join(comment))
 
 process = Process()
