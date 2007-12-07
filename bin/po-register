@@ -214,11 +214,11 @@ def process_po_file(hints, file, fromnewpot = False):
         sys.exit(0)
     stats = po.stats(po.read(file))
     translated = stats['translated']
-    if (translated == 0 and os.path.isfile(template_path)
+    if (translated == 0) or (os.path.isfile(template_path)
         and registry.compare_files(template_path, file)):
-        raise 'Translation empty and identical to POT; not loaded\n'
+        raise 'Translation is empty or identical to POT; not loaded\n'
     elif registry.compare_files(file, archive_path):
-        raise 'Translation identical to archive file; not loaded\n'
+        raise 'Translation is identical to archive file; not loaded\n'
     if not run.dry:
         if os.path.isfile(archive_path):
             os.remove(archive_path)
