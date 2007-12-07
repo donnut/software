@@ -854,7 +854,7 @@ Merely for your information, let me share with you what the
 'msgfmt' program has to say about your PO file:
 %s""") % ('').join(comment))
             # Try extracting the translated, fuzzy, and untranslated numbers.
-            match = re.match('([0-9]+) .*?([0-9]+) .*?([0-9]*)', comment[0])
+            match = re.match('> ([0-9]+) .*?([0-9]+) .*?([0-9]*)', comment[0])
             if match:
                 done = eval(match.group(1))
                 left = eval(match.group(2)) + (eval(match.group(3)+'0') / 10)
