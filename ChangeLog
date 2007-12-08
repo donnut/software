@@ -1,7 +1,7 @@
 
 2007-12-08  Benno Schulenberg  <benno@vertaalt.nl>
 
-	* bin/po-register: Make sure stored PO files are group-readable.
+	* bin/po-register: Make sure stored PO files are group-writable.
 
 2007-12-07  Benno Schulenberg  <benno@vertaalt.nl>
 
