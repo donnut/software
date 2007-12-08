@@ -208,7 +208,7 @@ def process_po_file(hints, file, fromnewpot = False):
     maintainer_path = hints.maintainer_path()
     template_path = hints.template_path()
     if registry.compare_files(archive_path, file):
-        sys.stderr.write("  skipping '%s', as already uploaded\n" % file)
+        sys.stderr.write("  skipping '%s', as it's already stored\n" % file)
         if not run.dry:
             os.remove(file)
         sys.exit(0)
@@ -216,18 +216,18 @@ def process_po_file(hints, file, fromnewpot = False):
     translated = stats['translated']
     if (translated == 0) or (os.path.isfile(template_path)
         and registry.compare_files(template_path, file)):
-        raise 'Translation is empty or identical to POT; not loaded\n'
+        raise 'Translation is empty or identical to POT; not stored\n'
     elif registry.compare_files(file, archive_path):
-        raise 'Translation is identical to archive file; not loaded\n'
+        raise 'Translation is identical to archive file; not stored\n'
     if not run.dry:
         if os.path.isfile(archive_path):
             os.remove(archive_path)
         shutil.copy2(file, archive_path)
-        # Calculate the statistics for the new PO file.
+        # Calculate and store the statistics for the new PO file.
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
             print line
-    # Notify team of the PO file, whether new or updated.
+    # Notify the team about the PO file, whether new or updated.
     mailto = hints.team.announce_address()
     if mailto != "(nothing)":
         translatorname = po.last_translator(po.header(po.read(file)))[0]
