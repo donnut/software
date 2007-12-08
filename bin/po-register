@@ -18,7 +18,7 @@ Usage:  po-register [-nqtT] PACKAGE-VERSION.{pot,LL[.po]}
 """
 
 import os, sys, shutil
-import commands, getopt, re, string
+import commands, getopt, re, string, datetime
 
 sys.path.insert(0, sys.path[0]+'/../lib')
 import config, data, localweb, po, registry, messages
@@ -224,6 +224,13 @@ def process_po_file(hints, file, fromnewpot = False):
             os.remove(archive_path)
         shutil.copy(file, archive_path)
         os.chmod(archive_path, 0664)
+        # Make an entry in the log.
+        now = datetime.datetime.now()
+        logbook = open('%s/stored-POs.log' % config.cache_path, 'a')
+        logbook.write("%s  %s  %s" % (now.date().isoformat(),
+                                      now.time().strftime('%X'),
+                                      archive_base))
+        logbook.close()
         # Calculate and store the statistics for the new PO file.
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
@@ -255,7 +262,7 @@ def process_po_file(hints, file, fromnewpot = False):
             maintainer = hints.domain.mailto[0]
             sys.stderr.write("      notifying maintainer <%s>\n" % maintainer)
             notify_maintainer_for_po(hints, file, archive_base)
-	else:
+        else:
             sys.stderr.write("      maintainer has no email address\n")
     elif not fromnewpot:
         sys.stderr.write("      NOT informing maintainer\n")

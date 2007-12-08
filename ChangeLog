@@ -3,6 +3,8 @@
 
 	* bin/po-register: Make sure stored PO files are group-writable.
 
+	* bin/po-register: Make a logbook entry when a PO file is stored.
+
 2007-12-07  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/run-queue.sh: Exit immediately if there is no robot queue.
