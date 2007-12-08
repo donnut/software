@@ -1,4 +1,8 @@
 
+2007-12-08  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/po-register: Make sure stored PO files are group-readable.
+
 2007-12-07  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/run-queue.sh: Exit immediately if there is no robot queue.
