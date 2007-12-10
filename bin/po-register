@@ -228,9 +228,9 @@ def process_po_file(hints, file, fromnewpot = False):
             # For uploaded files make an entry in the log.
             now = datetime.datetime.now()
             logbook = open('%s/stored-POs.log' % config.cache_path, 'a')
-            logbook.write("%s  %s  %s" % (now.date().isoformat(),
-                                          now.time().strftime('%X'),
-                                          archive_base))
+            logbook.write("%s  %s  %s\n" % (now.date().isoformat(),
+                                            now.time().strftime('%X'),
+                                            archive_base))
             logbook.close()
         # Calculate and store the statistics for the new PO file.
         response = os.popen("calc-postats "+archive_path).readlines()
