@@ -1,210 +1,146 @@
-* A reply to incoming maintainers			allout -*- outline -*-
+* Package maintainers and the TP			allout -*- outline -*-
 
-  Hello, I hope you will not mind a canned reply.  You wrote to the
-  project coordinator, exploring how to use the Translation Project
-  for your package, but do not know exactly how or where to start.
-  Here is some advice.
+.* About the Translation Project
 
-.* About using the Translation Project
+The Translation Project (the TP, for short) is meant as a service to both 
+package maintainers and translators.  The advantage for maintainers is that 
+they need to announce a new POT file to just one address and can fetch the 
+translated PO files from just one place, instead of having to deal with 
+several translators separately.  For translators the advantages are 
+similar: they receive the POT file announcements and pre-merged PO files 
+from a single place and send in their PO files via a single mechanism, 
+instead of having to deal in different ways with several maintainers 
+separately.
 
-The Translation Project is meant as a service which you are free to use or 
-not.  Of course, we believe there are many advantages to using the TP, but 
-some aspect of the project might bother you.  We are improving the service 
-over time, and your suggestions are always welcome. Please send them to 
-<comments@translationproject.org>.
+At the TP, translators are grouped into language teams (rather than package 
+teams) because, in general, translation issues are more specific to a human 
+language than to a particular package.  It is good for translators of the 
+same language to get together, check each other's work, and discuss any 
+problematic translation issues.  This also increases the chances that all 
+packages at the TP get translated in a similar manner, using the same 
+conventions and a consistent vocabulary.  Lone translators tend to find 
+their own ways and words, making your package stand out as strange.
 
-The Translation Project does not force you into imposing disclaimers on the 
-translators.  But for most GNU packages, disclaimers are required by the Free 
-Software Foundation (FSF).  Even for non-GNU packages, however, it is a good 
-idea to ask for disclaimers, as this better protects the made translations 
-against people who might change their mind about freedom; such things can 
-happen.  If you decide that disclaimers are required, the Translation Project 
-checks that translations are properly disclaimed before being accepted.  The 
-disclaimer form is here:
+.* Using the Translation Project
 
-   http://translationproject.org/disclaim.txt
+Whenever you make a new release of your package, you should announce it to 
+the TP coordinators at <coordinator@translationproject.org> by sending them 
+the URL of the release tarball -- this tarball should contain an up to date 
+POT file.  (If your package isn't internationalized yet, then see below.)  
+Preferrably you make a prerelease a week or so earlier and announce this to 
+the TP, so the translators get a chance to update their PO files before the 
+actual release of your package, so the release can go out fully translated 
+into several languages.  However, if you don't want to bother making a 
+complete prerelease tarball, you can also just send your latest POT file to 
+the coordinators and mention the version number of your next release.
 
-   In the Translation Project, translators are grouped into teams by
-   the language they translate into, rather than by the package they are
-   translating.  This often represents an important change from a previous
-   setup you might have created for your package.  In general, translation
-   problems are more specific to spoken languages than to particular packages,
-   and we think overall efforts are better invested when people interested
-   in a native language get together and share their energy.
+Whenever a translator uploads an updated PO file for the latest version of 
+your package, you receive an email notification.  You can then immediately 
+import this PO file into your source code repository, or you could wait 
+until just before you make the actual release and use the following command 
+to import all PO files at once (replace DOMAIN with the name of your 
+package, all in lowercase):
 
-   The Translation Project puts an administrative layer between you, as
-   a maintainer, and the translators working at your package.  In a
-   way, this creates some distance, which you may find difficult to accept
-   at first.  It goes with the fact that the more languages your package
-   supports, the more difficult it gets to synchronise everything for a release,
-   to the point of becoming impossible after enough growth.  The Translation
-   Project wants to relieve the pressure on everybody.  It is set up to
-   handle the asynchronicity, and to keep responsibilities more separate.
-   You do not have to bother much about translation matters,
-   and your translators feel more comfortable working at their own pace.
+        rsync -Lrtvz  translationproject.org::tp/latest/DOMAIN/  po
 
-At the beginnings of the Translation Project, everything was coordinated by 
-hand, and maintainers and translators were all receiving a lot of personal 
-help and coaching.  But as the data volume increased, it became just 
-impossible to sustain the same level of service: delays became noticeable.  
-The Translation Project robot now attempts to provide a good turnaround, while 
-keeping good coaching for most of the usual difficulties.  Currently, the 
-robot is geared up to handle PO files submitted by translators.  The initial 
-setup for a new package, or a new language team, is still done by hand.
+When you make use of the Translation Project, you should not accept PO 
+files from translators directly but instead point anyone who offers you a 
+PO file to the TP.  Channeling all translations through the TP increases 
+the chances that they are of good quality (getting checked by fellow 
+translators) and that they are kept up to date when the original author 
+goes on to do other things.  Pointing translators to the TP also means that 
+the translation teams get a chance to acquire new members.
 
 Sometimes a translator does not wish to make use of the Translation Project 
-but instead send his or her PO files straight to you, the maintainer.  For 
-these translators it is possible to mark the affected language for your 
-package as `external'; the Translation Project will then not handle the 
-corresponding PO files and will not send any notifications about them.
+but instead wants to deal directly only with you.  In such a case, when you 
+accept a PO file directly and the translator promises to keep it up to date 
+during future releases, then please notify the TP coordinators.  They will 
+then mark the affected language as 'external' for your package, so other 
+team members know that the translation is being handled elsewhere and don't 
+do the same work again.  If however the translator cannot promise to keep 
+the translation up to date, then please insist that the PO file be sent to 
+the TP coordinators and do not accept the file directly.
 
-.* How to proceed for a new package
+.* The copyright on PO files
 
-   The usual steps for internationalising messages in a package, as seen
-   from the maintainer viewpoint, are:
+The Translation Project does not require from translators that the 
+copyright on all PO files be disclaimed.  For most GNU packages, however, 
+the Free Software Foundation (FSF) requires disclaimers.  Also for non-GNU 
+packages it is a good idea to ask for disclaimers, as this better protects 
+the made translations against people who might change their mind about 
+freedom; such things can happen.  If you decide that disclaimers are 
+required, the Translation Project checks that translations are properly 
+disclaimed before being accepted.  For a copy of the actual disclaimer form 
+see http://translationproject.org/disclaim.txt .
 
-	1) mark translatable strings,
-	2) modify main() to activate translation,
-	3) add some Autoconf/Automake or Makefile magic,
-	4) announce a pre-release package (containing the POT file) to
-      the Translation Project <coordinator@translationproject.org>,
-	5) add the PO files that start coming back from the Translation
-      Project to your package,
-	6) be kind to translators.
+.* Internationalizing a software package
 
-   You might be quite familiar already with the first three steps, so I will
-   not elaborate on these for now.
+A full explanation of internationalizing a program is given in 
+http://www.gnu.org/software/gettext/manual/html_node/Sources.html , but in 
+short it comes down to the following steps: 1) importing the gettext 
+functions into all modules that require translations, 2) activating the 
+localization at the start of your program by binding to a textdomain, 3) 
+using a macro to mark all translatable strings that are presented to users 
+(not debugging messages), 4) adding some autoconf and automake magic so the 
+translatable strings get extracted into a POT file when 'make dist' is run.
 
-. + Mark strings
-    ------------
+.* The POT file
 
-    See the gettext manual for details:
-    http://www.gnu.org/software/gettext/manual/
+If you generate the POT file using a recent version of `gettext' (later 
+than 0.11), the POT file header will be correct as it stands.  Only the 
+POT-Creation-Date will automatically have been filled in for you, while 
+several other fields contain words in all uppercase.  Do not change these 
+in any way, as only translators are meant to properly replace them.
+ 
+In your distribution, the POT file is probably located in the `po' 
+subdirectory and named simply `PACKAGE.pot', where PACKAGE is the name of 
+your package.  At the Translation Project many POT files are stored, so 
+there your POT file is named `DOMAIN-VERSION.pot' -- where DOMAIN is the 
+textual domain for your package, often the same as PACKAGE but in all 
+lowercase, and VERSION is the version number of the package it belongs to.  
+This version number should not consist of more than four elements.
 
-. + Modify main()
-    -------------
+.* Announcing
 
-    See the gettext manual for details:
-    http://www.gnu.org/software/gettext/manual/
+To announce a new POT file, merely send the URL of a packaged distribution 
+of your program to <coordinator@translationproject.org>.  Best is to use 
+the string "DOMAIN-VERSION.pot" somewhere in the subject line of your mail. 
+The Translation Project will process a POT file only once, so another 
+submission *must* use a newer VERSION.  The distribution tarball pointed to 
+by the URL does not have to be official, it does not even have to compile: 
+its goal is merely to provide finer context for strings to be translated, 
+in case translators need such references.
 
-. + Add magic from the gettext package
-    ----------------------------------
+The very first time you submit a POT file, the Translation Project also 
+needs to know which email address to use for notifications, and if you want 
+translated PO files sent in full to you or a mere URL pointing to them.
 
-    See the gettext manual for details:
-    http://www.gnu.org/software/gettext/manual/
+You may submit new POT files as often as you want.  You might wish to avoid 
+exhausting translation teams, but we have never yet received a complaint.  
+So don't hesitate submitting it if just a few weeks after the previous one 
+you have a new release.
 
-. + Announce a pre-release package containing the POT file
-    -------------------------------------------------------
+.* Let the teams do their work
 
-    If you generated the POT file using a recent version of `gettext', the
-    POT file header should be correct as it stands, and resembles an unfilled
-    form, except for POT-Creation-Date, which has been filled automatically.
-    Do not try to fill it in any way.  (It might happen that Project-Id-Version
-    will be filled in automatically at some later time, but for the time being
-    leave it unfilled.) The translators, exclusively, should take care of the
-    filling.  If you generated the POT file using other tools, or old copies of
-    `gettext' (older than 0.11), you should make sure that the PO file header
-    looks like virgin headers as above.  The Translation Project is very fussy
-    about header conformance.
+Please do everything in your power to respect the autonomy of translation 
+teams.  Do not try to push or pull on teams or translators, nor therwise 
+interfere with them.  If a team does not work fast or good enough for your 
+taste, this is a matter between the team and the users of that language.  
+The teams are responsible for deciding on which files to work first and 
+also for the linguistic quality of their translations, as a package 
+maintainer do not try to guide or influence this.
 
-    In your distribution, the POT file is probably named `po/PACKAGE.pot',
-    where PACKAGE is the name of your package.  Within the Translation
-    Project, your POT file is named `DOMAIN-VERSION.pot'.  DOMAIN is the
-    textual domain for your package, often the same as PACKAGE, but surely,
-    all in lower case, and with `gnu' or `g' prefixes removed.  VERSION may
-    have one of the forms N.M, N.M.O, or N.M-bO, using all numbers, or N.ML,
-    where L is a lower case letter.  (I should check this more closely.)
-    The Translation Project needs to be able to compare two VERSIONs and
-    decide how to order them.  `N.M' comes before any `N.M.O' or `N.ML', but
-    after any `N.M-bO'.  `N', `M' and `O' are compared by their numerical
-    value, and `L' is compared lexicographically.  If for some reason
-    you just cannot use any of the above schemes, please discuss this with
-    the translation coordinator, so the Translation Project might have to
-    be adjusted for your package.
+If ever you receive linguistic gripes from users, direct these users to the 
+language teams.  The relevant address can be found on 
+http://translationproject.org/team/index.html .  Do not edit or change the 
+PO files in your repository directly, as this would undermine the autonomy 
+of the language teams(plus: upon the next sync you would get the unchanged 
+files at the TP back).  Also do not accept any PO file from a translator 
+directly -- whenever people write to you volunteering as a translator or 
+offering you a PO file, please point them at 
+http://translationproject.org/html/translators.html .
 
-    To announce the POT file, merely send the URL of a packaged distribution of
-    your program to  <coordinator@translationproject.org>.  Use the
-    string "DOMAIN-VERSION.pot" somewhere in the subject line of your email.
-    Note that a POT file will be processed only once by the Translation Project:
-    another submission *must* use a newer VERSION.  The distribution pointed to
-    by the URL does not have to be otherwise official, it does not even have
-    to compile: its goal is only to provide finer context for strings to
-    be translated, whenever translators need such references.  Of course,
-    the URL will be published to national teams.  The Translation Project
-    robot will be asked by the Translation Project coordinator (this will be
-    better automated at some later time) to fetch that distribution, upload
-    the contained POT file into the central POT archives, and inform people.
-
-    The very first time you want to submit a POT file, the Translation
-    Project also needs to know which email address to use for notifications,
-    and if you want translated PO files sent in full to you or a mere URL
-    pointing to them.
-
-    You should also decide if you require translation disclaimers or not
-    for your package.  Translation disclaimers are written papers, kept by
-    the Free Software Foundation, meant to prove that the translation is
-    freely usable, if such proof is ever needed.  For packages meant to be
-    distributed by the FSF, you should normally require them.  For non-GNU
-    packages, the safest is to require them, yet some maintainers object
-    to FSF directives.
-
-    For the Translation Project to accept a PO file submission, the translator
-    should be already clear with the FSF, for when disclaimers are required
-    for the package, and the translator should be also clear with the proper
-    national team for submitting PO files directly for the given package.
-    This gives some means to teams wanting to distribute the workload or
-    ensure some quality level.
-
-. + Add PO files to your package
-    ----------------------------
-
-    From <robot@translationproject.org> you will receive
-    notifications about fresh PO files for your package.  Add these PO
-    files containing the newest translations to your package.
-
-
-. + Be nice to teams
-    ----------------
-
-    You may submit POT files as often as you want.  You might try to not
-    exhaust translation teams by overflowing them, but maybe this might also
-    be over-protective.  So far, we have never received a complaint.  Please
-    do everything in your power to respect the autonomy of translation teams.
-    Do not try to push nor pull on teams or translators, or otherwise
-    interfere with them.  If a team does not work fast enough to your taste,
-    this is a matter between the team and the users for that national
-    language, don't take that responsibility of teams on your shoulders.
-    In fact, let the teams solve their own problems if any, *never* ever
-    try to arbitrate them.  The teams are the custodians of the linguistic
-    quality of their own translations; each team sets its own methods,
-    priorities and goals, and teams should ultimately decide if they let
-    individual translators submit PO files (this is what most do), or want to
-    revise them first.  It would defeat the purpose of the teams if you were
-    directly accepting PO files from individual translators, or were having
-    "contracts" with them.  If people write to you, wanting to volunteer
-    as translators, direct them to <coordinator@translationproject.org>,
-    and the translation coordinator will send them appropriate documentation.
-
-    Translators now have efficient means, which they are free to use or
-    not, for sending PO files to the Translation Project in such a way that
-    they get automatically validated, somewhat corrected for minor things,
-    and uploaded to the central PO archives.  You get notified right away.
-    It can be made a quick process.
-
-    As a maintainer, keep your perception of responsibilities well split.
-    You are responsible for the programming quality of your package, and
-    only the national teams are responsible for the linguistic quality
-    of the translations.  If you ever receive linguistic gripes from users,
-    direct users and gripes to the national teams.  To find where to forward
-    linguistic problems for some language LL and the textual domain DOMAIN
-    of your package, try this:
-
-		env LANGUAGE=LL gettext DOMAIN '' | grep Language-Team
-
-    If any other question remains, don't hesitate to ask it:
-    <coordinator@translationproject.org>.  We're much slower than the
-    robot, but we're happy to help when we can.
-
+If any question remains, don't hesitate to ask it.
 
                             Your translation coordinator
                             <coordinator@translationproject.org>

@@ -1,4 +1,8 @@
 
+2007-12-17  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* webgen/maintainers.all: The maintainers' page rewritten.
+
 2007-12-08  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Make sure stored PO files are group-writable.
