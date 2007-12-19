@@ -39,7 +39,7 @@ your package, you receive an email notification.  You can then immediately
 import this PO file into your source code repository, or you could wait 
 until just before you make the actual release and use the following command 
 to import all PO files at once (replace DOMAIN with the name of your 
-package, all in lowercase):
+package in all lowercase):
 
         rsync -Lrtvz  translationproject.org::tp/latest/DOMAIN/  po
 
@@ -70,7 +70,7 @@ packages it is a good idea to ask for disclaimers, as this better protects
 the made translations against people who might change their mind about 
 freedom; such things can happen.  If you decide that disclaimers are 
 required, the Translation Project checks that translations are properly 
-disclaimed before being accepted.  For a copy of the actual disclaimer form 
+disclaimed before being accepted.  For a copy of the actual disclaimer text 
 see http://translationproject.org/disclaim.txt .
 
 .* Internationalizing a software package
@@ -123,22 +123,20 @@ you have a new release.
 .* Let the teams do their work
 
 Please do everything in your power to respect the autonomy of translation 
-teams.  Do not try to push or pull on teams or translators, nor therwise 
+teams.  Do not try to push or pull on teams or translators, nor otherwise 
 interfere with them.  If a team does not work fast or good enough for your 
 taste, this is a matter between the team and the users of that language.  
 The teams are responsible for deciding on which files to work first and 
-also for the linguistic quality of their translations, as a package 
+also for the linguistic quality of their translations; as a package 
 maintainer do not try to guide or influence this.
 
-If ever you receive linguistic gripes from users, direct these users to the 
-language teams.  The relevant address can be found on 
+If ever you receive linguistic gripes from users, direct these users and 
+their gripes to the language teams.  The relevant address can be found on 
 http://translationproject.org/team/index.html .  Do not edit or change the 
-PO files in your repository directly, as this would undermine the autonomy 
-of the language teams(plus: upon the next sync you would get the unchanged 
-files at the TP back).  Also do not accept any PO file from a translator 
-directly -- whenever people write to you volunteering as a translator or 
-offering you a PO file, please point them at 
-http://translationproject.org/html/translators.html .
+PO files in your repository directly, as this would undermine the authority 
+of the language teams and defeat their purpose.  Also do not accept any PO 
+file from a translator directly, but please point the person who offers it 
+at http://translationproject.org/html/translators.html .
 
 If any question remains, don't hesitate to ask it.
 
