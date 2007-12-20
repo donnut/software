@@ -346,6 +346,7 @@ Validating the PO file.
             self.language_team(header)
         self.title(header)
         self.copyright(header)
+        self.license(header)
         self.last_author(header)
         self.project_id_version(header)
         self.both_dates(header)
@@ -438,6 +439,27 @@ two or four digits.  Each comma should be followed with a space.  Years
 have to be explicitly enumerated, range notations are not accepted.
 """)
                        % comment, "[copyright incorrectly formatted]")
+
+    def license(self, header):
+        if not header['LICENSE']:
+            run.submitter.write(_("""\
+Your PO file does not seem to contain a line saying that the file is
+distributed under the same license as the package itself.  Consider
+adding such a line.  Soon it will be required."""))
+            return
+        match = re.match('# This file is distributed under the same license'
+                         ' as the (.*) package.', header['LICENSE'])
+        # FIXME: Later use not domain name but a certain tag from the registry.
+        if not match or match.group(1) != run.hints.domain.name:
+            run.submitter.write_nofill(_("""\
+The license line is not fully correct:
+
+%s
+
+It should say exactly this:
+
+# This file is distributed under the same license as the %s package.
+""") % (header['LICENSE'], run.hints.domain.name))
 
     def last_author(self, header):
         match1 = re.search('.*; *(.*[^ ]) *<(.*)>.*?([0-9]*)$',

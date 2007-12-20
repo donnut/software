@@ -1,4 +1,9 @@
 
+2007-12-21  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/po.py, bin/tp-robot: Add a check for the license line:
+	an initial comment line that states the license of the PO file.
+
 2007-12-17  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/maintainers.all: The maintainers' page rewritten.

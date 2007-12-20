@@ -15,6 +15,7 @@ def _(text):
 _default_header = { 'TITLE': _('SOME DESCRIPTIVE SENTENCE.'),
                     'COPYRIGHT'
                     : 'Copyright (C) YEAR Free Software Foundation, Inc.',
+                    'LICENSE': '',
                     'AUTHORS'
                     : _('AUTHOR <EMAIL@ADDRESS>, YEAR.'),
                     'COMMENTS': '',
@@ -381,6 +382,7 @@ def header(entries):
 
     header = { 'TITLE': [],
                'COPYRIGHT': '',
+               'LICENSE': '',
                'AUTHORS': '',
                'COMMENTS': '',
                'FLAGS': '',
@@ -412,11 +414,15 @@ def header(entries):
             header['TITLE'] = lines[0]
             del lines[0]
 
-        # Add any other lines before copyright or authors to the title too.
+        # Add comment lines before copyright or authors to the title.
         while has_copyright and len(lines) > 0:
             if (cre.match('# .*opyright', lines[0])
                 or cre.match(authorline_regex, lines[0])):
                 break
+            if cre.match('# This file is', lines[0]):
+                header['LICENSE'] = lines[0]
+                del lines[0]
+                continue
             match = cre.match('# +(.*)', lines[0])
             if match:
                 header['TITLE'].append(match.group(1))
@@ -445,6 +451,10 @@ def header(entries):
         while len(lines) > 0:
             if cre.match(authorline_regex, lines[0]):
                 break
+            if cre.match('# This file is', lines[0]):
+                header['LICENSE'] = lines[0]
+                del lines[0]
+                continue
             add_copyright(header, lines[0])
             del lines[0]
 
