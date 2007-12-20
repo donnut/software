@@ -168,7 +168,7 @@ def process_pot_file(hints, file, teams):
                     if translator.autosend:
                         if translator.mailto:
                             address = translator.mailto[0]
-                        sys.stderr.write("      sending '%s' to <%s>\n"
+                        sys.stderr.write("      SENDING '%s' to <%s>\n"
                                          % (archive_base, address))
                         email_file(address, merged_file, translator.autosend)
             process_po_file(hints, merged_file, fromnewpot = True)
@@ -182,7 +182,7 @@ def process_pot_file(hints, file, teams):
             for translator in team.translator_for_domain(hints.domain):
                 if translator.autosend and translator.mailto:
                     address = translator.mailto[0]
-                    sys.stderr.write("      sending '%s' to <%s>\n"
+                    sys.stderr.write("      SENDING '%s' to <%s>\n"
                                      % (template_base, address))
                     email_file(address, template_path, translator.autosend)
     # Regenerate the domain page after all statistics were updated:
@@ -398,7 +398,7 @@ by the %s team of translators.  The file is available at:
 """
           % (hints.domain.name, hints.team.language, hints.maintainer_url()))
     if hints.domain.autosend:
-        sys.stderr.write("      sending '%s' to <%s>\n"
+        sys.stderr.write("      SENDING '%s' to <%s>\n"
                          % (archive_base, hints.domain.mailto[0]))
         email_file(hints.domain.mailto[0], file_name, hints.domain.autosend)
         write("""\
