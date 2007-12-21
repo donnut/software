@@ -366,16 +366,13 @@ def percentage(stats):
 
 # Header processing.
 
-def add_copyright(header, lines):
-    if not lines:
-        return
+def add_copyright(header, line):
     if not header['COPYRIGHT']:
-        header['COPYRIGHT'] = lines
+        header['COPYRIGHT'] = line[2:]
         return
     if isinstance(header['COPYRIGHT'], types.StringType):
         header['COPYRIGHT'] = [header['COPYRIGHT']]
-    for l in lines:
-        header['COPYRIGHT'].append(l[2:])
+    header['COPYRIGHT'].append(line[2:])
 
 def header(entries):
     entry = entries[0]
@@ -414,8 +411,8 @@ def header(entries):
             header['TITLE'] = lines[0]
             del lines[0]
 
-        # Add comment lines before copyright or authors to the title.
-        while has_copyright and len(lines) > 0:
+        # Add comment lines before copyright or author lines to the title.
+        while has_copyright and lines:
             if (cre.match('# .*opyright', lines[0])
                 or cre.match(authorline_regex, lines[0])):
                 break
@@ -434,21 +431,16 @@ def header(entries):
             else:
                 assert 0, "Unsupported line "+repr(lines[0])
 
-        if len(lines) > 0:
+        # Gather the copyright lines.
+        while lines:
             match = cre.match('# +(.*opyright.*)', lines[0])
-            if match:
-                header['COPYRIGHT'] = match.group(1)
-                del lines[0]
-                while lines:
-                    match = cre.match('# +(.*opyright.*)', lines[0])
-                    if match:
-                        add_copyright(header, lines[0])
-                        del lines[0]
-                    else:
-                        break
+            if not match:
+                break
+            add_copyright(header, lines[0])
+            del lines[0]
 
         # Add the lines before the author lines to the copyright.
-        while len(lines) > 0:
+        while lines:
             if cre.match(authorline_regex, lines[0]):
                 break
             if cre.match('# This file is', lines[0]):
@@ -459,7 +451,7 @@ def header(entries):
             del lines[0]
 
         # Gather the lines that look like author lines.
-        while len(lines) > 0:
+        while lines:
             match = cre.match(authorline_regex, lines[0])
             if not match:
                 break
@@ -467,7 +459,7 @@ def header(entries):
             del lines[0]
 
         # Any further lines are comments.
-        if len(lines) > 0:
+        if lines:
             header['COMMENTS'] = string.joinfields(lines, '\n') + '\n'
 
     if entry.has_key('flags'):
