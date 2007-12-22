@@ -23,6 +23,7 @@ def encode_database():
     for domain in sgml[1][1:]:
         name = domain[1]
         info = {'name':  name,
+                'package': None,
                 'potcopyright': None,
                 'ref': [],
                 'mailto': [],
@@ -47,7 +48,7 @@ def encode_database():
                     info[tag] = item[1]['option']
                 else:
                     info[tag] = 1
-            elif tag == 'potcopyright':
+            elif tag in ('package', 'potcopyright'):
                 info[tag] = item[1]
             else:
                 info[tag] = 1
@@ -227,15 +228,15 @@ xxml-highlight-initial-alist: (("alias" . font-lock-type-face)
 			       ("disclaimer" . font-lock-comment-face)
 			       ("do" . italic)
 			       ("domain" . xxml-header-3-face)
-			       ("http" . font-lock-string-face)
 			       ("leader" . xxml-header-4-face)
 			       ("mailto" . font-lock-string-face)
 			       ("nomailto" . font-lock-string-face)
+			       ("package" . italic)
 			       ("ref" . font-lock-builtin-face)
 			       ("remark" . font-lock-comment-face)
-			       ("see" . font-lock-type-face)
 			       ("team" . xxml-header-1-face)
-			       ("translator" . font-lock-type-face))
+			       ("translator" . font-lock-type-face)
+			       ("url" . font-lock-string-face))
 sgml-validate-command: "SP_CHARSET_FIXED=YES SP_ENCODING=utf-8 nsgmls -s %s %s"
 sgml-omittag:t
 sgml-shorttag:nil
@@ -258,7 +259,10 @@ def domain_description(domain):
     import registry
     lines = []
     write = lines.append
-    write('  <domain>%s\n' % domain.name)
+    if not domain.package:
+        write('  <domain>%s\n' % domain.name)
+    else:
+        write('  <domain>%s<package>%s\n' % (domain.name, domain.package))
     if domain.potcopyright:
         write('   <potcopyright>%s\n' % domain.potcopyright)
     for ref in domain.ref:

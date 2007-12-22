@@ -155,6 +155,7 @@ class Domain:
     def __init__(self, name):
         info = registry.domain_info(name)
         self.name = info.get('name')
+        self.package = info.get('package')
         self.potcopyright = info.get('potcopyright')
         self.ref = info.get('ref')
         self.mailto = info.get('mailto')

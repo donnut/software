@@ -6,6 +6,9 @@
 	* registry/theregistry.dtd: Add the <package> element, remove the
 	dead <http> and <see> elements, tweak comments and whitespace.
 
+	* lib/sgml.py, lib/registry.py: Add <package> element, which says
+	to which package a domain belongs if it is not a package itself.
+
 2007-12-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/po.py, bin/tp-robot: Add a check for the license line:
