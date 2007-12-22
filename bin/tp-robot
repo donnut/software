@@ -414,11 +414,11 @@ at the end?  %s
         elif run.hints.domain and run.hints.domain.disclaim:
             if text:
                 comment = (_("""\
-The copyright comment seems to be incorrectly formatted.  I see:
+The copyright comment is not fully correct:
 
     # %s
 
-while the copyright comment should look like:
+It should instead look like:
 """)
                            % utext)
             else:
@@ -430,13 +430,12 @@ PO file, is apparently missing.  The copyright comment should look like:
 %s
     # Copyright (C) YEAR Free Software Foundation, Inc.
 
-If the encoding of your file allows it, the '(C)' triplet may be replaced
-by a single character: either the single Latin-1 byte (decimal code 169)
-or the equivalent UTF-8 sequence (\\xc2\\xa9).  The YEAR is either a single
-four-digit year or a list of years separated by commas.  In a list, the
-first year has to be four digits, while subsequent years may be either
-two or four digits.  Each comma should be followed with a space.  Years
-have to be explicitly enumerated, range notations are not accepted.
+The YEAR should be either a single four-digit year, or a list of years
+separated by commas, each comma followed by a space.  Years have to be
+explicitly enumerated, range notations are not accepted.  The '(C)'
+triplet (case matters) may be replaced with a single character if the
+encoding of your file allows it: either the single Latin-1 byte
+(decimal code 169) or the equivalent UTF-8 sequence (\\xc2\\xa9).
 """)
                        % comment, "[copyright incorrectly formatted]")
 
