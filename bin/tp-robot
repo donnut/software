@@ -449,7 +449,7 @@ license covers the file.  Soon such a line will be required.  Consider
 adding it right after the copyright line.  It should say exactly this:
 
 # This file is distributed under the same license as the %s package.
-"""), run.hints.domain.name)
+""") % run.hints.domain.name)
             return
         match = re.match('# This file is distributed under the same license'
                          ' as the (.*) package.', header['LICENSE'])
