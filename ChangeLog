@@ -3,6 +3,9 @@
 
 	* bin/tp-robot: License line is already mandatory for 'hylafax'.
 
+	* registry/theregistry.dtd: Add the <package> element, remove the
+	dead <http> and <see> elements, tweak comments and whitespace.
+
 2007-12-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/po.py, bin/tp-robot: Add a check for the license line:

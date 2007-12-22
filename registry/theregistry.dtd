@@ -23,23 +23,26 @@
      The `mailto' addresses point to the maintainers of the package holding
      this textual domain.
 
-     The `ref' fields indicate FTP or Web sites for the textual domain.
+     The `ref' fields indicate informative websites for the textual domain.
 
-     Each `keep' introduces version numbers.  PO files meant for kept
+     Each `keep' introduces a version number.  PO files meant for these
      versions are protected against PO file expiry.
 
-     Each `ext' introduces a team code. External translations must not
-     conflict with tp-maintained ones.
+     The `package' field names the package to which this domain belongs.
+     This is used to determine the required content of the license line.
+
+     Each `ext' introduces a team code.  External translations must not
+     conflict with TP-maintained ones.
 
      The following flags are recognised for textual domains:
 	`disclaim'	this domain requires translation disclaimers
 	`autosend'	email new PO files to the package maintainer
 -->
 
-<!ELEMENT domain	- O	(#PCDATA, potcopyright?, ref*, 
-                                  (nomailto|mailto)+, 
-                                  keep*, disclaim?, autosend?, url*, note*, 
-                                  ext*, remark*) >
+<!ELEMENT domain	- O	(#PCDATA, package?, potcopyright?,
+                                 ref*, (mailto|nomailto)+,
+                                 keep*, disclaim?, autosend?,
+                                 url*, note*, ext*, remark*) >
 
 <!-- A `team' is named in English, and by an ISO 639 language `code'.
      It may have many `mailto', but only the first is handled right now.
@@ -50,14 +53,14 @@
      that national team.
 
      A team often has a `leader', which is then our privileged contact for
-     administrative purposes.  Add leaders to <team-leaders@translationproject.org>.
+     administrative purposes.
 
-     The `ref' fields indicate FTP or Web sites for the national team.
+     The `ref' fields indicate informative webpages for the national team.
 -->
 
-<!ELEMENT team		- O	(#PCDATA, code, mailto+, announceto?, 
-                                 charset?, suppresspot?,
-				 leader?, ref*, remark*, translator*)	>
+<!ELEMENT team		- O	(#PCDATA, code, mailto+, announceto?,
+                                 charset?, suppresspot?, leader?,
+                                 ref*, remark*, translator*)		>
 <!ELEMENT leader	- O	(#PCDATA)				>
 <!ELEMENT ref		- O	(#PCDATA, url)				>
 <!ELEMENT note		- O	(#PCDATA)				>
@@ -74,12 +77,12 @@
      is required, the translator should first have sent a translation
      disclaimer, the receipt of which has to be acknowledged by the FSF.
 
-     The `do' clauses each tell one textual domain for which translations
+     The `do' clauses each mention one textual domain for which translations
      may be accepted directly, without going through the team or team leader.
-     The team decides on the list of such `do' clauses for each translator.
+     The team decides the list of `do' clauses for each translator.
 
-     New translators should always be announced to their related national
-     team, as this team should always stay informed of what is going on.
+     New translators should always  be announced to their language team,
+     as this team should stay informed of what is going on.
 -->
 
 <!ELEMENT translator	- O	(#PCDATA, alias*, mailto*, url*,
@@ -95,19 +98,18 @@
 <!ELEMENT code		- O	(#PCDATA)				>
 <!ELEMENT disclaimer	- O	(#PCDATA)				>
 <!ELEMENT do		- O	(#PCDATA)				>
-<!ELEMENT http		- O	(#PCDATA)				>
+<!ELEMENT ext		- O	(#PCDATA)				>
 <!ELEMENT keep		- O	(#PCDATA)				>
 <!ELEMENT mailto	- O	(#PCDATA)				>
 <!ELEMENT nomailto	- O	(#PCDATA)				>
-<!ELEMENT remark	- O	(#PCDATA)				>
-<!ELEMENT see		- O	(#PCDATA)				>
-<!ELEMENT url		- O	(#PCDATA)				>
-<!ELEMENT ext		- O	(#PCDATA)				>
+<!ELEMENT package	- O	(#PCDATA)				>
 <!ELEMENT potcopyright	- O	(#PCDATA)				>
+<!ELEMENT remark	- O	(#PCDATA)				>
+<!ELEMENT url		- O	(#PCDATA)				>
 
 <!ENTITY % empty        "#PCDATA"					>
-<!ELEMENT disclaim	- O	(%empty)				>
 <!ELEMENT autosend	- O	(%empty)				>
+<!ELEMENT disclaim	- O	(%empty)				>
 <!ELEMENT suppresspot	- O	(%empty)				>
 
 <!ATTLIST autosend      option        (compress)        #IMPLIED        >
