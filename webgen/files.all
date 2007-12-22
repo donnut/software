@@ -66,7 +66,7 @@ This file lists all translators who fulfilled the requirement of
 disclaiming their rights to the translation work they did, so the 
 Translation Project may safely use and distribute it.
 
-. + `registry/registry.dtd'
+. + `registry/theregistry.dtd'
 
 This defines the structure for the `registry.sgml' file.
 

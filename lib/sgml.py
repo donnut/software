@@ -195,7 +195,7 @@ def decode_database():
      François Pinard `pinard@iro.umontreal.ca', 1996.
 -->
 
-<!DOCTYPE registry SYSTEM "registry.dtd">
+<!DOCTYPE registry SYSTEM "theregistry.dtd">
 <registry>
 
  <domains>
