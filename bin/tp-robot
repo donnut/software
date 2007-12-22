@@ -1102,10 +1102,9 @@ Your file has been accepted and stored in the archives.  Thank you!
         else:
             if not translator.autosend:
                 run.submitter.write(_("""\
-To speed things up, I could send you an updated copy of this PO file
-by email whenever a new template file for it arrives.  If you are
-interested in this service, you can ask for it by emailing to the
-translation coordinator.
+If you wish, I can email you an updated copy of this PO file whenever
+a new template file for it is registered at the TP.  If you want this
+service for yourself, ask the translation coordinator.
 """))
 
     def store_po_file(self, work_name):
