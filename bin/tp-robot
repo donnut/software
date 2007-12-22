@@ -143,16 +143,16 @@ Return the message part that is most likely to contain the submission.
         if len(parts) > 1:
             for part in parts[:]:
                 if not part.name and part.size() < 1000:
-                    if part.work:
-                        run.submitter.write(_("""\
-I'm ignoring the whole following MIME part within your message:
-"""))
-                        run.submitter.write_nofill("""\
----------------------------------------------------------------------->
-%s
-----------------------------------------------------------------------<
-"""
-                                               % open(part.work).read())
+#                    if part.work:
+#                        run.submitter.write(_("""\
+#I'm ignoring the whole following MIME part within your message:
+#"""))
+#                        run.submitter.write_nofill("""\
+#---------------------------------------------------------------------->
+#%s
+#----------------------------------------------------------------------<
+#"""
+#                                               % open(part.work).read())
                     parts.remove(part)
         if len(parts) == 0:
             run.reject(_("""\

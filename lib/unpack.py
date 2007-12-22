@@ -86,24 +86,24 @@ class UnpackedFile:
             end = end - 1
         # Diagnose spurious lines.  If contents erroneous or empty,
         # we still have an empty part.
-        if start > 0:
-            self.write_warning(_("""\
-I'm ignoring the following leading lines within your message:
-
---------------------------------------------------------------->
-%s
----------------------------------------------------------------<
-""")
-                                  % string.join(lines[:start], ''))
-        if end < len(lines):
-            self.write_warning(_("""\
-I'm ignoring the following final lines within your message:
-
---------------------------------------------------------------->
-%s
----------------------------------------------------------------<
-""")
-                                  % string.join(lines[end:], ''))
+#        if start > 0:
+#            self.write_warning(_("""\
+#I'm ignoring the following leading lines within your message:
+#
+#--------------------------------------------------------------->
+#%s
+#---------------------------------------------------------------<
+#""")
+#                                  % string.join(lines[:start], ''))
+#        if end < len(lines):
+#            self.write_warning(_("""\
+#I'm ignoring the following final lines within your message:
+#
+#--------------------------------------------------------------->
+#%s
+#---------------------------------------------------------------<
+#""")
+#                                  % string.join(lines[end:], ''))
         if terminator and lines[end-1] != terminator:
             self.write_fatal(_("""\
 Your message seems to use the 'uuencode' format, yet no proper terminator
