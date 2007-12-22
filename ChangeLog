@@ -1,4 +1,8 @@
 
+2007-12-22  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/tp-robot: License line is already mandatory for 'hylafax'.
+
 2007-12-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/po.py, bin/tp-robot: Add a check for the license line:

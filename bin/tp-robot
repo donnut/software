@@ -12,6 +12,8 @@ Usage: tp-robot [-n] <MESSAGE
   -n   dry-run, do not send mails, do not change things
 """
 
+required = [ "hylafax" ]
+
 import os, sys, shutil, types, popen2
 import re, string, quopri, datetime
 
@@ -432,8 +434,11 @@ encoding of your file allows it: either the single Latin-1 byte
 """) % comment, "[copyright incorrectly formatted]")
 
     def license(self, header):
-        # FIXME: Later use not domain name but a certain tag from the registry.
+        flaw = False
+        match = re.match('# This file is distributed under the same license'
+                         ' as the (.*) package.', header['LICENSE'])
         if not header['LICENSE']:
+            flaw = True
             run.submitter.write_nofill(_("""\
 Your PO file does not seem to contain a comment line that specifies which
 license covers the file.  Soon such a line will be required.  Consider
@@ -441,11 +446,9 @@ adding it right after the copyright line.  It should say exactly this:
 
 # This file is distributed under the same license as the %s package.
 """) % run.hints.domain.name)
-            return
-        match = re.match('# This file is distributed under the same license'
-                         ' as the (.*) package.', header['LICENSE'])
-        # FIXME: Later use not domain name but a certain tag from the registry.
-        if not match or match.group(1) != run.hints.domain.name:
+        # FIXME: Above use not domain name but a certain tag from the registry.
+        elif not match or match.group(1) != run.hints.domain.name:
+            flaw = True
             run.submitter.write_nofill(_("""\
 The license line is not fully correct:
 
@@ -455,6 +458,11 @@ It should say exactly this:
 
 # This file is distributed under the same license as the %s package.
 """) % (header['LICENSE'], run.hints.domain.name))
+        # FIXME: Above use not domain name but a certain tag from the registry.
+        if flaw and (run.hints.domain.name in required):
+            run.reject(_("""\
+For %s the above license line is already mandatory.
+""") % run.hints.domain.name)
 
     def last_author(self, header):
         match1 = re.search('.*; *(.*[^ ]) *<(.*)>.*?([0-9]*)$',
