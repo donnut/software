@@ -11,6 +11,8 @@
 
 	* registry/registry.sgml: Add the package specifiers.
 
+	* bin/tp-robot: Use the actual package name in the license line.
+
 2007-12-21  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/po.py, bin/tp-robot: Add a check for the license line:
