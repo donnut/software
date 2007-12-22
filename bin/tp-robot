@@ -1087,13 +1087,12 @@ automatically here.  This message continues after the (maybe long) diff.
         run.subject = 'TP: %s [ACCEPTED]' % run.shorten(run.subject)
         run.submitter.write(_("""\
 Your file has been accepted and stored in the archives.  Thank you!
-
-When the maintainer of '%s' submits a new POT file to the Translation
-Project, the translation you just made will probably need revision.  Your
-team will then be notified of the URL of the PO file to revise, together
-with a quick valuation of the extent of the work needed.
-""")
-                            % run.hints.domain.name)
+"""))
+#When the maintainer of '%s' submits a new POT file to the Translation
+#Project, the translation you just made will probably need revision.  Your
+#team will then be notified of the URL of the PO file to revise, together
+#with a quick evaluation of the extent of the work needed.
+#                            % run.hints.domain.name)
         try:
             translator = registry.translator(run.hints.team,
                                              run.translator_name,
