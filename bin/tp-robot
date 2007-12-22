@@ -441,11 +441,15 @@ have to be explicitly enumerated, range notations are not accepted.
                        % comment, "[copyright incorrectly formatted]")
 
     def license(self, header):
+        # FIXME: Later use not domain name but a certain tag from the registry.
         if not header['LICENSE']:
-            run.submitter.write(_("""\
-Your PO file does not seem to contain a line saying that the file is
-distributed under the same license as the package itself.  Consider
-adding such a line.  Soon it will be required."""))
+            run.submitter.write_nofill(_("""\
+Your PO file does not seem to contain a comment line that specifies which
+license covers the file.  Soon such a line will be required.  Consider
+adding it right after the copyright line.  It should say exactly this:
+
+# This file is distributed under the same license as the %s package.
+"""), run.hints.domain.name)
             return
         match = re.match('# This file is distributed under the same license'
                          ' as the (.*) package.', header['LICENSE'])
