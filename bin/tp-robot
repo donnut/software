@@ -355,19 +355,12 @@ Validating the PO file.
     def title(self, header):
         if not header['TITLE']:
             run.reject(_("""\
-The PO file title comment appears to be missing.  The very first line of
-a PO file starts with '#', a space, and then a one-line description of
-what this PO file is about.  The PO file title comment may look like:
+The PO title line seems to be missing.  The very first line of any PO
+file should start with '# ' followed by a one-line description of what
+the file is about.  The title line for this PO file could be:
 
     # Translation of '%s' messages to %s.
-
-As this line is intended to be read by humans working in %s,
-you may have this title line translated as well, it does not have to be
-kept in English.
-""")
-                       % (run.hints.domain,
-                          globals.team_language, _(globals.team_language)),
-                       "[no title header]")
+""") % (run.hints.domain, globals.team_language), "[no title header]")
 
     def copyright(self, header):
         text = header['COPYRIGHT']
@@ -423,8 +416,8 @@ It should instead look like:
                            % utext)
             else:
                 comment = _("""\
-The copyright comment, which should appear as the second line of the whole
-PO file, is apparently missing.  The copyright comment should look like:
+The copyright line, which should appear as the second line of the whole
+PO file, seems to be missing.  The copyright line should look like:
 """)
             run.reject(_("""\
 %s
@@ -436,8 +429,7 @@ explicitly enumerated, range notations are not accepted.  The '(C)'
 triplet (case matters) may be replaced with a single character if the
 encoding of your file allows it: either the single Latin-1 byte
 (decimal code 169) or the equivalent UTF-8 sequence (\\xc2\\xa9).
-""")
-                       % comment, "[copyright incorrectly formatted]")
+""") % comment, "[copyright incorrectly formatted]")
 
     def license(self, header):
         # FIXME: Later use not domain name but a certain tag from the registry.
