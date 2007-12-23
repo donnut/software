@@ -34,7 +34,7 @@ except KeyError:pass
 try: del os.environ['LANG']
 except KeyError:pass
 
-os.umask(002)
+os.umask(00002)
 
 
 def _(text):
@@ -126,7 +126,7 @@ def process_pot_file(hints, file, teams):
         template_path = hints.template_path()
     template_base = hints.template_base()
     shutil.copy(file, template_path)
-    os.chmod(template_path, 0664)
+    os.chmod(template_path, 00664)
     if not run.dry:
         # Calculate and store the statistics for the new POT file.
         response = os.popen("calc-postats "+template_path).readlines()
@@ -202,7 +202,7 @@ def process_po_file(hints, file, fromnewpot = False):
         sys.stderr.write("    initializing '%s/%s'\n"
                          % (config.pos_path, hints.team.name))
         if not run.dry:
-            os.mkdir('%s/%s' % (config.pos_path, hints.team.name), 2775)
+            os.mkdir('%s/%s' % (config.pos_path, hints.team.name), 02775)
     archive_base = hints.archive_base()
     archive_path = hints.archive_path()
     maintainer_path = hints.maintainer_path()
@@ -230,7 +230,7 @@ def process_po_file(hints, file, fromnewpot = False):
         if os.path.isfile(archive_path):
             os.remove(archive_path)
         shutil.copy(file, archive_path)
-        os.chmod(archive_path, 0664)
+        os.chmod(archive_path, 00664)
         if not fromnewpot:
             # For uploaded files make an entry in the log.
             now = datetime.datetime.now()
@@ -258,7 +258,7 @@ def process_po_file(hints, file, fromnewpot = False):
         if not run.dry:
             directory = os.path.dirname(maintainer_path)
             if not os.path.isdir(directory):
-                os.mkdir(directory, 2775)
+                os.mkdir(directory, 02775)
             if (os.path.islink(maintainer_path)
                 or os.path.isfile(maintainer_path)):
                 os.remove(maintainer_path)
