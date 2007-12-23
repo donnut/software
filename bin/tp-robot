@@ -500,19 +500,19 @@ superfluous spaces, no name, a lacking comma, or a bad year.
             return
         if last_name != run.translator_name:
             run.submitter.write(_("""\
-The last name in the author lines differs from the name in the PO file
-header.  The last of the author lines mentions '%s', while the
-'Last-Translator' field says '%s'.  Maybe the author lines are in the
-wrong order?  The expected order is chronological: the earliest
-translator first, and your own author line last.
+The last name in the author lines differs from the name in the header
+field.  The last author line mentions '%s', while the 'Last-Translator'
+field says '%s'.  Maybe the author lines are in the wrong order?  The
+expected order is chronological: the earliest translator first, and
+your own author line last.
 """)
                                 % (last_name, run.translator_name))
         elif last_address != run.translator_address:
             run.submitter.write(_("""\
-Your submission contains contradicting addresses for you.  The last of the
-introductory author lines says <%s>, while the 'Last-Translator' field of
-the PO file header says <%s>.  Please arrange to have a single preferred
-address to reach you, and use it consistently in all your translation files.
+Your submission contains contradicting addresses for you.  The last of
+the introductory author lines says <%s>, while the 'Last-Translator'
+field says <%s>.  Please arrange to have a single preferred address to
+reach you, and use it consistently in all your translation files.
 """)
                                 % (last_address, run.translator_address))
         elif last_year != datetime.date.today().strftime('%Y'):
