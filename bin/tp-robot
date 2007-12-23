@@ -434,9 +434,8 @@ encoding of your file allows it: either the single Latin-1 byte
 """) % comment, "[copyright incorrectly formatted]")
 
     def license(self, header):
-        if not run.hints.domain.package:
-            run.hints.domain.package = run.hints.domain.name
         flaw = False
+        packagename = run.hints.domain.package or run.hints.domain.name
         match = re.match('# This file is distributed under the same license'
                          ' as the (.*) package.', header['LICENSE'])
         if not header['LICENSE']:
@@ -447,8 +446,8 @@ license covers the file.  Soon such a line will be required.  Consider
 adding it right after the copyright line.  It should say exactly this:
 
 # This file is distributed under the same license as the %s package.
-""") % run.hints.domain.package)
-        elif not match or match.group(1) != run.hints.domain.name:
+""") % packagename)
+        elif not match or match.group(1) != packagename:
             flaw = True
             run.submitter.write_nofill(_("""\
 The license line is not fully correct:
@@ -458,8 +457,8 @@ The license line is not fully correct:
 It should say exactly this:
 
 # This file is distributed under the same license as the %s package.
-""") % (header['LICENSE'], run.hints.domain.package))
-        if flaw and (run.hints.domain.name in required):
+""") % (header['LICENSE'], packagename))
+        if flaw and (packagename in required):
             run.reject(_("""\
 For %s the above license line is already mandatory.
 """) % run.hints.domain.name)
