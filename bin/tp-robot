@@ -441,7 +441,7 @@ encoding of your file allows it: either the single Latin-1 byte
         if not header['LICENSE']:
             flaw = True
             run.submitter.write_nofill(_("""\
-Your PO file does not seem to contain a comment line that specifies which
+•‣ Your PO file does not seem to contain a comment line specifying which
 license covers the file.  Soon such a line will be required.  Consider
 adding it right after the copyright line.  It should say exactly this:
 
@@ -976,10 +976,10 @@ to the translation coordinator warranting that you are indeed assigned.
     def have_pot(self):
         if not os.path.isfile(run.hints.template_path()):
             run.reject(_("""\
-You submitted a PO file for which the Translation Project does not have a
-corresponding template: there is no '%s' here.
-Please have the maintainer of the package send the corresponding POT file
-to the Translation Project.  Or better: a URL of a distribution tarball.
+You submitted a PO file for which the Translation Project does not have
+a corresponding template: '%s' is not present here.  Please have the
+maintainer of the package send the corresponding POT file
+(or better: the URL of the tarball) to the TP coordinators.
 """)
                        % run.hints.template_base(),
                        "[there is no corresponding pot file]")
