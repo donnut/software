@@ -1,32 +1,41 @@
 #!/bin/bash
-# sendpo.sh
 
-po_in="$1"
-[ -n "$po_in" ] || { echo "\
-usage: $0 POFILE
-POFILE must be in the \"<project_name>-<version>.<lang>.po\" format\
+# Script that sends the given file to the TP robot.
+
+USERLANG=""    # Default language code, when absent in filename.
+
+[ -n "$USERLANG" ] || { echo "Edit script first and set USERLANG."; exit 1; }
+
+file="$1"
+
+[ -n "$file" ] || { echo "Usage:  $0 POFILE
+POFILE can be <package_name>-<version>.<lang>.po
+           or <package_name>-<version>.po\
 "; exit 1; }
-[ -f "$po_in" ] || { echo "$0: $po_in not found"; exit 1; }
-msgfmt --check $po_in || { echo "Fix errors first"; exit 1; }
 
-po=${po_in##*/}
-lang=${po%\.po}
-lang=${lang##*\.}
+[ -f "$file" ] || { echo "No such file: $file"; exit 1; }
 
-# compare Project-Id-Version with file name
+msgfmt --check $file || { echo "Fix errors first."; exit 1; }
+
+name=${file##*/}
+base=${name%\.po}
+bare=${base%\.[[:alpha:]_]*}
+lang=${base##*\.}
+
+# Fill in the default language code when filename does not contain it.
+[ "$bare" == "$base" ] && { lang=$USERLANG; name=$bare.$lang.po; }
+
+# Compare Project-Id-Version with filename.
 project=$(sed -n -e '/^\"Project-Id-Version:/{
 s/.*: *\([Gg][Nn][Uu] \)*\(.*\)\\n\"/\2/
 s/ /-/g
-p;q;}' $po_in)
-[ "$po" == "$project.$lang.po" ] || {
-  echo "File name ./. version number does not match:"
-  echo "  Project ID (Project-Id-Version): ${project/-/ }"
-  echo "  File name of PO file           : $po"
-  echo "Adjust Project-Id-Version of file \"$po_in\""
-  exit 1;
+p;q;}' $file)
+[ "$name" == "$project.$lang.po" ] || {
+    echo "Project-Id-Version '${project/-/ }' does not match filename."
+    exit 1;
 }
 
-gzip < $po_in | uuencode $po.gz \
-  | mail -s "TP-robot $po" robot@translationproject.org
+# Send compressed PO file to TP robot.
+gzip <$file | uuencode $name.gz |
+    mail -s "TP-robot $name" robot@translationproject.org
 
-# eof sendpo.sh
