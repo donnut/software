@@ -6,6 +6,7 @@
 homedir = /home/tp
 sitedir = $(homedir)/site
 htmldir = $(sitedir)/html
+extradir = $(sitedir)/extra
 
 ALLOUT_FILES = maintainers.all leaders.all translators.all \
                changes.all files.all robot.all software.all
@@ -15,7 +16,8 @@ HTMH_FILES = welcome.html thanks.html whydisclaim.html
 LAYOUT_DEPS = ../lib/config.py ../lib/htmlpage.py layout.html.in to-html.py
 
 
-all: alloutfiles htmlfiles $(sitedir)/disclaim.txt $(htmldir)/authors.html
+all: alloutfiles htmlfiles \
+     $(sitedir)/disclaim.txt $(htmldir)/authors.html $(extradir)/sendpo.sh
 
 $(htmldir):
 	mkdir -p $@
@@ -36,6 +38,9 @@ disclaimer $(sitedir)/disclaim.txt: disclaim.txt
 
 authors $(htmldir)/authors.html: ../registry/AUTHORS
 	./to-html.py -C $(htmldir) ../registry/AUTHORS
+
+script $(extradir)/sendpo.sh: ../tools/sendpo.sh
+	cp ../tools/sendpo.sh $(extradir)/sendpo.sh
 
 domains:
 	../bin/generate-static-pages -d

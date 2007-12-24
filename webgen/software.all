@@ -1,6 +1,11 @@
 * Translation software and other projects     allout -*- outline -*-
 
-.* Software
+.* Internationalization
+
+   `gettext' -- http://www.gnu.org/software/gettext/
+
+
+.* Editors
 
    `KBabel' -- http://kbabel.kde.org/
 
@@ -10,14 +15,16 @@
 
    `gtranslator' (dead) -- http://gtranslator.sourceforge.net/
 
-   `Emacs' with po-mode.el
+   `Emacs' with po-mode.el -- http://www.gnu.org/software/emacs/
 
-   `vi' with macros
+   `vim' with po.vim -- http://www.vim.org/
 
-   `wyslij-po' (for uploading PO files) 
-   -- http://puszcza.gnu.org.ua/software/wyslij-po/
 
-   `gettext' -- http://www.gnu.org/software/gettext/
+.* Upload scripts
+
+   `sendpo.sh' -- http://translationproject.org/extra/sendpo.sh
+
+   `wyslij-po' -- http://puszcza.gnu.org.ua/software/wyslij-po/
 
 
 .* Related projects
