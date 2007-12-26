@@ -434,21 +434,22 @@ encoding of your file allows it: either the single Latin-1 byte
 """) % comment, "[copyright incorrectly formatted]")
 
     def license(self, header):
-        flaw = False
         packagename = run.hints.domain.package or run.hints.domain.name
+        match = re.match('# This file is put in the public domain.',
+                         header['LICENSE'])
+        if match and (packagename not in required):
+            return  # Okay.
         match = re.match('# This file is distributed under the same license'
                          ' as the (.*) package.', header['LICENSE'])
         if not header['LICENSE']:
-            flaw = True
             run.submitter.write_nofill(_("""\
-•‣ Your PO file does not seem to contain a comment line specifying which
+•• Your PO file does not seem to contain a comment line specifying which
 license covers the file.  Soon such a line will be required.  Consider
 adding it right after the copyright line.  It should say exactly this:
 
 # This file is distributed under the same license as the %s package.
 """) % packagename)
         elif not match or match.group(1) != packagename:
-            flaw = True
             run.submitter.write_nofill(_("""\
 The license line is not fully correct:
 
@@ -458,10 +459,12 @@ It should say exactly this:
 
 # This file is distributed under the same license as the %s package.
 """) % (header['LICENSE'], packagename))
-        if flaw and (packagename in required):
+        else:
+            return  # Okay.
+        if packagename in required:
             run.reject(_("""\
 For %s the above license line is already mandatory.
-""") % run.hints.domain.name)
+""") % run.hints.domain.name, "[missing license line]")
 
     def last_author(self, header):
         match1 = re.search('.*; *(.*[^ ]) *<(.*)>.*?([0-9]*)$',
