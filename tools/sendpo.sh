@@ -7,14 +7,20 @@ STAMP="false"    # Whether to adapt the PO-Revision-Date field.
 
 [ -n "$USERLANG" ] || { echo "Edit script first and set USERLANG."; exit 1; }
 
-[ "$1" == "-n" -o "$1" == "--now" ] && { STAMP="true"; shift; }
+[ "$1" == "--now" -o "$1" == "-n" ] && { STAMP="true"; shift; }
+
+[ "$1" == "--help" -o "$1" == "-h" -o -z "$1" ] && { echo "\
+Usage:  $0 [--now|-n] POFILE
+
+  Option --now or -n sets PO-Revision-Date to current date and time.
+
+  POFILE can be <package_name>-<version>.<lang>.po
+             or <package_name>-<version>.po.\
+"; exit 1; }
+
+[ -z "$2" ] || { echo "Too many arguments."; exit 1; }
 
 file="$1"
-
-[ -n "$file" ] || { echo "Usage:  $0 POFILE
-POFILE can be <package_name>-<version>.<lang>.po
-           or <package_name>-<version>.po\
-"; exit 1; }
 
 [ -f "$file" ] || { echo "No such file: $file"; exit 1; }
 
@@ -35,7 +41,7 @@ project=$(sed -n -e '/^\"Project-Id-Version:/{
 s/.*: *\([Gg][Nn][Uu] \)*\(.*\)\\n\"/\2/
 s/ /-/g
 p;q;}' $file)
-[ "$name" == "$project.$lang.po" ] || {
+[ "$name" != "$project.$lang.po" ] && {
     echo "Project-Id-Version '${project/-/ }' does not match filename."
     exit 1;
 }
