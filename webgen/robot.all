@@ -7,15 +7,14 @@ required) -- and whether her team allows her to do the work.  It also
 calls `msgfmt' to see if the PO file is healthy, and checks for various 
 other problems.
 
-To use the robot, send in your PO file by email, with a Subject line 
-that looks like:
+To use the robot, send in your PO file by email with the following 
+Subject line (the word "TP-robot" at the start is no longer required):
 
 		PACKAGE-VERSION.TEAM.po
 
-(The word "TP-robot" at the start is no longer required, but still 
-allowed.)  The mail should be sent to <robot@translationproject.org>.  
-You may expect a reply within ten minutes -- but it may take a while 
-longer when a project coordinator is busy registering things.
+The mail should be sent to <robot@translationproject.org>.  You can expect 
+a reply within ten minutes, but it may take a while longer when a project 
+coordinator is busy registering things.
 
 It works best to send the PO file as an attachment (optionally gzipped). 
 Sending it in the body as plain text is dangerous because some mailers 
@@ -24,12 +23,15 @@ insert line breaks on their own, and because some mail relays are not
 encoding, because the default encoding looks too much like spam and is 
 thus likely to be rejected.
 
+To make sending in a PO file real easy, the TP provides a script for 
+this: http://translationproject.org/extra/sendpo.sh .
+
 If the robot cannot decipher your email, or finds some small error in 
 your PO file, it will complain.  When you cannot solve the problem on 
 your own, you can ask your team leader for help.  If you suspect the 
-robot is behaving badly, you can ask a project coordinator.  If you do 
-the latter, be careful to send your message not to the robot address but 
-to <coordinator@translationproject.org>.
+robot is behaving badly, you can ask a project coordinator.  In this 
+latter case, be careful to send your message not to the robot address 
+but to <coordinator@translationproject.org>.
 
 The Translation Project robot is _not_ allowed to update the registry 
 with new information about maintainers, languages, or translators, nor 
