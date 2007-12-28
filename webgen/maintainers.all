@@ -43,7 +43,7 @@ package in all lowercase):
 
         rsync -Lrtvz  translationproject.org::tp/latest/DOMAIN/  po
 
-When you make use of the Translation Project, you should not accept PO 
+When you make use of the Translation Project, you must not accept PO 
 files from translators directly but instead point anyone who offers you a 
 PO file to the TP.  Channeling all translations through the TP increases 
 the chances that they are of good quality (getting checked by fellow 
