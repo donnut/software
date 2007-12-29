@@ -281,16 +281,13 @@ please use my new address <robot@translationproject.org>.
 extract = Extract()
 
 
-########################### Verify submission details ##############
+#################### Verifying the submission details ##############
 class CheckMail:
-    """\
-Validating mail specific information.
-"""
 
     def header(self):
         if not run.translator_address:
             run.reject(_("""\
-Cannot find a translator's email address in your submission.
+I cannot find a translator's email address in your submission.
 """), "[no email address]")
             abort_robot()
         if not (run.hints.domain and run.hints.version):
@@ -326,11 +323,8 @@ http://translationproject.org/leaders.html for all the details.
 check_mail = CheckMail()
 
 
-########################### Verify PO header and contents ##########
+#################### Verifying the PO header and contents ##########
 class CheckPoFile:
-    """\
-Validating the PO file.
-"""
 
     def header(self, header):
         if run.translator_name:
@@ -901,11 +895,8 @@ permits redistribution.  Please consider inserting a sentence like
 check_po_file = CheckPoFile()
 
 
-########################### Verify submitter and existence #########
+#################### Verifying submitter, existence, permission ####
 class CheckRegistry:
-    """\
-Comparing data of the submission with data in the TP registry.
-"""
 
     def translator(self):
         team_found = translator_found = domain_found = 0
@@ -1032,11 +1023,8 @@ which you may find as:
 check_registry = CheckRegistry()
 
 
-########################### Canonicalize and store #################
+#################### Canonicalizing and storing the file ###########
 class Process:
-    """\
-Accomplishing some actions.
-"""
 
     def make_canonical(self, where, virtual, entries, header):
         os.system('recode -f /cl <%s | msgmerge -q --no-wrap - %s >%s.norm'
