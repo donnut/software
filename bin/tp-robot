@@ -185,11 +185,10 @@ a POT file all alone.  So, for this one, I'll go disturb him!
             abort_robot()
         if not (run.hints.domain and run.hints.version and run.hints.team):
             run.reject(_("""\
-%s
-The file name argument should look like 'DOMAIN-VERSION.TEAM.po'
-(all in lower case).
+As file name you supplied '%s'.  In this %s.  The file name should look
+like 'DOMAIN-VERSION.TEAM.po' (all in lowercase).
 """)
-                       % unknown_elements_comment(),
+                       % (input_name, unknown_elements_comment()),
                        "[ill-formatted file name]")
             abort_robot()
         if not run.hints.team:
@@ -299,7 +298,7 @@ Cannot find a translator's email address in your submission.
             abort_robot()
         if not (run.hints.domain and run.hints.version and run.hints.team):
             run.reject(_("""\
-%s
+In the Subject line %s.
 
 As a reminder, the Subject line of your message should look like this:
 
@@ -1151,26 +1150,14 @@ process = Process()
 ## Diagnostics.
 
 def unknown_elements_comment():
-    known = []
     unknown = []
-    if run.hints.domain:
-        known.append(_("the domain name is '%s'") % run.hints.domain)
-    else:
+    if not run.hints.domain:
         unknown.append(_("the domain name"))
-    if run.hints.version:
-        known.append(_("the version number is '%s'") % run.hints.version)
-    else:
+    if not run.hints.version:
         unknown.append(_("the version number"))
-    if run.hints.team:
-        known.append(_("the team code is '%s'") % run.hints.team)
-    else:
+    if not run.hints.team:
         unknown.append(_("the team code"))
-    if known:
-        return (_("Some information is missing in your message header: %s."
-                "  I did find that %s.")
-                % (say_list(_('and'), unknown), say_list(_('and'), known)))
-    return (_("Information that is missing in your message header: %s.")
-            % say_list(_('and'), unknown))
+    return (_("I cannot find %s") % say_list(_('nor'), unknown))
 
 def say_alias_list(items):
     if len(items) == 0:
@@ -1194,7 +1181,7 @@ def say_list(word, items):
         return 'none'
     if len(items) == 1:
         return items[0]
-    return '%s %s %s' % ((', ').join(items[:-1]), word, items[-1])
+    return '%s, %s %s' % ((', ').join(items[:-1]), word, items[-1])
 
 
 ecre = re.compile(r'''

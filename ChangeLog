@@ -4,6 +4,9 @@
 	* lib/registry.py: Simplify regexes, remove recognition of charset,
 	remove obsolete workaround for Nynorsk.
 
+	* bin/tp-robot: Mention the file name when saying it is wrong,
+	mention only the unknown elements, not the known ones.
+
 2007-12-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: License line is already mandatory for 'hylafax'.
