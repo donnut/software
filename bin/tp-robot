@@ -183,19 +183,16 @@ The translation coordinator does not yet trust me enough to let me handle
 a POT file all alone.  So, for this one, I'll go disturb him!
 """), "[robot does not support pot submission]")
             abort_robot()
-        if not (run.hints.domain and run.hints.version and run.hints.team):
+        if not (run.hints.domain and run.hints.version):
             run.reject(_("""\
 As file name you supplied '%s'.  In this %s.  The file name should look
 like 'DOMAIN-VERSION.TEAM.po' (all in lowercase).
-""")
-                       % (input_name, unknown_elements_comment()),
-                       "[ill-formatted file name]")
+""") % (input_name, unknown_elements_comment()), "[ill-formatted file name]")
             abort_robot()
         if not run.hints.team:
             run.reject(_("""\
 Within the Translation Project, no team has the code '%s'.
-""")
-                       % run.hints.team, "[unknown team code]")
+""") % run.hints.team, "[unknown team code]")
             abort_robot()
         globals.team_language = run.hints.team.language
         globals.team_mailto = (run.hints.team.mailto[0]
@@ -296,7 +293,7 @@ Validating mail specific information.
 Cannot find a translator's email address in your submission.
 """), "[no email address]")
             abort_robot()
-        if not (run.hints.domain and run.hints.version and run.hints.team):
+        if not (run.hints.domain and run.hints.version):
             run.reject(_("""\
 In the Subject line %s.
 
@@ -306,9 +303,7 @@ As a reminder, the Subject line of your message should look like this:
 
 DOMAIN is normally the package name, VERSION is the version number, and
 TEAM is the two-letter language code for your team, all in lower case.
-""")
-                       % unknown_elements_comment(),
-                       "[domain, version, or team is missing]")
+""") % unknown_elements_comment(), "[domain or version is missing]")
             abort_robot()
         if run.hints.team:
             globals.team_language = run.hints.team.language
@@ -324,8 +319,7 @@ and retry the submission.
 If however the code is correct, I presume you would like a new translation
 team to be created.  This is a simple matter, really.  See
 http://translationproject.org/leaders.html for all the details.
-""")
-                       % run.hints.team, "[unknown team]")
+""") % run.hints.team, "[unknown team]")
             globals.team_language = _('Unknown_Language')
             globals.team_mailto = run.translator_address
 
