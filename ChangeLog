@@ -7,6 +7,8 @@
 	* bin/tp-robot: Mention the file name when saying it is wrong,
 	mention only the unknown elements, not the known ones.
 
+	* webgen/translators.all: The translators' page rewritten.
+
 2007-12-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: License line is already mandatory for 'hylafax'.

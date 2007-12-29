@@ -1,203 +1,183 @@
-* A reply to incoming translators                 allout -*- outline -*-
+* Translators and the TP				allout -*- outline -*-
 
-  Hello, I hope you will not mind a canned reply.  You wrote to the
-  translation team coordinator, offering to become a translator, but do
-  not know exactly how or where to start.  Here is some advice.
+.* About the Translation Project
 
-.* Become part of a translation team
-   ---------------------------------
+The Translation Project (the TP, for short) is meant as a service to both 
+package maintainers and translators.  The advantage for maintainers is that 
+they need to announce a new POT file to just one address and can fetch the 
+translated PO files from just one place, instead of having to deal with 
+several translators separately.  For translators the advantages are 
+similar: they receive the POT file announcements and pre-merged PO files 
+from a single place and send in their PO files via a single mechanism, 
+instead of having to deal in different ways with several maintainers 
+separately.
 
-   You should first find the address for your own national team.  There
-   is a list of current teams at:
+At the TP, translators are grouped into language teams (rather than package 
+teams) because, in general, translation issues are more specific to a human 
+language than to a particular package.  It is good for translators of the 
+same language to get together, check each other's work, and discuss any 
+problematic translation issues.  This also increases the chances that all 
+packages at the TP get translated in a similar manner, using the same 
+conventions and a consistent vocabulary.  Lone translators tend to find 
+their own ways and words, making a package stand out as strange.
 
-   http://translationproject.org/team/index.html
+.* Becoming part of a team
 
-   For each language it lists the team code and the team's email address.
-   Each team page gives some more details, like a possible team site or
-   mailing list archive. If it's not clear how you can subscribe to the 
-   team's mailing list, you can ask the team coordinator.  Of course,
-   you can use your own language when writing to your translation team.
+First find the page that belongs to the language you want to translate 
+into.  On http://translationproject.org/team/index.html there is a list of 
+all current language teams.  On the relevant team page you will find the 
+email addresses of the team leader and of the team's mailing list.  You may 
+wish to subscribe to the latter and write to the leader to become part of 
+the team.
 
-   If there is no team for your language and you want to start one, you
-   will find more information on how to proceed at:
+If there is no team yet for your language and you want to start one, see 
+http://translationproject.org/html/leaders.html for more information.
 
-   http://translationproject.org/html/leaders.html
+.* Filling out the disclaimer
 
-.* Fill out and return the disclaimer for translators
-   --------------------------------------------------
+Many of the packages listed at the TP require that your translations for 
+them be provably free.  The TP robot will reject any submission for such 
+packages if you did not disclaim, in writing, your copyrights over the 
+translations you produce.  More details, plus a copy of the actual 
+disclaimer, are given on 
+http://translationproject.org/html/whydisclaim.html .
 
-   Many textual domains (roughly: packages) require that your work has
-   to be provably free.  The Translation Project will reject a submission
-   if you did not disclaim, in writing, your rights over the translations
-   you produce.  It also takes in the order of one month overall, once the
-   disclaimer has been sent off, for it to be fully processed.  This is often
-   the bottleneck of the whole process, so you should address this matter as
-   soon as possible.  Once this formality is over, you are clear to do as
-   many translations as you want without going through the formality again.
+It takes in the order of one month, after you have sent off the disclaimer, 
+for it to be fully processed.  This is often the bottleneck of becoming a 
+translator for some package, so you should address this matter as soon as 
+possible.  Once this formality is over, you are clear to do as many 
+translations as you want without going through the formality again.
 
-   More details on the disclaimer, as well as a plain-text copy, are at:
+.* Learning to use the robot
 
-   http://translationproject.org/html/whydisclaim.html
-
-.* Learn to use the robot
-   ----------------------
-
-Becoming a team member is a quick process, but having the disclaimer 
-acknowledged by the FSF usually takes in the order of one month.  Before 
-that time has elapsed, you can nevertheless submit your PO file to the 
-robot.  The robot will not accept the PO file into the archives, but it 
-will discover any errors and diagnose them.  People translating for the 
-first time usually make various errors, and it may require a few tries 
-before you get everything right.  Maybe by the time you have finished 
-this, your disclaimer will have been received, and you will be ready for 
-a real, successful upload.
-
-The robot might be a bit frightening at first, because it is extremely 
-picky at many details.  Don't be discouraged, the robot is very patient.  
-:-) All there is to know about submitting PO files is explained here:
-
-    http://translationproject.org/html/robot.html
-
-
-.* Learn to use GNU `gettext'
-   --------------------------
-
-You could work on translations without having GNU `gettext' installed. 
-However, you would miss the `msgfmt' program, which is quite useful at 
-validating your translated files, and the GNU `gettext' documentation, 
-which explains the Translation Project in greater detail.
-
-GNU `gettext' should normally already be present on your system.  If 
-not, find the package in your distribution and install it.  Then skim 
-through the contents of the Info document for `gettext'; especially 
-learn to use `msgfmt', `msgmerge', and `msgcat'.  The latter command is 
-useful for making a compendium (a collection of commonly occurring 
-strings).  Always use the option `--no-wrap' to not break long lines.
+While you are waiting for your disclaimer to be processed, you can already 
+submit PO files to the robot, to practice.  The robot may not accept the PO 
+file, but it will probably discover some errors and tell you about them.  
+People translating for the first time usually make various small mistakes 
+and it may require a few tries before you get everything right, especially 
+since the robot is very fussy about the contents of the header fields.  
+Don't be discouraged, the robot is very patient.  :-) Exactly how to deal 
+with the robot is explained on 
+http://translationproject.org/html/robot.html .
 
 
-.* Dive into real translation work
-   -------------------------------
+.* Learning to use the `gettext' tools
 
-   If your team is well organised, people there should help you in finding a
-   translation assignment.  Otherwise, you will have to find one yourself.
-   But whatever you do, at any time, and even if everybody seems to be
-   sleeping in your team, keep it well informed of what you intend to do.
-   One way to start is by translating GNU `gettext' messages.  It is not
-   especially important to translate `gettext' messages first, but you
-   might just have it handy on your disks.  If GNU `gettext' has already
-   been translated, and your team does not help you to choose a translation
-   assignment, your might look into these directories:
+To make your translations you will probably use a special editor program 
+like `KBabel' or `poEdit'.  But to test your work before submitting it you 
+will need the `msgfmt' program; to look at existing MO files you will need 
+the `msgunfmt' program; and to make and use a compendium you will need the 
+`msgcat' and `msgmerge' programs.  Normally these tools should already be 
+present on your system.  (If not, find the `gettext' package in your 
+distribution and install it.)  Have a look at the man pages for these 
+programs, to get an idea for what they can do.
 
-		http://translationproject.org/PO-files/LL/
-		http://translationproject.org/POT-files/
+.* Diving into actual translation work
 
-   The first directory contains the availabe PO files for language LL that
-   are completely or incompletely translated, but excludes files for which
-   translation has not even started.  The latter directory gives the
-   untranslated state (called template) of all PO files for all packages:
-   you will most probably find food for work in there!  Every time
-   the Translation Project uploads a new file or updates an existing file
-   in either directory, an announcement is sent to the mailing list of the
-   translation team.
+Look at the big colourful table on your team page in order to find a 
+package to translate.  Look at the rightmost column and find a cell that is 
+not fully translated (not bright green), then see if it is package that is 
+installed on your system and whether you sometimes use it.  These packages 
+are good candidates for first translation tasks.  If the package is already 
+assigned, you can ask that translator if it is okay for you to take over 
+this assignment.
 
-   OK, let's say you decided to translate `gettext-N.M'.  Start by
-   copying the file `gettext-N.M/po/gettext.pot' into a work file named
-   `gettext-N.M.LL.po', where LL is your language code as explained earlier
-   in this text, and just edit this file.  It starts like:
+When you have found a package you want to translate (or whose translation 
+you want to update), send an email to <coordinator@translationproject.org> 
+with a CC: to your team leader and ask for assignment of the package.  If 
+the team leader stays silent we take this as agreement.
 
-           # SOME DESCRIPTIVE TITLE.
-           # Copyright (C) YEAR Free Software Foundation, Inc.
-           # This file is distributed under the same license as the PACKAGE package.
-           # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-           #
-           #, fuzzy
-           msgid ""
-           msgstr ""
-           "Project-Id-Version: PACKAGE VERSION\n"
-           "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-           "POT-Creation-Date: 2002-12-10 22:11+0100\n"
-           "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-           "Language-Team: LANGUAGE <LL@li.org>\n"
-           "MIME-Version: 1.0\n"
-           "Content-Type: text/plain; charset=CHARSET\n"
-           "Content-Transfer-Encoding: ENCODING\n"
+To download the latest PO file for the package you want to translate, click 
+the version number next to the righmost column.  Then start your editor on 
+this PO file (see http://translationproject.org/html/software.html for a 
+list of programs) and translate all the messages, one after another.
 
-   Replace all the words in capitals with something appropriate.  In this
-   case, you will be the first author of the translation, and also the
-   last translator of it.  Please, don't use your own language to replace SOME
-   DESCRIPTIVE TITLE; this line is meant to be read also by people not
-   speaking your language.  CHARSET may be ISO-8859-1 for example,
-   and ENCODING is often 8bit.  Remove the `#, fuzzy' line once you have
-   specified the items in capitals, because once this is done the header
-   entry is no longer fuzzy.
+Once your PO file is fully translated, you may first want to submit it to 
+your team list, to get feedback from your team members.  When you have the 
+necessary changes to accomodate for their suggestions and criticism, you 
+can send the file to the TP robot -- possibly using the `sendpo.sh' script.
 
-   Each message to translate is then given in turn in the PO file.  For
-   example, an untranslated entry might be:
+.* The initial comment lines
 
-           #: lib/error.c:88
-           msgid "Unknown system error"
-           msgstr ""
+Each PO file starts with four or more lines which look like comment lines 
+but which are an integral part of the PO-file format.  These initial lines 
+are, in order: 1) the title line, 2) the copyright line, 3) the license 
+declaration line, and 4) one or more author lines.  When a PO file is still 
+fully untranslated, these lines look like this:
 
-   The empty `msgstr' string has to be filled with the translation for the
-   string shown after `msgid'.  If you were a German speaker, say, the entry
-   once translated might look like:
+      # SOME DESCRIPTIVE TITLE.
+      # Copyright (C) YEAR Free Software Foundation, Inc.
+      # This file is distributed under the same license as the PACKAGE package.
+      # AUTHOR NAME <EMAIL@ADDRESS>, YEAR.
+The words that are written in all uppercase need to be replaced by you.  If 
+you are translating to Spanish and the PO file is for xchat, the first line 
+could be: "# Spanish translations for Xchat."  In the second line you have 
+to replace YEAR with the current year.  In the third line you have to 
+replace PACKAGE with the package name, in all lowercase.  With that line 
+you declare that your translations is as freely distributable as the 
+package itself.  You may use the line "# This file is put in the public 
+domain." instead, which some packages seem to prefer.  On the fourth line 
+you fill in your full name and email address, followed by a comma plus the 
+current year plus a period.  If you are updating an existing PO file, there 
+will already be an author line present and you add your line below it.
 
-           #: lib/error.c:88
-           msgid "Unknown system error"
-           msgstr "unbekannter Systemfehler"
+.* The header fields
 
-   You just produce a translation for each entry in the PO file, one after
-   another, respecting the overall file format and the quoting needed for
-   special characters, when needed.  Observation and intuition may allow
-   you to grasp what the format should be; the precise rules for PO files
-   are given in the GNU `gettext' manual.  The `msgfmt' program is helpful
-   for pinpointing formatting errors.
+After the initial comment lines comes the PO file header in the form of an 
+empty `msgid'.  Its corresponding `msgstr' contains several special fields, 
+of which normally only the POT-Creation-Date will have already been filled 
+in.  The other fields must be filled in by you, but normally the editor 
+that you use will do this for you.
 
-   Once your PO file is ready, you might submit it to your translation
-   team to get feedback and criticism, and if everything is OK, send it to
-   <robot@translationproject.org> for later inclusion in the proper
-   package.  Your submission might be rejected if the translation disclaimer
-   has not been received, if someone else in your team is already assigned
-   to the package you translated, or if your team officially disapproves
-   of your work (maybe because you are not a team worker).  Your team
-   should be seen as an authority for deciding which translations go,
-   and which don't, so you'd better collaborate with it!
+      msgid ""
+      msgstr ""
+      "Project-Id-Version: PACKAGE VERSION\n"
+      "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+      "POT-Creation-Date: 2007-12-31 22:44+0100\n"
+      "Last-Translator: AUTHOR NAME <EMAIL@ADDRESS>\n"
+      "Language-Team: LANGUAGE <LISTNAME@lists.sourceforge.net>\n"
+      "MIME-Version: 1.0\n"
+      "Content-Type: text/plain; charset=CHARSET\n"
+      "Content-Transfer-Encoding: ENCODING\n"
+.* The messages
 
-   To ask for assignment, send an email to <coordinator@translationproject.org>
-   with a CC: to your team leader and tell us the textdomain(s) you wish to
-   work on.  If the team leader stays silent we usually take this as an
-   agreement.
+The rest of the PO file consist of a series of `msgid' / `msgstr' pairs, 
+each preceded by one or more comment lines.  A typical untranslated entry 
+looks like:
 
-.* Participate in your team, or stimulate it
-   -----------------------------------------
+      #: lib/error.c:88
+      msgid "Unknown system error"
+      msgstr ""
+The empty `msgstr' string has to be filled with the translation for the
+string shown after `msgid'.  If you are translating to German, the entry
+-- once translated -- might look like:
 
-   Some teams are quite well organised, with a team coordinator, many
-   translators having clear responsibilities, an FTP site for archives of
-   previous exchanges or current translations, maybe a web site as well, with
-   an FAQ, specialised lexicons and related literature or pointers.  On the
-   other hand, other teams have only one or very few members, which have not
-   taken the time to organise properly or have not really started their work.
+      #: lib/error.c:88
+      msgid "Unknown system error"
+      msgstr "unbekannter Systemfehler"
+You produce a translation for each entry in the PO file, one after another, 
+while respecting the overall file format and the quoting needed for special 
+characters.  Good observation may allow you to grasp what the format should 
+be; the precise rules for PO files are given in the GNU `gettext' manual.  
+To pinpoint formatting errors, use:
 
-   You have to find out yourself.  Write to your team directly, using your
-   own language, asking if someone is coordinating it, if there is an FAQ,
-   or if any procedure exists for contributing, as each team might have its
-   own methods.  You might receive a clear and precise answer telling you
-   everything you need to know.  In the worst case, you could not receive
-   any reply at all.
+      msgfmt -cv yourfile.po
 
-   In the silent case, you will have to make a decision.  You may back up
-   and out of the Translation Project, and forget about it.  Or else,
-   you may decide to take on responsibility for your team and try to revive
-   it, answering future volunteers and doing translations on your own.
-   A team is only as active as its members.  If everyone is shy and no
-   one is able to make any decisions, nothing moves.  If a team has one or
-   more good leaders, things usually go smoothly.  If many people *fight*
-   for leadership, the team might have to resolve the problems that it has,
-   and you may want to become part of the solution.  It's really up to you.
+.* Working as a team
 
-   You may know other people who might be interested in volunteering for
-   your language.  Then, of course, you could invite them to join you and
-   subscribe to the proper language team.
+At the TP most teams have a mailing list.  On that list the TP robot posts 
+its messages about new POT files and uploaded PO files, but its main 
+purpose is to be used as a discussion list, for translators to post their 
+PO files (especially in the beginning, when doing their first translations) 
+and ask for comments, corrections and possible improvements.  If, however, 
+your fellow team members don't do this, don't hesitate to look at their PO 
+files and comment (privately or on the list) on the mistakes you find 
+there.
+
+If your team seems to have died, try to revive it by writing to all members 
+directly.  If they do not answer, and also the team leader stays silent, 
+and you do want to get on with translation work, then write to the TP 
+coordinators.
 
 
                             Your translation coordinator
