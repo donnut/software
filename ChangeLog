@@ -1,4 +1,9 @@
 
+2007-12-29  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/registry.py: Simplify regexes, remove recognition of charset,
+	remove obsolete workaround for Nynorsk.
+
 2007-12-22  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: License line is already mandatory for 'hylafax'.

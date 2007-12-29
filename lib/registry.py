@@ -19,12 +19,24 @@ except NameError:
         return data
     have_unicode = 0
 
-# Registry services (teams, translators and domains).
+# Registry services (teams, translators, and domains).
 
 # Teams contain translators, which handle domains.  There is no
 # other containing relation, so there should not be cyclic references.
 
-TEAM = ('[a-z][a-z][a-z]?(-[a-z]{1,8})?'
+DOMAIN = ('[a-z_-]+[a-z]|'
+          '[a-z]+_[0-9_]+|'
+          'a2ps|e2fsprogs|libgphoto2_port|libgphoto2|gphoto2|m4')
+
+VERSION = ('[.0-9]+-?b[0-9]+|'
+           '[.0-9]+-?dev[0-9]+|'
+           '[.0-9]+-?pre[0-9]+|'
+           '[.0-9]+-?rc[0-9]+|'
+           '[.0-9]+-?rel[0-9]+|'
+           '[.0-9]+[a-z]?|'
+           '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]')
+
+TEAM = ('[a-z][a-z]'
         '|[a-z][a-z]_[A-Z][A-Z]'
         '|[a-z][a-z]@[a-z]+')
 
@@ -141,8 +153,6 @@ class Translator:
     def can_show_mail(self):
         return self.showmail is None or self.showmail == "yes"
 
-DOMAIN = ('[-A-Za-z0-9_]+[A-Za-z](_[0-9]+)*'
-          '|a2ps|m4|libgphoto2_port|libgphoto2|gphoto2')
 
 def domain(name, cache={}):
     domain = cache.get(name)
@@ -242,7 +252,7 @@ domain_list = registry.domain_list
 team_list = registry.team_list
 
 
-# PO and POT name services (hints, versions and charsets).
+# PO and POT name services (hints, versions, and charsets).
 
 def hints(name=None):
     return Hints(name)
@@ -270,18 +280,16 @@ Splitting file names into components.
             found_domain = domain(match.group('dom'))
             found_version = version(match.group('ver'))
             found_team = None
-            found_charset = None
             found_gzipped = match.group('z')
         else:
             match = re.search(r'(?P<dom>%s)-(?P<ver>%s)\.(?P<team>%s)'
-                               '(?P<cs>%s)?\.po(?P<z>\.gz)?$'
-                              % (DOMAIN, VERSION, TEAM, CHARSET), name)
+                               '\.po(?P<z>\.gz)?$'
+                              % (DOMAIN, VERSION, TEAM), name)
             if match:
                 found_pot = 0
                 found_domain = domain(match.group('dom'))
                 found_version = version(match.group('ver'))
                 found_team = team(match.group('team'))
-                found_charset = charset(match.group('cs'))
                 found_gzipped = match.group('z')
             else:
                 raise ValueError, "No hints from '%s'" % name
@@ -305,11 +313,6 @@ Splitting file names into components.
         elif found_team != self.team:
             message = ("Team hint from '%s' contradicts '%s'"
                        % (name, self.team.name))
-        if self.charset is None:
-            self.charset = found_charset
-        elif found_charset != self.charset:
-            message = ("Inconsistent charset hint from '%s'"
-                       % (name, self.charset))
         self.gzipped = self.gzipped or found_gzipped
         if message:
             raise ValueError, message
@@ -354,14 +357,6 @@ Splitting file names into components.
         return ('%s/%s/%s/%s.po' %
                 (puburl, config.last_dir, self.domain.name, self.team.name))
 
-
-VERSION = ('[.0-9]+-?b[0-9]+'
-           '|[.0-9]+-?dev[0-9]+'
-           '|[.0-9]+-?pre[0-9]+'
-           '|[.0-9]+-?rc[0-9]+'
-           '|[.0-9]+-?rel[0-9]+'
-           '|[.0-9]+[a-z]?'
-           '|[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]')
 
 def version(name):
     return Version(name)
@@ -460,7 +455,6 @@ class Version:
     def __str__(self):
         return self.name
 
-CHARSET = r'\..+'
 
 def charset(name):
     if name:
@@ -491,9 +485,6 @@ def compare_files(file1, file2):
 if __name__ == '__main__':
     langs = {}
     for t in team_list():
-        if langs.has_key(t.language):
-            # Nynorsk is duplicated.
-            continue
         print
         print 'msgid "%s"' % t.language
         print 'msgstr ""'
