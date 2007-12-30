@@ -487,7 +487,7 @@ superfluous spaces, no name, a lacking comma, or a bad year.
             translator = registry.translator(run.hints.team,
                                              last_name, last_address)
         except KeyError:
-            return
+            return  # FIXME: maybe change this to pass.
         if last_name != run.translator_name:
             run.submitter.write(_("""\
 The last name in the author lines differs from the name in the header
@@ -495,8 +495,7 @@ field.  The last author line mentions '%s', while the 'Last-Translator'
 field says '%s'.  Maybe the author lines are in the wrong order?  The
 expected order is chronological: the earliest translator first, and
 your own author line last.
-""")
-                                % (last_name, run.translator_name))
+""") % (last_name.encode('utf-8'), run.translator_name.encode('utf-8')))
         elif last_address != run.translator_address:
             run.submitter.write(_("""\
 Your submission contains contradicting addresses for you.  The last of
@@ -609,8 +608,7 @@ The PO revision date is '%s', which is older than the POT creation date,
                 run.submitter.write(_("""\
 There is a slight formatting error.  In the 'Last-Translator' header line,
 please use no more than a single space between '%s' and '<%s>'.
-""")
-                                    % (last_translator, last_address))
+""") % (last_translator.encode('utf-8'), last_address))
             if not run.translator_name:
                 run.translator_name = last_translator
             if not run.translator_address:
@@ -626,10 +624,8 @@ so please tell the translation coordinator about these.
 
 If you haven't joined the %s team yet, then please write to the leader
 of your team (see %s/team/%s.html), or else to the translation coordinator.
-""")
-                           % (last_translator, _(globals.team_language),
-                              _(globals.team_language),
-                              config.site_base, run.hints.team.code),
+""") % (last_translator.encode('utf-8'), _(globals.team_language),
+        _(globals.team_language), config.site_base, run.hints.team.code),
                            "[translator not in team]")
                 abort_robot()
             if last_address not in translator.mailto:
@@ -637,15 +633,12 @@ of your team (see %s/team/%s.html), or else to the translation coordinator.
                     run.reject(_("""\
 The last translator of this PO file is %s.  But according to my notes,
 <%s> is not a good address to reach that translator.  %s %s
-""")
-                               % (last_translator, last_address,
-                                  say_alias_list(translator.mailto),
-                                  globals.unknown_address_insert),
-                               "[last address unknown]")
+""") % (last_translator.encode('utf-8'), last_address,
+        say_alias_list(translator.mailto), globals.unknown_address_insert),
+                           "[unknwon address]")
                     globals.reported_unknown.append(last_address)
                     globals.unknown_address_insert = ''
-                return
-            if last_translator != run.translator_name:
+            elif last_translator != run.translator_name:
                 run.submitter.write(_("""\
 I'm not fully sure that you are the author of the translations you
 sent me.  The header of your email says that you are '%s', while the
@@ -661,16 +654,15 @@ case that the two names above are really different, the situation is more
 serious.  Some translation teams surely have their own ways and habits,
 but it is unusual that someone submits a translation file written by
 someone else.
-""")
-                                    % (run.translator_name, last_translator))
+""") % (run.translator_name.encode('utf-8'), last_translator.encode('utf-8')))
             elif last_address != run.translator_address:
                 run.submitter.write(_("""\
 Your message was sent from '%s', but the 'Last-Translator' field in the
 PO file says that your email address is '%s'.  I assume that the latter
 is correct -- I bring this to your attention just in case _you_ think it
 matters.
-""")
-                                    % (run.translator_address, last_address))
+""") % (run.translator_address, last_address))
+            # Override email data with those found in PO file.
             run.translator_name = last_translator
             run.translator_address = last_address
         else:
@@ -683,8 +675,7 @@ is not formatted properly.  The line containing it should look like:
 In this line, FULL NAME has to be replaced by the full name of the current
 translator for the '%s' textual domain (which most probably means you :-);
 EMAIL@ADDRESS gives a way to reach that translator by email.
-""")
-                       % run.hints.domain, "[last-translator missing]")
+""") % run.hints.domain, "[last-translator missing]")
 
     def language_team(self, header):
         text = header['language-team']
