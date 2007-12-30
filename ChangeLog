@@ -4,6 +4,8 @@
 	* bin/tp-robot: Encode the translator name to get it printed right;
 	always override name found in email with name from PO file.
 
+	* bin/po-register: Add translator name to logbook entry.
+
 2007-12-29  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/registry.py: Simplify regexes, remove recognition of charset,

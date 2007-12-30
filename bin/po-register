@@ -216,16 +216,17 @@ def process_po_file(hints, file, fromnewpot = False):
     elif registry.compare_files(archive_path, file):
         sys.stderr.write("  skipping '%s' -- it is already stored\n" % file)
         skip = True
-    elif not os.path.isfile(template_path):
+    elif not os.path.isfile(template_path) and not run.dry:
         sys.stderr.write("  skipping '%s' -- no corresponding POT\n" % file)
         skip = True
-    elif registry.compare_files(template_path, file):
+    elif registry.compare_files(template_path, file) and not run.dry:
         sys.stderr.write("  skipping '%s' -- identical to POT\n" % file)
         skip = True
     if skip:
         if not run.dry:
             os.remove(file)
         return
+    translatorname = po.last_translator(po.header(po.read(file)))[0]
     if not run.dry:
         if os.path.isfile(archive_path):
             os.remove(archive_path)
@@ -234,11 +235,11 @@ def process_po_file(hints, file, fromnewpot = False):
         if not fromnewpot:
             # For uploaded files make an entry in the log.
             now = datetime.datetime.now()
-            logbook = open('%s/stored-POs.log' % config.cache_path, 'a')
-            logbook.write("%s  %s  %s\n" % (now.date().isoformat(),
-                                            now.time().strftime('%X'),
-                                            archive_base))
-            logbook.close()
+            log = open('%s/stored-POs.log' % config.cache_path, 'a')
+            log.write("%s  %s  %s  --  %s\n"
+                      % (now.date().isoformat(), now.time().strftime('%H:%M'),
+                         archive_base, translatorname))
+            log.close()
         # Calculate and store the statistics for the new PO file.
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
@@ -246,7 +247,6 @@ def process_po_file(hints, file, fromnewpot = False):
     # Notify the team about the PO file, whether new or updated.
     mailto = hints.team.announce_address()
     if mailto != "(nothing)":
-        translatorname = po.last_translator(po.header(po.read(file)))[0]
         sys.stderr.write("    notifying `%s` <%s> about '%s'\n"
                          % (hints.team.name, mailto, archive_base))
         notify_team_for_po(hints, stats, translatorname, fromnewpot)
