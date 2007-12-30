@@ -483,7 +483,9 @@ class TeamPage(htmlpage.Htmlpage):
                     numbers = "%d / %d" % (translated, tally)
                     color = colorize(translated, tally)
                 else:
-                    reference = "%s" % version
+                    reference = ('<a href="../%s/%s-%s.pot">%s</a>'
+                                 % (config.pots_dir, domain.name, version,
+                                    version))
                     color = "#00d0f8"  # Blue: fully untranslated.
                     numbers = "%d / %d" % (0, tally)
                 write('    <td>%s</td>\n'
