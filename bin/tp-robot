@@ -502,15 +502,13 @@ Your submission contains contradicting addresses for you.  The last of
 the introductory author lines says <%s>, while the 'Last-Translator'
 field says <%s>.  Please arrange to have a single preferred address to
 reach you, and use it consistently in all your translation files.
-""")
-                                % (last_address, run.translator_address))
+""") % (last_address, run.translator_address))
         elif last_year != datetime.date.today().strftime('%Y'):
             run.submitter.write(_("""\
 The final year (%s) given in the last author line (which should be yours)
 is not the current year.  Please correct either the year or the order of
 the author lines: the earliest author first, the latest last.
-""")
-                                % last_year)
+""") % last_year)
 
     def project_id_version(self, header):
         match = re.search('(Free |GNU )?(?P<dom>%s)(?P<sep>[- ])(?P<ver>%s)' %
@@ -522,8 +520,7 @@ the author lines: the earliest author first, the latest last.
 The 'Project-Id-Version' field of your PO file says that the textual domain
 is '%s', instead of '%s' as the file name says.  They should be the same. 
 The domain name is usually just the package name, in all lower case.
-""")
-                           % (match.group('dom'), run.hints.domain),
+""") % (match.group('dom'), run.hints.domain),
                            "[domain in project-id conflicts with file name]")
             if match.group('sep') == '-':
                 # Silently replace a hyphen with a space.
@@ -536,8 +533,7 @@ The 'Project-Id-Version' field of your PO file says the translation
 is meant for version '%s' of '%s', but the file name says it is for
 version '%s'.  Please adjust either the 'Project-Id-Version' field or
 the file name, whichever is appropriate.
-""")
-                           % (match.group('ver'), run.hints.domain.name,
+""") % (match.group('ver'), run.hints.domain.name,
                               run.hints.version.name),
                            "[version in project-id conflicts with file name]")
         else:
@@ -550,8 +546,7 @@ The line containing this field ideally looks like:
 in which PACKAGE should be replaced by the textual domain of your
 translation, probably '%s' in this case, and VERSION be replaced
 by the appropriate version numbers, maybe '%s' here.
-""")
-                       % (run.hints.domain.name, run.hints.version.name),
+""") % (run.hints.domain.name, run.hints.version.name),
                        "[no project-id-version]")
 
     def both_dates(self, header):
@@ -593,9 +588,7 @@ still accepted for the time being, but are to be deprecated.
                 run.reject(_("""\
 The PO revision date is '%s', which is older than the POT creation date,
 '%s'.  Please update the revision date field before submitting a PO file.
-""")
-                           % (date['PO-Revision-Date'],
-                              date['POT-Creation-Date']),
+""") % (date['PO-Revision-Date'], date['POT-Creation-Date']),
                            "[revision date before creation date]")
 
     def last_translator(self, header):
@@ -694,16 +687,13 @@ EMAIL@ADDRESS gives a way to reach that translator by email.
                 run.submitter.write(_("""\
 There is a slight formatting error.  In the 'Language-Team' header line,
 please use no more than a single space between '%s' and '<%s>'.
-""")
-                                    % (maybe_language, maybe_mailto))
+""") % (maybe_language, maybe_mailto))
             if maybe_language != globals.team_language:
                 run.reject(_("""\
 You wrote '%s' in the 'Language-Team' field of the PO file header, while
 I think it should have been '%s'.  If I am wrong, please email the
 translation coordinator to get this straightened out.
-""")
-                           % (maybe_language, _(globals.team_language)),
-                           "[language-team incorrect]")
+""") % (maybe_language, _(globals.team_language)), "[language-team incorrect]")
             if not globals.team_mailto:
                 run.reject(_("""\
 Each translation team should publish some mailing list address, meant
@@ -715,9 +705,7 @@ fit your needs.  In case you know none, waiting to get better organised,
 you might use the address of one of the team members, maybe yours if you
 are alone in the team!  In any case, please inform the translation
 coordinator of the address your team decides to use.
-""")
-                           % (_(globals.team_language),
-                              _(globals.team_language)),
+""") % (_(globals.team_language), _(globals.team_language)),
                            "[team address missing]")
             elif maybe_mailto != globals.team_mailto and \
                      maybe_mailto not in globals.team_mailtos:
@@ -725,9 +713,7 @@ coordinator of the address your team decides to use.
 The 'Language-Team' field of the PO file header contains <%s> as the team's
 email adress, but the registered team's address is <%s>.  If the latter is
 wrong, please email the translation coordinator to get it corrected.
-""")
-                           % (maybe_mailto, globals.team_mailto),
-                           "[team address incorrect]")
+""") % (maybe_mailto, globals.team_mailto), "[team address incorrect]")
         else:
             run.reject(_("""\
 The 'Language-Team' field was not found in your PO file header, or is
@@ -744,9 +730,7 @@ a different standard).  If I had to write this line myself, right now,
 according to the information which is available to me, I would use:
 
     "Language-Team: %s <%s>\\n"
-""")
-                       % (globals.team_language, globals.team_mailto),
-                       "[language team missing]")
+""") % (globals.team_language, globals.team_mailto), "[language team missing]")
 
     def mime_fields(self, header):
         if header['mime-version'] != '1.0':
@@ -755,8 +739,7 @@ The 'MIME-Version' field was not found in your PO file header, or is
 not formatted properly.  The line should be this one:
 
     "MIME-Version: 1.0\\n"
-"""),
-                       "[mime-version is not 1.0]")
+"""), "[mime-version is not 1.0]")
         charsets = [
             'us-ascii',
             'ISO-8859-1',
@@ -783,8 +766,7 @@ The 'Content-Type' field introduced an unusual character set '%s'.
 If this is not an error, please merely inform the translation coordinator
 that '%s' be added to the list of acceptable charsets.
 This list currently holds: %s.
-""")
-                           % (charset, charset, say_list(_('or'), charsets)),
+""") % (charset, charset, say_list(_('or'), charsets)),
                            "[unknown charset in content-type]")
             run.po_charset = charset
         else:
@@ -795,8 +777,7 @@ not formatted properly.  The line containing it ideally looks like:
     "Content-Type: text/plain; charset=CHARSET\\n"
 
 where CHARSET should be the name of a character set, like one of %s.
-""")
-                       % say_list(_('or'), charsets),
+""") % say_list(_('or'), charsets),
                        "[content-type missing or ill-formatted]")
         encodings = ['8-bit', '8bit', 'Base64']
         cte = header['content-transfer-encoding']
@@ -807,8 +788,7 @@ The 'Content-Transfer-Encoding' field introduced an unusual encoding
 '%s'.  If this is not an error, please inform the translation
 coordinator that '%s' be added to the list of acceptable charsets.
 This list currently holds: %s.
-""")
-                           % (cte, cte, say_list(_('and'), encodings)),
+""") % (cte, cte, say_list(_('and'), encodings)),
                            "[unknown content-transfer-encoding]")
         else:
             run.reject(_("""\
@@ -818,9 +798,7 @@ or is not formatted properly.  The line containing it ideally looks like:
     "Content-Transfer-Encoding: ENCODING\\n"
 
 where ENCODING should be the name of an encoding, like one of %s.
-""")
-                       % say_list(_('or'), encodings),
-                       "[content-transfer-encoding missing]")
+""") % say_list(_('or'), encodings), "[content-transfer-encoding missing]")
 
     def scan_gettext_output(self, lines, work, virtual):
         comment = []
@@ -903,8 +881,7 @@ of spelling differences, then I need to know exactly which alternate
 spellings of your name you use.  Write to the translation coordinator
 and explain why you need several different names.  But it is usually
 best to avoid such variance, and stick to a single preferred spelling.
-""")
-                       % (_(globals.team_language), run.translator_name),
+""") % (_(globals.team_language), run.translator_name),
                        "[translator not found]")
             return
         if run.translator_address not in translator.mailto:
@@ -912,10 +889,8 @@ best to avoid such variance, and stick to a single preferred spelling.
                 run.reject(_("""\
 According to my notes, the address <%s> is not a valid way to reach you. 
 %s %s
-""")
-                           % (run.translator_address,
-                              say_alias_list(translator.mailto),
-                              globals.unknown_address_insert),
+""") % (run.translator_address, say_alias_list(translator.mailto),
+        globals.unknown_address_insert),
                            "[translator address not in registry]")
                 globals.reported_unknown.append(run.translator_address)
                 globals.unknown_address_insert = ''
@@ -927,9 +902,7 @@ that project did not make arrangements yet for the Translation Project to
 handle its PO files.  In this case, please invite the project maintainer to
 contact us.  See http://translationproject.org/domain/index.html
 for the list of domains that are currently handled.
-""")
-                       % run.hints.domain,
-                       "[unknown domain]")
+""") % run.hints.domain, "[unknown domain]")
         ok, reason = self.translator_can_submit(translator, run.hints.domain)
         if ok:
             if run.hints.domain.disclaim and not translator.disclaimer:
@@ -938,16 +911,13 @@ According to my notes, the Free Software Foundation did not acknowledge the
 receipt of a translation disclaimer for you.  Such a disclaimer is required
 for '%s'.  See http://translationproject.org/html/whydisclaim.html for an
 explanantion of this.
-""")
-                           % run.hints.domain,
-                           "[translator has no disclaimer]")
+""") % run.hints.domain, "[translator has no disclaimer]")
         else:
             run.reject(_("""\
 You are not registered as the usual translator for '%s': %s.  If you wish
 to be assigned to this textual domain, your team leader may send an email
 to the translation coordinator warranting that you are indeed assigned.
-""")
-                       % (run.hints.domain, reason[1:-1]), reason)
+""") % (run.hints.domain, reason[1:-1]), reason)
 
     def have_pot(self):
         if not os.path.isfile(run.hints.template_path()):
@@ -956,20 +926,18 @@ You submitted a PO file for which the Translation Project does not have
 a corresponding template: '%s' is not present here.  Please have the
 maintainer of the package send the corresponding POT file
 (or better: the URL of the tarball) to the TP coordinators.
-""")
-                       % run.hints.template_base(),
-                       "[there is no corresponding pot file]")
+""") % run.hints.template_base(), "[there is no corresponding pot file]")
             return 0
         return 1
 
     def preexisting(self, work):
         if registry.compare_files(work, run.hints.archive_path()):
-            comment = [_("""
+            run.reject_nofill(_("""\
 The Translation Project already holds an exact copy of your submission,
 which you may find as:
-""")]
-            comment.append('    %s\n' % run.hints.archive_url())
-            run.reject_nofill(('').join(comment), "[duplicate submission]")
+
+    %s
+""") % run.hints.archive_url(), "[duplicate submission]")
 
     def translator_can_submit(self, translator, domain):
         # If it is the assigned translator, accept.
