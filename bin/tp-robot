@@ -430,21 +430,21 @@ encoding of your file allows it: either the single Latin-1 byte
                          ' as the (.*) package.', header['LICENSE'])
         if not header['LICENSE']:
             run.submitter.write_nofill(_("""\
-•• Your PO file does not seem to contain a comment line specifying which
+Your PO file does not seem to contain a comment line specifying which
 license covers the file.  Soon such a line will be required.  Consider
 adding it right after the copyright line.  It should say exactly this:
 
-# This file is distributed under the same license as the %s package.
+    # This file is distributed under the same license as the %s package.
 """) % packagename)
         elif not match or match.group(1) != packagename:
             run.submitter.write_nofill(_("""\
 The license line is not fully correct:
 
-%s
+    %s
 
 It should say exactly this:
 
-# This file is distributed under the same license as the %s package.
+    # This file is distributed under the same license as the %s package.
 """) % (header['LICENSE'], packagename))
         else:
             return  # Okay.
