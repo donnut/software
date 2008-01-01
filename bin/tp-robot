@@ -358,7 +358,7 @@ the file is about.  The title line for this PO file could be:
             text = text[0]
         utext = po.decfunc(header)(text)[0]
         match = re.match('Copyright (\\(C\\)|\xa9|\xc2\xa9).* '
-                         '(199[4-9]|200[0-7])(, ((19)?9[4-9]|(20)?0[0-7]))* '
+                         '(199[4-9]|200[0-8])(, ((19)?9[4-9]|(20)?0[0-8]))* '
                          '(?P<author>.*)', text)
         if match:
             # FIXME: Better validate year lists.
