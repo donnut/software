@@ -906,9 +906,9 @@ team leader.
         if not os.path.isfile(run.hints.template_path()):
             run.reject(_("""\
 You submitted a PO file for which the Translation Project does not have
-a corresponding template: '%s' is not present here.  Please have the
-maintainer of the package send the corresponding POT file
-(or better: the URL of the tarball) to the TP coordinators.
+a template -- %s.  If appropriate, please urge the package maintainer
+to send this POT file, or the URL of the corresponding tarball, to the TP
+coordinators.
 """) % run.hints.template_base(), "[there is no corresponding pot file]")
             return 0
         return 1
