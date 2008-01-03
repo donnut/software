@@ -536,8 +536,8 @@ the file name, whichever is appropriate.
                            "[version in project-id conflicts with file name]")
         else:
             run.reject(_("""\
-The 'Project-Id-Version' field was not found in your PO file header, or
-is not formatted properly.  The line containing it should look like:
+The 'Project-Id-Version' field was not found in your PO file header,
+or is not formatted properly.  The field should look like:
 
     "Project-Id-Version: PACKAGE VERSION\\n"
 
@@ -563,8 +563,8 @@ misformatted.  I will copy the original line from the POT file.
 """))
             else:
                 run.reject(_("""\
-The 'PO-Revision-Date' field was not found in your PO file header, or
-is not formatted properly.  The line containing it should look like:
+The 'PO-Revision-Date' field was not found in your PO file header,
+or is not formatted properly.  The field should look like:
 
     "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\\n"
 """), "[missing revision date]")
@@ -648,8 +648,8 @@ is correct.
             run.translator_address = last_address
         else:
             run.reject(_("""\
-The 'Last-Translator' field was not found in your PO file header, or
-is not formatted properly.  The line containing it should look like:
+The 'Last-Translator' field was not found in your PO file header,
+or is not formatted properly.  The field should look like:
 
     "Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n"
 
@@ -705,8 +705,8 @@ email address, but the team's current address is
 """) % (maybe_mailto, globals.team_mailto), "[team address incorrect]")
         else:
             run.reject(_("""\
-The 'Language-Team' field was not found in your PO file header, or is
-not formatted properly.  The line containing it should look like:
+The 'Language-Team' field was not found in your PO file header,
+or is not formatted properly.  The field should look like:
 
     "Language-Team: LANGUAGE <TEAM-EMAIL-ADDRESS>\\n"
 
@@ -724,8 +724,8 @@ according to the information which is available to me, I would use:
     def mime_fields(self, header):
         if header['mime-version'] != '1.0':
             run.reject(_("""\
-The 'MIME-Version' field was not found in your PO file header, or is
-not formatted properly.  The line should be this one:
+The 'MIME-Version' field was not found in your PO file header,
+or is not formatted properly.  The line should be this one:
 
     "MIME-Version: 1.0\\n"
 """), "[mime-version is not 1.0]")
@@ -760,8 +760,8 @@ This list currently holds: %s.
             run.po_charset = charset
         else:
             run.reject(_("""\
-The 'Content-Type' field was not found in your PO file header, or is
-not formatted properly.  The line containing it ideally looks like:
+The 'Content-Type' field was not found in your PO file header,
+or is not formatted properly.  The field should look like:
 
     "Content-Type: text/plain; charset=CHARSET\\n"
 
@@ -782,7 +782,7 @@ This list currently holds: %s.
         else:
             run.reject(_("""\
 The 'Content-Transfer-Encoding' field was not found in your PO file header,
-or is not formatted properly.  The line containing it ideally looks like:
+or is not formatted properly.  The field should look like:
 
     "Content-Transfer-Encoding: ENCODING\\n"
 
