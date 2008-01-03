@@ -538,8 +538,8 @@ the file name, whichever is appropriate.
                            "[version in project-id conflicts with file name]")
         else:
             run.reject(_("""\
-The 'Project-Id-Version' field was not found in your PO file header.
-The line containing this field ideally looks like:
+The 'Project-Id-Version' field was not found in your PO file header, or
+is not formatted properly.  The line containing it should look like:
 
     "Project-Id-Version: PACKAGE VERSION\\n"
 
@@ -566,7 +566,7 @@ misformatted.  I will copy the original line from the POT file.
             else:
                 run.reject(_("""\
 The 'PO-Revision-Date' field was not found in your PO file header, or
-was not formatted properly.  The line containing it should look like:
+is not formatted properly.  The line containing it should look like:
 
     "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\\n"
 """), "[missing revision date]")
@@ -624,7 +624,7 @@ of your team (see %s/team/%s.html), or else to the translation coordinator.
             if last_address not in translator.mailto:
                 if last_address not in globals.reported_unknown:
                     run.reject(_("""\
-The last translator of this PO file is %s.  But according to my notes,
+%s is the last translator of this PO file.  But according to my notes,
 <%s> is not a good address to reach that translator.  %s %s
 """) % (last_translator.encode('utf-8'), last_address,
         say_alias_list(translator.mailto), globals.unknown_address_insert),
@@ -633,27 +633,17 @@ The last translator of this PO file is %s.  But according to my notes,
                     globals.unknown_address_insert = ''
             elif last_translator != run.translator_name:
                 run.submitter.write(_("""\
-I'm not fully sure that you are the author of the translations you
-sent me.  The header of your email says that you are '%s', while the
-'Last-Translator' field of the PO file header says your name is '%s'. 
-The difference might be a mere spelling difference.  This can happen
-when you do not have full control over your name in the mailing system
-you are using.
-
-As I expect you have better control over PO files, I'll consider that
-the second name is the most dependable.  Yet, in some cases, this might
-represent an error I am unable to analyse, while you do.  In the unlikely
-case that the two names above are really different, the situation is more
-serious.  Some translation teams surely have their own ways and habits,
-but it is unusual that someone submits a translation file written by
-someone else.
+The header of your email says that you are '%s', while the
+'Last-Translator' field of the PO file header says your name
+is '%s'.  If the difference is merely a spelling variation,
+there is no problem.  As I expect you have most control over your
+PO files, I'll consider the second name as the most dependable.
 """) % (run.translator_name.encode('utf-8'), last_translator.encode('utf-8')))
             elif last_address != run.translator_address:
                 run.submitter.write(_("""\
 Your message was sent from '%s', but the 'Last-Translator' field in the
 PO file says that your email address is '%s'.  I assume that the latter
-is correct -- I bring this to your attention just in case _you_ think it
-matters.
+is correct.
 """) % (run.translator_address, last_address))
             # Override email data with those found in PO file.
             run.translator_name = last_translator
@@ -709,15 +699,16 @@ coordinator of the address your team decides to use.
                            "[team address missing]")
             elif maybe_mailto != globals.team_mailto and \
                      maybe_mailto not in globals.team_mailtos:
-                run.reject(_("""\
-The 'Language-Team' field of the PO file header contains <%s> as the team's
-email adress, but the registered team's address is <%s>.  If the latter is
-wrong, please email the translation coordinator to get it corrected.
+                run.reject_nofill(_("""\
+The 'Language-Team' field of the PO file header contains
+  <%s> as the team's
+email address, but the team's current address is
+  <%s>.
 """) % (maybe_mailto, globals.team_mailto), "[team address incorrect]")
         else:
             run.reject(_("""\
 The 'Language-Team' field was not found in your PO file header, or is
-not formatted correctly.  The line containing it should look like:
+not formatted properly.  The line containing it should look like:
 
     "Language-Team: LANGUAGE <TEAM-EMAIL-ADDRESS>\\n"
 
