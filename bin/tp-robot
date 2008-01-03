@@ -509,7 +509,7 @@ the author lines: the earliest author first, the latest last.
 """) % last_year)
 
     def project_id_version(self, header):
-        match = re.search('(Free |GNU )?(?P<dom>%s)(?P<sep>[- ])(?P<ver>%s)' %
+        match = re.search('(Free |GNU )?(?P<dom>%s)[- ]?(?P<ver>%s)?' %
                           (registry.DOMAIN, registry.VERSION),
                           header['project-id-version'])
         if match:
@@ -520,19 +520,13 @@ is '%s', instead of '%s' as the file name says.  They should be the same.
 The domain name is usually just the package name, in all lower case.
 """) % (match.group('dom'), run.hints.domain),
                            "[domain in project-id conflicts with file name]")
-            if match.group('sep') == '-':
-                # Silently replace a hyphen with a space.
-                header['project-id-version'] = (
-                    header['project-id-version'][:match.start('ver')] + ' '
-                    + header['project-id-version'][match.end('ver'):])
             if match.group('ver') != run.hints.version.name:
                 run.reject(_("""\
-The 'Project-Id-Version' field of your PO file says the translation
+The 'Project-Id-Version' field of your file says the translation
 is meant for version '%s' of '%s', but the file name says it is for
-version '%s'.  Please adjust either the 'Project-Id-Version' field or
-the file name, whichever is appropriate.
-""") % (match.group('ver'), run.hints.domain.name,
-                              run.hints.version.name),
+version '%s'.  Please adjust either the 'Project-Id-Version' field
+or the file name, whichever is appropriate.
+""") % (match.group('ver'), run.hints.domain.name, run.hints.version.name),
                            "[version in project-id conflicts with file name]")
         else:
             run.reject(_("""\
