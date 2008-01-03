@@ -391,8 +391,7 @@ The copyright for the PO file should be assigned to:
 
 Maybe you didn't spell it right, or there is a superfluous period
 at the end?  %s
-""")
-                           % (author, comment), reason)
+""") % (author, comment), reason)
         elif run.hints.domain and run.hints.domain.disclaim:
             if text:
                 comment = (_("""\
@@ -401,8 +400,7 @@ The copyright comment is not fully correct:
     # %s
 
 It should instead look like:
-""")
-                           % utext)
+""") % utext)
             else:
                 comment = _("""\
 The copyright line, which should appear as the second line of the whole
