@@ -65,11 +65,11 @@ case ${domain} in
 	version=${version#gettext-}
 	$echo $version
 	cp ${domain}-$version/gettext-tools/po/gettext-tools.pot \
-	    gettext-tools-$version.pot -v
+		gettext-tools-$version.pot -v
 	cp ${domain}-$version/gettext-tools/examples/po/gettext-examples.pot \
-	    gettext-examples-$version.pot -v
+		gettext-examples-$version.pot -v
 	cp ${domain}-$version/gettext-runtime/po/gettext-runtime.pot \
-	    gettext-runtime-$version.pot -v
+		gettext-runtime-$version.pot -v
 	;;
     gsasl)
 	domain=gsasl
@@ -111,9 +111,9 @@ case ${domain} in
 	version=${version#$domain-}
 	$echo $version
 	cp -v ${domain}-$version/po/${domain}-2.pot \
-	    $domain-$version.pot
+		$domain-$version.pot
 	cp -v ${domain}-$version/libgphoto2_port/po/${domain}_port-0.pot \
-	    ${domain}_port-$version.pot
+		${domain}_port-$version.pot
 	;;
     man-db)
 	$echo $domain
@@ -121,6 +121,16 @@ case ${domain} in
 	version=${version#$domain-}
 	$echo $version
 	cp -v ${domain}-$version/po/${domain}.pot $domain-$version.pot
+	;;
+    solfege)
+	$echo $domain
+	version=${archive%.tar.$suffix}
+	version=${version#$domain-}
+	$echo $version
+	cp -v ${domain}-$version/po/${domain}.pot \
+		$domain-$version.pot
+	cp -v ${domain}-$version/help/C/${domain}.pot \
+		$domain-manual-$version.pot
 	;;
 esac
 
