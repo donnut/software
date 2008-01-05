@@ -55,25 +55,33 @@ class DomainIndex(htmlpage.Htmlpage):
               '   <tr align=left>\n'
               '    <th>Domain</th>\n'
               '    <th>Current<br>version</th>\n'
+              '    <th>Disclaimer<br>required</th>\n'
               '    <th>Reference</th>\n'
               '   </tr>\n')
         for domain in registry.domain_list():
+            if domain.disclaim:
+                hue = "#fff3f3"
+                word = "Yes"
+            else:
+                hue = "#f3fff3"
+                word = ""
             write('   <tr>\n'
-                  '    <td><a href="../domain/%s.html">%s</a></td>\n'
-                  % (domain.name, domain.name))
+                  '    <td bgcolor="%s"><a href="%s.html">%s</a></td>\n'
+                  % (hue, domain.name, domain.name))
             if postats.potstats.has_key(domain.name):
                 hints = registry.hints(postats.potstats[domain.name][0])
-                write('    <td><a href="%s">%s</a></td>\n'
-                      % (hints.template_url(), hints.version))
+                write('    <td bgcolor="%s"><a href="%s">%s</a></td>\n'
+                      % (hue, hints.template_url(), hints.version))
             else:
                 write('    <td>-</td>\n')
                 sys.stderr.write("  * No stats for '%s'\n" % domain.name)
+            write('<td align="center" bgcolor="%s">%s</td>' % (hue, word))
             if domain.ref:
-                write('    <td><a href="%s">%s</a></td>\n'
-                      % (domain.ref[0][1], domain.ref[0][1]))
+                write('    <td bgcolor="%s"><a href="%s">%s</a></td>\n'
+                      % (hue, domain.ref[0][1], domain.ref[0][1]))
             elif domain.url:
-                write('    <td><a href="%s">%s</a></td>\n'
-                      % (domain.url[0], domain.url[0]))
+                write('    <td bgcolor="%s"><a href="%s">%s</a></td>\n'
+                      % (hue, domain.url[0], domain.url[0]))
             write('   </tr>\n')
         write('  </table>\n')
         self.epilogue()
@@ -247,7 +255,7 @@ class TeamIndex(htmlpage.Htmlpage):
               '   </tr>\n')
         for team in registry.team_list():
             write('   <tr align=center>\n'
-                  '    <td><a href="../team/%s.html">%s</a></td>\n'
+                  '    <td><a href="%s.html">%s</a></td>\n'
                   '    <td>%s</td>\n'
                   % (team.code, team.language, team.code))
             if team.mailto:

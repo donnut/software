@@ -1,4 +1,9 @@
 
+2008-01-05  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/localweb.py: Add a column to the domain index page mentioning
+	whether a domain requires a disclaimer.  Suggested by LI Daobing.
+
 2007-12-29  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Encode the translator name to get it printed right;
