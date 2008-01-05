@@ -385,12 +385,11 @@ and so he could eventually change me (the robot) for handling such cases.
                     comment = ""
                     reason = "[Copyright not %s]" % author
                 run.reject(_("""\
-The copyright for the PO file should be assigned to:
+The copyright for the PO file should be assigned to excactly:
 
     %s
 
-Maybe you didn't spell it right, or there is a superfluous period
-at the end?  %s
+Maybe there is some extra text or a superfluous period after that name?  %s
 """) % (author, comment), reason)
         elif run.hints.domain and run.hints.domain.disclaim:
             if text:
