@@ -419,6 +419,7 @@ encoding of your file allows it: either the single Latin-1 byte
 
     def license(self, header):
         packagename = run.hints.domain.package or run.hints.domain.name
+        nameandversion = "%s-%s" % (packagename, run.hints.version)
         match = re.match('# This file is put in the public domain.',
                          header['LICENSE'])
         if match and (packagename not in required):
@@ -433,7 +434,8 @@ adding it right after the copyright line.  It should say exactly this:
 
     # This file is distributed under the same license as the %s package.
 """) % packagename)
-        elif not match or match.group(1) != packagename:
+        elif not match or (match.group(1) != packagename and
+                           match.group(1) != nameandversion):
             run.submitter.write_nofill(_("""\
 The license line is not fully correct:
 
