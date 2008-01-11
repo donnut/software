@@ -494,7 +494,7 @@ class TeamPage(htmlpage.Htmlpage):
                     reference = ('<a href="../%s/%s-%s.pot">%s</a>'
                                  % (config.pots_dir, domain.name, version,
                                     version))
-                    color = "#00d0f8"  # Blue: fully untranslated.
+                    color = "#d0f0f8"  # Blue: fully untranslated.
                     numbers = "%d / %d" % (0, tally)
                 write('    <td>%s</td>\n'
                       '    <td bgcolor="%s">%s</td>\n'
@@ -549,8 +549,8 @@ def scramble(email):
     email = string.replace(email, ".", " (dot) ")
     return email
 
-palette = ['#ff0000', '#f8c040', '#f0e070', '#f0f090',
-                      '#e0f070', '#c0f840', '#00ff00']
+palette = ['#ff7777', '#f7bf77', '#efdf77', '#efef8f',
+                      '#dfef77', '#bff777', '#77ff77']
 def colorize(translated, total):
     if total == 0:
         return "#d7d7d7"

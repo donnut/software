@@ -19,7 +19,6 @@
 
 	<tr><td><font size=-1>
 	   <a href="../html/welcome.html"><b>Welcome</b></a><br>
-	   <a href="../html/changes.html"><b>Changes</b></a><br>
 	  </font></td></tr>
 	<tr><td height=5></td></tr>
 
@@ -35,8 +34,8 @@
 	<tr><td bgcolor="%(caption_color)s"><b>Info for...</b></td></tr>
 	<tr><td><font size=-1>
 	   <a href="../html/maintainers.html"><b>Maintainers</b></a><br>
-	   <a href="../html/leaders.html"><b>Coordinators</b></a><br>
 	   <a href="../html/translators.html"><b>Translators</b></a><br>
+	   <a href="../html/leaders.html"><b>Coordinators</b></a><br>
 	 </font></td></tr>
 	<tr><td height=5></td></tr>
 
@@ -44,6 +43,7 @@
 	<tr><td><font size=-1>
 	   <a href="../html/files.html"><b>Site overview</b></a><br>
 	   <a href="../html/thanks.html"><b>Contributors</b></a><br>
+	   <a href="../html/changes.html"><b>Changes</b></a><br>
 	   <a href="../extra/matrix.html"><b>Matrix</b></a><br>
 	   <a href="../html/software.html"><b>Tools</b></a><br>
 	 </font></td></tr>
