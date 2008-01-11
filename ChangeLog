@@ -1,4 +1,8 @@
 
+2008-01-11  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* webgen/leaders.all: The leaders' page rewritten.
+
 2008-01-05  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Add a column to the domain index page mentioning
