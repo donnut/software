@@ -89,10 +89,14 @@ def find_po_files():
             if name[-1] == '~':
                 command(None, 'rm %s' % name)
                 continue
-            hints = registry.Hints(base)
+            try:
+                hints = registry.Hints(base)
+            except KeyError:
+                warn("Not recognized: %s" % name)
+                continue
             if (base[-3:] != '.po' or
                 directory != '%s/%s' % (config.pos_dir, hints.team.name)):
-                warn("Not recognized as a PO file name: %s" % name)
+                warn("Not recognized: %s" % name)
                 continue
             if not inventory.has_key((hints.domain.name, hints.team.name)):
                 inventory[hints.domain.name, hints.team.name] = []
@@ -187,7 +191,7 @@ def diagnose_missing(pot_files, po_files):
                     'echo "Missing %s despite %s"' % (file, reasons))
     for (domain, version, team), reasons in run.keep_po.items():
         file = ('%s/%s/%s-%s.%s.po'
-	        % (config.pos_dir, team, domain, version, team))
+                % (config.pos_dir, team, domain, version, team))
         if version in po_files.get((domain, team), ()):
             if has_group((domain, version)):
                 command((domain, version),
