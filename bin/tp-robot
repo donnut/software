@@ -605,11 +605,10 @@ please use no more than a single space between '%s' and '<%s>'.
             except KeyError:
                 run.reject(_("""\
 According to my notes, %s is not a member of the %s team.  If it is only
-a matter of spelling, then I need to know about the possible alternatives,
-so please tell the translation coordinator about these.
-
-If you haven't joined the %s team yet, then please write to the leader
-of your team (see %s/team/%s.html), or else to the translation coordinator.
+a matter of spelling, then please tell the translation coordinator about
+the possible alternatives.  If you haven't joined the %s team yet, then
+write to the leader of your team (see %s/team/%s.html), or else to the
+translation coordinator.
 """) % (last_translator.encode('utf-8'), _(globals.team_language),
         _(globals.team_language), config.site_base, run.hints.team.code),
                            "[translator not in team]")
