@@ -1,27 +1,6 @@
 * Team coordinators and the TP				allout -*- outline -*-
 
-.* About the Translation Project
-
-The Translation Project (the TP, for short) is meant as a service to both 
-package maintainers and translators.  The advantage for maintainers is that 
-they need to announce a new POT file to just one address and can fetch the 
-translated PO files from just one place, instead of having to deal with 
-several translators separately.  For translators the advantages are 
-similar: they receive the POT file announcements and pre-merged PO files 
-from a single place and send in their PO files via a single mechanism, 
-instead of having to deal in different ways with several maintainers 
-separately.
-
-At the TP, translators are grouped into language teams (rather than package 
-teams) because, in general, translation issues are more specific to a human 
-language than to a particular package.  It is good for translators of the 
-same language to get together, check each other's work, and discuss any 
-problematic translation issues.  This also increases the chances that all 
-packages at the TP get translated in a similar manner, using the same 
-conventions and a consistent vocabulary.  Lone translators tend to find 
-their own ways and words, making a package stand out as strange.
-
-.* A coordinator or leader
+.* Coordinator or leader
 
 In the Translation Project we use the expressions "team coordinator" and 
 "team leader" interchangeably.  The latter is shorter to write and 
@@ -119,8 +98,5 @@ the robot.
 The status of your team and of the translations it has made is listed on 
 your team page, reachable via http://translationproject.org/team/index.html 
 and following the relevant link.  If any information on your team's page is 
-inaccurate or missing, please write to the TP coordinator to get it fixed.
-
-
-                            Your translation coordinator
-                            <coordinator@translationproject.org>
+inaccurate or missing, please write to a TP coordinator to get it fixed,
+<coordinator@translationproject.org>.
