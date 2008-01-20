@@ -53,6 +53,6 @@ p;q;}' $file)
 }
 
 # Send compressed PO file to TP robot.
-gzip <$file | uuencode $name.gz |
+gzip <$file | uuencode -m $name.gz |
     mail -s "TP-robot $name" robot@translationproject.org
 
