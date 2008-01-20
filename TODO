@@ -1,18 +1,11 @@
 Today:
-* run 'make check' and delete PO files with fatal errors,
-  at least the bad ones that are not the latest
 
 Soon:
-* rename registry.dtd to tp-registry.dtd
-* mail bug-tar about simpler fetch script
 
 Later:
 * search and delete the PO files with mistaken encoding specifications
 * delete PO files for which translated strings are under 5%
-* make robot reject PO files for which translated strings are under 5%
-* simplify regex: filenames do not contain encoding any more
 * add a page for retired translators
-* should the robot really accept submissions for unassigned packages?
 * improve 'po-tidy-links' to find all links that do not point
   to the latest available version
 * make a reply for those who ask the robot for help
