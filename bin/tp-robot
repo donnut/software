@@ -673,8 +673,7 @@ please use no more than a single space between '%s' and '<%s>'.
             if maybe_language != globals.team_language:
                 run.reject(_("""\
 You wrote '%s' in the 'Language-Team' field of the PO file header, while
-I think it should have been '%s'.  If I am wrong, please email the
-translation coordinator to get this straightened out.
+I think it should have been '%s'.
 """) % (maybe_language, _(globals.team_language)), "[language-team incorrect]")
             if not globals.team_mailto:
                 run.reject(_("""\
@@ -893,7 +892,7 @@ for the list of domains that are currently handled.
 According to my notes, the Free Software Foundation did not acknowledge the
 receipt of a translation disclaimer for you.  Such a disclaimer is required
 for '%s'.  See http://translationproject.org/html/whydisclaim.html for an
-explanantion of this.
+explanation of this.
 """) % run.hints.domain, "[translator has no disclaimer]")
         else:
             run.reject(_("""\
