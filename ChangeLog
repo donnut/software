@@ -1,4 +1,8 @@
 
+2008-02-07  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* webgen/whydisclaim.html: Clarify meaning of disclaimer.
+
 2008-01-11  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/leaders.all: The leaders' page rewritten.
