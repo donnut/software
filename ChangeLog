@@ -1,4 +1,9 @@
 
+2008-02-10  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/tp-robot: Do not check for an FSF copyright line when this
+	is explicitly switched off for a package via "<potcopyright>none".
+
 2008-02-07  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* webgen/whydisclaim.html: Clarify meaning of disclaimer.

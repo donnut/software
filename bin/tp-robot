@@ -367,6 +367,11 @@ the file is about.  The title line for this PO file could be:
             if run.hints.domain and run.hints.domain.potcopyright:
                 definite_author = 1
                 author = run.hints.domain.potcopyright
+            if author == 'none':
+                run.submitter.write_nofill(_("""\
+• This PO file should not contain any copyright line.  Please remove it.
+"""))
+                return
             if match.group('author') == author:
                 return
             if run.hints.domain and \
