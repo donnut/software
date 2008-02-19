@@ -348,7 +348,7 @@ The PO title line seems to be missing.  The very first line of any PO
 file should start with '# ' followed by a one-line description of what
 the file is about.  The title line for this PO file could be:
 
-    # Translation of '%s' messages to %s.
+    # %s translation for %s.
 """) % (run.hints.domain, globals.team_language), "[no title header]")
 
     def copyright(self, header):
