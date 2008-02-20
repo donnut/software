@@ -390,12 +390,14 @@ and so he could eventually change me (the robot) for handling such cases.
                     comment = ""
                     reason = "[Copyright not %s]" % author
                 run.reject(_("""\
-The copyright for the PO file should be assigned to excactly:
+The POT copyright should be assigned to "%s".  So the copyright line
+should look like this:
 
-    %s
+    # Copyright (C) YEAR %s
 
-Maybe there is some extra text or a superfluous period after that name?  %s
-""") % (author, comment), reason)
+Maybe there is some extra text or a superfluous period?  YEAR should
+normally be the year the last package version was published.  %s
+""") % (author, author, comment), reason)
         elif run.hints.domain and run.hints.domain.disclaim:
             if text:
                 comment = (_("""\
