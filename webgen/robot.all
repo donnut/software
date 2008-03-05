@@ -7,11 +7,11 @@ required) -- and whether her team allows her to do the work.  It also
 calls `msgfmt' to see if the PO file is healthy, and checks for various 
 other problems.
 
-To use the robot, send in your PO file by email with the following 
-Subject line (the word "TP-robot" at the start is no longer required):
+To use the robot, send in your PO file by email with the following Subject 
+line (the word "TP-robot" at the start is no longer required, but may still 
+be used):
 
-		PACKAGE-VERSION.TEAM.po
-
+		PACKAGENAME-VERSIONNUMBER.TEAMCODE.po
 The mail should be sent to <robot@translationproject.org>.  You can expect 
 a reply within ten minutes, but it may take a while longer when a project 
 coordinator is busy registering things.
