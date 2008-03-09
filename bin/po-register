@@ -346,7 +346,7 @@ def notify_team_leaders_for_pot(hints):
     write("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: team-leaders@translationproject.org
-Subject: New PO template for '%s'
+Subject: New PO template for '%s' (TP)
 """
           % hints.domain.name)
     write('\n')
