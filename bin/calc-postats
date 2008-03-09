@@ -74,7 +74,8 @@ def main(*arguments):
             try:
                 name = registry.archive_path(domain, version, team)
             except KeyError:
-                sys.stderr.write('  unknown - %s\n' % name)
+                sys.stderr.write('  unknown - %s-%s.%s.po\n'
+                                 % (domain, version, team))
                 del postats[key]
                 continue
             if not os.path.exists(name):
