@@ -595,20 +595,20 @@ The PO revision date is '%s', which is older than the POT creation date,
         text = header['last-translator']
         match = re.match('(.*?)( +)<(.+)>$', text)
         if match:
-            last_translator, last_address = match.group(1, 3)
-            last_translator = po.decfunc(header)(last_translator)[0]
+            last_fullname, last_address = match.group(1, 3)
+            last_fullname = po.decfunc(header)(last_fullname)[0]
             if len(match.group(2)) != 1:
                 run.submitter.write(_("""\
 There is a slight formatting error.  In the 'Last-Translator' header line,
 please use no more than a single space between '%s' and '<%s>'.
-""") % (last_translator.encode('utf-8'), last_address))
+""") % (last_fullname.encode('utf-8'), last_address))
             if not run.translator_name:
-                run.translator_name = last_translator
+                run.translator_name = last_fullname
             if not run.translator_address:
                 run.translator_address = last_address
             try:
                 translator = registry.translator(run.hints.team,
-                                                 last_translator, last_address)
+                                                 last_fullname, last_address)
             except KeyError:
                 run.reject(_("""\
 According to my notes, %s is not a member of the %s team.  If it is only
@@ -616,7 +616,7 @@ a matter of spelling, then please tell the translation coordinator about
 the possible alternatives.  If you haven't joined the %s team yet, then
 write to the leader of your team (see %s/team/%s.html), or else to the
 translation coordinator.
-""") % (last_translator.encode('utf-8'), _(globals.team_language),
+""") % (last_fullname.encode('utf-8'), _(globals.team_language),
         _(globals.team_language), config.site_base, run.hints.team.code),
                            "[translator not in team]")
                 abort_robot()
@@ -625,19 +625,19 @@ translation coordinator.
                     run.reject(_("""\
 %s is the last translator of this PO file.  But according to my notes,
 <%s> is not a good address to reach that translator.  %s %s
-""") % (last_translator.encode('utf-8'), last_address,
+""") % (last_fullname.encode('utf-8'), last_address,
         say_alias_list(translator.mailto), globals.unknown_address_insert),
                            "[unknwon address]")
                     globals.reported_unknown.append(last_address)
                     globals.unknown_address_insert = ''
-            elif last_translator != run.translator_name:
+            elif last_fullname != run.translator_name:
                 run.submitter.write(_("""\
 The header of your email says that you are '%s', while the
 'Last-Translator' field of the PO file header says your name
 is '%s'.  If the difference is merely a spelling variation,
 there is no problem.  As I expect you have most control over your
 PO files, I'll consider the second name as the most dependable.
-""") % (run.translator_name.encode('utf-8'), last_translator.encode('utf-8')))
+""") % (run.translator_name.encode('utf-8'), last_fullname.encode('utf-8')))
             elif last_address != run.translator_address:
                 run.submitter.write(_("""\
 Your message was sent from '%s', but the 'Last-Translator' field in the
@@ -645,7 +645,7 @@ PO file says that your email address is '%s'.  I assume that the latter
 is correct.
 """) % (run.translator_address, last_address))
             # Override email data with those found in PO file.
-            run.translator_name = last_translator
+            run.translator_name = last_fullname
             run.translator_address = last_address
         else:
             run.reject(_("""\
