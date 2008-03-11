@@ -121,6 +121,8 @@ case ${domain} in
 	version=${version#$domain-}
 	$echo $version
 	cp -v ${domain}-$version/po/${domain}.pot $domain-$version.pot
+	cp -v ${domain}-$version/man/po4a/po/man-db-manpages.pot \
+		man-db-manpages-$version.pot
 	;;
     solfege)
 	$echo $domain
