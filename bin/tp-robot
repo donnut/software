@@ -12,7 +12,7 @@ Usage: tp-robot [-n] <MESSAGE
   -n   dry-run, do not send mails, do not change things
 """
 
-required = [ "hylafax", "man-db" ]
+required = [ "hylafax", "man-db", "man-db-manpages" ]
 
 import os, sys, shutil, types, popen2
 import re, string, quopri, datetime
