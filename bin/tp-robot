@@ -922,7 +922,7 @@ which you may find as:
         if domain in translator.do:
             return 1, "[translator is assigned]"
         # If it is the team leader, accept.    
-        if translator.name == run.hints.team.leader.name:
+        if translator == run.hints.team.leader:
             return 1, "[team leader can upload any domain]"
         # If somebody else is assigned, reject.
         if run.hints.team.translator_for_domain(domain):
