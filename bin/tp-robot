@@ -348,7 +348,8 @@ the file is about.  The title line for this PO file could be:
             text = text[0]
         utext = po.decfunc(header)(text)[0]
         match = re.match('Copyright (\\(C\\)|\xa9|\xc2\xa9).* '
-                         '(199[4-9]|200[0-8])(, ((19)?9[4-9]|(20)?0[0-8]))* '
+                         '(?P<first>(199[4-9]|200[0-8]|YEAR))'
+                         '(, ((19)?9[4-9]|(20)?0[0-8]))* '
                          '(?P<author>.*)', text)
         if match:
             # FIXME: Better validate year lists.
@@ -362,6 +363,11 @@ the file is about.  The title line for this PO file could be:
 • This PO file should not contain any copyright line.  Please remove it.
 """))
                 return
+            if match.group('first') == "YEAR":
+                run.reject(_("""\
+Replace YEAR in the copyright line with the year the corresponding
+POT file was released, probably %s.
+""") % datetime.date.today().strftime('%Y'))
             if match.group('author') == author:
                 return
             if run.hints.domain and \
