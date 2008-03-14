@@ -819,17 +819,17 @@ told me that I cannot let the file pass.  It reported these errors:
 Merely for your information, let me share with you what the
 'msgfmt' program has to say about your PO file:
 %s""") % ('').join(comment))
-            # Try extracting the translated, fuzzy, and untranslated numbers.
-            match = re.match('> ([0-9]+) .*?([0-9]+) .*?([0-9]*)', comment[0])
-            if match:
-                done = eval(match.group(1))
-                left = eval(match.group(2)) + (eval(match.group(3)+'0') / 10)
-                if done < left:
-                    run.reject(_("""\
-The number of translated strings is less than half of the total number
-of strings.  Please translate more before submitting a file.
-"""), "[too few translations]")
-                    abort_robot()
+##            # Extract the translated, fuzzy, and untranslated amounts.
+##            match = re.match('> ([0-9]+) .*?([0-9]+) .*?([0-9]*)', comment[0])
+##            if match:
+##                done = eval(match.group(1))
+##                left = eval(match.group(2)) + (eval(match.group(3)+'0') / 10)
+##                if done < left:
+##                    run.reject(_("""\
+##The number of translated strings is less than half of the total number
+##of strings.  Please translate more before submitting a file.
+##"""), "[too few translations]")
+##                    abort_robot()
 
     def special_instructions(self, work):
         if run.hints.domain.name == 'util-linux':
