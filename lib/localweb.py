@@ -246,7 +246,7 @@ class TeamIndex(htmlpage.Htmlpage):
         write = self.writer
         if not write:
             return
-        self.prologue("National translation teams", 'utf-8')
+        self.prologue("Translation teams", 'utf-8')
         write('  <table align=center border=2>\n'
               '   <tr align=center>\n'
               '    <th>Language</th>\n'
