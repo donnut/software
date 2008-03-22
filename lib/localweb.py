@@ -330,7 +330,7 @@ class TeamPage(htmlpage.Htmlpage):
         write('  </p>\n')
 
         if team.ref:
-            write('  <p>You may get more information about the'
+            write('  <p>You can get more information about the'
                   ' %s effort here:</p>\n'
                   '  <table align=center border=2>\n'
                   '   <tr align=center>\n'
