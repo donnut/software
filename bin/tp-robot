@@ -623,7 +623,7 @@ translation coordinator.
 <%s> is not a good address to reach that translator.  %s %s
 """) % (last_fullname.encode('utf-8'), last_address,
         say_alias_list(translator.mailto), globals.unknown_address_insert),
-                           "[unknwon address]")
+                           "[unknown address]")
                     globals.reported_unknown.append(last_address)
                     globals.unknown_address_insert = ''
             elif last_fullname != run.translator_name:
