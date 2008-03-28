@@ -49,7 +49,7 @@ p;q;}' $file)
 [ "$STAMP" == "true" ] && {
     # Set the revision date to this very moment.
     NEWFIELD="PO-Revision-Date: $(date +"%F %R%z")";
-    sed -i "s/^\"PO-Revision-Date:.*\"$/\"$NEWFIELD\\\n\"/" $file;
+    sed -i'' -e "s/^\"PO-Revision-Date:.*\"$/\"$NEWFIELD\\\n\"/" $file;
 }
 
 # Send compressed PO file to TP robot.
