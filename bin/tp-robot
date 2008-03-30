@@ -956,7 +956,8 @@ which you may find as:
         try:
             last_maker = registry.translator(hints.team, last_maker, email)
         except KeyError:
-            return 0, "[unknown translator]"
+            # If the last maker is not a team member, allow the new submission.
+            return 1, "[unknown last translator]"
         # If the current submitter equals the last maker, accept.
         if translator == last_maker:
             return 1, "[translator equals last translator]"
