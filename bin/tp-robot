@@ -887,7 +887,7 @@ handle its PO files.  In this case, please invite the project maintainer to
 contact us.  See http://translationproject.org/domain/index.html
 for the list of domains that are currently handled.
 """) % run.hints.domain, "[unknown domain]")
-        ok, reason = self.translator_can_submit(translator, run.hints.domain)
+        ok, reason = self.translator_may_submit(translator, run.hints.domain)
         if ok:
             if run.hints.domain.disclaim and not translator.disclaimer:
                 run.reject(_("""\
@@ -923,7 +923,7 @@ which you may find as:
     %s
 """) % run.hints.archive_url(), "[duplicate submission]")
 
-    def translator_can_submit(self, translator, domain):
+    def translator_may_submit(self, translator, domain):
         # If it is the assigned translator or the team leader, accept.
         if domain in translator.do:
             return 1, "[translator is assigned]"
