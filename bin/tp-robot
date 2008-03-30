@@ -924,21 +924,17 @@ which you may find as:
 """) % run.hints.archive_url(), "[duplicate submission]")
 
     def translator_can_submit(self, translator, domain):
-        # If it is the assigned translator, accept.
+        # If it is the assigned translator or the team leader, accept.
         if domain in translator.do:
             return 1, "[translator is assigned]"
-        # If it is the team leader, accept.    
         if translator == run.hints.team.leader:
             return 1, "[team leader can upload any domain]"
-        # If somebody else is assigned, reject.
+        # If someone else is assigned or it is external, reject.
         if run.hints.team.translator_for_domain(domain):
             return 0, "[someone else is assigned to this domain]"
-        # If there is an external translation, reject.
         if run.hints.team.code in domain.ext:
             return 0, "[the domain is externally translated]"
         # If there is no preexisting translation, accept.
-        #! This checking of a symlink is not foolproof, as there are some files
-        #! for which this symlink is missing or pointing to an old version.
         file = run.hints.maintainer_path()
         if not os.path.exists(file):
             return 1, "[first submission to this domain]"
