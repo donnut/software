@@ -934,31 +934,33 @@ which you may find as:
             return 0, "[someone else is assigned to this domain]"
         if run.hints.team.code in domain.ext:
             return 0, "[the domain is externally translated]"
-        # If there is no preexisting translation, accept.
-        file = run.hints.maintainer_path()
-        if not os.path.exists(file):
-            return 1, "[first submission to this domain]"
-        # If it exists, find its submitter, the "last maker".
-        import data
-        stats = data.load_postats()
-        hints = registry.Hints(os.readlink(file))
-        try:
-            st = stats[(hints.domain.name, hints.version.name, hints.team.name)]
-            last_maker, email = st[0], st[1]
-        except KeyError:
-            # Stats not updated yet, need to read PO file.
-            content = po.read(file)
-            last_maker, email = po.last_translator(po.header(content))
-        try:
-            last_maker = registry.translator(hints.team, last_maker, email)
-        except KeyError:
-            # If the last maker is not a team member, allow the new submission.
-            return 1, "[unknown last translator]"
-        # If the current submitter equals the last maker, accept.
-        if translator == last_maker:
-            return 1, "[translator equals last translator]"
-        else:
-            return 0, "[someone else made the last submission]"
+        return 1, "[any team member can do unassigned/non-external domain]"
+
+##      # If there is no preexisting translation, accept.
+##      file = run.hints.maintainer_path()
+##      if not os.path.exists(file):
+##          return 1, "[first submission to this domain]"
+##      # If it exists, find its submitter, the "last maker".
+##      import data
+##      stats = data.load_postats()
+##      hints = registry.Hints(os.readlink(file))
+##      try:
+##          st = stats[(hints.domain.name, hints.version.name, hints.team.name)]
+##          last_maker, email = st[0], st[1]
+##      except KeyError:
+##          # Stats not updated yet, need to read PO file.
+##          content = po.read(file)
+##          last_maker, email = po.last_translator(po.header(content))
+##      try:
+##          last_maker = registry.translator(hints.team, last_maker, email)
+##      except KeyError:
+##          # If the last maker is not a team member, allow the new submission.
+##          return 1, "[unknown last translator]"
+##      # If the current submitter equals the last maker, accept.
+##      if translator == last_maker:
+##          return 1, "[translator equals last translator]"
+##      else:
+##          return 0, "[someone else made the last submission]"
 
 check_registry = CheckRegistry()
 

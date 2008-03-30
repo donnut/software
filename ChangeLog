@@ -1,4 +1,10 @@
 
+2008-02-30  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/tp-robot: Allow any team member to make submissions for
+	unassigned and non-external domains.  This undoes the invisible
+	auto-assignment.  We'll see how it goes.
+
 2008-02-10  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Do not check for an FSF copyright line when this
