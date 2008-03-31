@@ -535,7 +535,7 @@ or the file name, whichever is appropriate.
         else:
             run.reject(_("""\
 The 'Project-Id-Version' field was not found in your PO file header,
-or is not formatted properly.  The field should look like:
+or is not formatted properly.  The line should look like:
 
     "Project-Id-Version: PACKAGE VERSION\\n"
 
@@ -562,7 +562,7 @@ misformatted.  I will copy the original line from the POT file.
             else:
                 run.reject(_("""\
 The 'PO-Revision-Date' field was not found in your PO file header,
-or is not formatted properly.  The field should look like:
+or is not formatted properly.  The line should look like:
 
     "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\\n"
 """), "[missing revision date]")
@@ -646,7 +646,7 @@ is correct.
         else:
             run.reject(_("""\
 The 'Last-Translator' field was not found in your PO file header,
-or is not formatted properly.  The field should look like:
+or is not formatted properly.  The line should look like:
 
     "Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n"
 
@@ -702,7 +702,7 @@ email address, but the team's current address is
         else:
             run.reject(_("""\
 The 'Language-Team' field was not found in your PO file header,
-or is not formatted properly.  The field should look like:
+or is not formatted properly.  The line should look like:
 
     "Language-Team: LANGUAGE <TEAM-EMAIL-ADDRESS>\\n"
 
@@ -757,7 +757,7 @@ This list currently holds: %s.
         else:
             run.reject(_("""\
 The 'Content-Type' field was not found in your PO file header,
-or is not formatted properly.  The field should look like:
+or is not formatted properly.  The line should look like:
 
     "Content-Type: text/plain; charset=CHARSET\\n"
 
@@ -778,7 +778,7 @@ This list currently holds: %s.
         else:
             run.reject(_("""\
 The 'Content-Transfer-Encoding' field was not found in your PO file header,
-or is not formatted properly.  The field should look like:
+or is not formatted properly.  The line should look like:
 
     "Content-Transfer-Encoding: ENCODING\\n"
 
