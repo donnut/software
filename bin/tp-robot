@@ -12,8 +12,6 @@ Usage: tp-robot [-n] <MESSAGE
   -n   dry-run, do not send mails, do not change things
 """
 
-required = [ "hylafax", "man-db", "man-db-manpages" ]
-
 import os, sys, shutil, types, popen2
 import re, string, quopri, datetime
 
@@ -425,21 +423,21 @@ encoding of your file allows it: either the single Latin-1 byte
         nameandversion = "%s-%s" % (packagename, run.hints.version)
         match = re.match('# This file is put in the public domain.',
                          header['LICENSE'])
-        if match and (packagename not in required):
+        if match:
             return  # Okay.
         match = re.match('# This file is distributed under the same license'
                          ' as the (.*) package.', header['LICENSE'])
         if not header['LICENSE']:
-            run.submitter.write_nofill(_("""\
+            run.reject_nofill(_("""\
 Your PO file does not seem to contain a comment line specifying which
 license covers the file.  Soon such a line will be required.  Consider
 adding it right after the copyright line.  It should say exactly this:
 
     # This file is distributed under the same license as the %s package.
-""") % packagename)
+""") % packagename, "[missing license line]")
         elif not match or (match.group(1) != packagename and
                            match.group(1) != nameandversion):
-            run.submitter.write_nofill(_("""\
+            run.reject_nofill(_("""\
 The license line is not fully correct:
 
     %s
@@ -447,13 +445,7 @@ The license line is not fully correct:
 It should say exactly this:
 
     # This file is distributed under the same license as the %s package.
-""") % (header['LICENSE'], packagename))
-        else:
-            return  # Okay.
-        if packagename in required:
-            run.reject(_("""\
-For %s the above license line is already mandatory.
-""") % run.hints.domain.name, "[missing license line]")
+""") % (header['LICENSE'], packagename), "[license line incorrect]")
 
     def last_author(self, header):
         match1 = re.search('.*; *(.*[^ ]) *<(.*)>.*?([0-9]*)$',

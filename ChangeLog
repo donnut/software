@@ -1,5 +1,9 @@
 
-2008-02-30  Benno Schulenberg  <benno@vertaalt.nl>
+2008-04-01  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/tp-robot: Make the license line mandatory.
+
+2008-03-30  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Allow any team member to make submissions for
 	unassigned and non-external domains.  This undoes the invisible
