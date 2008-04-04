@@ -24,9 +24,9 @@ except NameError:
 # Teams contain translators, which handle domains.  There is no
 # other containing relation, so there should not be cyclic references.
 
-DOMAIN = ('iso_[0-9_]+|'
-          '[a-z_-]+[a-z]|'
-          'a2ps|e2fsprogs|libgphoto2_port|libgphoto2|gphoto2|m4')
+DOMAIN = ('a2ps|e2fsprogs|iso_[0-9_]+|m4|'
+          'libgphoto2_port|libgphoto2|gphoto2|'
+          '[a-z_-]+[a-z]')
 
 VERSION = ('[.0-9]+-?b[0-9]+|'
            '[.0-9]+-?dev[0-9]+|'
