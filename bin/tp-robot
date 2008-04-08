@@ -505,7 +505,7 @@ the author lines: the earliest author first, the latest last.
 """) % last_year)
 
     def project_id_version(self, header):
-        match = re.search('(Free |GNU )?(?P<dom>%s)[- ]?(?P<ver>%s)?' %
+        match = re.search('^(Free |GNU )?(?P<dom>%s)?[- ]?(?P<ver>%s)?' %
                           (registry.DOMAIN, registry.VERSION),
                           header['project-id-version'])
         if match:
