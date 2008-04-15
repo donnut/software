@@ -469,6 +469,13 @@ To: %s
 Subject: New: %s-%s (%d%%, %d untranslated)
 """) % (hints.team.announce_address(), hints.domain.name, hints.version.name,
         percent, untranslated))
+    elif untranslated == 0:
+        write_header(_("""\
+From: Translation Project Robot <robot@translationproject.org>
+To: %s
+Subject: %s-%s (%d%%) by %s
+""") % (hints.team.announce_address(), hints.domain.name, hints.version.name,
+        percent, translatorname))
     else:
         write_header(_("""\
 From: Translation Project Robot <robot@translationproject.org>
