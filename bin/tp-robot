@@ -430,8 +430,8 @@ encoding of your file allows it: either the single Latin-1 byte
         if not header['LICENSE']:
             run.reject_nofill(_("""\
 Your PO file does not seem to contain a comment line specifying which
-license covers the file.  Such a line is now mandatory.  Consider adding
-it right after the copyright line (if any).  It should say exactly this:
+license covers the file.  Such a line is now mandatory.  It must be placed
+before the author lines, and should say exactly this:
 
     # This file is distributed under the same license as the %s package.
 """) % packagename, "[missing license line]")
