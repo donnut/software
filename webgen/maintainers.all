@@ -59,7 +59,7 @@ then mark the affected language as 'external' for your package, so other
 team members know that the translation is being handled elsewhere and don't 
 do the same work again.  If however the translator cannot promise to keep 
 the translation up to date, then please insist that the PO file be sent to 
-the TP coordinators and do not accept the file directly.
+the relevant team leader and do not accept the file directly.
 
 .* The copyright on PO files
 
