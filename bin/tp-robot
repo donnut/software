@@ -174,7 +174,7 @@ a POT file all alone.  So, for this one, I'll go disturb him!
         if not (run.hints.domain and run.hints.version):
             run.reject(_("""\
 As file name you supplied '%s'.  In this %s.  The file name should look
-like 'DOMAIN-VERSION.TEAM.po' (all in lowercase).
+like 'DOMAINNAME-VERSIONNUMBER.TEAMCODE.po' (all in lowercase).
 """) % (input_name, unknown_elements_comment()), "[ill-formatted file name]")
             abort_robot()
         if not run.hints.team:
