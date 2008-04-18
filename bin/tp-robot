@@ -513,7 +513,8 @@ the author lines: the earliest author first, the latest last.
                 run.reject(_("""\
 The 'Project-Id-Version' field of your PO file says that the textual domain
 is '%s', instead of '%s' as the file name says.  They should be the same. 
-The domain name is usually just the package name, in all lower case.
+The 'Project-Id-Version' field should contain both the domain name and the
+version number.
 """) % (match.group('dom'), run.hints.domain),
                            "[domain in project-id conflicts with file name]")
             if match.group('ver') != run.hints.version.name:
@@ -532,8 +533,8 @@ or is not formatted properly.  The line should look like:
     "Project-Id-Version: PACKAGE VERSION\\n"
 
 in which PACKAGE should be replaced by the textual domain of your
-translation, probably '%s' in this case, and VERSION be replaced
-by the appropriate version numbers, maybe '%s' here.
+translation, probably '%s' in this case, and VERSION by the appropriate
+version number, probably '%s'.
 """) % (run.hints.domain.name, run.hints.version.name),
                        "[no project-id-version]")
 
