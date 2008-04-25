@@ -51,6 +51,13 @@ class DomainIndex(htmlpage.Htmlpage):
             return
         postats = data.load_postats()
         self.prologue("Textual domains", 'utf-8')
+        write("<p>When looking for something to translate and wishing "
+              "to reach the largest amount of users, one of the basic "
+              "system tools is a good choice: grep, sed, tar, "
+              "findutils, coreutils, and bash.  Then shared-mime-info, "
+              "xdg-user-dirs, parts of libc and parts of util-linux-ng.  "
+              "And then maybe aspell, dialog, diffutils, e2fsprogs, gawk, "
+              "kbd, make, psmisc, wget, and xkeyboard-config.</p>")
         write('  <table align=center border=2>\n'
               '   <tr align=left>\n'
               '    <th>Domain</th>\n'
