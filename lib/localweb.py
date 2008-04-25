@@ -57,7 +57,9 @@ class DomainIndex(htmlpage.Htmlpage):
               "coreutils, and bash.  After those: shared-mime-info, "
               "xdg-user-dirs, parts of libc and parts of util-linux-ng.  "
               "And then maybe aspell, dialog, diffutils, e2fsprogs, gawk, "
-              "kbd, make, psmisc, wget, and xkeyboard-config.</p><br>")
+              "kbd, make, psmisc, texinfo, wget, and xkeyboard-config.  "
+              "Most of the other domains are only interesting for people "
+              "who actually use those packages.</p><br>")
         write('  <table align=center border=2>\n'
               '   <tr align=left>\n'
               '    <th>Domain</th>\n'
