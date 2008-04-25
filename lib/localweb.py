@@ -86,9 +86,8 @@ class DomainIndex(htmlpage.Htmlpage):
             if domain.ref:
                 write('    <td bgcolor="%s"><a href="%s">%s</a></td>\n'
                       % (hue, domain.ref[0][1], domain.ref[0][1]))
-            elif domain.url:
-                write('    <td bgcolor="%s"><a href="%s">%s</a></td>\n'
-                      % (hue, domain.url[0], domain.url[0]))
+            else:
+                write('    <td bgcolor="%s">--</td>\n' % hue)
             write('   </tr>\n')
         write('  </table>\n')
         self.epilogue()
