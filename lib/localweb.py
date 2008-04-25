@@ -53,11 +53,11 @@ class DomainIndex(htmlpage.Htmlpage):
         self.prologue("Textual domains", 'utf-8')
         write("<p>When looking for something to translate and wishing "
               "to reach the largest amount of users, one of the basic "
-              "system tools is a good choice: grep, sed, tar, "
-              "findutils, coreutils, and bash.  Then shared-mime-info, "
+              "system tools is a good choice: grep, sed, tar, findutils, "
+              "coreutils, and bash.  After those: shared-mime-info, "
               "xdg-user-dirs, parts of libc and parts of util-linux-ng.  "
               "And then maybe aspell, dialog, diffutils, e2fsprogs, gawk, "
-              "kbd, make, psmisc, wget, and xkeyboard-config.</p>")
+              "kbd, make, psmisc, wget, and xkeyboard-config.</p><br>")
         write('  <table align=center border=2>\n'
               '   <tr align=left>\n'
               '    <th>Domain</th>\n'
