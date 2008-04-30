@@ -58,8 +58,9 @@ during future releases, then please notify the TP coordinators.  They will
 then mark the affected language as 'external' for your package, so other 
 team members know that the translation is being handled elsewhere and don't 
 do the same work again.  If however the translator cannot promise to keep 
-the translation up to date, then please insist that the PO file be sent to 
-the relevant team leader and do not accept the file directly.
+the translation up to date, then please forward the PO file to the relevant 
+team leader -- only he or she can decide whether the translation is any good
+and follows the team's conventions.
 
 .* The copyright on PO files
 
