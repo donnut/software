@@ -105,6 +105,16 @@ case ${domain} in
 	done
 	popd
 	;;
+    keytouch)
+	$echo domain
+	version=${archive%.tar.$suffix}
+	version=${version#$domain-}
+	$echo $version
+	cp -v keytouch-$version/keytouch-config/po/keytouch.pot \
+		keytouch-$version.pot
+	cp -v keytouch-$version/keytouch-keyboard/po/keytouch-keyboard-bin.pot \
+		keytouch-keyboard-bin-$version.pot
+	;;
     libgphoto2)
 	$echo $domain
 	version=${archive%.tar.$suffix}
