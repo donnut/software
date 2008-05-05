@@ -891,9 +891,9 @@ explanation of this.
 """) % run.hints.domain, "[translator has no disclaimer]")
         else:
             run.reject(_("""\
-You are not the usual translator for '%s'.  If you wish to be assigned
-to this domain, send an email to the TP coordinator with a CC to your
-team leader.
+You are not the usual translator for '%s'.  If you wish to have this
+domain assigned to you, send an email to the TP coordinator with a CC
+to your team leader.
 """) % run.hints.domain, reason)
 
     def have_pot(self):
