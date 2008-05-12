@@ -462,7 +462,14 @@ def notify_team_for_po(hints, stats, translatorname, fromnewpot = False):
     untranslated = stats['fuzzy'] + stats['untranslated']
     percent = po.percentage(stats)
     assignee = hints.team.translator_for_domain(hints.domain)
-    if fromnewpot:
+    if fromnewpot and (untranslated == 0):
+        write_header(_("""\
+From: Translation Project Robot <robot@translationproject.org>
+To: %s
+Subject: New: %s-%s (%d%%)
+""") % (hints.team.announce_address(), hints.domain.name, hints.version.name,
+        percent))
+    elif fromnewpot:
         write_header(_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: %s
