@@ -442,7 +442,7 @@ The license line is not fully correct:
 
     %s
 
-It should say exactly this:
+It should say exactly this, the final period included:
 
     # This file is distributed under the same license as the %s package.
 """) % (header['LICENSE'], packagename), "[license line incorrect]")
