@@ -35,6 +35,14 @@ case ${domain} in
 	cp -v $oversion/ld/po/ld.pot ld-$version.pot
 	cp -v $oversion/gprof/po/gprof.pot gprof-$version.pot
 	;;
+    bison)
+	$echo $domain
+	version=${archive%.tar.$suffix}
+	version=${version#${domain}-}
+	$echo $version
+	cp -v $domain-$version/po/$domain.pot $domain-$version.pot
+	cp -v $domain-$version/runtime-po/bison*.pot bison-runtime-$version.pot
+	;;
     clisp)
 	$echo $domain
 	version=${archive%.tar.$suffix}
