@@ -425,7 +425,7 @@ encoding of your file allows it: either the single Latin-1 byte
                          header['LICENSE'])
         if match:
             return  # Okay.
-        match = re.match('# This file is distributed under the same license'
+        match = re.match('# This file is distributed under the same licen[cs]e'
                          ' as the (.*) package.', header['LICENSE'])
         if not header['LICENSE']:
             run.reject_nofill(_("""\
