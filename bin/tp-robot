@@ -365,7 +365,7 @@ the file is about.  The title line for this PO file could be:
                 run.reject(_("""\
 Please replace YEAR in the copyright line with the year the corresponding
 POT file was released, probably %s.
-""") % datetime.date.today().strftime('%Y'))
+""") % datetime.date.today().strftime('%Y'), "[YEAR should be numbers]")
             if match.group('author') == author:
                 return
             if run.hints.domain and \
