@@ -435,8 +435,8 @@ before the author lines, and should say exactly this:
 
     # This file is distributed under the same license as the %s package.
 """) % packagename, "[missing license line]")
-        elif not match or (match.group(1) != packagename and
-                           match.group(1) != nameandversion):
+        elif not match or (string.lower(match.group(1)) != packagename and
+                           string.lower(match.group(1)) != nameandversion):
             run.reject_nofill(_("""\
 The license line is not fully correct:
 
