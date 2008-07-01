@@ -87,12 +87,6 @@ translatable strings get extracted into a POT file when 'make dist' is run.
 
 .* The POT file
 
-If you generate the POT file using a recent version of `gettext' (later 
-than 0.11), the POT file header will be correct as it stands.  Only the 
-POT-Creation-Date will automatically have been filled in for you, while 
-several other fields contain words in all uppercase.  Do not change these 
-in any way, as only translators are meant to properly replace them.
- 
 In your distribution, the POT file is probably located in the `po' 
 subdirectory and named simply `PACKAGE.pot', where PACKAGE is the name of 
 your package.  At the Translation Project many POT files are stored, so 
@@ -100,6 +94,20 @@ there your POT file is named `DOMAIN-VERSION.pot' -- where DOMAIN is the
 textual domain for your package, often the same as PACKAGE but in all 
 lowercase, and VERSION is the version number of the package it belongs to.  
 This version number should not consist of more than four elements.
+
+If you generate the POT file using a recent version of `gettext' (later 
+than 0.11), the POT file header will be correct as it stands.  Only the 
+POT-Creation-Date will automatically have been filled in for you, while 
+several other fields contain words in all uppercase.  Do not change these 
+in any way, as only translators are meant to properly replace them.
+
+If you use `intltool' to generate the POT file, the latter  does not get
+included in the distribution tarball by default.  Adding the following
+three lines to your toplevel `Makefile.am' will get it distributed:
+
+      dist-hook:
+         $(MAKE) -C "$(srcdir)/po" "$(GETTEXT_PACKAGE).pot"
+         cp "$(srcdir)/po/$(GETTEXT_PACKAGE).pot" "$(distdir)/po/"
 
 .* Announcing
 
