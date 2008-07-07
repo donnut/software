@@ -18,8 +18,11 @@ if host in ('neoduik',):  # The machine at Vrijschrift.
 elif host in ('ordesa',):  # Benno's personal machine.
     home_path = "/home/ben/TP"
     site_base = "/home/ben/TP/site"
+elif host in ('lidb-laptop',): # LI Daobing's personal machine
+    home_path = '/home/lidb/workspace/TP'
+    site_base = '/home/lidb/workspace/TP/site'
 else:
-    raise "Not configured for host '%s' -- edit config.py file." % host
+    raise RuntimeError("Not configured for host '%s' -- edit config.py file." % host)
 
 progs_path = home_path + "/progs"
 cache_path = home_path + "/cache"
