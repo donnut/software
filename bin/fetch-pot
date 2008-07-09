@@ -35,7 +35,8 @@ def main(*arguments):
         if option == '-n':
             dryrun = 1
     if not arguments:
-        raise __doc__
+        sys.stderr.write(__doc__)
+        sys.exit(2)
     for domain in arguments:
         find_pot_for_domain(registry.domain(domain))
 
