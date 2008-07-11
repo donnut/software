@@ -361,7 +361,6 @@ class TeamPage(htmlpage.Htmlpage):
               '    <th>Assignments</th>\n'
               '    <th>Disclaimed</th>\n'
               '    <th>Autosend</th>\n'
-              '    <th>Personal website</th>\n'
               '   </tr>\n'
               % team.language)
         # Construct the table of translators.
@@ -394,11 +393,6 @@ class TeamPage(htmlpage.Htmlpage):
                 write('    <td>plain</td>\n')
             else:
                 write('    <td>-</td>\n')
-            if translator.url:
-                write('    <td><a href="%s">yes</a></td>\n'
-                      % translator.url[0])
-            else:
-                write('    <td></td>\n')
             write('   </tr>\n')
         write('  </table>\n')
         write('  <p>The Autosend column is for translators who want the PO'
@@ -517,8 +511,6 @@ class TeamPage(htmlpage.Htmlpage):
 
 def translator_best_href(translator):
     name = uni2html(translator.uniname()[0], 'utf-8')
-    if translator.url:
-        return name
     if translator.mailto and translator.can_show_mail():
         return ('<a href="mailto:%s">%s</a>'
                 % (scramble(translator.mailto[0]), name))

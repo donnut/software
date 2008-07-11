@@ -1,4 +1,8 @@
 
+2008-07-11  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/localweb.py: Remove the personal website links.
+
 2008-04-01  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/tp-robot: Make the license line mandatory.
