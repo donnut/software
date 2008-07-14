@@ -379,7 +379,7 @@ class Version:
             r'([0-9]+)\.?([0-9]*)\.?([0-9]*)\.([0-9]{6,8})$', self.name)
         if match:
             major = int(match.group(1))
-            minor = pretest = patch = 0
+            minor = patch = pretest = 0
             if match.group(2):
                 minor = int(match.group(2))
             if match.group(3):
@@ -391,15 +391,16 @@ class Version:
             r'([0-9]+)\.?([0-9]*)\.?([0-9]*)([a-zA-Z]?)$', self.name)
         if match:
             major = int(match.group(1))
-            minor = pretest = 0
+            minor = patch = pretest = 0
             if match.group(2):
                 minor = int(match.group(2))
             if match.group(4):
-                pretest = ord(match.group(4)) - ord('a') + 1
+                if ord(match.group(4)) > ord('Z'):
+                    pretest = ord(match.group(4)) - ord('a') + 1
+                else:		    
+                    patch = ord(match.group(4)) - ord('A') + 31
             if match.group(3):
                 patch = int(match.group(3))
-            else:
-                patch = 0
             self.sort_key = major, minor, patch, 0, pretest
             return self.sort_key
         match = re.match(

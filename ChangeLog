@@ -3,6 +3,8 @@
 
 	* lib/registry.py: Allow uppercase letter at end of version number.
 
+	* lib/registry.py: A hack to sort lprng-3.8.A correctly.
+
 2008-07-11  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/localweb.py: Remove the personal website links.
