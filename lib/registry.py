@@ -388,7 +388,7 @@ class Version:
             self.sort_key = major, minor, patch, 1, pretest
             return self.sort_key
         match = re.match(
-            r'([0-9]+)\.?([0-9]*)\.?([0-9]*)([a-z]?)$', self.name)
+            r'([0-9]+)\.?([0-9]*)\.?([0-9]*)([a-zA-Z]?)$', self.name)
         if match:
             major = int(match.group(1))
             minor = pretest = 0
