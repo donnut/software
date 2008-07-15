@@ -2,7 +2,7 @@
 2008-07-15  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Do not say "no messages have been translated yet"
-	when the domain is handled externally.
+	when the domain is handled externally.  A few message tweaks.
 
 2008-07-14  Benno Schulenberg  <benno@vertaalt.nl>
 
@@ -1197,6 +1197,7 @@
 	for removal of m17n99.html and fr-traduc.all.
 
 2007-05-12  Benno Schulenberg  <benno@vertaalt.nl>
+
 	* ChangeLog: Convert to UTF-8; correct some small things.
 
 
