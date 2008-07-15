@@ -1,4 +1,9 @@
 
+2008-07-15  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* bin/po-register: Do not say "no messages have been translated yet"
+	when the domain is handled externally.
+
 2008-07-14  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/registry.py: Allow uppercase letter at end of version number.

@@ -506,7 +506,9 @@ integrated into the archives.  The file is available at:
 
 """) % (_(hints.team.language), url))
     # Say how much has been translated.
-    if translated == 0:
+    if hints.team.code in hints.domain.ext:
+        pass
+    elif translated == 0:
         write(_("""\
 None of its messages has been translated yet.
 
