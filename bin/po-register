@@ -461,6 +461,12 @@ def notify_team_for_po(hints, stats, translatorname, fromnewpot = False):
     translated = stats['translated']
     untranslated = stats['fuzzy'] + stats['untranslated']
     percent = po.percentage(stats)
+    if hints.team.code in hints.domain.ext:
+        extstat = data.load_extstats().get((hints.domain.name, hints.team.code))
+        if extstat:
+            translated = extstat['translated']
+            untranslated = extstat['fuzzy'] + extstat['untranslated']
+            percent = 100 * translated / (translated + untranslated)
     assignee = hints.team.translator_for_domain(hints.domain)
     if fromnewpot and (untranslated == 0):
         write_header(_("""\
@@ -558,14 +564,10 @@ remaining messages for the benefit of the users of the %s language.
         msg = _("""\
 This domain is assigned to a translator who is not a member of the TP,
 so there is no need for the team to work on this file.""")
-        extstats = data.load_extstats().get((hints.domain.name,
-                                             hints.team.code))
-        if extstats:
-            trans = extstats['translated']
-            total = trans + extstats['untranslated'] + extstats['fuzzy']
+        if extstat:
             msg = _("""\
-%s  The current version has %d of %d
-messages translated.""") % (msg, trans, total)
+%s  The current
+version has %d%% of its messages translated.""") % (msg, percent)
         write(messages.refill("""\
 %s
 

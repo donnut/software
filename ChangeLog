@@ -4,6 +4,9 @@
 	* bin/po-register: Do not say "no messages have been translated yet"
 	when the domain is handled externally.  A few message tweaks.
 
+	* bin/po-register: Move the grabbing of external stats further up,
+	so the subject line can use them too (when they're available).
+
 2008-07-14  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* lib/registry.py: Allow uppercase letter at end of version number.
