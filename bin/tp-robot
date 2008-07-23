@@ -557,7 +557,7 @@ misformatted.  I will copy the original line from the POT file.
 The 'PO-Revision-Date' field was not found in your PO file header,
 or is not formatted properly.  The line should look like:
 
-    "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\\n"
+    "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n"
 """), "[missing revision date]")
                 run.submitter.write(_("""\
 In the above line, YEAR is a four-digit number giving the year,
@@ -566,14 +566,15 @@ is a two-digit number giving the day within the month (from 01 to 31).
 The time of day is provided by a two-digit HO for the hour (from
 00 to 23) and a two-digit MI for the minutes (from 00 to 59).
 
-As for +ZONE, it should have the format +HH, -HH, +HH:MM, or -HH:MM.
+As for +ZONE, it should have the format +HHMM or -HHMM.
 The '+' sign is used east of Greenwich, the '-' sign west of Greenwich.
-HH gives the number of zone hours as two digits (from 00 to 11), while MM,
-when used, gives the number of zone minutes.  Other zone notations are
-still accepted for the time being, but are to be deprecated.
+HH gives the number of zone hours (from 00 to 11),
+while MM gives the number of zone minutes.
 """))
         if ('POT-Creation-Date' in date and 'PO-Revision-Date' in date):
-            if date['PO-Revision-Date'] <= date['POT-Creation-Date']:
+            po_stamp = date['PO-Revision-Date']
+            pot_stamp = date['POT-Creation-Date']
+            if time_to_same_zone(po_stamp) <= time_to_same_zone(pot_stamp):
                 run.reject(_("""\
 The PO revision date is '%s', which is older than the POT creation date,
 '%s'.  Please update the revision date field before submitting a PO file.
@@ -1058,6 +1059,19 @@ to be fixed here.  I'll go warn the translation coordinator.
 
 process = Process()
 
+
+def time_to_same_zone(stamp):
+    date = stamp[:10]
+    time = stamp[11:16]
+    hour = eval("1"+time[:2])-100
+    minute = eval("1"+time[-2:])-100
+    sign = stamp[-5:-4]
+    if sign == "+" or sign == "-":
+        shift = eval(sign+str(eval("1"+stamp[-4:-2])-100))
+        hour = hour - shift
+        shift = eval(sign+str(eval("1"+stamp[-2:])-100))
+        minute = minute - shift
+    return "%s %s:%s" % (date, hour, minute)
 
 ## Diagnostics.
 
