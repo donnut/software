@@ -1063,8 +1063,9 @@ process = Process()
 def time_to_same_zone(stamp):
     date = stamp[:10]
     time = stamp[11:16]
-    hour = eval("1"+time[:2])-100
-    minute = eval("1"+time[-2:])-100
+    # Hours and minutes must stay positive and two-digit, also after shift.
+    hour = eval("1"+time[:2])-50
+    minute = eval("1"+time[-2:])-50
     sign = stamp[-5:-4]
     if sign == "+" or sign == "-":
         shift = eval(sign+str(eval("1"+stamp[-4:-2])-100))
