@@ -388,7 +388,7 @@ class Version:
             self.sort_key = major, minor, patch, 1, pretest
             return self.sort_key
         match = re.match(
-            r'([0-9]+)\.?([0-9]*)\.?([0-9]*)([a-zA-Z]?)$', self.name)
+            r'([0-9]+)\.?([0-9]*)\.?([0-9]*)([a-zA-Z+]?)$', self.name)
         if match:
             major = int(match.group(1))
             minor = patch = pretest = 0
@@ -404,7 +404,7 @@ class Version:
             self.sort_key = major, minor, patch, 0, pretest
             return self.sort_key
         match = re.match(
-            r'([0-9]+)\.?([0-9]*)\.?([0-9]*)[-.]?rel([0-9]+)$', self.name)
+            r'([0-9]+)\.?([0-9]*)\.?([0-9+]*)[-.]?rel([0-9]+)$', self.name)
         if match:
             major = int(match.group(1))
             minor = patch = pretest = 0
@@ -417,7 +417,7 @@ class Version:
             self.sort_key = major, minor, patch, 1, pretest
             return self.sort_key
         match = re.match(
-            r'([0-9]+)\.?([0-9]*)\.?([0-9]*)[-.]?(b|dev|pre|rc)([0-9]+)$',
+            r'([0-9]+)\.?([0-9]*)\.?([0-9+]*)[-.]?(b|dev|pre|rc)([0-9]+)$',
             self.name)
         if match:
             major = int(match.group(1))
