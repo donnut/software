@@ -601,11 +601,11 @@ please use no more than a single space between '%s' and '<%s>'.
                                                  last_fullname, last_address)
             except KeyError:
                 run.reject(_("""\
-According to my notes, %s is not a member of the %s team.  If it is only
-a matter of spelling, then please tell the translation coordinator about
-the possible alternatives.  If you haven't joined the %s team yet, then
-write to the leader of your team (see %s/team/%s.html), or else to the
-translation coordinator.
+According to my notes, %s is not a member of the %s team. 
+If you haven't joined the %s team yet, then write to the leader of
+your team (see %s/team/%s.html), or else to the project coordinators. 
+If it is only a matter of spelling, then please tell the project
+coordinators about the possible alternatives.
 """) % (last_fullname.encode('utf-8'), _(globals.team_language),
         _(globals.team_language), config.site_base, run.hints.team.code),
                            "[translator not in team]")
