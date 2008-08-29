@@ -133,6 +133,13 @@ case ${domain} in
 	cp -v ${domain}-$version/libgphoto2_port/po/${domain}_port-0.pot \
 		${domain}_port-$version.pot
 	;;
+    lilypond)
+	$echo $domain
+	version=${archive%.tar.$suffix}
+	version=${version#$domain-}
+	$echo $version
+	cp -v ${domain}-$version/po/${domain}.pot $domain-$version.pot
+	;;
     man-db)
 	$echo $domain
 	version=${archive%.tar.$suffix}
