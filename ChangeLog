@@ -1,4 +1,10 @@
 
+2008-09-04  Benno Schulenberg  <benno@vertaalt.nl>
+
+	* lib/localweb.py: Simplify the team pages: list only the last known
+	version, and mention the assigned translator last, so that domain name
+	and version number are listed next to each other.
+
 2008-07-15  Benno Schulenberg  <benno@vertaalt.nl>
 
 	* bin/po-register: Do not say "no messages have been translated yet"

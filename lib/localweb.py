@@ -408,10 +408,7 @@ class TeamPage(htmlpage.Htmlpage):
               ' The domains with a pinkish background'
               ' require that the translator has filled out a disclaimer;'
               ' those with a greenish background are freely translatable.'
-              ' If no <b>Current package version</b> is listed in the table,'
-              ' the information is identical to the  most recent submission'
-              ' (under <b>Last-submitted PO version</b>). '
-              ' If you find an error or omission, please write')
+              ' If you find some error or omission on this page, please write')
         if team.leader and team.leader.mailto and team.leader.can_show_mail():
             write(' to <a href="mailto:%s">%s</a> to get it corrected.</p>\n'
                   % (team.leader.mailto[0],
@@ -426,11 +423,9 @@ class TeamPage(htmlpage.Htmlpage):
         write('  <table align=center border=2>\n'
               '   <tr align=center>\n'
               '    <th>Domain</th>\n'
-              '    <th>Assigned translator</th>\n'
-              '    <th>Last-submitted PO version</th>\n'
-              '    <th>Translated</th>\n'
-              '    <th>Current package version</th>\n'
-              '    <th>Translated</th>\n'
+              '    <th>Last<br>known<br>version</th>\n'
+              '    <th>&nbsp;Translated&nbsp;</th>\n'
+              '    <th>&nbsp;Assigned&nbsp;translator&nbsp;</th>\n'
               '   </tr>\n')
         # Construct the table of packages.
         for domain in registry.domain_list():
@@ -443,40 +438,13 @@ class TeamPage(htmlpage.Htmlpage):
                   '<a href="../domain/%s.html">%s</a></td>\n'
                   % (hue, domain.name, domain.name))
             extstats = None
-            if assigned_domains.has_key(domain.name):
-                write('    <td align=left>%s</td>\n'
-                      % translator_best_href(assigned_domains[domain.name]))
-            elif team.code in domain.ext:
-                write('    <td bgcolor="#e8e8e8"><i>external</i></td>\n')
-                extstats = get_extstats().get((domain.name, team.code))
-            else:
-                write('    <td></td>\n')
-            current = None
             file = '%s/%s/%s.po' % (config.last_path, domain.name, team.name)
-            # Show current version not for absent files nor for externals.
-            if os.path.isfile(file) and (not team.code in domain.ext):
-                hints = registry.hints(os.readlink(file))
-                key = hints.domain.name, hints.version.name, hints.team.name
-                if postats.has_key(key):
-                    (translated, total) = postats[key][2:4]
-                    current = hints.version
-                    write('    <td><a href="../%s/%s/%s-%s.%s.po">%s</a></td>\n'
-                          % (config.pos_dir, team.name, domain.name,
-                             current.name, team.name, current.name))
-                    write('    <td bgcolor="%s">%d / %d</td>\n'
-                          % (colorize(translated, total), translated, total))
-                    try:
-                        current.set_sort_key()
-                    except AssertionError:
-                        current = None
-            else:
-                write('    <td colspan=2></td>\n')
             try:
                 template, tally = postats.potstats[domain.name]
                 version = registry.hints(template).version
             except KeyError:
                 version = None
-            if version and (not current or current != version):
+            if version:
                 key = domain.name, version.name, team.name
                 if team.code in domain.ext:
                     reference = '%s' % version
@@ -504,6 +472,16 @@ class TeamPage(htmlpage.Htmlpage):
                 write('    <td>%s</td>\n'
                       '    <td bgcolor="%s">%s</td>\n'
                       % (reference, color, numbers))
+            else:
+                write('    <td colspan=2></td>\n')
+            if assigned_domains.has_key(domain.name):
+                write('    <td align=left>%s</td>\n'
+                      % translator_best_href(assigned_domains[domain.name]))
+            elif team.code in domain.ext:
+                write('    <td bgcolor="#e8e8e8"><i>external</i></td>\n')
+                extstats = get_extstats().get((domain.name, team.code))
+            else:
+                write('    <td></td>\n')
             write('   </tr>\n')
         write('  </table>\n')
         self.epilogue()
