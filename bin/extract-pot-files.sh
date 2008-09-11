@@ -34,6 +34,7 @@ case ${domain} in
 	cp -v $oversion/opcodes/po/opcodes.pot opcodes-$version.pot
 	cp -v $oversion/ld/po/ld.pot ld-$version.pot
 	cp -v $oversion/gprof/po/gprof.pot gprof-$version.pot
+	cp -v $oversion/gold/po/gold.pot gold-$version.pot
 	;;
     bison)
 	$echo $domain
