@@ -154,7 +154,6 @@ class Submitter(Reporter):
             work = tempfile.mktemp()
             file = os.popen('formail -t -r '
 '-a "From: Translation Project Robot <robot@translationproject.org>" '
-'-a "BCC: robot-mail@benno.vertaalt.nl" '
 '-I "Subject: %s" >%s'
                             % (subject, work), 'w')
             file.writelines(header_lines)
@@ -171,7 +170,6 @@ class Submitter(Reporter):
             header = (_("""\
 From: Translation Project Robot <robot@translationproject.org>
 To: "%s" <%s>
-BCC: robot-mail@benno.vertaalt.nl
 Subject: Re: %s
 %s
 """) % (translator_name, translator_address, subject, self.mime_header()))
