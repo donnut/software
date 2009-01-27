@@ -1,5 +1,11 @@
-Please print this out, sign it, write the date,
-and snail it to this address:
+Please print this out, fill it in and sign it. 
+There are three ways to submit your disclaimer to FSF:
+
+- Scan the signed disclaimer and email it to:
+
+    Email address: copyright-clerk@fsf.org
+
+- Snail it to this address:
 
     Copyright Administrator
     Free Software Foundation
@@ -7,10 +13,9 @@ and snail it to this address:
     Boston, MA 02110-1301
     USA
 
-If you can, send a facsimile instead, it will be quicker:
+- Or you can fax the disclaimer to:
 
-    Fax  +1-617-542-2652
-
+    Fax number:  +1-617-542-2652
 
 Please write your email and snail addresses on the printed disclaimer.
 *Don't forget to include the date.*
