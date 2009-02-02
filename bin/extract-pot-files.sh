@@ -103,7 +103,7 @@ case ${domain} in
 	pushd $domain-$version
 	for d in iso_*; do
 	    cp -v $d/$d.pot ../$d-$version.pot
-	    if [ $d = iso_3166 ]; then
+	    if [ $d = iso_3166 -o $d = iso_639 ]; then
 		pushd $d
 		for dd in $d_*; do
 		    [ -d $dd ] || continue
