@@ -34,7 +34,7 @@ VERSION = ('[.0-9+]+-?b[0-9]+|'
            '[.0-9+]+-?rc[0-9]+|'
            '[.0-9+]+-?rel[0-9]+|'
            '[.0-9+]+[a-zA-Z]?|'
-	   '[0-9]+.[0-9]+.[0-9]+.[0-9]+.[a-zA-Z]+|'
+	   '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+\.[a-zA-Z]+|'
            '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]')
 
 TEAM = ('[a-z][a-z][a-z]?'
@@ -445,7 +445,7 @@ class Version:
             self.sort_key = major, minor, patch, 0, pretest
             return self.sort_key
         match = re.match(
-            r'([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9.]+)\.([a-zA_Z]+)$', self.name)
+            r'([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9.]+)\.([a-zA-Z]+)$', self.name)
         if match:
             major = int(match.group(1))
             minor = int(match.group(2))
