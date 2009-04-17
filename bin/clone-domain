@@ -24,13 +24,13 @@ except KeyError:pass
 try: del os.environ['LANG']
 except KeyError:pass
 
-magic_key = "older findutils"
+magic_key = "from old to new"
 
-old_domain = 'findutils'                  # gettext
-new_domain = 'findutils_stable'           # gettext-runtime
+old_domain = 'gnutls'                  # gettext
+new_domain = 'libgnutls'               # gettext-runtime
 
-old_pattern = "findutils-4.2.27"          # gettext-0.11.5
-new_pattern = "findutils_stable-4.2.27"   # gettext-runtime-0.11.5
+old_pattern = "gnutls-2.5.7"          # gettext-0.11.5
+new_pattern = "libgnutls-2.5.7"       # gettext-runtime-0.11.5
 
 def main(*arguments):
     if not arguments:
