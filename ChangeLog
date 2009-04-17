@@ -1,3 +1,7 @@
+2009-04-17  Erwin Poeze <erwin.poeze@gmail.com>
+
+	* lib/registry.py: Changed PO version name checking to allow for 
+	new version numbering scheme of gnulib.
 
 2008-09-04  Benno Schulenberg  <benno@vertaalt.nl>
 
