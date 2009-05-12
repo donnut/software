@@ -7,7 +7,7 @@
 
 .* Editors
 
-   `KBabel' -- http://kbabel.kde.org/
+   `Lokalize' -- http://userbase.kde.org/Lokalize
 
    `poEdit' -- http://www.poedit.net/
 
@@ -15,7 +15,7 @@
 
    `OmegaT' -- http://www.omegat.org/omegat/omegat_en/omegat.html
 
-   `gtranslator' (dead) -- http://gtranslator.sourceforge.net/
+   `gtranslator' -- http://gtranslator.sourceforge.net/
 
    `Emacs' with po-mode.el -- http://www.gnu.org/software/emacs/
 
