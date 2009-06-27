@@ -242,9 +242,8 @@ def process_po_file(hints, file, fromnewpot = False):
             log.close()
             # send an update to twitter account
             tweet = twitter.Twitter()
-            tweet.send("%s  %s  %s  --  %s\n"
-                       % (now.date().isoformat(), now.time().strftime('%H:%M'),
-                          archive_base, translatorname.encode("utf-8")))
+            tweet.send("[TRANSLATION]  %s  --  %s\n"
+                       % (archive_base, translatorname.encode("utf-8")))
         # Calculate and store the statistics for the new PO file.
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
