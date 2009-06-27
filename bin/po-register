@@ -21,7 +21,7 @@ import os, sys, shutil
 import commands, getopt, re, string, datetime
 
 sys.path.insert(0, sys.path[0]+'/../lib')
-import config, data, localweb, po, registry, messages
+import config, data, localweb, po, registry, messages, twitter
 
 # Find sendmail in /usr/sbin or /usr/lib.
 os.environ['PATH'] = '/usr/lib:/usr/sbin:' + os.environ['PATH']
@@ -240,6 +240,11 @@ def process_po_file(hints, file, fromnewpot = False):
                       % (now.date().isoformat(), now.time().strftime('%H:%M'),
                          archive_base, translatorname.encode("utf-8")))
             log.close()
+	    # send an update to twitter account
+	    tweet = twitter.Twitter()
+	    tweet.send("%s  %s  %s  --  %s\n"
+	              % (now.date().isoformat(), now.time().strftime('%H:%M'),
+	                 archive_base, translatorname.encode("utf-8"))))
         # Calculate and store the statistics for the new PO file.
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
