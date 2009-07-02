@@ -133,6 +133,10 @@ def process_pot_file(hints, file, teams):
         for line in response:
             print line
         os.remove(file)
+        # send an update to twitter account
+        tweet = twitter.Twitter()
+        tweet.send("[TEMPLATE]  %s\n"
+                   % (template_base))
     stats = po.stats(po.read(template_path))
     if teams:
         teams = [registry.team(n) for n in teams]
