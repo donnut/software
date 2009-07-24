@@ -11,7 +11,7 @@ the assigned translators, the team-leaders group, and the maintainer.
 Usage:  po-register [-nqtT] PACKAGE-VERSION.{pot,LL[.po]}
 
   -n         run dry, don't store files, don't send out mails
-  -q         be quiet, don't show mails when running dry
+  -q         be quiet, don't show mails
   -t         display the list of known team codes and exit
   -T "list"  when processing a POT file, only notify the listed teams; the list
              of team codes should be space-separated and wrapped in quotes
@@ -54,7 +54,7 @@ def msgmerge(po, pot, out):
     os.system("msgmerge --no-wrap %s %s -o %s" % (po, pot, out))
 
 def open_output():
-    if run.quiet and run.dry:
+    if run.quiet:
         return open('/dev/null', 'w')
     elif run.dry:
         return sys.stdout
