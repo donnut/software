@@ -1,4 +1,6 @@
 2009-07-24  Erwin Poeze  <erwin.poeze@gmail.com>
+    * bin/po-register: seperated -q and -n argument
+2009-07-24  Erwin Poeze  <erwin.poeze@gmail.com>
 
     * webgen/layout.html.in: Added Google Analytics script
 
