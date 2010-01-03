@@ -24,6 +24,9 @@ elif host in ('lidb-laptop',): # LI Daobing's personal machine
 elif host in ('cassiopeia',):  # Erwin's personal machine.
     home_path = "/home/donnut/TP"
     site_base = "/home/donnut/TP/site"
+elif host in ('dioganes',):  # Erwin's second personal machine.
+    home_path = "/home/donnut/TP"
+    site_base = "/home/donnut/TP/site"
 else:
     raise RuntimeError("Not configured for host '%s' -- edit config.py file." % host)
 
