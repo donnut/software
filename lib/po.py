@@ -1,8 +1,9 @@
 # Handling of PO files contents.
 # -*- mode: python; coding: utf-8 -*-
-# Copyright © 2001, 2002, 2004, 2007 Free Translation Project.
+# Copyright © 2001, 2002, 2004, 2007, 2010 Free Translation Project.
 # Copyright © 1998, 1999, 2000, 2001 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1998.
+# Erwin Poeze <erwin.poeze@gmail.com>, 2010.
 
 import re, string, sys, types
 cre = re
@@ -58,10 +59,11 @@ def read(name):
     entries = []                        # retained entries
     entry = {}                          # entry being constructed
     keys = {}                           # msgid to full entry dictionary
-    status = None                       # None, 'msgid' or `msgstr'
+    status = None                       # None, 'msgid' or `msgstr' or 'msgctxt'
     msgid = ''                          # msgid being accumulated
     msgid_plural = ''
     msgstr = ''                         # msgstr being accumulated
+    msgctxt = ''                        # msgctxt being accumulated
 
     if name == '-':
         file = sys.stdin
@@ -91,6 +93,9 @@ def read(name):
                     entry['msgstr'] = map(unquote, msgstr)
                 else:
                     entry['msgstr'] = unquote(msgstr)
+                if msgctxt:
+                    entry['msgctxt'] = unquote(msgctxt)
+                    msgctxt = ''
                 _append(entries, entry, keys)
                 entry = {}
                 status = None
@@ -117,7 +122,7 @@ def read(name):
                 else:
                     entry['flags'] = line
             else:
-                sys.stderr.write('%s:%d: Unrecognised line\n%s'
+                sys.stderr.write('%s:%d: Unrecognised line 1\n%s'
                                  % (name, line_count, line))
         elif cre.match('msgid_plural', line):
             msgid_plural = line
@@ -131,6 +136,9 @@ def read(name):
                     entry['msgstr'] = map(unquote, msgstr)
                 else:
                     entry['msgstr'] = unquote(msgstr)
+                if msgctxt:
+                    entry['msgctxt'] = unquote(msgctxt)
+                    msgctxt = ''
                 _append(entries, entry, keys)
                 entry = {}
             msgid_plural = ''
@@ -146,6 +154,13 @@ def read(name):
                 msgstr.append(line)
             else:
                 msgstr = line
+        elif cre.match('msgctxt', line):
+            if obsolete:
+                entry['obsolete'] = 1
+            msgctxt = line
+
+        # if a line starts with a space of a tab, it is a continuation of
+        # the previous line
         elif cre.match(r'[ \t]*"', line):
             if obsolete:
                 entry['obsolete'] = 1
@@ -159,15 +174,17 @@ def read(name):
                 else:
                     msgstr = msgstr + line
             else:
-                sys.stderr.write('%s:%d: Unrecognised line\n%s'
+                sys.stderr.write('%s:%d: Unrecognised line 2\n%s'
                                  % (name, line_count, line))
         else:
-            sys.stderr.write('%s:%d: Unrecognised line\n%s'
+            sys.stderr.write('%s:%d: Unrecognised line 3\n%s'
                              % (name, line_count, line))
 
+    # reading the file is finished, close the file ...
     if name != '-':
         file.close()
 
+    # ... and added the last parsed lines to entries
     if status == 'msgstr':
         entry['msgid'] = unquote(msgid)
         if msgid_plural:
@@ -175,7 +192,11 @@ def read(name):
             entry['msgstr'] = map(unquote, msgstr)
         else:
             entry['msgstr'] = unquote(msgstr)
+        if msgctxt:
+            entry['msgctxt'] = unquote(msgctxt)
+            msgctxt = ''
         _append(entries, entry, keys)
+
     elif status is None and entry.has_key('comment'):
         # Allow terminating comments.
         entries.append(entry)
@@ -188,8 +209,21 @@ def _append(entries, entry, keys):
         entries.append(entry)
     else:
         if keys.has_key(msgid):
+
+            # a duplicate msgid is located
             old_entry = keys[msgid]
-            if old_entry['msgstr'] == entry['msgstr']:
+
+            # check if the context of the msgid is different
+            diff_context = 0
+            if entry.has_key('msgctxt') and old_entry.has_key('msgctxt'):
+                if old_entry['msgctxt'] != entry['msgctxt']:
+                    diff_context = 1
+
+            if old_entry['msgstr'] == entry['msgstr'] and not(diff_context):
+                # when the entry has an existing msgid and msgstr AND the context is
+                # the same as well, then the new entry is
+                # not stored, but comments, quote, refs of flags are merged into the
+                # existing ones
                 for field in 'comment', 'quote', 'refs':
                     if entry.has_key(field):
                         if old_entry.has_key(field):
@@ -203,8 +237,16 @@ def _append(entries, entry, keys):
                                 old_entry['flags'] + entry['flags'])
                     else:
                         old_entry['flags'] = entry['flags']
+
+            elif diff_context:
+                # the msgid exists, but the context is different, the entry is stored.
+                entries.append(entry)
+                keys[msgid] = entry
             else:
+                # this is really a duplicate entry, it must be a programmers 'mistake' and the
+                # entry is omitted
                 sys.stderr.write(requote('Duplicate', msgid))
+
         else:
             entries.append(entry)
             keys[msgid] = entry
@@ -268,6 +310,9 @@ def write(name, entries):
                 text = text + entry['refs']
             if entry.has_key('flags'):
                 text = text + entry['flags']
+            if entry.has_key('msgctxt'):
+                msgctxt = entry['msgctxt']
+                text = text + requote('msgctxt', msgctxt)
             text = text + requote('msgid', entry['msgid'])
             msgstr = entry['msgstr']
             if entry.has_key('msgid_plural'):
@@ -294,6 +339,8 @@ def write(name, entries):
                 file.write(entry['refs'])
             if entry.has_key('flags'):
                 file.write(entry['flags'])
+            if entry.has_key('msgctxt'):
+                file.write(requote('msgctxt', entry['msgctxt']))
             file.write(requote('msgid', entry['msgid']))
             msgstr = entry['msgstr']
             if entry.has_key('msgid_plural'):
