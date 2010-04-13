@@ -26,6 +26,7 @@ except NameError:
 
 DOMAIN = ('a2ps|e2fsprogs|iso_[0-9_]+|m4|'
           'libgphoto2_port|libgphoto2|gphoto2|'
+          'help2man|'
           '[a-z_-]+[a-z]')
 
 VERSION = ('[.0-9+]+-?b[0-9]+|'
