@@ -134,9 +134,9 @@ def process_pot_file(hints, file, teams):
             print line
         os.remove(file)
         # send an update to twitter account
-        tweet = twitter.Twitter()
-        tweet.send("[TEMPLATE]  %s\n"
-                   % (template_base))
+        #tweet = twitter.Twitter()
+        #tweet.send("[TEMPLATE]  %s\n"
+        #           % (template_base))
     stats = po.stats(po.read(template_path))
     if teams:
         teams = [registry.team(n) for n in teams]
@@ -245,9 +245,9 @@ def process_po_file(hints, file, fromnewpot = False):
                          archive_base, translatorname.encode("utf-8")))
             log.close()
             # send an update to twitter account
-            tweet = twitter.Twitter()
-            tweet.send("[TRANSLATION]  %s  --  %s\n"
-                       % (archive_base, translatorname.encode("utf-8")))
+            #tweet = twitter.Twitter()
+            #tweet.send("[TRANSLATION]  %s  --  %s\n"
+            #           % (archive_base, translatorname.encode("utf-8")))
         # Calculate and store the statistics for the new PO file.
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
