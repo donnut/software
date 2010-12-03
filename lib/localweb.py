@@ -69,10 +69,10 @@ class DomainIndex(htmlpage.Htmlpage):
               '   </tr>\n')
         for domain in registry.domain_list():
             if domain.disclaim:
-                hue = "#fff3f3"
+                hue = "#ffe6e6"
                 word = "Yes"
             else:
-                hue = "#f3fff3"
+                hue = "#e6ffe6"
                 word = ""
             write('   <tr>\n'
                   '    <td bgcolor="%s"><a href="%s.html">%s</a></td>\n'
