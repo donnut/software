@@ -51,7 +51,7 @@ def recode(hints, name):
     return hints.team.encode(u)
 
 def msgmerge(po, pot, out):
-    os.system("msgmerge --no-wrap %s %s -o %s" % (po, pot, out))
+    os.system("msgmerge --previous --no-wrap %s %s -o %s" % (po, pot, out))
 
 def open_output():
     if run.quiet:
