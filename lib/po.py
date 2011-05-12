@@ -121,6 +121,11 @@ def read(name):
                     entry['flags'] = entry['flags'] + line
                 else:
                     entry['flags'] = line
+            elif cre.match('#|', line):
+                if entry.has_key('previous'):
+                    entry['previous'] = entry['previous'] + line
+                else:
+                    entry['previous'] = line
             else:
                 sys.stderr.write('%s:%d: Unrecognised line 1\n%s'
                                  % (name, line_count, line))
