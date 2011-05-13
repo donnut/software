@@ -18,6 +18,7 @@ Usage:  calc-postats [-dituv] [POFILE]... [POTFILE]...
 
 import os, sys, stat
 import getopt, re, UserDict
+import logging
 
 sys.path.insert(0, sys.path[0]+'/../lib')
 import config, data, po, registry
@@ -188,7 +189,7 @@ def regenerate_potstats(postats, verbose):
         try:
             hints.version.set_sort_key()
         except AssertionError:
-            print "*** Unsortable version:", file
+            logging.exception("*** Unsortable version: %s", file)
             continue
         try:
             oldver = versions[hints.domain.name][0]
@@ -214,7 +215,7 @@ def tally_POT(postats, file, verbose):
     try:
         hints.version.set_sort_key()
     except AssertionError:
-        print "*** Unsortable version:", file
+        logging.exception("*** Unsortable version: %s", file)
         return
     try:
         oldfile = postats.potstats[hints.domain.name][0]
