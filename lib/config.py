@@ -12,7 +12,7 @@ import socket, string
 
 host = string.split(socket.gethostname(), '.')[0]
 
-if host in ('neoduik',):  # The machine at Vrijschrift.
+if host in ('duik',):  # The machine at Vrijschrift.
     home_path = "/home/tp"
     site_base = "http://translationproject.org"
 elif host in ('ordesa',):  # Benno's personal machine.
