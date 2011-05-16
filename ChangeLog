@@ -1,3 +1,8 @@
+2010-05-10  Erwin Poeze  <erwin.poeze@gmail.com>
+
+	* lib/po.py,
+	* bin/po-register: added --previous argument to msgmerge
+
 2010-01-08  Erwin Poeze  <erwin.poeze@gmail.com>
 
 	* lib/po.py: functionality added to handle msgctxt strings correctly
