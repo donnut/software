@@ -1,9 +1,12 @@
 Today:
 
 Soon:
-* Modify twitter call concerning authentication
+* RSS feed of new domain versions and new translations
+
+=======
 
 Later:
+* optional 'due date' for new domain release
 * search and delete the PO files with mistaken encoding specifications
 * delete PO files for which translated strings are under 5%
 * add a page for retired translators
@@ -11,8 +14,6 @@ Later:
   to the latest available version
 * make a reply for those who ask the robot for help
 * add note that project was never called "FTP".
-
-
 
 ==============================================
 * Some old TODO from Montréal about the robot:
