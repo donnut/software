@@ -42,6 +42,7 @@ last_dir = "latest"
 pots_path = site_path + "/" + pots_dir
 pos_path = site_path + "/" + pos_dir
 last_path = site_path + "/"  + last_dir
+feed_path = site_path + "/feeds"
 
 domain_path = site_path + "/domain"
 team_path = site_path + "/team"
