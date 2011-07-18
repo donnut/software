@@ -21,7 +21,7 @@ import os, sys, shutil
 import commands, getopt, re, string, datetime
 
 sys.path.insert(0, sys.path[0]+'/../lib')
-import config, data, localweb, po, registry, messages, twitter
+import config, data, localweb, po, registry, messages, rss
 
 # Find sendmail in /usr/sbin or /usr/lib.
 os.environ['PATH'] = '/usr/lib:/usr/sbin:' + os.environ['PATH']
@@ -59,6 +59,7 @@ def open_output():
     elif run.dry:
         return sys.stdout
     else:
+        #return sys.stdout
         return os.popen('sendmail -i -t', 'w')
 
 def mime_charset(hints):
@@ -244,10 +245,10 @@ def process_po_file(hints, file, fromnewpot = False):
                       % (now.date().isoformat(), now.time().strftime('%H:%M'),
                          archive_base, translatorname.encode("utf-8")))
             log.close()
-            # send an update to twitter account
-            #tweet = twitter.Twitter()
-            #tweet.send("[TRANSLATION]  %s  --  %s\n"
-            #           % (archive_base, translatorname.encode("utf-8")))
+
+            # and update the rss feed
+            rss.generate_po_rss(translatorname.encode("utf-8"), archive_base, 
+                        hints.domain.name)
         # Calculate and store the statistics for the new PO file.
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
