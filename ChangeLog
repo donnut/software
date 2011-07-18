@@ -1,4 +1,10 @@
-2010-05-10  Erwin Poeze  <erwin.poeze@gmail.com>
+2011-07-18  Erwin Poeze  <erwin.poeze@gmail.com>
+
+	* lib/config.py,
+	* lib/rss.py,
+	* bin/po-register: added -- rss feed of new po files
+
+2011-05-10  Erwin Poeze  <erwin.poeze@gmail.com>
 
 	* lib/po.py,
 	* bin/po-register: added --previous argument to msgmerge
