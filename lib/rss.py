@@ -48,5 +48,3 @@ def generate_po_rss(translator, pofile, domain):
 
         rss.write_xml(open('%s/tp_po.xml' % config.feed_path, 'w'))
 	
-if __name__ == '__main__':
-	generate_po_rss("Robert Poeze", "bash-4.0.nl.po", "bash")
