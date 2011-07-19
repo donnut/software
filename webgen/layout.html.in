@@ -57,7 +57,7 @@
 	<tr><td height=5></td></tr>
 
     <tr><td><font size=-1>
-       <a style="text-decoration:'none'" href="../feeds/tp_po.xml"><img src="../img/feed-icon-28x28.png"></a> 
+       <a style="text-decoration:'none'" href="../feeds/tp_po.xml"><img src="../img/feed-icon-28x28.png" alt="rss feed of translation updates"></a> 
 	 </font></td></tr>
 
       </table>
