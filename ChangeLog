@@ -1,3 +1,8 @@
+2011-07-19  Erwin Poeze  <erwin.poeze@gmail.com>
+
+	* lib/rss.py,
+	* bin/po-register: modified link in rss feed, now pointing to po file
+
 2011-07-18  Erwin Poeze  <erwin.poeze@gmail.com>
 
 	* lib/config.py,
