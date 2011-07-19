@@ -11,13 +11,13 @@ import config
 
 MAX_ITEMS = 50
 
-def generate_po_rss(translator, pofile, domain):
+def generate_po_rss(translator, pofile, domain, code):
 	items = []
 	
 	"""Generate the first item from data"""
 	items.append(PyRSS2Gen.RSSItem(
 		title = pofile,
-        link = "http://translationproject.org/domain/"+domain+".html",
+        link = "http://translationproject.org/PO-files/"+code+"/"+pofile,
         description = pofile+" has been updated by "+translator,
         guid = PyRSS2Gen.Guid("http://translationproject.org/domain/"+domain+".html"),
         pubDate = datetime.datetime.utcnow()))

@@ -248,7 +248,7 @@ def process_po_file(hints, file, fromnewpot = False):
 
             # and update the rss feed
             rss.generate_po_rss(translatorname.encode("utf-8"), archive_base, 
-                        hints.domain.name)
+                        hints.domain.name, hints.team.code)
         # Calculate and store the statistics for the new PO file.
         response = os.popen("calc-postats "+archive_path).readlines()
         for line in response:
