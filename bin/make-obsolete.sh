@@ -22,7 +22,7 @@ mkdir obsolete/${domain} &&
 mv -v POT-files/${domain}* obsolete/${domain}/ &&
 mv -v PO-files/*/${domain}-[0-9]* obsolete/${domain}/ &&
 
-calc-postats -dv &&
+/home/tp/progs/bin/calc-postats -dv &&
 
 rm -rv latest/$domain
 
