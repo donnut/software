@@ -46,5 +46,5 @@ def generate_po_rss(translator, pofile, domain, code):
                 lastBuildDate = datetime.datetime.utcnow(),
                 items = items)
 
-        rss.write_xml(open('%s/tp_po.xml' % config.feed_path, 'w'), "utf-8")
+        rss.write_xml(open('%s/tp_po.xml' % config.feed_path, 'w'), encoding = "utf-8")
 	
