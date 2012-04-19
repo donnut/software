@@ -80,4 +80,4 @@ pot:
 dist:
 	tar -cz -f ../site/bundles/tp-robot-${VERSION}.tgz \
 	    --transform='s:^\./:tp-robot-${VERSION}/:' \
-	    --exclude=.svn  .
+	    --exclude=.git  .

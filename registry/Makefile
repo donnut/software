@@ -13,7 +13,7 @@ remote:
 
 fromremote:
 	umask 0002;
-	svn update;
+	git pull;
 	$(MAKE) all
 	-chmod 664 registry.sgml
 
