@@ -429,7 +429,7 @@ class Thanks(Htmlpage):
         # Make a table with the remainder of the file.
         if counter < len(lines):
             write('  <p> </p>\n'
-                  '  <table align=center border=2>\n'
+                  '  <table align=center>\n'
                   '   <tr>\n'
                   '    <th>Contributor</th>\n'
                   '    <th>Email address</th>\n'

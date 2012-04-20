@@ -1,0 +1,75 @@
+/* color scheme (from http://colorschemedesigner.com/):
+
+ main: 57798E  4D626E  214961  91B5CA  A2BBCA
+ 
+ complementary: DFB583 AD9475  986A31  F0CFA7  F0D9BD
+*/
+
+header{
+  width: 100%;
+  background-color: #57798E;
+  color: #A2BBCA;
+  color: #F0D9BD;
+  text-align: center;
+  height: 4em;
+  padding: 0.4em;
+  padding-bottom: 0.6em;
+}
+
+
+
+nav {
+  float: left;
+  padding-left:1em;
+  padding-top:1em;
+}
+
+nav ul {
+    list-style-type: none;
+    list-style-position:outside;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+  margin-left:0;
+  pading-left:0;
+}
+
+
+nav h3 {
+  width: 100%;
+  background-color: #57798E;
+  color: #A2BBCA;
+  color: #F0D9BD;
+  padding: 0.1em;
+}
+
+.main {
+ margin-left: 20em;
+}
+
+.updated { 
+  float: left;
+  font-size: smaller;
+}
+
+.comments { 
+  float: right;
+}
+
+footer {
+  clear: both;
+  border-top: 3px solid black;
+  background-color: #214961;
+  color: #A2BBCA;
+  min-height:4em;
+}
+
+table { 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+th { background: #57798E ;}
+tr:hover { background: #F0D9BD; }
+td { border-bottom: 1px solid #ccc ;}

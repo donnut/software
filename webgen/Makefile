@@ -7,11 +7,12 @@ ALLOUT_FILES = maintainers.all leaders.all translators.all \
                changes.all files.all robot.all software.all
 HTMA_FILES = $(ALLOUT_FILES:.all=.html)
 HTMH_FILES = welcome.html thanks.html whydisclaim.html
+CSS_FILES  = style.css
 
 LAYOUT_DEPS = ../lib/config.py ../lib/htmlpage.py layout.html.in to-html.py
 
 
-all: alloutfiles htmlfiles \
+all: alloutfiles htmlfiles css\
      $(sitedir)/disclaim.txt $(htmldir) $(htmldir)/authors.html $(extradir) $(extradir)/sendpo.sh
 
 $(htmldir):
@@ -22,6 +23,9 @@ $(extradir):
 alloutfiles: $(htmldir) $(addprefix $(htmldir)/,$(HTMA_FILES))
 
 htmlfiles: $(htmldir) $(addprefix $(htmldir)/,$(HTMH_FILES)) 
+
+css: $(CSS_FILES)
+	cp $< $(htmldir)
 
 $(htmldir)/%.html: %.all $(LAYOUT_DEPS)
 	./to-html.py -C $(htmldir) $<
