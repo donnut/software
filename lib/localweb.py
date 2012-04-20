@@ -75,7 +75,7 @@ class DomainIndex(htmlpage.Htmlpage):
             write('   <tr>\n'
                   '    <td bgcolor="%s"><a href="%s.html">%s</a></td>\n'
                   % (hue, domain.name, domain.name))
-            if postats.potstats.has_key(domain.name):
+            if len(postats) and postats.potstats.has_key(domain.name):
                 hints = registry.hints(postats.potstats[domain.name][0])
                 write('    <td bgcolor="%s"><a href="%s">%s</a></td>\n'
                       % (hue, hints.template_url(), hints.version))
@@ -137,7 +137,7 @@ class DomainPage(htmlpage.Htmlpage):
         else:
             write('  <p>The maintainer does not require any special papers'
                   ' prior to accepting translations.</p>\n')
-        if postats.potstats.has_key(domain.name):
+        if len(postats) and postats.potstats.has_key(domain.name):
             file = postats.potstats[domain.name][0]
             url = registry.hints(file).template_url()
             write('  <p>The current template for this domain is'
@@ -438,7 +438,10 @@ class TeamPage(htmlpage.Htmlpage):
             extstats = None
             file = '%s/%s/%s.po' % (config.last_path, domain.name, team.name)
             try:
-                template, tally = postats.potstats[domain.name]
+                if len(postats):
+                    template, tally = postats.potstats[domain.name]
+                else:
+                    template = ""
                 version = registry.hints(template).version
             except KeyError:
                 version = None
