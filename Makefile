@@ -5,13 +5,27 @@
 
 VERSION=1.93
 
-extra_dir=../site/extra
+# define default locations for some directories if you want to change
+# these, the best way to avoid conflicts with version control is to
+# create a file called Makefile.local and set the variables in there
+sitedir  = /home/tp/site
+htmldir  = $(sitedir)/html
+extradir = $(sitedir)/extra
+cachedir = $(sitedir)/cache
 
+# load user defined values, if any
+-include Makefile.local
+
+# export variables for recursive calls of make
+export sitedir
+export htmldir
+export extradir
+export cachedir
 
 all: registry site
 
 check: all
-	@find ../site/latest -type l | while read file; do \
+	@find $(sitedir)/latest -type l | while read file; do \
 	  echo; \
 	  echo "Verifying \``ls -l $$file | sed 's,.*-> ../../,,'`'"; \
 	  msgfmt --statistics -c -v -o /dev/null $$file; \
@@ -27,8 +41,9 @@ tags-recursive:
 	$(MAKE) -C bin tags
 	$(MAKE) -C lib tags
 
-registry: ../cache/registry
-../cache/registry: registry/registry.sgml
+registry: $(cachedir)/registry
+$(cachedir)/registry: registry/registry.sgml
+	mkdir -p $(cachedir)
 	$(MAKE) -C registry all
 
 indexes:
@@ -56,18 +71,18 @@ teams:
 	$(MAKE) -C webgen teams
 
 .PRECIOUS: postats
-postats: ../cache/postats
-../cache/postats: FORCE
-	VERSION_CONTROL=numbered cp -fb ../cache/postats ../cache/postats
+postats: $(cachedir)/postats
+$(cachedir)/postats: FORCE
+	-VERSION_CONTROL=numbered cp -fb $(cachedir)/postats $(cachedir)/postats
 	bin/calc-postats -u -v
 FORCE:
 
-matrix: $(extra_dir)/matrix.texi
-$(extra_dir)/matrix.texi: ../site/PO-files/*
+matrix: $(extradir)/matrix.texi
+$(extradir)/matrix.texi: $(sitedir)/PO-files/*
 	bin/po-matrix
-	mv tmp-matrix.html $(extra_dir)/matrix.html
-	mv tmp-matrix.texi $(extra_dir)/matrix.texi
-	mv tmp-matrix.xml $(extra_dir)/matrix.xml
+	mv tmp-matrix.html $(extradir)/matrix.html
+	mv tmp-matrix.texi $(extradir)/matrix.texi
+	mv tmp-matrix.xml $(extradir)/matrix.xml
 
 .PHONY:	pot
 pot:
@@ -78,6 +93,7 @@ pot:
 	python lib/registry.py >>po/tp-robot.pot
 
 dist:
-	tar -cz -f ../site/bundles/tp-robot-${VERSION}.tgz \
+	mkdir -p $(sitedir)/bundle
+	tar -cz -f  $(sitedir)/bundles/tp-robot-${VERSION}.tgz \
 	    --transform='s:^\./:tp-robot-${VERSION}/:' \
 	    --exclude=.git  .

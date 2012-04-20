@@ -17,19 +17,18 @@ fromremote:
 	$(MAKE) all
 	-chmod 664 registry.sgml
 
-registry: ../../cache/registry
-../../cache/registry: registry.sgml
-	VERSION_CONTROL=numbered
-	    cp -fb ../../cache/registry ../../cache/registry
+registry: $(cachedir)/registry
+$(cachedir)/registry: registry.sgml
+	-VERSION_CONTROL=numbered cp -fb $(cachedir)/registry $(cachedir)/registry
 	-../bin/registry-data -de >registry.tmp && \
 	    diff -u registry.tmp registry.sgml
 	rm registry.tmp
 
-indexes: ../../cache/registry
+indexes: $(cachedir)/registry
 	../bin/generate-static-pages -i
 
 mailrc: $(HOME)/.mailrc-tp
-$(HOME)/.mailrc-tp: ../../cache/registry ../bin/create-mail-aliases
+$(HOME)/.mailrc-tp: $(cachedir)/registry ../bin/create-mail-aliases
 	../bin/create-mail-aliases -mTDf >$@-tmp
 	mv $@-tmp $@
 
@@ -38,15 +37,15 @@ maintainers: $(HOME)/.procmailrc-maintainers
 leaders: $(HOME)/.procmailrc-leaders
 teams: $(HOME)/.procmailrc-teams
 
-$(HOME)/.procmailrc-maintainers: ../../cache/registry ../bin/create-mail-aliases
+$(HOME)/.procmailrc-maintainers: $(cachedir)/registry ../bin/create-mail-aliases
 	../bin/create-mail-aliases -pDf >$@-tmp
 	mv $@-tmp $@
 
-$(HOME)/.procmailrc-leaders: ../../cache/registry ../bin/create-mail-aliases
+$(HOME)/.procmailrc-leaders: $(cachedir)/registry ../bin/create-mail-aliases
 	../bin/create-mail-aliases -pTf >$@-tmp
 	mv $@-tmp $@
 
-$(HOME)/.procmailrc-teams: ../../cache/registry ../bin/create-mail-aliases
+$(HOME)/.procmailrc-teams: $(cachedir)/registry ../bin/create-mail-aliases
 	../bin/create-mail-aliases -ptf >$@-tmp
 	mv $@-tmp $@
 

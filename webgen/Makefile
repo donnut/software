@@ -3,11 +3,6 @@
 # Copyright © 1999, 2000 Progiciels Bourbeau-Pinard inc.
 # François Pinard <pinard@iro.umontreal.ca>, 1999.
 
-homedir = /home/tp
-sitedir = $(homedir)/site
-htmldir = $(sitedir)/html
-extradir = $(sitedir)/extra
-
 ALLOUT_FILES = maintainers.all leaders.all translators.all \
                changes.all files.all robot.all software.all
 HTMA_FILES = $(ALLOUT_FILES:.all=.html)
@@ -17,11 +12,12 @@ LAYOUT_DEPS = ../lib/config.py ../lib/htmlpage.py layout.html.in to-html.py
 
 
 all: alloutfiles htmlfiles \
-     $(sitedir)/disclaim.txt $(htmldir)/authors.html $(extradir)/sendpo.sh
+     $(sitedir)/disclaim.txt $(htmldir) $(htmldir)/authors.html $(extradir) $(extradir)/sendpo.sh
 
 $(htmldir):
 	mkdir -p $@
-
+$(extradir):
+	mkdir -p $@
 
 alloutfiles: $(htmldir) $(addprefix $(htmldir)/,$(HTMA_FILES))
 
