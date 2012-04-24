@@ -151,7 +151,7 @@ From an idea David Sven had on 1997-01-22.
 
     def __init__(self, output, inventory):
         write = self.prologue(output, 'The translation matrix')
-        write('  <table align=center border=1>\n'
+        write('  <table>\n'
               '   <tr>\n'
               '    <th>Domain</th>\n'
               '    <td></td>\n')
