@@ -76,7 +76,7 @@ td { border-bottom: 1px solid #ccc ;}
 
 div.graph {
   position:relative;
-  height: 14px;
+  height: 12px;
   width: 100px;
   border: 0px solid black;
 }
@@ -98,4 +98,32 @@ table .untranslated {
  position: absolute;
  height:100%;
  top: 0px;
+}
+
+.statpercent {
+    display: inline-block;
+    font-weight: bold;
+    width: 3em;
+    text-align:right
+}
+
+.stattrans {
+    display: inline-block;
+    font-size: smaller;
+    width: 2em;
+    text-align:right
+}
+
+.statfuzzy{
+    display: inline-block;
+    font-size: smaller;
+    width: 2em;
+    text-align:right
+}
+
+.statun {
+    display: inline-block;
+    font-size: smaller;
+    width: 2em;
+    text-align:right
 }

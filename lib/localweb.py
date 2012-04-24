@@ -239,18 +239,18 @@ def build_language_cell(postats, write, team, domain):
                       % (scramble(email), translator))
             else:
                 write('    <td>%s</td>\n' % translator)
-            write('    <td bgcolor="%s">%d%% %d %d %d \n'
+            write('    <td bgcolor="%s"><span class="statpercent">%d%%</span> <span class="stattrans">%d</span> <span class="statfuzzy">%d</span> <span class="statun">%d</span> \n'
                   % (colorize(translated, total), 100*translated/total, translated, fuzzy, total-fuzzy-translated))
 
             T=100*translated/total
             F=100*fuzzy/total
             U=100-T-F
 
-            write('<div class="graph">')
-            write('  <div class="translated" style="width: %dpx;"></div>' % (T) )
-            write('  <div class="fuzzy" style="left:%dpx; width: %dpx;"></div>' % (T, F) )
-            write('  <div class="untranslated" style="left:%dpx; width: %dpx;"></div>' % ((T+F), U) )
-            write('</div></td>\n')
+            write('  <div class="graph">\n')
+            write('    <div class="translated"   style="width: %dpx;">  </div>\n' % (T) )
+            write('    <div class="fuzzy"        style="left: %dpx; width: %dpx;"></div>\n' % (T, F) )
+            write('    <div class="untranslated" style="left: %dpx; width: %dpx;"></div>\n' % ((T+F), U) )
+            write('  </div></td>\n')
 
             write('   </tr>\n')
 
