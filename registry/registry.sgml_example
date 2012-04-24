@@ -1,0 +1,94 @@
+<!-- Registry data for use in the Translation Project. -*- coding: utf-8 -*-
+     Copyright © 2012 Translation Project.
+-->
+
+<!DOCTYPE registry SYSTEM "theregistry.dtd">
+<registry>
+
+ <domains>
+
+  <domain>tp-robot
+   <ref>Home page<url>http://www.translationproject.org/
+   <ref>Project site<url>https://github.com/arunpersaud/TP-no-svn
+   <mailto>test1@localhost
+   <disclaim>
+   <url>ftp://example.org/
+
+  <domain>test1
+   <ref>Home page<url>http://example.org
+   <ref>Project site<url>http://example.org/devel
+   <mailto>test2@localhost
+   <url>ftp://example.org/
+
+  <domain>test2
+   <ref>Home page<url>http://example.org
+   <ref>Project site<url>http://example.org/devel2
+   <mailto>test3@localhost
+   <url>ftp://example.org/
+
+ </domains>
+
+ <teams>
+
+  <team>Brazilian Portuguese<code>pt_BR
+   <mailto>ldpbr-translation@example.org
+   <charset>UTF-8
+   <leader>Foo Bar
+
+   <translator>Foo Bar
+    <mailto>foobar@example.org
+    <disclaimer>
+
+   <translator>Bar Foo
+    <mailto>foobar2@example.org
+
+  <team>Finnish<code>fi
+   <mailto>translation-team-fi@example.org
+   <leader>Another Name
+   <ref>Mailing list info<url>https://lists.example.org/lists/listinfo/translation-team-fi
+
+   <translator>Another Name
+    <alias>with an alias
+    <mailto>email1@example.org
+    <mailto>email2@example.org
+    <disclaimer><autosend>
+    <remark>wants to do a lot
+
+ </teams>
+</registry>
+
+<!--
+Local variables:
+xxml-highlight-tag-alist: (("domains" . secondary-selection)
+			   ("teams" . secondary-selection))
+xxml-highlight-initial-alist: (("alias" . font-lock-type-face)
+			       ("charset" . xxml-header-4-face)
+			       ("code" . xxml-header-1-face)
+			       ("disclaimer" . font-lock-comment-face)
+			       ("do" . italic)
+			       ("domain" . xxml-header-3-face)
+			       ("leader" . xxml-header-4-face)
+			       ("mailto" . font-lock-string-face)
+			       ("nomailto" . font-lock-string-face)
+			       ("package" . italic)
+			       ("ref" . font-lock-builtin-face)
+			       ("remark" . font-lock-comment-face)
+			       ("team" . xxml-header-1-face)
+			       ("translator" . font-lock-type-face)
+			       ("url" . font-lock-string-face))
+sgml-validate-command: "SP_CHARSET_FIXED=YES SP_ENCODING=utf-8 nsgmls -s %s %s"
+sgml-omittag:t
+sgml-shorttag:nil
+sgml-omit-transparent:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:nil
+sgml-indent-step:1
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

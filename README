@@ -104,3 +104,23 @@ with the teamcode as an argument to update the team page.
 
 If anything is missing from this file, please report it to
 <comments@tranlationproject.org>.
+
+Installing a (test) system
+--------------------------
+
+Unpack the tar-ball or clone the repository into a directory, say it's called "TP".
+Create TP/Makefile.local and set the variables
+
+sitedir  = <path to html directory>
+htmldir  = $(sitedir)/html
+extradir = $(sitedir)/extra
+cachedir = $(sitedir)/cache
+
+also edit the file lib/config.py (TODO: be more clear about this).
+
+then run
+make install-test-system
+
+This will create all necessary files. You can edit
+registry/registry.sgml and registry/AUTHORS now to turn this into a
+"real" installation.

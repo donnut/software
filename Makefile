@@ -84,6 +84,33 @@ $(extradir)/matrix.texi: $(sitedir)/PO-files/*
 	mv tmp-matrix.texi $(extradir)/matrix.texi
 	mv tmp-matrix.xml $(extradir)/matrix.xml
 
+install-test-system:
+	if [ -s registry/registry.sgml ] ; then \
+	  echo "registry/registry.sgml already exists. not doing anything"; \
+	else \
+	  echo "generating a dummy install for testing purposes only"; \
+	  cp registry/registry.sgml_example registry/registry.sgml;\
+	  cp registry/AUTHORS_example registry/AUTHORS;\
+	  mkdir -p $(sitedir)/cache;\
+	  mkdir -p $(sitedir)/tmp;\
+	  mkdir -p $(sitedir)/POT-files;\
+	  mkdir -p $(sitedir)/PO-files;\
+	  mkdir -p $(sitedir)/PO-files/{de,fi,fr,ga,hu,nl,pa,ru,vi,wa,zh_CN,zh_TW};\
+	  mkdir -p $(sitedir)/domain;\
+	  mkdir -p $(sitedir)/team;\
+	  for j in lib/messages/*po; do\
+	    i=`basename $$j`;\
+	    cp $$j $(sitedir)/PO-files/$${i%.po}/tp-robot-1.0.$$i;\
+	  done;\
+	  echo "...generated files";\
+	  bin/calc-postats -i;\
+	  bin/registry-data -e;\
+	  bin/generate-static-pages -i;\
+	  bin/generate-static-pages -d;\
+	  bin/generate-static-pages -t;\
+	  echo "...generated webpages";\
+	fi
+
 .PHONY:	pot
 pot:
 	# Extract translatable strings from relevant files:
