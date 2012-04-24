@@ -151,23 +151,26 @@ class DomainPage(htmlpage.Htmlpage):
             for url in domain.url:
                 write('   <li><a href="%s">%s</a>\n' % (url, url))
             write('  </ul>\n')
-        write('  <p>The following table lists (under <b>Version</b>) all the'
+        write('  <p>The following table lists (under <strong>Version</strong>) all the'
               ' PO files that are available for this domain:</p>\n'
-              '  <table>\n'
+              '  <table class="tablesorter" name="stats-table" id="stats-table" >\n'
               '   <tr>\n'
               '    <th>Language</th>\n'
               '    <th>Code</th>\n'
               '    <th>Package version</th>\n'
               '    <th>Last translator</th>\n'
-              '    <th>Translated</th>\n'
+              '    <th>Translation Statistics</th>\n'
               '   </tr>\n')
         for team in registry.team_list():
             if team.code in domain.ext:
                 stats = get_extstats().get((domain.name, team.name))
                 if stats:
-                    trans = stats['translated']
-                    total = trans + stats['untranslated'] + stats['fuzzy']
-                    numbers = "%s / %s" % (trans, total)
+                    trans   = stats['translated']
+                    fuzzy   = stats['fuzzy']
+                    untrans = stats['untranslated']
+                    total   = trans + fuzzy + untrans
+                    percent = 100*trans/(total)
+                    numbers = "%d%%  %d %d %d" % (percent, trans, fuzzy, untrans)
                 else:
                     numbers = "unknown"
                 if os.path.isfile('%s/%s/%s.po'
@@ -210,7 +213,8 @@ def build_language_cell(postats, write, team, domain):
             sys.stderr.write("  * Not in stats database: %s\n" % filename)
             continue
         (translator, mailto, translated, total) = postats[key][:4]
-        table.append((hints.version, translator, mailto, translated, total))
+        fuzzy = postats[key][7]
+        table.append((hints.version, translator, mailto, translated, fuzzy, total))
     if table:
         table.sort()
         for counter in range(len(table)):
@@ -221,7 +225,7 @@ def build_language_cell(postats, write, team, domain):
                       '    <td rowspan=%d>%s</td>\n'
                       % (len(table), team.code, team.language,
                          len(table), team.code))
-            version, translator, mailto, translated, total = table[counter]
+            version, translator, mailto, translated, fuzzy, total = table[counter]
             write('    <td><a href="../%s/%s/%s-%s.%s.po">%s</a></td>\n'
                   % (config.pos_dir, team.name, domain.name,
                      version.name, team.name, version.name))
@@ -235,8 +239,19 @@ def build_language_cell(postats, write, team, domain):
                       % (scramble(email), translator))
             else:
                 write('    <td>%s</td>\n' % translator)
-            write('    <td bgcolor="%s">%d / %d</td>\n'
-                  % (colorize(translated, total), translated, total))
+            write('    <td bgcolor="%s">%d%% %d %d %d \n'
+                  % (colorize(translated, total), 100*translated/total, translated, fuzzy, total-fuzzy-translated))
+
+            T=100*translated/total
+            F=100*fuzzy/total
+            U=100-T-F
+
+            write('<div class="graph">')
+            write('  <div class="translated" style="width: %dpx;"></div>' % (T) )
+            write('  <div class="fuzzy" style="left:%dpx; width: %dpx;"></div>' % (T, F) )
+            write('  <div class="untranslated" style="left:%dpx; width: %dpx;"></div>' % ((T+F), U) )
+            write('</div></td>\n')
+
             write('   </tr>\n')
 
 

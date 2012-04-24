@@ -166,7 +166,7 @@ def tally_po(postats, name, verbose):
         total = stats['translated'] + stats['untranslated'] + stats['fuzzy']
         postats[key] = (translator, mailto, stats['translated'], total,
                         stats['translated_length'], stats['total_length'],
-                        mtime)
+                        mtime,stats['fuzzy'])
         if verbose:
             sys.stderr.write("  %d / %d\n" % (stats['translated'], total))
         return 1

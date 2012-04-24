@@ -1,7 +1,7 @@
 /* color scheme (from http://colorschemedesigner.com/):
 
  main: 57798E  4D626E  214961  91B5CA  A2BBCA
- 
+
  complementary: DFB583 AD9475  986A31  F0CFA7  F0D9BD
 */
 
@@ -49,12 +49,12 @@ nav h3 {
  margin-left: 20em;
 }
 
-.updated { 
+.updated {
   float: left;
   font-size: smaller;
 }
 
-.comments { 
+.comments {
   float: right;
 }
 
@@ -66,10 +66,36 @@ footer {
   min-height:4em;
 }
 
-table { 
-  margin-left: auto; 
-  margin-right: auto; 
+table {
+  margin-left: auto;
+  margin-right: auto;
 }
 th { background: #57798E ;}
 tr:hover { background: #F0D9BD; }
 td { border-bottom: 1px solid #ccc ;}
+
+div.graph {
+  position:relative;
+  height: 14px;
+  width: 100px;
+  border: 0px solid black;
+}
+
+table .translated {
+ background-color: green;
+ position: absolute;
+ height:100%;
+ top: 0px;
+}
+table .fuzzy {
+ background-color: orange;
+ position: absolute;
+ height:100%;
+ top: 0px;
+}
+table .untranslated {
+ background-color: red;
+ position: absolute;
+ height:100%;
+ top: 0px;
+}
