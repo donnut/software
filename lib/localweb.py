@@ -477,17 +477,43 @@ class TeamPage(htmlpage.Htmlpage):
                                  % (config.pos_dir, team.name,
                                     domain.name, version, team.name, version))
                     translated = postats[key][2]
-                    numbers = "%d / %d" % (translated, tally)
+                    total = tally
                     color = colorize(translated, tally)
+                    numbers = '    <td bgcolor="%s"><span class="statpercent">%d%%</span> <span class="stattrans">%d</span> <span class="statfuzzy">%d</span> <span class="statun">%d</span> \n' % (colorize(translated, total), 100*translated/total, translated, fuzzy, total-fuzzy-translated)
+
+                    T=100*translated/total
+                    F=100*fuzzy/total
+                    U=100-T-F
+
+                    numbers +='  <div class="graph">\n'
+                    numbers +='    <div class="translated"   style="width: %dpx;">  </div>\n' % (T)
+                    numbers +='    <div class="fuzzy"        style="left: %dpx; width: %dpx;"></div>\n' % (T, F)
+                    numbers +='    <div class="untranslated" style="left: %dpx; width: %dpx;"></div>\n' % ((T+F), U)
+                    numbers +='  </div></td>\n'
+
+
                 else:
                     reference = ('<a href="../%s/%s-%s.pot">%s</a>'
                                  % (config.pots_dir, domain.name, version,
                                     version))
                     color = "#d0f0f8"  # Blue: fully untranslated.
-                    numbers = "%d / %d" % (0, tally)
+                    translated=0
+                    fuzzy=0
+                    total=tally
+                    numbers = '    <td bgcolor="%s"><span class="statpercent">%d%%</span> <span class="stattrans">%d</span> <span class="statfuzzy">%d</span> <span class="statun">%d</span> \n' % (colorize(translated, total), 100*translated/total, translated, fuzzy, total-fuzzy-translated)
+
+                    T=100*translated/total
+                    F=100*fuzzy/total
+                    U=100-T-F
+
+                    numbers +='  <div class="graph">\n'
+                    numbers +='    <div class="translated"   style="width: %dpx;">  </div>\n' % (T)
+                    numbers +='    <div class="fuzzy"        style="left: %dpx; width: %dpx;"></div>\n' % (T, F)
+                    numbers +='    <div class="untranslated" style="left: %dpx; width: %dpx;"></div>\n' % ((T+F), U)
+                    numbers +='  </div></td>\n'
                 write('    <td>%s</td>\n'
-                      '    <td bgcolor="%s">%s</td>\n'
-                      % (reference, color, numbers))
+                      '    %s\n'
+                      % (reference, numbers))
             else:
                 write('    <td colspan=2></td>\n')
             if assigned_domains.has_key(domain.name):
