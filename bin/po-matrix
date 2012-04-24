@@ -237,13 +237,14 @@ Produce the availability matrix in Texinfo format.
         write(separator)
         write('@example\n')
         team_count = len(inventory.all_teams)
-        skip = team_count / ((team_count + 15) / 16) + 1
-        for count in range(0, team_count, skip):
-            if count + skip < team_count:
-                self.make_page(write, inventory, count == 0, 0,
-                               inventory.all_teams[count:count+skip])
-            else:
-                self.make_page(write, inventory, count == 0, 1,
+        if team_count > 0:
+            skip = team_count / ((team_count + 15) / 16) + 1
+            for count in range(0, team_count, skip):
+                if count + skip < team_count:
+                    self.make_page(write, inventory, count == 0, 0,
+                                   inventory.all_teams[count:count+skip])
+                else:
+                    self.make_page(write, inventory, count == 0, 1,
                                inventory.all_teams[count:team_count])
         write('@end example\n')
         write(separator)
