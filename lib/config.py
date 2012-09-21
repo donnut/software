@@ -52,4 +52,5 @@ environ = {
     'caption_color': '#c7ffd7',
     'margin_color': 'white',
     'html_layout_file': '%s/webgen/layout.html.in' % progs_path,
+    'site_base': '%s' % site_base
     }
