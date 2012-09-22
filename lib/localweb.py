@@ -477,6 +477,7 @@ class TeamPage(htmlpage.Htmlpage):
                                  % (config.pos_dir, team.name,
                                     domain.name, version, team.name, version))
                     translated = postats[key][2]
+                    fuzzy = postats[key][7]
                     total = tally
                     color = colorize(translated, tally)
                     numbers = '    <td bgcolor="%s"><span class="statpercent">%d%%</span> <span class="stattrans">%d</span> <span class="statfuzzy">%d</span> <span class="statun">%d</span> \n' % (colorize(translated, total), 100*translated/total, translated, fuzzy, total-fuzzy-translated)
